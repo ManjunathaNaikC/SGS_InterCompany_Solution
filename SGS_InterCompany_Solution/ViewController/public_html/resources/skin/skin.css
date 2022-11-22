@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+af|query::criterion-label {
+    text-align: left;
+}
+
+af|inputListOfValues::content {
+    width: 251px;
+    /*min-width: 266px;*/
+}
+
+af|selectOneChoice::content {
+    width: 251px;
+    /*min-width: 266px;*/
+}
+
+af|inputText::content {
+    width: 277px;
+    max-width: 277px;
+}
+
+af|inputDate::content {
+    width: 277px;
+    max-width: 277px;
+}
+
+af|panelFormLayout_label-cell {
+    text-align: left;
+}
+
+af|panelFormLayout {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+af|panelSpringboard::item {
+    border: none;
+}
+
+af|panelCollection {
+    height: 100%; 
+    }
+
+af|toolbar::separator {
+    visibility: hidden; 
+    height: 1px; 
+}
+
+.af_panelCollection_statusbar .af_toolbox_body {
+     display: none; 
+}
+
+af|panelBox {
+    margin: 10px; 
+    background-color: white;
+}
+
+af|panelBox::content {
+    overflow: inherit; 
+}
+
+.testclass af|link::image{
+    margin-top: -20px;
+}
+
+.decorativeBoxNoframeBorder af|decorativeBox::frame {
+    border: none;
+}
+
+
+af|commandButton {
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.af_panelSpringboard_item-text {
+    height: 60px;
+    font-size: 11px;
+    
+}
+
+.qLetPartSearch af|query::info{
+    display:none
+}
+
+.headerText af|outputText {
+  font-weight: normal;
+  font-weight: bold;
+  font-weight: 900;
+}
+
+
+.af_panelSpringboard.p_AFStrip .af_panelSpringboard_item-text.p_AFSelected {
+   background-color:transparent;
+   font-size: 11px;
+}
+
+
+
+.af_panelSpringboard_items {
+    height: 127px;
+}
+
+.listSize af|selectOneChoice::content {
+    width: 70px;
+    /*min-width: 266px;*/
+}
+
+.af_panelSpringboard.p_AFStrip .af_panelSpringboard_item.p_AFSelected {
+background-color: White;
+}
+
+.af_document {
+    background-image: url("../images/backgroudblue.PNG");
+}
+
+.af_decorativeBox_frame {
+background-color: #f2f9ff;
+border: 1px solid #D6DFE6;
+}
+

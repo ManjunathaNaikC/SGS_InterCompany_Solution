@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="welcomeToSGS.jsf" id="d1">
+        <af:form id="f1" inlineStyle="height:inherit; size:auto;" usesUpload="true">
+            <af:panelStretchLayout id="psl1" topHeight="110px" inlineStyle="background-color:white;">
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:facet name="top">
+                    <af:panelGridLayout id="pgl2" inlineStyle="background-color:white;">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                            <af:gridCell marginStart="5px" width="25%" id="gc1">
+                                <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                                     inlineStyle="background-color:white;">
+                                    <af:image source="/resources/images/SGSLogo.jpg" id="i1" styleClass="width:40%"
+                                              inlineStyle="height:87px; width:255px;"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="25%" id="gc2"/>
+                            <af:gridCell marginStart="5px" width="25%" id="gc3"/>
+                            <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc4" halign="end">
+                                <af:panelGroupLayout id="pgl3">
+                                    <!--<af:outputText value="#{securityContext.userName}" id="ot1"/>-->
+                                    <af:button text="#{securityContext.userName}" id="b1">
+                                        <f:facet name="popup">
+                                            <af:link text='#{securityContext.authenticated ? "Logout" : "Login"}'
+                                                     destination='#{securityContext.authenticated ? "/adfAuthentication?logout=true&amp;end_url=/faces/jsf/newWelcomePage.jsf" : "/adfAuthentication?success_url=/faces/welcomePage.jsf"}'
+                                                     inlineStyle="color:blue; font-size:11px; font-weight:bold;margin-left:20px;"
+                                                     id="gl1"/>
+
+                                        </f:facet>
+                                    </af:button>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                    <af:panelTabbed position="left" id="pt1" verticalTabMode="iconAndText" tabRemoval="all">
+                        <af:showDetailItem id="sdi4" text="Business Unit" immediate="true"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonBU;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.businessUnitBTF1.regionModel}" id="r4"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="sdi5" text="Customers" immediate="true"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonCust;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.customersBTF1.regionModel}" id="r3"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab3" text="Services" immediate="true"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonService;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.servicesBTF1.regionModel}" id="r7"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab4" text="Suppliers" immediate="true"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonSupplier;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.suppliersBTF1.regionModel}" id="r6"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab5" text="Projects" immediate="true"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonProject;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.projectsBTF1.regionModel}" id="r5"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Contracts" id="sdi1" immediate="true"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonContract;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.contractsBTF1.regionModel}" id="r2"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="sdi3" text="Paybales"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonAPInv;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.apInvoiceBTF1.regionModel}" id="r9"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Receivables" id="sdi2"
+                                           rendered="#{securityContext.userGrantedResource['resourceType=UIViewUpdateSecurity;resourceName=ButtonARInv;action=View']}"
+                                           inlineStyle="min-height:500px;">
+                            <af:region value="#{bindings.arInvoiceBTF1.regionModel}" id="r8"/>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+</f:view>

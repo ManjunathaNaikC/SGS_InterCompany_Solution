@@ -66,10 +66,10 @@ public class AuthenticationBean {
 
                 HttpSession session = request.getSession();
                 session.setAttribute("success_url", "/faces/jsf/welcomePage.jsf");
-                ViewObject sgsUsersByBuVO = sgsAppModule.findViewObject("SgsUsersByBuVO");
+                ViewObject sgsUsersByBuVO = sgsAppModule.findViewObject("SgsUserAuthenticationVO");
                 sgsUsersByBuVO.setWhereClause("Username = '" + _username + "'");
                 sgsUsersByBuVO.executeQuery();
-//                System.out.println(sgsUsersByBuVO.getEstimatedRowCount());
+                System.out.println(sgsUsersByBuVO.getEstimatedRowCount());
                 if (sgsUsersByBuVO.getEstimatedRowCount() > 0) {
 //                    ArrayList<Integer> buIds = new ArrayList<>();
 //                    for (int i = 0; i < sgsUsersByBuVO.getEstimatedRowCount(); i++) {
@@ -79,7 +79,7 @@ public class AuthenticationBean {
 //                    System.out.println(buIds);
 //                    System.out.println(buIds);
 //                    ADFUtils.setSessionAttribute("usersBuId", buIds);
-                    ADFUtils.setSessionAttribute("usersBuId", sgsUsersByBuVO.first().getAttribute("BuId"));
+                    ADFUtils.setSessionAttribute("usersBuId", sgsUsersByBuVO.first().getAttribute("USERID"));
                 }
                 _username = null;
                 _password = null;

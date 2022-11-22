@@ -24,4 +24,12 @@
       <Attr Name="_AM" Value="true"/>
     </DesignTime>
   </Containee>
+  <Containee
+    Name="view"
+    PackageName="com.sgs.ics.model.bc.view"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
 </JboProject>

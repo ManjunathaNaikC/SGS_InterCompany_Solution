@@ -75,6 +75,7 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFbc"/>
+         <string v="Database"/>
          <string v="Java"/>
          <string v="XML"/>
       </list>
@@ -245,6 +246,10 @@
             <value n="id" v="ADF Common Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <url n="id" path="../../../../../Users/RP447WX/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -277,6 +282,10 @@
          </hash>
          <hash>
             <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../../../Users/RP447WX/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

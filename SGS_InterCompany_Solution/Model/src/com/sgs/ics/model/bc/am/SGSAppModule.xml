@@ -17,6 +17,9 @@
         ResId="com.sgs.ics.model.bc.am.SGSAppModule_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <ViewUsage
+    Name="SgsUserAuthenticationVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsUserAuthenticationVO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

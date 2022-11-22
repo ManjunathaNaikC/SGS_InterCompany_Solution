@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.sgs.ics.view" ClientType="Generic">
+  <pageMap>
+    <page path="/customLogin.jspx" usageId="com_sgs_ics_view_customLoginPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_sgs_ics_view_customLoginPageDef" path="com.sgs.ics.view.pageDefs.customLoginPageDef"/>
+  </pageDefinitionUsages>
+</Application>

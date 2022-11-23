@@ -4,12 +4,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="LoginPage.jspx" id="d1" inlineStyle="background-color:transparent;">
-            <af:form id="f1" inlineStyle="background-color:transparent;" usesUpload="true">
-                <af:panelGridLayout id="pgl1" inlineStyle="background-color:#d3eaff;">
+ <af:form id="f1" inlineStyle="background-color:transparent;" usesUpload="true">
+                <af:panelGridLayout id="pgl1" inlineStyle="background-image: linear-gradient(120deg,#2980b9,#8e44ad);">
                     <af:gridRow height="60px" id="gr1">
                         <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
                                      inlineStyle="background-color:#0000a5;">
-                            <af:panelGridLayout id="pgl2">
+                            <af:panelGridLayout id="pgl2" inlineStyle="background-color:white;">
                                 <af:gridRow id="gr3" marginTop="5px" marginBottom="5px">
                                     <af:gridCell marginStart="5px" width="25%" id="gc1" halign="start" valign="top">
                                         <af:image source="/resources/images/logoSutherland.png" id="i1"
@@ -19,17 +19,16 @@
                                     <af:panelGroupLayout id="pgl4" valign="middle" halign="center">
                                         <af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
                                                        id="ot3"
-                                                       inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
+                                                       inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:#6925e5;"/>
                                     </af:panelGroupLayout>
                                 </af:gridCell>
                                     <af:gridCell id="gc5" width="25%"/>
                                 </af:gridRow>
                             </af:panelGridLayout>
                         </af:gridCell>
-                    </af:gridRow>
+                   </af:gridRow>
                     <af:gridRow height="100%" id="gr2">
-                        <af:gridCell width="100%" halign="center" id="gc3"
-                                     inlineStyle="background-color:#d3eaff;">
+                        <af:gridCell width="100%" halign="center" id="gc3">
                             <af:panelBox id="pb2" showDisclosure="false"
                                          inlineStyle="text-align:center; margin:70px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px;"
                                          titleHalign="center">
@@ -42,25 +41,28 @@
                                     <af:panelGroupLayout id="pgl6" valign="bottom" halign="start" layout="vertical"
                                                          inlineStyle="margin:30px">
                                         <af:outputLabel value="Username:" id="ol1" inlineStyle="margin-left:8px"/>
-                                        <af:inputText id="it1" value="#{AuthenticationBean.username}"/>
+                                        <af:inputText id="it1"
+                                                      contentStyle="border-radius:10px"
+                                                        value="#{AuthenticationBean.username}"/>
                                     </af:panelGroupLayout>
                                     <af:panelGroupLayout id="pgl5" layout="vertical" valign="bottom" halign="start"
                                                          inlineStyle="margin:30px;margin-top:-30px">
                                         <af:outputLabel value="Password:" id="ol2" inlineStyle="margin-left:8px"/>
                                         <af:inputText id="it2" clientComponent="true"
-                                              autoSubmit="true" autoTab="true"
+                                              autoSubmit="true" autoTab="true" contentStyle="border-radius:10px"
                                               secret="true" value="#{AuthenticationBean.password}">
                                         </af:inputText>
                                     </af:panelGroupLayout>
-                                    <af:button text="Login" id="b1" action="#{AuthenticationBean.doLogin}"
-                                               inlineStyle="margin-bottom:30px;width:265px;margin-left:4px" accessKey="L"
-                                               icon="/resources/icons/login.png"/>
+                                     <af:button text="Login" id="b1" action="#{AuthenticationBean.doLogin}" 
+                                               inlineStyle="margin-bottom:30px; width:265px; margin-left:4px; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; background-image:linear-gradient(120deg, #2980b9, #2980b9); color:white; font-size:medium;" 
+                                               icon="/resources/icons/user-white.png"/>
                                 </af:panelGroupLayout>
                             </af:panelBox>
                         </af:gridCell>
                     </af:gridRow>
                 </af:panelGridLayout>
             </af:form>
+
         </af:document>
     </f:view>
 </jsp:root>

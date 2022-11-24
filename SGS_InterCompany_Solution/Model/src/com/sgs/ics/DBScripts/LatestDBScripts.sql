@@ -334,6 +334,24 @@ GO
 ALTER TABLE [dbo].[SGS_COST_OFFSET_COMBINATION] ADD  CONSTRAINT [seq_SGS_COST_OFFSET_COMBINATIONID]  DEFAULT (format(NEXT VALUE FOR [dbo].[SEQ_SGS_COST_OFFSET_COMBINATION],'OC00#')) FOR [OC_LINE_NO]
 GO
 
+---------------------------- Lookup Table---------------------
+CREATE TABLE [dbo].[SGS_LOOKUP_TABLE](
+	[LOOKUP_CODE] [int] NOT NULL,
+	[MEANING] [varchar](80) NULL,
+	[LOOKUP_TYPE] [varchar](250) NULL,
+	[ENABLED] [varchar](80) NULL,
+	[DISPLAY_SEQUENCE] int NULL,
+	[CREATED_DATE] [date] NULL,
+	[CREATED_BY] [varchar](30) NULL,
+	[UPDATED_DATE] [date] NULL,
+	[UPDATED_BY] [varchar](30) NULL,
+ CONSTRAINT [PK_SGS_LOOKUP_TABLE] PRIMARY KEY CLUSTERED 
+(
+	[LOOKUP_CODE] ASC
+))
+
+--------------------------End of LookUp Table --------------------
+
 
 
 

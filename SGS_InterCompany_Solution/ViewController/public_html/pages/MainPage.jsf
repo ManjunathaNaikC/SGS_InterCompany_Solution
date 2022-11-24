@@ -32,7 +32,7 @@
                                          
                                         </af:panelCollection>-->
                                         <!--styleClass="MyBreadcrumb"-->
-                                        <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options" >
+                                        <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options" styleClass="MyBreadcrumb" >
                                             <af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" 
                                                      id="gl1" inlineStyle="font-weight:bold;"/>
                                             <af:link text="#{viewcontrollerBundle.BusinessUnitSetup}" destination=""

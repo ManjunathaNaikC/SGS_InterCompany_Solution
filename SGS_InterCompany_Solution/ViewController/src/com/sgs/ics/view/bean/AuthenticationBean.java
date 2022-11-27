@@ -1,4 +1,4 @@
-package com.sgs.ics.view.Bean;
+package com.sgs.ics.view.bean;
 
 import com.sgs.ics.ui.utils.ADFUtils;
 

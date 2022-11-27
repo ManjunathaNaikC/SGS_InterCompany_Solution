@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+     <c:set var="viewcontrollerBundle" value="#{adfBundle['com.sgs.ics.view.ViewControllerBundle']}"/>     
+             <af:panelGridLayout id="pgl1">
+              
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <af:panelSplitter orientation="horizontal" splitterPosition="240" id="ps1">
+                            <f:facet name="first">
+                                <!-- Left -->
+                                <af:panelAccordion discloseMany="false" id="MenuOptions" styleClass="genericDesktop">
+                                    <af:showDetailItem id="Setup" text="Setup" >
+                                       
+                                        <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options" >
+                                            <af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" 
+                                                     id="gl1" inlineStyle="font-weight:bold;"/>
+                                            <af:link text="#{viewcontrollerBundle.BusinessUnitSetup}" destination=""
+                                                     id="gl2" inlineStyle="font-weight:bold;"/>
+                                            <af:link text="#{viewcontrollerBundle.TransferPricingAgreementSetup}"
+                                                     destination="" id="gl3" inlineStyle="font-weight:bold;"/>
+                                            <af:link text="#{viewcontrollerBundle.MarkupRateSetup}" destination=""
+                                                     id="gl4" inlineStyle="font-weight:bold;"/>
+                                            <af:link text="#{viewcontrollerBundle.GoodsandServiceTaxGSTSetup}"
+                                                     destination="" id="gl5" inlineStyle="font-weight:bold;"/>
+                                            <af:link text="#{viewcontrollerBundle.ValueAddedTaxVATSetup}"
+                                                     destination="" id="gl6" inlineStyle="font-weight:bold;"/>
+                                            <af:link text="#{viewcontrollerBundle.WithholdingTaxWHTTDSSetup}"
+                                                     destination="" id="gl7" inlineStyle="font-weight:bold;"/>
+                                            <af:link text="#{viewcontrollerBundle.ISDSetup}" destination="" id="gl8" inlineStyle="font-weight:bold;"/>
+                                        </af:panelList>
+                                    </af:showDetailItem>
+                                    <af:showDetailItem id="Transaction" text="Transactional Data"/>
+                                    <af:showDetailItem id="Process" text="Process"/>
+                                    <af:showDetailItem id="Reports" text="Reports"/>
+                                    <af:showDetailItem id="Security" text="Security" disclosed="true">
+                                        <f:facet name="toolbar"/>
+                                    </af:showDetailItem>
+                                </af:panelAccordion>
+                            </f:facet>
+                            <f:facet name="second">
+                              <af:panelGroupLayout layout="scroll" id="pgl2">
+                                 
+                            <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
+                                       binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->
+                        </af:panelGroupLayout>
+                         
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+</ui:composition>

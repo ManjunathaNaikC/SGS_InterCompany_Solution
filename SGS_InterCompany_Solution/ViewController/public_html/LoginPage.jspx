@@ -43,17 +43,17 @@
                                         <af:outputLabel value="Username:" id="ol1" inlineStyle="margin-left:8px"/>
                                         <af:inputText id="it1"
                                                       contentStyle="border-radius:10px"
-                                                        value="#{AuthenticationBean.username}"/>
+                                                        value="#{authenticationBean.username}"/>
                                     </af:panelGroupLayout>
                                     <af:panelGroupLayout id="pgl5" layout="vertical" valign="bottom" halign="start"
                                                          inlineStyle="margin:30px;margin-top:-30px">
                                         <af:outputLabel value="Password:" id="ol2" inlineStyle="margin-left:8px"/>
                                         <af:inputText id="it2" clientComponent="true"
                                               autoSubmit="true" autoTab="true" contentStyle="border-radius:10px"
-                                              secret="true" value="#{AuthenticationBean.password}">
+                                              secret="true" value="#{authenticationBean.password}">
                                         </af:inputText>
                                     </af:panelGroupLayout>
-                                     <af:button text="Login" id="b1" action="#{AuthenticationBean.doLogin}" 
+                                     <af:button text="Login" id="b1" action="#{authenticationBean.doLogin}" 
                                                inlineStyle="margin-bottom:30px; width:265px; margin-left:4px; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; background-image:linear-gradient(120deg, #2980b9, #2980b9); color:white; font-size:medium;" 
                                                icon="/resources/icons/user-white.png"/>
                                 </af:panelGroupLayout>

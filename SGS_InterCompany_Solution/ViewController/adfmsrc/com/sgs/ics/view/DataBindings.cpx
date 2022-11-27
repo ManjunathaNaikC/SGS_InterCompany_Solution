@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.sgs.ics.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/pages/MainPage.jsf" usageId="com_sgs_ics_view_MainPagePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
+  </pageDefinitionUsages>
+</Application>

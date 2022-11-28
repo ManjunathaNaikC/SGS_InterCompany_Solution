@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="SgsCostIdentificationRulePagePageDef" Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsCostIdentificationRuleVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsCostIdentificationRuleVOIterator"/>
+    <searchRegion Criteria="SgsCostIdentificationRuleVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVO">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"
+                      Name="SgsCostIdentificationRuleVO0">
+        <AttrNames>
+          <Item Value="CostIdentificationName"/>
+          <Item Value="AllocationBasis"/>
+          <Item Value="AccountingTreatment"/>
+          <Item Value="DataSource"/>
+          <Item Value="ServiceCategory"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="CostGroup"/>
+          <Item Value="CostIdentificationName"/>
+          <Item Value="InputProvider"/>
+          <Item Value="InvJournalGrpCode"/>
+          <Item Value="NatureOfExpense"/>
+          <Item Value="TrueUpDownApplicability"/>
+          <Item Value="TrueUpDownFrequency"/>
+          
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsCostIdentificationRuleVOIterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsCostIdentificationRuleVO" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

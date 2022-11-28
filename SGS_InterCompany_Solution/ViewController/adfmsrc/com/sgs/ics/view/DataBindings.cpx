@@ -8,8 +8,25 @@
   </definitionFactories>
   <pageMap>
     <page path="/pages/MainPage.jsf" usageId="com_sgs_ics_view_MainPagePageDef"/>
+    <page path="/fragments/common/SgsCostIdentificationRulePage.jsff"
+          usageId="com_sgs_ics_view_SgsCostIdentificationRulePagePageDef"/>
+    <page path="/fragments/NavigatePage.jsff" usageId="com_sgs_ics_view_NavigatePagePageDef"/>
+    <page path="/fragments/common/costIdentificationRuleForm.jsff"
+          usageId="com_sgs_ics_view_costIdentificationRuleFormPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
+    <page id="com_sgs_ics_view_SgsCostIdentificationRulePagePageDef"
+          path="fragments.common.SgsCostIdentificationRulePagePageDef"/>
+    <page id="com_sgs_ics_view_NavigatePagePageDef" path="fragments.NavigatePagePageDef"/>
+    <page id="com_sgs_ics_view_costIdentificationRuleFormPageDef"
+          path="fragments.common.costIdentificationRuleFormPageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="SGSAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>

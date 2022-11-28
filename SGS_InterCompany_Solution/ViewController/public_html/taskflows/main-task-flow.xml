@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="main-task-flow">
+    <default-activity>check</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>navigate</name>
+      <value>#{pageFlowScope.navigate}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <task-flow-call id="sgs-costIdentificationRule-flow">
+      <task-flow-reference>
+        <document>/taskflows/commom/sgs-costIdentificationRule-flow.xml</document>
+        <id>sgs-costIdentificationRule-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <router id="check">
+      <case id="__4">
+        <expression>#{pageFlowScope.navigate eq 'CIR'}</expression>
+        <outcome>CIR_FLOW</outcome>
+      </case>
+      <default-outcome>CIR_FLOW</default-outcome>
+    </router>
+    <control-flow-rule id="__2">
+      <from-activity-id>check</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>CIR_FLOW</from-outcome>
+        <to-activity-id>sgs-costIdentificationRule-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <TaskFlowCall
+      id="TaskFlowCall2">
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>sgs-costIdentificationRule-flow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">sgs-costIdentificationRule-flow</property>
+      <property
+         name="x">712.03516</property>
+      <property
+         name="y">178.0459</property>
+      <property
+         name="documentReference">/taskflows/commom/sgs-costIdentificationRule-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-costIdentificationRule-flow</property>
+   </TaskFlowCall>
+   <Router
+      id="Router3">
+      <property
+         name="activityId">check</property>
+      <property
+         name="x">312.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>check&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="y">207.14355</property>
+      <property
+         name="exceptionHandler">false</property>
+   </Router>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="Router3"
+      to="TaskFlowCall2">
+      <property
+         name="fromOutcome">CIR_FLOW</property>
+      <property
+         name="sdm:polyPoints">R50,353.0,206.79297,671.03516,177.69531,L50</property>
+   </ControlFlowCase>
+</SDM>

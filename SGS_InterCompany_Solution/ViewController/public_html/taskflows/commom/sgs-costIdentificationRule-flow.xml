@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sgs-costIdentificationRule-flow">
+    <default-activity>SgsCostIdentificationRulePage</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="SgsCostIdentificationRulePage">
+      <page>/fragments/common/SgsCostIdentificationRulePage.jsff</page>
+    </view>
+    <task-flow-call id="sgs-costIdentificationForm-flow">
+      <task-flow-reference>
+        <document>/taskflows/commom/sgs-costIdentificationForm-flow.xml</document>
+        <id>sgs-costIdentificationForm-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>SgsCostIdentificationRulePage</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Add</from-outcome>
+        <to-activity-id>sgs-costIdentificationForm-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

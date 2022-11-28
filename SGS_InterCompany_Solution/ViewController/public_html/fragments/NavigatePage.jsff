@@ -14,12 +14,13 @@
                         <af:panelSplitter orientation="horizontal" splitterPosition="240" id="ps1">
                             <f:facet name="first">
                                 <!-- Left -->
-                                <af:panelAccordion discloseMany="false" id="MenuOptions" styleClass="genericDesktop">
+                                <af:panelAccordion discloseMany="false" id="MenuOptions" styleClass="">
                                     <af:showDetailItem id="Setup" text="Setup" >
                                        
                                         <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options" >
                                             <af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" 
-                                                     id="gl1" inlineStyle="font-weight:bold;"/>
+                                                     id="gl1" inlineStyle="font-weight:bold;"
+                                                     actionListener="#{pageFlowScope.navigateBean.loadCostAllocaionSetup}"/>
                                             <af:link text="#{viewcontrollerBundle.BusinessUnitSetup}" destination=""
                                                      id="gl2" inlineStyle="font-weight:bold;"/>
                                             <af:link text="#{viewcontrollerBundle.TransferPricingAgreementSetup}"
@@ -48,6 +49,8 @@
                                  
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->
+                            <af:region value="#{bindings.maintaskflow1.regionModel}" id="r1" rendered="false"
+                            binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>
                         </af:panelGroupLayout>
                          
                             </f:facet>

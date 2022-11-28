@@ -3,11 +3,11 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="welcomePage.jsf" id="d1" inlineStyle="background-color:#f2f9ff;">
         <af:form id="f2" inlineStyle="background-color:transparent;" usesUpload="true">
-            <af:panelStretchLayout id="psl1" topHeight="87px" inlineStyle="background-color:#f2f9ff;">
+            <af:panelStretchLayout id="psl1" topHeight="87px" >
                 <f:facet name="start"/>
                 <f:facet name="end"/>
                 <f:facet name="top">
-                    <af:panelGridLayout id="pgl2" inlineStyle="background-color:#0000a5;">
+                    <!--<af:panelGridLayout id="pgl2" inlineStyle="background-color:#0000a5;">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                             <af:gridCell marginStart="5px" width="25%" id="gc1" halign="start" valign="middle"
                                          inlineStyle="background-color:white;">
@@ -44,7 +44,7 @@
                                 </af:panelGroupLayout>
                             </af:gridCell>
                         </af:gridRow>
-                    </af:panelGridLayout>
+                    </af:panelGridLayout>-->
                 </f:facet>
                 <f:facet name="bottom"/>
                 <f:facet name="center">

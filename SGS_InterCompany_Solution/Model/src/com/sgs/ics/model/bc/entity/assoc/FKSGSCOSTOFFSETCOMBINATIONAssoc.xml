@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FKSGSCOSTOFFSETCOMBINATIONAssoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SgsCostIdentificationRuleEO"
+    Cardinality="1"
+    Source="true"
+    Owner="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO"
+    CascadeDelete="true"
+    LockLevel="NONE"
+    CascadeUpdate="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SgsCostIdentificationRuleEO"/>
+      <Attr Name="_foreignKey"
+        Value="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO.PKSGSCOSTIDENTIFICATIONRULE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO.CostIdentificationId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SgsCostOffsetCombinationEO"
+    Cardinality="-1"
+    Owner="com.sgs.ics.model.bc.entity.SgsCostOffsetCombinationEO"
+    HasOwner="true">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SgsCostOffsetCombinationEO"/>
+      <Attr Name="_foreignKey"
+        Value="com.sgs.ics.model.bc.entity.SgsCostOffsetCombinationEO.FKSGSCOSTOFFSETCOMBINATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsCostOffsetCombinationEO.CostIdentificationId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

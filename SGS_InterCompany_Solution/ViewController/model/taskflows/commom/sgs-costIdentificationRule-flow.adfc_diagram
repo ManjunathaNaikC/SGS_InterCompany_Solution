@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">SgsCostIdentificationRulePage</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">236.7168</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SgsCostIdentificationRulePage&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">226.1377</property>
+      <property
+         name="page">/fragments/common/SgsCostIdentificationRulePage.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall5">
+      <property
+         name="fromOutcome">Add</property>
+      <property
+         name="sdm:polyPoints">R50,277.7168,226.1377,581.69336,184.09766,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall5">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>sgs-costIdentificationForm-flow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">sgs-costIdentificationForm-flow</property>
+      <property
+         name="x">622.69336</property>
+      <property
+         name="y">184.44824</property>
+      <property
+         name="documentReference">/taskflows/commom/sgs-costIdentificationForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-costIdentificationForm-flow</property>
+   </TaskFlowCall>
+</SDM>

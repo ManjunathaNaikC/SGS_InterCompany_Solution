@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="costIdentificationRuleFormPageDef" Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsCostIdentificationRuleVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsCostIdentificationRuleVOIterator"/>
+    <iterator Binds="SgsCostIdentificationCombinationVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsCostIdentificationCombinationVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="CostIdentificationId">
+      <AttrNames>
+        <Item Value="CostIdentificationId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_AccountingTreatment"
+          id="AccountingTreatment" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_ServiceCategory"
+          id="ServiceCategory" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_DataSource" id="DataSource"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="EffectiveFrom">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="EffectiveTo">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <tree IterBinding="SgsCostIdentificationCombinationVOIterator" id="SgsCostIdentificationCombinationVO">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO"
+                      Name="SgsCostIdentificationCombinationVO0">
+        <AttrNames>
+          <Item Value="FromBusinessUnit"/>
+          <Item Value="FromOperatingUnit"/>
+          <Item Value="FromDeptId"/>
+          <Item Value="FromGlAccount"/>
+          <Item Value="FromJobCode"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="CostIdentificationName">
+      <AttrNames>
+        <Item Value="CostIdentificationName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <af:panelStretchLayout id="psl1">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top"/>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+                <af:panelBox text="Cost Identifier Rule" id="pb1">
+                    <f:facet name="toolbar"/>
+                    <af:panelGroupLayout layout="vertical" id="pgl2">
+                        <af:panelHeader text="" id="ph1">
+                            <af:query id="qryId1" headerText="Search" disclosed="true"
+                                      value="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.queryDescriptor}"
+                                      model="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.queryModel}"
+                                      queryListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.processQuery}"
+                                      queryOperationListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.processQueryOperation}"
+                                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+                        </af:panelHeader>
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t1">
+                                    <af:button id="b7" icon="/resources/icons/microsoft-excel.png"
+                                               shortDesc="Export to Excel">
+                                        <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
+                                                                           filename="CostIdentificationRule.xls"/>
+                                    </af:button>
+                                    <af:button id="b1" action="Add" icon="/resources/icons/plus.png"
+                                               shortDesc="Create/Add Cost Identification Rule"
+                                               actionListener="#{bindings.CreateInsert.execute}"/>
+                                    <af:button id="b2" shortDesc="Delete Cost Identification Rule"
+                                               icon="/resources/icons/delete.png"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.SgsCostIdentificationRuleVO.collectionModel}" var="row"
+                                      rows="#{bindings.SgsCostIdentificationRuleVO.rangeSize}"
+                                      emptyText="#{bindings.SgsCostIdentificationRuleVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.SgsCostIdentificationRuleVO.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.SgsCostIdentificationRuleVO.collectionModel.makeCurrent}"
+                                      rowSelection="single"
+                                      fetchSize="#{bindings.SgsCostIdentificationRuleVO.rangeSize}" id="resId1"
+                                      partialTriggers="::b1">
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.CostIdentificationName.label}"
+                                           id="resId1c1">
+                                    <af:outputText value="#{row.CostIdentificationName}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.CostIdentificationName.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.AllocationBasis.label}"
+                                           id="resId1c2">
+                                    <af:selectOneChoice value="#{row.bindings.AllocationBasis.inputValue}"
+                                                        label="#{row.bindings.AllocationBasis.label}"
+                                                        required="#{bindings.SgsCostIdentificationRuleVO.hints.AllocationBasis.mandatory}"
+                                                        shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.AllocationBasis.tooltip}"
+                                                        readOnly="true" id="soc1">
+                                        <f:selectItems value="#{row.bindings.AllocationBasis.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.AllocationBasis.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.AccountingTreatment.label}"
+                                           id="resId1c3">
+                                    <af:outputText value="#{row.AccountingTreatment}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.AccountingTreatment.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.DataSource.label}"
+                                           id="resId1c4">
+                                    <af:selectOneChoice value="#{row.bindings.DataSource.inputValue}"
+                                                        label="#{row.bindings.DataSource.label}"
+                                                        required="#{bindings.SgsCostIdentificationRuleVO.hints.DataSource.mandatory}"
+                                                        shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.DataSource.tooltip}"
+                                                        readOnly="true" id="soc2">
+                                        <f:selectItems value="#{row.bindings.DataSource.items}" id="si2"/>
+                                        <f:validator binding="#{row.bindings.DataSource.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.ServiceCategory.label}"
+                                           id="resId1c5">
+                                    <af:outputText value="#{row.ServiceCategory}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.ServiceCategory.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.EffectiveFrom.label}"
+                                           id="resId1c6">
+                                    <af:outputText value="#{row.EffectiveFrom}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.EffectiveFrom.tooltip}"
+                                                   id="ot4">
+                                        <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO.hints.EffectiveFrom.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.EffectiveTo.label}"
+                                           id="resId1c7">
+                                    <af:outputText value="#{row.EffectiveTo}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.EffectiveTo.tooltip}"
+                                                   id="ot5">
+                                        <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO.hints.EffectiveTo.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.CostGroup.label}"
+                                           id="resId1c8">
+                                    <af:outputText value="#{row.CostGroup}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.CostGroup.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.CostIdentificationName.label}"
+                                           id="resId1c9">
+                                    <af:outputText value="#{row.CostIdentificationName}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.CostIdentificationName.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.InputProvider.label}"
+                                           id="resId1c10">
+                                    <af:outputText value="#{row.InputProvider}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.InputProvider.tooltip}"
+                                                   id="ot8"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.InvJournalGrpCode.label}"
+                                           id="resId1c11">
+                                    <af:outputText value="#{row.InvJournalGrpCode}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.InvJournalGrpCode.tooltip}"
+                                                   id="ot9"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.NatureOfExpense.label}"
+                                           id="resId1c12">
+                                    <af:outputText value="#{row.NatureOfExpense}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.NatureOfExpense.tooltip}"
+                                                   id="ot10"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownApplicability.label}"
+                                           id="resId1c13">
+                                    <af:outputText value="#{row.TrueUpDownApplicability}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownApplicability.tooltip}"
+                                                   id="ot11"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownFrequency.label}"
+                                           id="resId1c14">
+                                    <af:outputText value="#{row.TrueUpDownFrequency}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownFrequency.tooltip}"
+                                                   id="ot12"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:panelGroupLayout>
+                </af:panelBox>
+            </af:panelGroupLayout>
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

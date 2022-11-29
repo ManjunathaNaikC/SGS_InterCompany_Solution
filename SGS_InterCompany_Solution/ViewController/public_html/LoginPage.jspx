@@ -50,7 +50,7 @@
                                         <af:outputLabel value="Password:" id="ol2" inlineStyle="margin-left:8px"/>
                                         <af:inputText id="it2" clientComponent="true"
                                               autoSubmit="true" autoTab="true" contentStyle="border-radius:10px"
-                                              secret="true" value="#{authenticationBean.password}">
+                                              secret="true" value="#{authenticationBean.password} ">
                                         </af:inputText>
                                     </af:panelGroupLayout>
                                      <af:button text="Login" id="b1" action="#{authenticationBean.doLogin}" 

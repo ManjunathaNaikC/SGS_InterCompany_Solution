@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="TPASetupFormPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTpaMasterVO" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsTpaMasterVOIterator"/>
+    <iterator Binds="SgsTpaDocTypeVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTpaDocTypeVOIterator"/>
+    <iterator Binds="SgsMarkupRateTblVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsMarkupRateTblVOIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="TpaId">
+      <AttrNames>
+        <Item Value="TpaId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="LeServiceProvider">
+      <AttrNames>
+        <Item Value="LeServiceProvider"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="LeServiceReceiver">
+      <AttrNames>
+        <Item Value="LeServiceReceiver"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="NettingApplicatibility">
+      <AttrNames>
+        <Item Value="NettingApplicatibility"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="BdCommissionApplicability">
+      <AttrNames>
+        <Item Value="BdCommissionApplicability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="BdCommissionRate">
+      <AttrNames>
+        <Item Value="BdCommissionRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="EffectiveFrom">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="EffectiveTo">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="UpdatedDate">
+      <AttrNames>
+        <Item Value="UpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="UpdatedBy">
+      <AttrNames>
+        <Item Value="UpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="PassThroughFlag">
+      <AttrNames>
+        <Item Value="PassThroughFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="PassThroughBu">
+      <AttrNames>
+        <Item Value="PassThroughBu"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="OperationUnit">
+      <AttrNames>
+        <Item Value="OperationUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SgsTpaMasterVOIterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsTpaMasterVO"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="SgsTpaDocTypeVOIterator" id="SgsTpaDocTypeVO">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTpaDocTypeVO" Name="SgsTpaDocTypeVO0">
+        <AttrNames>
+          <Item Value="DocumentTypeValue"/>
+          <Item Value="Attachment"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsTpaDocTypeVOIterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsTpaDocTypeVO" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsTpaDocTypeVOIterator" id="Delete1" InstanceName="SGSAppModuleDataControl.SgsTpaDocTypeVO"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="SgsMarkupRateTblVOIterator" id="SgsMarkupRateTblVO">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsMarkupRateTblVO" Name="SgsMarkupRateTblVO0">
+        <AttrNames>
+          <Item Value="TpaId"/>
+          <Item Value="MarkUpRateId"/>
+          <Item Value="ServiceCategory"/>
+          <Item Value="MarkupRate"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsMarkupRateTblVOIterator" id="CreateInsert1"
+            InstanceName="SGSAppModuleDataControl.SgsMarkupRateTblVO" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsMarkupRateTblVOIterator" id="Delete2"
+            InstanceName="SGSAppModuleDataControl.SgsMarkupRateTblVO" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

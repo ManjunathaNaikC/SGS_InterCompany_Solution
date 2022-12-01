@@ -1,5 +1,8 @@
 package com.sgs.ics.model.bc.am;
 
+
+import com.sgs.ics.model.bc.view.SgsTpaMasterVOImpl;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,14 +29,14 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SGSAppModuleImpl.class);
     /**
      * @param seqName
-     * @return sequence next value
+     * @return sequence String next value
      */
     public String getDBSequence(String seqName) {
         Connection conn = null;
         PreparedStatement pst = null;
         try {
             String connectionUrl =
-                "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
+                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
            // jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;
             conn = DriverManager.getConnection(connectionUrl);
             String sqlIdentifier = "select next value for " + seqName;
@@ -55,6 +58,39 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
             }
         }
         return "0";
+    }
+
+
+    /**
+     * @param seqName
+     * @return sequence next value
+     */
+    public int getDBSequence1(String seqName) {
+        Connection conn = null;
+        PreparedStatement pst = null;
+        try {
+            String connectionUrl =
+                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+            conn = DriverManager.getConnection(connectionUrl);
+            String sqlIdentifier = "select next value for " + seqName;
+            pst = conn.prepareStatement(sqlIdentifier);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next())
+                rs.getInt(1);
+            
+            return rs.getInt(1);
+        } catch (SQLException sqle) {
+            LOG.severe(sqle);
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+                LOG.severe(e);
+            }
+        }
+        return 0;
     }
 
     /**
@@ -111,6 +147,48 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
      */
     public ViewLinkImpl getCostIdentificationRuleToCostIdentificationCombinationlink() {
         return (ViewLinkImpl) findViewLink("CostIdentificationRuleToCostIdentificationCombinationlink");
+    }
+
+
+    /**
+     * Container's getter for SgsTpaMasterVO1.
+     * @return SgsTpaMasterVO1
+     */
+    public SgsTpaMasterVOImpl getSgsTpaMasterVO() {
+        return (SgsTpaMasterVOImpl) findViewObject("SgsTpaMasterVO");
+    }
+
+    /**
+     * Container's getter for SgsTpaDocTypeVO1.
+     * @return SgsTpaDocTypeVO1
+     */
+    public ViewObjectImpl getSgsTpaDocTypeVO() {
+        return (ViewObjectImpl) findViewObject("SgsTpaDocTypeVO");
+    }
+
+    /**
+     * Container's getter for FKSGSTPADOCATTACHMENTLink1.
+     * @return FKSGSTPADOCATTACHMENTLink1
+     */
+    public ViewLinkImpl getFKSGSTPADOCATTACHMENTLink() {
+        return (ViewLinkImpl) findViewLink("FKSGSTPADOCATTACHMENTLink");
+    }
+
+
+    /**
+     * Container's getter for SgsMarkupRateTblVO2.
+     * @return SgsMarkupRateTblVO2
+     */
+    public ViewObjectImpl getSgsMarkupRateTblVO() {
+        return (ViewObjectImpl) findViewObject("SgsMarkupRateTblVO");
+    }
+
+    /**
+     * Container's getter for FKSGSMARKUPRATETBLViewLink2.
+     * @return FKSGSMARKUPRATETBLViewLink2
+     */
+    public ViewLinkImpl getFKSGSMARKUPRATETBLViewLink() {
+        return (ViewLinkImpl) findViewLink("FKSGSMARKUPRATETBLViewLink");
     }
 }
 

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelBox text="Transfer Pricing Agreement Setup" id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text=" " id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.SgsTpaMasterVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.SgsTpaMasterVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.SgsTpaMasterVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.SgsTpaMasterVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1" rows="2" saveQueryMode="hidden"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t1">
+                <af:button id="b1" icon="/resources/icons/microsoft-excel.png" shortDesc="Export to Excel"
+                           disabled="#{bindings.SgsTpaMasterVO.estimatedRowCount &lt;=0}">
+                  <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="TPAMasterNew.xls"/>
+                </af:button>
+                <af:button id="b2" action="ADD" icon="/resources/icons/plus.png" shortDesc="Create/Add TPA"
+                           actionListener="#{bindings.CreateInsert.execute}"/>
+                <af:button id="b3" shortDesc="Delete" icon="/resources/icons/delete.png"
+                           action="#{pageFlowScope.TPAMasterBean.deleteTPAmaster}"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SgsTpaMasterVO.collectionModel}" var="row"
+                      rows="#{bindings.SgsTpaMasterVO.rangeSize}"
+                      emptyText="#{bindings.SgsTpaMasterVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTpaMasterVO.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SgsTpaMasterVO.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.SgsTpaMasterVO.rangeSize}" id="resId1" partialTriggers="::b2"
+                      styleClass="AFStretchWidth" columnStretching="column:resId1c3">
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.TpaId.label}" id="resId1c1">
+                <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMasterVO.hints.TpaId.tooltip}" id="ot1"/>-->
+                <af:link text="#{row.TpaId}" id="l1" action="EDIT">
+                  <af:setPropertyListener to="#{pageFlowScope.ID}" from="#{row.TpaId}" type="action"/>
+                </af:link>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.LeServiceProvider.label}" id="resId1c2">
+                <af:outputText value="#{row.LeServiceProvider}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.LeServiceProvider.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.LeServiceReceiver.label}" id="resId1c3">
+                <af:outputText value="#{row.LeServiceReceiver}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.LeServiceReceiver.tooltip}" id="ot3"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.NettingApplicatibility.label}" id="resId1c4">
+                <af:outputText value="#{row.NettingApplicatibility}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.NettingApplicatibility.tooltip}" id="ot4"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.BdCommissionApplicability.label}" id="resId1c5">
+                <af:outputText value="#{row.BdCommissionApplicability}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.BdCommissionApplicability.tooltip}" id="ot5"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.BdCommissionRate.label}" id="resId1c6">
+                <af:outputText value="#{row.BdCommissionRate}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.BdCommissionRate.tooltip}" id="ot6"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.PassThroughFlag.label}" id="resId1c7">
+                <af:outputText value="#{row.PassThroughFlag}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.PassThroughFlag.tooltip}" id="ot7"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.PassThroughBu.label}" id="resId1c8">
+                <af:outputText value="#{row.PassThroughBu}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.PassThroughBu.tooltip}" id="ot8"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.OperationUnit.label}" id="resId1c9">
+                <af:outputText value="#{row.OperationUnit}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.OperationUnit.tooltip}" id="ot9"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.EffectiveTo.label}" id="resId1c10">
+                <af:outputText value="#{row.EffectiveTo}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.EffectiveTo.tooltip}" id="ot10">
+                  <af:convertDateTime pattern="#{bindings.SgsTpaMasterVO.hints.EffectiveTo.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:panelBox>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

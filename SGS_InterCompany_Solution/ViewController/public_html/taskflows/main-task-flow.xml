@@ -21,13 +21,27 @@
         <expression>#{pageFlowScope.navigate eq 'CIR'}</expression>
         <outcome>CIR_FLOW</outcome>
       </case>
+      <case id="__8">
+        <expression>#{pageFlowScope.navigate eq 'TPA'}</expression>
+        <outcome>TPA_FLOW</outcome>
+      </case>
       <default-outcome>CIR_FLOW</default-outcome>
     </router>
+    <task-flow-call id="TPASetupPage">
+      <task-flow-reference>
+        <document>/taskflows/commom/TPASetup-flow.xml</document>
+        <id>TPASetupBTF</id>
+      </task-flow-reference>
+    </task-flow-call>
     <control-flow-rule id="__2">
       <from-activity-id>check</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>CIR_FLOW</from-outcome>
         <to-activity-id>sgs-costIdentificationRule-flow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>TPA_FLOW</from-outcome>
+        <to-activity-id>TPASetupPage</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

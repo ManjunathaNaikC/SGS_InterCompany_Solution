@@ -29,6 +29,15 @@
   <ViewUsage
     Name="SgsCostIdentificationCombinationVO"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO"/>
+  <ViewUsage
+    Name="SgsTpaMasterVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaMasterVO"/>
+  <ViewUsage
+    Name="SgsTpaDocTypeVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaDocTypeVO"/>
+  <ViewUsage
+    Name="SgsMarkupRateTblVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsMarkupRateTblVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -46,6 +55,18 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToCostIdentificationCombinationlink"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostIdentificationRuleVO"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostIdentificationCombinationVO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKSGSTPADOCATTACHMENTLink"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.FKSGSTPADOCATTACHMENTLink"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaMasterVO"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaDocTypeVO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKSGSMARKUPRATETBLViewLink"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.FKSGSMARKUPRATETBLViewLink"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaMasterVO"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsMarkupRateTblVO"
     Reversed="false"/>
   <ResourceBundle>
     <PropertiesBundle

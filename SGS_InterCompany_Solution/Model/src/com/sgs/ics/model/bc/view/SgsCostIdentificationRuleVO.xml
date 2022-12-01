@@ -21,11 +21,11 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="bAllocationBasis"
+    Name="bCostIdentificationId"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bCostIdentificationId"
+    Name="bAllocationBasis"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
@@ -100,6 +100,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="NatureOfExpense1"
+    ViewObjectName="com.sgs.ics.model.bc.view.NatureOfExpense"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_AllocationBasis"
     ListVOName="AllocationBasisLOV"
@@ -171,6 +175,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_NatureOfExpense"
+    ListVOName="NatureOfExpense1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NatureOfExpense"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CIR_ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NatureOfExpense"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsCostIdentificationRuleEO"
     Entity="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO"/>
@@ -183,12 +205,12 @@
     LOVName="LOV_AccountingTreatment">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="0.0"/>
         <CONTROLTYPE
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.AccountingTreatment_LABEL"/>
+        <FIELDORDER
+          Value="2.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -201,12 +223,12 @@
     LOVName="LOV_AllocationBasis">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="2.0"/>
         <CONTROLTYPE
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.AllocationBasis_LABEL"/>
+        <FIELDORDER
+          Value="3.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -219,7 +241,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="3.0"/>
+          Value="4.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -232,7 +254,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="4.0"/>
+          Value="5.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -245,7 +267,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="5.0"/>
+          Value="6.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -258,7 +280,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="6.0"/>
+          Value="7.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -271,7 +293,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="7.0"/>
+          Value="8.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -284,7 +306,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="8.0"/>
+          Value="9.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -297,7 +319,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="9.0"/>
+          Value="10.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -310,7 +332,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="10.0"/>
+          Value="11.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -323,7 +345,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="11.0"/>
+          Value="12.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -336,7 +358,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="12.0"/>
+          Value="13.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -349,7 +371,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="13.0"/>
+          Value="14.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -362,7 +384,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="14.0"/>
+          Value="15.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -375,7 +397,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="15.0"/>
+          Value="16.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -388,7 +410,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="16.0"/>
+          Value="17.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -401,7 +423,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="17.0"/>
+          Value="18.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -414,7 +436,7 @@
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
-          Value="18.0"/>
+          Value="19.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -427,10 +449,10 @@
     AliasName="COST_IDENTIFICATION_ID">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="1.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CostIdentificationId_LABEL"/>
+        <FIELDORDER
+          Value="0.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -443,10 +465,10 @@
     AliasName="COST_IDENTIFICATION_NAME">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="19.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CostIdentificationName_LABEL"/>
+        <FIELDORDER
+          Value="1.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -459,10 +481,10 @@
     IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="20.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CreatedBy_LABEL"/>
+        <FIELDORDER
+          Value="20.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -475,10 +497,10 @@
     IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="21.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CreatedDate_LABEL"/>
+        <FIELDORDER
+          Value="21.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -492,12 +514,12 @@
     LOVName="LOV_DataSource">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="22.0"/>
         <CONTROLTYPE
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.DataSource_LABEL"/>
+        <FIELDORDER
+          Value="22.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -509,10 +531,10 @@
     AliasName="EFFECTIVE_FROM">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="23.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveFrom_LABEL"/>
+        <FIELDORDER
+          Value="23.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -524,10 +546,10 @@
     AliasName="EFFECTIVE_TO">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="24.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveTo_LABEL"/>
+        <FIELDORDER
+          Value="24.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -562,11 +584,14 @@
     PrecisionRule="true"
     EntityAttrName="NatureOfExpense"
     EntityUsage="SgsCostIdentificationRuleEO"
-    AliasName="NATURE_OF_EXPENSE">
+    AliasName="NATURE_OF_EXPENSE"
+    LOVName="LOV_NatureOfExpense">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="27.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -579,10 +604,10 @@
     LOVName="LOV_ServiceCategory">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="28.0"/>
         <CONTROLTYPE
           Value="choice"/>
+        <FIELDORDER
+          Value="28.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

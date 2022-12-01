@@ -17,9 +17,9 @@
                                     </af:gridCell>
                                 <af:gridCell marginStart="5px" width="50%" id="gc4" valign="middle" halign="center">
                                     <af:panelGroupLayout id="pgl4" valign="middle" halign="center">
-                                        <af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
+                                        <!--<af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
                                                        id="ot3"
-                                                       inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:#6925e5;"/>
+                                                       inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:#6925e5;"/>-->
                                     </af:panelGroupLayout>
                                 </af:gridCell>
                                     <af:gridCell id="gc5" width="25%"/>
@@ -28,10 +28,19 @@
                         </af:gridCell>
                    </af:gridRow>
                     <af:gridRow height="100%" id="gr2">
-                        <af:gridCell width="100%" halign="center" id="gc3">
+                        <af:gridCell width="100%" halign="center" id="gc3" valign="middle" columnSpan="1">
+                            <!--<af:panelGroupLayout id="pgl7" layout="horizontal" halign="center">
+                                <af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
+                                               id="ot1"
+                                               inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
+                            </af:panelGroupLayout>-->
+                            <af:outputFormatted value="Sutherland Global Services – Intercompany Workbench Application"
+                                                id="of2"
+                                                inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
                             <af:panelBox id="pb2" showDisclosure="false"
-                                         inlineStyle="text-align:center; margin:70px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px;"
-                                         titleHalign="center">
+                                         
+                                         titleHalign="center"
+             inlineStyle="text-align:center; margin:70px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px 5px; width:359px;">
                                 <f:facet name="toolbar"/>
                                 <af:panelGroupLayout id="pgl3" halign="center" valign="middle" layout="vertical"
                                                      inlineStyle="background-color:transparent;">
@@ -41,20 +50,18 @@
                                     <af:panelGroupLayout id="pgl6" valign="bottom" halign="start" layout="vertical"
                                                          inlineStyle="margin:30px">
                                         <af:outputLabel value="Username:" id="ol1" inlineStyle="margin-left:8px"/>
-                                        <af:inputText id="it1"
-                                                      contentStyle="border-radius:10px"
-                                                        value="#{authenticationBean.username}"/>
+                                        <af:inputText id="it1" contentStyle="border-radius:10px"
+                                                      value="#{authenticationBean.username}"/>
                                     </af:panelGroupLayout>
                                     <af:panelGroupLayout id="pgl5" layout="vertical" valign="bottom" halign="start"
                                                          inlineStyle="margin:30px;margin-top:-30px">
                                         <af:outputLabel value="Password:" id="ol2" inlineStyle="margin-left:8px"/>
-                                        <af:inputText id="it2" clientComponent="true"
-                                              autoSubmit="true" autoTab="true" contentStyle="border-radius:10px"
-                                              secret="true" value="#{authenticationBean.password} ">
-                                        </af:inputText>
+                                        <af:inputText id="it2" clientComponent="true" autoSubmit="true" autoTab="true"
+                                                      contentStyle="border-radius:10px" secret="true"
+                                                      value="#{authenticationBean.password} "/>
                                     </af:panelGroupLayout>
-                                     <af:button text="Login" id="b1" action="#{authenticationBean.doLogin}" 
-                                               inlineStyle="margin-bottom:30px; width:265px; margin-left:4px; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; background-image:linear-gradient(120deg, #2980b9, #2980b9); color:white; font-size:medium;" 
+                                    <af:button text="Login" id="b1" action="#{authenticationBean.doLogin}"
+                                               inlineStyle="margin-bottom:30px; width:265px; margin-left:4px; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; background-image:linear-gradient(120deg, #2980b9, #2980b9); color:white; font-size:medium;"
                                                icon="/resources/icons/user-white.png"/>
                                 </af:panelGroupLayout>
                             </af:panelBox>

@@ -29,18 +29,18 @@
       <property
          name="fromOutcome">Add</property>
       <property
-         name="sdm:polyPoints">R50,277.7168,226.1377,581.69336,184.09766,L50</property>
+         name="sdm:polyPoints">R46,277.7168,222.28711,581.69336,183.39648,L50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall5">
       <property
-         name="description">&lt;html>&lt;p>&lt;b>sgs-costIdentificationForm-flow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>costIdentificationAdd&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
       <property
-         name="activityId">sgs-costIdentificationForm-flow</property>
+         name="activityId">costIdentificationAdd</property>
       <property
          name="x">622.69336</property>
       <property
-         name="y">184.44824</property>
+         name="y">183.74707</property>
       <property
          name="documentReference">/taskflows/commom/sgs-costIdentificationForm-flow.xml</property>
       <property
@@ -48,4 +48,31 @@
       <property
          name="taskFlowId">sgs-costIdentificationForm-flow</property>
    </TaskFlowCall>
+   <TaskFlowCall
+      id="TaskFlowCall6">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>costIdentificationFormEdit&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">costIdentificationFormEdit</property>
+      <property
+         name="x">714.0303</property>
+      <property
+         name="y">400.44824</property>
+      <property
+         name="documentReference">/taskflows/commom/sgs-costIdentificationForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-costIdentificationForm-flow</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="View2"
+      to="TaskFlowCall6">
+      <property
+         name="fromOutcome">Edit</property>
+      <property
+         name="sdm:polyPoints">R54,277.7168,229.28711,673.0303,400.09766,L50</property>
+   </ControlFlowCase>
 </SDM>

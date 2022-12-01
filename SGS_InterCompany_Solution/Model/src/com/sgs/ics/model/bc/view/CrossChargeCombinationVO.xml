@@ -119,39 +119,81 @@
     PrecisionRule="true"
     EntityAttrName="CostIdentificationId"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="COST_IDENTIFICATION_ID"/>
+    AliasName="COST_IDENTIFICATION_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.CostIdentificationId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsUpdateable="false"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     IsUpdateable="false"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EffectiveFrom"
     PrecisionRule="true"
     EntityAttrName="EffectiveFrom"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="EFFECTIVE_FROM"/>
+    AliasName="EFFECTIVE_FROM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.EffectiveFrom_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EffectiveTo"
     PrecisionRule="true"
     EntityAttrName="EffectiveTo"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="EFFECTIVE_TO"/>
+    AliasName="EFFECTIVE_TO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.EffectiveTo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FromGlAccount"
     PrecisionRule="true"
     EntityAttrName="FromGlAccount"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="FROM_GL_ACCOUNT"/>
+    AliasName="FROM_GL_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.FromGlAccount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IcLineNo"
     PrecisionRule="true"
@@ -169,26 +211,54 @@
     PrecisionRule="true"
     EntityAttrName="TargetBusinessUnit"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="TARGET_BUSINESS_UNIT"/>
+    AliasName="TARGET_BUSINESS_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.TargetBusinessUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TargetGlAccount"
     PrecisionRule="true"
     EntityAttrName="TargetGlAccount"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="TARGET_GL_ACCOUNT"/>
+    AliasName="TARGET_GL_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.TargetGlAccount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TargetJobCode"
     PrecisionRule="true"
     EntityAttrName="TargetJobCode"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="TARGET_JOB_CODE"/>
+    AliasName="TARGET_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.TargetJobCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TargetOperatingUnit"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="TargetOperatingUnit"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="TARGET_OPERATING_UNIT"/>
+    AliasName="TARGET_OPERATING_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.TargetOperatingUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TcLineNo"
     IsNotNull="true"
@@ -215,7 +285,14 @@
     PrecisionRule="true"
     EntityAttrName="TARGETDEPTID"
     EntityUsage="SgsCostTargetCombinationEO"
-    AliasName="TARGET_DEPT_ID"/>
+    AliasName="TARGET_DEPT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CrossChargeCombinationVO.TARGETDEPTID_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

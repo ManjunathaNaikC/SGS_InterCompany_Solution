@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <task-flow-definition id="sgs-costIdentificationForm-flow">
-    <default-activity>costIdentificationRuleForm</default-activity>
+  <task-flow-definition id="TPASetupForm-flow">
+    <default-activity>TPASetupForm</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
     <input-parameter-definition id="__3">
-      <name>paddEditCIR</name>
-      <value>#{pageFlowScope.paddEditCIR}</value>
+      <name>pTPAAddEdit</name>
+      <value>#{pageFlowScope.pTPAAddEdit}</value>
       <class>java.lang.String</class>
     </input-parameter-definition>
-    <view id="costIdentificationRuleForm">
-      <page>/fragments/common/costIdentificationRuleForm.jsff</page>
+    <view id="TPASetupForm">
+      <page>/fragments/common/TPASetupForm.jsff</page>
     </view>
-    <task-flow-return id="return">
+    <task-flow-return id="backTPA">
       <outcome>
-        <name>return</name>
+        <name>backTPA</name>
       </outcome>
     </task-flow-return>
     <control-flow-rule id="__1">
-      <from-activity-id>costIdentificationRuleForm</from-activity-id>
+      <from-activity-id>TPASetupForm</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>back</from-outcome>
-        <to-activity-id>return</to-activity-id>
+        <to-activity-id>backTPA</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

@@ -10,6 +10,8 @@
         <parameter id="navigate" value="#{pageFlowScope.navigate}"/>
       </parameters>
     </taskFlow>
+    <taskFlow id="dynamicRegion1" taskFlowId="${pageFlowScope.navigateBean.dynamicTaskFlowId}" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>

@@ -5,32 +5,32 @@
    <View
       id="View2">
       <property
-         name="activityId">costIdentificationRuleForm</property>
+         name="activityId">TPASetupForm</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">404.03027</property>
+         name="x">344.0</property>
       <property
          name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>costIdentificationRuleForm&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>TPASetupForm&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">175.5918</property>
+         name="y">212.19531</property>
       <property
-         name="page">/fragments/common/costIdentificationRuleForm.jsff</property>
+         name="page">/fragments/common/TPASetupForm.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn3">
       <property
-         name="activityId">return</property>
+         name="activityId">backTPA</property>
       <property
-         name="x">740.0</property>
+         name="x">722.0</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>return&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  return&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>backTPA&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  backTPA&lt;/p></property>
       <property
-         name="y">192.19531</property>
+         name="y">168.24707</property>
       <property
          name="finish">true</property>
       <property
@@ -44,6 +44,6 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">R50,445.03027,175.24121,699.0,191.84473,L50</property>
+         name="sdm:polyPoints">R50,385.0,211.84473,681.0,167.89648,L50</property>
    </ControlFlowCase>
 </SDM>

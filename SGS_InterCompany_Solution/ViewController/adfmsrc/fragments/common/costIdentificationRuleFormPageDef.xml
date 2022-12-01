@@ -8,6 +8,10 @@
               id="SgsCostIdentificationRuleVOIterator"/>
     <iterator Binds="SgsCostIdentificationCombinationVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsCostIdentificationCombinationVOIterator"/>
+    <iterator Binds="AllocationRuleVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="AllocationRuleVOIterator"/>
+    <iterator Binds="CrossChargeCombinationVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="CrossChargeCombinationVOIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="CostIdentificationId">
@@ -62,5 +66,72 @@
         <Item Value="CostIdentificationName"/>
       </AttrNames>
     </attributeValues>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback1" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SgsCostIdentificationRuleVOIterator" id="Delete"
+            InstanceName="SGSAppModuleDataControl.SgsCostIdentificationRuleVO" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="FromGlAccount">
+      <AttrNames>
+        <Item Value="FromGlAccount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="OffsetBusinessUnit">
+      <AttrNames>
+        <Item Value="OffsetBusinessUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="OffsetGlAccount">
+      <AttrNames>
+        <Item Value="OffsetGlAccount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="OffsetJobCode">
+      <AttrNames>
+        <Item Value="OffsetJobCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="OffsetOperatingUnit">
+      <AttrNames>
+        <Item Value="OffsetOperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="EffectiveFrom1">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="EffectiveTo1">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="CreatedDate1">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllocationRuleVOIterator" id="CreatedBy1">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CrossChargeCombinationVOIterator" id="CrossChargeCombinationVO">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.CrossChargeCombinationVO" Name="CrossChargeCombinationVO0">
+        <AttrNames>
+          <Item Value="FromGlAccount"/>
+          <Item Value="TargetBusinessUnit"/>
+          <Item Value="TargetGlAccount"/>
+          <Item Value="TargetJobCode"/>
+          <Item Value="TargetOperatingUnit"/>
+          <Item Value="TARGETDEPTID"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

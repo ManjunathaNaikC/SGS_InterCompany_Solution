@@ -36,5 +36,7 @@
     <action IterBinding="SgsCostIdentificationRuleVOIterator" id="CreateInsert"
             InstanceName="SGSAppModuleDataControl.SgsCostIdentificationRuleVO" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_NatureOfExpense"
+          id="NatureOfExpense" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

@@ -221,3 +221,20 @@ af|panelList.MyBreadcrumb li a:after {
     z-index: 2;
 } 
 
+af|outputLabel {
+  color: rgba(146, 151, 166, 1);
+}
+
+af|column::column-header-cell{
+color:white;
+background-color: #2980b9;
+}
+
+af|query::content1 {
+    background-color: #f7f7f6; 
+}
+
+af|panelHeader::content0 {
+    
+    background-color:  #2980b9; 
+}

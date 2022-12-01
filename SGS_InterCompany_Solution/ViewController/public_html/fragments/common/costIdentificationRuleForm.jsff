@@ -11,13 +11,17 @@
                 <af:panelBox text="Cost Identification Rule Details" id="pb1">
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
-                            <af:button id="b1" action="back" text="Save and Close" accessKey="S"/>
-                            <!--<af:button immediate="true" id="b2" action="back" text="Cancel" accessKey="C">
-                                <af:resetActionListener/>
-                            </af:button>-->
-                            <af:button id="b3" action="back" immediate="true" text="Cancel" accessKey="C"
-                            actionListener="#{bindings.Rollback.execute}">
+                            <af:button id="b1" actionListener="#{bindings.Commit.execute}"
+                        action="back"  text="Save and Close" accessKey="S"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" immediate="true" id="b2" action="back"
+                       rendered="#{pageFlowScope.paddEditCIR == 'EDIT'}" text="Cancel" accessKey="C">
+              <af:resetActionListener/>
                             </af:button>
+                            <af:button actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}"
+                       id="b3" action="back"
+                       rendered="#{pageFlowScope.paddEditCIR == 'ADD'}" immediate="true" text="Cancel"
+                       accessKey="C"/>
+                            
                         </af:toolbar>
                     </f:facet>
                     <af:panelGroupLayout id="pgl2" layout="vertical">
@@ -283,7 +287,84 @@
                         <af:panelBox text="Allocation Rule" id="pb2">
                             <f:facet name="toolbar"/>
                             <af:panelFormLayout id="pfl2" rows="2">
-                                <f:facet name="footer"/>
+                                <f:facet name="footer">
+                                    <af:panelFormLayout id="pfl3" rows="2">
+                                        <af:inputText value="#{bindings.FromGlAccount.inputValue}"
+                                                      label="#{bindings.FromGlAccount.hints.label}"
+                                                      required="#{bindings.FromGlAccount.hints.mandatory}"
+                                                      columns="#{bindings.FromGlAccount.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FromGlAccount.hints.precision}"
+                                                      shortDesc="#{bindings.FromGlAccount.hints.tooltip}" id="it1">
+                                            <f:validator binding="#{bindings.FromGlAccount.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.OffsetBusinessUnit.inputValue}"
+                                                      label="#{bindings.OffsetBusinessUnit.hints.label}"
+                                                      required="#{bindings.OffsetBusinessUnit.hints.mandatory}"
+                                                      columns="#{bindings.OffsetBusinessUnit.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OffsetBusinessUnit.hints.precision}"
+                                                      shortDesc="#{bindings.OffsetBusinessUnit.hints.tooltip}"
+                                                      id="it10">
+                                            <f:validator binding="#{bindings.OffsetBusinessUnit.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.OffsetGlAccount.inputValue}"
+                                                      label="#{bindings.OffsetGlAccount.hints.label}"
+                                                      required="#{bindings.OffsetGlAccount.hints.mandatory}"
+                                                      columns="#{bindings.OffsetGlAccount.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OffsetGlAccount.hints.precision}"
+                                                      shortDesc="#{bindings.OffsetGlAccount.hints.tooltip}" id="it11">
+                                            <f:validator binding="#{bindings.OffsetGlAccount.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.OffsetJobCode.inputValue}"
+                                                      label="#{bindings.OffsetJobCode.hints.label}"
+                                                      required="#{bindings.OffsetJobCode.hints.mandatory}"
+                                                      columns="#{bindings.OffsetJobCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OffsetJobCode.hints.precision}"
+                                                      shortDesc="#{bindings.OffsetJobCode.hints.tooltip}" id="it12">
+                                            <f:validator binding="#{bindings.OffsetJobCode.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.OffsetOperatingUnit.inputValue}"
+                                                      label="#{bindings.OffsetOperatingUnit.hints.label}"
+                                                      required="#{bindings.OffsetOperatingUnit.hints.mandatory}"
+                                                      columns="#{bindings.OffsetOperatingUnit.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OffsetOperatingUnit.hints.precision}"
+                                                      shortDesc="#{bindings.OffsetOperatingUnit.hints.tooltip}"
+                                                      id="it13">
+                                            <f:validator binding="#{bindings.OffsetOperatingUnit.validator}"/>
+                                        </af:inputText>
+                                        <!--<af:inputDate value="#{bindings.EffectiveFrom1.inputValue}"
+                                                      label="#{bindings.EffectiveFrom1.hints.label}"
+                                                      required="#{bindings.EffectiveFrom1.hints.mandatory}"
+                                                      columns="#{bindings.EffectiveFrom1.hints.displayWidth}"
+                                                      shortDesc="#{bindings.EffectiveFrom1.hints.tooltip}" id="id5">
+                                            <f:validator binding="#{bindings.EffectiveFrom1.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.EffectiveFrom1.format}"/>
+                                        </af:inputDate>-->
+                                        <!--<af:inputDate value="#{bindings.EffectiveTo1.inputValue}"
+                                                      label="#{bindings.EffectiveTo1.hints.label}"
+                                                      required="#{bindings.EffectiveTo1.hints.mandatory}"
+                                                      columns="#{bindings.EffectiveTo1.hints.displayWidth}"
+                                                      shortDesc="#{bindings.EffectiveTo1.hints.tooltip}" id="id6">
+                                            <f:validator binding="#{bindings.EffectiveTo1.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.EffectiveTo1.format}"/>
+                                        </af:inputDate>
+                                        <af:inputDate value="#{bindings.CreatedDate1.inputValue}"
+                                                      label="#{bindings.CreatedDate1.hints.label}"
+                                                      required="#{bindings.CreatedDate1.hints.mandatory}"
+                                                      columns="#{bindings.CreatedDate1.hints.displayWidth}"
+                                                      shortDesc="#{bindings.CreatedDate1.hints.tooltip}" id="id7">
+                                            <f:validator binding="#{bindings.CreatedDate1.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.CreatedDate1.format}"/>
+                                        </af:inputDate>
+                                        <af:inputText value="#{bindings.CreatedBy1.inputValue}"
+                                                      label="#{bindings.CreatedBy1.hints.label}"
+                                                      required="#{bindings.CreatedBy1.hints.mandatory}"
+                                                      columns="#{bindings.CreatedBy1.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CreatedBy1.hints.precision}"
+                                                      shortDesc="#{bindings.CreatedBy1.hints.tooltip}" id="it14">
+                                            <f:validator binding="#{bindings.CreatedBy1.validator}"/>
+                                        </af:inputText>-->
+                                    </af:panelFormLayout>
+                                </f:facet>
                                 <!-- data -->
                             </af:panelFormLayout>
                         </af:panelBox>
@@ -299,6 +380,136 @@
                                 </f:facet>
                                 <f:facet name="statusbar"/>
                                 <!-- data-->
+                                <af:table value="#{bindings.CrossChargeCombinationVO.collectionModel}" var="row"
+                                          rows="#{bindings.CrossChargeCombinationVO.rangeSize}"
+                                          emptyText="#{bindings.CrossChargeCombinationVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.CrossChargeCombinationVO.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.CrossChargeCombinationVO.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.CrossChargeCombinationVO.rangeSize}" id="t5"
+                                          styleClass="AFStretchWidth">
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.label}"
+                                               id="c8">
+                                        <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.tooltip}"
+                                                      id="it15">
+                                            <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetBusinessUnit.label}"
+                                               id="c9">
+                                        <af:inputText value="#{row.bindings.TargetBusinessUnit.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.TargetBusinessUnit.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.TargetBusinessUnit.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TargetBusinessUnit.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TargetBusinessUnit.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TargetBusinessUnit.tooltip}"
+                                                      id="it16">
+                                            <f:validator binding="#{row.bindings.TargetBusinessUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
+                                               id="c10">
+                                        <af:inputText value="#{row.bindings.TargetGlAccount.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.tooltip}"
+                                                      id="it17">
+                                            <f:validator binding="#{row.bindings.TargetGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.label}"
+                                               id="c11">
+                                        <af:inputText value="#{row.bindings.TargetJobCode.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.tooltip}"
+                                                      id="it18">
+                                            <f:validator binding="#{row.bindings.TargetJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetOperatingUnit.label}"
+                                               id="c12">
+                                        <af:inputText value="#{row.bindings.TargetOperatingUnit.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.TargetOperatingUnit.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.TargetOperatingUnit.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TargetOperatingUnit.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TargetOperatingUnit.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TargetOperatingUnit.tooltip}"
+                                                      id="it19">
+                                            <f:validator binding="#{row.bindings.TargetOperatingUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TARGETDEPTID.label}"
+                                               id="c13">
+                                        <af:inputText value="#{row.bindings.TARGETDEPTID.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.TARGETDEPTID.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.TARGETDEPTID.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TARGETDEPTID.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TARGETDEPTID.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TARGETDEPTID.tooltip}"
+                                                      id="it20">
+                                            <f:validator binding="#{row.bindings.TARGETDEPTID.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.label}"
+                                               id="c14">
+                                        <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.displayWidth}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.tooltip}"
+                                                      id="id8">
+                                            <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.EffectiveTo.label}"
+                                               id="c15">
+                                        <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.EffectiveTo.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.EffectiveTo.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.EffectiveTo.displayWidth}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.EffectiveTo.tooltip}"
+                                                      id="id9">
+                                            <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.CrossChargeCombinationVO.hints.EffectiveTo.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.label}"
+                                               id="c16">
+                                        <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.tooltip}"
+                                                      id="it21">
+                                            <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.label}"
+                                               id="c17">
+                                        <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.displayWidth}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.tooltip}"
+                                                      id="id10">
+                                            <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                </af:table>
                             </af:panelCollection>
                         </af:panelBox>
                     </af:panelGroupLayout>

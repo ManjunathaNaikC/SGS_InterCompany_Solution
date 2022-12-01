@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SgsTpaDocType"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SGS_TPA_DOC_ATTACHMENT"
+  AliasName="SgsTpaDocType"
+  BindingStyle="JDBC"
+  RowClass="com.sgs.ics.model.bc.entity.SgsTpaDocTypeImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="TpaId"
+    IsNotNull="true"
+    Precision="80"
+    ColumnName="TPA_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DocumentTypeId"
+    IsNotNull="true"
+    ColumnName="DOCUMENT_TYPE_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_TPA_DOC_ATTACHMENT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="DocumentTypeValue"
+    IsNotNull="true"
+    Precision="80"
+    ColumnName="DOCUMENT_TYPE_VALUE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attachment"
+    Precision="80"
+    ColumnName="ATTACHMENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EffectiveFrom"
+    IsNotNull="true"
+    ColumnName="EFFECTIVE_FROM"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="EffectiveTo"
+    ColumnName="EFFECTIVE_TO"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="80"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UpdatedDate"
+    ColumnName="UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="UpdatedBy"
+    Precision="80"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="80"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="80"
+    ColumnName="ATTRIBUTE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="80"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="80"
+    ColumnName="ATTRIBUTE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="80"
+    ColumnName="ATTRIBUTE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_DOC_ATTACHMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    ColumnName="ATTRIBUTE6"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute7"
+    ColumnName="ATTRIBUTE7"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute8"
+    ColumnName="ATTRIBUTE8"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute9"
+    ColumnName="ATTRIBUTE9"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute10"
+    ColumnName="ATTRIBUTE10"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute11"
+    Precision="10"
+    Scale="5"
+    ColumnName="ATTRIBUTE11"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute12"
+    Precision="10"
+    Scale="5"
+    ColumnName="ATTRIBUTE12"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute13"
+    Precision="10"
+    Scale="5"
+    ColumnName="ATTRIBUTE13"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute14"
+    Precision="10"
+    Scale="5"
+    ColumnName="ATTRIBUTE14"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <Attribute
+    Name="Attribute15"
+    Precision="10"
+    Scale="5"
+    ColumnName="ATTRIBUTE15"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TPA_DOC_ATTACHMENT"/>
+  <AccessorAttribute
+    Name="SgsTpaMaster"
+    Association="com.sgs.ics.model.bc.entity.assoc.FKSGSTPADOCATTACHMENTAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSTPADOCATTACHMENTAssoc.SgsTpaMaster"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSTPADOCATTACHMENTAssoc.SgsTpaDocType1"
+    Type="com.sgs.ics.model.bc.entity.SgsTpaMasterImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PKSGSTPADOCATTACHMENT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SGS_TPA_DOC_ATTACHMENT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTpaDocType.DocumentTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FKSGSTPADOCATTACHMENT">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_SGS_TPA_MASTER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SGS_TPA_DOC_ATTACHMENT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTpaDocType.TpaId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SgsTpaDocType">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SGS_TPA_MASTER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SgsTpaDocType"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTpaDocType.TpaId"/>
+    </AttrArray>
+  </Key>
+</Entity>

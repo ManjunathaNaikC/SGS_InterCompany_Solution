@@ -10,7 +10,18 @@
             <af:panelGroupLayout id="pgl1" layout="vertical">
                 <af:panelBox text="Cost Identifier Rule" id="pb1">
                     <f:facet name="toolbar"/>
-                    <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelGroupLayout layout="vertical" id="pgl2" partialTriggers="pb2">
+                        <af:panelBox text="Nature Of Expense" id="pb2">
+                            <f:facet name="toolbar"/>
+                            <af:selectOneChoice value="#{bindings.NatureOfExpense.inputValue}"
+                                                label="#{bindings.NatureOfExpense.label}"
+                                                required="#{bindings.NatureOfExpense.hints.mandatory}"
+                                                shortDesc="#{bindings.NatureOfExpense.hints.tooltip}" id="soc3"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.NatureOfExpense.items}" id="si3"/>
+                                <f:validator binding="#{bindings.NatureOfExpense.validator}"/>
+                            </af:selectOneChoice>
+                        </af:panelBox>
                         <af:panelHeader text="" id="ph1">
                             <af:query id="qryId1" headerText="Search" disclosed="true"
                                       value="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.queryDescriptor}"
@@ -47,9 +58,10 @@
                                       partialTriggers="::b1">
                                 <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.CostIdentificationName.label}"
                                            id="resId1c1">
-                                    <af:outputText value="#{row.CostIdentificationName}"
+                                    <!--<af:outputText value="#{row.CostIdentificationName}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.CostIdentificationName.tooltip}"
-                                                   id="ot1"/>
+                                                   id="ot1"/>-->
+                                    <af:link text="#{row.CostIdentificationName}" id="l1" action="Edit"/>
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.AllocationBasis.label}"
                                            id="resId1c2">
@@ -131,7 +143,7 @@
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.NatureOfExpense.tooltip}"
                                                    id="ot10"/>
                                 </af:column>
-                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownApplicability.label}"
+                                <!--<af:column headerText="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownApplicability.label}"
                                            id="resId1c13">
                                     <af:outputText value="#{row.TrueUpDownApplicability}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownApplicability.tooltip}"
@@ -142,7 +154,7 @@
                                     <af:outputText value="#{row.TrueUpDownFrequency}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO.hints.TrueUpDownFrequency.tooltip}"
                                                    id="ot12"/>
-                                </af:column>
+                                </af:column>-->
                             </af:table>
                         </af:panelCollection>
                     </af:panelGroupLayout>

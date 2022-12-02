@@ -7,14 +7,14 @@ import oracle.jbo.script.annotation.AccessorParameterExpression;
 @AccessorParameterExpression(accessorName="AllocationBasisLOV", name="bLookupType")
 def bLookupType_AllocationBasisLOV_BindVariable_BoundParameter()
 {
-com.sgs.ics.model.bc.constant.LookUpTypeBean.ALLOCATION_BASIS
+//com.sgs.ics.model.bc.constant.LookUpTypeBean.ALLOCATION_BASIS
 }
 
 
 @AccessorParameterExpression(accessorName="DataSourceLOV", name="bLookupType")
 def bLookupType_DataSourceLOV_BindVariable_BoundParameter()
 {
-com.sgs.ics.model.bc.constant.LookUpTypeBean.DATA_SOURCE
+//com.sgs.ics.model.bc.constant.LookUpTypeBean.DATA_SOURCE
 }
 
 
@@ -29,5 +29,12 @@ def bLookupType_AccountingTreatmentLOV_BindVariable_BoundParameter()
 def bLookupType_ServiceCategoryLOV_BindVariable_BoundParameter()
 {
 'SERVICE_CATEGORY'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupVO1", name="bLookupType")
+def bLookupType_SgsLookupVO1_BindVariable_BoundParameter()
+{
+'ALLOCATION_BASIS'
 }
 

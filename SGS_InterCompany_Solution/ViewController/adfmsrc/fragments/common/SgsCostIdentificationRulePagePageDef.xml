@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="SgsCostIdentificationRuleVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsCostIdentificationRuleVOIterator"/>
+    <searchRegion Binds="SgsCostIdentificationRuleVOIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsCostIdentificationRuleVOQuery"/>
     <searchRegion Criteria="SgsCostIdentificationRuleVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVOCriteriaQuery"/>
@@ -15,7 +17,6 @@
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"
                       Name="SgsCostIdentificationRuleVO0">
         <AttrNames>
-          <Item Value="CostIdentificationName"/>
           <Item Value="AllocationBasis"/>
           <Item Value="AccountingTreatment"/>
           <Item Value="DataSource"/>
@@ -27,9 +28,6 @@
           <Item Value="InputProvider"/>
           <Item Value="InvJournalGrpCode"/>
           <Item Value="NatureOfExpense"/>
-          <Item Value="TrueUpDownApplicability"/>
-          <Item Value="TrueUpDownFrequency"/>
-          
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -38,5 +36,66 @@
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_NatureOfExpense"
           id="NatureOfExpense" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"
+                      Name="SgsCostIdentificationRuleVO10">
+        <AttrNames>
+          <Item Value="AccountingTreatment"/>
+          <Item Value="AllocationBasis"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute10"/>
+          <Item Value="Attribute11"/>
+          <Item Value="Attribute12"/>
+          <Item Value="Attribute13"/>
+          <Item Value="Attribute14"/>
+          <Item Value="Attribute15"/>
+          <Item Value="Attribute2"/>
+          <Item Value="Attribute3"/>
+          <Item Value="Attribute4"/>
+          <Item Value="Attribute5"/>
+          <Item Value="Attribute6"/>
+          <Item Value="Attribute7"/>
+          <Item Value="Attribute8"/>
+          <Item Value="Attribute9"/>
+          <Item Value="CostGroup"/>
+          <Item Value="CostIdentificationId"/>
+          <Item Value="CostIdentificationName"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="DataSource"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="InputProvider"/>
+          <Item Value="InvJournalGrpCode"/>
+          <Item Value="NatureOfExpense"/>
+          <Item Value="ServiceCategory"/>
+          <Item Value="TrueUpDownApplicability"/>
+          <Item Value="TrueUpDownFrequency"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="UpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVO2">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"
+                      Name="SgsCostIdentificationRuleVO20">
+        <AttrNames>
+          <Item Value="CostIdentificationName"/>
+          <Item Value="AllocationBasis"/>
+          <Item Value="AccountingTreatment"/>
+          <Item Value="DataSource"/>
+          <Item Value="ServiceCategory"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="CostGroup"/>
+          <Item Value="CostIdentificationId"/>
+          <Item Value="InputProvider"/>
+          <Item Value="InvJournalGrpCode"/>
+          <Item Value="NatureOfExpense"/>
+          <Item Value="TrueUpDownApplicability"/>
+          <Item Value="TrueUpDownFrequency"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

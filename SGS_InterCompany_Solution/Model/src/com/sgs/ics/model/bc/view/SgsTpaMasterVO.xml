@@ -509,6 +509,32 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="PASSTHROUGHDEPTID"
+    PrecisionRule="true"
+    EntityAttrName="PASSTHROUGHDEPTID"
+    EntityUsage="SgsTpaMaster"
+    AliasName="PASS_THROUGH_DEPTID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTpaMasterVO.PASSTHROUGHDEPTID_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PASSTHROUGHJOBCODE"
+    PrecisionRule="true"
+    EntityAttrName="PASSTHROUGHJOBCODE"
+    EntityUsage="SgsTpaMaster"
+    AliasName="PASS_THROUGH_JOBCODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTpaMasterVO.PASSTHROUGHJOBCODE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsTpaMasterVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaMasterVO"

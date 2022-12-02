@@ -326,6 +326,30 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_TPA_MASTER"/>
+  <Attribute
+    Name="PASSTHROUGHDEPTID"
+    Precision="80"
+    ColumnName="PASS_THROUGH_DEPTID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PASSTHROUGHJOBCODE"
+    Precision="80"
+    ColumnName="PASS_THROUGH_JOBCODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsTpaDocType"
     Association="com.sgs.ics.model.bc.entity.assoc.FKSGSTPADOCATTACHMENTAssoc"

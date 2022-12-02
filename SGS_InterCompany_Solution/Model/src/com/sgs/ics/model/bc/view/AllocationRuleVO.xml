@@ -152,51 +152,107 @@
     PrecisionRule="true"
     EntityAttrName="FromGlAccount"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="FROM_GL_ACCOUNT"/>
+    AliasName="FROM_GL_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.FromGlAccount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IcLineNo"
     PrecisionRule="true"
     EntityAttrName="IcLineNo"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="IC_LINE_NO"/>
+    AliasName="IC_LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.IcLineNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OcLineNo"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="OcLineNo"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="OC_LINE_NO"/>
+    AliasName="OC_LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.OcLineNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OffsetBusinessUnit"
     PrecisionRule="true"
     EntityAttrName="OffsetBusinessUnit"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="OFFSET_BUSINESS_UNIT"/>
+    AliasName="OFFSET_BUSINESS_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.OffsetBusinessUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OffsetGlAccount"
     PrecisionRule="true"
     EntityAttrName="OffsetGlAccount"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="OFFSET_GL_ACCOUNT"/>
+    AliasName="OFFSET_GL_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.OffsetGlAccount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OffsetJobCode"
     PrecisionRule="true"
     EntityAttrName="OffsetJobCode"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="OFFSET_JOB_CODE"/>
+    AliasName="OFFSET_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.OffsetJobCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OffsetOperatingUnit"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="OffsetOperatingUnit"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="OFFSET_OPERATING_UNIT"/>
+    AliasName="OFFSET_OPERATING_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.OffsetOperatingUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TcLineNo"
     PrecisionRule="true"
     EntityAttrName="TcLineNo"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="TC_LINE_NO"/>
+    AliasName="TC_LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.TcLineNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"

@@ -117,17 +117,17 @@
                         <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
                     </af:inputDate>
                 </af:panelFormLayout>
-                <af:panelBox id="pb4">
+                <af:inputText value="#{bindings.PassThroughFlag.inputValue}"
+                              label="#{bindings.PassThroughFlag.hints.label}"
+                              required="#{bindings.PassThroughFlag.hints.mandatory}"
+                              columns="#{bindings.PassThroughFlag.hints.displayWidth}"
+                              maximumLength="#{bindings.PassThroughFlag.hints.precision}"
+                              shortDesc="#{bindings.PassThroughFlag.hints.tooltip}" id="it9">
+                    <f:validator binding="#{bindings.PassThroughFlag.validator}"/>
+                </af:inputText>
+                <af:panelBox id="pb4" visible="#{bindings.PassThroughFlag.inputValue eq true ? true : false}">
                     <f:facet name="toolbar"/>
                     <af:panelFormLayout id="pfl2" rows="3">
-                        <af:inputText value="#{bindings.PassThroughFlag.inputValue}"
-                                      label="#{bindings.PassThroughFlag.hints.label}"
-                                      required="#{bindings.PassThroughFlag.hints.mandatory}"
-                                      columns="#{bindings.PassThroughFlag.hints.displayWidth}"
-                                      maximumLength="#{bindings.PassThroughFlag.hints.precision}"
-                                      shortDesc="#{bindings.PassThroughFlag.hints.tooltip}" id="it9">
-                            <f:validator binding="#{bindings.PassThroughFlag.validator}"/>
-                        </af:inputText>
                         <af:inputText value="#{bindings.PassThroughBu.inputValue}"
                                       label="#{bindings.PassThroughBu.hints.label}"
                                       required="#{bindings.PassThroughBu.hints.mandatory}"
@@ -143,6 +143,22 @@
                                       maximumLength="#{bindings.OperationUnit.hints.precision}"
                                       shortDesc="#{bindings.OperationUnit.hints.tooltip}" id="it11">
                             <f:validator binding="#{bindings.OperationUnit.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.PASSTHROUGHDEPTID.inputValue}"
+                                      label="#{bindings.PASSTHROUGHDEPTID.hints.label}"
+                                      required="#{bindings.PASSTHROUGHDEPTID.hints.mandatory}"
+                                      columns="#{bindings.PASSTHROUGHDEPTID.hints.displayWidth}"
+                                      maximumLength="#{bindings.PASSTHROUGHDEPTID.hints.precision}"
+                                      shortDesc="#{bindings.PASSTHROUGHDEPTID.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.PASSTHROUGHDEPTID.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.PASSTHROUGHJOBCODE.inputValue}"
+                                      label="#{bindings.PASSTHROUGHJOBCODE.hints.label}"
+                                      required="#{bindings.PASSTHROUGHJOBCODE.hints.mandatory}"
+                                      columns="#{bindings.PASSTHROUGHJOBCODE.hints.displayWidth}"
+                                      maximumLength="#{bindings.PASSTHROUGHJOBCODE.hints.precision}"
+                                      shortDesc="#{bindings.PASSTHROUGHJOBCODE.hints.tooltip}" id="it13">
+                            <f:validator binding="#{bindings.PASSTHROUGHJOBCODE.validator}"/>
                         </af:inputText>
                     </af:panelFormLayout>
                 </af:panelBox>
@@ -213,6 +229,28 @@
                             <af:column id="c5" headerText="Uploaded Document">
                                 <af:inputFile id="if1"/>
                             </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.label}" id="c6">
+                                <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.displayWidth}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.tooltip}"
+                                              id="id3">
+                                    <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.label}" id="c7">
+                                <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.displayWidth}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.tooltip}"
+                                              id="id6">
+                                    <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.format}"/>
+                                </af:inputDate>
+                            </af:column>
                         </af:table>
                     </af:panelCollection>
                 </af:panelBox>
@@ -238,7 +276,7 @@
                                   selectionListener="#{bindings.SgsMarkupRateTblVO.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SgsMarkupRateTblVO.rangeSize}" id="t4"
                                   styleClass="AFStretchWidth">
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.TpaId.label}" id="c6">
+                            <!--<af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.TpaId.label}" id="c6">
                                 <af:inputText value="#{row.bindings.TpaId.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.TpaId.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.TpaId.mandatory}"
@@ -247,8 +285,8 @@
                                               shortDesc="#{bindings.SgsMarkupRateTblVO.hints.TpaId.tooltip}" id="it7">
                                     <f:validator binding="#{row.bindings.TpaId.validator}"/>
                                 </af:inputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.label}" id="c7">
+                            </af:column>-->
+                            <!--<af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.label}" id="c7">
                                 <af:inputText value="#{row.bindings.MarkUpRateId.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.mandatory}"
@@ -258,7 +296,7 @@
                                               id="it13">
                                     <f:validator binding="#{row.bindings.MarkUpRateId.validator}"/>
                                 </af:inputText>
-                            </af:column>
+                            </af:column>-->
                             <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}" id="c8">
                                 <af:inputText value="#{row.bindings.ServiceCategory.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}"
@@ -283,7 +321,7 @@
                                                       pattern="#{bindings.SgsMarkupRateTblVO.hints.MarkupRate.format}"/>
                                 </af:inputText>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.EffectiveFrom.label}" id="c10">
+                            <!--<af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.EffectiveFrom.label}" id="c10">
                                 <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.EffectiveFrom.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.EffectiveFrom.mandatory}"
@@ -293,8 +331,8 @@
                                     <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsMarkupRateTblVO.hints.EffectiveFrom.format}"/>
                                 </af:inputDate>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.EffectiveTo.label}" id="c11">
+                            </af:column>-->
+                            <!--<af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.EffectiveTo.label}" id="c11">
                                 <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.EffectiveTo.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.EffectiveTo.mandatory}"
@@ -304,8 +342,8 @@
                                     <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsMarkupRateTblVO.hints.EffectiveTo.format}"/>
                                 </af:inputDate>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.CreatedDate.label}" id="c12">
+                            </af:column>-->
+                            <!--<af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.CreatedDate.label}" id="c12">
                                 <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.CreatedDate.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.CreatedDate.mandatory}"
@@ -315,8 +353,8 @@
                                     <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsMarkupRateTblVO.hints.CreatedDate.format}"/>
                                 </af:inputDate>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.CreatedBy.label}" id="c13">
+                            </af:column>-->
+                            <!--<af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.CreatedBy.label}" id="c13">
                                 <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.CreatedBy.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.CreatedBy.mandatory}"
@@ -326,7 +364,7 @@
                                               id="it17">
                                     <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
                                 </af:inputText>
-                            </af:column>
+                            </af:column>-->
                         </af:table>
                     </af:panelCollection>
                 </af:panelBox>

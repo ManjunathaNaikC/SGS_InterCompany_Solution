@@ -40,7 +40,7 @@
                             <af:panelBox id="pb2" showDisclosure="false"
                                          
                                          titleHalign="center"
-             inlineStyle="text-align:center; margin:70px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px 5px; width:359px;">
+             inlineStyle="text-align:center; margin:70px;    margin-left: 150px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px 5px; width:359px;">
                                 <f:facet name="toolbar"/>
                                 <af:panelGroupLayout id="pgl3" halign="center" valign="middle" layout="vertical"
                                                      inlineStyle="background-color:transparent;">

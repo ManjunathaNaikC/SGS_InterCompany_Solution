@@ -250,6 +250,10 @@
             <url n="id" path="../../../../../Users/RP447WX/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <url n="id" path="../../../../../Users/Admin/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -286,6 +290,10 @@
          </hash>
          <hash>
             <url n="id" path="../../../../../Users/RP447WX/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../../../Users/Admin/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

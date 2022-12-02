@@ -95,9 +95,10 @@
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTpaDocTypeVO" Name="SgsTpaDocTypeVO0">
         <AttrNames>
           <Item Value="DocumentTypeValue"/>
-          <Item Value="Attachment"/>
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -126,5 +127,15 @@
     <action IterBinding="SgsMarkupRateTblVOIterator" id="Delete2"
             InstanceName="SGSAppModuleDataControl.SgsMarkupRateTblVO" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="PASSTHROUGHDEPTID">
+      <AttrNames>
+        <Item Value="PASSTHROUGHDEPTID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="PASSTHROUGHJOBCODE">
+      <AttrNames>
+        <Item Value="PASSTHROUGHJOBCODE"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

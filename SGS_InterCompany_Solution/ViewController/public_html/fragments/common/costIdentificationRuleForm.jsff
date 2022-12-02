@@ -25,7 +25,7 @@
                         </af:toolbar>
                     </f:facet>
                     <af:panelGroupLayout id="pgl2" layout="vertical">
-                    <af:panelFormLayout id="pfl1" rows="4">
+                    <af:panelFormLayout id="pfl1" rows="6">
                         <!--<af:inputText value="#{bindings.CostIdentificationId.inputValue}"
                                       label="#{bindings.CostIdentificationId.hints.label}"
                                       required="#{bindings.CostIdentificationId.hints.mandatory}"
@@ -79,7 +79,15 @@
                             <f:validator binding="#{bindings.EffectiveTo.validator}"/>
                             <af:convertDateTime pattern="#{bindings.EffectiveTo.format}"/>
                         </af:inputDate>
-                        <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
+                            <af:inputText value="#{bindings.EffectiveStatus.inputValue}"
+                                          label="#{bindings.EffectiveStatus.hints.label}"
+                                          required="#{bindings.EffectiveStatus.hints.mandatory}"
+                                          columns="#{bindings.EffectiveStatus.hints.displayWidth}"
+                                          maximumLength="#{bindings.EffectiveStatus.hints.precision}"
+                                          shortDesc="#{bindings.EffectiveStatus.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.EffectiveStatus.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
                                       required="#{bindings.CreatedBy.hints.mandatory}"
                                       columns="#{bindings.CreatedBy.hints.displayWidth}"
                                       maximumLength="#{bindings.CreatedBy.hints.precision}"
@@ -95,6 +103,23 @@
                             <f:validator binding="#{bindings.CreatedDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
                         </af:inputText>
+                            <af:inputText value="#{bindings.UpdatedBy.inputValue}"
+                                          label="#{bindings.UpdatedBy.hints.label}"
+                                          required="#{bindings.UpdatedBy.hints.mandatory}"
+                                          columns="#{bindings.UpdatedBy.hints.displayWidth}"
+                                          maximumLength="#{bindings.UpdatedBy.hints.precision}"
+                                          shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it25">
+                                <f:validator binding="#{bindings.UpdatedBy.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.UpdatedDate.inputValue}"
+                                          label="#{bindings.UpdatedDate.hints.label}"
+                                          required="#{bindings.UpdatedDate.hints.mandatory}"
+                                          columns="#{bindings.UpdatedDate.hints.displayWidth}"
+                                          maximumLength="#{bindings.UpdatedDate.hints.precision}"
+                                          shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="it26">
+                                <f:validator binding="#{bindings.UpdatedDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
+                            </af:inputText>
                         </af:panelFormLayout>
                         <!--<af:panelFormLayout id="pfl1" rows="4">
               <af:inputText value="#{bindings.RuleId1.inputValue}" label="Cost Identification ID"
@@ -286,7 +311,7 @@
                         </af:panelBox>
                         <af:panelBox text="Allocation Rule" id="pb2">
                             <f:facet name="toolbar"/>
-                            <af:panelFormLayout id="pfl2" rows="2">
+                            <!--<af:panelFormLayout id="pfl2" rows="2">
                                 <f:facet name="footer">
                                     <af:panelFormLayout id="pfl3" rows="2">
                                         <af:inputText value="#{bindings.FromGlAccount.inputValue}"
@@ -331,15 +356,15 @@
                                                       id="it13">
                                             <f:validator binding="#{bindings.OffsetOperatingUnit.validator}"/>
                                         </af:inputText>
-                                        <!--<af:inputDate value="#{bindings.EffectiveFrom1.inputValue}"
+                                        --><!--<af:inputDate value="#{bindings.EffectiveFrom1.inputValue}"
                                                       label="#{bindings.EffectiveFrom1.hints.label}"
                                                       required="#{bindings.EffectiveFrom1.hints.mandatory}"
                                                       columns="#{bindings.EffectiveFrom1.hints.displayWidth}"
                                                       shortDesc="#{bindings.EffectiveFrom1.hints.tooltip}" id="id5">
                                             <f:validator binding="#{bindings.EffectiveFrom1.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.EffectiveFrom1.format}"/>
-                                        </af:inputDate>-->
-                                        <!--<af:inputDate value="#{bindings.EffectiveTo1.inputValue}"
+                                        </af:inputDate>--><!--
+                                        --><!--<af:inputDate value="#{bindings.EffectiveTo1.inputValue}"
                                                       label="#{bindings.EffectiveTo1.hints.label}"
                                                       required="#{bindings.EffectiveTo1.hints.mandatory}"
                                                       columns="#{bindings.EffectiveTo1.hints.displayWidth}"
@@ -362,11 +387,159 @@
                                                       maximumLength="#{bindings.CreatedBy1.hints.precision}"
                                                       shortDesc="#{bindings.CreatedBy1.hints.tooltip}" id="it14">
                                             <f:validator binding="#{bindings.CreatedBy1.validator}"/>
-                                        </af:inputText>-->
+                                        </af:inputText>--><!--
                                     </af:panelFormLayout>
                                 </f:facet>
-                                <!-- data -->
-                            </af:panelFormLayout>
+                                --><!-- data --><!--
+                            </af:panelFormLayout>-->
+                            <af:panelCollection id="pc3" styleClass="AFStretchWidth">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t7">
+                                         <af:button id="b6" icon="/resources/icons/plus.png"/>
+                                        <af:button id="b7" icon="/resources/icons/delete.png"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.AllocationRuleVO.collectionModel}" var="row"
+                                          rows="#{bindings.AllocationRuleVO.rangeSize}"
+                                          emptyText="#{bindings.AllocationRuleVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.AllocationRuleVO.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.AllocationRuleVO.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.AllocationRuleVO.rangeSize}"
+                                          id="t6">
+                                    <!--<af:column headerText="#{bindings.AllocationRuleVO.hints.CostIdentificationId.label}"
+                                               id="c18">
+                                        <af:inputText value="#{row.bindings.CostIdentificationId.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.CostIdentificationId.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.CostIdentificationId.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.CostIdentificationId.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.CostIdentificationId.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.CostIdentificationId.tooltip}"
+                                                      id="it1">
+                                            <f:validator binding="#{row.bindings.CostIdentificationId.validator}"/>
+                                        </af:inputText>
+                                    </af:column>-->
+                                    <!--<af:column headerText="#{bindings.AllocationRuleVO.hints.EffectiveFrom.label}"
+                                               id="c19">
+                                        <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.EffectiveFrom.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.EffectiveFrom.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.EffectiveFrom.displayWidth}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.EffectiveFrom.tooltip}"
+                                                      id="id5">
+                                            <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.AllocationRuleVO.hints.EffectiveFrom.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.EffectiveTo.label}"
+                                               id="c20">
+                                        <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.EffectiveTo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.EffectiveTo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.EffectiveTo.displayWidth}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.EffectiveTo.tooltip}"
+                                                      id="id6">
+                                            <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.AllocationRuleVO.hints.EffectiveTo.format}"/>
+                                        </af:inputDate>
+                                    </af:column>-->
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.FromGlAccount.label}"
+                                               id="c21">
+                                        <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.FromGlAccount.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.FromGlAccount.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.FromGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.FromGlAccount.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.FromGlAccount.tooltip}"
+                                                      id="it10">
+                                            <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.IcLineNo.label}" id="c22">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.IcLineNo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.IcLineNo.tooltip}"
+                                                      id="it11">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OcLineNo.label}" id="c23">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OcLineNo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OcLineNo.tooltip}"
+                                                      id="it12">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetBusinessUnit.label}"
+                                               id="c24">
+                                        <af:inputText value="#{row.bindings.OffsetBusinessUnit.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OffsetBusinessUnit.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OffsetBusinessUnit.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetBusinessUnit.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetBusinessUnit.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetBusinessUnit.tooltip}"
+                                                      id="it13">
+                                            <f:validator binding="#{row.bindings.OffsetBusinessUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.label}"
+                                               id="c25">
+                                        <af:inputText value="#{row.bindings.OffsetGlAccount.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.tooltip}"
+                                                      id="it14">
+                                            <f:validator binding="#{row.bindings.OffsetGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetJobCode.label}"
+                                               id="c26">
+                                        <af:inputText value="#{row.bindings.OffsetJobCode.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OffsetJobCode.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OffsetJobCode.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetJobCode.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetJobCode.tooltip}"
+                                                      id="it22">
+                                            <f:validator binding="#{row.bindings.OffsetJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetOperatingUnit.label}"
+                                               id="c27">
+                                        <af:inputText value="#{row.bindings.OffsetOperatingUnit.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OffsetOperatingUnit.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OffsetOperatingUnit.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetOperatingUnit.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetOperatingUnit.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetOperatingUnit.tooltip}"
+                                                      id="it23">
+                                            <f:validator binding="#{row.bindings.OffsetOperatingUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}" id="c28">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.TcLineNo.tooltip}"
+                                                      id="it24">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
                         </af:panelBox>
                         <af:panelBox text="Cross Charge Combination" id="pb4">
                             <f:facet name="toolbar"/>

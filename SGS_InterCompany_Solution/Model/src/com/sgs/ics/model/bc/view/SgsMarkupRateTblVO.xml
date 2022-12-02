@@ -42,14 +42,28 @@
     PrecisionRule="true"
     EntityAttrName="ServiceCategory"
     EntityUsage="SgsMarkupRateTblEO"
-    AliasName="SERVICE_CATEGORY"/>
+    AliasName="SERVICE_CATEGORY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsMarkupRateTblVO.ServiceCategory_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="MarkupRate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="MarkupRate"
     EntityUsage="SgsMarkupRateTblEO"
-    AliasName="MARKUP_RATE"/>
+    AliasName="MARKUP_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsMarkupRateTblVO.MarkupRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EffectiveFrom"
     PrecisionRule="true"
@@ -184,4 +198,8 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

@@ -55,6 +55,8 @@ public class SgsTpaMasterImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        PASSTHROUGHDEPTID,
+        PASSTHROUGHJOBCODE,
         SgsTpaDocType1,
         SgsMarkupRateTblEO;
         private static AttributesEnum[] vals = null;
@@ -113,6 +115,8 @@ public class SgsTpaMasterImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int PASSTHROUGHDEPTID = AttributesEnum.PASSTHROUGHDEPTID.index();
+    public static final int PASSTHROUGHJOBCODE = AttributesEnum.PASSTHROUGHJOBCODE.index();
     public static final int SGSTPADOCTYPE1 = AttributesEnum.SgsTpaDocType1.index();
     public static final int SGSMARKUPRATETBLEO = AttributesEnum.SgsMarkupRateTblEO.index();
 
@@ -626,6 +630,38 @@ public class SgsTpaMasterImpl extends EntityImpl {
         setAttributeInternal(ATTRIBUTE15, value);
     }
 
+
+    /**
+     * Gets the attribute value for PASSTHROUGHDEPTID, using the alias name PASSTHROUGHDEPTID.
+     * @return the value of PASSTHROUGHDEPTID
+     */
+    public String getPASSTHROUGHDEPTID() {
+        return (String) getAttributeInternal(PASSTHROUGHDEPTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PASSTHROUGHDEPTID.
+     * @param value value to set the PASSTHROUGHDEPTID
+     */
+    public void setPASSTHROUGHDEPTID(String value) {
+        setAttributeInternal(PASSTHROUGHDEPTID, value);
+    }
+
+    /**
+     * Gets the attribute value for PASSTHROUGHJOBCODE, using the alias name PASSTHROUGHJOBCODE.
+     * @return the value of PASSTHROUGHJOBCODE
+     */
+    public String getPASSTHROUGHJOBCODE() {
+        return (String) getAttributeInternal(PASSTHROUGHJOBCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PASSTHROUGHJOBCODE.
+     * @param value value to set the PASSTHROUGHJOBCODE
+     */
+    public void setPASSTHROUGHJOBCODE(String value) {
+        setAttributeInternal(PASSTHROUGHJOBCODE, value);
+    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.

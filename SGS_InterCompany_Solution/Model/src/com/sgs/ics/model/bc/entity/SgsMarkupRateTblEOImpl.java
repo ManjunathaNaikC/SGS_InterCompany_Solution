@@ -1,8 +1,12 @@
 package com.sgs.ics.model.bc.entity;
 
+import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
+
 import java.math.BigDecimal;
 
 import java.sql.Date;
+
+import oracle.adf.share.logging.ADFLogger;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
@@ -68,7 +72,7 @@ public class SgsMarkupRateTblEOImpl extends EntityImpl {
             return vals;
         }
     }
-
+    private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsMarkupRateTblEOImpl.class);
 
     public static final int MARKUPRATESEQID = AttributesEnum.MarkupRateSeqId.index();
     public static final int TPAID = AttributesEnum.TpaId.index();
@@ -559,6 +563,12 @@ public class SgsMarkupRateTblEOImpl extends EntityImpl {
      */
     protected void create(AttributeList attributeList) {
         super.create(attributeList);
+        try {
+            SGSAppModuleImpl am = new SGSAppModuleImpl();
+            setMarkUpRateId(am.getDBSequence("SEQ_SGS_MARKUP_RATE_TBL"));
+        } catch (Exception e) {
+            LOG.severe(e);
+        }
     }
 }
 

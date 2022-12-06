@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">businessUnitMaster</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">545.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>businessUnitMaster&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">206.89648</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>businessUnitMasterFormADD&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">businessUnitMasterFormADD</property>
+      <property
+         name="x">976.6885</property>
+      <property
+         name="y">154.44824</property>
+      <property
+         name="documentReference">/taskflows/commom/sgs-businessUnitMasterForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-businessUnitMasterForm-flow</property>
+   </TaskFlowCall>
+   <TaskFlowCall
+      id="TaskFlowCall4">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>businessUnitMasterFormEDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">businessUnitMasterFormEDIT</property>
+      <property
+         name="x">969.0254</property>
+      <property
+         name="y">341.74707</property>
+      <property
+         name="documentReference">/taskflows/commom/sgs-businessUnitMasterForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-businessUnitMasterForm-flow</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">ADD</property>
+      <property
+         name="sdm:polyPoints">R50,586.0,206.5459,935.6885,154.09766,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="TaskFlowCall4">
+      <property
+         name="fromOutcome">EDIT</property>
+      <property
+         name="sdm:polyPoints">R54,586.0,210.0459,928.0254,341.39648,L50</property>
+   </ControlFlowCase>
+</SDM>

@@ -89,8 +89,16 @@ public class NavigateBean implements Serializable {
         return null;
     }
 
+
     public String welcomeemptyflow() {
         setDynamicTaskFlowId("/taskflows/commom/welcome-empty-flow.xml#welcome-empty-flow");
+    public String sgsbusinessUnitMasterflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-businessUnitMaster-flow.xml#sgs-businessUnitMaster-flow");
+        return null;
+    }
+
+    public String sgsstandardRateSetupflow() {
+        setDynamicTaskFlowId("/taskflows/Transaction Data/sgs-standardRateSetup-flow.xml#sgs-standardRateSetup-flow");
         return null;
     }
 }

@@ -153,7 +153,10 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_TPA_MASTER"/>
+    TableName="SGS_TPA_MASTER"
+    ChangeIndicator="true"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -162,7 +165,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_TPA_MASTER">
+    TableName="SGS_TPA_MASTER"
+    ChangeIndicator="true"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -173,7 +179,9 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_TPA_MASTER"/>
+    TableName="SGS_TPA_MASTER"
+    HistoryColumn="DateHistory"
+    ChangeIndicator="true"/>
   <Attribute
     Name="UpdatedBy"
     Precision="80"
@@ -181,7 +189,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_TPA_MASTER">
+    TableName="SGS_TPA_MASTER"
+    ChangeIndicator="true"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

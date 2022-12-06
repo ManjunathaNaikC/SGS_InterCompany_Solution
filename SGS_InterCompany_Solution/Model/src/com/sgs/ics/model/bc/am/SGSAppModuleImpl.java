@@ -36,7 +36,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
         PreparedStatement pst = null;
         try {
             String connectionUrl =
-                "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
+                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
            // jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;
             conn = DriverManager.getConnection(connectionUrl);
             String sqlIdentifier = "select next value for " + seqName;

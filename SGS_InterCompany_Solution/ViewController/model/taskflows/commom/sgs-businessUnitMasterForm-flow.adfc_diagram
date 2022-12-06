@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">businessUnitMasterForm</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">596.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>businessUnitMasterForm&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">202.89648</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn3">
+      <property
+         name="activityId">backToDashBoard</property>
+      <property
+         name="x">908.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>backToDashBoard&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  backToDashBoard&lt;/p></property>
+      <property
+         name="y">141.24707</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="exceptionHandler">false</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowReturn3">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">R50,637.0,202.5459,867.0,140.89648,L50</property>
+   </ControlFlowCase>
+</SDM>

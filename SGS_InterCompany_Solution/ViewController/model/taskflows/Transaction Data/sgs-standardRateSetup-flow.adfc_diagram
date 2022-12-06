@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">standardRateSetup</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">552.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>standardRateSetup&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">216.89648</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>standardSetupRuleADD&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">standardSetupRuleADD</property>
+      <property
+         name="x">995.3701</property>
+      <property
+         name="y">139.44824</property>
+      <property
+         name="documentReference">/taskflows/Transaction Data/sgs-standardSetupRuleForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-standardSetupRuleForm-flow</property>
+   </TaskFlowCall>
+   <TaskFlowCall
+      id="TaskFlowCall4">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>standardSetupRuleEDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">standardSetupRuleEDIT</property>
+      <property
+         name="x">1006.70703</property>
+      <property
+         name="y">356.74707</property>
+      <property
+         name="documentReference">/taskflows/Transaction Data/sgs-standardSetupRuleForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-standardSetupRuleForm-flow</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">ADD</property>
+      <property
+         name="sdm:polyPoints">R50,593.0,216.5459,954.3701,139.09766,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="TaskFlowCall4">
+      <property
+         name="fromOutcome">EDIT</property>
+      <property
+         name="sdm:polyPoints">R54,593.0,220.0459,965.70703,356.39648,L50</property>
+   </ControlFlowCase>
+</SDM>

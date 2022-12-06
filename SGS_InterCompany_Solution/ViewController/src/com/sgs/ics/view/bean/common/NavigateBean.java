@@ -86,4 +86,14 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/commom/TPASetup-flow.xml#TPASetupBTF");
         return null;
     }
+
+    public String sgsbusinessUnitMasterflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-businessUnitMaster-flow.xml#sgs-businessUnitMaster-flow");
+        return null;
+    }
+
+    public String sgsstandardRateSetupflow() {
+        setDynamicTaskFlowId("/taskflows/Transaction Data/sgs-standardRateSetup-flow.xml#sgs-standardRateSetup-flow");
+        return null;
+    }
 }

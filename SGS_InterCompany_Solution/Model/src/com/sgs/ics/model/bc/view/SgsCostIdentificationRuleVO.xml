@@ -40,6 +40,10 @@
     Name="bCostGroup"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bNatureOfExpense"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AllocationBasisLOV"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
@@ -120,24 +124,18 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
-  <ListBinding
-    Name="LOV_DataSource"
-    ListVOName="DataSourceLOV"
-    NullValueFlag="none"
-    MRUCount="0"
-    ComboRowCountHint="10">
-    <AttrArray Name="AttrNames">
-      <Item Value="DataSource"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="LookupCode"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Meaning"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
+  <ViewAccessor
+    Name="AllocationBasisLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.AllocationBasisLookupVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="NatureOfExpenseLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.NatureOfExpenseLookupVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DataSourceLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.DataSourceLookupVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ServiceCategory"
     ListVOName="ServiceCategoryLOV"
@@ -175,38 +173,56 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_NatureOfExpense"
-    ListVOName="NatureOfExpense1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="NatureOfExpense"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="CIR_ID"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="NatureOfExpense"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_AllocationBasis"
-    ListVOName="SgsLookupVO1"
-    ComboRowCountHint="10"
+    ListVOName="AllocationBasisLookupVO1"
     NullValueFlag="none"
-    MRUCount="0">
+    MRUCount="0"
+    ComboRowCountHint="10">
     <AttrArray Name="AttrNames">
       <Item Value="AllocationBasis"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="LookupCode"/>
+      <Item Value="LOOKUPCODE"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Meaning"/>
+      <Item Value="MEANING"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NatureOfExpense"
+    ListVOName="NatureOfExpenseLookupVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NatureOfExpense"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LOOKUPCODE"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MEANING"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DataSource"
+    ListVOName="DataSourceLookupVO1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="DataSource"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LOOKUPCODE"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MEANING"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -245,8 +261,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.AllocationBasis_LABEL"/>
         <FIELDORDER
           Value="3.0"/>
+        <DISPLAYWIDTH
+          Value="50"/>
         <CONTROLTYPE
-          Value="combo_lov"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -536,8 +554,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.DataSource_LABEL"/>
         <FIELDORDER
           Value="22.0"/>
+        <DISPLAYWIDTH
+          Value="50"/>
         <CONTROLTYPE
-          Value="combo_lov"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -581,6 +601,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="25.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.InputProvider_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -594,6 +616,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="26.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.InvJournalGrpCode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -608,6 +632,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="27.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.NatureOfExpense_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
       </SchemaBasedProperties>
@@ -626,6 +652,8 @@
           Value="choice"/>
         <FIELDORDER
           Value="28.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.ServiceCategory_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -639,6 +667,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="29.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.TrueUpDownApplicability_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -652,6 +682,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="30.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.TrueUpDownFrequency_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -761,6 +793,42 @@
         Operator="="
         Conjunction="AND"
         Value=":bEffectiveTo"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="NatureOfExpenseVC"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SgsCostIdentificationRuleVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="NatureOfExpense"
+        ViewAttribute="NatureOfExpense"
+        Operator="="
+        Conjunction="AND"
+        Value=":bNatureOfExpense"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

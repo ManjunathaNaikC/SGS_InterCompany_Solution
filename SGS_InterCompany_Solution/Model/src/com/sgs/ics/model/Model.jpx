@@ -46,6 +46,15 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VL" Value="true"/>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="lookupVo"
+    PackageName="com.sgs.ics.model.bc.view.lookupVo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

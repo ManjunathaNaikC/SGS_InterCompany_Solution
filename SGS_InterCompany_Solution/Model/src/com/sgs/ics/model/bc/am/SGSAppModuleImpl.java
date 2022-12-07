@@ -198,5 +198,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
     public ViewObjectImpl getSgsLookupVO1() {
         return (ViewObjectImpl) findViewObject("SgsLookupVO1");
     }
+
+    /**
+     * Container's getter for NatureOfExpenseLookupVO1.
+     * @return NatureOfExpenseLookupVO1
+     */
+    public ViewObjectImpl getNatureOfExpenseLookupVO1() {
+        return (ViewObjectImpl) findViewObject("NatureOfExpenseLookupVO1");
+    }
 }
 

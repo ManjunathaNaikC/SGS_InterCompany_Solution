@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="SGS_COST_IDENTIFICATION_COMBINATION"
   AliasName="SgsCostIdentificationCombina1"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="com.sgs.ics.model.bc.entity.SgsCostIdentificationCombinationEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="CostIdentificationId"
     IsNotNull="true"

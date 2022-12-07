@@ -58,6 +58,8 @@
           <Item Value="FromJobCode"/>
           <Item Value="EffectiveFrom"/>
           <Item Value="EffectiveTo"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -165,5 +167,16 @@
         <Item Value="EffectiveStatus"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="AllocationRuleVOIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AllocationRuleVOIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="CrossChargeCombinationVOIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="CrossChargeCombinationVOIterator" id="Delete3" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

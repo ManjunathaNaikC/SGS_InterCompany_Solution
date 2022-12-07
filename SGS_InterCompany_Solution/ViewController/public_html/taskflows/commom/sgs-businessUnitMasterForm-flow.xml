@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sgs-businessUnitMasterForm-flow">
+    <default-activity>businessUnitMasterForm</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="businessUnitMasterForm"></view>
+    <task-flow-return id="backToDashBoard">
+      <outcome>
+        <name>backToDashBoard</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>businessUnitMasterForm</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>backToDashBoard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

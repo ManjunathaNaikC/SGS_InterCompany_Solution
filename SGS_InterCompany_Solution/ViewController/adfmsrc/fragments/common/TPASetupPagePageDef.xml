@@ -22,6 +22,8 @@
           <Item Value="PassThroughBu"/>
           <Item Value="OperationUnit"/>
           <Item Value="EffectiveTo"/>
+          <Item Value="PASSTHROUGHDEPTID"/>
+          <Item Value="PASSTHROUGHJOBCODE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

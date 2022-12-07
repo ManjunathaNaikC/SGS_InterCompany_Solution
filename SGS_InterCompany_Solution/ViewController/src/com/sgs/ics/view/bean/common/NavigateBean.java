@@ -19,7 +19,9 @@ public class NavigateBean implements Serializable {
     private String taskFlowId = "/taskflows/commom/sgs-costIdentificationRule-flow.xml#sgs-costIdentificationRule-flow";
 
     public NavigateBean() {
+        
         super();
+        taskFlowId ="/taskflows/commom/welcome-empty-flow.xml#welcome-empty-flow";
     }
 
 //    public void setMainTFBinding(RichRegion mainTFBinding) {
@@ -84,6 +86,19 @@ public class NavigateBean implements Serializable {
 
     public String tPASetupBTF() {
         setDynamicTaskFlowId("/taskflows/commom/TPASetup-flow.xml#TPASetupBTF");
+        return null;
+    }
+
+
+    public String welcomeemptyflow() {
+        setDynamicTaskFlowId("/taskflows/commom/welcome-empty-flow.xml#welcome-empty-flow");
+    public String sgsbusinessUnitMasterflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-businessUnitMaster-flow.xml#sgs-businessUnitMaster-flow");
+        return null;
+    }
+
+    public String sgsstandardRateSetupflow() {
+        setDynamicTaskFlowId("/taskflows/Transaction Data/sgs-standardRateSetup-flow.xml#sgs-standardRateSetup-flow");
         return null;
     }
 }

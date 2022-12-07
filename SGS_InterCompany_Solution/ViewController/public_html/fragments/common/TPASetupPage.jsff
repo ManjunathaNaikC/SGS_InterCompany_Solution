@@ -78,6 +78,14 @@
                 <af:outputText value="#{row.OperationUnit}"
                                shortDesc="#{bindings.SgsTpaMasterVO.hints.OperationUnit.tooltip}" id="ot9"/>
               </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.PASSTHROUGHDEPTID.label}" id="c1">
+                <af:outputText value="#{row.PASSTHROUGHDEPTID}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.PASSTHROUGHDEPTID.tooltip}" id="ot1"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMasterVO.hints.PASSTHROUGHJOBCODE.label}" id="c2">
+                <af:outputText value="#{row.PASSTHROUGHJOBCODE}"
+                               shortDesc="#{bindings.SgsTpaMasterVO.hints.PASSTHROUGHJOBCODE.tooltip}" id="ot11"/>
+              </af:column>
               <af:column headerText="#{bindings.SgsTpaMasterVO.hints.EffectiveTo.label}" id="resId1c10">
                 <af:outputText value="#{row.EffectiveTo}"
                                shortDesc="#{bindings.SgsTpaMasterVO.hints.EffectiveTo.tooltip}" id="ot10">

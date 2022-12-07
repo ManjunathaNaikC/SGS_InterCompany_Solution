@@ -21,6 +21,13 @@
                                              id="l1"/>
                                     <af:link text="Transfer Pricing Agreement Setup" action="#{pageFlowScope.navigateBean.tPASetupBTF}"
                                              id="l2"/>
+
+                                    <<af:link text="welcome-empty-flow"
+                                             action="#{pageFlowScope.navigateBean.welcomeemptyflow}" id="l3"/>
+
+                                    <af:link text="Business Unit Setup"
+                                             action="#{pageFlowScope.navigateBean.sgsbusinessUnitMasterflow}" id="l3"/>
+
                                     <!--<af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" id="gl1"
                                              inlineStyle="font-weight:bold;"
                                              actionListener="#{pageFlowScope.navigateBean.loadCostAllocaionSetup}"/>
@@ -41,7 +48,12 @@
                                              inlineStyle="font-weight:bold;"/>-->
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Transaction" text="Transactional Data"/>
+                            <af:showDetailItem id="Transaction" text="Transactional Data">
+                                <af:panelList id="pl2">
+                                    <af:link text="Standard Rate Setup"
+                                             action="#{pageFlowScope.navigateBean.sgsstandardRateSetupflow}" id="l4"/>
+                                </af:panelList>
+                            </af:showDetailItem>
                             <af:showDetailItem id="Process" text="Process"/>
                             <af:showDetailItem id="Reports" text="Reports"/>
                             <af:showDetailItem id="Security" text="Security" disclosed="true">
@@ -52,7 +64,11 @@
                     <f:facet name="second">
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                       partialTriggers="::l1 ::l2"/>
+
+                                       partialTriggers="::l1 ::l2 ::l3"/>
+
+                                       partialTriggers="::l1 ::l2 ::l3 ::l4"/>
+
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r1" rendered="false"

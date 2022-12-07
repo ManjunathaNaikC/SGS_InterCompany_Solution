@@ -208,8 +208,12 @@
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t3">
-                                        <af:button id="b8" icon="/resources/icons/plus.png"/>
-                                        <af:button id="b9" icon="/resources/icons/delete.png"/>
+                                       
+                                        <af:button id="b8" icon="/resources/icons/plus.png" actionListener="#{bindings.CreateInsert.execute}"
+                                                   disabled="#{!bindings.CreateInsert.enabled}"/>
+                                        <af:button id="b9" icon="/resources/icons/delete.png"  actionListener="#{bindings.Delete1.execute}" 
+                                                   disabled="#{!bindings.Delete1.enabled}"/>
+                                        
                                     </af:toolbar>
                                 </f:facet>
                                 <!-- data-->
@@ -220,7 +224,8 @@
                                           selectedRowKeys="#{bindings.SgsCostIdentificationCombinationVO.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.SgsCostIdentificationCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
-                                          fetchSize="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}" id="t2">
+                                          fetchSize="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}" id="t2"
+                                          partialTriggers="::b8 ::b9">
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromBusinessUnit.label}"
                                                id="c1">
                                         <af:inputText value="#{row.bindings.FromBusinessUnit.inputValue}"
@@ -281,6 +286,30 @@
                                             <f:validator binding="#{row.bindings.FromJobCode.validator}"/>
                                         </af:inputText>
                                     </af:column>
+                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.label}"
+                                               id="c18">
+                                        <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.tooltip}"
+                                                      id="it27">
+                                            <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.label}"
+                                               id="c19">
+                                        <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.displayWidth}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.tooltip}"
+                                                      id="id5">
+                                            <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.EffectiveFrom.label}"
                                                id="c6">
                                         <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
@@ -309,7 +338,7 @@
                                 <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:panelBox>
-                        <af:panelBox text="Allocation Rule" id="pb2">
+                        <af:panelBox text="Target Combination" id="pb2">
                             <f:facet name="toolbar"/>
                             <!--<af:panelFormLayout id="pfl2" rows="2">
                                 <f:facet name="footer">
@@ -396,8 +425,13 @@
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t7">
-                                         <af:button id="b6" icon="/resources/icons/plus.png"/>
-                                        <af:button id="b7" icon="/resources/icons/delete.png"/>
+                                         <!--<af:button id="b6" icon="/resources/icons/plus.png"/>-->
+                                        <af:button actionListener="#{bindings.CreateInsert1.execute}"
+                                                   icon="/resources/icons/plus.png" disabled="#{!bindings.CreateInsert1.enabled}"
+                                                   id="b6"/>
+                                        <af:button actionListener="#{bindings.Delete2.execute}" icon="/resources/icons/delete.png"
+                                                   disabled="#{!bindings.Delete2.enabled}" id="b7"/>
+                                        <!--<af:button id="b7" icon="/resources/icons/delete.png"/>-->
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="statusbar"/>
@@ -408,7 +442,7 @@
                                           selectedRowKeys="#{bindings.AllocationRuleVO.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.AllocationRuleVO.collectionModel.makeCurrent}"
                                           rowSelection="single" fetchSize="#{bindings.AllocationRuleVO.rangeSize}"
-                                          id="t6">
+                                          id="t6" partialTriggers="::b6 ::b7">
                                     <!--<af:column headerText="#{bindings.AllocationRuleVO.hints.CostIdentificationId.label}"
                                                id="c18">
                                         <af:inputText value="#{row.bindings.CostIdentificationId.inputValue}"
@@ -547,8 +581,13 @@
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t4">
-                                        <af:button id="b4" icon="/resources/icons/plus.png"/>
-                                        <af:button id="b5" icon="/resources/icons/delete.png"/>
+                                        <!--<af:button id="b4" icon="/resources/icons/plus.png"/>-->
+                                        <af:button actionListener="#{bindings.CreateInsert2.execute}"
+                                                  icon="/resources/icons/plus.png" disabled="#{!bindings.CreateInsert2.enabled}"
+                                                   id="b10"/>
+                                        <af:button actionListener="#{bindings.Delete3.execute}" icon="/resources/icons/delete.png"
+                                                   disabled="#{!bindings.Delete3.enabled}" id="b11"/>
+                                        <!--<af:button id="b5" icon="/resources/icons/delete.png"/>-->
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="statusbar"/>
@@ -561,7 +600,7 @@
                                           selectionListener="#{bindings.CrossChargeCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
                                           fetchSize="#{bindings.CrossChargeCombinationVO.rangeSize}" id="t5"
-                                          styleClass="AFStretchWidth">
+                                          styleClass="AFStretchWidth" partialTriggers="::b10 ::b11">
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.label}"
                                                id="c8">
                                         <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"

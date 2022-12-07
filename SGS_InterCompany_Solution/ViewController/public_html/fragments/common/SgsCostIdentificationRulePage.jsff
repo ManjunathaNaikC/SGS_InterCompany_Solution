@@ -10,25 +10,46 @@
             <af:panelGroupLayout id="pgl1" layout="vertical">
                 <af:panelBox text="Cost Identifier Rule" id="pb1">
                     <f:facet name="toolbar"/>
-                    <af:panelGroupLayout layout="vertical" id="pgl2" partialTriggers="pb2">
+                    <af:panelGroupLayout layout="vertical" id="pgl2" partialTriggers="pb2"  styleClass="AFStretchWidth">
                         <af:panelBox text="Nature Of Expense" id="pb2">
                             <f:facet name="toolbar"/>
-                            <af:selectOneChoice value="#{bindings.NatureOfExpense.inputValue}"
+                            <!--<af:selectOneChoice value="#{bindings.NatureOfExpense.inputValue}"
                                                 label="#{bindings.NatureOfExpense.label}"
                                                 required="#{bindings.NatureOfExpense.hints.mandatory}"
                                                 shortDesc="#{bindings.NatureOfExpense.hints.tooltip}" id="soc3"
                                                 autoSubmit="true">
                                 <f:selectItems value="#{bindings.NatureOfExpense.items}" id="si3"/>
                                 <f:validator binding="#{bindings.NatureOfExpense.validator}"/>
+                            </af:selectOneChoice>-->
+                            <af:selectOneChoice value="#{bindings.NatureOfExpenseLookupVO1.inputValue}"
+                                                label="Nature Of Expense"
+                                                required="#{bindings.NatureOfExpenseLookupVO1.hints.mandatory}"
+                                                shortDesc="#{bindings.NatureOfExpenseLookupVO1.hints.tooltip}"
+                                                id="soc1"
+                                                valueChangeListener="#{viewScope.ValueChangeListener.onChangeOfNatureOfExpense}"
+                                                partialTriggers="pc1 pc1:resId1" autoSubmit="true">
+                                <f:selectItems value="#{bindings.NatureOfExpenseLookupVO1.items}" id="si1"/>
+                                <f:validator binding="#{bindings.NatureOfExpenseLookupVO1.validator}"/>
                             </af:selectOneChoice>
                         </af:panelBox>
-                        <af:panelHeader text="" id="ph1">
-                            <af:query id="qryId1" headerText="Search" disclosed="true"
-                                      value="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.queryDescriptor}"
-                                      model="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.queryModel}"
-                                      queryListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.processQuery}"
-                                      queryOperationListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.processQueryOperation}"
-                                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+                        <af:panelHeader text="" id="ph1" >
+                  
+                                <!--<af:query id="qryId1" headerText="Search" disclosed="true"
+                                          value="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.queryDescriptor}"
+                                          model="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.queryModel}"
+                                          queryListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.processQuery}"
+                                          queryOperationListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery.processQueryOperation}"
+                                          resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="3"
+                                          maxColumns="4"/>-->
+                    
+                                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                                              value="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery1.queryDescriptor}"
+                                              model="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery1.queryModel}"
+                                              queryListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery1.processQuery}"
+                                              queryOperationListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery1.processQueryOperation}"
+                                               resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="3"
+                                          maxColumns="4"/>
+
                         </af:panelHeader>
                         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                             <f:facet name="menus"/>
@@ -187,7 +208,19 @@
                                                    id="ot1"/>-->
                                     <af:link text="#{row.CostIdentificationName}" id="l1" action="Edit"/>
                                 </af:column>
-                                
+                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.label}"
+                                           id="c28">
+                                    <af:selectOneChoice value="#{row.bindings.NatureOfExpense.inputValue}"
+                                                        label="#{row.bindings.NatureOfExpense.label}"
+                                                        required="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.mandatory}"
+                                                        shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.tooltip}"
+                                                        readOnly="true" id="soc7">
+                                        <f:selectItems value="#{row.bindings.NatureOfExpense.items}" id="si7"/>
+                                        <f:validator binding="#{row.bindings.NatureOfExpense.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.label}"
@@ -303,19 +336,6 @@
                                     <af:outputText value="#{row.InvJournalGrpCode}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.tooltip}"
                                                    id="ot35"/>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.name}"
-                                           filterable="true"
-                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.label}"
-                                           id="c28">
-                                    <af:selectOneChoice value="#{row.bindings.NatureOfExpense.inputValue}"
-                                                        label="#{row.bindings.NatureOfExpense.label}"
-                                                        required="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.mandatory}"
-                                                        shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.tooltip}"
-                                                        readOnly="true" id="soc7">
-                                        <f:selectItems value="#{row.bindings.NatureOfExpense.items}" id="si7"/>
-                                        <f:validator binding="#{row.bindings.NatureOfExpense.validator}"/>
-                                    </af:selectOneChoice>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownApplicability.name}"
                                            filterable="true"

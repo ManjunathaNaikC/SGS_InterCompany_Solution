@@ -73,6 +73,27 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <ViewAccessor
+    Name="YesOrNoLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.link.YesOrNoLookupVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_PassThroughFlag"
+    ListVOName="YesOrNoLookupVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PassThroughFlag"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LOOKUPCODE"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MEANING"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsTpaMaster"
     Entity="com.sgs.ics.model.bc.entity.SgsTpaMaster"/>
@@ -143,13 +164,16 @@
     PrecisionRule="true"
     EntityAttrName="PassThroughFlag"
     EntityUsage="SgsTpaMaster"
-    AliasName="PASS_THROUGH_FLAG">
+    AliasName="PASS_THROUGH_FLAG"
+    LOVName="LOV_PassThroughFlag">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="7.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTpaMasterVO.PassThroughFlag_LABEL"/>
+        <CONTROLTYPE
+          Value="radio"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

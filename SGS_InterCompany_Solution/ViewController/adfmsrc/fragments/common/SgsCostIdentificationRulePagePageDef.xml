@@ -11,6 +11,11 @@
     <searchRegion Criteria="SgsCostIdentificationRuleVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVOCriteriaQuery"/>
+    <searchRegion Criteria="SgsCostIdentificationRuleVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVOCriteriaQuery1"/>
+    <iterator Binds="NatureOfExpenseLookupVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="NatureOfExpenseLookupVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVO">
@@ -97,5 +102,12 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <list IterBinding="NatureOfExpenseLookupVO1Iterator" ListOperMode="navigation"
+          ListIter="NatureOfExpenseLookupVO1Iterator" id="NatureOfExpenseLookupVO1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="MEANING"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>

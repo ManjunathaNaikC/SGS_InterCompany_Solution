@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="businessUnitMasterFormPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsBusinessUnitMasterVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsBusinessUnitMasterVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="BussinessUnitId">
+      <AttrNames>
+        <Item Value="BussinessUnitId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="BussinessUnitName">
+      <AttrNames>
+        <Item Value="BussinessUnitName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="OperatingUnit">
+      <AttrNames>
+        <Item Value="OperatingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="LegalEntity">
+      <AttrNames>
+        <Item Value="LegalEntity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="BussinessUnitGeography">
+      <AttrNames>
+        <Item Value="BussinessUnitGeography"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="BussinessUnitZone">
+      <AttrNames>
+        <Item Value="BussinessUnitZone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="GstRegNum">
+      <AttrNames>
+        <Item Value="GstRegNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="BussinessUnitStatus">
+      <AttrNames>
+        <Item Value="BussinessUnitStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="FunctionalCurrency">
+      <AttrNames>
+        <Item Value="FunctionalCurrency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="SubLedgerApplicability">
+      <AttrNames>
+        <Item Value="SubLedgerApplicability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="IcoSupplierName">
+      <AttrNames>
+        <Item Value="IcoSupplierName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="IcoCustomerName">
+      <AttrNames>
+        <Item Value="IcoCustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="CollectionBu">
+      <AttrNames>
+        <Item Value="CollectionBu"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="PayingBu">
+      <AttrNames>
+        <Item Value="PayingBu"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="AlternateBu">
+      <AttrNames>
+        <Item Value="AlternateBu"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="BusinessControllers">
+      <AttrNames>
+        <Item Value="BusinessControllers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="EFFECTIVESTARTDATE">
+      <AttrNames>
+        <Item Value="EFFECTIVESTARTDATE"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="EFFECTIVEENDDATE">
+      <AttrNames>
+        <Item Value="EFFECTIVEENDDATE"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="UpdatedBy">
+      <AttrNames>
+        <Item Value="UpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsBusinessUnitMasterVO1Iterator" id="UpdatedDate">
+      <AttrNames>
+        <Item Value="UpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SgsBusinessUnitMasterVO1Iterator" id="Delete"
+            InstanceName="SGSAppModuleDataControl.SgsBusinessUnitMasterVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

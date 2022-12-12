@@ -5,18 +5,33 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="businessUnitMaster"></view>
+    <managed-bean id="__4">
+      <managed-bean-name>BusinessUnitsMasterBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.bean.common.BusinessUnitsMasterBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="businessUnitMaster">
+      <page>/fragments/common/businessUnitMaster.jsff</page>
+    </view>
     <task-flow-call id="businessUnitMasterFormADD">
       <task-flow-reference>
         <document>/taskflows/commom/sgs-businessUnitMasterForm-flow.xml</document>
         <id>sgs-businessUnitMasterForm-flow</id>
       </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pBUMAddEdit</name>
+        <value>ADD</value>
+      </input-parameter>
     </task-flow-call>
     <task-flow-call id="businessUnitMasterFormEDIT">
       <task-flow-reference>
         <document>/taskflows/commom/sgs-businessUnitMasterForm-flow.xml</document>
         <id>sgs-businessUnitMasterForm-flow</id>
       </task-flow-reference>
+      <input-parameter id="__6">
+        <name>pBUMAddEdit</name>
+        <value>EDIT</value>
+      </input-parameter>
     </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>businessUnitMaster</from-activity-id>

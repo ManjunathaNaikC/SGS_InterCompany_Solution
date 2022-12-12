@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">gstInquiry</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">343.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>gstInquiry&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">217.89648</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>sgs-gstInquiryFormADD&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">sgs-gstInquiryFormADD</property>
+      <property
+         name="x">784.0137</property>
+      <property
+         name="y">154.14941</property>
+      <property
+         name="documentReference">/taskflows/commom/sgs-gstInquiryForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-gstInquiryForm-flow</property>
+   </TaskFlowCall>
+   <TaskFlowCall
+      id="TaskFlowCall4">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>sgs-gstInquiryFormEDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">sgs-gstInquiryFormEDIT</property>
+      <property
+         name="x">863.3506</property>
+      <property
+         name="y">374.44824</property>
+      <property
+         name="documentReference">/taskflows/commom/sgs-gstInquiryForm-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">sgs-gstInquiryForm-flow</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">ADD</property>
+      <property
+         name="sdm:polyPoints">R50,384.0,217.5459,743.0137,153.79883,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="TaskFlowCall4">
+      <property
+         name="fromOutcome">EDIT</property>
+      <property
+         name="sdm:polyPoints">R54,384.0,221.0459,822.3506,374.09766,L50</property>
+   </ControlFlowCase>
+</SDM>

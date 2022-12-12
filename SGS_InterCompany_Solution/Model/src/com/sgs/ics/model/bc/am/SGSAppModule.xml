@@ -41,6 +41,9 @@
   <ViewUsage
     Name="SgsLookupVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"/>
+  <ViewUsage
+    Name="SgsBusinessUnitMasterVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

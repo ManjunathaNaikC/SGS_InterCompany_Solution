@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelBox text="Business Unit Setup" id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+          <af:panelHeader text=" " id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.SgsBusinessUnitMasterVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.SgsBusinessUnitMasterVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.SgsBusinessUnitMasterVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.SgsBusinessUnitMasterVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="3" maxColumns="2"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t1">
+                <af:button id="b1" icon="/resources/icons/microsoft-excel.png" shortDesc="Export to Excel"
+                           disabled="#{bindings.SgsBusinessUnitMasterVO1.estimatedRowCount &lt;=0}">
+                  <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
+                                                     filename="BusinessUnitMaster.xls"/>
+                </af:button>
+                <af:button id="b2" icon="/resources/icons/plus.png" action="ADD"
+                           actionListener="#{bindings.CreateInsert.execute}"/>
+                <af:button id="b3" icon="/resources/icons/delete.png"
+                           action="#{pageFlowScope.BusinessUnitsMasterBean.deleteBUMaster}"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SgsBusinessUnitMasterVO1.collectionModel}" var="row"
+                      rows="#{bindings.SgsBusinessUnitMasterVO1.rangeSize}"
+                      emptyText="#{bindings.SgsBusinessUnitMasterVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.SgsBusinessUnitMasterVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SgsBusinessUnitMasterVO1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.SgsBusinessUnitMasterVO1.rangeSize}" id="resId1"
+                      partialTriggers="::b2" styleClass="AFStretchWidth">
+              <!--<af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitId.label}" id="resId1c1">
+                <af:outputText value="#{row.BussinessUnitId}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitId.tooltip}" id="ot1"/>
+              </af:column>-->
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitName.label}" id="resId1c2">
+                <!--<af:outputText value="#{row.BussinessUnitName}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitName.tooltip}"
+                               id="ot2"/>-->
+                <af:link text="#{row.BussinessUnitName}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.label}" id="resId1c3">
+                <af:outputText value="#{row.OperatingUnit}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.tooltip}" id="ot3"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.label}" id="resId1c4">
+                <af:outputText value="#{row.DepartmentId}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.tooltip}" id="ot4"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.label}" id="resId1c5">
+                <af:outputText value="#{row.LegalEntity}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}" id="ot5"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.label}"
+                         id="resId1c6">
+                <af:outputText value="#{row.BussinessUnitGeography}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.tooltip}"
+                               id="ot6"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.label}"
+                         id="resId1c7">
+                <af:outputText value="#{row.BussinessUnitStatus}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.tooltip}"
+                               id="ot7"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.FunctionalCurrency.label}" id="resId1c8">
+                <af:outputText value="#{row.FunctionalCurrency}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.FunctionalCurrency.tooltip}"
+                               id="ot8"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.SubLedgerApplicability.label}"
+                         id="resId1c9">
+                <af:outputText value="#{row.SubLedgerApplicability}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.SubLedgerApplicability.tooltip}"
+                               id="ot9"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.label}"
+                         id="resId1c10">
+                <af:outputText value="#{row.EFFECTIVESTARTDATE}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.tooltip}"
+                               id="ot10">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.label}" id="resId1c11">
+                <af:outputText value="#{row.EFFECTIVEENDDATE}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.tooltip}"
+                               id="ot11">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.label}" id="resId1c12">
+                <af:outputText value="#{row.CreatedBy}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.tooltip}" id="ot12"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.label}" id="resId1c13">
+                <af:outputText value="#{row.CreatedDate}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.tooltip}" id="ot13">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.label}" id="resId1c14">
+                <af:outputText value="#{row.UpdatedDate}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.tooltip}" id="ot14">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.label}" id="resId1c15">
+                <af:outputText value="#{row.UpdatedBy}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.tooltip}" id="ot15"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.label}"
+                         id="resId1c16">
+                <af:outputText value="#{row.BusinessControllers}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.tooltip}"
+                               id="ot16"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.label}" id="resId1c17">
+                <af:outputText value="#{row.BussinessUnitZone}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.tooltip}"
+                               id="ot17"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CollectionBu.label}" id="resId1c18">
+                <af:outputText value="#{row.CollectionBu}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CollectionBu.tooltip}" id="ot18"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.GstRegNum.label}" id="resId1c19">
+                <af:outputText value="#{row.GstRegNum}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.GstRegNum.tooltip}" id="ot19"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoCustomerName.label}" id="resId1c20">
+                <af:outputText value="#{row.IcoCustomerName}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoCustomerName.tooltip}"
+                               id="ot20"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoSupplierName.label}" id="resId1c21">
+                <af:outputText value="#{row.IcoSupplierName}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoSupplierName.tooltip}"
+                               id="ot21"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.label}" id="resId1c22">
+                <af:outputText value="#{row.PayingBu}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.tooltip}" id="ot22"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:panelBox>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

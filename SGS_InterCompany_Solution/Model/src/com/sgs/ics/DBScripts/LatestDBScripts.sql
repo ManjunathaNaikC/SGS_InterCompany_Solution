@@ -353,7 +353,58 @@ CREATE TABLE [dbo].[SGS_LOOKUP_TABLE](
 --------------------------End of LookUp Table --------------------
 
 
+------------------------SetupRules BU Master Table------------------
+CREATE TABLE SGS_BUSINESS_UNIT_MASTER(
+    [BU_SEQ] [int] NULL,
+	[BUSSINESS_UNIT_ID] [varchar](80) NOT NULL,
+	[BUSSINESS_UNIT_NAME] [varchar](80) NULL,
+	[LEGAL_ENTITY] [varchar](80) NULL,
+	[BUSSINESS_UNIT_GEOGRAPHY] [varchar](80) NULL,
+	[BUSSINESS_UNIT_ZONE] [varchar](80) NULL,
+	[BUSINESS_CONTROLLERS] [varchar](80) NULL,
+	[BUSSINESS_UNIT_STATUS] [varchar](80) NULL,
+	[ALTERNATE_BU] varchar(80) NULL,
+	[FUNCTIONAL_CURRENCY] [varchar](80) NULL,
+	[SUB_LEDGER_APPLICABILITY] [varchar](80) NULL,
+	[ICO_SUPPLIER_NAME] [varchar](80) NULL,
+	[ICO_CUSTOMER_NAME] [varchar](80) NULL,
+	[OPERATING_UNIT] [varchar](80) NULL,
+	[GST_REG_NUM] [varchar](80) NULL,
+	[COLLECTION_BU] [varchar](80) NULL,
+    [PAYING_BU] [varchar](80) NULL,
+    [DEPARTMENT_ID] [varchar](80) NULL,
+	[EFFECTIVE_START_DATE] date NULL,
+	[EFFECTIVE_END_DATE] date NULL,
+	[CREATED_DATE] [date] NOT NULL,
+	[CREATED_BY] [varchar](80) NOT NULL,
+	[UPDATED_DATE] date NULL,
+	[UPDATED_BY] [varchar](80) NULL,
+	[ATTRIBUTE1] [varchar](80) NULL,
+	[ATTRIBUTE2] [varchar](80) NULL,
+	[ATTRIBUTE3] [varchar](80) NULL,
+	[ATTRIBUTE4] [varchar](80) NULL,
+	[ATTRIBUTE5] [varchar](80) NULL,
+	[ATTRIBUTE6] [date] NULL,
+	[ATTRIBUTE7] [date] NULL,
+	[ATTRIBUTE8] [date] NULL,
+	[ATTRIBUTE9] [date] NULL,
+	[ATTRIBUTE10] [date] NULL,
+	[ATTRIBUTE11] [numeric](10, 5) NULL,
+	[ATTRIBUTE12] [numeric](10, 5) NULL,
+	[ATTRIBUTE13] [numeric](10, 5) NULL,
+	[ATTRIBUTE14] [numeric](10, 5) NULL,
+	[ATTRIBUTE15] [numeric](10, 5) NULL,
+ CONSTRAINT PK_SGS_BUSINESS_UNIT_MASTER PRIMARY KEY CLUSTERED 
+(
+	BUSSINESS_UNIT_ID ASC
+));
 
+
+CREATE SEQUENCE dbo.SEQ_SGS_BUSINESS_UNIT_MASTER AS 
+INT START WITH 1
+INCREMENT BY 1;
+GO
+----------------------------------End Setup Rules BU Master Table--------------
 
 
 

@@ -238,3 +238,37 @@ af|panelHeader::content0 {
     
     background-color:  #2980b9; 
 }
+
+af|panelGridLayout.headerbgcolor {
+  background-image: linear-gradient(120deg,#2980b9,#8e44ad);
+}
+
+/*.AFButtonGradientStartDisabledColor:alias{
+    background:#0000a5;
+}
+
+af|button::text{
+
+  color: white;
+}*/
+/*af|query div[id='r1:0:r1:1:qryId1:_search']{
+
+    background:Orange ;
+
+    color: White;
+
+    text-decoration: none;
+
+}*/
+/*af|button::text{
+
+  color: white;
+}
+af|button:text-only{
+
+  background: blue;
+  text-decoration: none;
+}*/
+
+
+

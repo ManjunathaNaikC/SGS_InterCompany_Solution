@@ -27,6 +27,7 @@ public class AuthenticationBean {
             map.put("vikranth", "123");
             map.put("manju", "123");
             map.put("kiran", "123");
+            map.put("raja", "123");
         }
 
     public String onLogout() {

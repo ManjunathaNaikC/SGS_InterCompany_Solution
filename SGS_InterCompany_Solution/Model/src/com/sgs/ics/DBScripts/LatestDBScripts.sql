@@ -1,3 +1,4 @@
+
 CREATE TABLE USER_AUTHENTICATION(
 		USER_ID varchar(30) NOT NULL,
 		PASSWORD varchar(30) NOT NULL,
@@ -351,6 +352,12 @@ CREATE TABLE [dbo].[SGS_LOOKUP_TABLE](
 ))
 
 --------------------------End of LookUp Table --------------------
+
+CREATE SEQUENCE dbo.SEQ_SGS_COST_IDEN_COMBINATION AS
+INT START WITH 1
+INCREMENT BY 1;
+GO
+
 
 
 ------------------------SetupRules BU Master Table------------------

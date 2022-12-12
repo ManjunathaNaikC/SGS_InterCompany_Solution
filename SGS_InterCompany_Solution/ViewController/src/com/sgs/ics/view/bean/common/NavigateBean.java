@@ -1,3 +1,4 @@
+
 package com.sgs.ics.view.bean.common;
 
 import java.io.Serializable;

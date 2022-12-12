@@ -117,17 +117,20 @@
                         <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
                     </af:inputDate>
                 </af:panelFormLayout>
-                <af:inputText value="#{bindings.PassThroughFlag.inputValue}"
-                              label="#{bindings.PassThroughFlag.hints.label}"
-                              required="#{bindings.PassThroughFlag.hints.mandatory}"
-                              columns="#{bindings.PassThroughFlag.hints.displayWidth}"
-                              maximumLength="#{bindings.PassThroughFlag.hints.precision}"
-                              shortDesc="#{bindings.PassThroughFlag.hints.tooltip}" id="it9">
-                    <f:validator binding="#{bindings.PassThroughFlag.validator}"/>
-                </af:inputText>
-                <af:panelBox id="pb4" visible="#{bindings.PassThroughFlag.inputValue eq true ? true : false}">
+                <af:panelBox id="pb4" >
                     <f:facet name="toolbar"/>
-                    <af:panelFormLayout id="pfl2" rows="3">
+                    <af:panelGroupLayout id="pgl2" layout="horizontal">
+                        <af:selectOneRadio value="#{bindings.PassThroughFlag1.inputValue}"
+                                           label="#{bindings.PassThroughFlag1.label}"
+                                           required="#{bindings.PassThroughFlag1.hints.mandatory}"
+                                           shortDesc="#{bindings.PassThroughFlag1.hints.tooltip}" id="sor1"
+                                           layout="horizontal" autoSubmit="true" partialTriggers="pb4 pfl2">
+                            <f:selectItems value="#{bindings.PassThroughFlag1.items}" id="si1"/>
+                            <f:validator binding="#{bindings.PassThroughFlag1.validator}"/>
+                        </af:selectOneRadio>
+                    </af:panelGroupLayout>
+                    <af:panelFormLayout id="pfl2" rows="3" visible="#{bindings.PassThroughFlag1.inputValue eq True ? true : false}"
+                                        partialTriggers="sor1 pgl2">
                         <af:inputText value="#{bindings.PassThroughBu.inputValue}"
                                       label="#{bindings.PassThroughBu.hints.label}"
                                       required="#{bindings.PassThroughBu.hints.mandatory}"
@@ -162,6 +165,14 @@
                         </af:inputText>
                     </af:panelFormLayout>
                 </af:panelBox>
+                <!--<af:inputText value="#{bindings.PassThroughFlag.inputValue}"
+                              label="#{bindings.PassThroughFlag.hints.label}"
+                              required="#{bindings.PassThroughFlag.hints.mandatory}"
+                              columns="#{bindings.PassThroughFlag.hints.displayWidth}"
+                              maximumLength="#{bindings.PassThroughFlag.hints.precision}"
+                              shortDesc="#{bindings.PassThroughFlag.hints.tooltip}" id="it9">
+                    <f:validator binding="#{bindings.PassThroughFlag.validator}"/>
+                </af:inputText>-->
                 <af:panelBox text="Transfer Pricing  Supporting Documents" id="pb2">
                     <f:facet name="toolbar"/>
                     <af:panelCollection id="pc1" styleClass="AFStretchWidth">
@@ -297,7 +308,8 @@
                                     <f:validator binding="#{row.bindings.MarkUpRateId.validator}"/>
                                 </af:inputText>
                             </af:column>-->
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}" id="c8">
+                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}" id="c8"
+                                       width="400">
                                 <af:inputText value="#{row.bindings.ServiceCategory.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.mandatory}"
@@ -308,7 +320,8 @@
                                     <f:validator binding="#{row.bindings.ServiceCategory.validator}"/>
                                 </af:inputText>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.MarkupRate.label}" id="c9">
+                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.MarkupRate.label}" id="c9"
+                                       width="400">
                                 <af:inputText value="#{row.bindings.MarkupRate.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.MarkupRate.label}"
                                               required="#{bindings.SgsMarkupRateTblVO.hints.MarkupRate.mandatory}"

@@ -1,3 +1,4 @@
+
 package com.sgs.ics.view.bean.common;
 
 import java.io.Serializable;
@@ -101,6 +102,16 @@ public class NavigateBean implements Serializable {
 
     public String sgsstandardRateSetupflow() {
         setDynamicTaskFlowId("/taskflows/Transaction Data/sgs-standardRateSetup-flow.xml#sgs-standardRateSetup-flow");
+        return null;
+    }
+
+    public String sgsgstInquiryflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-gstInquiry-flow.xml#sgs-gstInquiry-flow");
+        return null;
+    }
+
+    public String sgsvatInquiryflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-vatInquiry-flow.xml#sgs-vatInquiry-flow");
         return null;
     }
 }

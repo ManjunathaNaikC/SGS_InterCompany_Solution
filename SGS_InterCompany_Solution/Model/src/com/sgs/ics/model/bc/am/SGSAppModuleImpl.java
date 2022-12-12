@@ -200,11 +200,19 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
     }
 
     /**
+
+     * Container's getter for SgsBusinessUnitMasterVO1.
+     * @return SgsBusinessUnitMasterVO1
+     */
+    public ViewObjectImpl getSgsBusinessUnitMasterVO1() {
+        return (ViewObjectImpl) findViewObject("SgsBusinessUnitMasterVO1");
+
      * Container's getter for NatureOfExpenseLookupVO1.
      * @return NatureOfExpenseLookupVO1
      */
     public ViewObjectImpl getNatureOfExpenseLookupVO1() {
         return (ViewObjectImpl) findViewObject("NatureOfExpenseLookupVO1");
+
     }
 }
 

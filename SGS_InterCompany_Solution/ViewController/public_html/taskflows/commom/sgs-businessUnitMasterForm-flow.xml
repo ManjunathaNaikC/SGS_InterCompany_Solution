@@ -5,7 +5,14 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="businessUnitMasterForm"></view>
+    <input-parameter-definition id="__3">
+      <name>pBUMAddEdit</name>
+      <value>#{pageFlowScope.pBUMAddEdit}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <view id="businessUnitMasterForm">
+      <page>/fragments/common/businessUnitMasterForm.jsff</page>
+    </view>
     <task-flow-return id="backToDashBoard">
       <outcome>
         <name>backToDashBoard</name>

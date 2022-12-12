@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="businessUnitMasterPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsBusinessUnitMasterVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsBusinessUnitMasterVO1Iterator"/>
+    <searchRegion Criteria="SgsBusinessUnitMasterVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsBusinessUnitMasterVO1Iterator" id="SgsBusinessUnitMasterVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsBusinessUnitMasterVO1Iterator" id="SgsBusinessUnitMasterVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO" Name="SgsBusinessUnitMasterVO10">
+        <AttrNames>
+          <Item Value="BussinessUnitId"/>
+          <Item Value="BussinessUnitName"/>
+          <Item Value="OperatingUnit"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="LegalEntity"/>
+          <Item Value="BussinessUnitGeography"/>
+          <Item Value="BussinessUnitStatus"/>
+          <Item Value="FunctionalCurrency"/>
+          <Item Value="SubLedgerApplicability"/>
+          <Item Value="EFFECTIVESTARTDATE"/>
+          <Item Value="EFFECTIVEENDDATE"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="BusinessControllers"/>
+          <Item Value="BussinessUnitZone"/>
+          <Item Value="CollectionBu"/>
+          <Item Value="GstRegNum"/>
+          <Item Value="IcoCustomerName"/>
+          <Item Value="IcoSupplierName"/>
+          <Item Value="PayingBu"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsBusinessUnitMasterVO1Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsBusinessUnitMasterVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="SgsBusinessUnitMasterVO1Iterator" id="Delete"
+            InstanceName="SGSAppModuleDataControl.SgsBusinessUnitMasterVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

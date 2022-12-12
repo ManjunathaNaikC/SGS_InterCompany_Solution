@@ -7,7 +7,7 @@
                 <f:facet name="start"/>
                 <f:facet name="end"/>
                 <f:facet name="top">
-                    <af:panelGridLayout id="pgl2" inlineStyle="background-color:#0000a5;">
+                    <af:panelGridLayout id="pgl2" styleClass="headerbgcolor">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                             <af:gridCell marginStart="5px" width="25%" id="gc1" halign="start" valign="middle"
                                          inlineStyle="background-color:white;">

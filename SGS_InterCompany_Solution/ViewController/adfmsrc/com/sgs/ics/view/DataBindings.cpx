@@ -17,6 +17,9 @@
           usageId="com_sgs_ics_view_TPASetup_flow_TPASetupBTF_SetCurrentRowWithKeyValuePageDef"/>
     <page path="/fragments/common/TPASetupPage.jsff" usageId="com_sgs_ics_view_TPASetupPagePageDef"/>
     <page path="/fragments/common/TPASetupForm.jsff" usageId="com_sgs_ics_view_TPASetupFormPageDef"/>
+    <page path="/fragments/common/businessUnitMaster.jsff" usageId="com_sgs_ics_view_businessUnitMasterPageDef"/>
+    <page path="/fragments/common/businessUnitMasterForm.jsff"
+          usageId="com_sgs_ics_view_businessUnitMasterFormPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -29,6 +32,8 @@
           path="taskflows.commom.TPASetup_flow_TPASetupBTF_SetCurrentRowWithKeyValuePageDef"/>
     <page id="com_sgs_ics_view_TPASetupPagePageDef" path="fragments.common.TPASetupPagePageDef"/>
     <page id="com_sgs_ics_view_TPASetupFormPageDef" path="fragments.common.TPASetupFormPageDef"/>
+    <page id="com_sgs_ics_view_businessUnitMasterPageDef" path="fragments.common.businessUnitMasterPageDef"/>
+    <page id="com_sgs_ics_view_businessUnitMasterFormPageDef" path="fragments.common.businessUnitMasterFormPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

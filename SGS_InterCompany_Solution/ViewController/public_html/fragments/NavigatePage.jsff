@@ -1,3 +1,4 @@
+
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
@@ -23,11 +24,14 @@
                                              id="l2"/>
 
                                     <!--<af:link text="welcome-empty-flow"
-                                             action="#{pageFlowScope.navigateBean.welcomeemptyflow}" id="l3"/>-->
+                                             action="#{pageFlowScope.navigateBean.welcomeemptyflow}" id="l4"/>-->
 
                                     <af:link text="Business Unit Setup"
                                              action="#{pageFlowScope.navigateBean.sgsbusinessUnitMasterflow}" id="l3"/>
-
+                                    <af:link text="Goods and Service Tax (GST) Setup"
+                                             action="#{pageFlowScope.navigateBean.sgsgstInquiryflow}" id="l5"/>
+                                    <af:link text="Value Added Tax(VAT) Setup"
+                                             action="#{pageFlowScope.navigateBean.sgsvatInquiryflow}" id="l6"/>
                                     <!--<af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" id="gl1"
                                              inlineStyle="font-weight:bold;"
                                              actionListener="#{pageFlowScope.navigateBean.loadCostAllocaionSetup}"/>
@@ -64,10 +68,7 @@
                     <f:facet name="second">
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-
-                                      
-
-                                       partialTriggers="::l1 ::l2 ::l3 ::l4"/>
+                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6"/>
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->
@@ -80,3 +81,5 @@
         </af:gridRow>
     </af:panelGridLayout>
 </ui:composition>
+
+

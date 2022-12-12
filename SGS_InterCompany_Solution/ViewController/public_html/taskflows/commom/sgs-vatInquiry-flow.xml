@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sgs-vatInquiry-flow">
+    <default-activity>vatInquiry</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="vatInquiry"></view>
+    <task-flow-call id="sgs-vatInquiryFormADD">
+      <task-flow-reference>
+        <document>/taskflows/commom/sgs-vatInquiryForm-flow.xml</document>
+        <id>sgs-vatInquiryForm-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="sgs-vatInquiryFormEDIT">
+      <task-flow-reference>
+        <document>/taskflows/commom/sgs-vatInquiryForm-flow.xml</document>
+        <id>sgs-vatInquiryForm-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>vatInquiry</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ADD</from-outcome>
+        <to-activity-id>sgs-vatInquiryFormADD</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>EDIT</from-outcome>
+        <to-activity-id>sgs-vatInquiryFormEDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

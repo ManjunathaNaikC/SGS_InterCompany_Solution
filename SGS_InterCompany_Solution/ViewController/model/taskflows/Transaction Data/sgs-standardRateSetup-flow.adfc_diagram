@@ -17,6 +17,8 @@
       <property
          name="y">216.89648</property>
       <property
+         name="page">/fragments/common/standardRateSetup.jsff</property>
+      <property
          name="exceptionHandler">false</property>
    </View>
    <TaskFlowCall

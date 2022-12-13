@@ -1,4 +1,3 @@
-
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
@@ -32,6 +31,7 @@
                                              action="#{pageFlowScope.navigateBean.sgsgstInquiryflow}" id="l5"/>
                                     <af:link text="Value Added Tax(VAT) Setup"
                                              action="#{pageFlowScope.navigateBean.sgsvatInquiryflow}" id="l6"/>
+
                                     <!--<af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" id="gl1"
                                              inlineStyle="font-weight:bold;"
                                              actionListener="#{pageFlowScope.navigateBean.loadCostAllocaionSetup}"/>
@@ -55,7 +55,9 @@
                             <af:showDetailItem id="Transaction" text="Transactional Data">
                                 <af:panelList id="pl2">
                                     <af:link text="Standard Rate Setup"
-                                             action="#{pageFlowScope.navigateBean.sgsstandardRateSetupflow}" id="l4"/>
+                                             action="#{pageFlowScope.navigateBean.sgsstandardRateSetupflow}" id="l7"/>
+                                    <af:link text="Statistical Data"
+                                             action="#{pageFlowScope.navigateBean.sgsstatisticalDateflow}" id="l4"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Process" text="Process"/>
@@ -68,7 +70,7 @@
                     <f:facet name="second">
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6"/>
+                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6 ::l4 ::l4"/>
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->
@@ -81,5 +83,3 @@
         </af:gridRow>
     </af:panelGridLayout>
 </ui:composition>
-
-

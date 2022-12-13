@@ -114,4 +114,10 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/commom/sgs-vatInquiry-flow.xml#sgs-vatInquiry-flow");
         return null;
     }
+
+
+    public String sgsstatisticalDateflow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-statisticalDate-flow.xml#sgs-statisticalDate-flow");
+        return null;
+    }
 }

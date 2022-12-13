@@ -36,8 +36,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
         PreparedStatement pst = null;
         try {
             String connectionUrl =
-                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-           // jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;
+               // "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+           "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
@@ -206,13 +206,22 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
      */
     public ViewObjectImpl getSgsBusinessUnitMasterVO1() {
         return (ViewObjectImpl) findViewObject("SgsBusinessUnitMasterVO1");
+    }
 
-     * Container's getter for NatureOfExpenseLookupVO1.
-     * @return NatureOfExpenseLookupVO1
-     */
+//     * Container's getter for NatureOfExpenseLookupVO1.
+//     * @return NatureOfExpenseLookupVO1
+//     */
     public ViewObjectImpl getNatureOfExpenseLookupVO1() {
         return (ViewObjectImpl) findViewObject("NatureOfExpenseLookupVO1");
 
+    }
+
+    /**
+     * Container's getter for SgsStatisticalDataVO1.
+     * @return SgsStatisticalDataVO1
+     */
+    public ViewObjectImpl getSgsStatisticalDataVO1() {
+        return (ViewObjectImpl) findViewObject("SgsStatisticalDataVO1");
     }
 }
 

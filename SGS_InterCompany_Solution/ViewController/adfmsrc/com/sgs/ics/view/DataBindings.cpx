@@ -20,6 +20,7 @@
     <page path="/fragments/common/businessUnitMaster.jsff" usageId="com_sgs_ics_view_businessUnitMasterPageDef"/>
     <page path="/fragments/common/businessUnitMasterForm.jsff"
           usageId="com_sgs_ics_view_businessUnitMasterFormPageDef"/>
+    <page path="/fragments/TransactionalData/statisticalData.jsff" usageId="com_sgs_ics_view_statisticalDataPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -34,6 +35,7 @@
     <page id="com_sgs_ics_view_TPASetupFormPageDef" path="fragments.common.TPASetupFormPageDef"/>
     <page id="com_sgs_ics_view_businessUnitMasterPageDef" path="fragments.common.businessUnitMasterPageDef"/>
     <page id="com_sgs_ics_view_businessUnitMasterFormPageDef" path="fragments.common.businessUnitMasterFormPageDef"/>
+    <page id="com_sgs_ics_view_statisticalDataPageDef" path="fragments.common.statisticalDataPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

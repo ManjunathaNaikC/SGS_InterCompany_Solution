@@ -5,7 +5,9 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="standardRateSetup"></view>
+    <view id="standardRateSetup">
+      <page>/fragments/common/standardRateSetup.jsff</page>
+    </view>
     <task-flow-call id="standardSetupRuleADD">
       <task-flow-reference>
         <document>/taskflows/Transaction Data/sgs-standardSetupRuleForm-flow.xml</document>

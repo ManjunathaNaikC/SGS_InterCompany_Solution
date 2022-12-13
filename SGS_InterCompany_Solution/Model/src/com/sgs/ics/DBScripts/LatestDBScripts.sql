@@ -416,7 +416,57 @@ GO
 
 
 
+CREATE TABLE [dbo].[SGS_STATISTICAL_DATA_TBL]( 
+              [STATISTICAL_DATA_ID] [int] NOT NULL,                      
+              [STATISTICAL_DATA_CATEGORY] [varchar](80) NOT NULL,                                             
+              [TO_BUSINESS_UNIT] [varchar](80) NULL,                                        
+              [TO_JOB_CODE] [varchar](80) NULL,                                  
+              [TO_OPERATING_UNIT] [varchar](80) NULL,                                    
+              [TO_DEPARTMENT_ID]  [varchar](80) NULL,                     
+              [STATISTICAL_DATA] [varchar](80) NULL,                                           
+              [UNIT_OF_MEASURE]  [varchar](80) NULL,                    
+              [COST_GROUP] [varchar](80) NULL,                        
+              [CURRENCY]  [varchar](80) NULL,                                              
+              [EMPLOYEE_ID] [varchar](80) NULL, 
+              [TARGET_AMOUNT] [numeric](20, 5) NULL,                            
+              [REJECTED_REASON] [varchar](80) NULL, 
+			  [REJECTION_COMMENTS] [varchar](100) NULL, 
+			  [VALIDITY_FROM] [Date] NULL, 
+			  [VALIDITY_TILL] [Date] NULL, 
+              [CREATED_BY] [varchar](80) NULL,                                      
+   
+			  [UPDATED_DATE] [date] NULL, 			  
+              [UPDATED_BY] [varchar](80) NULL,                      
+              [ATTRIBUTE1] [varchar](80) NULL,                      
+              [ATTRIBUTE2] [varchar](80) NULL,                      
+              [ATTRIBUTE3] [varchar](80) NULL,                      
+              [ATTRIBUTE4] [varchar](80) NULL,                      
+              [ATTRIBUTE5] [varchar](80) NULL,                      
+              [ATTRIBUTE6] [date] NULL,
+              [ATTRIBUTE7] [date] NULL,
+              [ATTRIBUTE8] [date] NULL,
+              [ATTRIBUTE9] [date] NULL,
+              [ATTRIBUTE10] [date] NULL,
+              [ATTRIBUTE11] [numeric](20, 5) NULL,
+              [ATTRIBUTE12] [numeric](20, 5) NULL,
+              [ATTRIBUTE13] [numeric](20, 5) NULL,
+              [ATTRIBUTE14] [numeric](10, 5) NULL,
+              [ATTRIBUTE15] [numeric](10, 5) NULL,
+CONSTRAINT [PK_SGS_STATISTICAL_DATA_TBL] PRIMARY KEY CLUSTERED 
+(
+              [STATISTICAL_DATA_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 
+
+
+
+
+CREATE SEQUENCE dbo.SEQ_SGS_STATISTICAL_DATA_TBL AS 
+INT START WITH 1
+INCREMENT BY 1;
+GO
 
 
 

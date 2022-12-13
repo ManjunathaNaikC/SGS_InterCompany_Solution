@@ -8,7 +8,7 @@
         <f:facet name="bottom"/>
         <f:facet name="center">
             <af:panelGroupLayout id="pgl1" layout="vertical">
-                <af:panelBox text="Cost Identifier Rule" id="pb1">
+                <af:panelBox text="Cost Identifier Rule" id="pb1" inlineStyle="margin-top: 1px;">
                     <f:facet name="toolbar"/>
                     <af:panelGroupLayout layout="vertical" id="pgl2" partialTriggers="pb2"  styleClass="AFStretchWidth">
                         <af:panelBox text="Nature Of Expense" id="pb2">

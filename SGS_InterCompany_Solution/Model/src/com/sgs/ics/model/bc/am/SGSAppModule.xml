@@ -51,6 +51,9 @@
   <ViewUsage
     Name="SgsStatisticalDataVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"/>
+  <ViewUsage
+    Name="SgsStandardRateSetupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

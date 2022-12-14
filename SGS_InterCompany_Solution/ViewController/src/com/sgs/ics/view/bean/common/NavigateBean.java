@@ -100,11 +100,7 @@ public class NavigateBean implements Serializable {
         return null;
     }
 
-    public String sgsstandardRateSetupflow() {
-        setDynamicTaskFlowId("/taskflows/Transaction Data/sgs-standardRateSetup-flow.xml#sgs-standardRateSetup-flow");
-        return null;
-    }
-
+  
     public String sgsgstInquiryflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-gstInquiry-flow.xml#sgs-gstInquiry-flow");
         return null;
@@ -118,6 +114,11 @@ public class NavigateBean implements Serializable {
 
     public String sgsstatisticalDateflow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-statisticalDate-flow.xml#sgs-statisticalDate-flow");
+        return null;
+    }
+
+    public String sgsstandardSetupRuleflow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-standardSetupRule-flow.xml#sgs-standardSetupRule-flow");
         return null;
     }
 }

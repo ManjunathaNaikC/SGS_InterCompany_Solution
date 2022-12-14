@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sgs-standardSetupRule-flow">
+    <default-activity>standardRateSetup</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__4">
+      <managed-bean-name>StandardRateSetupBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.bean.common.StandardRateSetupBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="standardRateSetup">
+      <page>/fragments/TransactionalData/standardRateSetup.jsff</page>
+    </view>
+    <task-flow-call id="sgs-standardSetupRuleFormADD">
+      <task-flow-reference>
+        <document>/taskflows/TransactionalData/sgs-standardSetupRuleForm-flow.xml</document>
+        <id>sgs-standardSetupRuleForm-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pSRAddEdit</name>
+        <value>ADD</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="sgs-standardSetupRuleFormEDIT">
+      <task-flow-reference>
+        <document>/taskflows/TransactionalData/sgs-standardSetupRuleForm-flow.xml</document>
+        <id>sgs-standardSetupRuleForm-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__6">
+        <name>pSRAddEdit</name>
+        <value>EDIT</value>
+      </input-parameter>
+    </task-flow-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>standardRateSetup</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ADD</from-outcome>
+        <to-activity-id>sgs-standardSetupRuleFormADD</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>EDIT</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>sgs-standardSetupRuleFormEDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

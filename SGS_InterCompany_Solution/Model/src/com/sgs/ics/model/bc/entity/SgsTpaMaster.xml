@@ -67,7 +67,7 @@
     Name="PassThroughFlag"
     ColumnName="PASS_THROUGH_FLAG"
     SQLType="BIT"
-    Type="java.lang.Boolean"
+    Type="java.lang.String"
     ColumnType="BIT"
     TableName="SGS_TPA_MASTER"/>
   <Attribute

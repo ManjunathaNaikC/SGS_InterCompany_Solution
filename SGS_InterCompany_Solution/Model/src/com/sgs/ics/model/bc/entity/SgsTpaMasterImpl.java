@@ -202,15 +202,15 @@ public class SgsTpaMasterImpl extends EntityImpl {
      * Gets the attribute value for PassThroughFlag, using the alias name PassThroughFlag.
      * @return the value of PassThroughFlag
      */
-    public Boolean getPassThroughFlag() {
-        return (Boolean) getAttributeInternal(PASSTHROUGHFLAG);
+    public String getPassThroughFlag() {
+        return (String) getAttributeInternal(PASSTHROUGHFLAG);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for PassThroughFlag.
      * @param value value to set the PassThroughFlag
      */
-    public void setPassThroughFlag(Boolean value) {
+    public void setPassThroughFlag(String value) {
         setAttributeInternal(PASSTHROUGHFLAG, value);
     }
 
@@ -334,13 +334,6 @@ public class SgsTpaMasterImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
@@ -350,13 +343,6 @@ public class SgsTpaMasterImpl extends EntityImpl {
         return (String) getAttributeInternal(CREATEDBY);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedBy.
-     * @param value value to set the CreatedBy
-     */
-    public void setCreatedBy(String value) {
-        setAttributeInternal(CREATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedDate, using the alias name UpdatedDate.
@@ -366,13 +352,6 @@ public class SgsTpaMasterImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedDate.
-     * @param value value to set the UpdatedDate
-     */
-    public void setUpdatedDate(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedBy, using the alias name UpdatedBy.
@@ -382,13 +361,6 @@ public class SgsTpaMasterImpl extends EntityImpl {
         return (String) getAttributeInternal(UPDATEDBY);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedBy.
-     * @param value value to set the UpdatedBy
-     */
-    public void setUpdatedBy(String value) {
-        setAttributeInternal(UPDATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for Attribute1, using the alias name Attribute1.

@@ -138,6 +138,6 @@
       </AttrNames>
     </attributeValues>
     <list IterBinding="SgsTpaMasterVOIterator" StaticList="false" Uses="LOV_PassThroughFlag" id="PassThroughFlag1"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ChangeEventPolicy="none"/>
   </bindings>
 </pageDefinition>

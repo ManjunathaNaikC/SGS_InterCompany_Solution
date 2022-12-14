@@ -290,7 +290,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsTpaMaster"
-    AliasName="CREATED_DATE">
+    AliasName="CREATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
@@ -304,7 +305,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="SgsTpaMaster"
-    AliasName="CREATED_BY">
+    AliasName="CREATED_BY"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
@@ -317,7 +319,8 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsTpaMaster"
-    AliasName="UPDATED_DATE">
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
@@ -330,7 +333,8 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedBy"
     EntityUsage="SgsTpaMaster"
-    AliasName="UPDATED_BY">
+    AliasName="UPDATED_BY"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER

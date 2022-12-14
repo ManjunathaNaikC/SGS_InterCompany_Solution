@@ -27,7 +27,7 @@
                   <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="TPAMasterNew.xls"/>
                 </af:button>
                 <af:button id="b2" action="ADD" icon="/resources/icons/plus.png" shortDesc="Create/Add TPA"
-                           actionListener="#{bindings.CreateInsert.execute}"/>
+                           actionListener="#{pageFlowScope.TPAMasterBean.onTPACreateRecord}"/>
                 <af:button id="b3" shortDesc="Delete" icon="/resources/icons/delete.png"
                            action="#{pageFlowScope.TPAMasterBean.deleteTPAmaster}"/>
               </af:toolbar>

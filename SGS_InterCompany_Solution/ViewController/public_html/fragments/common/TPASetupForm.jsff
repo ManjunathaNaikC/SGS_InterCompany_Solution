@@ -117,21 +117,23 @@
                         <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
                     </af:inputDate>
                 </af:panelFormLayout>
-                <af:panelBox id="pb4" >
+                <af:panelBox id="pb4"
+                             styleClass="AFStretchWidth">
                     <f:facet name="toolbar"/>
                     <af:panelGroupLayout id="pgl2" layout="horizontal">
                         <af:selectOneRadio value="#{bindings.PassThroughFlag1.inputValue}"
                                            label="#{bindings.PassThroughFlag1.label}"
                                            required="#{bindings.PassThroughFlag1.hints.mandatory}"
                                            shortDesc="#{bindings.PassThroughFlag1.hints.tooltip}" id="sor1"
-                                           layout="horizontal" autoSubmit="true" partialTriggers="pb4 pfl2">
+                                           layout="horizontal" autoSubmit="true"
+                                           partialTriggers="pb4 pfl2 it10 it11 it7 it13">
                             <f:selectItems value="#{bindings.PassThroughFlag1.items}" id="si1"/>
                             <f:validator binding="#{bindings.PassThroughFlag1.validator}"/>
                         </af:selectOneRadio>
                     </af:panelGroupLayout>
-                    <af:panelFormLayout id="pfl2" rows="3" visible="#{bindings.PassThroughFlag1.inputValue eq True ? true : false}"
+                    <af:panelFormLayout id="pfl2" rows="3" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                         partialTriggers="sor1 pgl2">
-                        <af:inputText value="#{bindings.PassThroughBu.inputValue}"
+                        <af:inputText value="#{bindings.PassThroughBu.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PassThroughBu.hints.label}"
                                       required="#{bindings.PassThroughBu.hints.mandatory}"
                                       columns="#{bindings.PassThroughBu.hints.displayWidth}"
@@ -139,7 +141,7 @@
                                       shortDesc="#{bindings.PassThroughBu.hints.tooltip}" id="it10">
                             <f:validator binding="#{bindings.PassThroughBu.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.OperationUnit.inputValue}"
+                        <af:inputText value="#{bindings.OperationUnit.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.OperationUnit.hints.label}"
                                       required="#{bindings.OperationUnit.hints.mandatory}"
                                       columns="#{bindings.OperationUnit.hints.displayWidth}"
@@ -147,7 +149,7 @@
                                       shortDesc="#{bindings.OperationUnit.hints.tooltip}" id="it11">
                             <f:validator binding="#{bindings.OperationUnit.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.PASSTHROUGHDEPTID.inputValue}"
+                        <af:inputText value="#{bindings.PASSTHROUGHDEPTID.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PASSTHROUGHDEPTID.hints.label}"
                                       required="#{bindings.PASSTHROUGHDEPTID.hints.mandatory}"
                                       columns="#{bindings.PASSTHROUGHDEPTID.hints.displayWidth}"
@@ -155,7 +157,7 @@
                                       shortDesc="#{bindings.PASSTHROUGHDEPTID.hints.tooltip}" id="it7">
                             <f:validator binding="#{bindings.PASSTHROUGHDEPTID.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.PASSTHROUGHJOBCODE.inputValue}"
+                        <af:inputText value="#{bindings.PASSTHROUGHJOBCODE.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PASSTHROUGHJOBCODE.hints.label}"
                                       required="#{bindings.PASSTHROUGHJOBCODE.hints.mandatory}"
                                       columns="#{bindings.PASSTHROUGHJOBCODE.hints.displayWidth}"

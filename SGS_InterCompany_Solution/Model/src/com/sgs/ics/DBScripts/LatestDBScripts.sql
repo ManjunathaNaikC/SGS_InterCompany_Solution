@@ -414,7 +414,7 @@ GO
 ----------------------------------End Setup Rules BU Master Table--------------
 
 
-
+----------------------------------13-12-2022 Raja Script--------------
 
 CREATE TABLE [dbo].[SGS_STATISTICAL_DATA_TBL]( 
               [STATISTICAL_DATA_ID] [int] NOT NULL,                      
@@ -467,6 +467,109 @@ CREATE SEQUENCE dbo.SEQ_SGS_STATISTICAL_DATA_TBL AS
 INT START WITH 1
 INCREMENT BY 1;
 GO
+
+
+----------------------------------14-12-2022 Raja Script--------------
+
+ALTER TABLE SGS_TPA_MASTER ALTER COLUMN "PASS_THROUGH_FLAG" VARCHAR(80);
+
+
+
+----------------------------------14-12-2022 Kiran Script--------------
+CREATE TABLE [dbo].[SGS_STANDARD_RATE_SETUP](
+
+              [STANDARD_RATE_SEQ] [int] NOT NULL,                     
+
+              [STANDARD_RATE_ID] [varchar](80) NOT NULL,                                            
+
+              [EXPENSE_TYPE] [varchar](80) NULL,                                       
+
+              [COST_IDENTIFIER] [varchar](80) NULL,                                  
+
+              [SUB_EXPENSE_TYPE] [varchar](80) NULL,                                   
+
+              [SR_GEOGRAPHY]  [varchar](80) NULL,                    
+
+              [EMPLOYEE_GRADE_LEVEL] [varchar](80) NULL,                                           
+
+              [STANDARD_COST]  [numeric](20, 5) NULL,                   
+
+              [NON_PERSONNEL_COST] [numeric](20, 5) NULL,                       
+
+              [DEPT_COST_CENTER]  [varchar](80) NULL,            
+
+              [CURRENCY]  [varchar](80) NULL,                               
+
+              [UNIT_OF_MEASURE] [varchar](80) NULL,                        
+
+              [EMPLOYEE_ID] [varchar](80) NULL,                                           
+
+              [PROGRAM_NAME] [varchar](80) NULL,                                          
+
+                                             [EFFECTIVE_END_DATE] [date] NULL,
+
+              [EFFECTIVE_START_DATE] [date] NULL,
+
+              [CREATED_BY] [varchar](80) NULL,
+
+              [CREATED_DATE] [date] NULL,                                   
+
+              [UPDATED_DATE] [date] NULL,                                  
+
+              [UPDATED_BY] [varchar](80) NULL,                     
+
+              [ATTRIBUTE1] [varchar](80) NULL,                     
+
+              [ATTRIBUTE2] [varchar](80) NULL,                      
+
+              [ATTRIBUTE3] [varchar](80) NULL,                     
+
+              [ATTRIBUTE4] [varchar](80) NULL,                     
+
+              [ATTRIBUTE5] [varchar](80) NULL,                     
+
+              [ATTRIBUTE6] [date] NULL,
+
+              [ATTRIBUTE7] [date] NULL,
+
+              [ATTRIBUTE8] [date] NULL,
+
+              [ATTRIBUTE9] [date] NULL,
+
+              [ATTRIBUTE10] [date] NULL,
+
+              [ATTRIBUTE11] [numeric](20, 5) NULL,
+
+              [ATTRIBUTE12] [numeric](20, 5) NULL,
+
+              [ATTRIBUTE13] [numeric](20, 5) NULL,
+
+              [ATTRIBUTE14] [numeric](10, 5) NULL,
+
+              [ATTRIBUTE15] [numeric](10, 5) NULL,
+
+CONSTRAINT [PK_SGS_STANDARD_RATE_SETUP] PRIMARY KEY CLUSTERED
+
+(
+
+              [STANDARD_RATE_SEQ] ASC
+
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+) ON [PRIMARY]
+
+GO
+
+ 
+
+CREATE SEQUENCE dbo.SEQ_STANDARD_RATE_SETUP AS
+
+INT START WITH 1
+
+INCREMENT BY 1;
+
+GO
+
 
 
 

@@ -21,6 +21,12 @@
     <page path="/fragments/common/businessUnitMasterForm.jsff"
           usageId="com_sgs_ics_view_businessUnitMasterFormPageDef"/>
     <page path="/fragments/TransactionalData/statisticalData.jsff" usageId="com_sgs_ics_view_statisticalDataPageDef"/>
+    <page path="/fragments/TransactionalData/standardRateSetup.jsff"
+          usageId="com_sgs_ics_view_standardRateSetupPageDef"/>
+    <page path="/fragments/TransactionalData/standardRateSetupForm.jsff"
+          usageId="com_sgs_ics_view_standardRateSetupFormPageDef"/>
+    <page path="/taskflows/TransactionalData/sgs-standardSetupRule-flow.xml#sgs-standardSetupRule-flow@SetCurrentRowWithKeyValue"
+          usageId="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -36,6 +42,11 @@
     <page id="com_sgs_ics_view_businessUnitMasterPageDef" path="fragments.common.businessUnitMasterPageDef"/>
     <page id="com_sgs_ics_view_businessUnitMasterFormPageDef" path="fragments.common.businessUnitMasterFormPageDef"/>
     <page id="com_sgs_ics_view_statisticalDataPageDef" path="fragments.common.statisticalDataPageDef"/>
+    <page id="com_sgs_ics_view_standardRateSetupPageDef" path="fragments.TransactionalData.standardRateSetupPageDef"/>
+    <page id="com_sgs_ics_view_standardRateSetupFormPageDef"
+          path="fragments.TransactionalData.standardRateSetupFormPageDef"/>
+    <page id="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"
+          path="taskflows.TransactionalData.sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

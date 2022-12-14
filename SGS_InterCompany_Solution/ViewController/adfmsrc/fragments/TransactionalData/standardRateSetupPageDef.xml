@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="standardRateSetupPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsStandardRateSetupVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsStandardRateSetupVO1Iterator"/>
+    <searchRegion Criteria="SgsStandardRateSetupVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsStandardRateSetupVO1Iterator" id="SgsStandardRateSetupVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsStandardRateSetupVO1Iterator" id="SgsStandardRateSetupVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO" Name="SgsStandardRateSetupVO10">
+        <AttrNames>
+          <Item Value="StandardRateId"/>
+          <Item Value="ExpenseType"/>
+          <Item Value="SubExpenseType"/>
+          <Item Value="SrGeography"/>
+          <Item Value="CostIdentifier"/>
+          <Item Value="EmployeeId"/>
+          <Item Value="EmployeeGradeLevel"/>
+          <Item Value="Currency"/>
+          <Item Value="DeptCostCenter"/>
+          <Item Value="EffectiveStartDate"/>
+          <Item Value="EffectiveEndDate"/>
+          <Item Value="NonPersonnelCost"/>
+          <Item Value="ProgramName"/>
+          <Item Value="StandardCost"/>
+          <Item Value="UnitOfMeasure"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsStandardRateSetupVO1Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsStandardRateSetupVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsStandardRateSetupVO1Iterator" id="Delete"
+            InstanceName="SGSAppModuleDataControl.SgsStandardRateSetupVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

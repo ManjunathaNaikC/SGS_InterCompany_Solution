@@ -231,5 +231,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
     public ViewObjectImpl getSgsStandardRateSetupVO1() {
         return (ViewObjectImpl) findViewObject("SgsStandardRateSetupVO1");
     }
+
+    /**
+     * Container's getter for SgsUserAuthVO1.
+     * @return SgsUserAuthVO1
+     */
+    public ViewObjectImpl getSgsUserAuthVO1() {
+        return (ViewObjectImpl) findViewObject("SgsUserAuthVO1");
+    }
 }
 

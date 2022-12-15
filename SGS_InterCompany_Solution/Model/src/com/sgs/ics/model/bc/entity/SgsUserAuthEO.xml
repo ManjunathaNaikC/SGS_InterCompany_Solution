@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SgsUserAuthEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="USER_AUTHENTICATION"
+  AliasName="SgsUserAuthEO"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="USER_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Password"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="PASSWORD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmailId"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="EMAIL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="USER_AUTHENTICATION"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="30"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UpdatedDate"
+    ColumnName="UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="USER_AUTHENTICATION"/>
+  <Attribute
+    Name="UpdatedBy"
+    Precision="30"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="80"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="80"
+    ColumnName="ATTRIBUTE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="80"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="80"
+    ColumnName="ATTRIBUTE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="80"
+    ColumnName="ATTRIBUTE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="USER_AUTHENTICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    ColumnName="ATTRIBUTE6"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="USER_AUTHENTICATION"/>
+  <Attribute
+    Name="Attribute7"
+    ColumnName="ATTRIBUTE7"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="USER_AUTHENTICATION"/>
+  <Attribute
+    Name="Attribute8"
+    ColumnName="ATTRIBUTE8"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="USER_AUTHENTICATION"/>
+  <Attribute
+    Name="Attribute9"
+    ColumnName="ATTRIBUTE9"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="USER_AUTHENTICATION"/>
+  <Attribute
+    Name="Attribute10"
+    ColumnName="ATTRIBUTE10"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="USER_AUTHENTICATION"/>
+  <Key
+    Name="PKUSERAUTHENTICATION"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_USER_AUTHENTICATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsUserAuthEO.UserId"/>
+    </AttrArray>
+  </Key>
+</Entity>

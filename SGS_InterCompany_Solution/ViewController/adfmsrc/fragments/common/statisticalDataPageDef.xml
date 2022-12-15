@@ -34,12 +34,12 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="SGSAppModuleDataControl"/>
     <action IterBinding="SgsStatisticalDataVO1Iterator" id="CreateStatisticalData"
             InstanceName="SGSAppModuleDataControl.SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="SgsStatisticalDataVO1Iterator" id="DeleteStatisticalData"
             InstanceName="SGSAppModuleDataControl.SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="SGSAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

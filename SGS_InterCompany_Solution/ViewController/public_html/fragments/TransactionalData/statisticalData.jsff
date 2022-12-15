@@ -24,10 +24,11 @@
           <f:facet name="menus"/>
           <f:facet name="toolbar">
             <af:toolbar id="t2">
-              <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b4"/>
+              <af:button  actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save" id="b4"/>
               <af:button  id="b1" action="ADD" icon="/resources/icons/plus.png" shortDesc="Create/Add Statistical Data"
-               actionListener="#{bindings.CreateStatisticalData.execute}"/>
-              <af:button  id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"  actionListener="#{bindings.DeleteStatisticalData.execute}"/>
+                actionListener="#{bindings.CreateStatisticalData.execute}"/>
+              <af:button  id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
+                         actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
               
          
             </af:toolbar>

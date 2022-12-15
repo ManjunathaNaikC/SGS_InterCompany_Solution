@@ -475,6 +475,9 @@ ALTER TABLE SGS_TPA_MASTER ALTER COLUMN "PASS_THROUGH_FLAG" VARCHAR(80);
 
 
 
+
+
+
 ----------------------------------14-12-2022 Kiran Script--------------
 CREATE TABLE [dbo].[SGS_STANDARD_RATE_SETUP](
 

@@ -121,7 +121,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="SgsMarkupRateTblVOIterator" id="CreateInsert1"
+    <action IterBinding="SgsMarkupRateTblVOIterator" id="CreateMarkUpRate"
             InstanceName="SGSAppModuleDataControl.SgsMarkupRateTblVO" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="SgsMarkupRateTblVOIterator" id="Delete2"
@@ -139,5 +139,10 @@
     </attributeValues>
     <list IterBinding="SgsTpaMasterVOIterator" StaticList="false" Uses="LOV_PassThroughFlag" id="PassThroughFlag1"
           DTSupportsMRU="false" SelectItemValueMode="ListObject" ChangeEventPolicy="none"/>
+    <action IterBinding="SgsTpaDocTypeVOIterator" id="DeleteDocs" InstanceName="SGSAppModuleDataControl.SgsTpaDocTypeVO"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SgsMarkupRateTblVOIterator" id="DeleteMarkUp"
+            InstanceName="SGSAppModuleDataControl.SgsMarkupRateTblVO" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

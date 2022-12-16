@@ -1,5 +1,7 @@
 package com.sgs.ics.view.bean.common;
 
+import com.sgs.ics.ui.utils.ADFUtils;
+
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.model.BindingContext;
@@ -34,6 +36,7 @@ public class TPAMasterBean {
         Object result = operationBinding.execute();
         OperationBinding deleteOb = bindings.getOperationBinding("Commit");
         deleteOb.execute();
+        ADFUtils.deleteNotifier() ;
         if (!operationBinding.getErrors().isEmpty()) {
             return null;
         }
@@ -55,4 +58,6 @@ public class TPAMasterBean {
         return bindings.findIteratorBinding(iterName);
 
     }
+    
+    
 }

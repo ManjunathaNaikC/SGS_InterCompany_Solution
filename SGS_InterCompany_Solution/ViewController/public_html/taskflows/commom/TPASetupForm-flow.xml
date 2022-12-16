@@ -10,6 +10,11 @@
       <value>#{pageFlowScope.pTPAAddEdit}</value>
       <class>java.lang.String</class>
     </input-parameter-definition>
+    <managed-bean id="__4">
+      <managed-bean-name>ActionEventsBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.ActionEventsBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <view id="TPASetupForm">
       <page>/fragments/common/TPASetupForm.jsff</page>
     </view>

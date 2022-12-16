@@ -184,8 +184,9 @@
                                 <af:button id="b4" actionListener="#{bindings.CreateInsert.execute}"
                                            disabled="#{!bindings.CreateInsert.enabled}"
                                            icon="/resources/icons/plus.png"/>
-                                <af:button id="b5" actionListener="#{bindings.Delete1.execute}"
-                                           disabled="#{!bindings.Delete1.enabled}" icon="/resources/icons/delete.png"/>
+                                <af:button id="b5"
+                                           disabled="#{!bindings.Delete1.enabled}" icon="/resources/icons/delete.png"
+                                           actionListener="#{viewScope.ActionEventsBean.onDocumentsDelete}"/>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="statusbar"/>
@@ -273,10 +274,10 @@
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t5">
-                                <af:button id="b6" actionListener="#{bindings.CreateInsert1.execute}"
-                                           disabled="#{!bindings.CreateInsert1.enabled}"
+                                <af:button id="b6" actionListener="#{bindings.CreateMarkUpRate.execute}"
+                                           disabled="#{!bindings.CreateMarkUpRate.enabled}"
                                            icon="/resources/icons/plus.png"/>
-                                <af:button id="b7" actionListener="#{bindings.Delete2.execute}"
+                                <af:button id="b7" actionListener="#{viewScope.ActionEventsBean.onMarkupDelete}"
                                            disabled="#{!bindings.Delete2.enabled}" icon="/resources/icons/delete.png"/>
                             </af:toolbar>
                         </f:facet>
@@ -288,7 +289,7 @@
                                   selectedRowKeys="#{bindings.SgsMarkupRateTblVO.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsMarkupRateTblVO.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SgsMarkupRateTblVO.rangeSize}" id="t4"
-                                  styleClass="AFStretchWidth">
+                                  styleClass="AFStretchWidth" partialTriggers="::b6">
                             <!--<af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.TpaId.label}" id="c6">
                                 <af:inputText value="#{row.bindings.TpaId.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.TpaId.label}"

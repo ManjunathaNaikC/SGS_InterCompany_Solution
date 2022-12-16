@@ -15,6 +15,7 @@ import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
 import javax.el.ValueExpression;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.component.visit.VisitCallback;
@@ -868,4 +869,21 @@ public class ADFUtils {
 //        sgsVO.setWhereClause("BU_ID = COALESCE(" + getSessionAttribute("usersBuId") + ",BU_ID)");
 //        sgsVO.executeQuery();
 //    }
+
+
+    public static void deleteNotifier() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String messageText = "Record Deleted Successfully.";
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_INFO);
+        context.addMessage(null, fm);
+    }
+
+    public static void saveNotifier() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String messageText = "Record saved Successfully.";
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_INFO);
+        context.addMessage(null, fm);
+    }
 }

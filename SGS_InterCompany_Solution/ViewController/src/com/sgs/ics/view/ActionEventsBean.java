@@ -1,5 +1,7 @@
 package com.sgs.ics.view;
 
+import com.sgs.ics.ui.utils.ADFUtils;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -13,13 +15,16 @@ import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 public class ActionEventsBean {
+    protected String SAVE_DATA="Commit";
+    
     public ActionEventsBean() {
     }
+    
+    
 
     public void onStatisticalDataSave(ActionEvent actionEvent) {
-        String commitBind = "Commit";
-        executeBinding(commitBind);
-        saveNotifier();
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
     }
     
     public Object executeBinding(String binding) {
@@ -37,29 +42,45 @@ public class ActionEventsBean {
         DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
         return bindings.findIteratorBinding(iterName);
 
-    }
-
-    public void saveNotifier() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        String messageText = "Record saved Successfully.";
-        FacesMessage fm = new FacesMessage(messageText);
-        fm.setSeverity(FacesMessage.SEVERITY_INFO);
-        context.addMessage(null, fm);
-    }
-    
-    public void deleteNotifier() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        String messageText = "Record Deleted Successfully.";
-        FacesMessage fm = new FacesMessage(messageText);
-        fm.setSeverity(FacesMessage.SEVERITY_INFO);
-        context.addMessage(null, fm);
-    }
-    
-
+    } 
 
     public void onDeleteStatisticalData(ActionEvent actionEvent) {
         executeBinding("DeleteStatisticalData");
-        executeBinding("Commit");      
-        deleteNotifier();
+        executeBinding(SAVE_DATA);      
+        ADFUtils.deleteNotifier();
+    }
+
+    public void onDocumentsDelete(ActionEvent actionEvent) {
+        executeBinding("DeleteDocs");
+        executeBinding(SAVE_DATA);      
+        ADFUtils.deleteNotifier();
+    }
+
+    public void onMarkupDelete(ActionEvent actionEvent) {
+        executeBinding("DeleteMarkUp");
+        executeBinding(SAVE_DATA);      
+        ADFUtils.deleteNotifier();
+        
+    }
+
+    public void onIdenComboDelete(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding("DeleteIdenCombo");
+        executeBinding(SAVE_DATA);      
+        ADFUtils.deleteNotifier();
+    }
+
+    public void onTargetComboDelete(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding("DeleteTargetCombo");
+        executeBinding(SAVE_DATA);      
+        ADFUtils.deleteNotifier();
+    }
+
+    public void onCrossChargeComboDelete(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding("DeleteCrossCharge");
+        executeBinding(SAVE_DATA);      
+        ADFUtils.deleteNotifier();
     }
 }

@@ -10,12 +10,15 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import javax.security.auth.Subject;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.ViewObject;
+
 
 public class AuthenticationBean {
     private String _username;
@@ -99,7 +102,7 @@ public class AuthenticationBean {
           try {
              // System.out.println("path:"+ectx.getRequestContextPath());
               if ((_username!=null && _username!="") && map.get(_username)!=null)
-              ectx.redirect(ectx.getRequestContextPath()+"/faces/pages/MainPage.jsf");           
+              ectx.redirect(ectx.getRequestContextPath()+"/faces/pages/MainPage.jsf");  
               else
               showError("Invalid credentials", "An incorrect username or password was specified.", null);
              

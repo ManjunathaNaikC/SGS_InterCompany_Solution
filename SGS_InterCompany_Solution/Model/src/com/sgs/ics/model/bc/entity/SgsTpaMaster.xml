@@ -66,9 +66,10 @@
   <Attribute
     Name="PassThroughFlag"
     ColumnName="PASS_THROUGH_FLAG"
-    SQLType="BIT"
+    Precision="80"
+    SQLType="VARCHAR"
     Type="java.lang.String"
-    ColumnType="BIT"
+    ColumnType="VARCHAR"
     TableName="SGS_TPA_MASTER"/>
   <Attribute
     Name="PassThroughBu"

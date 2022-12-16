@@ -211,8 +211,9 @@
                                        
                                         <af:button id="b8" icon="/resources/icons/plus.png" actionListener="#{bindings.CreateInsert.execute}"
                                                    disabled="#{!bindings.CreateInsert.enabled}"/>
-                                        <af:button id="b9" icon="/resources/icons/delete.png"  actionListener="#{bindings.Delete1.execute}" 
-                                                   disabled="#{!bindings.Delete1.enabled}"/>
+                                        <af:button id="b9" icon="/resources/icons/delete.png"
+                                                   actionListener="#{viewScope.ActionEventsBean.onIdenComboDelete}" 
+                                                   disabled="#{!bindings.DeleteIdenCombo.enabled}"/>
                                         
                                     </af:toolbar>
                                 </f:facet>
@@ -429,8 +430,8 @@
                                         <af:button actionListener="#{bindings.CreateInsert1.execute}"
                                                    icon="/resources/icons/plus.png" disabled="#{!bindings.CreateInsert1.enabled}"
                                                    id="b6"/>
-                                        <af:button actionListener="#{bindings.Delete2.execute}" icon="/resources/icons/delete.png"
-                                                   disabled="#{!bindings.Delete2.enabled}" id="b7"/>
+                                        <af:button actionListener="#{viewScope.ActionEventsBean.onTargetComboDelete}" icon="/resources/icons/delete.png"
+                                                   disabled="#{!bindings.DeleteTargetCombo.enabled}" id="b7"/>
                                         <!--<af:button id="b7" icon="/resources/icons/delete.png"/>-->
                                     </af:toolbar>
                                 </f:facet>
@@ -585,8 +586,8 @@
                                         <af:button actionListener="#{bindings.CreateInsert2.execute}"
                                                   icon="/resources/icons/plus.png" disabled="#{!bindings.CreateInsert2.enabled}"
                                                    id="b10"/>
-                                        <af:button actionListener="#{bindings.Delete3.execute}" icon="/resources/icons/delete.png"
-                                                   disabled="#{!bindings.Delete3.enabled}" id="b11"/>
+                                        <af:button actionListener="#{viewScope.ActionEventsBean.onCrossChargeComboDelete}" icon="/resources/icons/delete.png"
+                                                   disabled="#{!bindings.DeleteCrossCharge.enabled}" id="b11"/>
                                         <!--<af:button id="b5" icon="/resources/icons/delete.png"/>-->
                                     </af:toolbar>
                                 </f:facet>

@@ -169,14 +169,14 @@
     </attributeValues>
     <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="Delete1" RequiresUpdateModel="false"
+    <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="DeleteIdenCombo" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="AllocationRuleVOIterator" id="CreateInsert1" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action IterBinding="AllocationRuleVOIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="AllocationRuleVOIterator" id="DeleteTargetCombo" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="CrossChargeCombinationVOIterator" id="CreateInsert2" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action IterBinding="CrossChargeCombinationVOIterator" id="Delete3" RequiresUpdateModel="false"
+    <action IterBinding="CrossChargeCombinationVOIterator" id="DeleteCrossCharge" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

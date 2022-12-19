@@ -236,14 +236,17 @@
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.label}"
                                            id="c2">
-                                    <af:selectOneChoice value="#{row.bindings.AllocationBasis.inputValue}"
+                                    <af:outputText value="#{row.AllocationBasis}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.tooltip}"
+                                                   id="ot1"/>
+                                    <!--<af:selectOneChoice value="#{row.bindings.AllocationBasis.inputValue}"
                                                         label="#{row.bindings.AllocationBasis.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.mandatory}"
                                                         shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.tooltip}"
                                                         readOnly="true" id="soc5">
                                         <f:selectItems value="#{row.bindings.AllocationBasis.items}" id="si5"/>
                                         <f:validator binding="#{row.bindings.AllocationBasis.validator}"/>
-                                    </af:selectOneChoice>
+                                    </af:selectOneChoice>-->
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.name}"
                                            filterable="true"

@@ -552,7 +552,8 @@
                                             <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.IcLineNo.label}" id="c22">
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.IcLineNo.label}" id="c22"
+                                               rendered="false">
                                         <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
                                                       label="#{bindings.AllocationRuleVO.hints.IcLineNo.label}"
                                                       required="#{bindings.AllocationRuleVO.hints.IcLineNo.mandatory}"
@@ -563,7 +564,8 @@
                                             <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OcLineNo.label}" id="c23">
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OcLineNo.label}" id="c23"
+                                               rendered="false">
                                         <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
                                                       label="#{bindings.AllocationRuleVO.hints.OcLineNo.label}"
                                                       required="#{bindings.AllocationRuleVO.hints.OcLineNo.mandatory}"
@@ -622,7 +624,8 @@
                                             <f:validator binding="#{row.bindings.OffsetOperatingUnit.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}" id="c28">
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}" id="c28"
+                                               rendered="false">
                                         <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
                                                       label="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
                                                       required="#{bindings.AllocationRuleVO.hints.TcLineNo.mandatory}"

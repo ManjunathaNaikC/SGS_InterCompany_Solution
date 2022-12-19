@@ -25,7 +25,7 @@
                         </af:toolbar>
                     </f:facet>
                     <af:panelGroupLayout id="pgl2" layout="vertical">
-                    <af:panelFormLayout id="pfl1" rows="6">
+                    <af:panelFormLayout id="pfl1" rows="6" maxColumns="3">
                         <!--<af:inputText value="#{bindings.CostIdentificationId.inputValue}"
                                       label="#{bindings.CostIdentificationId.hints.label}"
                                       required="#{bindings.CostIdentificationId.hints.mandatory}"
@@ -63,7 +63,61 @@
                             <f:selectItems value="#{bindings.DataSource.items}" id="si3"/>
                             <f:validator binding="#{bindings.DataSource.validator}"/>
                         </af:selectOneChoice>
-                        <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
+                            <af:selectOneChoice value="#{bindings.NatureOfExpense.inputValue}"
+                                                label="#{bindings.NatureOfExpense.label}"
+                                                required="#{bindings.NatureOfExpense.hints.mandatory}"
+                                                shortDesc="#{bindings.NatureOfExpense.hints.tooltip}" id="soc4">
+                                <f:selectItems value="#{bindings.NatureOfExpense.items}" id="si4"/>
+                                <f:validator binding="#{bindings.NatureOfExpense.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{bindings.AllocationBasis.inputValue}"
+                                                label="#{bindings.AllocationBasis.label}"
+                                                required="#{bindings.AllocationBasis.hints.mandatory}"
+                                                shortDesc="#{bindings.AllocationBasis.hints.tooltip}" id="soc5">
+                                <f:selectItems value="#{bindings.AllocationBasis.items}" id="si5"/>
+                                <f:validator binding="#{bindings.AllocationBasis.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputText value="#{bindings.CostGroup1.inputValue}"
+                                          label="#{bindings.CostGroup1.hints.label}"
+                                          required="#{bindings.CostGroup1.hints.mandatory}"
+                                          columns="#{bindings.CostGroup1.hints.displayWidth}"
+                                          maximumLength="#{bindings.CostGroup1.hints.precision}"
+                                          shortDesc="#{bindings.CostGroup1.hints.tooltip}" id="it32">
+                                <f:validator binding="#{bindings.CostGroup1.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.InputProvider.inputValue}"
+                                          label="#{bindings.InputProvider.hints.label}"
+                                          required="#{bindings.InputProvider.hints.mandatory}"
+                                          columns="#{bindings.InputProvider.hints.displayWidth}"
+                                          maximumLength="#{bindings.InputProvider.hints.precision}"
+                                          shortDesc="#{bindings.InputProvider.hints.tooltip}" id="it28">
+                                <f:validator binding="#{bindings.InputProvider.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.InvJournalGrpCode.inputValue}"
+                                          label="#{bindings.InvJournalGrpCode.hints.label}"
+                                          required="#{bindings.InvJournalGrpCode.hints.mandatory}"
+                                          columns="#{bindings.InvJournalGrpCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.InvJournalGrpCode.hints.precision}"
+                                          shortDesc="#{bindings.InvJournalGrpCode.hints.tooltip}" id="it29">
+                                <f:validator binding="#{bindings.InvJournalGrpCode.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.TrueUpDownApplicability.inputValue}"
+                                          label="#{bindings.TrueUpDownApplicability.hints.label}"
+                                          required="#{bindings.TrueUpDownApplicability.hints.mandatory}"
+                                          columns="#{bindings.TrueUpDownApplicability.hints.displayWidth}"
+                                          maximumLength="#{bindings.TrueUpDownApplicability.hints.precision}"
+                                          shortDesc="#{bindings.TrueUpDownApplicability.hints.tooltip}" id="it30">
+                                <f:validator binding="#{bindings.TrueUpDownApplicability.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.TrueUpDownFrequency.inputValue}"
+                                          label="#{bindings.TrueUpDownFrequency.hints.label}"
+                                          required="#{bindings.TrueUpDownFrequency.hints.mandatory}"
+                                          columns="#{bindings.TrueUpDownFrequency.hints.displayWidth}"
+                                          maximumLength="#{bindings.TrueUpDownFrequency.hints.precision}"
+                                          shortDesc="#{bindings.TrueUpDownFrequency.hints.tooltip}" id="it31">
+                                <f:validator binding="#{bindings.TrueUpDownFrequency.validator}"/>
+                            </af:inputText>
+                            <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                       label="#{bindings.EffectiveFrom.hints.label}"
                                       required="#{bindings.EffectiveFrom.hints.mandatory}"
                                       columns="#{bindings.EffectiveFrom.hints.displayWidth}"
@@ -209,8 +263,11 @@
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t3">
                                        
-                                        <af:button id="b8" icon="/resources/icons/plus.png" actionListener="#{bindings.CreateInsert.execute}"
-                                                   disabled="#{!bindings.CreateInsert.enabled}"/>
+                                        <!--<af:button id="b8" icon="/resources/icons/plus.png"
+                                                   actionListener="#{bindings.CreateInsertIdenCombo.execute}"
+                                                   disabled="#{!bindings.CreateInsertIdenCombo.enabled}"/>-->
+                                        <af:button  id="b4" icon="/resources/icons/plus.png" 
+                                                   actionListener="#{viewScope.ActionEventsBean.onIdenComboCreate}"/>
                                         <af:button id="b9" icon="/resources/icons/delete.png"
                                                    actionListener="#{viewScope.ActionEventsBean.onIdenComboDelete}" 
                                                    disabled="#{!bindings.DeleteIdenCombo.enabled}"/>
@@ -226,7 +283,7 @@
                                           selectionListener="#{bindings.SgsCostIdentificationCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
                                           fetchSize="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}" id="t2"
-                                          partialTriggers="::b8 ::b9">
+                                          partialTriggers="::b4 ::b9">
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromBusinessUnit.label}"
                                                id="c1">
                                         <af:inputText value="#{row.bindings.FromBusinessUnit.inputValue}"
@@ -427,9 +484,12 @@
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t7">
                                          <!--<af:button id="b6" icon="/resources/icons/plus.png"/>-->
-                                        <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                                   icon="/resources/icons/plus.png" disabled="#{!bindings.CreateInsert1.enabled}"
-                                                   id="b6"/>
+                                        <!--<af:button actionListener="#{bindings.CreateInsertTargetCombo.execute}"
+                                                  
+                                                   disabled="#{!bindings.CreateInsertTargetCombo.enabled}"
+                                                   id="b6"/>-->
+                                        <af:button  id="b5"  icon="/resources/icons/plus.png"
+                                                   actionListener="#{viewScope.ActionEventsBean.onTargetComboCreate}"/>
                                         <af:button actionListener="#{viewScope.ActionEventsBean.onTargetComboDelete}" icon="/resources/icons/delete.png"
                                                    disabled="#{!bindings.DeleteTargetCombo.enabled}" id="b7"/>
                                         <!--<af:button id="b7" icon="/resources/icons/delete.png"/>-->
@@ -443,7 +503,7 @@
                                           selectedRowKeys="#{bindings.AllocationRuleVO.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.AllocationRuleVO.collectionModel.makeCurrent}"
                                           rowSelection="single" fetchSize="#{bindings.AllocationRuleVO.rangeSize}"
-                                          id="t6" partialTriggers="::b6 ::b7">
+                                          id="t6" partialTriggers="::b5 ::b7">
                                     <!--<af:column headerText="#{bindings.AllocationRuleVO.hints.CostIdentificationId.label}"
                                                id="c18">
                                         <af:inputText value="#{row.bindings.CostIdentificationId.inputValue}"
@@ -583,9 +643,11 @@
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t4">
                                         <!--<af:button id="b4" icon="/resources/icons/plus.png"/>-->
-                                        <af:button actionListener="#{bindings.CreateInsert2.execute}"
-                                                  icon="/resources/icons/plus.png" disabled="#{!bindings.CreateInsert2.enabled}"
-                                                   id="b10"/>
+                                        <!--<af:button actionListener="#{bindings.CreateInsertCrossCombo.execute}"
+                                                   disabled="#{!bindings.CreateInsertCrossCombo.enabled}"
+                                                   id="b10"/>-->
+                                        <af:button icon="/resources/icons/plus.png" id="b6"
+                                                   actionListener="#{viewScope.ActionEventsBean.onCrossChargeCreate}"/>
                                         <af:button actionListener="#{viewScope.ActionEventsBean.onCrossChargeComboDelete}" icon="/resources/icons/delete.png"
                                                    disabled="#{!bindings.DeleteCrossCharge.enabled}" id="b11"/>
                                         <!--<af:button id="b5" icon="/resources/icons/delete.png"/>-->
@@ -601,7 +663,7 @@
                                           selectionListener="#{bindings.CrossChargeCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
                                           fetchSize="#{bindings.CrossChargeCombinationVO.rangeSize}" id="t5"
-                                          styleClass="AFStretchWidth" partialTriggers="::b10 ::b11">
+                                          styleClass="AFStretchWidth" partialTriggers="::b6 ::b11">
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.FromGlAccount.label}"
                                                id="c8">
                                         <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"

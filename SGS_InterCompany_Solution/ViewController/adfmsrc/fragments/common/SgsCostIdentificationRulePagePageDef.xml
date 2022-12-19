@@ -109,5 +109,9 @@
         <Item Value="MEANING"/>
       </AttrNames>
     </list>
+    <action IterBinding="SgsCostIdentificationRuleVOIterator" id="DeleteCostIdentifier"
+            InstanceName="SGSAppModuleDataControl.SgsCostIdentificationRuleVO" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

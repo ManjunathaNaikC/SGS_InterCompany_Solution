@@ -167,16 +167,51 @@
         <Item Value="EffectiveStatus"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="CreateInsert" RequiresUpdateModel="true"
+    <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="CreateInsertIdenCombo" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="DeleteIdenCombo" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action IterBinding="AllocationRuleVOIterator" id="CreateInsert1" RequiresUpdateModel="true"
+    <action IterBinding="AllocationRuleVOIterator" id="CreateInsertTargetCombo" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <action IterBinding="AllocationRuleVOIterator" id="DeleteTargetCombo" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action IterBinding="CrossChargeCombinationVOIterator" id="CreateInsert2" RequiresUpdateModel="true"
+    <action IterBinding="CrossChargeCombinationVOIterator" id="CreateInsertCrossCombo" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <action IterBinding="CrossChargeCombinationVOIterator" id="DeleteCrossCharge" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_NatureOfExpense"
+          id="NatureOfExpense" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_AllocationBasis"
+          id="AllocationBasis" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" id="CostGroup" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" Uses="LOV_AccountingTreatment" StaticList="false">
+      <AttrNames>
+        <Item Value="CostGroup"/>
+      </AttrNames>
+    </list>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="InputProvider">
+      <AttrNames>
+        <Item Value="InputProvider"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="InvJournalGrpCode">
+      <AttrNames>
+        <Item Value="InvJournalGrpCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="TrueUpDownApplicability">
+      <AttrNames>
+        <Item Value="TrueUpDownApplicability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="TrueUpDownFrequency">
+      <AttrNames>
+        <Item Value="TrueUpDownFrequency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="CostGroup1">
+      <AttrNames>
+        <Item Value="CostGroup"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -64,10 +64,21 @@
                                                shortDesc="Create/Add Cost Identification Rule"
                                                actionListener="#{bindings.CreateInsert.execute}"/>
                                     <af:button id="b2" shortDesc="Delete Cost Identification Rule"
-                                               icon="/resources/icons/delete.png"/>
+                                               icon="/resources/icons/delete.png"
+                                              >
+                                        <af:showPopupBehavior popupId="p1cost"/>
+                                    </af:button>
                                 </af:toolbar>
                             </f:facet>
                             <f:facet name="statusbar"/>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1cost">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onCostIdentifierDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+                            </af:popup>
                             <!--<af:table value="#{bindings.SgsCostIdentificationRuleVO1.collectionModel}" var="row"
                                       rows="#{bindings.SgsCostIdentificationRuleVO1.rangeSize}"
                                       emptyText="#{bindings.SgsCostIdentificationRuleVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -273,38 +284,6 @@
                                         <f:validator binding="#{row.bindings.ServiceCategory.validator}"/>
                                     </af:selectOneChoice>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.name}"
-                                           filterable="true"
-                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.label}"
-                                           id="c24">
-                                    <f:facet name="filter">
-                                        <af:inputDate value="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
-                                                      id="id7">
-                                            <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.format}"/>
-                                        </af:inputDate>
-                                    </f:facet>
-                                    <af:outputText value="#{row.EffectiveFrom}"
-                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.tooltip}"
-                                                   id="ot32">
-                                        <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.format}"/>
-                                    </af:outputText>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.name}"
-                                           filterable="true"
-                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.label}"
-                                           id="c25">
-                                    <f:facet name="filter">
-                                        <af:inputDate value="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
-                                                      id="id8">
-                                            <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.format}"/>
-                                        </af:inputDate>
-                                    </f:facet>
-                                    <af:outputText value="#{row.EffectiveTo}"
-                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.tooltip}"
-                                                   id="ot33">
-                                        <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.format}"/>
-                                    </af:outputText>
-                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.label}"
@@ -352,6 +331,38 @@
                                     <af:outputText value="#{row.TrueUpDownFrequency}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownFrequency.tooltip}"
                                                    id="ot37"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.label}"
+                                           id="c24">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
+                                                      id="id7">
+                                            <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:outputText value="#{row.EffectiveFrom}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.tooltip}"
+                                                   id="ot32">
+                                        <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.label}"
+                                           id="c25">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
+                                                      id="id8">
+                                            <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:outputText value="#{row.EffectiveTo}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.tooltip}"
+                                                   id="ot33">
+                                        <af:convertDateTime pattern="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.format}"/>
+                                    </af:outputText>
                                 </af:column>
                             </af:table>
                         </af:panelCollection>

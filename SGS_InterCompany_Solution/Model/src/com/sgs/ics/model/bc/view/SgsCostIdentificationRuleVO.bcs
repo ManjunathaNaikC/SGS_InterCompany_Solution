@@ -21,7 +21,7 @@ def bLookupType_DataSourceLOV_BindVariable_BoundParameter()
 @AccessorParameterExpression(accessorName="AccountingTreatmentLOV", name="bLookupType")
 def bLookupType_AccountingTreatmentLOV_BindVariable_BoundParameter()
 {
-'ACC_TREAT'
+'ACC_TREATMENT'
 }
 
 

@@ -473,6 +473,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="19.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CostGroup_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

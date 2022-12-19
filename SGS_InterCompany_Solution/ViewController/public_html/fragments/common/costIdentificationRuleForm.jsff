@@ -345,7 +345,7 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.label}"
-                                               id="c18">
+                                               id="c18" rendered="false">
                                         <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
                                                       label="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.label}"
                                                       required="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.mandatory}"
@@ -357,7 +357,7 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.label}"
-                                               id="c19">
+                                               id="c19" rendered="false">
                                         <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
                                                       label="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.label}"
                                                       required="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedDate.mandatory}"
@@ -636,6 +636,30 @@
                                             <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
                                         </af:inputText>
                                     </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.EffectiveFrom.label}"
+                                               id="c20">
+                                        <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.EffectiveFrom.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.EffectiveFrom.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.EffectiveFrom.displayWidth}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.EffectiveFrom.tooltip}"
+                                                      id="id6">
+                                            <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.AllocationRuleVO.hints.EffectiveFrom.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.EffectiveTo.label}"
+                                               id="c29">
+                                        <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.EffectiveTo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.EffectiveTo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.EffectiveTo.displayWidth}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.EffectiveTo.tooltip}"
+                                                      id="id7">
+                                            <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.AllocationRuleVO.hints.EffectiveTo.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
                                 </af:table>
                             </af:panelCollection>
                         </af:panelBox>
@@ -764,7 +788,7 @@
                                         </af:inputDate>
                                     </af:column>
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.label}"
-                                               id="c16">
+                                               id="c16" rendered="false">
                                         <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
                                                       label="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.label}"
                                                       required="#{bindings.CrossChargeCombinationVO.hints.CreatedBy.mandatory}"
@@ -776,7 +800,7 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.label}"
-                                               id="c17">
+                                               id="c17" rendered="false">
                                         <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
                                                       label="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.label}"
                                                       required="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.mandatory}"

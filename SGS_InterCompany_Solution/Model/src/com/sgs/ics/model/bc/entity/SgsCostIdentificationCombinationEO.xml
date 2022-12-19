@@ -147,7 +147,9 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_COST_IDENTIFICATION_COMBINATION"/>
+    TableName="SGS_COST_IDENTIFICATION_COMBINATION"
+    HistoryColumn="DateHistory"
+    IsUpdateable="while_insert"/>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -156,7 +158,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_COMBINATION">
+    TableName="SGS_COST_IDENTIFICATION_COMBINATION"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -167,7 +171,8 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_COST_IDENTIFICATION_COMBINATION"/>
+    TableName="SGS_COST_IDENTIFICATION_COMBINATION"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="UpdatedBy"
     Precision="80"
@@ -175,7 +180,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_COMBINATION">
+    TableName="SGS_COST_IDENTIFICATION_COMBINATION"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

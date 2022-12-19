@@ -265,14 +265,17 @@
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.label}"
                                            id="c23">
-                                    <af:selectOneChoice value="#{row.bindings.DataSource.inputValue}"
+                                    <!--<af:selectOneChoice value="#{row.bindings.DataSource.inputValue}"
                                                         label="#{row.bindings.DataSource.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.mandatory}"
                                                         shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.tooltip}"
                                                         readOnly="true" id="soc6">
                                         <f:selectItems value="#{row.bindings.DataSource.items}" id="si6"/>
                                         <f:validator binding="#{row.bindings.DataSource.validator}"/>
-                                    </af:selectOneChoice>
+                                    </af:selectOneChoice>-->
+                                    <af:outputText value="#{row.DataSource}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.tooltip}"
+                                                   id="ot2"/>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.name}"
                                            filterable="true"

@@ -57,6 +57,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        NONPERSONNELCOST,
         SgsCostOffsetCombinationEO,
         SgsCostTargetCombinationEO,
         SgsCostIdentificationCombinationEO;
@@ -118,6 +119,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int NONPERSONNELCOST = AttributesEnum.NONPERSONNELCOST.index();
     public static final int SGSCOSTOFFSETCOMBINATIONEO = AttributesEnum.SgsCostOffsetCombinationEO.index();
     public static final int SGSCOSTTARGETCOMBINATIONEO = AttributesEnum.SgsCostTargetCombinationEO.index();
     public static final int SGSCOSTIDENTIFICATIONCOMBINATIONEO =
@@ -631,6 +633,22 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
      */
     public void setAttribute15(BigDecimal value) {
         setAttributeInternal(ATTRIBUTE15, value);
+    }
+
+    /**
+     * Gets the attribute value for NONPERSONNELCOST, using the alias name NONPERSONNELCOST.
+     * @return the value of NONPERSONNELCOST
+     */
+    public BigDecimal getNONPERSONNELCOST() {
+        return (BigDecimal) getAttributeInternal(NONPERSONNELCOST);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NONPERSONNELCOST.
+     * @param value value to set the NONPERSONNELCOST
+     */
+    public void setNONPERSONNELCOST(BigDecimal value) {
+        setAttributeInternal(NONPERSONNELCOST, value);
     }
 
     /**

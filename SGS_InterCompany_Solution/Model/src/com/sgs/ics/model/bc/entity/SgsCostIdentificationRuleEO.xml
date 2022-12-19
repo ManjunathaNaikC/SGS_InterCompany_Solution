@@ -361,6 +361,15 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_COST_IDENTIFICATION_RULE"/>
+  <Attribute
+    Name="NONPERSONNELCOST"
+    Precision="10"
+    Scale="4"
+    ColumnName="NON_PERSONNEL_COST"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_COST_IDENTIFICATION_RULE"/>
   <AccessorAttribute
     Name="SgsCostOffsetCombinationEO"
     Association="com.sgs.ics.model.bc.entity.assoc.FKSGSCOSTOFFSETCOMBINATIONAssoc"

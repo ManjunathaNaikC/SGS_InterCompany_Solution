@@ -213,5 +213,10 @@
         <Item Value="CostGroup"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="NONPERSONNELCOST">
+      <AttrNames>
+        <Item Value="NONPERSONNELCOST"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

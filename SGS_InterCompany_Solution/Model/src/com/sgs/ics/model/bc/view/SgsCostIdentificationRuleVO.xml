@@ -731,6 +731,19 @@
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="NONPERSONNELCOST"
+    PrecisionRule="true"
+    EntityAttrName="NONPERSONNELCOST"
+    EntityUsage="SgsCostIdentificationRuleEO"
+    AliasName="NON_PERSONNEL_COST">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.NONPERSONNELCOST_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsCostIdentificationRuleVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"

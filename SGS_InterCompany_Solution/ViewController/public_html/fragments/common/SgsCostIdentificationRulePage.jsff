@@ -219,10 +219,26 @@
                                                    id="ot1"/>-->
                                     <af:link text="#{row.CostIdentificationName}" id="l1" action="Edit"/>
                                 </af:column>
+                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.label}"
+                                           id="c18">
+                                    <af:outputText value="#{row.CostGroup}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.tooltip}"
+                                                   id="ot27"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.label}"
+                                           id="c27">
+                                    <af:outputText value="#{row.InvJournalGrpCode}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.tooltip}"
+                                                   id="ot35"/>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.label}"
-                                           id="c28">
+                                           id="c28" rendered="false">
                                     <af:selectOneChoice value="#{row.bindings.NatureOfExpense.inputValue}"
                                                         label="#{row.bindings.NatureOfExpense.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.mandatory}"
@@ -248,19 +264,6 @@
                                         <f:validator binding="#{row.bindings.AllocationBasis.validator}"/>
                                     </af:selectOneChoice>-->
                                 </af:column>
-                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.name}"
-                                           filterable="true"
-                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.label}"
-                                           id="c1">
-                                    <af:selectOneChoice value="#{row.bindings.AccountingTreatment.inputValue}"
-                                                        label="#{row.bindings.AccountingTreatment.label}"
-                                                        required="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.mandatory}"
-                                                        shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.tooltip}"
-                                                        readOnly="true" id="soc4">
-                                        <f:selectItems value="#{row.bindings.AccountingTreatment.items}" id="si4"/>
-                                        <f:validator binding="#{row.bindings.AccountingTreatment.validator}"/>
-                                    </af:selectOneChoice>
-                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.label}"
@@ -277,6 +280,19 @@
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.tooltip}"
                                                    id="ot2"/>
                                 </af:column>
+                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.label}"
+                                           id="c1">
+                                    <af:selectOneChoice value="#{row.bindings.AccountingTreatment.inputValue}"
+                                                        label="#{row.bindings.AccountingTreatment.label}"
+                                                        required="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.mandatory}"
+                                                        shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.tooltip}"
+                                                        readOnly="true" id="soc4">
+                                        <f:selectItems value="#{row.bindings.AccountingTreatment.items}" id="si4"/>
+                                        <f:validator binding="#{row.bindings.AccountingTreatment.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.label}"
@@ -289,14 +305,6 @@
                                         <f:selectItems value="#{row.bindings.ServiceCategory.items}" id="si8"/>
                                         <f:validator binding="#{row.bindings.ServiceCategory.validator}"/>
                                     </af:selectOneChoice>
-                                </af:column>
-                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.name}"
-                                           filterable="true"
-                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.label}"
-                                           id="c18">
-                                    <af:outputText value="#{row.CostGroup}"
-                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.tooltip}"
-                                                   id="ot27"/>
                                 </af:column>
                                 <!--<af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationId.name}"
                                            filterable="true"
@@ -314,18 +322,10 @@
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.InputProvider.tooltip}"
                                                    id="ot34"/>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.name}"
-                                           filterable="true"
-                                           headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.label}"
-                                           id="c27">
-                                    <af:outputText value="#{row.InvJournalGrpCode}"
-                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.tooltip}"
-                                                   id="ot35"/>
-                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownApplicability.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownApplicability.label}"
-                                           id="c30">
+                                           id="c30" rendered="false">
                                     <af:outputText value="#{row.TrueUpDownApplicability}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownApplicability.tooltip}"
                                                    id="ot36"/>
@@ -333,7 +333,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownFrequency.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownFrequency.label}"
-                                           id="c31">
+                                           id="c31" rendered="false">
                                     <af:outputText value="#{row.TrueUpDownFrequency}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownFrequency.tooltip}"
                                                    id="ot37"/>

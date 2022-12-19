@@ -101,22 +101,6 @@
                                           shortDesc="#{bindings.InvJournalGrpCode.hints.tooltip}" id="it29">
                                 <f:validator binding="#{bindings.InvJournalGrpCode.validator}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.TrueUpDownApplicability.inputValue}"
-                                          label="#{bindings.TrueUpDownApplicability.hints.label}"
-                                          required="#{bindings.TrueUpDownApplicability.hints.mandatory}"
-                                          columns="#{bindings.TrueUpDownApplicability.hints.displayWidth}"
-                                          maximumLength="#{bindings.TrueUpDownApplicability.hints.precision}"
-                                          shortDesc="#{bindings.TrueUpDownApplicability.hints.tooltip}" id="it30">
-                                <f:validator binding="#{bindings.TrueUpDownApplicability.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.TrueUpDownFrequency.inputValue}"
-                                          label="#{bindings.TrueUpDownFrequency.hints.label}"
-                                          required="#{bindings.TrueUpDownFrequency.hints.mandatory}"
-                                          columns="#{bindings.TrueUpDownFrequency.hints.displayWidth}"
-                                          maximumLength="#{bindings.TrueUpDownFrequency.hints.precision}"
-                                          shortDesc="#{bindings.TrueUpDownFrequency.hints.tooltip}" id="it31">
-                                <f:validator binding="#{bindings.TrueUpDownFrequency.validator}"/>
-                            </af:inputText>
                             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                       label="#{bindings.EffectiveFrom.hints.label}"
                                       required="#{bindings.EffectiveFrom.hints.mandatory}"
@@ -813,6 +797,38 @@
                                     </af:column>
                                 </af:table>
                             </af:panelCollection>
+                        </af:panelBox>
+                        <af:panelBox text="Exceptions" id="pb5">
+                            <f:facet name="toolbar"/>
+                            <af:panelFormLayout id="pfl2" rows="5" maxColumns="1">
+                                <f:facet name="footer"/>
+                                <af:inputText value="#{bindings.NONPERSONNELCOST.inputValue}"
+                                              label="#{bindings.NONPERSONNELCOST.hints.label}"
+                                              required="#{bindings.NONPERSONNELCOST.hints.mandatory}"
+                                              columns="#{bindings.NONPERSONNELCOST.hints.displayWidth}"
+                                              maximumLength="#{bindings.NONPERSONNELCOST.hints.precision}"
+                                              shortDesc="#{bindings.NONPERSONNELCOST.hints.tooltip}" id="it33">
+                                    <f:validator binding="#{bindings.NONPERSONNELCOST.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.NONPERSONNELCOST.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.TrueUpDownApplicability.inputValue}"
+                                              label="#{bindings.TrueUpDownApplicability.hints.label}"
+                                              required="#{bindings.TrueUpDownApplicability.hints.mandatory}"
+                                              columns="#{bindings.TrueUpDownApplicability.hints.displayWidth}"
+                                              maximumLength="#{bindings.TrueUpDownApplicability.hints.precision}"
+                                              shortDesc="#{bindings.TrueUpDownApplicability.hints.tooltip}" id="it30">
+                                    <f:validator binding="#{bindings.TrueUpDownApplicability.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.TrueUpDownFrequency.inputValue}"
+                                              label="#{bindings.TrueUpDownFrequency.hints.label}"
+                                              required="#{bindings.TrueUpDownFrequency.hints.mandatory}"
+                                              columns="#{bindings.TrueUpDownFrequency.hints.displayWidth}"
+                                              maximumLength="#{bindings.TrueUpDownFrequency.hints.precision}"
+                                              shortDesc="#{bindings.TrueUpDownFrequency.hints.tooltip}" id="it31">
+                                    <f:validator binding="#{bindings.TrueUpDownFrequency.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
                         </af:panelBox>
                     </af:panelGroupLayout>
                 </af:panelBox>

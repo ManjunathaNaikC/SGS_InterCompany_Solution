@@ -140,13 +140,27 @@
     PrecisionRule="true"
     EntityAttrName="EffectiveFrom"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="EFFECTIVE_FROM"/>
+    AliasName="EFFECTIVE_FROM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.EffectiveFrom_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EffectiveTo"
     PrecisionRule="true"
     EntityAttrName="EffectiveTo"
     EntityUsage="SgsCostOffsetCombinationEO"
-    AliasName="EFFECTIVE_TO"/>
+    AliasName="EFFECTIVE_TO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.AllocationRuleVO.EffectiveTo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FromGlAccount"
     PrecisionRule="true"

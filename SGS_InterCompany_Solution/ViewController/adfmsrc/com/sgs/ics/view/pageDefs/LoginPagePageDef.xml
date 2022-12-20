@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="LoginPagePageDef"
+                Package="com.sgs.ics.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="loginValidationMethod" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="loginValidationMethod" IsViewObjectMethod="false" DataControl="SGSAppModuleDataControl"
+                  InstanceName="bindings.loginValidationMethod.dataControl.dataProvider"
+                  ReturnName="data.SGSAppModuleDataControl.methodResults.loginValidationMethod_loginValidationMethod_dataControl_dataProvider_loginValidationMethod_result">
+      <NamedData NDName="user" NDType="java.lang.String"/>
+      <NamedData NDName="pass" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

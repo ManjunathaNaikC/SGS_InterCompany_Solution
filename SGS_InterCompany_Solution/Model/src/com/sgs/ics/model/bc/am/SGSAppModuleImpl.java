@@ -1,6 +1,7 @@
 package com.sgs.ics.model.bc.am;
 
 
+import com.sgs.ics.model.bc.am.common.SGSAppModule;
 import com.sgs.ics.model.bc.view.SgsTpaMasterVOImpl;
 
 import java.sql.Connection;
@@ -11,6 +12,8 @@ import java.sql.SQLException;
 
 import oracle.adf.share.logging.ADFLogger;
 
+import oracle.jbo.Row;
+import oracle.jbo.ViewCriteria;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
 import oracle.jbo.server.ViewObjectImpl;
@@ -20,7 +23,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class SGSAppModuleImpl extends ApplicationModuleImpl {
+public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppModule {
     /**
      * This is the default constructor (do not remove).
      */
@@ -36,8 +39,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
         PreparedStatement pst = null;
         try {
             String connectionUrl =
-               // "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-           "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
+                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+//           "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
@@ -70,7 +73,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
         PreparedStatement pst = null;
         try {
             String connectionUrl =
-                "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
+            "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+//                "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
@@ -239,5 +243,29 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl {
     public ViewObjectImpl getSgsUserAuthVO1() {
         return (ViewObjectImpl) findViewObject("SgsUserAuthVO1");
     }
+    
+    public String loginValidationMethod(String user,String pass){
+         
+         String userId =null;
+         
+         ViewObjectImpl vo = this.getSgsUserAuthVO1();
+         ViewCriteria vc =vo.getViewCriteria("SgsUserAuthVOCriteria");
+         vo.setNamedWhereClauseParam("bUserId", user);
+         vo.setNamedWhereClauseParam("bPassword", pass);
+         vo.applyViewCriteria(vc);
+         vo.executeQuery();
+             if(vo.getEstimatedRowCount()>0){   
+                 if(vo.hasNext()){
+                      
+                     Row row = vo.next();   
+                     System.out.println("UserId "+ row.getAttribute("UserId"));
+                 
+                     userId = (String)row.getAttribute("UserId");
+                     }    
+             }
+             
+             return userId;
+
+         }
 }
 

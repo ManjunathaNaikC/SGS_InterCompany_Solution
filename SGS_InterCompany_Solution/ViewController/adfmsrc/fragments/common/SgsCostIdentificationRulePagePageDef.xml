@@ -102,12 +102,15 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="NatureOfExpenseLookupVO1Iterator" ListOperMode="navigation"
+    <list IterBinding="NatureOfExpenseLookupVO1Iterator" ListOperMode="multiSelect"
           ListIter="NatureOfExpenseLookupVO1Iterator" id="NatureOfExpenseLookupVO1" DTSupportsMRU="true"
           SelectItemValueMode="ListObject">
       <AttrNames>
-        <Item Value="MEANING"/>
+        <Item Value="LOOKUPCODE"/>
       </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="MEANING"/>
+      </ListDisplayAttrNames>
     </list>
     <action IterBinding="SgsCostIdentificationRuleVOIterator" id="DeleteCostIdentifier"
             InstanceName="SGSAppModuleDataControl.SgsCostIdentificationRuleVO" DataControl="SGSAppModuleDataControl"

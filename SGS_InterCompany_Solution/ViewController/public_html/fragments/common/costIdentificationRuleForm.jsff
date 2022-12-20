@@ -45,14 +45,17 @@
                             <af:selectOneChoice value="#{bindings.AccountingTreatment.inputValue}"
                                             label="#{bindings.AccountingTreatment.label}"
                                             required="#{bindings.AccountingTreatment.hints.mandatory}"
-                                            shortDesc="#{bindings.AccountingTreatment.hints.tooltip}" id="soc1">
+                                            shortDesc="#{bindings.AccountingTreatment.hints.tooltip}" id="soc1"
+                                                autoSubmit="true" partialTriggers="soc2">
                             <f:selectItems value="#{bindings.AccountingTreatment.items}" id="si1"/>
                             <f:validator binding="#{bindings.AccountingTreatment.validator}"/>
                         </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.ServiceCategory.inputValue}"
                                             label="#{bindings.ServiceCategory.label}"
                                             required="#{bindings.ServiceCategory.hints.mandatory}"
-                                            shortDesc="#{bindings.ServiceCategory.hints.tooltip}" id="soc2">
+                                            shortDesc="#{bindings.ServiceCategory.hints.tooltip}" id="soc2"
+                                            partialTriggers="soc1"
+                                            readOnly="#{bindings.AccountingTreatment.inputValue eq 'REIMBURSEMENT'? true:false}">
                             <f:selectItems value="#{bindings.ServiceCategory.items}" id="si2"/>
                             <f:validator binding="#{bindings.ServiceCategory.validator}"/>
                         </af:selectOneChoice>

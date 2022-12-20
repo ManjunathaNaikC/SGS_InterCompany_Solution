@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="bUserId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bPassword"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsUserAuthEO"
     Entity="com.sgs.ics.model.bc.entity.SgsUserAuthEO"/>
@@ -121,4 +129,48 @@
     EntityAttrName="Attribute10"
     EntityUsage="SgsUserAuthEO"
     AliasName="ATTRIBUTE10"/>
+  <ViewCriteria
+    Name="SgsUserAuthVOCriteria"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsUserAuthVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SgsUserAuthVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="UserId"
+        ViewAttribute="UserId"
+        Operator="="
+        Conjunction="AND"
+        Value=":bUserId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Password"
+        ViewAttribute="Password"
+        Operator="="
+        Conjunction="AND"
+        Value=":bPassword"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

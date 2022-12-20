@@ -7,7 +7,8 @@
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true"
-  ComponentClass="com.sgs.ics.model.bc.am.SGSAppModuleImpl">
+  ComponentClass="com.sgs.ics.model.bc.am.SGSAppModuleImpl"
+  ComponentInterface="com.sgs.ics.model.bc.am.common.SGSAppModule">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
@@ -87,6 +88,22 @@
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaMasterVO"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsMarkupRateTblVO"
     Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="loginValidationMethod"
+      MethodName="loginValidationMethod">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="user"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pass"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

@@ -4,7 +4,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="LoginPage.jspx" id="d1" inlineStyle="background-color:transparent;">
- <af:form id="f1" inlineStyle="background-color:transparent;" usesUpload="true">
+            <af:form id="f1" inlineStyle="background-color:transparent;" usesUpload="true">
                 <af:panelGridLayout id="pgl1" inlineStyle="background-image: linear-gradient(120deg,#2980b9,#8e44ad);">
                     <af:gridRow height="60px" id="gr1">
                         <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
@@ -12,21 +12,21 @@
                             <af:panelGridLayout id="pgl2" inlineStyle="background-color:white;">
                                 <af:gridRow id="gr3" marginTop="5px" marginBottom="5px">
                                     <af:gridCell marginStart="5px" width="25%" id="gc1" halign="start" valign="top">
-                                        <af:image source="/resources/images/logoSutherland.png" id="i1"
-                                                   rendered="true" inlineStyle="background-color:White;"/>
+                                        <af:image source="/resources/images/logoSutherland.png" id="i1" rendered="true"
+                                                  inlineStyle="background-color:White;"/>
                                     </af:gridCell>
-                                <af:gridCell marginStart="5px" width="50%" id="gc4" valign="middle" halign="center">
-                                    <af:panelGroupLayout id="pgl4" valign="middle" halign="center">
-                                        <!--<af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
+                                    <af:gridCell marginStart="5px" width="50%" id="gc4" valign="middle" halign="center">
+                                        <af:panelGroupLayout id="pgl4" valign="middle" halign="center">
+                                            <!--<af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
                                                        id="ot3"
                                                        inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:#6925e5;"/>-->
-                                    </af:panelGroupLayout>
-                                </af:gridCell>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
                                     <af:gridCell id="gc5" width="25%"/>
                                 </af:gridRow>
                             </af:panelGridLayout>
                         </af:gridCell>
-                   </af:gridRow>
+                    </af:gridRow>
                     <af:gridRow height="100%" id="gr2">
                         <af:gridCell width="100%" halign="center" id="gc3" valign="middle" columnSpan="1">
                             <!--<af:panelGroupLayout id="pgl7" layout="horizontal" halign="center">
@@ -37,10 +37,8 @@
                             <af:outputFormatted value="Sutherland Global Services – Intercompany Workbench Application"
                                                 id="of2"
                                                 inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
-                            <af:panelBox id="pb2" showDisclosure="false"
-                                         
-                                         titleHalign="center"
-             inlineStyle="text-align:center; margin:70px;    margin-left: 150px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px 5px; width:359px;">
+                            <af:panelBox id="pb2" showDisclosure="false" titleHalign="center"
+                                         inlineStyle="text-align:center; margin:70px;    margin-left: 150px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px 5px; width:359px;">
                                 <f:facet name="toolbar"/>
                                 <af:panelGroupLayout id="pgl3" halign="center" valign="middle" layout="vertical"
                                                      inlineStyle="background-color:transparent;">
@@ -56,11 +54,15 @@
                                     <af:panelGroupLayout id="pgl5" layout="vertical" valign="bottom" halign="start"
                                                          inlineStyle="margin:30px;margin-top:-30px">
                                         <af:outputLabel value="Password:" id="ol2" inlineStyle="margin-left:8px"/>
-                                        <af:inputText id="it2" clientComponent="true" autoSubmit="true" autoTab="true"
-                                                      contentStyle="border-radius:10px" secret="true"
-                                                      value="#{authenticationBean.password} "/>
+                                        <af:inputText id="it2" secret="true" autoSubmit="true" contentStyle="border-radius:10px"
+                                                      value="#{authenticationBean.password}"/>
+                                        <!--<af:inputText id="it2" 
+
+                                        autoSubmit="true"
+                                                    
+                                                      value="#{authenticationBean.password}"/>-->
                                     </af:panelGroupLayout>
-                                    <af:button text="Login" id="b1" action="#{authenticationBean.doLogin}"
+                                    <af:button text="Login" id="b1" action="#{authenticationBean.loginValidation}"
                                                inlineStyle="margin-bottom:30px; width:265px; margin-left:4px; border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; background-image:linear-gradient(120deg, #2980b9, #2980b9); color:white; font-size:medium;"
                                                icon="/resources/icons/user-white.png"/>
                                 </af:panelGroupLayout>
@@ -69,7 +71,6 @@
                     </af:gridRow>
                 </af:panelGridLayout>
             </af:form>
-
         </af:document>
     </f:view>
 </jsp:root>

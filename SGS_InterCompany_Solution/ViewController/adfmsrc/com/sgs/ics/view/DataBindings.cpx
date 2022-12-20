@@ -27,6 +27,7 @@
           usageId="com_sgs_ics_view_standardRateSetupFormPageDef"/>
     <page path="/taskflows/TransactionalData/sgs-standardSetupRule-flow.xml#sgs-standardSetupRule-flow@SetCurrentRowWithKeyValue"
           usageId="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/LoginPage.jspx" usageId="com_sgs_ics_view_LoginPagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -47,6 +48,7 @@
           path="fragments.TransactionalData.standardRateSetupFormPageDef"/>
     <page id="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"
           path="taskflows.TransactionalData.sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="com_sgs_ics_view_LoginPagePageDef" path="com.sgs.ics.view.pageDefs.LoginPagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

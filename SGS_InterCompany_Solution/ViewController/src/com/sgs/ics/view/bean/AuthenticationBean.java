@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import java.util.HashMap;
 
+import java.util.Map;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -16,6 +18,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import oracle.adf.model.BindingContext;
+
+import oracle.binding.BindingContainer;
+
+import oracle.binding.OperationBinding;
+
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.ViewObject;
 
@@ -23,21 +31,14 @@ import oracle.jbo.ViewObject;
 public class AuthenticationBean {
     private String _username;
     private String _password;
-    private ApplicationModule sgsAppModule = ADFUtils.getApplicationModuleForDataControl("SGSAppModuleDataControl");
+    public AuthenticationBean() {
 
-    HashMap<String,String> map=new HashMap<>();
-        public AuthenticationBean() {
-            map.put("vikranth", "123");
-            map.put("manju", "123");
-            map.put("kiran", "123");
-            map.put("raja", "123");
-        }
+    }
 
     public String onLogout() {
         FacesContext fctx = FacesContext.getCurrentInstance();
         ExternalContext ectx = fctx.getExternalContext();
-        String url =
-            ectx.getRequestContextPath() + "/adfAuthentication?logout=true&end_url=/faces/jsf/MainPage.jsf";
+        String url = ectx.getRequestContextPath() + "/adfAuthentication?logout=true&end_url=/faces/jsf/MainPage.jsf";
         try {
             ectx.redirect(url);
         } catch (IOException e) {
@@ -63,7 +64,7 @@ public class AuthenticationBean {
         return _password;
     }
 
-  /*  public String doLogin() {
+    /*  public String doLogin() {
         FacesContext ctx = FacesContext.getCurrentInstance();
 
         if (_username == null || _password == null) {
@@ -94,25 +95,71 @@ public class AuthenticationBean {
         }
         return null;
     }*/
-  public String doLogin() {
 
-          FacesContext fctx = FacesContext.getCurrentInstance();
-          ExternalContext ectx = fctx.getExternalContext();
+    //Last used login
+    //  public String doLogin() {
+    //
+    //          FacesContext fctx = FacesContext.getCurrentInstance();
+    //          ExternalContext ectx = fctx.getExternalContext();
+    //
+    //          try {
+    //             // System.out.println("path:"+ectx.getRequestContextPath());
+    //              if ((_username!=null && _username!="") && map.get(_username)!=null)
+    //              ectx.redirect(ectx.getRequestContextPath()+"/faces/pages/MainPage.jsf");
+    //              else
+    //              showError("Invalid credentials", "An incorrect username or password was specified.", null);
+    //
+    //          } catch (IOException ie) {
+    //              showError("IOException", "An error occurred during redirecting. Please consult logs for more information.",
+    //                        ie);
+    //          }
+    //
+    //          return null;
+    //      }
 
-          try {
-             // System.out.println("path:"+ectx.getRequestContextPath());
-              if ((_username!=null && _username!="") && map.get(_username)!=null)
-              ectx.redirect(ectx.getRequestContextPath()+"/faces/pages/MainPage.jsf");  
-              else
-              showError("Invalid credentials", "An incorrect username or password was specified.", null);
-             
-          } catch (IOException ie) {
-              showError("IOException", "An error occurred during redirecting. Please consult logs for more information.",
-                        ie);
-          }      
- 
-          return null;
-      }
+
+    public BindingContainer getContainer() {
+
+        return (BindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+    }
+
+    public String loginValidation() {
+        // Add event code here...
+        //        String status = "";
+        FacesContext fctx = FacesContext.getCurrentInstance();
+        ExternalContext ectx = fctx.getExternalContext();
+
+        BindingContainer bc = this.getContainer();
+        OperationBinding ob = bc.getOperationBinding("loginValidationMethod");
+        Map m = ob.getParamsMap();
+        m.put("user", _username);
+        m.put("pass", _password);
+        ob.execute();
+
+
+        try {
+            if (ob.getResult() != null) {
+                String userId = ob.getResult().toString();
+                if (userId != null || userId.length() != 0) {
+                    //            status = "success";
+                    ectx.redirect(ectx.getRequestContextPath() + "/faces/pages/MainPage.jsf");
+
+                } else {
+                    showError("Invalid credentials", "An incorrect username or password was specified.", null);
+                    //            status = "";
+                }
+            } else {
+                showError("Invalid credentials", "An incorrect username or password was specified.", null);
+            }
+
+        } catch (IOException ie) {
+            showError("IOException", "An error occurred during redirecting. Please consult logs for more information.",
+                      ie);
+        }
+        return null;
+    }
+
+
     private void redirect(String forwardUrl) {
         FacesContext ctx = FacesContext.getCurrentInstance();
         ExternalContext ectx = ctx.getExternalContext();

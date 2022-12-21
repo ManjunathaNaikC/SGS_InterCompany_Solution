@@ -295,6 +295,18 @@
                                             <f:validator binding="#{row.bindings.FromOperatingUnit.validator}"/>
                                         </af:inputText>
                                     </af:column>
+                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.label}"
+                                               id="c5">
+                                        <af:inputText value="#{row.bindings.FromJobCode.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.tooltip}"
+                                                      id="it8">
+                                            <f:validator binding="#{row.bindings.FromJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromDeptId.label}"
                                                id="c3">
                                         <af:inputText value="#{row.bindings.FromDeptId.inputValue}"
@@ -317,18 +329,6 @@
                                                       shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.FromGlAccount.tooltip}"
                                                       id="it7">
                                             <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
-                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.label}"
-                                               id="c5">
-                                        <af:inputText value="#{row.bindings.FromJobCode.inputValue}"
-                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.label}"
-                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.mandatory}"
-                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.displayWidth}"
-                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.precision}"
-                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.FromJobCode.tooltip}"
-                                                      id="it8">
-                                            <f:validator binding="#{row.bindings.FromJobCode.validator}"/>
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.CreatedBy.label}"
@@ -551,6 +551,30 @@
                                             <f:validator binding="#{row.bindings.OffsetOperatingUnit.validator}"/>
                                         </af:inputText>
                                     </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetJobCode.label}"
+                                               id="c26">
+                                        <af:inputText value="#{row.bindings.OffsetJobCode.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OffsetJobCode.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OffsetJobCode.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetJobCode.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetJobCode.tooltip}"
+                                                      id="it22">
+                                            <f:validator binding="#{row.bindings.OffsetJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.label}"
+                                               id="c25">
+                                        <af:inputText value="#{row.bindings.OffsetGlAccount.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.tooltip}"
+                                                      id="it14">
+                                            <f:validator binding="#{row.bindings.OffsetGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.AllocationRuleVO.hints.FromGlAccount.label}"
                                                id="c21">
                                         <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
@@ -585,30 +609,6 @@
                                                       shortDesc="#{bindings.AllocationRuleVO.hints.OcLineNo.tooltip}"
                                                       id="it12">
                                             <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
-                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.label}"
-                                               id="c25">
-                                        <af:inputText value="#{row.bindings.OffsetGlAccount.inputValue}"
-                                                      label="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.label}"
-                                                      required="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.mandatory}"
-                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.displayWidth}"
-                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.precision}"
-                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetGlAccount.tooltip}"
-                                                      id="it14">
-                                            <f:validator binding="#{row.bindings.OffsetGlAccount.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
-                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetJobCode.label}"
-                                               id="c26">
-                                        <af:inputText value="#{row.bindings.OffsetJobCode.inputValue}"
-                                                      label="#{bindings.AllocationRuleVO.hints.OffsetJobCode.label}"
-                                                      required="#{bindings.AllocationRuleVO.hints.OffsetJobCode.mandatory}"
-                                                      columns="#{bindings.AllocationRuleVO.hints.OffsetJobCode.displayWidth}"
-                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OffsetJobCode.precision}"
-                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OffsetJobCode.tooltip}"
-                                                      id="it22">
-                                            <f:validator binding="#{row.bindings.OffsetJobCode.validator}"/>
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}" id="c28"
@@ -702,6 +702,18 @@
                                             <f:validator binding="#{row.bindings.TargetOperatingUnit.validator}"/>
                                         </af:inputText>
                                     </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.label}"
+                                               id="c11">
+                                        <af:inputText value="#{row.bindings.TargetJobCode.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.tooltip}"
+                                                      id="it18">
+                                            <f:validator binding="#{row.bindings.TargetJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TARGETDEPTID.label}"
                                                id="c13">
                                         <af:inputText value="#{row.bindings.TARGETDEPTID.inputValue}"
@@ -726,7 +738,7 @@
                                             <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
+                                    <!--<af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
                                                id="c10">
                                         <af:inputText value="#{row.bindings.TargetGlAccount.inputValue}"
                                                       label="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
@@ -737,19 +749,7 @@
                                                       id="it17">
                                             <f:validator binding="#{row.bindings.TargetGlAccount.validator}"/>
                                         </af:inputText>
-                                    </af:column>
-                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.label}"
-                                               id="c11">
-                                        <af:inputText value="#{row.bindings.TargetJobCode.inputValue}"
-                                                      label="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.label}"
-                                                      required="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.mandatory}"
-                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.displayWidth}"
-                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.precision}"
-                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TargetJobCode.tooltip}"
-                                                      id="it18">
-                                            <f:validator binding="#{row.bindings.TargetJobCode.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
+                                    </af:column>-->
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.label}"
                                                id="c14">
                                         <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"

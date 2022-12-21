@@ -26,7 +26,7 @@
             <af:toolbar id="t2">
               <af:button text="Copy From Previous Month" id="b3"/>
               <af:button text="Upload Data" id="b5"/>
-              <af:button text="Delete Data" id="b6"/>
+              <!--<af:button text="Delete Data" id="b6"/>-->
               <af:button text="Submit For Approval" id="b7"/>
               <af:button  actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save" id="b4"/>
               <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"

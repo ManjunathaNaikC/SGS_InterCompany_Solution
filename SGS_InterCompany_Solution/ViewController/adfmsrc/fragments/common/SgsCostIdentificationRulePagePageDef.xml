@@ -86,9 +86,9 @@
                       Name="SgsCostIdentificationRuleVO20">
         <AttrNames>
           <Item Value="CostIdentificationName"/>
-          <Item Value="AllocationBasis"/>
+          <Item Value="AllocationBasis" Binds="AllocationBasis"/>
           <Item Value="AccountingTreatment"/>
-          <Item Value="DataSource"/>
+          <Item Value="DataSource" Binds="DataSource"/>
           <Item Value="ServiceCategory"/>
           <Item Value="EffectiveFrom"/>
           <Item Value="EffectiveTo"/>
@@ -116,5 +116,9 @@
             InstanceName="SGSAppModuleDataControl.SgsCostIdentificationRuleVO" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_AllocationBasis"
+          id="AllocationBasis" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_DataSource" id="DataSource"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

@@ -24,11 +24,15 @@
           <f:facet name="menus"/>
           <f:facet name="toolbar">
             <af:toolbar id="t2">
+              <af:button text="Copy From Previous Month" id="b3"/>
+              <af:button text="Upload Data" id="b5"/>
+              <af:button text="Delete Data" id="b6"/>
+              <af:button text="Submit For Approval" id="b7"/>
               <af:button  actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save" id="b4"/>
+              <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
+                         actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
               <af:button  id="b1" action="ADD" icon="/resources/icons/plus.png" shortDesc="Create/Add Statistical Data"
                 actionListener="#{bindings.CreateStatisticalData.execute}"/>
-              <af:button  id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
-                         actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
               
          
             </af:toolbar>

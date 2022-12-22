@@ -279,5 +279,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
              return userId;
 
          }
+
+    /**
+     * Container's getter for NatureOfExpenseLookupVO2.
+     * @return NatureOfExpenseLookupVO2
+     */
+    public ViewObjectImpl getNatureOfExpenseLookupVO2() {
+        return (ViewObjectImpl) findViewObject("NatureOfExpenseLookupVO2");
+    }
 }
 

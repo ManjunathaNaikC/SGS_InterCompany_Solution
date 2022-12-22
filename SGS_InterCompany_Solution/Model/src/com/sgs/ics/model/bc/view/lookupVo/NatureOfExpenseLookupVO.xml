@@ -18,8 +18,18 @@
         ResId="com.sgs.ics.model.bc.view.lookupVo.NatureOfExpenseLookupVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select LOOKUP_CODE,LOOKUP_TYPE,MEANING,DISPLAY_SEQUENCE from SGS_LOOKUP_TABLE   
+  <SQLQuery><![CDATA[select LOOKUP_ID,LOOKUP_CODE,LOOKUP_TYPE,MEANING,DISPLAY_SEQUENCE from SGS_LOOKUP_TABLE     
 where LOOKUP_TYPE='NATURE_OF_EXPENSE']]></SQLQuery>
+  <ViewAttribute
+    Name="LOOKUPID"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="LOOKUP_ID"
+    Expression="LOOKUP_ID"
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="LOOKUPCODE"
     IsUpdateable="false"
@@ -81,4 +91,8 @@ where LOOKUP_TYPE='NATURE_OF_EXPENSE']]></SQLQuery>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="DISPLAYSEQUENCE"/>
+  </SortCriteria>
 </ViewObject>

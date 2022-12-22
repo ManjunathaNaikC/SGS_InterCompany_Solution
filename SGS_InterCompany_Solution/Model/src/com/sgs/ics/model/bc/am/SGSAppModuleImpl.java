@@ -38,10 +38,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         Connection conn = null;
         PreparedStatement pst = null;
         try {
-            String connectionUrl =
-              //  "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-           "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
-            conn = DriverManager.getConnection(connectionUrl);
+            conn = getDBConnection();
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
 
@@ -62,6 +59,24 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         }
         return "0";
     }
+    
+    
+    public Connection getDBConnection() {
+            Connection conn = null;
+        try {
+            String connectionUrl =
+                //           "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+                "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
+            conn = DriverManager.getConnection(connectionUrl);
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+
+        }
+               
+         return conn;   
+        }
 
 
     /**
@@ -72,10 +87,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         Connection conn = null;
         PreparedStatement pst = null;
         try {
-            String connectionUrl =
- //           "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-                "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
-            conn = DriverManager.getConnection(connectionUrl);
+            conn = getDBConnection();
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
 

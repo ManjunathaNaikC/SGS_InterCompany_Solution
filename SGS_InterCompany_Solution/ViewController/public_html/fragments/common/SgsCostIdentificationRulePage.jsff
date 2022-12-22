@@ -36,11 +36,16 @@
                                 <f:selectItems value="#{bindings.NatureOfExpenseLookupVO1.items}" id="si1"/>
                                 <f:validator binding="#{bindings.NatureOfExpenseLookupVO1.validator}"/>
                             </af:selectManyCheckbox>-->
-                            <af:selectManyChoice value="#{bindings.NatureOfExpenseLookupVO1.inputValue}"
-                                                 id="smc1">
-                                <f:selectItems value="#{bindings.NatureOfExpenseLookupVO1.items}" id="si1"/>
-                                <f:validator binding="#{bindings.NatureOfExpenseLookupVO1.validator}"/>
-                            </af:selectManyChoice>
+                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                <af:selectManyChoice value="#{bindings.NatureOfExpenseSearch.inputValue}" id="smc1"
+                                                     autoSubmit="true">
+                                    <f:selectItems value="#{bindings.NatureOfExpenseSearch.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.NatureOfExpenseSearch.validator}"/>
+                                </af:selectManyChoice>
+                                <af:spacer id="s1" width="15"/>
+                                <af:button text="Search" id="b3" partialTriggers="pc1:resId1"
+                                           actionListener="#{viewScope.ActionEventsBean.onNatureOfExpenseSearch}"/>
+                            </af:panelGroupLayout>
                         </af:panelBox>
                         <af:panelHeader text="" id="ph1" >
                   

@@ -129,14 +129,20 @@
             </af:column>
             <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.name}" filterable="true"
                        headerText="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}" id="c8">
-              <af:inputText value="#{row.bindings.CostGroup.inputValue}"
+              <af:selectOneChoice value="#{row.bindings.CostGroup.inputValue}" label="#{row.bindings.CostGroup.label}"
+                                  required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
+                                  shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}" id="soc1">
+                <f:selectItems value="#{row.bindings.CostGroup.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
+              </af:selectOneChoice>
+              <!--<af:inputText value="#{row.bindings.CostGroup.inputValue}"
                             label="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}"
                             required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
                             columns="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.displayWidth}"
                             maximumLength="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.precision}"
                             shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}" id="it8">
                 <f:validator binding="#{row.bindings.CostGroup.validator}"/>
-              </af:inputText>
+              </af:inputText>-->
             </af:column>
             <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.name}" filterable="true"
                        headerText="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}" id="c10">

@@ -217,7 +217,8 @@
                                       filterModel="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor}"
                                       filterVisible="true"
                                       queryListener="#{bindings.SgsCostIdentificationRuleVOQuery.processQuery}"
-                                      varStatus="vs" id="resId1" partialTriggers="::b1">
+                                      varStatus="vs" id="resId1" partialTriggers="::b1" 
+                                      columnStretching="last">
                                 <!--<af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.label}"
@@ -228,7 +229,7 @@
                                 </af:column>-->
                                    <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.name}"
                                    headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.label}"
-                                           filterable="true" id="c20">
+                                           filterable="true" id="c20" inlineStyle="width:350px">
                                     <!--<af:outputText value="#{row.CostIdentificationName}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO1.hints.CostIdentificationName.tooltip}"
                                                    id="ot1"/>-->

@@ -11,6 +11,8 @@
                 <af:panelBox text="Cost Identification Rule Details" id="pb1">
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
+                            <af:button text="Save" id="b8"
+                                       actionListener="#{viewScope.ActionEventsBean.onCostIdentificationSave}"/>
                             <af:button id="b1" actionListener="#{bindings.Commit.execute}"
                         action="back"  text="Save and Close" accessKey="S"/>
                             <af:button actionListener="#{bindings.Rollback.execute}" immediate="true" id="b2" action="back"
@@ -25,7 +27,7 @@
                         </af:toolbar>
                     </f:facet>
                     <af:panelGroupLayout id="pgl2" layout="vertical">
-                    <af:panelFormLayout id="pfl1" rows="8" maxColumns="2">
+                    <af:panelFormLayout id="pfl1" rows="7" maxColumns="2">
                         <!--<af:inputText value="#{bindings.CostIdentificationId.inputValue}"
                                       label="#{bindings.CostIdentificationId.hints.label}"
                                       required="#{bindings.CostIdentificationId.hints.mandatory}"
@@ -163,6 +165,9 @@
                                 <f:validator binding="#{bindings.UpdatedDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
                             </af:inputText>
+                            <!--<f:facet name="footer">
+                                <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end"/>
+                            </f:facet>-->
                         </af:panelFormLayout>
                         <!--<af:panelFormLayout id="pfl1" rows="4">
               <af:inputText value="#{bindings.RuleId1.inputValue}" label="Cost Identification ID"
@@ -272,7 +277,7 @@
                                           selectionListener="#{bindings.SgsCostIdentificationCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
                                           fetchSize="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}" id="t2"
-                                          partialTriggers="::b4 ::b9">
+                                          partialTriggers="::b4 ::b9" columnStretching="last">
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromBusinessUnit.label}"
                                                id="c1">
                                         <af:inputText value="#{row.bindings.FromBusinessUnit.inputValue}"
@@ -408,7 +413,7 @@
                                 <af:table value="#{bindings.CrossChargeCombinationVO.collectionModel}" var="row"
                                           rows="#{bindings.CrossChargeCombinationVO.rangeSize}"
                                           emptyText="#{bindings.CrossChargeCombinationVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
+                                          rowBandingInterval="0" columnStretching="last"
                                           selectedRowKeys="#{bindings.CrossChargeCombinationVO.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.CrossChargeCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
@@ -637,7 +642,7 @@
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="statusbar"/>
-                                <af:table value="#{bindings.AllocationRuleVO.collectionModel}" var="row"
+                                <af:table value="#{bindings.AllocationRuleVO.collectionModel}" var="row" columnStretching="last"
                                           rows="#{bindings.AllocationRuleVO.rangeSize}"
                                           emptyText="#{bindings.AllocationRuleVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                           rowBandingInterval="0"

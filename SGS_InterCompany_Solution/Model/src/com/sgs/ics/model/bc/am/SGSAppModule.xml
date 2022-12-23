@@ -64,6 +64,9 @@
   <ViewUsage
     Name="CostAllocationLOV1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostAllocationLOV"/>
+  <ViewUsage
+    Name="CostGroupLOV1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostGroupLOV"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

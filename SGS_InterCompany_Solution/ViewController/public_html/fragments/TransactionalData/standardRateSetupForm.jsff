@@ -93,21 +93,21 @@
                                       shortDesc="#{bindings.EmployeeGradeLevel.hints.tooltip}" id="it8">
                             <f:validator binding="#{bindings.EmployeeGradeLevel.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.Currency.inputValue}" label="#{bindings.Currency.hints.label}"
+                        <!--<af:inputText value="#{bindings.Currency.inputValue}" label="#{bindings.Currency.hints.label}"
                                       required="#{bindings.Currency.hints.mandatory}"
                                       columns="#{bindings.Currency.hints.displayWidth}"
                                       maximumLength="#{bindings.Currency.hints.precision}"
                                       shortDesc="#{bindings.Currency.hints.tooltip}" id="it9">
                             <f:validator binding="#{bindings.Currency.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.UnitOfMeasure.inputValue}"
+                        </af:inputText>-->
+                        <!--<af:inputText value="#{bindings.UnitOfMeasure.inputValue}"
                                       label="#{bindings.UnitOfMeasure.hints.label}"
                                       required="#{bindings.UnitOfMeasure.hints.mandatory}"
                                       columns="#{bindings.UnitOfMeasure.hints.displayWidth}"
                                       maximumLength="#{bindings.UnitOfMeasure.hints.precision}"
                                       shortDesc="#{bindings.UnitOfMeasure.hints.tooltip}" id="it10">
                             <f:validator binding="#{bindings.UnitOfMeasure.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
                         <af:inputText value="#{bindings.ProgramName.inputValue}"
                                       label="#{bindings.ProgramName.hints.label}"
                                       required="#{bindings.ProgramName.hints.mandatory}"

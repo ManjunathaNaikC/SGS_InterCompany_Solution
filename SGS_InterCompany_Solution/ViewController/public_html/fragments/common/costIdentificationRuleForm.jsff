@@ -277,7 +277,7 @@
                                           selectionListener="#{bindings.SgsCostIdentificationCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
                                           fetchSize="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}" id="t2"
-                                          partialTriggers="::b4 ::b9" columnStretching="last">
+                                          partialTriggers="::b4 ::b9" columnStretching="none">
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromBusinessUnit.label}"
                                                id="c1">
                                         <af:inputText value="#{row.bindings.FromBusinessUnit.inputValue}"
@@ -413,7 +413,7 @@
                                 <af:table value="#{bindings.CrossChargeCombinationVO.collectionModel}" var="row"
                                           rows="#{bindings.CrossChargeCombinationVO.rangeSize}"
                                           emptyText="#{bindings.CrossChargeCombinationVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0" columnStretching="last"
+                                          rowBandingInterval="0" columnStretching="none"
                                           selectedRowKeys="#{bindings.CrossChargeCombinationVO.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.CrossChargeCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
@@ -642,7 +642,8 @@
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="statusbar"/>
-                                <af:table value="#{bindings.AllocationRuleVO.collectionModel}" var="row" columnStretching="last"
+                                <af:table value="#{bindings.AllocationRuleVO.collectionModel}" var="row"
+                                          columnStretching="none"
                                           rows="#{bindings.AllocationRuleVO.rangeSize}"
                                           emptyText="#{bindings.AllocationRuleVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                           rowBandingInterval="0"
@@ -811,7 +812,7 @@
                         </af:panelBox>
                         <af:panelBox text="Exceptions" id="pb5">
                             <f:facet name="toolbar"/>
-                            <af:panelFormLayout id="pfl2" rows="5" maxColumns="1">
+                            <af:panelFormLayout id="pfl2" rows="5" maxColumns="1" labelAlignment="start">
                                 <f:facet name="footer"/>
                                 <!--<af:inputText value="#{bindings.TrueUpDownApplicability.inputValue}"
                                               label="#{bindings.TrueUpDownApplicability.hints.label}"
@@ -829,23 +830,29 @@
                                               shortDesc="#{bindings.TrueUpDownFrequency.hints.tooltip}" id="it31">
                                     <f:validator binding="#{bindings.TrueUpDownFrequency.validator}"/>
                                 </af:inputText>-->
-                                <af:selectOneChoice value="#{bindings.TrueUpDownApplicability1.inputValue}"
-                                                    label="#{bindings.TrueUpDownApplicability1.label}"
-                                                    required="#{bindings.TrueUpDownApplicability1.hints.mandatory}"
-                                                    shortDesc="#{bindings.TrueUpDownApplicability1.hints.tooltip}"
-                                                    id="soc6">
-                                    <f:selectItems value="#{bindings.TrueUpDownApplicability1.items}" id="si6"/>
-                                    <f:validator binding="#{bindings.TrueUpDownApplicability1.validator}"/>
-                                </af:selectOneChoice>
-                                <af:selectOneChoice value="#{bindings.TrueUpDownFrequency1.inputValue}"
-                                                    label="#{bindings.TrueUpDownFrequency1.label}"
-                                                    required="#{bindings.TrueUpDownFrequency1.hints.mandatory}"
-                                                    shortDesc="#{bindings.TrueUpDownFrequency1.hints.tooltip}"
-                                                    id="soc7">
-                                    <f:selectItems value="#{bindings.TrueUpDownFrequency1.items}" id="si7"/>
-                                    <f:validator binding="#{bindings.TrueUpDownFrequency1.validator}"/>
-                                </af:selectOneChoice>
+                                <af:panelGroupLayout id="pgl4">
+                                    <af:selectOneChoice value="#{bindings.TrueUpDownApplicability1.inputValue}"
+                                                        label="#{bindings.TrueUpDownApplicability1.label}"
+                                                        required="#{bindings.TrueUpDownApplicability1.hints.mandatory}"
+                                                        shortDesc="#{bindings.TrueUpDownApplicability1.hints.tooltip}"
+                                                        id="soc6">
+                                        <f:selectItems value="#{bindings.TrueUpDownApplicability1.items}" id="si6"/>
+                                        <f:validator binding="#{bindings.TrueUpDownApplicability1.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:panelGroupLayout>
+                                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                    <af:spacer id="s2" width="10"/>
+                                    <af:selectOneChoice value="#{bindings.TrueUpDownFrequency1.inputValue}"
+                                                        label="#{bindings.TrueUpDownFrequency1.label}"
+                                                        required="#{bindings.TrueUpDownFrequency1.hints.mandatory}"
+                                                        shortDesc="#{bindings.TrueUpDownFrequency1.hints.tooltip}"
+                                                        id="soc7">
+                                        <f:selectItems value="#{bindings.TrueUpDownFrequency1.items}" id="si7"/>
+                                        <f:validator binding="#{bindings.TrueUpDownFrequency1.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:panelGroupLayout>
                                 <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                    <af:spacer id="s3" width="2"/>
                                     <af:inputText value="#{bindings.NONPERSONNELCOST.inputValue}"
                                                   label="#{bindings.NONPERSONNELCOST.hints.label}"
                                                   required="#{bindings.NONPERSONNELCOST.hints.mandatory}"

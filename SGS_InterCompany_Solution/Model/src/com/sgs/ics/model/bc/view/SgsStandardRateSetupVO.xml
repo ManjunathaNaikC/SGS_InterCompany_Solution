@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -63,6 +64,31 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <ViewAccessor
+    Name="AllocationBasisLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.AllocationBasisLookupVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CostAllocationLOV1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostAllocationLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CostIdentifier"
+    ListVOName="CostAllocationLOV1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CostIdentifier"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="COSTIDENTIFICATIONID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="COSTIDENTIFICATIONNAME"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsStandardRateSetupEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStandardRateSetupEO"/>
@@ -71,13 +97,16 @@
     PrecisionRule="true"
     EntityAttrName="CostIdentifier"
     EntityUsage="SgsStandardRateSetupEO"
-    AliasName="COST_IDENTIFIER">
+    AliasName="COST_IDENTIFIER"
+    LOVName="LOV_CostIdentifier">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="3.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.CostIdentifier_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

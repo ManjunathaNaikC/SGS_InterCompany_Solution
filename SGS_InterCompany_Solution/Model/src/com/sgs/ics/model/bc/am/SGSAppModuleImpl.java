@@ -287,5 +287,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getNatureOfExpenseLookupVO2() {
         return (ViewObjectImpl) findViewObject("NatureOfExpenseLookupVO2");
     }
+
+    /**
+     * Container's getter for CostAllocationLOV1.
+     * @return CostAllocationLOV1
+     */
+    public ViewObjectImpl getCostAllocationLOV1() {
+        return (ViewObjectImpl) findViewObject("CostAllocationLOV1");
+    }
 }
 

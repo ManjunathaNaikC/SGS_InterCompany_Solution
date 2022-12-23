@@ -45,14 +45,21 @@
                                       shortDesc="#{bindings.SubExpenseType.hints.tooltip}" id="it3">
                             <f:validator binding="#{bindings.SubExpenseType.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.CostIdentifier.inputValue}"
+                        <af:selectOneChoice value="#{bindings.CostIdentifier1.inputValue}"
+                                            label="#{bindings.CostIdentifier1.label}"
+                                            required="#{bindings.CostIdentifier1.hints.mandatory}"
+                                            shortDesc="#{bindings.CostIdentifier1.hints.tooltip}" id="soc1">
+                            <f:selectItems value="#{bindings.CostIdentifier1.items}" id="si1"/>
+                            <f:validator binding="#{bindings.CostIdentifier1.validator}"/>
+                        </af:selectOneChoice>
+                        <!--<af:inputText value="#{bindings.CostIdentifier.inputValue}"
                                       label="#{bindings.CostIdentifier.hints.label}"
                                       required="#{bindings.CostIdentifier.hints.mandatory}"
                                       columns="#{bindings.CostIdentifier.hints.displayWidth}"
                                       maximumLength="#{bindings.CostIdentifier.hints.precision}"
                                       shortDesc="#{bindings.CostIdentifier.hints.tooltip}" id="it4">
                             <f:validator binding="#{bindings.CostIdentifier.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
                         <af:inputText value="#{bindings.DeptCostCenter.inputValue}"
                                       label="#{bindings.DeptCostCenter.hints.label}"
                                       required="#{bindings.DeptCostCenter.hints.mandatory}"

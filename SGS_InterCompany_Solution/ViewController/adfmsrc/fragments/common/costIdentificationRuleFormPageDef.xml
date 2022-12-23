@@ -218,5 +218,9 @@
         <Item Value="NONPERSONNELCOST"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_TrueUpDownApplicability"
+          id="TrueUpDownApplicability1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_TrueUpDownFrequency"
+          id="TrueUpDownFrequency1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

@@ -48,7 +48,8 @@
                         <af:selectOneChoice value="#{bindings.CostIdentifier1.inputValue}"
                                             label="#{bindings.CostIdentifier1.label}"
                                             required="#{bindings.CostIdentifier1.hints.mandatory}"
-                                            shortDesc="#{bindings.CostIdentifier1.hints.tooltip}" id="soc1">
+                                            shortDesc="#{bindings.CostIdentifier1.hints.tooltip}" id="soc1"
+                                            rendered="false">
                             <f:selectItems value="#{bindings.CostIdentifier1.items}" id="si1"/>
                             <f:validator binding="#{bindings.CostIdentifier1.validator}"/>
                         </af:selectOneChoice>
@@ -73,7 +74,7 @@
                                       required="#{bindings.SrGeography.hints.mandatory}"
                                       columns="#{bindings.SrGeography.hints.displayWidth}"
                                       maximumLength="#{bindings.SrGeography.hints.precision}"
-                                      shortDesc="#{bindings.SrGeography.hints.tooltip}" id="it6">
+                                      shortDesc="#{bindings.SrGeography.hints.tooltip}" id="it6" rendered="false">
                             <f:validator binding="#{bindings.SrGeography.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.EmployeeId.inputValue}"
@@ -129,7 +130,7 @@
                                       required="#{bindings.NonPersonnelCost.hints.mandatory}"
                                       columns="#{bindings.NonPersonnelCost.hints.displayWidth}"
                                       maximumLength="#{bindings.NonPersonnelCost.hints.precision}"
-                                      shortDesc="#{bindings.NonPersonnelCost.hints.tooltip}" id="it13">
+                                      shortDesc="#{bindings.NonPersonnelCost.hints.tooltip}" id="it13" rendered="false">
                             <f:validator binding="#{bindings.NonPersonnelCost.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.NonPersonnelCost.format}"/>
                         </af:inputText>
@@ -180,6 +181,184 @@
                             <f:validator binding="#{bindings.CreatedBy.validator}"/>
                         </af:inputText>
                     </af:panelFormLayout>
+                    <af:panelBox text="Standard Rate Lines Setup " id="pb2">
+                        <f:facet name="toolbar"/>
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t3">
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" icon="/resources/icons/plus.png"
+                                               disabled="#{!bindings.CreateInsert.enabled}" id="b7"/>
+                                   
+                                   
+                                    <af:button actionListener="#{viewScope.ActionEventsBean.onStdRateChildSave}" 
+                                               disabled="#{!bindings.Commit.enabled}" id="b8" text="Save"/>
+                                    <!--<af:button text="Cancel" id="b4"/>
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                                immediate="true" id="b6">
+                                        <af:resetActionListener/>
+                                    </af:button>-->
+                                    <af:button icon="/resources/icons/delete.png"
+                                               disabled="#{!bindings.Delete1.enabled}" id="b9"
+                                               actionListener="#{viewScope.ActionEventsBean.onStdRateChildDelete}"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.SgsStdRateLineTblVO4.collectionModel}" var="row"
+                                      rows="#{bindings.SgsStdRateLineTblVO4.rangeSize}"
+                                      emptyText="#{bindings.SgsStdRateLineTblVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0" 
+                                      selectedRowKeys="#{bindings.SgsStdRateLineTblVO4.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.SgsStdRateLineTblVO4.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.SgsStdRateLineTblVO4.rangeSize}"
+                                      filterModel="#{bindings.SgsStdRateLineTblVO4Query.queryDescriptor}"
+                                      filterVisible="true"
+                                      queryListener="#{bindings.SgsStdRateLineTblVO4Query.processQuery}" varStatus="vs"
+                                      id="t2" columnStretching="last" partialTriggers="::b7 ::b9"
+                                      styleClass="AFStretchWidth">
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.label}"
+                                           id="c1">
+                                    <af:inputText value="#{row.bindings.CostIdentifier.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.CostIdentifier.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
+                                           id="c2">
+                                    <af:inputText value="#{row.bindings.SrGeography.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.tooltip}"
+                                                  id="it16">
+                                        <f:validator binding="#{row.bindings.SrGeography.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.label}"
+                                           id="c3">
+                                    <af:inputText value="#{row.bindings.StandardCost.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.tooltip}"
+                                                  id="it17">
+                                        <f:validator binding="#{row.bindings.StandardCost.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.label}"
+                                           id="c4">
+                                    <af:inputText value="#{row.bindings.NonPersonnelCost.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.tooltip}"
+                                                  id="it18">
+                                        <f:validator binding="#{row.bindings.NonPersonnelCost.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.label}"
+                                           id="c5">
+                                    <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.tooltip}"
+                                                  id="it19">
+                                        <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.Currency.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}" id="c6">
+                                    <af:inputText value="#{row.bindings.Currency.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.Currency.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.Currency.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.Currency.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.Currency.tooltip}"
+                                                  id="it20">
+                                        <f:validator binding="#{row.bindings.Currency.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.label}" id="c7">
+                                    <af:inputText value="#{row.bindings.BuUnit.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.tooltip}"
+                                                  id="it21">
+                                        <f:validator binding="#{row.bindings.BuUnit.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.label}"
+                                           id="c8">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.SgsStdRateLineTblVO4Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveEndDate.value}"
+                                                      id="id5">
+                                            <af:convertDateTime pattern="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:inputDate value="#{row.bindings.EffectiveEndDate.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.displayWidth}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.tooltip}"
+                                                  id="id6">
+                                        <f:validator binding="#{row.bindings.EffectiveEndDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.label}"
+                                           id="c9">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.SgsStdRateLineTblVO4Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveStartDate.value}"
+                                                      id="id7">
+                                            <af:convertDateTime pattern="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:inputDate value="#{row.bindings.EffectiveStartDate.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.displayWidth}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.tooltip}"
+                                                  id="id8">
+                                        <f:validator binding="#{row.bindings.EffectiveStartDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:panelBox>
                 </af:panelBox>
        </af:panelGroupLayout>
         </f:facet>

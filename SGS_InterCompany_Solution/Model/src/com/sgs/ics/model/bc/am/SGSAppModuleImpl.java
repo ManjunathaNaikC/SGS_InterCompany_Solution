@@ -303,5 +303,54 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getCostGroupLOV1() {
         return (ViewObjectImpl) findViewObject("CostGroupLOV1");
     }
+
+    /**
+     * Container's getter for SgsStandardRateSetupVO2.
+     * @return SgsStandardRateSetupVO2
+     */
+    public ViewObjectImpl getSgsStandardRateSetupVO2() {
+        return (ViewObjectImpl) findViewObject("SgsStandardRateSetupVO2");
+    }
+
+    /**
+     * Container's getter for SgsStdRateLineTblVO1.
+     * @return SgsStdRateLineTblVO1
+     */
+    public ViewObjectImpl getSgsStdRateLineTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsStdRateLineTblVO1");
+    }
+
+    /**
+     * Container's getter for SgsStdRateLineTblVO2.
+     * @return SgsStdRateLineTblVO2
+     */
+    public ViewObjectImpl getSgsStdRateLineTblVO2() {
+        return (ViewObjectImpl) findViewObject("SgsStdRateLineTblVO2");
+    }
+
+    /**
+     * Container's getter for FKSGSSTDRATELINETBLLink.
+     * @return FKSGSSTDRATELINETBLLink
+     */
+    public ViewLinkImpl getFKSGSSTDRATELINETBLLink() {
+        return (ViewLinkImpl) findViewLink("FKSGSSTDRATELINETBLLink");
+    }
+
+
+    /**
+     * Container's getter for SgsStdRateLineTblVO4.
+     * @return SgsStdRateLineTblVO4
+     */
+    public ViewObjectImpl getSgsStdRateLineTblVO4() {
+        return (ViewObjectImpl) findViewObject("SgsStdRateLineTblVO4");
+    }
+
+    /**
+     * Container's getter for StdRateViewLink2.
+     * @return StdRateViewLink2
+     */
+    public ViewLinkImpl getStdRateViewLink2() {
+        return (ViewLinkImpl) findViewLink("StdRateViewLink2");
+    }
 }
 

@@ -3,18 +3,27 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="SgsStandardRateSetupEO"
+  Name="SgsStdRateLineTblEO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   DBObjectType="table"
-  DBObjectName="SGS_STANDARD_RATE_SETUP"
-  AliasName="SgsStandardRateSetupEO"
+  DBObjectName="SGS_STDRATE_LINE_TBL"
+  AliasName="SgsStdRateLineTblEO"
   BindingStyle="JDBC"
-  RowClass="com.sgs.ics.model.bc.entity.SgsStandardRateSetupEOImpl">
+  RowClass="com.sgs.ics.model.bc.entity.SgsStdRateLineTblEOImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Attribute
+    Name="StdRateLineSeq"
+    IsNotNull="true"
+    ColumnName="STD_RATE_LINE_SEQ"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_STDRATE_LINE_TBL"
+    PrimaryKey="true"/>
   <Attribute
     Name="StandardRateSeq"
     IsNotNull="true"
@@ -22,33 +31,7 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INT"
-    TableName="SGS_STANDARD_RATE_SETUP"
-    PrimaryKey="true"/>
-  <Attribute
-    Name="StandardRateId"
-    IsNotNull="true"
-    Precision="80"
-    ColumnName="STANDARD_RATE_ID"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="ExpenseType"
-    Precision="80"
-    ColumnName="EXPENSE_TYPE"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="CostIdentifier"
     Precision="80"
@@ -56,19 +39,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="SubExpenseType"
-    Precision="80"
-    ColumnName="SUB_EXPENSE_TYPE"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -80,19 +51,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="EmployeeGradeLevel"
-    Precision="80"
-    ColumnName="EMPLOYEE_GRADE_LEVEL"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -105,7 +64,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="NonPersonnelCost"
     Precision="20"
@@ -114,15 +73,15 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
-    Name="DeptCostCenter"
+    Name="UnitOfMeasure"
     Precision="80"
-    ColumnName="DEPT_COST_CENTER"
+    ColumnName="UNIT_OF_MEASURE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -134,43 +93,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="UnitOfMeasure"
+    Name="BuUnit"
     Precision="80"
-    ColumnName="UNIT_OF_MEASURE"
+    ColumnName="BU_UNIT"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="EmployeeId"
-    Precision="80"
-    ColumnName="EMPLOYEE_ID"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="ProgramName"
-    Precision="80"
-    ColumnName="PROGRAM_NAME"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -181,36 +116,40 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="EffectiveStartDate"
     ColumnName="EFFECTIVE_START_DATE"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="CreatedBy"
-    IsUpdateable="while_insert"
     Precision="80"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP"
-    HistoryColumn="UserHistory">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="UpdatedDate"
     ColumnName="UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"
-    HistoryColumn="DateHistory"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="UpdatedBy"
     Precision="80"
@@ -218,8 +157,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP"
-    HistoryColumn="UserHistory">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -231,7 +169,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -243,7 +181,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -255,7 +193,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -267,7 +205,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -279,7 +217,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP">
+    TableName="SGS_STDRATE_LINE_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -290,35 +228,35 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute7"
     ColumnName="ATTRIBUTE7"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute8"
     ColumnName="ATTRIBUTE8"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute9"
     ColumnName="ATTRIBUTE9"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute10"
     ColumnName="ATTRIBUTE10"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute11"
     Precision="20"
@@ -327,7 +265,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute12"
     Precision="20"
@@ -336,7 +274,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute13"
     Precision="20"
@@ -345,7 +283,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute14"
     Precision="10"
@@ -354,7 +292,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <Attribute
     Name="Attribute15"
     Precision="10"
@@ -363,31 +301,34 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STANDARD_RATE_SETUP"/>
-  <Attribute
-    Name="CreatedDate"
-    IsUpdateable="while_insert"
-    ColumnName="CREATED_DATE"
-    SQLType="DATE"
-    Type="java.sql.Date"
-    ColumnType="DATE"
-    TableName="SGS_STANDARD_RATE_SETUP"
-    HistoryColumn="DateHistory"/>
+    TableName="SGS_STDRATE_LINE_TBL"/>
   <AccessorAttribute
-    Name="SgsStdRateLineTblEO"
+    Name="SgsStandardRateSetupEO"
     Association="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc"
-    AssociationEnd="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc.SgsStdRateLineTblEO"
-    AssociationOtherEnd="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc.SgsStandardRateSetupEO"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+    AssociationEnd="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc.SgsStandardRateSetupEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc.SgsStdRateLineTblEO"
+    Type="com.sgs.ics.model.bc.entity.SgsStandardRateSetupEOImpl"
+    IsUpdateable="true"/>
   <Key
-    Name="PKSGSSTANDARDRATESETUP"
+    Name="PKSGSSTDRATELINETBL"
     PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DBObjectName" Value="PK_SGS_STANDARD_RATE_SETUP"/>
+      <Attr Name="_DBObjectName" Value="PK_SGS_STDRATE_LINE_TBL"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sgs.ics.model.bc.entity.SgsStandardRateSetupEO.StandardRateSeq"/>
+      <Item Value="com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO.StdRateLineSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FKSGSSTDRATELINETBL">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_SGS_STANDARD_RATE_SETUP"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SGS_STDRATE_LINE_TBL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO.StandardRateSeq"/>
     </AttrArray>
   </Key>
 </Entity>

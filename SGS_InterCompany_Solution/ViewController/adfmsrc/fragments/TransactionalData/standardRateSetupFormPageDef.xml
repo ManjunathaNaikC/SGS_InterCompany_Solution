@@ -109,5 +109,7 @@
     <action IterBinding="SgsStandardRateSetupVO1Iterator" id="Delete"
             InstanceName="SGSAppModuleDataControl.SgsStandardRateSetupVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="SgsStandardRateSetupVO1Iterator" StaticList="false" Uses="LOV_CostIdentifier"
+          id="CostIdentifier1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

@@ -47,7 +47,7 @@
                     rowSelection="single" fetchSize="#{bindings.SgsStatisticalDataVO1.rangeSize}"
                     filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                     queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
-                    styleClass="AFStretchWidth">
+                    styleClass="AFStretchWidth" inlineStyle="height:500px">
             <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                        filterable="true"
                        headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}" id="c1">
@@ -138,17 +138,6 @@
                 <f:validator binding="#{row.bindings.CostGroup.validator}"/>
               </af:inputText>
             </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.Currency.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}" id="c9">
-              <af:inputText value="#{row.bindings.Currency.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.Currency.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.Currency.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.Currency.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.Currency.tooltip}" id="it9">
-                <f:validator binding="#{row.bindings.Currency.validator}"/>
-              </af:inputText>
-            </af:column>
             <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.name}" filterable="true"
                        headerText="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}" id="c10">
               <af:inputText value="#{row.bindings.EmployeeId.inputValue}"
@@ -158,6 +147,17 @@
                             maximumLength="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.precision}"
                             shortDesc="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.tooltip}" id="it10">
                 <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.Currency.name}" filterable="true"
+                       headerText="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}" id="c9">
+              <af:inputText value="#{row.bindings.Currency.inputValue}"
+                            label="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}"
+                            required="#{bindings.SgsStatisticalDataVO1.hints.Currency.mandatory}"
+                            columns="#{bindings.SgsStatisticalDataVO1.hints.Currency.displayWidth}"
+                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.Currency.precision}"
+                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.Currency.tooltip}" id="it9">
+                <f:validator binding="#{row.bindings.Currency.validator}"/>
               </af:inputText>
             </af:column>
             <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.name}" filterable="true"

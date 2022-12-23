@@ -63,8 +63,16 @@
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.SrGeography.tooltip}" id="ot4"/>
               </af:column>
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.label}" id="resId1c5">
-                <af:outputText value="#{row.CostIdentifier}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.tooltip}" id="ot5"/>
+                <!--<af:outputText value="#{row.CostIdentifier}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.tooltip}" id="ot5"/>-->
+                <af:selectOneChoice value="#{row.bindings.CostIdentifier.inputValue}"
+                                    label="#{row.bindings.CostIdentifier.label}"
+                                    required="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.mandatory}"
+                                    shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.CostIdentifier.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.CostIdentifier.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeId.label}" id="resId1c6">
                 <af:outputText value="#{row.EmployeeId}"
@@ -79,7 +87,8 @@
                 <af:outputText value="#{row.Currency}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.Currency.tooltip}" id="ot8"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.DeptCostCenter.label}" id="resId1c9">
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.DeptCostCenter.label}" id="resId1c9"
+                         rendered="false">
                 <af:outputText value="#{row.DeptCostCenter}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.DeptCostCenter.tooltip}" id="ot9"/>
               </af:column>

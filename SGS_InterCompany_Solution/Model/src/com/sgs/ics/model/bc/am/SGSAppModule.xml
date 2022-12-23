@@ -61,6 +61,9 @@
   <ViewUsage
     Name="NatureOfExpenseLookupVO2"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.NatureOfExpenseLookupVO"/>
+  <ViewUsage
+    Name="CostAllocationLOV1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostAllocationLOV"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

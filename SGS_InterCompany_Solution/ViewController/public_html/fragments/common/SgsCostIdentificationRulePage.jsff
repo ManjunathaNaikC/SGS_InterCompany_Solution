@@ -327,7 +327,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.label}"
-                                           id="c29">
+                                           id="c29" rendered="false">
                                     <af:selectOneChoice value="#{row.bindings.ServiceCategory.inputValue}"
                                                         label="#{row.bindings.ServiceCategory.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.mandatory}"

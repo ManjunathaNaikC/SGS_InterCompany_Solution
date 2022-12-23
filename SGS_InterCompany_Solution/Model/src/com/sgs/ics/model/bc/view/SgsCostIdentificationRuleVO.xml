@@ -136,6 +136,38 @@
     Name="DataSourceLookupVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.DataSourceLookupVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TrueupdownfrenquencyLOV"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsCostIdentificationRuleVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="TrueAvailabilityLOV"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsCostIdentificationRuleVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_ServiceCategory"
     ListVOName="ServiceCategoryLOV"
@@ -226,6 +258,40 @@
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TrueUpDownFrequency"
+    ListVOName="TrueupdownfrenquencyLOV"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TrueUpDownFrequency"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TrueUpDownApplicability"
+    ListVOName="TrueAvailabilityLOV"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TrueUpDownApplicability"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="SgsCostIdentificationRuleEO"
@@ -664,11 +730,14 @@
     PrecisionRule="true"
     EntityAttrName="TrueUpDownApplicability"
     EntityUsage="SgsCostIdentificationRuleEO"
-    AliasName="TRUE_UP_DOWN_APPLICABILITY">
+    AliasName="TRUE_UP_DOWN_APPLICABILITY"
+    LOVName="LOV_TrueUpDownApplicability">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="29.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.TrueUpDownApplicability_LABEL"/>
       </SchemaBasedProperties>
@@ -679,11 +748,14 @@
     PrecisionRule="true"
     EntityAttrName="TrueUpDownFrequency"
     EntityUsage="SgsCostIdentificationRuleEO"
-    AliasName="TRUE_UP_DOWN_FREQUENCY">
+    AliasName="TRUE_UP_DOWN_FREQUENCY"
+    LOVName="LOV_TrueUpDownFrequency">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="30.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.TrueUpDownFrequency_LABEL"/>
       </SchemaBasedProperties>

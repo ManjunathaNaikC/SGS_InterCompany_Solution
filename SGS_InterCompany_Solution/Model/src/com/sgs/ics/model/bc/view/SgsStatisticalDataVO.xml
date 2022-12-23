@@ -153,7 +153,14 @@
     PrecisionRule="true"
     EntityAttrName="Currency"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="CURRENCY"/>
+    AliasName="CURRENCY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Currency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmployeeId"
     PrecisionRule="true"

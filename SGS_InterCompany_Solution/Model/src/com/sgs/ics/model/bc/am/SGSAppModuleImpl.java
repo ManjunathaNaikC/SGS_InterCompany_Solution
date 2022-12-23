@@ -295,5 +295,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getCostAllocationLOV1() {
         return (ViewObjectImpl) findViewObject("CostAllocationLOV1");
     }
+
+    /**
+     * Container's getter for CostGroupLOV1.
+     * @return CostGroupLOV1
+     */
+    public ViewObjectImpl getCostGroupLOV1() {
+        return (ViewObjectImpl) findViewObject("CostGroupLOV1");
+    }
 }
 

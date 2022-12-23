@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="bStatsCategory"
     Kind="viewcriteria"
@@ -33,6 +34,27 @@
     Name="bOperatingUnit"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CostGroupLOV1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostGroupLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CostGroup"
+    ListVOName="CostGroupLOV1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CostGroup"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="COSTGROUP"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="COSTGROUP"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsStatisticalDataEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStatisticalDataEO"/>
@@ -140,11 +162,14 @@
     PrecisionRule="true"
     EntityAttrName="CostGroup"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="COST_GROUP">
+    AliasName="COST_GROUP"
+    LOVName="LOV_CostGroup">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CostGroup_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -248,4 +248,9 @@ public class ActionEventsBean {
 
 
     }
+
+    public void onCostIdentificationSave(ActionEvent actionEvent) {
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
 }

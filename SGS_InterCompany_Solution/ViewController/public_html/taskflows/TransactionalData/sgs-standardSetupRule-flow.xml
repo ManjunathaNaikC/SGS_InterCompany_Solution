@@ -10,6 +10,11 @@
       <managed-bean-class>com.sgs.ics.view.bean.common.StandardRateSetupBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__3">
+      <managed-bean-name>ActionEventsBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.ActionEventsBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <view id="standardRateSetup">
       <page>/fragments/TransactionalData/standardRateSetup.jsff</page>
     </view>

@@ -253,4 +253,15 @@ public class ActionEventsBean {
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }
+
+    public void onStdRateChildDelete(ActionEvent actionEvent) {
+        executeBinding("DeleteStdRate");
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
+    }
+
+    public void onStdRateChildSave(ActionEvent actionEvent) {
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
 }

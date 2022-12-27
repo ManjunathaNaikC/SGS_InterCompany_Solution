@@ -66,7 +66,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         try {
             String connectionUrl =
                 //           "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+
                 "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -84,6 +86,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      * @return sequence next value
      */
     public int getDBSequence1(String seqName) {
+        System.out.println("inside sequence");
         Connection conn = null;
         PreparedStatement pst = null;
         try {
@@ -94,7 +97,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             ResultSet rs = pst.executeQuery();
             if (rs.next())
                 rs.getInt(1);
-            
+            System.out.println("inside sequence"+ rs.getInt(1));
             return rs.getInt(1);
         } catch (SQLException sqle) {
             LOG.severe(sqle);
@@ -375,6 +378,29 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewLinkImpl getsgsVatTaxApplicabilityVL1() {
         return (ViewLinkImpl) findViewLink("sgsVatTaxApplicabilityVL1");
+}
+     * Container's getter for SgsGstTblVO1.
+     * @return SgsGstTblVO1
+     */
+    public ViewObjectImpl getSgsGstTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsGstTblVO1");
+    }
+
+
+    /**
+     * Container's getter for SgsGstTaxRateApplicabilityVO2.
+     * @return SgsGstTaxRateApplicabilityVO2
+     */
+    public ViewObjectImpl getSgsGstTaxRateApplicabilityVO2() {
+        return (ViewObjectImpl) findViewObject("SgsGstTaxRateApplicabilityVO2");
+    }
+
+    /**
+     * Container's getter for sgsGstTaxRateApplicabilityVL1.
+     * @return sgsGstTaxRateApplicabilityVL1
+     */
+    public ViewLinkImpl getsgsGstTaxRateApplicabilityVL1() {
+        return (ViewLinkImpl) findViewLink("sgsGstTaxRateApplicabilityVL1");
     }
 }
 

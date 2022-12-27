@@ -39,6 +39,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         Connection conn = null;
         PreparedStatement pst = null;
         try {
+            
             conn = getDBConnection();
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
@@ -68,7 +69,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             String connectionUrl =
                 //           "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
 
-                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW1;integratedSecurity=true;";
 
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
@@ -380,7 +381,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewLinkImpl getsgsVatTaxApplicabilityVL1() {
         return (ViewLinkImpl) findViewLink("sgsVatTaxApplicabilityVL1");
 }
-     * Container's getter for SgsGstTblVO1.
+     /* Container's getter for SgsGstTblVO1.
      * @return SgsGstTblVO1
      */
     public ViewObjectImpl getSgsGstTblVO1() {

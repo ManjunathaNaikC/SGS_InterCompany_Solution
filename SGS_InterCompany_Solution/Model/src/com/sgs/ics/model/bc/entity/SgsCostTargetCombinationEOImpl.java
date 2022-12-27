@@ -629,7 +629,7 @@ public class SgsCostTargetCombinationEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             //setCostIdentificationId("SGSID"+Math.random());
-            setTcLineNo(am.getDBSequence("SEQ_SGS_COST_TARGET_COMBINATION"));
+            setTcLineNo("TC"+am.getDBSequence("SEQ_SGS_COST_TARGET_COMBINATION"));
         } catch (Exception e) {
             LOG.severe(e);
         }

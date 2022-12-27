@@ -2,6 +2,7 @@ package com.sgs.ics.model.bc.am;
 
 
 import com.sgs.ics.model.bc.am.common.SGSAppModule;
+import com.sgs.ics.model.bc.view.SgsStdRateLineTblVOImpl;
 import com.sgs.ics.model.bc.view.SgsTpaMasterVOImpl;
 
 import java.sql.Connection;
@@ -319,16 +320,16 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      * Container's getter for SgsStdRateLineTblVO1.
      * @return SgsStdRateLineTblVO1
      */
-    public ViewObjectImpl getSgsStdRateLineTblVO1() {
-        return (ViewObjectImpl) findViewObject("SgsStdRateLineTblVO1");
+    public SgsStdRateLineTblVOImpl getSgsStdRateLineTblVO1() {
+        return (SgsStdRateLineTblVOImpl) findViewObject("SgsStdRateLineTblVO1");
     }
 
     /**
      * Container's getter for SgsStdRateLineTblVO2.
      * @return SgsStdRateLineTblVO2
      */
-    public ViewObjectImpl getSgsStdRateLineTblVO2() {
-        return (ViewObjectImpl) findViewObject("SgsStdRateLineTblVO2");
+    public SgsStdRateLineTblVOImpl getSgsStdRateLineTblVO2() {
+        return (SgsStdRateLineTblVOImpl) findViewObject("SgsStdRateLineTblVO2");
     }
 
     /**
@@ -344,8 +345,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      * Container's getter for SgsStdRateLineTblVO4.
      * @return SgsStdRateLineTblVO4
      */
-    public ViewObjectImpl getSgsStdRateLineTblVO4() {
-        return (ViewObjectImpl) findViewObject("SgsStdRateLineTblVO4");
+    public SgsStdRateLineTblVOImpl getSgsStdRateLineTblVO4() {
+        return (SgsStdRateLineTblVOImpl) findViewObject("SgsStdRateLineTblVO4");
     }
 
     /**

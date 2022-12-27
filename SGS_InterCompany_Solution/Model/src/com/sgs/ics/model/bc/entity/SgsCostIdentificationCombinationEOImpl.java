@@ -643,7 +643,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             //setCostIdentificationId("SGSID"+Math.random());
-            setIcLineNo(am.getDBSequence("SEQ_SGS_COST_TARGET_COMBINATION"));
+            setIcLineNo("IC"+am.getDBSequence("SEQ_SGS_COST_TARGET_COMBINATION"));
         } catch (Exception e) {
             LOG.severe(e);
         }

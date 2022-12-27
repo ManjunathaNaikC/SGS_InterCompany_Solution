@@ -7,10 +7,10 @@
         <f:facet name="top"/>
         <f:facet name="bottom"/>
         <f:facet name="center">
-            <af:panelBox text="Transfer Pricing Agreement Setup" id="pb1">
+            <af:panelBox text="Transfer Pricing Master" id="pb1">
                 <f:facet name="toolbar">
                     <af:toolbar id="t1">
-                        <af:button text="Save and Close" id="b1" action="back"
+                        <af:button text="Save" id="b1" 
                                    actionListener="#{bindings.Commit.execute}" accessKey="S"/>
                         <af:button id="b2" action="back" immediate="true" actionListener="#{bindings.Rollback.execute}"
                                    rendered="#{pageFlowScope.pTPAAddEdit == 'EDIT'}" text="Cancel" accessKey="C"/>
@@ -311,7 +311,19 @@
                                     <f:validator binding="#{row.bindings.MarkUpRateId.validator}"/>
                                 </af:inputText>
                             </af:column>-->
-                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}" id="c8"
+                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.label}" id="c8"
+                                       width="400">
+                                <af:inputText value="#{row.bindings.MarkUpRateId.inputValue}"
+                                              label="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.label}"
+                                              required="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.mandatory}"
+                                              columns="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.displayWidth}"
+                                              maximumLength="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.precision}"
+                                              shortDesc="#{bindings.SgsMarkupRateTblVO.hints.MarkUpRateId.tooltip}"
+                                              id="it151">
+                                    <f:validator binding="#{row.bindings.MarkUpRateId.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}" id="c82"
                                        width="400">
                                 <af:inputText value="#{row.bindings.ServiceCategory.inputValue}"
                                               label="#{bindings.SgsMarkupRateTblVO.hints.ServiceCategory.label}"

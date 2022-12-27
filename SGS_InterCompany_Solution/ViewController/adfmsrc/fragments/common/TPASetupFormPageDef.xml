@@ -110,14 +110,9 @@
     <tree IterBinding="SgsMarkupRateTblVOIterator" id="SgsMarkupRateTblVO">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsMarkupRateTblVO" Name="SgsMarkupRateTblVO0">
         <AttrNames>
-          <Item Value="TpaId"/>
           <Item Value="MarkUpRateId"/>
           <Item Value="ServiceCategory"/>
           <Item Value="MarkupRate"/>
-          <Item Value="EffectiveFrom"/>
-          <Item Value="EffectiveTo"/>
-          <Item Value="CreatedDate"/>
-          <Item Value="CreatedBy"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

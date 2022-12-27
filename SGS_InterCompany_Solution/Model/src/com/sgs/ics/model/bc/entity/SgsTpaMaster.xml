@@ -85,7 +85,6 @@
   </Attribute>
   <Attribute
     Name="OperationUnit"
-    IsNotNull="true"
     Precision="80"
     ColumnName="OPERATION_UNIT"
     SQLType="VARCHAR"

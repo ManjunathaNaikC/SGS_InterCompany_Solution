@@ -7,7 +7,7 @@
     </data-control-scope>
     <input-parameter-definition id="__3">
       <name>pGSTAddEdit</name>
-      <value>#{pageFlowScope.inputParameter}</value>
+      <value>#{pageFlowScope.pGSTAddEdit}</value>
       <class>java.lang.String</class>
     </input-parameter-definition>
     <view id="gstInquiryForm">

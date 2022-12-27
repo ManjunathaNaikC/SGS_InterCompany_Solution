@@ -11,7 +11,7 @@
         <af:panelBox id="pb1" text="Goods and Service Tax (GST) Setup Form">
           <f:facet name="toolbar">
             <af:toolbar id="t1">
-              <af:button text="Save and Close" id="b1" action="back" actionListener="#{bindings.Commit.execute}"/>
+              <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
               <af:button text="Cancel" id="b2" action="back" immediate="true"
                          actionListener="#{bindings.Rollback.execute}"
                          rendered="#{pageFlowScope.pGSTAddEdit == 'EDIT'}"/>

@@ -14,12 +14,15 @@
                     model="#{bindings.SgsGstTblVOCriteriaQuery.queryModel}"
                     queryListener="#{bindings.SgsGstTblVOCriteriaQuery.processQuery}"
                     queryOperationListener="#{bindings.SgsGstTblVOCriteriaQuery.processQueryOperation}"
-                    resultComponentId="::pc1:resId1" saveQueryMode="hidden"/>
+                    resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
         </af:panelHeader>
         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
           <f:facet name="toolbar">
             <af:toolbar id="t1">
+              <af:button id="b3" icon="/resources/icons/microsoft-excel.png">
+                <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="GstInquiry.xls"/>
+              </af:button>
               <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
                          actionListener="#{bindings.CreateInsert.execute}"/>
               <af:button id="b2" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>

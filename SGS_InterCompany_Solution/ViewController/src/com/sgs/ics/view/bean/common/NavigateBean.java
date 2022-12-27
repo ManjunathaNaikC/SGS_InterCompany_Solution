@@ -121,4 +121,9 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-standardSetupRule-flow.xml#sgs-standardSetupRule-flow");
         return null;
     }
+
+    public String sgstdswhtInquiryflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-tdswhtInquiry-flow.xml#sgs-tdswhtInquiry-flow");
+        return null;
+    }
 }

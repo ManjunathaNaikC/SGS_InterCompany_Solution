@@ -32,7 +32,8 @@
                                              action="#{pageFlowScope.navigateBean.sgsgstInquiryflow}" id="l5"/>
                                     <af:link text="Value Added Tax(VAT) Setup"
                                              action="#{pageFlowScope.navigateBean.sgsvatInquiryflow}" id="l6"/>
-
+                                    <af:link text="Withholding Tax (WHT)/ TDS Setup"
+                                             action="#{pageFlowScope.navigateBean.sgstdswhtInquiryflow}" id="l8"/>
                                     <!--<af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" id="gl1"
                                              inlineStyle="font-weight:bold;"
                                              actionListener="#{pageFlowScope.navigateBean.loadCostAllocaionSetup}"/>
@@ -70,7 +71,7 @@
                     <f:facet name="second">
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7"/>
+                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8"/>
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->

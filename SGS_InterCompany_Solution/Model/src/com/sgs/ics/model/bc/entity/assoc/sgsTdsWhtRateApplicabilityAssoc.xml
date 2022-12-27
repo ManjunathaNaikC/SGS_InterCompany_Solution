@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="sgsTdsWhtRateApplicabilityAssoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SgsTdsWhtTblEO"
+    Cardinality="1"
+    Source="true"
+    Owner="com.sgs.ics.model.bc.entity.SgsTdsWhtTblEO"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SgsTdsWhtTblEO"/>
+      <Attr Name="_foreignKey" Value="com.sgs.ics.model.bc.entity.SgsTdsWhtTblEO.PKSGSTDSWHTTBL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtTblEO.TdsWhtSeq"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SgsTdsWhtRateApplicabilityEO"
+    Cardinality="-1"
+    Owner="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SgsTdsWhtRateApplicabilityEO"/>
+      <Attr Name="_foreignKey"
+        Value="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO.fk_SgsTdsWhtRateApplicabilityEO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO.TdsWhtSeq"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

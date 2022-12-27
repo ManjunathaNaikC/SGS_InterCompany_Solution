@@ -28,6 +28,8 @@
     <page path="/taskflows/TransactionalData/sgs-standardSetupRule-flow.xml#sgs-standardSetupRule-flow@SetCurrentRowWithKeyValue"
           usageId="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
     <page path="/LoginPage.jspx" usageId="com_sgs_ics_view_LoginPagePageDef"/>
+    <page path="/fragments/common/tdswhtInquiry.jsff" usageId="com_sgs_ics_view_tdswhtInquiryPageDef"/>
+    <page path="/fragments/common/tdswhtInquiryForm.jsff" usageId="com_sgs_ics_view_tdswhtInquiryFormPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -49,6 +51,8 @@
     <page id="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"
           path="taskflows.TransactionalData.sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
     <page id="com_sgs_ics_view_LoginPagePageDef" path="com.sgs.ics.view.pageDefs.LoginPagePageDef"/>
+    <page id="com_sgs_ics_view_tdswhtInquiryPageDef" path="com.sgs.ics.view.pageDefs.tdswhtInquiryPageDef"/>
+    <page id="com_sgs_ics_view_tdswhtInquiryFormPageDef" path="fragments.common.tdswhtInquiryFormPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SgsTdsWhtIdentificationEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SGS_TDS_WHT_IDENTIFICATION"
+  AliasName="SgsTdsWhtIdentificationEO"
+  BindingStyle="JDBC"
+  RowClass="com.sgs.ics.model.bc.entity.SgsTdsWhtIdentificationEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="TdsWhtIdenSeq"
+    IsNotNull="true"
+    ColumnName="TDS_WHT_IDEN_SEQ"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LegalEntity"
+    Precision="80"
+    ColumnName="LEGAL_ENTITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DocumentType"
+    Precision="80"
+    ColumnName="DOCUMENT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TaxIdentificationNum"
+    Precision="80"
+    ColumnName="TAX_IDENTIFICATION_NUM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ValidityPeriodFrom"
+    ColumnName="VALIDITY_PERIOD_FROM"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="ValidityPeriodTo"
+    IsNotNull="true"
+    ColumnName="VALIDITY_PERIOD_TO"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attachment"
+    Precision="80"
+    ColumnName="ATTACHMENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TdsWhtSeq"
+    IsNotNull="true"
+    ColumnName="TDS_WHT_SEQ"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="80"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute1"
+    Precision="80"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="80"
+    ColumnName="ATTRIBUTE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="80"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="80"
+    ColumnName="ATTRIBUTE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="80"
+    ColumnName="ATTRIBUTE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_IDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    ColumnName="ATTRIBUTE6"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute7"
+    ColumnName="ATTRIBUTE7"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute8"
+    ColumnName="ATTRIBUTE8"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute9"
+    ColumnName="ATTRIBUTE9"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute10"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE10"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute11"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE11"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute12"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE12"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute13"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE13"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute14"
+    ColumnName="ATTRIBUTE14"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="Attribute15"
+    ColumnName="ATTRIBUTE15"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <AccessorAttribute
+    Name="SgsTdsWhtTblEO"
+    Association="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtIdentificationAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtIdentificationAssoc.SgsTdsWhtTblEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtIdentificationAssoc.SgsTdsWhtIdentificationEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PKSGSTDSWHTIDENTIFICATION"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SGS_TDS_WHT_IDENTIFICATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtIdentificationEO.TdsWhtIdenSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FKSGSTDSWHTIDENTIFICATION">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_SGS_TDS_WHT_TBL"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SGS_TDS_WHT_IDENTIFICATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtIdentificationEO.TdsWhtSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SgsTdsWhtIdentificationEO">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SGS_TDS_WHT_TBL"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SgsTdsWhtIdentificationEO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtIdentificationEO.TdsWhtSeq"/>
+    </AttrArray>
+  </Key>
+</Entity>

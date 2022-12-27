@@ -79,6 +79,15 @@
   <ViewUsage
     Name="SgsStdRateLineTblVO4"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO"/>
+  <ViewUsage
+    Name="SgsTdsWhtTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO"/>
+  <ViewUsage
+    Name="SgsTdsWhtIdentificationVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO"/>
+  <ViewUsage
+    Name="SgsTdsWhtRateApplicabilityVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -120,6 +129,18 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.StdRateViewLink"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStandardRateSetupVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStdRateLineTblVO4"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="sgsTdsWhtIdentificationVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsTdsWhtIdentificationVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtIdentificationVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="sgsTdsWhtRateApplicabilitVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsTdsWhtRateApplicabilitVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtRateApplicabilityVO1"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

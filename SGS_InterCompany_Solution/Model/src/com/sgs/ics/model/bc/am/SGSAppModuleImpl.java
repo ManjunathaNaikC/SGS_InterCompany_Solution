@@ -66,12 +66,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-            String connectionUrl =
-                //           "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-
-
-                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGSIC;integratedSecurity=true;";
-
+            String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS;integratedSecurity=true;";
 
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
@@ -360,6 +355,47 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         return (ViewLinkImpl) findViewLink("StdRateViewLink2");
     }
 
+
+
+    /**
+     * Container's getter for SgsTdsWhtTblVO1.
+     * @return SgsTdsWhtTblVO1
+     */
+    public ViewObjectImpl getSgsTdsWhtTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTdsWhtTblVO1");
+    }
+
+    /**
+     * Container's getter for SgsTdsWhtIdentificationVO1.
+     * @return SgsTdsWhtIdentificationVO1
+     */
+    public ViewObjectImpl getSgsTdsWhtIdentificationVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTdsWhtIdentificationVO1");
+    }
+
+    /**
+     * Container's getter for sgsTdsWhtIdentificationVL1.
+     * @return sgsTdsWhtIdentificationVL1
+     */
+    public ViewLinkImpl getsgsTdsWhtIdentificationVL1() {
+        return (ViewLinkImpl) findViewLink("sgsTdsWhtIdentificationVL1");
+    }
+
+    /**
+     * Container's getter for SgsTdsWhtRateApplicabilityVO1.
+     * @return SgsTdsWhtRateApplicabilityVO1
+     */
+    public ViewObjectImpl getSgsTdsWhtRateApplicabilityVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTdsWhtRateApplicabilityVO1");
+    }
+
+    /**
+     * Container's getter for sgsTdsWhtRateApplicabilitVL1.
+     * @return sgsTdsWhtRateApplicabilitVL1
+     */
+    public ViewLinkImpl getsgsTdsWhtRateApplicabilitVL1() {
+        return (ViewLinkImpl) findViewLink("sgsTdsWhtRateApplicabilitVL1");
+}
     /**
      * Container's getter for SgsVatTblVO1.
      * @return SgsVatTblVO1

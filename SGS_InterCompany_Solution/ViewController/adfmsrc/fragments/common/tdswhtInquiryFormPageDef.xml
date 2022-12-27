@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="tdswhtInquiryFormPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTdsWhtTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTdsWhtTblVO1Iterator"/>
+    <iterator Binds="SgsTdsWhtIdentificationVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTdsWhtIdentificationVO1Iterator"/>
+    <iterator Binds="SgsTdsWhtRateApplicabilityVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTdsWhtRateApplicabilityVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="TdsWhtId">
+      <AttrNames>
+        <Item Value="TdsWhtId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="ServReceiver">
+      <AttrNames>
+        <Item Value="ServReceiver"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="ServProvider">
+      <AttrNames>
+        <Item Value="ServProvider"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="DeductionPoint">
+      <AttrNames>
+        <Item Value="DeductionPoint"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="TaxBase">
+      <AttrNames>
+        <Item Value="TaxBase"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="WhtLibilityAcc">
+      <AttrNames>
+        <Item Value="WhtLibilityAcc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="WhtCreditAcc">
+      <AttrNames>
+        <Item Value="WhtCreditAcc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="RecoveryRate">
+      <AttrNames>
+        <Item Value="RecoveryRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="WhtExpenseAcc">
+      <AttrNames>
+        <Item Value="WhtExpenseAcc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="EffectiveFrom">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="EffectiveTo">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="UpdatedDate">
+      <AttrNames>
+        <Item Value="UpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="UpdatedBy">
+      <AttrNames>
+        <Item Value="UpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SgsTdsWhtIdentificationVO1Iterator" id="SgsTdsWhtIdentificationVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO" Name="SgsTdsWhtIdentificationVO10">
+        <AttrNames>
+          <Item Value="TdsWhtIdenSeq"/>
+          <Item Value="LegalEntity"/>
+          <Item Value="DocumentType"/>
+          <Item Value="TaxIdentificationNum"/>
+          <Item Value="ValidityPeriodFrom"/>
+          <Item Value="ValidityPeriodTo"/>
+          <Item Value="Attachment"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SgsTdsWhtRateApplicabilityVO1Iterator" id="SgsTdsWhtRateApplicabilityVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO"
+                      Name="SgsTdsWhtRateApplicabilityVO10">
+        <AttrNames>
+          <Item Value="CostIdenId"/>
+          <Item Value="AccountingTreatment"/>
+          <Item Value="WithholdingTaxRate"/>
+          <Item Value="SectionTaxCode"/>
+          <Item Value="PeoplesoftTaxCode"/>
+          <Item Value="WitholdingTaxRateNoTin"/>
+          <Item Value="Documentation"/>
+          <Item Value="ChargeabilityToTax"/>
+          <Item Value="TdsWhtApplSeq"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsTdsWhtIdentificationVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SgsTdsWhtIdentificationVO1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SgsTdsWhtRateApplicabilityVO1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SgsTdsWhtRateApplicabilityVO1Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SgsTdsWhtTblVO1Iterator" id="Delete2" InstanceName="SGSAppModuleDataControl.SgsTdsWhtTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -565,7 +565,7 @@ public class SgsMarkupRateTblEOImpl extends EntityImpl {
         super.create(attributeList);
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
-            setMarkUpRateId(am.getDBSequence("SEQ_SGS_MARKUP_RATE_TBL"));
+            setMarkupRateSeqId(am.getDBSequence1("SEQ_SGS_MARKUP_RATE_TBL"));
         } catch (Exception e) {
             LOG.severe(e);
         }

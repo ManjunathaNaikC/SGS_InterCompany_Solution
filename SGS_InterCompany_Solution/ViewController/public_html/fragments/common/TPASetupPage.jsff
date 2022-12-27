@@ -7,7 +7,7 @@
     <f:facet name="top"/>
     <f:facet name="bottom"/>
     <f:facet name="center">
-      <af:panelBox text="Transfer Pricing Agreement Setup" id="pb1">
+      <af:panelBox text="Transfer Pricing Master" id="pb1">
         <f:facet name="toolbar"/>
         <af:panelGroupLayout layout="vertical" id="pgl1">
           <af:panelHeader text=" " id="ph1">

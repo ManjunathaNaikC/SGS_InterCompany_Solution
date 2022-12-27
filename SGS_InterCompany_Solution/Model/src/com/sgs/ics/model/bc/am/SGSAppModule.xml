@@ -79,6 +79,12 @@
   <ViewUsage
     Name="SgsStdRateLineTblVO4"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO"/>
+  <ViewUsage
+    Name="SgsGstTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsGstTblVO"/>
+  <ViewUsage
+    Name="SgsGstTaxRateApplicabilityVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsGstTaxRateApplicabilityVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -120,6 +126,12 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.StdRateViewLink"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStandardRateSetupVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStdRateLineTblVO4"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="sgsGstTaxRateApplicabilityVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsGstTaxRateApplicabilityVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsGstTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsGstTaxRateApplicabilityVO2"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

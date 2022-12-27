@@ -5,18 +5,28 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="gstInquiry"></view>
+    <view id="gstInquiry">
+      <page>/fragments/common/gstInquiry.jsff</page>
+    </view>
     <task-flow-call id="sgs-gstInquiryFormADD">
       <task-flow-reference>
         <document>/taskflows/commom/sgs-gstInquiryForm-flow.xml</document>
         <id>sgs-gstInquiryForm-flow</id>
       </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pGSTAddEdit</name>
+        <value>ADD</value>
+      </input-parameter>
     </task-flow-call>
     <task-flow-call id="sgs-gstInquiryFormEDIT">
       <task-flow-reference>
         <document>/taskflows/commom/sgs-gstInquiryForm-flow.xml</document>
         <id>sgs-gstInquiryForm-flow</id>
       </task-flow-reference>
+      <input-parameter id="__6">
+        <name>pGSTAddEdit</name>
+        <value>EDIT</value>
+      </input-parameter>
     </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>gstInquiry</from-activity-id>

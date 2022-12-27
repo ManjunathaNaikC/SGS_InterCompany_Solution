@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:panelBox id="pb1" text="Goods and Service Tax (GST) Setup Form">
+          <f:facet name="toolbar">
+            <af:toolbar id="t1">
+              <af:button text="Save and Close" id="b1" action="back" actionListener="#{bindings.Commit.execute}"/>
+              <af:button text="Cancel" id="b2" action="back" immediate="true"
+                         actionListener="#{bindings.Rollback.execute}"
+                         rendered="#{pageFlowScope.pGSTAddEdit == 'EDIT'}"/>
+              <af:button text="Cancel" id="b3" action="back" rendered="#{pageFlowScope.pGSTAddEdit == 'ADD'}"
+                         immediate="true" actionListener="#{bindings.Delete.execute}"
+                         disabled="#{!bindings.Delete.enabled}"/>
+            </af:toolbar>
+          </f:facet>
+          <af:panelFormLayout id="pfl1" rows="6">
+            <af:inputText value="#{bindings.GstNum.inputValue}" label="#{bindings.GstNum.hints.label}"
+                          required="#{bindings.GstNum.hints.mandatory}" columns="#{bindings.GstNum.hints.displayWidth}"
+                          maximumLength="#{bindings.GstNum.hints.precision}"
+                          shortDesc="#{bindings.GstNum.hints.tooltip}" id="it1">
+              <f:validator binding="#{bindings.GstNum.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
+                          required="#{bindings.ServProvider.hints.mandatory}"
+                          columns="#{bindings.ServProvider.hints.displayWidth}"
+                          maximumLength="#{bindings.ServProvider.hints.precision}"
+                          shortDesc="#{bindings.ServProvider.hints.tooltip}" id="it2">
+              <f:validator binding="#{bindings.ServProvider.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SupplyPlace.inputValue}" label="#{bindings.SupplyPlace.hints.label}"
+                          required="#{bindings.SupplyPlace.hints.mandatory}"
+                          columns="#{bindings.SupplyPlace.hints.displayWidth}"
+                          maximumLength="#{bindings.SupplyPlace.hints.precision}"
+                          shortDesc="#{bindings.SupplyPlace.hints.tooltip}" id="it3">
+              <f:validator binding="#{bindings.SupplyPlace.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SupplyType.inputValue}" label="#{bindings.SupplyType.hints.label}"
+                          required="#{bindings.SupplyType.hints.mandatory}"
+                          columns="#{bindings.SupplyType.hints.displayWidth}"
+                          maximumLength="#{bindings.SupplyType.hints.precision}"
+                          shortDesc="#{bindings.SupplyType.hints.tooltip}" id="it4">
+              <f:validator binding="#{bindings.SupplyType.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Rcm.inputValue}" label="#{bindings.Rcm.hints.label}"
+                          required="#{bindings.Rcm.hints.mandatory}" columns="#{bindings.Rcm.hints.displayWidth}"
+                          maximumLength="#{bindings.Rcm.hints.precision}" shortDesc="#{bindings.Rcm.hints.tooltip}"
+                          id="it5">
+              <f:validator binding="#{bindings.Rcm.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Recoverable.inputValue}" label="#{bindings.Recoverable.hints.label}"
+                          required="#{bindings.Recoverable.hints.mandatory}"
+                          columns="#{bindings.Recoverable.hints.displayWidth}"
+                          maximumLength="#{bindings.Recoverable.hints.precision}"
+                          shortDesc="#{bindings.Recoverable.hints.tooltip}" id="it6">
+              <f:validator binding="#{bindings.Recoverable.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.IdenticalGstReg.inputValue}" label="#{bindings.IdenticalGstReg.hints.label}"
+                          required="#{bindings.IdenticalGstReg.hints.mandatory}"
+                          columns="#{bindings.IdenticalGstReg.hints.displayWidth}"
+                          maximumLength="#{bindings.IdenticalGstReg.hints.precision}"
+                          shortDesc="#{bindings.IdenticalGstReg.hints.tooltip}" id="it7">
+              <f:validator binding="#{bindings.IdenticalGstReg.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
+                          required="#{bindings.EffectiveFrom.hints.mandatory}"
+                          columns="#{bindings.EffectiveFrom.hints.displayWidth}"
+                          shortDesc="#{bindings.EffectiveFrom.hints.tooltip}" id="id1">
+              <f:validator binding="#{bindings.EffectiveFrom.validator}"/>
+              <af:convertDateTime pattern="#{bindings.EffectiveFrom.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.EffectiveTo.inputValue}" label="#{bindings.EffectiveTo.hints.label}"
+                          required="#{bindings.EffectiveTo.hints.mandatory}"
+                          columns="#{bindings.EffectiveTo.hints.displayWidth}"
+                          shortDesc="#{bindings.EffectiveTo.hints.tooltip}" id="id2">
+              <f:validator binding="#{bindings.EffectiveTo.validator}"/>
+              <af:convertDateTime pattern="#{bindings.EffectiveTo.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
+                          required="#{bindings.CreatedBy.hints.mandatory}"
+                          columns="#{bindings.CreatedBy.hints.displayWidth}"
+                          maximumLength="#{bindings.CreatedBy.hints.precision}"
+                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it8">
+              <f:validator binding="#{bindings.CreatedBy.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
+                          required="#{bindings.CreatedDate.hints.mandatory}"
+                          columns="#{bindings.CreatedDate.hints.displayWidth}"
+                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3">
+              <f:validator binding="#{bindings.CreatedDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
+            </af:inputDate>
+          </af:panelFormLayout>
+          <af:panelGroupLayout id="pgl2" layout="horizontal">
+            <af:spacer id="s1" width="28px"/>
+            <af:panelBox text="Output GST GL Accounts" id="pb2">
+              <f:facet name="toolbar"/>
+              <af:panelFormLayout id="pfl2">
+                <af:inputText value="#{bindings.IgstPayable.inputValue}" label="#{bindings.IgstPayable.hints.label}"
+                              required="#{bindings.IgstPayable.hints.mandatory}"
+                              columns="#{bindings.IgstPayable.hints.displayWidth}"
+                              maximumLength="#{bindings.IgstPayable.hints.precision}"
+                              shortDesc="#{bindings.IgstPayable.hints.tooltip}" id="it9">
+                  <f:validator binding="#{bindings.IgstPayable.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CgstPayable.inputValue}" label="#{bindings.CgstPayable.hints.label}"
+                              required="#{bindings.CgstPayable.hints.mandatory}"
+                              columns="#{bindings.CgstPayable.hints.displayWidth}"
+                              maximumLength="#{bindings.CgstPayable.hints.precision}"
+                              shortDesc="#{bindings.CgstPayable.hints.tooltip}" id="it10">
+                  <f:validator binding="#{bindings.CgstPayable.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.SgstPayable.inputValue}" label="#{bindings.SgstPayable.hints.label}"
+                              required="#{bindings.SgstPayable.hints.mandatory}"
+                              columns="#{bindings.SgstPayable.hints.displayWidth}"
+                              maximumLength="#{bindings.SgstPayable.hints.precision}"
+                              shortDesc="#{bindings.SgstPayable.hints.tooltip}" id="it11">
+                  <f:validator binding="#{bindings.SgstPayable.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelBox>
+            <af:spacer id="s2" width="20 px"/>
+            <af:panelBox text="Input GST GL Accounts" id="pb3">
+              <f:facet name="toolbar"/>
+              <af:panelFormLayout id="pfl3">
+                <af:inputText value="#{bindings.IgstReceivable.inputValue}"
+                              label="#{bindings.IgstReceivable.hints.label}"
+                              required="#{bindings.IgstReceivable.hints.mandatory}"
+                              columns="#{bindings.IgstReceivable.hints.displayWidth}"
+                              maximumLength="#{bindings.IgstReceivable.hints.precision}"
+                              shortDesc="#{bindings.IgstReceivable.hints.tooltip}" id="it12">
+                  <f:validator binding="#{bindings.IgstReceivable.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.CgstReceivable.inputValue}"
+                              label="#{bindings.CgstReceivable.hints.label}"
+                              required="#{bindings.CgstReceivable.hints.mandatory}"
+                              columns="#{bindings.CgstReceivable.hints.displayWidth}"
+                              maximumLength="#{bindings.CgstReceivable.hints.precision}"
+                              shortDesc="#{bindings.CgstReceivable.hints.tooltip}" id="it13">
+                  <f:validator binding="#{bindings.CgstReceivable.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.SgstReceivable.inputValue}"
+                              label="#{bindings.SgstReceivable.hints.label}"
+                              required="#{bindings.SgstReceivable.hints.mandatory}"
+                              columns="#{bindings.SgstReceivable.hints.displayWidth}"
+                              maximumLength="#{bindings.SgstReceivable.hints.precision}"
+                              shortDesc="#{bindings.SgstReceivable.hints.tooltip}" id="it14">
+                  <f:validator binding="#{bindings.SgstReceivable.validator}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelBox>
+          </af:panelGroupLayout>
+        </af:panelBox>
+        <af:panelBox text="Tax Rate Applicability" id="pb4">
+          <f:facet name="toolbar"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t3">
+                <af:button actionListener="#{bindings.CreateInsert.execute}"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/icons/plus.png"/>
+                <af:button actionListener="#{bindings.Delete1.execute}"
+                           disabled="#{!bindings.Delete1.enabled}" id="b5" icon="/resources/icons/delete.png"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel}" var="row"
+                      rows="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}"
+                      emptyText="#{bindings.SgsGstTaxRateApplicabilityVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
+                      partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1">
+                <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"
+                              label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}"
+                              required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.mandatory}"
+                              columns="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.displayWidth}"
+                              maximumLength="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.precision}"
+                              shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.tooltip}"
+                              id="it15">
+                  <f:validator binding="#{row.bindings.CostGroupingCode.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2">
+                <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"
+                              label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}"
+                              required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.mandatory}"
+                              columns="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.displayWidth}"
+                              maximumLength="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.precision}"
+                              shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.tooltip}"
+                              id="it16">
+                  <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3">
+                <af:inputText value="#{row.bindings.HsnCode.inputValue}"
+                              label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}"
+                              required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.mandatory}"
+                              columns="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.displayWidth}"
+                              maximumLength="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.precision}"
+                              shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.tooltip}" id="it17">
+                  <f:validator binding="#{row.bindings.HsnCode.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.label}" id="c4">
+                <af:inputText value="#{row.bindings.ItemServCat.inputValue}"
+                              label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.label}"
+                              required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.mandatory}"
+                              columns="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.displayWidth}"
+                              maximumLength="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.precision}"
+                              shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.tooltip}" id="it18">
+                  <f:validator binding="#{row.bindings.ItemServCat.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}" id="c5">
+                <af:inputText value="#{row.bindings.RateOfTax.inputValue}"
+                              label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}"
+                              required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.mandatory}"
+                              columns="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.displayWidth}"
+                              maximumLength="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.precision}"
+                              shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.tooltip}" id="it19">
+                  <f:validator binding="#{row.bindings.RateOfTax.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

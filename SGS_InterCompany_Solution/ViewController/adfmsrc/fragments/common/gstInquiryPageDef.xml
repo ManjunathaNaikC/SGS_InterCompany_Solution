@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="gstInquiryPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsGstTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsGstTblVO1Iterator"/>
+    <searchRegion Criteria="SgsGstTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsGstTblVO1Iterator" id="SgsGstTblVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsGstTblVO1Iterator" id="SgsGstTblVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsGstTblVO" Name="SgsGstTblVO10">
+        <AttrNames>
+          <Item Value="GstNum"/>
+          <Item Value="ServProvider"/>
+          <Item Value="SupplyPlace"/>
+          <Item Value="SupplyType"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="IgstReceivable"/>
+          <Item Value="CgstReceivable"/>
+          <Item Value="SgstReceivable"/>
+          <Item Value="IgstPayable"/>
+          <Item Value="CgstPayable"/>
+          <Item Value="SgstPayable"/>
+          <Item Value="Rcm"/>
+          <Item Value="Recoverable"/>
+          <Item Value="IdenticalGstReg"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsGstTblVO1Iterator" id="CreateInsert" InstanceName="SGSAppModuleDataControl.SgsGstTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsGstTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsGstTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

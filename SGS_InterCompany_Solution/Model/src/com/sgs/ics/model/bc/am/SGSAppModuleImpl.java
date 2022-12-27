@@ -66,7 +66,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         try {
             String connectionUrl =
                 //           "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW1;integratedSecurity=true;";
+
+                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -355,6 +357,28 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     }
 
     /**
+     * Container's getter for SgsVatTblVO1.
+     * @return SgsVatTblVO1
+     */
+    public ViewObjectImpl getSgsVatTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsVatTblVO1");
+    }
+
+    /**
+     * Container's getter for SgsVatTaxApplicabilityVO1.
+     * @return SgsVatTaxApplicabilityVO1
+     */
+    public ViewObjectImpl getSgsVatTaxApplicabilityVO1() {
+        return (ViewObjectImpl) findViewObject("SgsVatTaxApplicabilityVO1");
+    }
+
+    /**
+     * Container's getter for sgsVatTaxApplicabilityVL1.
+     * @return sgsVatTaxApplicabilityVL1
+     */
+    public ViewLinkImpl getsgsVatTaxApplicabilityVL1() {
+        return (ViewLinkImpl) findViewLink("sgsVatTaxApplicabilityVL1");
+}
      * Container's getter for SgsGstTblVO1.
      * @return SgsGstTblVO1
      */

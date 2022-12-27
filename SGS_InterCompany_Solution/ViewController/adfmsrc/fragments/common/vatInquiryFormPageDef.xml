@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="vatInquiryFormPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsVatTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsVatTblVO1Iterator"/>
+    <iterator Binds="SgsVatTaxApplicabilityVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsVatTaxApplicabilityVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="VatNum">
+      <AttrNames>
+        <Item Value="VatNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="ServProvider">
+      <AttrNames>
+        <Item Value="ServProvider"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="ServReceiver">
+      <AttrNames>
+        <Item Value="ServReceiver"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="Rcm">
+      <AttrNames>
+        <Item Value="Rcm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="VatInputGlAcc">
+      <AttrNames>
+        <Item Value="VatInputGlAcc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="VatOutputGlAcc">
+      <AttrNames>
+        <Item Value="VatOutputGlAcc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="EffectiveFrom">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="EffectiveTo">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="UpdatedDate">
+      <AttrNames>
+        <Item Value="UpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="UpdatedBy">
+      <AttrNames>
+        <Item Value="UpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SgsVatTaxApplicabilityVO1Iterator" id="SgsVatTaxApplicabilityVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO" Name="SgsVatTaxApplicabilityVO10">
+        <AttrNames>
+          <Item Value="CostGroupingCode"/>
+          <Item Value="RateOfTax"/>
+          <Item Value="VatTaxApplSeq"/>
+          <Item Value="ChargeabilityToTax"/>
+          <Item Value="ItmServCat"/>
+          <Item Value="ExemptSuppy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SgsVatTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SgsVatTaxApplicabilityVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SgsVatTaxApplicabilityVO1Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

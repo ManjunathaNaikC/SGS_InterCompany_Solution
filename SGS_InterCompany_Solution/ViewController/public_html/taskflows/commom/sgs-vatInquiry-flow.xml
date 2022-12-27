@@ -5,18 +5,28 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="vatInquiry"></view>
+    <view id="vatInquiry">
+      <page>/fragments/common/vatInquiry.jsff</page>
+    </view>
     <task-flow-call id="sgs-vatInquiryFormADD">
       <task-flow-reference>
         <document>/taskflows/commom/sgs-vatInquiryForm-flow.xml</document>
         <id>sgs-vatInquiryForm-flow</id>
       </task-flow-reference>
+      <input-parameter id="__4">
+        <name>pVATAddEdit</name>
+        <value>ADD</value>
+      </input-parameter>
     </task-flow-call>
     <task-flow-call id="sgs-vatInquiryFormEDIT">
       <task-flow-reference>
         <document>/taskflows/commom/sgs-vatInquiryForm-flow.xml</document>
         <id>sgs-vatInquiryForm-flow</id>
       </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pVATAddEdit</name>
+        <value>EDIT</value>
+      </input-parameter>
     </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>vatInquiry</from-activity-id>

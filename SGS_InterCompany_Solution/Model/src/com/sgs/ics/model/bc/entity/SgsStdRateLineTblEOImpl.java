@@ -635,7 +635,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         super.create(attributeList);        
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
-            setStdRateLineSeq(am.getDBSequence1("STANDARD_RATE_SEQ"));
+            setStdRateLineSeq(am.getDBSequence1("SEQ_SGS_STDRATE_LINE_TBL"));
         } catch (Exception e) {
             LOG.severe(e);
         }

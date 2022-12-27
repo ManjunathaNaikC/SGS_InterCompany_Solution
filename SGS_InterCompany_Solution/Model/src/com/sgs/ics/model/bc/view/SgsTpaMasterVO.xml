@@ -210,7 +210,7 @@
   </ViewAttribute>
   <ViewAttribute
     Name="OperationUnit"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="OperationUnit"
     EntityUsage="SgsTpaMaster"

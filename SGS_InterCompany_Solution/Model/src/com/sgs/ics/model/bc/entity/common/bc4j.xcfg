@@ -14,29 +14,4 @@
       <Security AppModuleJndiName="com.sgs.ics.model.bc.am.SGSAppModule"/>
     </AppModuleConfig>
   </AppModuleConfigBag>
-  <AppModuleConfigBag ApplicationName="com.sgs.ics.model.bc.entity.SGSAppModule">
-    <AppModuleConfig name="SGSAppModuleLocal" jbo.project="com.sgs.ics.model.Model"
-                     ApplicationName="com.sgs.ics.model.bc.entity.SGSAppModule" DeployPlatform="LOCAL">
-      <Database jbo.TypeMapEntries="Java" JDBCDataSource="java:comp/env/jdbc/testSgsDS" jbo.SQLBuilder="SQLServer"/>
-      <Security AppModuleJndiName="com.sgs.ics.model.bc.entity.SGSAppModule"/>
-    </AppModuleConfig>
-    <AppModuleConfig name="SGSAppModuleShared" jbo.project="com.sgs.ics.model.Model"
-                     ApplicationName="com.sgs.ics.model.bc.entity.SGSAppModule" DeployPlatform="LOCAL">
-      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
-      <Database jbo.TypeMapEntries="Java" JDBCDataSource="java:comp/env/jdbc/testSgsDS" jbo.SQLBuilder="SQLServer"/>
-      <Security AppModuleJndiName="com.sgs.ics.model.bc.entity.SGSAppModule"/>
-    </AppModuleConfig>
-  </AppModuleConfigBag>
-  <!--<AppModuleConfigBag ApplicationName="com.sgs.ics.model.bc.am.SGSAppModule">
-    <AppModuleConfig name="SGSAppModuleLocal" jbo.project="com.sgs.ics.model.Model"
-                     ApplicationName="com.sgs.ics.model.bc.am.SGSAppModule" JDBCName="testSgs" DeployPlatform="LOCAL">
-      <Database jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQLServer"/>
-      <Security AppModuleJndiName="com.sgs.ics.model.bc.am.SGSAppModule"/>
-    </AppModuleConfig>
-    <AppModuleConfig name="SGSAppModuleLocal1" jbo.project="com.sgs.ics.model.Model"
-                     ApplicationName="com.sgs.ics.model.bc.am.SGSAppModule" JDBCName="testSgs" DeployPlatform="LOCAL">
-      <Database jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQLServer"/>
-      <Security AppModuleJndiName="com.sgs.ics.model.bc.am.SGSAppModule"/>
-    </AppModuleConfig>
-  </AppModuleConfigBag>-->
 </BC4JConfig>

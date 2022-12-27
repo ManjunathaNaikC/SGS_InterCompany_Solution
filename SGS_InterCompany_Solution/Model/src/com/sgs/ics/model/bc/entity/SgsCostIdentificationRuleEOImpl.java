@@ -693,7 +693,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             //setCostIdentificationId("SGSID"+Math.random());
-            setCostIdentificationId(am.getDBSequence("seq_SGS_COST_IDENTIFICATION_RULE"));
+            setCostIdentificationId("CIR"+am.getDBSequence("seq_SGS_COST_IDENTIFICATION_RULE"));
         } catch (Exception e) {
             LOG.severe(e);
         }

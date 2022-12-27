@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="vatInquiryPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsVatTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsVatTblVO1Iterator"/>
+    <searchRegion Criteria="SgsVatTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsVatTblVO1Iterator" id="SgsVatTblVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsVatTblVO1Iterator" id="SgsVatTblVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsVatTblVO" Name="SgsVatTblVO10">
+        <AttrNames>
+          <Item Value="VatNum"/>
+          <Item Value="ServProvider"/>
+          <Item Value="ServReceiver"/>
+          <Item Value="Rcm"/>
+          <Item Value="VatInputGlAcc"/>
+          <Item Value="VatOutputGlAcc"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsVatTblVO1Iterator" id="CreateInsert" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsVatTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

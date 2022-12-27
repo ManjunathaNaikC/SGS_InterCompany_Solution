@@ -609,7 +609,7 @@ public class SgsCostOffsetCombinationEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             //setCostIdentificationId("SGSID"+Math.random());
-            setOcLineNo(am.getDBSequence("SEQ_SGS_COST_OFFSET_COMBINATION"));
+            setOcLineNo("OC"+am.getDBSequence("SEQ_SGS_COST_OFFSET_COMBINATION"));
         } catch (Exception e) {
             LOG.severe(e);
         }

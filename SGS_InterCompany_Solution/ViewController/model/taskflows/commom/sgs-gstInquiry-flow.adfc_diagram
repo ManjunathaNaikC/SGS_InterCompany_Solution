@@ -15,7 +15,9 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>gstInquiry&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">217.89648</property>
+         name="y">217.19531</property>
+      <property
+         name="page">/fragments/common/gstInquiry.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -61,7 +63,7 @@
       <property
          name="fromOutcome">ADD</property>
       <property
-         name="sdm:polyPoints">R50,384.0,217.5459,743.0137,153.79883,L50</property>
+         name="sdm:polyPoints">R46,384.0,213.34473,743.0137,153.79883,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -71,6 +73,6 @@
       <property
          name="fromOutcome">EDIT</property>
       <property
-         name="sdm:polyPoints">R54,384.0,221.0459,822.3506,374.09766,L50</property>
+         name="sdm:polyPoints">R54,384.0,220.34473,822.3506,374.09766,L50</property>
    </ControlFlowCase>
 </SDM>

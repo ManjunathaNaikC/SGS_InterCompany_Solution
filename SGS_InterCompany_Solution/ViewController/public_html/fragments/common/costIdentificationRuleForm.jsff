@@ -386,6 +386,42 @@
                                             <af:convertDateTime pattern="#{bindings.SgsCostIdentificationCombinationVO.hints.EffectiveTo.format}"/>
                                         </af:inputDate>
                                     </af:column>
+                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
+                                               id="c30">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.tooltip}"
+                                                      id="it31">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.TcLineNo.label}"
+                                               id="c31">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.TcLineNo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.TcLineNo.tooltip}"
+                                                      id="it30">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.label}"
+                                               id="c10">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.tooltip}"
+                                                      id="it17">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                 </af:table>
                                 <f:facet name="statusbar"/>
                             </af:panelCollection>
@@ -538,6 +574,42 @@
                                             <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.CrossChargeCombinationVO.hints.CreatedDate.format}"/>
                                         </af:inputDate>
+                                    </af:column>
+                                              <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.label}"
+                                               id="c301">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.tooltip}"
+                                                      id="it311">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TcLineNo.label}"
+                                               id="c312">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.TcLineNo.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.TcLineNo.tooltip}"
+                                                      id="it302">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.label}"
+                                               id="c104">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.tooltip}"
+                                                      id="it171">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
                                     </af:column>
                                 </af:table>
                             </af:panelCollection>
@@ -806,6 +878,42 @@
                                             <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.AllocationRuleVO.hints.EffectiveTo.format}"/>
                                         </af:inputDate>
+                                    </af:column>
+                                          <af:column headerText="#{bindings.AllocationRuleVO.hints.IcLineNo.label}"
+                                               id="c304">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.IcLineNo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.IcLineNo.tooltip}"
+                                                      id="it314">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
+                                               id="c317">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.TcLineNo.tooltip}"
+                                                      id="it312">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.OcLineNo.label}"
+                                               id="c154">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.OcLineNo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.OcLineNo.tooltip}"
+                                                      id="it175">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
                                     </af:column>
                                 </af:table>
                             </af:panelCollection>

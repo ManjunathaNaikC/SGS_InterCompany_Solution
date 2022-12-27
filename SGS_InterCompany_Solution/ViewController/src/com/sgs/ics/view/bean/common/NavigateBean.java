@@ -102,6 +102,7 @@ public class NavigateBean implements Serializable {
 
   
     public String sgsgstInquiryflow() {
+        System.out.println("******************************inside gst navigation");
         setDynamicTaskFlowId("/taskflows/commom/sgs-gstInquiry-flow.xml#sgs-gstInquiry-flow");
         return null;
     }

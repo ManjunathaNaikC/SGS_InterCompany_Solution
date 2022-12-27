@@ -17,6 +17,8 @@
       <property
          name="y">197.89648</property>
       <property
+         name="page">/fragments/common/gstInquiryForm.jsff</property>
+      <property
          name="exceptionHandler">false</property>
    </View>
    <TaskFlowReturn

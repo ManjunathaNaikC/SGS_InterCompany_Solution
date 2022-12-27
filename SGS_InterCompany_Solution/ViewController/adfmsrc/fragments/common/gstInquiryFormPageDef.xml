@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="gstInquiryFormPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsGstTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsGstTblVO1Iterator"/>
+    <iterator Binds="SgsGstTaxRateApplicabilityVO2" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsGstTaxRateApplicabilityVO2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="GstNum">
+      <AttrNames>
+        <Item Value="GstNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="ServProvider">
+      <AttrNames>
+        <Item Value="ServProvider"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="SupplyPlace">
+      <AttrNames>
+        <Item Value="SupplyPlace"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="SupplyType">
+      <AttrNames>
+        <Item Value="SupplyType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="Rcm">
+      <AttrNames>
+        <Item Value="Rcm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="Recoverable">
+      <AttrNames>
+        <Item Value="Recoverable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="IdenticalGstReg">
+      <AttrNames>
+        <Item Value="IdenticalGstReg"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="EffectiveFrom">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="EffectiveTo">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="IgstPayable">
+      <AttrNames>
+        <Item Value="IgstPayable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="CgstPayable">
+      <AttrNames>
+        <Item Value="CgstPayable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="SgstPayable">
+      <AttrNames>
+        <Item Value="SgstPayable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="IgstReceivable">
+      <AttrNames>
+        <Item Value="IgstReceivable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="CgstReceivable">
+      <AttrNames>
+        <Item Value="CgstReceivable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="SgstReceivable">
+      <AttrNames>
+        <Item Value="SgstReceivable"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SgsGstTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsGstTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="SgsGstTaxRateApplicabilityVO2Iterator" id="SgsGstTaxRateApplicabilityVO2">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsGstTaxRateApplicabilityVO"
+                      Name="SgsGstTaxRateApplicabilityVO20">
+        <AttrNames>
+          <Item Value="CostGroupingCode"/>
+          <Item Value="ChargeabilityToTax"/>
+          <Item Value="HsnCode"/>
+          <Item Value="ItemServCat"/>
+          <Item Value="RateOfTax"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsGstTaxRateApplicabilityVO2Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SgsGstTaxRateApplicabilityVO2Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

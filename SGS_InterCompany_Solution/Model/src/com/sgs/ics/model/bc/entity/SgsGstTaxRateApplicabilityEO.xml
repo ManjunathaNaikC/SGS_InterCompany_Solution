@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SgsGstTaxRateApplicabilityEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SGS_GST_TAX_RATE_APPLICABILITY"
+  AliasName="SgsGstTaxRateApplicabilityEO"
+  BindingStyle="JDBC"
+  RowClass="com.sgs.ics.model.bc.entity.SgsGstTaxRateApplicabilityEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="GstSeq"
+    IsNotNull="true"
+    ColumnName="GST_SEQ"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="GstTaxApplSeq"
+    IsNotNull="true"
+    ColumnName="GST_TAX_APPL_SEQ"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CostGroupingCode"
+    Precision="80"
+    ColumnName="COST_GROUPING_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChargeabilityToTax"
+    Precision="80"
+    ColumnName="CHARGEABILITY_TO_TAX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HsnCode"
+    Precision="80"
+    ColumnName="HSN_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemServCat"
+    Precision="80"
+    ColumnName="ITEM_SERV_CAT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RateOfTax"
+    Precision="80"
+    ColumnName="RATE_OF_TAX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="80"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="80"
+    ColumnName="ATTRIBUTE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="80"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="80"
+    ColumnName="ATTRIBUTE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="80"
+    ColumnName="ATTRIBUTE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    ColumnName="ATTRIBUTE6"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute7"
+    ColumnName="ATTRIBUTE7"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute8"
+    ColumnName="ATTRIBUTE8"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute9"
+    ColumnName="ATTRIBUTE9"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute10"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE10"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute11"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE11"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute12"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE12"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute13"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE13"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute14"
+    ColumnName="ATTRIBUTE14"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute15"
+    ColumnName="ATTRIBUTE15"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY"/>
+  <AccessorAttribute
+    Name="SgsGstTblEO"
+    Association="com.sgs.ics.model.bc.entity.assoc.sgsGstTaxRateApplicabilityAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.sgsGstTaxRateApplicabilityAssoc.SgsGstTblEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.sgsGstTaxRateApplicabilityAssoc.SgsGstTaxRateApplicabilityEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PKSGSGSTTAXRATEAPPLICABILITY"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SGS_GST_TAX_RATE_APPLICABILITY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsGstTaxRateApplicabilityEO.GstTaxApplSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FKSGSGSTTAXRATEAPPLICABILITY">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_SGS_GST_TBL"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SGS_GST_TAX_RATE_APPLICABILITY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsGstTaxRateApplicabilityEO.GstSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SgsGstTaxRateApplicabilityEO">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SGS_GST_TBL"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SgsGstTaxRateApplicabilityE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsGstTaxRateApplicabilityEO.GstSeq"/>
+    </AttrArray>
+  </Key>
+</Entity>

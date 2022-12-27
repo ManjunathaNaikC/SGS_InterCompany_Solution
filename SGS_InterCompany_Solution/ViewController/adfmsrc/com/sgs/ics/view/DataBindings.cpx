@@ -28,6 +28,8 @@
     <page path="/taskflows/TransactionalData/sgs-standardSetupRule-flow.xml#sgs-standardSetupRule-flow@SetCurrentRowWithKeyValue"
           usageId="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
     <page path="/LoginPage.jspx" usageId="com_sgs_ics_view_LoginPagePageDef"/>
+    <page path="/fragments/common/vatInquiry.jsff" usageId="com_sgs_ics_view_vatInquiryPageDef"/>
+    <page path="/fragments/common/vatInquiryForm.jsff" usageId="com_sgs_ics_view_vatInquiryFormPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -49,6 +51,8 @@
     <page id="com_sgs_ics_view_sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"
           path="taskflows.TransactionalData.sgs_standardSetupRule_flow_sgs_standardSetupRule_flow_SetCurrentRowWithKeyValuePageDef"/>
     <page id="com_sgs_ics_view_LoginPagePageDef" path="com.sgs.ics.view.pageDefs.LoginPagePageDef"/>
+    <page id="com_sgs_ics_view_vatInquiryPageDef" path="fragments.common.vatInquiryPageDef"/>
+    <page id="com_sgs_ics_view_vatInquiryFormPageDef" path="fragments.common.vatInquiryFormPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

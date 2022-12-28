@@ -20,7 +20,7 @@
                          disabled="#{!bindings.Delete.enabled}"/>
             </af:toolbar>
           </f:facet>
-          <af:panelFormLayout id="pfl1" rows="6">
+          <af:panelFormLayout id="pfl1" rows="7">
             <af:inputText value="#{bindings.GstNum.inputValue}" label="#{bindings.GstNum.hints.label}"
                           required="#{bindings.GstNum.hints.mandatory}" columns="#{bindings.GstNum.hints.displayWidth}"
                           maximumLength="#{bindings.GstNum.hints.precision}"
@@ -82,13 +82,6 @@
               <f:validator binding="#{bindings.EffectiveTo.validator}"/>
               <af:convertDateTime pattern="#{bindings.EffectiveTo.format}"/>
             </af:inputDate>
-            <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
-                          required="#{bindings.CreatedBy.hints.mandatory}"
-                          columns="#{bindings.CreatedBy.hints.displayWidth}"
-                          maximumLength="#{bindings.CreatedBy.hints.precision}"
-                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it8">
-              <f:validator binding="#{bindings.CreatedBy.validator}"/>
-            </af:inputText>
             <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
                           required="#{bindings.CreatedDate.hints.mandatory}"
                           columns="#{bindings.CreatedDate.hints.displayWidth}"
@@ -96,6 +89,29 @@
               <f:validator binding="#{bindings.CreatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
             </af:inputDate>
+            <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
+                          required="#{bindings.CreatedBy.hints.mandatory}"
+                          columns="#{bindings.CreatedBy.hints.displayWidth}"
+                          maximumLength="#{bindings.CreatedBy.hints.precision}"
+                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it8">
+              <f:validator binding="#{bindings.CreatedBy.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.UpdatedDate.inputValue}" 
+                          required="#{bindings.UpdatedDate.hints.mandatory}"
+                          columns="#{bindings.UpdatedDate.hints.displayWidth}"
+                          shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4"
+                          label="#{bindings.UpdatedDate.hints.label}">
+              <f:validator binding="#{bindings.UpdatedDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.UpdatedBy.inputValue}"
+                          required="#{bindings.UpdatedBy.hints.mandatory}"
+                          columns="#{bindings.UpdatedBy.hints.displayWidth}"
+                          maximumLength="#{bindings.UpdatedBy.hints.precision}"
+                          shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it20"
+                          label="#{bindings.UpdatedBy.hints.label}">
+              <f:validator binding="#{bindings.UpdatedBy.validator}"/>
+            </af:inputText>
           </af:panelFormLayout>
           <af:panelGroupLayout id="pgl2" layout="horizontal">
             <af:spacer id="s1" width="28px"/>
@@ -159,7 +175,7 @@
         </af:panelBox>
         <af:panelBox text="Tax Rate Applicability" id="pb4">
           <f:facet name="toolbar"/>
-          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <af:panelCollection id="pc1">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t3">

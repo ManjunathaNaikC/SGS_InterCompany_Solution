@@ -201,7 +201,9 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_GST_TBL"/>
+    TableName="SGS_GST_TBL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="CreatedBy"
     Precision="80"
@@ -209,7 +211,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_GST_TBL">
+    TableName="SGS_GST_TBL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -220,7 +224,8 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_GST_TBL"/>
+    TableName="SGS_GST_TBL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="UpdatedBy"
     Precision="80"
@@ -228,7 +233,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_GST_TBL">
+    TableName="SGS_GST_TBL"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -388,4 +394,8 @@
       <Item Value="com.sgs.ics.model.bc.entity.SgsGstTblEO.GstSeq"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

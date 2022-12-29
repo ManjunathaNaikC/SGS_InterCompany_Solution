@@ -264,4 +264,8 @@ public class ActionEventsBean {
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }
+
+    public void onCostIdentifierSave(ActionEvent actionEvent) {
+        // Add event code here...
+    }
 }

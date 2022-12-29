@@ -37,6 +37,16 @@
                                     <af:outputText value="" id="ot1"
                                                    inlineStyle="font-weight:bold; margin-left:20px; color:White;"
                                                    shortDesc="Logged in Username"/>
+                                                   
+                                    <af:menuBar id="mb1" >
+                                        <af:menu id="m1" icon="/resources/icons/userIcon.png"
+                                                 inlineStyle="color:green;">
+                                        <af:commandMenuItem text="User Id: #{sessionScope._username} " id="cmi1"/>
+                                         <af:commandMenuItem text="Email Id: #{sessionScope.USER_EMAIL}" id="cmi2"/>
+                                        </af:menu>
+                                      
+                                     
+                                    </af:menuBar>
                                     <af:link 
                                              inlineStyle="margin-left:20px;margin-top:5px" id="gl1"
                                              icon="/resources/icons/logoutRed.png" shortDesc="Logout"/>

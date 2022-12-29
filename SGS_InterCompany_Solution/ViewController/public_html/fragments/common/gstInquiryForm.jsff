@@ -173,9 +173,9 @@
             </af:panelBox>
           </af:panelGroupLayout>
         </af:panelBox>
-        <af:panelBox text="Tax Rate Applicability" id="pb4">
+        <af:panelBox text="Tax Rate Applicability" id="pb4" styleClass="AFStretchWidth">
           <f:facet name="toolbar"/>
-          <af:panelCollection id="pc1">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t3">
@@ -194,7 +194,8 @@
                       selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
                       partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1"
+                         width="215">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.mandatory}"
@@ -205,7 +206,8 @@
                   <f:validator binding="#{row.bindings.CostGroupingCode.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2"
+                         width="215">
                 <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.mandatory}"
@@ -216,7 +218,7 @@
                   <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3" width="215">
                 <af:inputText value="#{row.bindings.HsnCode.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.mandatory}"
@@ -226,7 +228,8 @@
                   <f:validator binding="#{row.bindings.HsnCode.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.label}" id="c4">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.label}" id="c4"
+                         width="215">
                 <af:inputText value="#{row.bindings.ItemServCat.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.mandatory}"
@@ -236,7 +239,8 @@
                   <f:validator binding="#{row.bindings.ItemServCat.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}" id="c5">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}" id="c5"
+                         width="215">
                 <af:inputText value="#{row.bindings.RateOfTax.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.mandatory}"

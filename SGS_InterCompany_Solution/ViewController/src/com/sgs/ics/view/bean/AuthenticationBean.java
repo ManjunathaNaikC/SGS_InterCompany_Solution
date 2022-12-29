@@ -20,6 +20,8 @@ import javax.servlet.http.HttpSession;
 
 import oracle.adf.model.BindingContext;
 
+import oracle.adf.share.ADFContext;
+
 import oracle.binding.BindingContainer;
 
 import oracle.binding.OperationBinding;
@@ -122,6 +124,12 @@ public class AuthenticationBean {
 
         return (BindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
     }
+    
+    public void setSessionScopeValue(String name, String value) {
+        ADFContext adfCtx = ADFContext.getCurrent();
+        Map sessionScope = adfCtx.getSessionScope();
+        sessionScope.put(name, value);
+    }
 
     public String loginValidation() {
         // Add event code here...
@@ -135,6 +143,7 @@ public class AuthenticationBean {
         m.put("user", _username);
         m.put("pass", _password);
         ob.execute();
+        setSessionScopeValue("_username",_username);
 
 
         try {

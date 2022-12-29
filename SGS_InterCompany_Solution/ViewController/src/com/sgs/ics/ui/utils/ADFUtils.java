@@ -32,6 +32,7 @@ import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.model.binding.DCParameter;
 
+import oracle.adf.share.ADFContext;
 import oracle.adf.share.logging.ADFLogger;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -885,5 +886,22 @@ public class ADFUtils {
         FacesMessage fm = new FacesMessage(messageText);
         fm.setSeverity(FacesMessage.SEVERITY_INFO);
         context.addMessage(null, fm);
+    }
+    
+    public Object getSessionScopeValue(String name) {
+        ADFContext adfCtx = ADFContext.getCurrent();
+        Map sessionScope = adfCtx.getSessionScope();
+        Object val = sessionScope.get(name);
+
+        if (val == null)
+            return "0";
+        else
+            return val;
+    }
+    
+    public void setSessionScopeValue(String name, String value) {
+        ADFContext adfCtx = ADFContext.getCurrent();
+        Map sessionScope = adfCtx.getSessionScope();
+        sessionScope.put(name, value);
     }
 }

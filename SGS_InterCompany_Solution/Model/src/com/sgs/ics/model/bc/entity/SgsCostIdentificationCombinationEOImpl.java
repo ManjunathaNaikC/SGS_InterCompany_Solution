@@ -653,7 +653,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
             LOG.severe(e);
         }
     }
-TransactionEvent
+
     /**
      * Add locking logic here.
      */
@@ -666,7 +666,7 @@ TransactionEvent
      * @param operation the operation type
      * @param e the transaction event
      */
-    protected void doDML(int operation,  e) {
+    protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_UPDATE) {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();

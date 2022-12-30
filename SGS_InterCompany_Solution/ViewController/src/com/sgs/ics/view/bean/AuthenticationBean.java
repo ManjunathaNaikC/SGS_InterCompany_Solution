@@ -32,8 +32,9 @@ import oracle.binding.BindingContainer;
 
 import oracle.binding.OperationBinding;
 
-import oracle.jbo.ApplicationModule;
-import oracle.jbo.ViewObject;
+import javax.servlet.http.HttpServletResponse;
+
+import oracle.mds.internal.security.SecurityUtils;
 
 
 public class AuthenticationBean {
@@ -226,5 +227,27 @@ public class AuthenticationBean {
         if (e != null) {
             e.printStackTrace();
         }
+    }
+
+    public String logOut() throws ServletException, IOException {
+        HttpServletResponse response = null;
+                HttpServletRequest req = null;
+                try {
+                    ADFContext.getCurrent().getSessionScope().put("logoutFlag",true);                
+                    
+
+                    ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+                    response = (HttpServletResponse)externalContext.getResponse();
+                    req = (HttpServletRequest)externalContext.getRequest();
+                    externalContext.invalidateSession();
+                    
+                } catch (Exception ex) {            
+                    ex.getMessage();
+                } finally {
+                    System.out.println("Logout Done");
+                    response.sendRedirect((new StringBuilder()).append(req.getContextPath()).append("/faces/LoginPage.jspx").toString());
+                    FacesContext.getCurrentInstance().responseComplete();
+                }
+        return null;
     }
 }

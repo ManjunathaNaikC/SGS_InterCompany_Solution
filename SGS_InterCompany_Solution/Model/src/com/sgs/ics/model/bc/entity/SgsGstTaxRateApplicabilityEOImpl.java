@@ -45,6 +45,10 @@ public class SgsGstTaxRateApplicabilityEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        UPDATEDDATE,
+        UPDATEDBY,
+        CREATEDDATE,
+        CREATEDBY,
         SgsGstTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -69,8 +73,8 @@ public class SgsGstTaxRateApplicabilityEOImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsTpaMasterImpl.class);
-    
-    
+
+
     public static final int GSTSEQ = AttributesEnum.GstSeq.index();
     public static final int GSTTAXAPPLSEQ = AttributesEnum.GstTaxApplSeq.index();
     public static final int COSTGROUPINGCODE = AttributesEnum.CostGroupingCode.index();
@@ -93,12 +97,23 @@ public class SgsGstTaxRateApplicabilityEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int UPDATEDDATE = AttributesEnum.UPDATEDDATE.index();
+    public static final int UPDATEDBY = AttributesEnum.UPDATEDBY.index();
+    public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
+    public static final int CREATEDBY = AttributesEnum.CREATEDBY.index();
     public static final int SGSGSTTBLEO = AttributesEnum.SgsGstTblEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SgsGstTaxRateApplicabilityEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsGstTaxRateApplicabilityEO");
     }
 
     /**
@@ -454,6 +469,70 @@ public class SgsGstTaxRateApplicabilityEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for UPDATEDDATE, using the alias name UPDATEDDATE.
+     * @return the value of UPDATEDDATE
+     */
+    public Date getUPDATEDDATE() {
+        return (Date) getAttributeInternal(UPDATEDDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for UPDATEDDATE.
+     * @param value value to set the UPDATEDDATE
+     */
+    public void setUPDATEDDATE(Date value) {
+        setAttributeInternal(UPDATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for UPDATEDBY, using the alias name UPDATEDBY.
+     * @return the value of UPDATEDBY
+     */
+    public String getUPDATEDBY() {
+        return (String) getAttributeInternal(UPDATEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for UPDATEDBY.
+     * @param value value to set the UPDATEDBY
+     */
+    public void setUPDATEDBY(String value) {
+        setAttributeInternal(UPDATEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for CREATEDDATE, using the alias name CREATEDDATE.
+     * @return the value of CREATEDDATE
+     */
+    public Date getCREATEDDATE() {
+        return (Date) getAttributeInternal(CREATEDDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CREATEDDATE.
+     * @param value value to set the CREATEDDATE
+     */
+    public void setCREATEDDATE(Date value) {
+        setAttributeInternal(CREATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for CREATEDBY, using the alias name CREATEDBY.
+     * @return the value of CREATEDBY
+     */
+    public String getCREATEDBY() {
+        return (String) getAttributeInternal(CREATEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CREATEDBY.
+     * @param value value to set the CREATEDBY
+     */
+    public void setCREATEDBY(String value) {
+        setAttributeInternal(CREATEDBY, value);
+    }
+
+    /**
      * @return the associated entity SgsGstTblEOImpl.
      */
     public SgsGstTblEOImpl getSgsGstTblEO() {
@@ -467,6 +546,7 @@ public class SgsGstTaxRateApplicabilityEOImpl extends EntityImpl {
         setAttributeInternal(SGSGSTTBLEO, value);
     }
 
+
     /**
      * @param gstTaxApplSeq key constituent
 
@@ -474,13 +554,6 @@ public class SgsGstTaxRateApplicabilityEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer gstTaxApplSeq) {
         return new Key(new Object[] { gstTaxApplSeq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsGstTaxRateApplicabilityEO");
     }
 
     /**

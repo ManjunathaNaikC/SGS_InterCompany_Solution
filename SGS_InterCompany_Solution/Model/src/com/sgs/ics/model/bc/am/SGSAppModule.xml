@@ -100,7 +100,9 @@
   <ViewUsage
     Name="SgsGstTaxRateApplicabilityVO2"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsGstTaxRateApplicabilityVO"/>
-
+  <ViewUsage
+    Name="sgsMarkUpRateMasterVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

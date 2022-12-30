@@ -18,22 +18,30 @@
                                 <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options">
                                     <af:link text="Cost Allocation Setup"
                                              action="#{pageFlowScope.navigateBean.sgscostIdentificationRuleflow}"
-                                             id="l1"/>
+                                             id="l1" immediate="true"/>
                                     <af:link text="Transfer Pricing Master" action="#{pageFlowScope.navigateBean.tPASetupBTF}"
-                                             id="l2"/>
+                                             id="l2" immediate="true"/>
                                     <af:link text="Standard Rate Setup"
-                                             action="#{pageFlowScope.navigateBean.sgsstandardSetupRuleflow}" id="l7"/>
+                                             action="#{pageFlowScope.navigateBean.sgsstandardSetupRuleflow}" id="l7"
+                                             immediate="true"/>
                                     <!--<af:link text="welcome-empty-flow"
                                              action="#{pageFlowScope.navigateBean.welcomeemptyflow}" id="l4"/>-->
 
                                     <af:link text="Business Unit Setup"
-                                             action="#{pageFlowScope.navigateBean.sgsbusinessUnitMasterflow}" id="l3"/>
+                                             action="#{pageFlowScope.navigateBean.sgsbusinessUnitMasterflow}" id="l3"
+                                             immediate="true"/>
                                     <af:link text="Goods and Service Tax (GST) Setup"
-                                             action="#{pageFlowScope.navigateBean.sgsgstInquiryflow}" id="l5"/>
+                                             action="#{pageFlowScope.navigateBean.sgsgstInquiryflow}" id="l5"
+                                             immediate="true"/>
                                     <af:link text="Value Added Tax(VAT) Setup"
-                                             action="#{pageFlowScope.navigateBean.sgsvatInquiryflow}" id="l6"/>
+                                             action="#{pageFlowScope.navigateBean.sgsvatInquiryflow}" id="l6"
+                                             immediate="true"/>
                                     <af:link text="Withholding Tax (WHT)/ TDS Setup"
-                                             action="#{pageFlowScope.navigateBean.sgstdswhtInquiryflow}" id="l8"/>
+                                             action="#{pageFlowScope.navigateBean.sgstdswhtInquiryflow}" id="l8"
+                                             immediate="true"/>
+                                    <af:link text="Mark-Up Rate Setup"
+                                             action="#{pageFlowScope.navigateBean.sgsMarkUpRateMasterflow}" id="l9"
+                                             immediate="true"/>
                                     <!--<af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" id="gl1"
                                              inlineStyle="font-weight:bold;"
                                              actionListener="#{pageFlowScope.navigateBean.loadCostAllocaionSetup}"/>
@@ -71,7 +79,7 @@
                     <f:facet name="second">
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8"/>
+                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9"/>
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->

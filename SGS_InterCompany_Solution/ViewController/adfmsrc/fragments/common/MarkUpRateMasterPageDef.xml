@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="MarkUpRateMasterPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="sgsMarkUpRateMasterVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="sgsMarkUpRateMasterVO1Iterator"/>
+    <searchRegion Criteria="sgsMarkUpRateMasterVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="sgsMarkUpRateMasterVO1Iterator"
+                  id="sgsMarkUpRateMasterVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="sgsMarkUpRateMasterVO1Iterator" id="sgsMarkUpRateMasterVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO" Name="sgsMarkUpRateMasterVO10">
+        <AttrNames>
+          <Item Value="MarkUpRateId"/>
+          <Item Value="SpGeography"/>
+          <Item Value="SpLegalEntity"/>
+          <Item Value="SpBusinessUnit"/>
+          <Item Value="SrGeography"/>
+          <Item Value="SrLegalEntity"/>
+          <Item Value="SrBusinessUnit"/>
+          <Item Value="NatureOfExpenses"/>
+          <Item Value="MarkUpRate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="sgsMarkUpRateMasterVO1Iterator" id="CreateMarkUpRate"
+            InstanceName="SGSAppModuleDataControl.sgsMarkUpRateMasterVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="sgsMarkUpRateMasterVO1Iterator" id="DeleteMarkUpData"
+            InstanceName="SGSAppModuleDataControl.sgsMarkUpRateMasterVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="sgsMarkUpRateMasterVO1Iterator" id="sgsMarkUpRateMasterVO11">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO" Name="sgsMarkUpRateMasterVO110">
+        <AttrNames>
+          <Item Value="MarkUpRateId"/>
+          <Item Value="SpGeography"/>
+          <Item Value="SpLegalEntity"/>
+          <Item Value="SpBusinessUnit"/>
+          <Item Value="SrGeography"/>
+          <Item Value="SrLegalEntity"/>
+          <Item Value="SrBusinessUnit"/>
+          <Item Value="NatureOfExpenses"/>
+          <Item Value="MarkUpRate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="EFFECTIVEFROM"/>
+          <Item Value="EFFECTIVETO"/>
+          <Item Value="STATUS"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

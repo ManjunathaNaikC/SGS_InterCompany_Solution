@@ -27,7 +27,8 @@
           <Item Value="CreatedDate"/>
           <Item Value="CreatedBy"/>
           <Item Value="UpdatedDate"/>
-          <Item Value="UpdatedBy"/>
+          <!--<Item Value="UpdatedBy"/>-->
+          <Item Value="UPDATEDBY"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

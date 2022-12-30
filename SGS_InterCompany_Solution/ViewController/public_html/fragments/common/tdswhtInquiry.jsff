@@ -104,11 +104,15 @@
                 <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.format}"/>
               </af:outputText>
             </af:column>
-            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.label}" id="resId1c15">
+            <!--<af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.label}" id="resId1c15">
               <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.tooltip}"
                              id="ot15">
                 <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.format}"/>
               </af:outputText>
+            </af:column>-->
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.label}" id="c1">
+              <af:outputText value="#{row.UPDATEDBY}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.tooltip}"
+                             id="ot1"/>
             </af:column>
           </af:table>
         </af:panelCollection>

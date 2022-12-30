@@ -204,6 +204,8 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.RecoveryRate_LABEL"/>
         <FIELDORDER
           Value="9.0"/>
+        <DISPLAYWIDTH
+          Value="50"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -257,7 +259,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="CREATED_DATE">
+    AliasName="CREATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -272,7 +275,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="CREATED_BY">
+    AliasName="CREATED_BY"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -287,7 +291,8 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="UPDATED_DATE">
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -298,17 +303,16 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="UpdatedBy"
+    Name="UPDATEDBY"
     PrecisionRule="true"
-    EntityAttrName="UpdatedBy"
+    EntityAttrName="UPDATEDBY"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="UPDATED_BY">
+    AliasName="UPDATED_BY"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UpdatedBy_LABEL"/>
-        <FIELDORDER
-          Value="15.0"/>
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UPDATEDBY_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -2,6 +2,8 @@ package com.sgs.ics.model.bc.entity;
 
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 
+import com.sgs.ics.model.bc.commonutils.CommonUtils;
+
 import java.math.BigDecimal;
 
 import java.sql.Date;
@@ -644,11 +646,14 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             //setCostIdentificationId("SGSID"+Math.random());
             setIcLineNo("IC"+am.getDBSequence("SEQ_SGS_COST_TARGET_COMBINATION"));
+            CommonUtils util = new CommonUtils();
+            Object user = (Object) util.getSessionScopeValue("_username").toString();
+            setCreatedBy(user.toString());
         } catch (Exception e) {
             LOG.severe(e);
         }
     }
-
+TransactionEvent
     /**
      * Add locking logic here.
      */
@@ -656,13 +661,20 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
         super.lock();
     }
 
-    /**
+    			    /**
      * Custom DML update/insert/delete logic here.
      * @param operation the operation type
      * @param e the transaction event
      */
-    protected void doDML(int operation, TransactionEvent e) {
+    protected void doDML(int operation,  e) {
+        if (operation == DML_UPDATE) {
+            CommonUtils util= new CommonUtils();
+            Object user= (Object)util.getSessionScopeValue("_username").toString();
+            setUpdatedBy(user.toString());
+        }
+        
         super.doDML(operation, e);
     }
+    
 }
 

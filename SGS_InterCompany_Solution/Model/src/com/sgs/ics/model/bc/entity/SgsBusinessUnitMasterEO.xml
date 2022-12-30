@@ -240,15 +240,13 @@
     HistoryColumn="DateHistory"/>
   <Attribute
     Name="CreatedBy"
-    IsUpdateable="while_insert"
     IsNotNull="true"
     Precision="80"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_BUSINESS_UNIT_MASTER"
-    HistoryColumn="UserHistory">
+    TableName="SGS_BUSINESS_UNIT_MASTER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -268,8 +266,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_BUSINESS_UNIT_MASTER"
-    HistoryColumn="UserHistory">
+    TableName="SGS_BUSINESS_UNIT_MASTER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

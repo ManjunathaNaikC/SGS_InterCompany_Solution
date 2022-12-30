@@ -47,6 +47,11 @@ public class ActionEventsBean {
         ADFUtils.saveNotifier();
     }
     
+    public void onMarkUpRateDataSave(ActionEvent actionEvent) {
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
+    
     public Object executeBinding(String binding) {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding(binding);
@@ -66,6 +71,12 @@ public class ActionEventsBean {
 
     public void onDeleteStatisticalData(ActionEvent actionEvent) {
         executeBinding("DeleteStatisticalData");
+        executeBinding(SAVE_DATA);      
+        ADFUtils.deleteNotifier();
+    }
+    
+    public void onDeleteMarkUpData(ActionEvent actionEvent) {
+        executeBinding("DeleteMarkUpData");
         executeBinding(SAVE_DATA);      
         ADFUtils.deleteNotifier();
     }
@@ -263,5 +274,9 @@ public class ActionEventsBean {
     public void onStdRateChildSave(ActionEvent actionEvent) {
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
+    }
+
+    public void onCostIdentifierSave(ActionEvent actionEvent) {
+        // Add event code here...
     }
 }

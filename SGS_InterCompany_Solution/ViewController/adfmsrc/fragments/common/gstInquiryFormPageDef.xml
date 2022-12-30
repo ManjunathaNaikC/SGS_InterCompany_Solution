@@ -115,5 +115,15 @@
             Action="createInsertRow"/>
     <action IterBinding="SgsGstTaxRateApplicabilityVO2Iterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="UpdatedDate">
+      <AttrNames>
+        <Item Value="UpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGstTblVO1Iterator" id="UpdatedBy">
+      <AttrNames>
+        <Item Value="UpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

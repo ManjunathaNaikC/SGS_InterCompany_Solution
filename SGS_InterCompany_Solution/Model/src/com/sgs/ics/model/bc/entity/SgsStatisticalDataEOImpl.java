@@ -1,5 +1,6 @@
 package com.sgs.ics.model.bc.entity;
 
+import com.sgs.ics.model.bc.commonutils.CommonUtils;
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 
 import java.math.BigDecimal;
@@ -689,6 +690,9 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             setStatisticalDataId(am.getDBSequence1("SEQ_SGS_STATISTICAL_DATA_TBL"));
+            CommonUtils util= new CommonUtils();
+            Object user= (Object)util.getSessionScopeValue("_username").toString();
+            setCreatedBy(user.toString());
         } catch (Exception e) {
             LOG.severe(e);
         }
@@ -707,7 +711,14 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_UPDATE) {
+            CommonUtils util= new CommonUtils();
+            Object user= (Object)util.getSessionScopeValue("_username").toString();
+            setUpdatedBy(user.toString());
+        }
+        
         super.doDML(operation, e);
     }
+
 }
 

@@ -193,9 +193,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_RULE"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    TableName="SGS_COST_IDENTIFICATION_RULE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -215,8 +213,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_RULE"
-    HistoryColumn="UserHistory">
+    TableName="SGS_COST_IDENTIFICATION_RULE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

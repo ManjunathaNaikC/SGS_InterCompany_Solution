@@ -82,11 +82,11 @@
         <Item Value="UpdatedDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="UpdatedBy">
+    <!--<attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="UpdatedBy">
       <AttrNames>
         <Item Value="UpdatedBy"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <tree IterBinding="SgsTdsWhtIdentificationVO1Iterator" id="SgsTdsWhtIdentificationVO1">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO" Name="SgsTdsWhtIdentificationVO10">
         <AttrNames>
@@ -131,5 +131,10 @@
             Action="removeCurrentRow"/>
     <action IterBinding="SgsTdsWhtTblVO1Iterator" id="Delete2" InstanceName="SGSAppModuleDataControl.SgsTdsWhtTblVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="UPDATEDBY">
+      <AttrNames>
+        <Item Value="UPDATEDBY"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

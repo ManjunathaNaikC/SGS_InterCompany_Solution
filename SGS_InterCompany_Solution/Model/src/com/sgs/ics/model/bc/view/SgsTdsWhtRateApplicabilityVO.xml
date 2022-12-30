@@ -74,19 +74,40 @@
     PrecisionRule="true"
     EntityAttrName="PeoplesoftTaxCode"
     EntityUsage="SgsTdsWhtRateApplicabilityEO"
-    AliasName="PEOPLESOFT_TAX_CODE"/>
+    AliasName="PEOPLESOFT_TAX_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.PeoplesoftTaxCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WithholdingTaxRate"
     PrecisionRule="true"
     EntityAttrName="WithholdingTaxRate"
     EntityUsage="SgsTdsWhtRateApplicabilityEO"
-    AliasName="WITHHOLDING_TAX_RATE"/>
+    AliasName="WITHHOLDING_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.WithholdingTaxRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WitholdingTaxRateNoTin"
     PrecisionRule="true"
     EntityAttrName="WitholdingTaxRateNoTin"
     EntityUsage="SgsTdsWhtRateApplicabilityEO"
-    AliasName="WITHOLDING_TAX_RATE_NO_TIN"/>
+    AliasName="WITHOLDING_TAX_RATE_NO_TIN">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.WitholdingTaxRateNoTin_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Documentation"
     PrecisionRule="true"

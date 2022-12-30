@@ -39,7 +39,6 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         CreatedDate,
         CreatedBy,
         UpdatedDate,
-        UpdatedBy,
         Attribute1,
         Attribute2,
         Attribute3,
@@ -55,6 +54,7 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        UPDATEDBY,
         SgsTdsWhtIdentificationEO,
         SgsTdsWhtRateApplicabilityEO;
         private static AttributesEnum[] vals = null;
@@ -80,7 +80,8 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsTdsWhtTblEOImpl.class);
-    
+
+
     public static final int TDSWHTID = AttributesEnum.TdsWhtId.index();
     public static final int TDSWHTSEQ = AttributesEnum.TdsWhtSeq.index();
     public static final int SERVRECEIVER = AttributesEnum.ServReceiver.index();
@@ -96,7 +97,6 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int UPDATEDDATE = AttributesEnum.UpdatedDate.index();
-    public static final int UPDATEDBY = AttributesEnum.UpdatedBy.index();
     public static final int ATTRIBUTE1 = AttributesEnum.Attribute1.index();
     public static final int ATTRIBUTE2 = AttributesEnum.Attribute2.index();
     public static final int ATTRIBUTE3 = AttributesEnum.Attribute3.index();
@@ -112,6 +112,7 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int UPDATEDBY = AttributesEnum.UPDATEDBY.index();
     public static final int SGSTDSWHTIDENTIFICATIONEO = AttributesEnum.SgsTdsWhtIdentificationEO.index();
     public static final int SGSTDSWHTRATEAPPLICABILITYEO = AttributesEnum.SgsTdsWhtRateApplicabilityEO.index();
 
@@ -120,6 +121,14 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
      */
     public SgsTdsWhtTblEOImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsTdsWhtTblEO");
+    }
+
 
     /**
      * Gets the attribute value for TdsWhtId, using the alias name TdsWhtId.
@@ -321,13 +330,6 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
@@ -337,13 +339,6 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         return (String) getAttributeInternal(CREATEDBY);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedBy.
-     * @param value value to set the CreatedBy
-     */
-    public void setCreatedBy(String value) {
-        setAttributeInternal(CREATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedDate, using the alias name UpdatedDate.
@@ -353,29 +348,6 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedDate.
-     * @param value value to set the UpdatedDate
-     */
-    public void setUpdatedDate(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
-    }
-
-    /**
-     * Gets the attribute value for UpdatedBy, using the alias name UpdatedBy.
-     * @return the value of UpdatedBy
-     */
-    public Date getUpdatedBy() {
-        return (Date) getAttributeInternal(UPDATEDBY);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedBy.
-     * @param value value to set the UpdatedBy
-     */
-    public void setUpdatedBy(Date value) {
-        setAttributeInternal(UPDATEDBY, value);
-    }
 
     /**
      * Gets the attribute value for Attribute1, using the alias name Attribute1.
@@ -618,6 +590,38 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for UPDATEDBY, using the alias name UPDATEDBY.
+     * @return the value of UPDATEDBY
+     */
+////    public String getUPDATEDBY() {
+////        return (String) getAttributeInternal(UPDATEDBY);
+////    }
+////
+////    /**
+////     * Sets <code>value</code> as the attribute value for UPDATEDBY.
+////     * @param value value to set the UPDATEDBY
+//     */
+//    public void setUPDATEDBY(String value) {
+//        setAttributeInternal(UPDATEDBY, value);
+//    }
+
+    /**
+     * Gets the attribute value for UPDATEDBY, using the alias name UPDATEDBY.
+     * @return the value of UPDATEDBY
+     */
+    public String getUPDATEDBY() {
+        return (String) getAttributeInternal(UPDATEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for UPDATEDBY.
+     * @param value value to set the UPDATEDBY
+     */
+    public void setUPDATEDBY(String value) {
+        setAttributeInternal(UPDATEDBY, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSgsTdsWhtIdentificationEO() {
@@ -631,6 +635,7 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         return (RowIterator) getAttributeInternal(SGSTDSWHTRATEAPPLICABILITYEO);
     }
 
+
     /**
      * @param tdsWhtSeq key constituent
 
@@ -638,13 +643,6 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer tdsWhtSeq) {
         return new Key(new Object[] { tdsWhtSeq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsTdsWhtTblEO");
     }
 
     /**

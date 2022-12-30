@@ -150,7 +150,9 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_TDS_WHT_TBL"/>
+    TableName="SGS_TDS_WHT_TBL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="CreatedBy"
     Precision="80"
@@ -158,7 +160,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_TDS_WHT_TBL">
+    TableName="SGS_TDS_WHT_TBL"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -169,14 +173,15 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_TDS_WHT_TBL"/>
-  <Attribute
-    Name="UpdatedBy"
-    ColumnName="UPDATED_BY"
-    SQLType="DATE"
-    Type="java.sql.Date"
-    ColumnType="DATE"
-    TableName="SGS_TDS_WHT_TBL"/>
+    TableName="SGS_TDS_WHT_TBL"
+    HistoryColumn="DateHistory">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Attribute1"
     Precision="80"
@@ -317,6 +322,19 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_TDS_WHT_TBL"/>
+  <Attribute
+    Name="UPDATEDBY"
+    Precision="30"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_TBL"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsTdsWhtIdentificationEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtIdentificationAssoc"

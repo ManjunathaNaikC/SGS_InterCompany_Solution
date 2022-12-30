@@ -1,8 +1,14 @@
 package com.sgs.ics.view.bean;
 
+import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 import com.sgs.ics.ui.utils.ADFUtils;
 
 import java.io.IOException;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.util.HashMap;
 
@@ -19,6 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import oracle.adf.model.BindingContext;
+
+import oracle.adf.share.ADFContext;
 
 import oracle.binding.BindingContainer;
 
@@ -122,6 +130,12 @@ public class AuthenticationBean {
 
         return (BindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
     }
+    
+    public void setSessionScopeValue(String name, String value) {
+        ADFContext adfCtx = ADFContext.getCurrent();
+        Map sessionScope = adfCtx.getSessionScope();
+        sessionScope.put(name, value);
+    }
 
     public String loginValidation() {
         // Add event code here...
@@ -135,8 +149,10 @@ public class AuthenticationBean {
         m.put("user", _username);
         m.put("pass", _password);
         ob.execute();
-
-
+        setSessionScopeValue("_username",_username);      
+        String useremail = getUserEmailId(_username);
+        setSessionScopeValue("USER_EMAIL",useremail);
+        
         try {
             if (ob.getResult() != null) {
                 String userId = ob.getResult().toString();
@@ -157,6 +173,39 @@ public class AuthenticationBean {
                       ie);
         }
         return null;
+    }
+    
+    public String getUserEmailId(String user){
+        
+        String userEmail = "none@gmail.com";
+        String queryString =
+            "select email_id from USER_AUTHENTICATION where user_id ='" + user + "'";
+        Connection conn = null;
+        PreparedStatement pst = null;
+        System.out.println("Query :: " + queryString);
+        try {
+            SGSAppModuleImpl am = new SGSAppModuleImpl();
+            conn = am.getDBConnection();
+            String sqlIdentifier = queryString;
+            pst = conn.prepareStatement(sqlIdentifier);
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                userEmail= (String) rs.getString(1);
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return userEmail;
     }
 
 

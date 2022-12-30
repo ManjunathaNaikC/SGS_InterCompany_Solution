@@ -150,7 +150,9 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_TDS_WHT_TBL"/>
+    TableName="SGS_TDS_WHT_TBL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="CreatedBy"
     Precision="80"
@@ -169,7 +171,8 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_TDS_WHT_TBL"/>
+    TableName="SGS_TDS_WHT_TBL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="UpdatedBy"
     ColumnName="UPDATED_BY"

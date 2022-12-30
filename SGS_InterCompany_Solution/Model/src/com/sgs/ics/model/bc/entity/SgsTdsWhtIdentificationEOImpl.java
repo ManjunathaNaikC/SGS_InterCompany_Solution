@@ -48,6 +48,8 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        CREATEDBY,
+        CREATEDDATE,
         SgsTdsWhtTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -72,7 +74,8 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsTdsWhtIdentificationEOImpl.class);
-    
+
+
     public static final int TDSWHTIDENSEQ = AttributesEnum.TdsWhtIdenSeq.index();
     public static final int LEGALENTITY = AttributesEnum.LegalEntity.index();
     public static final int DOCUMENTTYPE = AttributesEnum.DocumentType.index();
@@ -98,12 +101,21 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int CREATEDBY = AttributesEnum.CREATEDBY.index();
+    public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
     public static final int SGSTDSWHTTBLEO = AttributesEnum.SgsTdsWhtTblEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SgsTdsWhtIdentificationEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsTdsWhtIdentificationEO");
     }
 
     /**
@@ -258,13 +270,6 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(LASTUPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for LastUpdatedDate.
-     * @param value value to set the LastUpdatedDate
-     */
-    public void setLastUpdatedDate(Date value) {
-        setAttributeInternal(LASTUPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for Attribute1, using the alias name Attribute1.
@@ -507,6 +512,38 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for CREATEDBY, using the alias name CREATEDBY.
+     * @return the value of CREATEDBY
+     */
+    public String getCREATEDBY() {
+        return (String) getAttributeInternal(CREATEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CREATEDBY.
+     * @param value value to set the CREATEDBY
+     */
+    public void setCREATEDBY(String value) {
+        setAttributeInternal(CREATEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for CREATEDDATE, using the alias name CREATEDDATE.
+     * @return the value of CREATEDDATE
+     */
+    public Date getCREATEDDATE() {
+        return (Date) getAttributeInternal(CREATEDDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CREATEDDATE.
+     * @param value value to set the CREATEDDATE
+     */
+    public void setCREATEDDATE(Date value) {
+        setAttributeInternal(CREATEDDATE, value);
+    }
+
+    /**
      * @return the associated entity SgsTdsWhtTblEOImpl.
      */
     public SgsTdsWhtTblEOImpl getSgsTdsWhtTblEO() {
@@ -520,6 +557,7 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
         setAttributeInternal(SGSTDSWHTTBLEO, value);
     }
 
+
     /**
      * @param tdsWhtIdenSeq key constituent
 
@@ -527,13 +565,6 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer tdsWhtIdenSeq) {
         return new Key(new Object[] { tdsWhtIdenSeq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsTdsWhtIdentificationEO");
     }
 
     /**

@@ -2,6 +2,22 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="welcomePage.jsf" id="d1" inlineStyle="background-color:#f2f9ff;">
+    <!--<af:clientListener method="triggerEvent" type="load"/>
+        <af:resource type="javascript">
+          function triggerEvent(event) {
+              AdfCustomEvent.queue(event.getSource(), "onLoadEvent", 
+              {
+              },
+              false);
+
+          }
+        </af:resource>-->
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
         <af:form id="f2" inlineStyle="background-color:transparent;" usesUpload="true">
             <af:panelStretchLayout id="psl1" topHeight="68px" >
                 <f:facet name="start"/>
@@ -43,6 +59,8 @@
                                                  inlineStyle="color:green;">
                                         <af:commandMenuItem text="User Id: #{sessionScope._username} " id="cmi1"/>
                                          <af:commandMenuItem text="Email Id: #{sessionScope.USER_EMAIL}" id="cmi2"/>
+                                            <af:commandMenuItem text="LogOut" id="cmi3"
+                                                                action="#{authenticationBean.logOut}"/>
                                         </af:menu>
                                       
                                      

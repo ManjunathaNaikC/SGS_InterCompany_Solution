@@ -260,6 +260,47 @@
     Type="java.math.BigDecimal"
     ColumnType="BIGINT"
     TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="CREATEDBY"
+    Precision="80"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CREATEDDATE"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="UPDATEDBY"
+    Precision="80"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UPDATEDDATE"
+    ColumnName="UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"
+    HistoryColumn="DateHistory"/>
   <AccessorAttribute
     Name="SgsTdsWhtTblEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtRateApplicabilityAssoc"

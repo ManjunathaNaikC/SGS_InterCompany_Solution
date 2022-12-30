@@ -142,14 +142,17 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STDRATE_LINE_TBL"/>
+    TableName="SGS_STDRATE_LINE_TBL"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="UpdatedDate"
     ColumnName="UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STDRATE_LINE_TBL"/>
+    TableName="SGS_STDRATE_LINE_TBL"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="UpdatedBy"
     Precision="80"

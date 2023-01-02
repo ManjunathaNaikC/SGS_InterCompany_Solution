@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="tdswhtInquiryPageDef"
+                Package="com.sgs.ics.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTdsWhtTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTdsWhtTblVO1Iterator"/>
+    <searchRegion Criteria="SgsTdsWhtTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsTdsWhtTblVO1Iterator" id="SgsTdsWhtTblVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsTdsWhtTblVO1Iterator" id="SgsTdsWhtTblVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO" Name="SgsTdsWhtTblVO10">
+        <AttrNames>
+          <Item Value="TdsWhtId"/>
+          <Item Value="ServReceiver"/>
+          <Item Value="ServProvider"/>
+          <Item Value="DeductionPoint"/>
+          <Item Value="TaxBase"/>
+          <Item Value="WhtLibilityAcc"/>
+          <Item Value="WhtCreditAcc"/>
+          <Item Value="RecoveryRate"/>
+          <Item Value="WhtExpenseAcc"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <!--<Item Value="UpdatedBy"/>-->
+          <Item Value="UPDATEDBY"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsTdsWhtTblVO1Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsTdsWhtTblVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsTdsWhtTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsTdsWhtTblVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

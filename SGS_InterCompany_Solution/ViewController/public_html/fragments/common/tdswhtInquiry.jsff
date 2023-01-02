@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="Withholding tax(WHT)/ Tax Deducted at Source(TDS) Tax Rule" id="ph1">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.SgsTdsWhtTblVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.SgsTdsWhtTblVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.SgsTdsWhtTblVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.SgsTdsWhtTblVOCriteriaQuery.processQueryOperation}"
+                    resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t1">
+              <af:button id="b1" icon="/resources/icons/microsoft-excel.png"
+                         disabled="#{bindings.SgsTdsWhtTblVO1Iterator.estimatedRowCount &lt;= 0}">
+                <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="TDSWHTInquiry.xls"/>
+              </af:button>
+              <af:button id="b2" icon="/resources/icons/plus.png" action="ADD"
+                         actionListener="#{bindings.CreateInsert.execute}"/>
+              <af:button id="b3" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.SgsTdsWhtTblVO1.collectionModel}" var="row"
+                    rows="#{bindings.SgsTdsWhtTblVO1.rangeSize}"
+                    emptyText="#{bindings.SgsTdsWhtTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTdsWhtTblVO1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.SgsTdsWhtTblVO1.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.SgsTdsWhtTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
+                    partialTriggers="::b2 ::b3">
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.label}" id="resId1c1">
+              <!--<af:outputText value="#{row.TdsWhtId}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.tooltip}"
+                             id="ot1"/>-->
+              <af:link text="#{row.TdsWhtId}" id="l1" action="EDIT"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.label}" id="resId1c2">
+              <af:outputText value="#{row.ServReceiver}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.tooltip}" id="ot2"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.label}" id="resId1c3">
+              <af:outputText value="#{row.ServProvider}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.tooltip}" id="ot3"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.label}" id="resId1c4">
+              <af:outputText value="#{row.DeductionPoint}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.tooltip}" id="ot4"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.label}" id="resId1c5">
+              <af:outputText value="#{row.TaxBase}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.tooltip}"
+                             id="ot5"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.WhtLibilityAcc.label}" id="resId1c6">
+              <af:outputText value="#{row.WhtLibilityAcc}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.WhtLibilityAcc.tooltip}" id="ot6"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.WhtCreditAcc.label}" id="resId1c7">
+              <af:outputText value="#{row.WhtCreditAcc}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.WhtCreditAcc.tooltip}" id="ot7"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.label}" id="resId1c8">
+              <af:outputText value="#{row.RecoveryRate}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.tooltip}" id="ot8">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.WhtExpenseAcc.label}" id="resId1c9">
+              <af:outputText value="#{row.WhtExpenseAcc}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.WhtExpenseAcc.tooltip}" id="ot9"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.label}" id="resId1c10">
+              <af:outputText value="#{row.EffectiveFrom}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.tooltip}" id="ot10">
+                <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.label}" id="resId1c11">
+              <af:outputText value="#{row.EffectiveTo}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.tooltip}" id="ot11">
+                <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.label}" id="resId1c12">
+              <af:outputText value="#{row.CreatedDate}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.tooltip}" id="ot12">
+                <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.CreatedBy.label}" id="resId1c13">
+              <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.CreatedBy.tooltip}"
+                             id="ot13"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.label}" id="resId1c14">
+              <af:outputText value="#{row.UpdatedDate}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.tooltip}" id="ot14">
+                <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <!--<af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.label}" id="resId1c15">
+              <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.tooltip}"
+                             id="ot15">
+                <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.format}"/>
+              </af:outputText>
+            </af:column>-->
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.label}" id="c1">
+              <af:outputText value="#{row.UPDATEDBY}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.tooltip}"
+                             id="ot1"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

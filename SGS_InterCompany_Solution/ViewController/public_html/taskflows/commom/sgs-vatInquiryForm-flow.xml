@@ -5,7 +5,14 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="vatInquiryForm"></view>
+    <input-parameter-definition id="__3">
+      <name>pVATAddEdit</name>
+      <value>#{pageFlowScope.pVATAddEdit}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <view id="vatInquiryForm">
+      <page>/fragments/common/vatInquiryForm.jsff</page>
+    </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome>
         <name>taskFlowReturn1</name>

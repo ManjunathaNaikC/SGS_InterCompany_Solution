@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="sgsTdsWhtIdentificationVL"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtIdentificationAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sgs.ics.model.bc.view.link.sgsTdsWhtIdentificationVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SgsTdsWhtTblVO"
+    Cardinality="1"
+    Source="true"
+    Owner="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="SgsTdsWhtTblVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.TdsWhtSeq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SgsTdsWhtIdentificationVO"
+    Cardinality="-1"
+    Owner="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="SgsTdsWhtIdentificationVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.TdsWhtSeq"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

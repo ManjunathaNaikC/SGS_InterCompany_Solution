@@ -58,6 +58,51 @@
   <ViewUsage
     Name="SgsUserAuthVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsUserAuthVO"/>
+  <ViewUsage
+    Name="NatureOfExpenseLookupVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.NatureOfExpenseLookupVO"/>
+  <ViewUsage
+    Name="CostAllocationLOV1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostAllocationLOV"/>
+  <ViewUsage
+    Name="CostGroupLOV1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostGroupLOV"/>
+  <ViewUsage
+    Name="SgsStandardRateSetupVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO"/>
+  <ViewUsage
+    Name="SgsStdRateLineTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO"/>
+  <ViewUsage
+    Name="SgsStdRateLineTblVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO"/>
+  <ViewUsage
+    Name="SgsStdRateLineTblVO4"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO"/>
+  <ViewUsage
+    Name="SgsTdsWhtTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO"/>
+  <ViewUsage
+    Name="SgsTdsWhtIdentificationVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO"/>
+  <ViewUsage
+    Name="SgsTdsWhtRateApplicabilityVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO"/>
+<ViewUsage
+    Name="SgsVatTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsVatTblVO"/>
+  <ViewUsage
+    Name="SgsVatTaxApplicabilityVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO"/>
+<ViewUsage
+    Name="SgsGstTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsGstTblVO"/>
+  <ViewUsage
+    Name="SgsGstTaxRateApplicabilityVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsGstTaxRateApplicabilityVO"/>
+  <ViewUsage
+    Name="sgsMarkUpRateMasterVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -88,6 +133,43 @@
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaMasterVO"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsMarkupRateTblVO"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKSGSSTDRATELINETBLLink"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.FKSGSSTDRATELINETBLLink"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStandardRateSetupVO2"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStdRateLineTblVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="StdRateViewLink2"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.StdRateViewLink"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStandardRateSetupVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStdRateLineTblVO4"
+    Reversed="false"/>
+  <ViewLinkUsage
+
+    Name="sgsTdsWhtIdentificationVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsTdsWhtIdentificationVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtIdentificationVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="sgsTdsWhtRateApplicabilitVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsTdsWhtRateApplicabilitVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtRateApplicabilityVO1"
+    Reversed="false"/>
+
+<ViewLinkUsage
+    Name="sgsVatTaxApplicabilityVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsVatTaxApplicabilityVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsVatTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsVatTaxApplicabilityVO1" Reversed="false"/>
+<ViewLinkUsage
+    Name="sgsGstTaxRateApplicabilityVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsGstTaxRateApplicabilityVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsGstTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsGstTaxRateApplicabilityVO2"
+    Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method
@@ -102,6 +184,13 @@
       <Parameter
         Name="pass"
         Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getDBConnection"
+      MethodName="getDBConnection">
+      <Return
+        Name="_return_type_"
+        Type="java.sql.Connection"/>
     </Method>
   </ClientInterface>
   <ResourceBundle>

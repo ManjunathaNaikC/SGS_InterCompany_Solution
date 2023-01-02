@@ -191,14 +191,12 @@
     TableName="SGS_STANDARD_RATE_SETUP"/>
   <Attribute
     Name="CreatedBy"
-    IsUpdateable="while_insert"
     Precision="80"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP"
-    HistoryColumn="UserHistory">
+    TableName="SGS_STANDARD_RATE_SETUP">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -218,8 +216,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STANDARD_RATE_SETUP"
-    HistoryColumn="UserHistory">
+    TableName="SGS_STANDARD_RATE_SETUP">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -373,6 +370,13 @@
     ColumnType="DATE"
     TableName="SGS_STANDARD_RATE_SETUP"
     HistoryColumn="DateHistory"/>
+  <AccessorAttribute
+    Name="SgsStdRateLineTblEO"
+    Association="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc.SgsStdRateLineTblEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc.SgsStandardRateSetupEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PKSGSSTANDARDRATESETUP"
     PrimaryKey="true">

@@ -96,9 +96,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_TPA_DOC_ATTACHMENT"
-    ChangeIndicator="true"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -120,7 +118,6 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_TPA_DOC_ATTACHMENT"
-    HistoryColumn="UserHistory"
     ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>

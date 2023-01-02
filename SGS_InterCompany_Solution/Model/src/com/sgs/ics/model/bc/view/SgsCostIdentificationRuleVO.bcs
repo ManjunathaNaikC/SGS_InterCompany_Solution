@@ -38,3 +38,17 @@ def bLookupType_SgsLookupVO1_BindVariable_BoundParameter()
 'ALLOCATION_BASIS'
 }
 
+
+@AccessorParameterExpression(accessorName="TrueAvailabilityLOV", name="bLookupType")
+def bLookupType_TrueAvailabilityLOV_BindVariable_BoundParameter()
+{
+'YESORNO'
+}
+
+
+@AccessorParameterExpression(accessorName="TrueupdownfrenquencyLOV", name="bLookupType")
+def bLookupType_TrueupdownfrenquencyLOV_BindVariable_BoundParameter()
+{
+'TRUE_UP_DOWN_FREQUENCY'
+}
+

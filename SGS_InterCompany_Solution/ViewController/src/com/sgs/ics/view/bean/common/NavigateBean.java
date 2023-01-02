@@ -102,6 +102,7 @@ public class NavigateBean implements Serializable {
 
   
     public String sgsgstInquiryflow() {
+        System.out.println("******************************inside gst navigation");
         setDynamicTaskFlowId("/taskflows/commom/sgs-gstInquiry-flow.xml#sgs-gstInquiry-flow");
         return null;
     }
@@ -119,6 +120,16 @@ public class NavigateBean implements Serializable {
 
     public String sgsstandardSetupRuleflow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-standardSetupRule-flow.xml#sgs-standardSetupRule-flow");
+        return null;
+    }
+
+    public String sgstdswhtInquiryflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-tdswhtInquiry-flow.xml#sgs-tdswhtInquiry-flow");
+        return null;
+    }
+
+    public String sgsMarkUpRateMasterflow() {
+        setDynamicTaskFlowId("/taskflows/commom/sgs-MarkUpRateMaster-flow.xml#sgs-MarkUpRateMaster-flow");
         return null;
     }
 }

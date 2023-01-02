@@ -1,5 +1,6 @@
 package com.sgs.ics.model.bc.entity;
 
+import com.sgs.ics.model.bc.commonutils.CommonUtils;
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 
 import java.math.BigDecimal;
@@ -58,7 +59,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         Attribute12,
         Attribute13,
         Attribute14,
-        Attribute15;
+        Attribute15,
+        CREATEDDATE;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -81,6 +83,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int STATISTICALDATAID = AttributesEnum.StatisticalDataId.index();
     public static final int STATISTICALDATACATEGORY = AttributesEnum.StatisticalDataCategory.index();
     public static final int TOBUSINESSUNIT = AttributesEnum.ToBusinessUnit.index();
@@ -115,11 +118,19 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SgsStatisticalDataEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsStatisticalDataEO");
     }
 
     /**
@@ -402,13 +413,6 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedDate.
-     * @param value value to set the UpdatedDate
-     */
-    public void setUpdatedDate(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedBy, using the alias name UpdatedBy.
@@ -667,6 +671,23 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for CREATEDDATE, using the alias name CREATEDDATE.
+     * @return the value of CREATEDDATE
+     */
+    public Date getCREATEDDATE() {
+        return (Date) getAttributeInternal(CREATEDDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CREATEDDATE.
+     * @param value value to set the CREATEDDATE
+     */
+    public void setCREATEDDATE(Date value) {
+        setAttributeInternal(CREATEDDATE, value);
+    }
+
+
+    /**
      * @param statisticalDataId key constituent
 
      * @return a Key object based on given key constituents.
@@ -675,20 +696,14 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         return new Key(new Object[] { statisticalDataId });
     }
 
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsStatisticalDataEO");
-    }
-
-
-    
     protected void create(AttributeList attributeList) {
         super.create(attributeList);        
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             setStatisticalDataId(am.getDBSequence1("SEQ_SGS_STATISTICAL_DATA_TBL"));
+            CommonUtils util= new CommonUtils();
+            Object user= (Object)util.getSessionScopeValue("_username").toString();
+            setCreatedBy(user.toString());
         } catch (Exception e) {
             LOG.severe(e);
         }
@@ -707,7 +722,14 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_UPDATE) {
+            CommonUtils util= new CommonUtils();
+            Object user= (Object)util.getSessionScopeValue("_username").toString();
+            setUpdatedBy(user.toString());
+        }
+        
         super.doDML(operation, e);
     }
+
 }
 

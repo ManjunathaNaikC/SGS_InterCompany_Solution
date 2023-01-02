@@ -56,7 +56,9 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="USER_AUTHENTICATION"/>
+    TableName="USER_AUTHENTICATION"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="CreatedBy"
     Precision="30"
@@ -75,7 +77,8 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="USER_AUTHENTICATION"/>
+    TableName="USER_AUTHENTICATION"
+    HistoryColumn="DateHistory"/>
   <Attribute
     Name="UpdatedBy"
     Precision="30"

@@ -42,7 +42,7 @@
                       selectedRowKeys="#{bindings.SgsStandardRateSetupVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsStandardRateSetupVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsStandardRateSetupVO1.rangeSize}" id="resId1"
-                      styleClass="AFStretchWidth">
+                      styleClass="AFStretchWidth" columnStretching="column:resId1c2">
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.label}" id="resId1c2">
                 <!--<af:outputText value="#{row.ExpenseType}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="ot2"/>-->
@@ -58,14 +58,22 @@
                 <af:outputText value="#{row.SubExpenseType}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.SubExpenseType.tooltip}" id="ot3"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.SrGeography.label}" id="resId1c4">
+              <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.SrGeography.label}" id="resId1c4">
                 <af:outputText value="#{row.SrGeography}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.SrGeography.tooltip}" id="ot4"/>
-              </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.label}" id="resId1c5">
-                <af:outputText value="#{row.CostIdentifier}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.tooltip}" id="ot5"/>
-              </af:column>
+              </af:column>-->
+              <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.label}" id="resId1c5">
+                --><!--<af:outputText value="#{row.CostIdentifier}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.tooltip}" id="ot5"/>--><!--
+                <af:selectOneChoice value="#{row.bindings.CostIdentifier.inputValue}"
+                                    label="#{row.bindings.CostIdentifier.label}"
+                                    required="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.mandatory}"
+                                    shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.CostIdentifier.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.CostIdentifier.validator}"/>
+                </af:selectOneChoice>
+              </af:column>-->
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeId.label}" id="resId1c6">
                 <af:outputText value="#{row.EmployeeId}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeId.tooltip}" id="ot6"/>
@@ -75,34 +83,22 @@
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeGradeLevel.tooltip}"
                                id="ot7"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.Currency.label}" id="resId1c8">
+              <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.Currency.label}" id="resId1c8">
                 <af:outputText value="#{row.Currency}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.Currency.tooltip}" id="ot8"/>
-              </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.DeptCostCenter.label}" id="resId1c9">
+              </af:column>-->
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.DeptCostCenter.label}" id="resId1c9"
+                         rendered="false">
                 <af:outputText value="#{row.DeptCostCenter}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.DeptCostCenter.tooltip}" id="ot9"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.label}" id="resId1c10">
-                <af:outputText value="#{row.EffectiveStartDate}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.tooltip}"
-                               id="ot10">
-                  <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.label}" id="resId1c11">
-                <af:outputText value="#{row.EffectiveEndDate}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.tooltip}" id="ot11">
-                  <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.NonPersonnelCost.label}" id="resId1c12">
+              <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.NonPersonnelCost.label}" id="resId1c12">
                 <af:outputText value="#{row.NonPersonnelCost}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.NonPersonnelCost.tooltip}" id="ot12">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.SgsStandardRateSetupVO1.hints.NonPersonnelCost.format}"/>
                 </af:outputText>
-              </af:column>
+              </af:column>-->
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.ProgramName.label}" id="resId1c13">
                 <af:outputText value="#{row.ProgramName}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ProgramName.tooltip}" id="ot13"/>
@@ -118,7 +114,20 @@
                 <af:outputText value="#{row.UnitOfMeasure}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.UnitOfMeasure.tooltip}" id="ot15"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.UpdatedDate.label}" id="resId1c16">
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.label}" id="resId1c11">
+                <af:outputText value="#{row.EffectiveEndDate}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.tooltip}" id="ot11">
+                  <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.label}" id="resId1c10">
+                <af:outputText value="#{row.EffectiveStartDate}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.tooltip}"
+                               id="ot10">
+                  <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.UpdatedDate.label}" id="resId1c16">
                 <af:outputText value="#{row.UpdatedDate}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.UpdatedDate.tooltip}" id="ot16">
                   <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.UpdatedDate.format}"/>
@@ -137,7 +146,7 @@
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.CreatedBy.label}" id="resId1c19">
                 <af:outputText value="#{row.CreatedBy}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CreatedBy.tooltip}" id="ot19"/>
-              </af:column>
+              </af:column>-->
             </af:table>
           </af:panelCollection>
         </af:panelGroupLayout>

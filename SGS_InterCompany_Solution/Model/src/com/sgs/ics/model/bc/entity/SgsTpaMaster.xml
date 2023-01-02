@@ -85,7 +85,6 @@
   </Attribute>
   <Attribute
     Name="OperationUnit"
-    IsNotNull="true"
     Precision="80"
     ColumnName="OPERATION_UNIT"
     SQLType="VARCHAR"
@@ -167,9 +166,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_TPA_MASTER"
-    ChangeIndicator="true"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -191,8 +188,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_TPA_MASTER"
-    ChangeIndicator="true"
-    HistoryColumn="UserHistory">
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

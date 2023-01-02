@@ -5,7 +5,14 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="gstInquiryForm"></view>
+    <input-parameter-definition id="__3">
+      <name>pGSTAddEdit</name>
+      <value>#{pageFlowScope.pGSTAddEdit}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <view id="gstInquiryForm">
+      <page>/fragments/common/gstInquiryForm.jsff</page>
+    </view>
     <task-flow-return id="taskFlowReturn1">
       <outcome>
         <name>taskFlowReturn1</name>

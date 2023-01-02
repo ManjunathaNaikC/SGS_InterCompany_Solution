@@ -16,6 +16,8 @@
                   Binds="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVOCriteriaQuery1"/>
     <iterator Binds="NatureOfExpenseLookupVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="NatureOfExpenseLookupVO1Iterator"/>
+    <iterator id="NatureOfExpenseLookupVO2Iterator" Binds="NatureOfExpenseLookupVO2"
+              DataControl="SGSAppModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVO">
@@ -102,11 +104,11 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="NatureOfExpenseLookupVO1Iterator" ListOperMode="multiSelect"
-          ListIter="NatureOfExpenseLookupVO1Iterator" id="NatureOfExpenseLookupVO1" DTSupportsMRU="true"
-          SelectItemValueMode="ListObject">
+    <list IterBinding="NatureOfExpenseLookupVO2Iterator" ListOperMode="multiSelect"
+          ListIter="NatureOfExpenseLookupVO1Iterator" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" id="NatureOfExpenseSearch">
       <AttrNames>
-        <Item Value="LOOKUPCODE"/>
+        <Item Value="LOOKUPID"/>
       </AttrNames>
       <ListDisplayAttrNames>
         <Item Value="MEANING"/>

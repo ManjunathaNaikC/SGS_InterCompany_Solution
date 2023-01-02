@@ -2,6 +2,7 @@ package com.sgs.ics.model.bc.am;
 
 
 import com.sgs.ics.model.bc.am.common.SGSAppModule;
+import com.sgs.ics.model.bc.view.SgsStdRateLineTblVOImpl;
 import com.sgs.ics.model.bc.view.SgsTpaMasterVOImpl;
 
 import java.sql.Connection;
@@ -38,10 +39,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         Connection conn = null;
         PreparedStatement pst = null;
         try {
-            String connectionUrl =
-              //  "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-           "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
-            conn = DriverManager.getConnection(connectionUrl);
+            
+            conn = getDBConnection();
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
 
@@ -62,6 +61,22 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         }
         return "0";
     }
+    
+    
+    public Connection getDBConnection() {
+            Connection conn = null;
+        try {
+           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
+            conn = DriverManager.getConnection(connectionUrl);
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+
+        }
+               
+         return conn;   
+        }
 
 
     /**
@@ -69,20 +84,18 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      * @return sequence next value
      */
     public int getDBSequence1(String seqName) {
+        System.out.println("inside sequence");
         Connection conn = null;
         PreparedStatement pst = null;
         try {
-            String connectionUrl =
- //           "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-                "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
-            conn = DriverManager.getConnection(connectionUrl);
+            conn = getDBConnection();
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
 
             ResultSet rs = pst.executeQuery();
             if (rs.next())
                 rs.getInt(1);
-            
+            System.out.println("inside sequence"+ rs.getInt(1));
             return rs.getInt(1);
         } catch (SQLException sqle) {
             LOG.severe(sqle);
@@ -267,5 +280,174 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
              return userId;
 
          }
+
+    /**
+     * Container's getter for NatureOfExpenseLookupVO2.
+     * @return NatureOfExpenseLookupVO2
+     */
+    public ViewObjectImpl getNatureOfExpenseLookupVO2() {
+        return (ViewObjectImpl) findViewObject("NatureOfExpenseLookupVO2");
+    }
+
+    /**
+     * Container's getter for CostAllocationLOV1.
+     * @return CostAllocationLOV1
+     */
+    public ViewObjectImpl getCostAllocationLOV1() {
+        return (ViewObjectImpl) findViewObject("CostAllocationLOV1");
+    }
+
+    /**
+     * Container's getter for CostGroupLOV1.
+     * @return CostGroupLOV1
+     */
+    public ViewObjectImpl getCostGroupLOV1() {
+        return (ViewObjectImpl) findViewObject("CostGroupLOV1");
+    }
+
+    /**
+     * Container's getter for SgsStandardRateSetupVO2.
+     * @return SgsStandardRateSetupVO2
+     */
+    public ViewObjectImpl getSgsStandardRateSetupVO2() {
+        return (ViewObjectImpl) findViewObject("SgsStandardRateSetupVO2");
+    }
+
+    /**
+     * Container's getter for SgsStdRateLineTblVO1.
+     * @return SgsStdRateLineTblVO1
+     */
+    public SgsStdRateLineTblVOImpl getSgsStdRateLineTblVO1() {
+        return (SgsStdRateLineTblVOImpl) findViewObject("SgsStdRateLineTblVO1");
+    }
+
+    /**
+     * Container's getter for SgsStdRateLineTblVO2.
+     * @return SgsStdRateLineTblVO2
+     */
+    public SgsStdRateLineTblVOImpl getSgsStdRateLineTblVO2() {
+        return (SgsStdRateLineTblVOImpl) findViewObject("SgsStdRateLineTblVO2");
+    }
+
+    /**
+     * Container's getter for FKSGSSTDRATELINETBLLink.
+     * @return FKSGSSTDRATELINETBLLink
+     */
+    public ViewLinkImpl getFKSGSSTDRATELINETBLLink() {
+        return (ViewLinkImpl) findViewLink("FKSGSSTDRATELINETBLLink");
+    }
+
+
+    /**
+     * Container's getter for SgsStdRateLineTblVO4.
+     * @return SgsStdRateLineTblVO4
+     */
+    public SgsStdRateLineTblVOImpl getSgsStdRateLineTblVO4() {
+        return (SgsStdRateLineTblVOImpl) findViewObject("SgsStdRateLineTblVO4");
+    }
+
+    /**
+     * Container's getter for StdRateViewLink2.
+     * @return StdRateViewLink2
+     */
+    public ViewLinkImpl getStdRateViewLink2() {
+        return (ViewLinkImpl) findViewLink("StdRateViewLink2");
+    }
+
+
+
+    /**
+     * Container's getter for SgsTdsWhtTblVO1.
+     * @return SgsTdsWhtTblVO1
+     */
+    public ViewObjectImpl getSgsTdsWhtTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTdsWhtTblVO1");
+    }
+
+    /**
+     * Container's getter for SgsTdsWhtIdentificationVO1.
+     * @return SgsTdsWhtIdentificationVO1
+     */
+    public ViewObjectImpl getSgsTdsWhtIdentificationVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTdsWhtIdentificationVO1");
+    }
+
+    /**
+     * Container's getter for sgsTdsWhtIdentificationVL1.
+     * @return sgsTdsWhtIdentificationVL1
+     */
+    public ViewLinkImpl getsgsTdsWhtIdentificationVL1() {
+        return (ViewLinkImpl) findViewLink("sgsTdsWhtIdentificationVL1");
+    }
+
+    /**
+     * Container's getter for SgsTdsWhtRateApplicabilityVO1.
+     * @return SgsTdsWhtRateApplicabilityVO1
+     */
+    public ViewObjectImpl getSgsTdsWhtRateApplicabilityVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTdsWhtRateApplicabilityVO1");
+    }
+
+    /**
+     * Container's getter for sgsTdsWhtRateApplicabilitVL1.
+     * @return sgsTdsWhtRateApplicabilitVL1
+     */
+    public ViewLinkImpl getsgsTdsWhtRateApplicabilitVL1() {
+        return (ViewLinkImpl) findViewLink("sgsTdsWhtRateApplicabilitVL1");
+}
+    /**
+     * Container's getter for SgsVatTblVO1.
+     * @return SgsVatTblVO1
+     */
+    public ViewObjectImpl getSgsVatTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsVatTblVO1");
+    }
+
+    /**
+     * Container's getter for SgsVatTaxApplicabilityVO1.
+     * @return SgsVatTaxApplicabilityVO1
+     */
+    public ViewObjectImpl getSgsVatTaxApplicabilityVO1() {
+        return (ViewObjectImpl) findViewObject("SgsVatTaxApplicabilityVO1");
+    }
+
+    /**
+     * Container's getter for sgsVatTaxApplicabilityVL1.
+     * @return sgsVatTaxApplicabilityVL1
+     */
+    public ViewLinkImpl getsgsVatTaxApplicabilityVL1() {
+        return (ViewLinkImpl) findViewLink("sgsVatTaxApplicabilityVL1");
+}
+     /* Container's getter for SgsGstTblVO1.
+     * @return SgsGstTblVO1
+     */
+    public ViewObjectImpl getSgsGstTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsGstTblVO1");
+    }
+
+
+    /**
+     * Container's getter for SgsGstTaxRateApplicabilityVO2.
+     * @return SgsGstTaxRateApplicabilityVO2
+     */
+    public ViewObjectImpl getSgsGstTaxRateApplicabilityVO2() {
+        return (ViewObjectImpl) findViewObject("SgsGstTaxRateApplicabilityVO2");
+    }
+
+    /**
+     * Container's getter for sgsGstTaxRateApplicabilityVL1.
+     * @return sgsGstTaxRateApplicabilityVL1
+     */
+    public ViewLinkImpl getsgsGstTaxRateApplicabilityVL1() {
+        return (ViewLinkImpl) findViewLink("sgsGstTaxRateApplicabilityVL1");
+    }
+
+    /**
+     * Container's getter for sgsMarkUpRateMasterVO1.
+     * @return sgsMarkUpRateMasterVO1
+     */
+    public ViewObjectImpl getsgsMarkUpRateMasterVO1() {
+        return (ViewObjectImpl) findViewObject("sgsMarkUpRateMasterVO1");
+    }
 }
 

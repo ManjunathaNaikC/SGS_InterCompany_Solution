@@ -6,6 +6,10 @@
     <variableIterator id="variables"/>
     <iterator Binds="SgsStandardRateSetupVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsStandardRateSetupVO1Iterator"/>
+    <iterator Binds="SgsStdRateLineTblVO4" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsStdRateLineTblVO4Iterator"/>
+    <searchRegion Binds="SgsStdRateLineTblVO4Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStdRateLineTblVO4Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsStandardRateSetupVO1Iterator" id="StandardRateId">
@@ -108,6 +112,30 @@
             Action="rollbackTransaction"/>
     <action IterBinding="SgsStandardRateSetupVO1Iterator" id="Delete"
             InstanceName="SGSAppModuleDataControl.SgsStandardRateSetupVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="SgsStandardRateSetupVO1Iterator" StaticList="false" Uses="LOV_CostIdentifier"
+          id="CostIdentifier1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SgsStdRateLineTblVO4Iterator" id="SgsStdRateLineTblVO4">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO" Name="SgsStdRateLineTblVO40">
+        <AttrNames>
+          <Item Value="CostIdentifier"/>
+          <Item Value="SrGeography"/>
+          <Item Value="StandardCost"/>
+          <Item Value="NonPersonnelCost"/>
+          <Item Value="UnitOfMeasure"/>
+          <Item Value="Currency"/>
+          <Item Value="BuUnit"/>
+          <Item Value="EffectiveEndDate"/>
+          <Item Value="EffectiveStartDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsStdRateLineTblVO4Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SgsStdRateLineTblVO4Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SgsStdRateLineTblVO4Iterator" id="DeleteStdRate"
+            InstanceName="SGSAppModuleDataControl.SgsStdRateLineTblVO4" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

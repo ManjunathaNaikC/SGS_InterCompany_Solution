@@ -53,13 +53,16 @@
         <AttrNames>
           <Item Value="FromBusinessUnit"/>
           <Item Value="FromOperatingUnit"/>
+          <Item Value="FromJobCode"/>
           <Item Value="FromDeptId"/>
           <Item Value="FromGlAccount"/>
-          <Item Value="FromJobCode"/>
-          <Item Value="EffectiveFrom"/>
-          <Item Value="EffectiveTo"/>
           <Item Value="CreatedBy"/>
           <Item Value="CreatedDate"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="IcLineNo"/>
+          <Item Value="TcLineNo"/>
+          <Item Value="OcLineNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -122,33 +125,34 @@
     <tree IterBinding="CrossChargeCombinationVOIterator" id="CrossChargeCombinationVO">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.CrossChargeCombinationVO" Name="CrossChargeCombinationVO0">
         <AttrNames>
-          <Item Value="FromGlAccount"/>
           <Item Value="TargetBusinessUnit"/>
-          <Item Value="TargetGlAccount"/>
-          <Item Value="TargetJobCode"/>
           <Item Value="TargetOperatingUnit"/>
+          <Item Value="TargetJobCode"/>
           <Item Value="TARGETDEPTID"/>
+          <Item Value="FromGlAccount"/>
           <Item Value="EffectiveFrom"/>
           <Item Value="EffectiveTo"/>
           <Item Value="CreatedBy"/>
           <Item Value="CreatedDate"/>
+          <Item Value="IcLineNo"/>
+          <Item Value="OcLineNo"/>
+          <Item Value="TcLineNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <tree IterBinding="AllocationRuleVOIterator" id="AllocationRuleVO">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.AllocationRuleVO" Name="AllocationRuleVO0">
         <AttrNames>
-          <Item Value="CostIdentificationId"/>
-          <Item Value="EffectiveFrom"/>
-          <Item Value="EffectiveTo"/>
+          <Item Value="OffsetBusinessUnit"/>
+          <Item Value="OffsetOperatingUnit"/>
+          <Item Value="OffsetJobCode"/>
+          <Item Value="OffsetGlAccount"/>
           <Item Value="FromGlAccount"/>
           <Item Value="IcLineNo"/>
           <Item Value="OcLineNo"/>
-          <Item Value="OffsetBusinessUnit"/>
-          <Item Value="OffsetGlAccount"/>
-          <Item Value="OffsetJobCode"/>
-          <Item Value="OffsetOperatingUnit"/>
           <Item Value="TcLineNo"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -218,5 +222,9 @@
         <Item Value="NONPERSONNELCOST"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_TrueUpDownApplicability"
+          id="TrueUpDownApplicability1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_TrueUpDownFrequency"
+          id="TrueUpDownFrequency1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

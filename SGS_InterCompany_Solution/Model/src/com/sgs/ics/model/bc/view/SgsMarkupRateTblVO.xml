@@ -36,7 +36,14 @@
     PrecisionRule="true"
     EntityAttrName="MarkUpRateId"
     EntityUsage="SgsMarkupRateTblEO"
-    AliasName="MARK_UP_RATE_ID"/>
+    AliasName="MARK_UP_RATE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsMarkupRateTblVO.MarkUpRateId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ServiceCategory"
     PrecisionRule="true"
@@ -82,26 +89,30 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsMarkupRateTblEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="SgsMarkupRateTblEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="UpdatedDate"
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsMarkupRateTblEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
     EntityAttrName="UpdatedBy"
     EntityUsage="SgsMarkupRateTblEO"
-    AliasName="UPDATED_BY"/>
+    AliasName="UPDATED_BY"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Attribute1"
     PrecisionRule="true"

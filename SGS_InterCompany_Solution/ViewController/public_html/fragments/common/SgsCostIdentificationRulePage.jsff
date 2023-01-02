@@ -36,11 +36,16 @@
                                 <f:selectItems value="#{bindings.NatureOfExpenseLookupVO1.items}" id="si1"/>
                                 <f:validator binding="#{bindings.NatureOfExpenseLookupVO1.validator}"/>
                             </af:selectManyCheckbox>-->
-                            <af:selectManyChoice value="#{bindings.NatureOfExpenseLookupVO1.inputValue}"
-                                                 id="smc1">
-                                <f:selectItems value="#{bindings.NatureOfExpenseLookupVO1.items}" id="si1"/>
-                                <f:validator binding="#{bindings.NatureOfExpenseLookupVO1.validator}"/>
-                            </af:selectManyChoice>
+                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                <af:selectManyChoice value="#{bindings.NatureOfExpenseSearch.inputValue}" id="smc1"
+                                                     autoSubmit="true">
+                                    <f:selectItems value="#{bindings.NatureOfExpenseSearch.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.NatureOfExpenseSearch.validator}"/>
+                                </af:selectManyChoice>
+                                <af:spacer id="s1" width="15"/>
+                                <af:button text="Search" id="b3" partialTriggers="pc1:resId1"
+                                           actionListener="#{viewScope.ActionEventsBean.onNatureOfExpenseSearch}"/>
+                            </af:panelGroupLayout>
                         </af:panelBox>
                         <af:panelHeader text="" id="ph1" >
                   
@@ -212,7 +217,8 @@
                                       filterModel="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor}"
                                       filterVisible="true"
                                       queryListener="#{bindings.SgsCostIdentificationRuleVOQuery.processQuery}"
-                                      varStatus="vs" id="resId1" partialTriggers="::b1">
+                                      varStatus="vs" id="resId1" partialTriggers="::b1" 
+                                      columnStretching="last">
                                 <!--<af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.label}"
@@ -223,7 +229,7 @@
                                 </af:column>-->
                                    <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.name}"
                                    headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.label}"
-                                           filterable="true" id="c20">
+                                           filterable="true" id="c20" inlineStyle="width:350px">
                                     <!--<af:outputText value="#{row.CostIdentificationName}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO1.hints.CostIdentificationName.tooltip}"
                                                    id="ot1"/>-->
@@ -322,7 +328,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.label}"
-                                           id="c29">
+                                           id="c29" rendered="false">
                                     <af:selectOneChoice value="#{row.bindings.ServiceCategory.inputValue}"
                                                         label="#{row.bindings.ServiceCategory.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.mandatory}"

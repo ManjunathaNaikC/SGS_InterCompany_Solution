@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SgsTdsWhtRateApplicabilityEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SGS_TDS_WHT_RATE_APPLICABILITY"
+  AliasName="SgsTdsWhtRateApplicabilityEO"
+  BindingStyle="JDBC"
+  RowClass="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="TdsWhtSeq"
+    IsNotNull="true"
+    ColumnName="TDS_WHT_SEQ"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="TdsWhtApplSeq"
+    IsNotNull="true"
+    ColumnName="TDS_WHT_APPL_SEQ"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CostIdenId"
+    Precision="80"
+    ColumnName="COST_IDEN_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AccountingTreatment"
+    Precision="80"
+    ColumnName="ACCOUNTING_TREATMENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SectionTaxCode"
+    Precision="80"
+    ColumnName="SECTION_TAX_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PeoplesoftTaxCode"
+    Precision="80"
+    ColumnName="PEOPLESOFT_TAX_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WithholdingTaxRate"
+    Precision="10"
+    Scale="4"
+    ColumnName="WITHHOLDING_TAX_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="WitholdingTaxRateNoTin"
+    Precision="10"
+    Scale="4"
+    ColumnName="WITHOLDING_TAX_RATE_NO_TIN"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Documentation"
+    Precision="80"
+    ColumnName="DOCUMENTATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChargeabilityToTax"
+    Precision="80"
+    ColumnName="CHARGEABILITY_TO_TAX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="80"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="80"
+    ColumnName="ATTRIBUTE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="80"
+    ColumnName="ATTRIBUTE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="80"
+    ColumnName="ATTRIBUTE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="80"
+    ColumnName="ATTRIBUTE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    ColumnName="ATTRIBUTE6"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute7"
+    ColumnName="ATTRIBUTE7"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute8"
+    ColumnName="ATTRIBUTE8"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute9"
+    ColumnName="ATTRIBUTE9"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute10"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE10"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute11"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE11"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute12"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE12"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute13"
+    Precision="18"
+    Scale="0"
+    ColumnName="ATTRIBUTE13"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute14"
+    ColumnName="ATTRIBUTE14"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="Attribute15"
+    ColumnName="ATTRIBUTE15"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="UPDATEDBY"
+    Precision="80"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UPDATEDDATE"
+    ColumnName="UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="CREATEDDATE"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY"/>
+  <Attribute
+    Name="CREATEDBY"
+    Precision="80"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SgsTdsWhtTblEO"
+    Association="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtRateApplicabilityAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtRateApplicabilityAssoc.SgsTdsWhtTblEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtRateApplicabilityAssoc.SgsTdsWhtRateApplicabilityEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PKSGSTDSWHTRATEAPPLICABILITY"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SGS_TDS_WHT_RATE_APPLICABILITY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO.TdsWhtApplSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FKPKSGSTDSWHTRATEAPPLICABILITY">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_SGS_TDS_WHT_TBL"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PK_SGS_TDS_WHT_RATE_APPLICABILITY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO.TdsWhtSeq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SgsTdsWhtRateApplicabilityEO">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SGS_TDS_WHT_TBL"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SgsTdsWhtRateApplicabilityE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO.TdsWhtSeq"/>
+    </AttrArray>
+  </Key>
+</Entity>

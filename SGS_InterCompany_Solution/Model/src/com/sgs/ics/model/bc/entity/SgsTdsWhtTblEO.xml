@@ -160,9 +160,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_TDS_WHT_TBL"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    TableName="SGS_TDS_WHT_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -329,8 +327,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_TDS_WHT_TBL"
-    HistoryColumn="UserHistory">
+    TableName="SGS_TDS_WHT_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>

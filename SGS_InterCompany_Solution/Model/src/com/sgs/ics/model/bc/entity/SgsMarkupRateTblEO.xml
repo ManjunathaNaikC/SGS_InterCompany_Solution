@@ -106,9 +106,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_MARKUP_RATE_TBL"
-    ChangeIndicator="true"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -130,8 +128,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_MARKUP_RATE_TBL"
-    ChangeIndicator="true"
-    HistoryColumn="UserHistory">
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

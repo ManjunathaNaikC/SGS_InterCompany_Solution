@@ -10,6 +10,11 @@
       <managed-bean-class>com.sgs.ics.view.ActionEventsBean</managed-bean-class>
       <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__6">
+      <managed-bean-name>UploadExcelBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.bean.common.UploadExcelBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <view id="statisticalData">
       <page>/fragments/TransactionalData/statisticalData.jsff</page>
     </view>

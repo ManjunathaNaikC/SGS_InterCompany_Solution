@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="SgsGstTaxRateApplicabilityEO"
     Entity="com.sgs.ics.model.bc.entity.SgsGstTaxRateApplicabilityEO"/>
@@ -185,6 +186,32 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsGstTaxRateApplicabilityEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="UPDATEDDATE"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="UPDATEDDATE"
+    EntityUsage="SgsGstTaxRateApplicabilityEO"
+    AliasName="UPDATED_DATE"/>
+  <ViewAttribute
+    Name="UPDATEDBY"
+    PrecisionRule="true"
+    EntityAttrName="UPDATEDBY"
+    EntityUsage="SgsGstTaxRateApplicabilityEO"
+    AliasName="UPDATED_BY"/>
+  <ViewAttribute
+    Name="CREATEDBY"
+    PrecisionRule="true"
+    EntityAttrName="CREATEDBY"
+    EntityUsage="SgsGstTaxRateApplicabilityEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CREATEDDATE"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CREATEDDATE"
+    EntityUsage="SgsGstTaxRateApplicabilityEO"
+    AliasName="CREATED_DATE"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

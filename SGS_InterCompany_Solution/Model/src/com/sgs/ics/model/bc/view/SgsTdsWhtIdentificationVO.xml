@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="SgsTdsWhtIdentificationEO"
     Entity="com.sgs.ics.model.bc.entity.SgsTdsWhtIdentificationEO"/>
@@ -114,7 +115,8 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="SgsTdsWhtIdentificationEO"
-    AliasName="LAST_UPDATED_BY">
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -127,7 +129,8 @@
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="SgsTdsWhtIdentificationEO"
-    AliasName="LAST_UPDATED_DATE">
+    AliasName="LAST_UPDATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -135,6 +138,18 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CREATEDBY"
+    PrecisionRule="true"
+    EntityAttrName="CREATEDBY"
+    EntityUsage="SgsTdsWhtIdentificationEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CREATEDDATE"
+    PrecisionRule="true"
+    EntityAttrName="CREATEDDATE"
+    EntityUsage="SgsTdsWhtIdentificationEO"
+    AliasName="CREATED_DATE"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

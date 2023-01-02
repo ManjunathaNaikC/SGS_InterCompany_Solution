@@ -275,7 +275,8 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
@@ -372,6 +373,13 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsStatisticalDataEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="CREATEDDATE"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CREATEDDATE"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="CREATED_DATE"/>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

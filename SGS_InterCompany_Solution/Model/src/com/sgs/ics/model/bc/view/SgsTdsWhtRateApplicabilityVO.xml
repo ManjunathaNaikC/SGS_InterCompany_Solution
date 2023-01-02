@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="SgsTdsWhtRateApplicabilityEO"
     Entity="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO"/>
@@ -134,6 +135,30 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CREATEDBY"
+    PrecisionRule="true"
+    EntityAttrName="CREATEDBY"
+    EntityUsage="SgsTdsWhtRateApplicabilityEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CREATEDDATE"
+    PrecisionRule="true"
+    EntityAttrName="CREATEDDATE"
+    EntityUsage="SgsTdsWhtRateApplicabilityEO"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="UPDATEDBY"
+    PrecisionRule="true"
+    EntityAttrName="UPDATEDBY"
+    EntityUsage="SgsTdsWhtRateApplicabilityEO"
+    AliasName="UPDATED_BY"/>
+  <ViewAttribute
+    Name="UPDATEDDATE"
+    PrecisionRule="true"
+    EntityAttrName="UPDATEDDATE"
+    EntityUsage="SgsTdsWhtRateApplicabilityEO"
+    AliasName="UPDATED_DATE"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

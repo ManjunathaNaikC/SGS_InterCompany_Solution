@@ -132,4 +132,9 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/commom/sgs-MarkUpRateMaster-flow.xml#sgs-MarkUpRateMaster-flow");
         return null;
     }
+
+    public String sgsinvoiceDashboardflow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-invoiceDashboard-flow.xml#sgs-invoiceDashboard-flow");
+        return null;
+    }
 }

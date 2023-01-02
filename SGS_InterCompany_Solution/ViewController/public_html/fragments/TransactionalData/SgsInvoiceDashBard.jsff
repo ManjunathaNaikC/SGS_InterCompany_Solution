@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelBox text="Invoice DashBoard" id="pb1">
+        <f:facet name="toolbar"/>
+      </af:panelBox>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

@@ -211,9 +211,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_GST_TBL"
-    IsUpdateable="while_insert"
-    HistoryColumn="UserHistory">
+    TableName="SGS_GST_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -233,8 +231,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_GST_TBL"
-    HistoryColumn="UserHistory">
+    TableName="SGS_GST_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

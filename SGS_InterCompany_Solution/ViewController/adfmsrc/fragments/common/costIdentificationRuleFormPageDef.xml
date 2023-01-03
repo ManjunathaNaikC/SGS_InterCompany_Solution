@@ -226,5 +226,10 @@
           id="TrueUpDownApplicability1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_TrueUpDownFrequency"
           id="TrueUpDownFrequency1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="SACHSN">
+      <AttrNames>
+        <Item Value="SACHSN"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

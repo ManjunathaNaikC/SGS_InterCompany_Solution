@@ -55,6 +55,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
         UPDATEDDATE,
         CREATEDDATE,
         CREATEDBY,
+        NATUREOFEXPENSE,
         SgsTdsWhtTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -110,6 +111,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
     public static final int UPDATEDDATE = AttributesEnum.UPDATEDDATE.index();
     public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
     public static final int CREATEDBY = AttributesEnum.CREATEDBY.index();
+    public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int SGSTDSWHTTBLEO = AttributesEnum.SgsTdsWhtTblEO.index();
 
     /**
@@ -541,6 +543,22 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
      */
     public void setCREATEDBY(String value) {
         setAttributeInternal(CREATEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for NATUREOFEXPENSE, using the alias name NATUREOFEXPENSE.
+     * @return the value of NATUREOFEXPENSE
+     */
+    public String getNATUREOFEXPENSE() {
+        return (String) getAttributeInternal(NATUREOFEXPENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NATUREOFEXPENSE.
+     * @param value value to set the NATUREOFEXPENSE
+     */
+    public void setNATUREOFEXPENSE(String value) {
+        setAttributeInternal(NATUREOFEXPENSE, value);
     }
 
     /**

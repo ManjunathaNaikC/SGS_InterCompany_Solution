@@ -62,6 +62,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
         Attribute14,
         Attribute15,
         NONPERSONNELCOST,
+        SACHSN,
         SgsCostOffsetCombinationEO,
         SgsCostTargetCombinationEO,
         SgsCostIdentificationCombinationEO;
@@ -124,6 +125,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int NONPERSONNELCOST = AttributesEnum.NONPERSONNELCOST.index();
+    public static final int SACHSN = AttributesEnum.SACHSN.index();
     public static final int SGSCOSTOFFSETCOMBINATIONEO = AttributesEnum.SgsCostOffsetCombinationEO.index();
     public static final int SGSCOSTTARGETCOMBINATIONEO = AttributesEnum.SgsCostTargetCombinationEO.index();
     public static final int SGSCOSTIDENTIFICATIONCOMBINATIONEO =
@@ -661,6 +663,23 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
      */
     public void setNONPERSONNELCOST(BigDecimal value) {
         setAttributeInternal(NONPERSONNELCOST, value);
+    }
+
+
+    /**
+     * Gets the attribute value for SACHSN, using the alias name SACHSN.
+     * @return the value of SACHSN
+     */
+    public String getSACHSN() {
+        return (String) getAttributeInternal(SACHSN);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SACHSN.
+     * @param value value to set the SACHSN
+     */
+    public void setSACHSN(String value) {
+        setAttributeInternal(SACHSN, value);
     }
 
     /**

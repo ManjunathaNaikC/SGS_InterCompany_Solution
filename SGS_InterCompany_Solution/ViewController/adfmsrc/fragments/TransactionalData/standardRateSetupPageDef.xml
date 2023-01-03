@@ -33,6 +33,7 @@
           <Item Value="UpdatedBy"/>
           <Item Value="CreatedDate"/>
           <Item Value="CreatedBy"/>
+          <Item Value="INPUTPROVIDER"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

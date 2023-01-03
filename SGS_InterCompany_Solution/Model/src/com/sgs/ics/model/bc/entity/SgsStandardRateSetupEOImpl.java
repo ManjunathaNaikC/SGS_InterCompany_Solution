@@ -62,6 +62,7 @@ public class SgsStandardRateSetupEOImpl extends EntityImpl {
         Attribute14,
         Attribute15,
         CreatedDate,
+        INPUTPROVIDER,
         SgsStdRateLineTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -123,6 +124,7 @@ public class SgsStandardRateSetupEOImpl extends EntityImpl {
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
+    public static final int INPUTPROVIDER = AttributesEnum.INPUTPROVIDER.index();
     public static final int SGSSTDRATELINETBLEO = AttributesEnum.SgsStdRateLineTblEO.index();
 
     /**
@@ -673,6 +675,22 @@ public class SgsStandardRateSetupEOImpl extends EntityImpl {
      */
     public Date getCreatedDate() {
         return (Date) getAttributeInternal(CREATEDDATE);
+    }
+
+    /**
+     * Gets the attribute value for INPUTPROVIDER, using the alias name INPUTPROVIDER.
+     * @return the value of INPUTPROVIDER
+     */
+    public String getINPUTPROVIDER() {
+        return (String) getAttributeInternal(INPUTPROVIDER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for INPUTPROVIDER.
+     * @param value value to set the INPUTPROVIDER
+     */
+    public void setINPUTPROVIDER(String value) {
+        setAttributeInternal(INPUTPROVIDER, value);
     }
 
     /**

@@ -57,6 +57,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        JOBCODE,
         SgsStandardRateSetupEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -80,6 +81,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int STDRATELINESEQ = AttributesEnum.StdRateLineSeq.index();
     public static final int STANDARDRATESEQ = AttributesEnum.StandardRateSeq.index();
     public static final int COSTIDENTIFIER = AttributesEnum.CostIdentifier.index();
@@ -110,12 +112,20 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int JOBCODE = AttributesEnum.JOBCODE.index();
     public static final int SGSSTANDARDRATESETUPEO = AttributesEnum.SgsStandardRateSetupEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SgsStdRateLineTblEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO");
     }
 
     /**
@@ -318,13 +328,6 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedDate, using the alias name UpdatedDate.
@@ -334,13 +337,6 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedDate.
-     * @param value value to set the UpdatedDate
-     */
-    public void setUpdatedDate(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedBy, using the alias name UpdatedBy.
@@ -599,6 +595,22 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for JOBCODE, using the alias name JOBCODE.
+     * @return the value of JOBCODE
+     */
+    public String getJOBCODE() {
+        return (String) getAttributeInternal(JOBCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for JOBCODE.
+     * @param value value to set the JOBCODE
+     */
+    public void setJOBCODE(String value) {
+        setAttributeInternal(JOBCODE, value);
+    }
+
+    /**
      * @return the associated entity SgsStandardRateSetupEOImpl.
      */
     public SgsStandardRateSetupEOImpl getSgsStandardRateSetupEO() {
@@ -612,6 +624,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         setAttributeInternal(SGSSTANDARDRATESETUPEO, value);
     }
 
+
     /**
      * @param stdRateLineSeq key constituent
 
@@ -619,13 +632,6 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer stdRateLineSeq) {
         return new Key(new Object[] { stdRateLineSeq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO");
     }
 
     /**

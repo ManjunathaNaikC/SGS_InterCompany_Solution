@@ -115,6 +115,7 @@
           <Item Value="Documentation"/>
           <Item Value="ChargeabilityToTax"/>
           <Item Value="TdsWhtApplSeq"/>
+          <Item Value="NATUREOFEXPENSE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -134,6 +135,16 @@
     <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="UPDATEDBY">
       <AttrNames>
         <Item Value="UPDATEDBY"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="SERVICEPROVIDERLEGALENTITY">
+      <AttrNames>
+        <Item Value="SERVICEPROVIDERLEGALENTITY"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="SERVICERECEIVERLEGALENTITY">
+      <AttrNames>
+        <Item Value="SERVICERECEIVERLEGALENTITY"/>
       </AttrNames>
     </attributeValues>
   </bindings>

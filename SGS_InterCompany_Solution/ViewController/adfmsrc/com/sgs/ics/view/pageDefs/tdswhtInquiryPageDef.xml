@@ -29,6 +29,8 @@
           <Item Value="UpdatedDate"/>
           <!--<Item Value="UpdatedBy"/>-->
           <Item Value="UPDATEDBY"/>
+          <Item Value="SERVICEPROVIDERLEGALENTITY"/>
+          <Item Value="SERVICERECEIVERLEGALENTITY"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

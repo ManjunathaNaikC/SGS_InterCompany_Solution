@@ -156,13 +156,15 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsStdRateLineTblEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="UpdatedDate"
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsStdRateLineTblEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
@@ -259,6 +261,19 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsStdRateLineTblEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="JOBCODE"
+    PrecisionRule="true"
+    EntityAttrName="JOBCODE"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.JOBCODE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

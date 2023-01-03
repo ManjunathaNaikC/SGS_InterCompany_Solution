@@ -87,35 +87,35 @@
               <af:outputText value="#{row.IdenticalGstReg}"
                              shortDesc="#{bindings.SgsGstTblVO1.hints.IdenticalGstReg.tooltip}" id="ot15"/>
             </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.label}" id="resId1c5" rendered="false">
+            <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.label}" id="resId1c5">
               <af:outputText value="#{row.EffectiveFrom}"
                              shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.tooltip}" id="ot5">
                 <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.format}"/>
               </af:outputText>
             </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveTo.label}" id="resId1c6" rendered="false">
+            <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveTo.label}" id="resId1c6">
               <af:outputText value="#{row.EffectiveTo}" shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveTo.tooltip}"
                              id="ot6">
                 <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveTo.format}"/>
               </af:outputText>
             </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedDate.label}" id="resId1c16" rendered="false">
+            <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedDate.label}" id="resId1c16">
               <af:outputText value="#{row.UpdatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedDate.tooltip}"
                              id="ot16">
                 <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.UpdatedDate.format}"/>
               </af:outputText>
             </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedBy.label}" id="resId1c17" rendered="false">
+            <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedBy.label}" id="resId1c17">
               <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedBy.tooltip}"
                              id="ot17"/>
             </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedDate.label}" id="resId1c18" rendered="false">
+            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedDate.label}" id="resId1c18">
               <af:outputText value="#{row.CreatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedDate.tooltip}"
                              id="ot18">
                 <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.CreatedDate.format}"/>
               </af:outputText>
             </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedBy.label}" id="resId1c19" rendered="false">
+            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedBy.label}" id="resId1c19">
               <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedBy.tooltip}"
                              id="ot19"/>
             </af:column>

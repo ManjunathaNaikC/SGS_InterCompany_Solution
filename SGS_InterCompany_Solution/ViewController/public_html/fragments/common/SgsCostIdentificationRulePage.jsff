@@ -340,7 +340,7 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.label}"
                                  filterable="true"
-                                        
+                                        sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.name}"
                                            id="c3">
                                     <af:outputText value="#{row.SACHSN}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.tooltip}"

@@ -59,6 +59,22 @@
                           shortDesc="#{bindings.VatOutputGlAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.VatOutputGlAcc.validator}"/>
             </af:inputText>
+            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it11">
+              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it15">
+              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
+            </af:inputText>
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
                           columns="#{bindings.EffectiveFrom.hints.displayWidth}"
@@ -77,20 +93,20 @@
                           required="#{bindings.CreatedBy.hints.mandatory}"
                           columns="#{bindings.CreatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.CreatedBy.hints.precision}"
-                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it7">
+                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it7" readOnly="true">
               <f:validator binding="#{bindings.CreatedBy.validator}"/>
             </af:inputText>
             <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
                           required="#{bindings.CreatedDate.hints.mandatory}"
                           columns="#{bindings.CreatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3">
+                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3" readOnly="true">
               <f:validator binding="#{bindings.CreatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
             </af:inputDate>
             <af:inputDate value="#{bindings.UpdatedDate.inputValue}" label="#{bindings.UpdatedDate.hints.label}"
                           required="#{bindings.UpdatedDate.hints.mandatory}"
                           columns="#{bindings.UpdatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4">
+                          shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4" readOnly="true">
               <f:validator binding="#{bindings.UpdatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
             </af:inputDate>
@@ -98,7 +114,7 @@
                           required="#{bindings.UpdatedBy.hints.mandatory}"
                           columns="#{bindings.UpdatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.UpdatedBy.hints.precision}"
-                          shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it8">
+                          shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it8" readOnly="true">
               <f:validator binding="#{bindings.UpdatedBy.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
@@ -156,7 +172,8 @@
                   <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}" id="c5">
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}" id="c5"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.ItmServCat.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.mandatory}"
@@ -166,7 +183,8 @@
                   <f:validator binding="#{row.bindings.ItmServCat.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}" id="c6">
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}" id="c6"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.ExemptSuppy.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.mandatory}"

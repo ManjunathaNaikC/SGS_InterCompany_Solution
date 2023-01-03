@@ -316,6 +316,32 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="SERVICEPROVIDERLEGALENTITY"
+    PrecisionRule="true"
+    EntityAttrName="SERVICEPROVIDERLEGALENTITY"
+    EntityUsage="SgsTdsWhtTblEO"
+    AliasName="SERVICE_PROVIDER_LEGAL_ENTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.SERVICEPROVIDERLEGALENTITY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SERVICERECEIVERLEGALENTITY"
+    PrecisionRule="true"
+    EntityAttrName="SERVICERECEIVERLEGALENTITY"
+    EntityUsage="SgsTdsWhtTblEO"
+    AliasName="SERVICE_RECEIVER_LEGAL_ENTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.SERVICERECEIVERLEGALENTITY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsTdsWhtTblVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO"

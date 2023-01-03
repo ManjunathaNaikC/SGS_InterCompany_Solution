@@ -76,6 +76,16 @@
               <af:outputText value="#{row.WhtExpenseAcc}"
                              shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.WhtExpenseAcc.tooltip}" id="ot9"/>
             </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c2">
+              <af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}"
+                             id="ot15"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c3">
+              <af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}"
+                             id="ot16"/>
+            </af:column>
             <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.label}" id="resId1c10">
               <af:outputText value="#{row.EffectiveFrom}"
                              shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.tooltip}" id="ot10">

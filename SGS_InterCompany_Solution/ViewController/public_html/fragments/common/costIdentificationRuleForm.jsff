@@ -107,6 +107,13 @@
                                           shortDesc="#{bindings.InvJournalGrpCode.hints.tooltip}" id="it29">
                                 <f:validator binding="#{bindings.InvJournalGrpCode.validator}"/>
                             </af:inputText>
+                            <af:inputText value="#{bindings.SACHSN.inputValue}" label="#{bindings.SACHSN.hints.label}"
+                                          required="#{bindings.SACHSN.hints.mandatory}"
+                                          columns="#{bindings.SACHSN.hints.displayWidth}"
+                                          maximumLength="#{bindings.SACHSN.hints.precision}"
+                                          shortDesc="#{bindings.SACHSN.hints.tooltip}" id="it34">
+                                <f:validator binding="#{bindings.SACHSN.validator}"/>
+                            </af:inputText>
                             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                       label="#{bindings.EffectiveFrom.hints.label}"
                                       required="#{bindings.EffectiveFrom.hints.mandatory}"
@@ -411,7 +418,7 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.label}"
-                                               id="c10">
+                                               id="c10" rendered="false">
                                         <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
                                                       label="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.label}"
                                                       required="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.mandatory}"
@@ -576,7 +583,7 @@
                                         </af:inputDate>
                                     </af:column>
                                               <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.label}"
-                                               id="c301">
+                                               id="c301" rendered="false">
                                         <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
                                                       label="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.label}"
                                                       required="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.mandatory}"

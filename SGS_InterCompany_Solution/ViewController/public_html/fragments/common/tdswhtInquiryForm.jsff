@@ -21,14 +21,14 @@
                           required="#{bindings.ServReceiver.hints.mandatory}"
                           columns="#{bindings.ServReceiver.hints.displayWidth}"
                           maximumLength="#{bindings.ServReceiver.hints.precision}"
-                          shortDesc="#{bindings.ServReceiver.hints.tooltip}" id="it2">
+                          shortDesc="#{bindings.ServReceiver.hints.tooltip}" id="it2" showRequired="true">
               <f:validator binding="#{bindings.ServReceiver.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
                           required="#{bindings.ServProvider.hints.mandatory}"
                           columns="#{bindings.ServProvider.hints.displayWidth}"
                           maximumLength="#{bindings.ServProvider.hints.precision}"
-                          shortDesc="#{bindings.ServProvider.hints.tooltip}" id="it3">
+                          shortDesc="#{bindings.ServProvider.hints.tooltip}" id="it3" showRequired="true">
               <f:validator binding="#{bindings.ServProvider.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.DeductionPoint.inputValue}" label="#{bindings.DeductionPoint.hints.label}"
@@ -73,6 +73,22 @@
                           maximumLength="#{bindings.WhtExpenseAcc.hints.precision}"
                           shortDesc="#{bindings.WhtExpenseAcc.hints.tooltip}" id="it9">
               <f:validator binding="#{bindings.WhtExpenseAcc.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it12">
+              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it25">
+              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
             </af:inputText>
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
@@ -300,18 +316,26 @@
                     <f:validator binding="#{row.bindings.AccountingTreatment.validator}"/>
                   </af:inputText>
                 </af:column>
-                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}"
-                           id="c12">
-                  <af:inputText value="#{row.bindings.WithholdingTaxRate.inputValue}"
-                                label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}"
-                                required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.mandatory}"
-                                columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.displayWidth}"
-                                maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.precision}"
-                                shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.tooltip}"
-                                id="it19">
-                    <f:validator binding="#{row.bindings.WithholdingTaxRate.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.format}"/>
+                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c1">
+                  <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                      label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                      required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
+                                      shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
+                                      id="soc1">
+                    <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
+                    <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.label}"
+                           id="c17">
+                  <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"
+                                label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.label}"
+                                required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.mandatory}"
+                                columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.displayWidth}"
+                                maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.precision}"
+                                shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.tooltip}"
+                                id="it24">
+                    <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                   </af:inputText>
                 </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SectionTaxCode.label}" id="c13">
@@ -337,6 +361,20 @@
                     <f:validator binding="#{row.bindings.PeoplesoftTaxCode.validator}"/>
                   </af:inputText>
                 </af:column>
+                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}"
+                           id="c12">
+                  <af:inputText value="#{row.bindings.WithholdingTaxRate.inputValue}"
+                                label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}"
+                                required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.mandatory}"
+                                columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.displayWidth}"
+                                maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.precision}"
+                                shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.tooltip}"
+                                id="it19">
+                    <f:validator binding="#{row.bindings.WithholdingTaxRate.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.format}"/>
+                  </af:inputText>
+                </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
                            id="c15">
                   <af:inputText value="#{row.bindings.WitholdingTaxRateNoTin.inputValue}"
@@ -360,18 +398,6 @@
                                 shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.Documentation.tooltip}"
                                 id="it23">
                     <f:validator binding="#{row.bindings.Documentation.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.label}"
-                           id="c17">
-                  <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"
-                                label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.label}"
-                                required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.mandatory}"
-                                columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.displayWidth}"
-                                maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.precision}"
-                                shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.tooltip}"
-                                id="it24">
-                    <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                   </af:inputText>
                 </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TdsWhtApplSeq.label}" id="c18"

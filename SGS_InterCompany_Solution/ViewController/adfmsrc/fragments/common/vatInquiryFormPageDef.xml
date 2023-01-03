@@ -90,5 +90,15 @@
             Action="createInsertRow"/>
     <action IterBinding="SgsVatTaxApplicabilityVO1Iterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="SERVICEPROVIDERLEGALENTITY">
+      <AttrNames>
+        <Item Value="SERVICEPROVIDERLEGALENTITY"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsVatTblVO1Iterator" id="SERVICERECEIVERLEGALENTITY">
+      <AttrNames>
+        <Item Value="SERVICERECEIVERLEGALENTITY"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

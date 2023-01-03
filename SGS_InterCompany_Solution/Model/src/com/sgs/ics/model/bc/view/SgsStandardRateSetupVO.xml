@@ -399,6 +399,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="INPUTPROVIDER"
+    PrecisionRule="true"
+    EntityAttrName="INPUTPROVIDER"
+    EntityUsage="SgsStandardRateSetupEO"
+    AliasName="INPUT_PROVIDER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.INPUTPROVIDER_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStandardRateSetupVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO"

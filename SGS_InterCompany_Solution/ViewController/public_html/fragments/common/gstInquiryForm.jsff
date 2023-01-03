@@ -85,7 +85,7 @@
             <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
                           required="#{bindings.CreatedDate.hints.mandatory}"
                           columns="#{bindings.CreatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3">
+                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3" readOnly="true">
               <f:validator binding="#{bindings.CreatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
             </af:inputDate>
@@ -93,14 +93,14 @@
                           required="#{bindings.CreatedBy.hints.mandatory}"
                           columns="#{bindings.CreatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.CreatedBy.hints.precision}"
-                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it8">
+                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it8" readOnly="true">
               <f:validator binding="#{bindings.CreatedBy.validator}"/>
             </af:inputText>
             <af:inputDate value="#{bindings.UpdatedDate.inputValue}" 
                           required="#{bindings.UpdatedDate.hints.mandatory}"
                           columns="#{bindings.UpdatedDate.hints.displayWidth}"
                           shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4"
-                          label="#{bindings.UpdatedDate.hints.label}">
+                          label="#{bindings.UpdatedDate.hints.label}" readOnly="true">
               <f:validator binding="#{bindings.UpdatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
             </af:inputDate>
@@ -109,7 +109,7 @@
                           columns="#{bindings.UpdatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.UpdatedBy.hints.precision}"
                           shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it20"
-                          label="#{bindings.UpdatedBy.hints.label}">
+                          label="#{bindings.UpdatedBy.hints.label}" readOnly="true">
               <f:validator binding="#{bindings.UpdatedBy.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
@@ -194,7 +194,8 @@
                       selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
                       partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.mandatory}"
@@ -205,7 +206,8 @@
                   <f:validator binding="#{row.bindings.CostGroupingCode.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.mandatory}"

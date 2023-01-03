@@ -24,6 +24,8 @@
           <Item Value="CreatedBy"/>
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
+          <Item Value="SERVICEPROVIDERLEGALENTITY"/>
+          <Item Value="SERVICERECEIVERLEGALENTITY"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

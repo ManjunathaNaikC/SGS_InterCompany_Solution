@@ -127,6 +127,7 @@
           <Item Value="BuUnit"/>
           <Item Value="EffectiveEndDate"/>
           <Item Value="EffectiveStartDate"/>
+          <Item Value="JOBCODE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

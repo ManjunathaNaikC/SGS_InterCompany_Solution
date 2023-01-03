@@ -58,6 +58,8 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         Attribute14,
         Attribute15,
         UPDATEDBY,
+        SERVICEPROVIDERLEGALENTITY,
+        SERVICERECEIVERLEGALENTITY,
         SgsTdsWhtIdentificationEO,
         SgsTdsWhtRateApplicabilityEO;
         private static AttributesEnum[] vals = null;
@@ -116,6 +118,8 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int UPDATEDBY = AttributesEnum.UPDATEDBY.index();
+    public static final int SERVICEPROVIDERLEGALENTITY = AttributesEnum.SERVICEPROVIDERLEGALENTITY.index();
+    public static final int SERVICERECEIVERLEGALENTITY = AttributesEnum.SERVICERECEIVERLEGALENTITY.index();
     public static final int SGSTDSWHTIDENTIFICATIONEO = AttributesEnum.SgsTdsWhtIdentificationEO.index();
     public static final int SGSTDSWHTRATEAPPLICABILITYEO = AttributesEnum.SgsTdsWhtRateApplicabilityEO.index();
 
@@ -630,6 +634,38 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
      */
     public void setUPDATEDBY(String value) {
         setAttributeInternal(UPDATEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for SERVICEPROVIDERLEGALENTITY, using the alias name SERVICEPROVIDERLEGALENTITY.
+     * @return the value of SERVICEPROVIDERLEGALENTITY
+     */
+    public String getSERVICEPROVIDERLEGALENTITY() {
+        return (String) getAttributeInternal(SERVICEPROVIDERLEGALENTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SERVICEPROVIDERLEGALENTITY.
+     * @param value value to set the SERVICEPROVIDERLEGALENTITY
+     */
+    public void setSERVICEPROVIDERLEGALENTITY(String value) {
+        setAttributeInternal(SERVICEPROVIDERLEGALENTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for SERVICERECEIVERLEGALENTITY, using the alias name SERVICERECEIVERLEGALENTITY.
+     * @return the value of SERVICERECEIVERLEGALENTITY
+     */
+    public String getSERVICERECEIVERLEGALENTITY() {
+        return (String) getAttributeInternal(SERVICERECEIVERLEGALENTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SERVICERECEIVERLEGALENTITY.
+     * @param value value to set the SERVICERECEIVERLEGALENTITY
+     */
+    public void setSERVICERECEIVERLEGALENTITY(String value) {
+        setAttributeInternal(SERVICERECEIVERLEGALENTITY, value);
     }
 
     /**

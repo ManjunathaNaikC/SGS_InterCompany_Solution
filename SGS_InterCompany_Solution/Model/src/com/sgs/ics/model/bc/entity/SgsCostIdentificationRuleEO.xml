@@ -367,6 +367,18 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_COST_IDENTIFICATION_RULE"/>
+  <Attribute
+    Name="SACHSN"
+    Precision="80"
+    ColumnName="SAC_HSN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_COST_IDENTIFICATION_RULE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsCostOffsetCombinationEO"
     Association="com.sgs.ics.model.bc.entity.assoc.FKSGSCOSTOFFSETCOMBINATIONAssoc"

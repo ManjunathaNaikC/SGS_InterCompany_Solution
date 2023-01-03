@@ -121,9 +121,17 @@
                                       required="#{bindings.StandardCost.hints.mandatory}"
                                       columns="#{bindings.StandardCost.hints.displayWidth}"
                                       maximumLength="#{bindings.StandardCost.hints.precision}"
-                                      shortDesc="#{bindings.StandardCost.hints.tooltip}" id="it12">
+                                      shortDesc="#{bindings.StandardCost.hints.tooltip}" id="it12" rendered="false">
                             <f:validator binding="#{bindings.StandardCost.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.StandardCost.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.INPUTPROVIDER.inputValue}"
+                                      label="#{bindings.INPUTPROVIDER.hints.label}"
+                                      required="#{bindings.INPUTPROVIDER.hints.mandatory}"
+                                      columns="#{bindings.INPUTPROVIDER.hints.displayWidth}"
+                                      maximumLength="#{bindings.INPUTPROVIDER.hints.precision}"
+                                      shortDesc="#{bindings.INPUTPROVIDER.hints.tooltip}" id="it10">
+                            <f:validator binding="#{bindings.INPUTPROVIDER.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.NonPersonnelCost.inputValue}"
                                       label="#{bindings.NonPersonnelCost.hints.label}"

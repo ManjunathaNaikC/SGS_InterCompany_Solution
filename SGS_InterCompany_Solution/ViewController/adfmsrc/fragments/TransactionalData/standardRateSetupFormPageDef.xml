@@ -138,5 +138,10 @@
     <action IterBinding="SgsStdRateLineTblVO4Iterator" id="DeleteStdRate"
             InstanceName="SGSAppModuleDataControl.SgsStdRateLineTblVO4" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsStandardRateSetupVO1Iterator" id="INPUTPROVIDER">
+      <AttrNames>
+        <Item Value="INPUTPROVIDER"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

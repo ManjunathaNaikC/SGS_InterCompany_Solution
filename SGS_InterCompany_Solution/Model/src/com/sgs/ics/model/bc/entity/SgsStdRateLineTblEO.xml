@@ -317,6 +317,54 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="DEPTCOSTCENTER"
+    Precision="80"
+    ColumnName="DEPT_COST_CENTER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STDRATE_LINE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EMPLOYEEGRADELEVEL"
+    Precision="80"
+    ColumnName="EMPLOYEE_GRADE_LEVEL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STDRATE_LINE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EMPLOYEEID"
+    Precision="80"
+    ColumnName="EMPLOYEE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STDRATE_LINE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PROGRAMNAME"
+    Precision="80"
+    ColumnName="PROGRAM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STDRATE_LINE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsStandardRateSetupEO"
     Association="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc"

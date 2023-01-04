@@ -74,11 +74,13 @@
                   <f:validator binding="#{row.bindings.CostIdentifier.validator}"/>
                 </af:selectOneChoice>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeId.label}" id="resId1c6">
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeId.label}" id="resId1c6"
+                         rendered="false">
                 <af:outputText value="#{row.EmployeeId}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeId.tooltip}" id="ot6"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeGradeLevel.label}" id="resId1c7">
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeGradeLevel.label}" id="resId1c7"
+                         rendered="false">
                 <af:outputText value="#{row.EmployeeGradeLevel}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EmployeeGradeLevel.tooltip}"
                                id="ot7"/>
@@ -103,7 +105,8 @@
                                     pattern="#{bindings.SgsStandardRateSetupVO1.hints.NonPersonnelCost.format}"/>
                 </af:outputText>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.ProgramName.label}" id="resId1c13">
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.ProgramName.label}" id="resId1c13"
+                         rendered="false">
                 <af:outputText value="#{row.ProgramName}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ProgramName.tooltip}" id="ot13"/>
               </af:column>

@@ -380,6 +380,19 @@
     EntityAttrName="CREATEDDATE"
     EntityUsage="SgsStatisticalDataEO"
     AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="GLACCOUNT"
+    PrecisionRule="true"
+    EntityAttrName="GLACCOUNT"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="GL_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.GLACCOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

@@ -112,7 +112,8 @@
                     selectionListener="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.makeCurrent}"
                     rowSelection="single" fetchSize="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}" id="t2"
                     partialTriggers="::b1" styleClass="AFStretchWidth">
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}" id="c1">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}" id="c1"
+                       rendered="false">
               <af:inputText value="#{row.bindings.MarkUpRateId.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.mandatory}"

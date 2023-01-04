@@ -33,6 +33,7 @@
           <Item Value="RejectionComments"/>
           <Item Value="ValidityFrom"/>
           <Item Value="ValidityTill"/>
+          <Item Value="GLACCOUNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

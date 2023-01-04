@@ -60,7 +60,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
-        CREATEDDATE;
+        CREATEDDATE,
+        GLACCOUNT;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -83,6 +84,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             return vals;
         }
     }
+
 
     public static final int STATISTICALDATAID = AttributesEnum.StatisticalDataId.index();
     public static final int STATISTICALDATACATEGORY = AttributesEnum.StatisticalDataCategory.index();
@@ -119,6 +121,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
+    public static final int GLACCOUNT = AttributesEnum.GLACCOUNT.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -132,6 +135,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsStatisticalDataEO");
     }
+
 
     /**
      * Gets the attribute value for StatisticalDataId, using the alias name StatisticalDataId.
@@ -678,14 +682,22 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
+
     /**
-     * Sets <code>value</code> as the attribute value for CREATEDDATE.
-     * @param value value to set the CREATEDDATE
+     * Gets the attribute value for GLACCOUNT, using the alias name GLACCOUNT.
+     * @return the value of GLACCOUNT
      */
-    public void setCREATEDDATE(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
+    public String getGLACCOUNT() {
+        return (String) getAttributeInternal(GLACCOUNT);
     }
 
+    /**
+     * Sets <code>value</code> as the attribute value for GLACCOUNT.
+     * @param value value to set the GLACCOUNT
+     */
+    public void setGLACCOUNT(String value) {
+        setAttributeInternal(GLACCOUNT, value);
+    }
 
     /**
      * @param statisticalDataId key constituent

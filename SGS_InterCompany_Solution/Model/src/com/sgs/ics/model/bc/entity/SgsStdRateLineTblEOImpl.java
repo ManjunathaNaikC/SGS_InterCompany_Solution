@@ -58,6 +58,10 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         Attribute14,
         Attribute15,
         JOBCODE,
+        DEPTCOSTCENTER,
+        EMPLOYEEGRADELEVEL,
+        EMPLOYEEID,
+        PROGRAMNAME,
         SgsStandardRateSetupEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -81,6 +85,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
             return vals;
         }
     }
+
 
     public static final int STDRATELINESEQ = AttributesEnum.StdRateLineSeq.index();
     public static final int STANDARDRATESEQ = AttributesEnum.StandardRateSeq.index();
@@ -113,6 +118,10 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int JOBCODE = AttributesEnum.JOBCODE.index();
+    public static final int DEPTCOSTCENTER = AttributesEnum.DEPTCOSTCENTER.index();
+    public static final int EMPLOYEEGRADELEVEL = AttributesEnum.EMPLOYEEGRADELEVEL.index();
+    public static final int EMPLOYEEID = AttributesEnum.EMPLOYEEID.index();
+    public static final int PROGRAMNAME = AttributesEnum.PROGRAMNAME.index();
     public static final int SGSSTANDARDRATESETUPEO = AttributesEnum.SgsStandardRateSetupEO.index();
 
     /**
@@ -127,6 +136,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO");
     }
+
 
     /**
      * Gets the attribute value for StdRateLineSeq, using the alias name StdRateLineSeq.
@@ -608,6 +618,70 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
      */
     public void setJOBCODE(String value) {
         setAttributeInternal(JOBCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for DEPTCOSTCENTER, using the alias name DEPTCOSTCENTER.
+     * @return the value of DEPTCOSTCENTER
+     */
+    public String getDEPTCOSTCENTER() {
+        return (String) getAttributeInternal(DEPTCOSTCENTER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DEPTCOSTCENTER.
+     * @param value value to set the DEPTCOSTCENTER
+     */
+    public void setDEPTCOSTCENTER(String value) {
+        setAttributeInternal(DEPTCOSTCENTER, value);
+    }
+
+    /**
+     * Gets the attribute value for EMPLOYEEGRADELEVEL, using the alias name EMPLOYEEGRADELEVEL.
+     * @return the value of EMPLOYEEGRADELEVEL
+     */
+    public String getEMPLOYEEGRADELEVEL() {
+        return (String) getAttributeInternal(EMPLOYEEGRADELEVEL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for EMPLOYEEGRADELEVEL.
+     * @param value value to set the EMPLOYEEGRADELEVEL
+     */
+    public void setEMPLOYEEGRADELEVEL(String value) {
+        setAttributeInternal(EMPLOYEEGRADELEVEL, value);
+    }
+
+    /**
+     * Gets the attribute value for EMPLOYEEID, using the alias name EMPLOYEEID.
+     * @return the value of EMPLOYEEID
+     */
+    public String getEMPLOYEEID() {
+        return (String) getAttributeInternal(EMPLOYEEID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for EMPLOYEEID.
+     * @param value value to set the EMPLOYEEID
+     */
+    public void setEMPLOYEEID(String value) {
+        setAttributeInternal(EMPLOYEEID, value);
+    }
+
+    /**
+     * Gets the attribute value for PROGRAMNAME, using the alias name PROGRAMNAME.
+     * @return the value of PROGRAMNAME
+     */
+    public String getPROGRAMNAME() {
+        return (String) getAttributeInternal(PROGRAMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PROGRAMNAME.
+     * @param value value to set the PROGRAMNAME
+     */
+    public void setPROGRAMNAME(String value) {
+        setAttributeInternal(PROGRAMNAME, value);
     }
 
     /**

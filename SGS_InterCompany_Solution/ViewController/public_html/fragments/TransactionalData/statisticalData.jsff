@@ -46,7 +46,28 @@
                               rowSelection="single" fetchSize="#{bindings.SgsStatisticalDataVO1.rangeSize}"
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
-                              styleClass="AFStretchWidth">
+                              styleClass="AFStretchWidth" inlineStyle="height:800px">
+                        <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.name}"
+                                   filterable="true"
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}" id="c8">
+                            <!--<af:inputText value="#{row.bindings.CostGroup.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}"
+                                          id="it8">
+                                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
+                            </af:inputText>-->
+                            <af:selectOneChoice value="#{row.bindings.CostGroup.inputValue}"
+                                                label="#{row.bindings.CostGroup.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}"
+                                                id="soc1">
+                                <f:selectItems value="#{row.bindings.CostGroup.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"
@@ -126,6 +147,19 @@
                                 <f:validator binding="#{row.bindings.StatisticalData.validator}"/>
                             </af:inputText>
                         </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}" id="c16"
+                        sortProperty="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.name}"
+                                   filterable="true">
+                            <af:inputText value="#{row.bindings.GLACCOUNT.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.tooltip}"
+                                          id="it8">
+                                <f:validator binding="#{row.bindings.GLACCOUNT.validator}"/>
+                            </af:inputText>
+                        </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.label}" id="c7">
@@ -139,22 +173,9 @@
                                 <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.name}"
-                                   filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}" id="c8">
-                            <af:inputText value="#{row.bindings.CostGroup.inputValue}"
-                                          label="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}"
-                                          required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
-                                          columns="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.displayWidth}"
-                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.precision}"
-                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}"
-                                          id="it8">
-                                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
-                            </af:inputText>
-                        </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.Currency.name}"
                                    filterable="true" headerText="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}"
-                                   id="c9">
+                                   id="c9" rendered="false">
                             <af:inputText value="#{row.bindings.Currency.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.Currency.mandatory}"
@@ -179,7 +200,8 @@
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}" id="c11">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}" id="c11"
+                                   rendered="false">
                             <af:inputText value="#{row.bindings.TargetAmount.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.mandatory}"
@@ -270,243 +292,4 @@
             </af:panelBox>
         </f:facet>
     </af:panelStretchLayout>
-
-  <af:panelStretchLayout id="psl1">
-    <f:facet name="start"/>
-    <f:facet name="end"/>
-    <f:facet name="top"/>
-    <f:facet name="bottom"/>
-    <f:facet name="center">
-      <af:panelBox text="Statistical Data" id="pb1" inlineStyle="margin-top: 1px;">
-        <f:facet name="toolbar"/>
-        <af:panelGroupLayout layout="vertical" id="pgl1">
-         
-            <af:query id="qryId1" headerText="Search" disclosed="true"
-                      value="#{bindings.SgsStatisticalDataVOCriteriaQuery.queryDescriptor}"
-                      model="#{bindings.SgsStatisticalDataVOCriteriaQuery.queryModel}"
-                      queryListener="#{bindings.SgsStatisticalDataVOCriteriaQuery.processQuery}"
-                      queryOperationListener="#{bindings.SgsStatisticalDataVOCriteriaQuery.processQueryOperation}"
-                      saveQueryMode="hidden" rows="3" maxColumns="3"/>
-       
-        </af:panelGroupLayout>
-        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-          <f:facet name="menus"/>
-          <f:facet name="toolbar">
-            <af:toolbar id="t2">
-              <af:button text="Copy From Previous Month" id="b3"/>
-              <af:button text="Upload Data" id="b5"/>
-              <!--<af:button text="Delete Data" id="b6"/>-->
-              <af:button text="Submit For Approval" id="b7"/>
-              <af:button  actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save" id="b4"/>
-              <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
-                         actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
-              <af:button  id="b1" action="ADD" icon="/resources/icons/plus.png" shortDesc="Create/Add Statistical Data"
-                actionListener="#{bindings.CreateStatisticalData.execute}"/>
-              
-         
-            </af:toolbar>
-          </f:facet>
-          <f:facet name="statusbar"/>
-          <af:table value="#{bindings.SgsStatisticalDataVO1.collectionModel}" var="row"
-                    rows="#{bindings.SgsStatisticalDataVO1.rangeSize}"
-                    emptyText="#{bindings.SgsStatisticalDataVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0"
-                    selectedRowKeys="#{bindings.SgsStatisticalDataVO1.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.SgsStatisticalDataVO1.collectionModel.makeCurrent}"
-                    rowSelection="single" fetchSize="#{bindings.SgsStatisticalDataVO1.rangeSize}"
-                    filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
-                    queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
-                    styleClass="AFStretchWidth" inlineStyle="height:500px">
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
-                       filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}" id="c1">
-              <af:inputText value="#{row.bindings.StatisticalDataCategory.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.tooltip}"
-                            id="it1">
-                <f:validator binding="#{row.bindings.StatisticalDataCategory.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.label}" id="c2">
-              <af:inputText value="#{row.bindings.ToBusinessUnit.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.tooltip}" id="it2">
-                <f:validator binding="#{row.bindings.ToBusinessUnit.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.label}" id="c3">
-              <af:inputText value="#{row.bindings.ToJobCode.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.tooltip}" id="it3">
-                <f:validator binding="#{row.bindings.ToJobCode.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.label}" id="c4">
-              <af:inputText value="#{row.bindings.ToOperatingUnit.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.tooltip}" id="it4">
-                <f:validator binding="#{row.bindings.ToOperatingUnit.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.label}" id="c5">
-              <af:inputText value="#{row.bindings.ToDepartmentId.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.tooltip}" id="it5">
-                <f:validator binding="#{row.bindings.ToDepartmentId.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.label}" id="c6">
-              <af:inputText value="#{row.bindings.StatisticalData.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.tooltip}" id="it6">
-                <f:validator binding="#{row.bindings.StatisticalData.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.label}" id="c7">
-              <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.tooltip}" id="it7">
-                <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}" id="c8">
-              <af:selectOneChoice value="#{row.bindings.CostGroup.inputValue}" label="#{row.bindings.CostGroup.label}"
-                                  required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
-                                  shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}" id="soc1">
-                <f:selectItems value="#{row.bindings.CostGroup.items}" id="si1"/>
-                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
-              </af:selectOneChoice>
-              <!--<af:inputText value="#{row.bindings.CostGroup.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}" id="it8">
-                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
-              </af:inputText>-->
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}" id="c10">
-              <af:inputText value="#{row.bindings.EmployeeId.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.tooltip}" id="it10">
-                <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.Currency.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}" id="c9">
-              <af:inputText value="#{row.bindings.Currency.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.Currency.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.Currency.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.Currency.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.Currency.tooltip}" id="it9">
-                <f:validator binding="#{row.bindings.Currency.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}" id="c11">
-              <af:inputText value="#{row.bindings.TargetAmount.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.tooltip}" id="it11">
-                <f:validator binding="#{row.bindings.TargetAmount.validator}"/>
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.format}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.label}" id="c12">
-              <af:inputText value="#{row.bindings.RejectedReason.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.tooltip}" id="it12">
-                <f:validator binding="#{row.bindings.RejectedReason.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.label}" id="c13">
-              <af:inputText value="#{row.bindings.RejectionComments.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.displayWidth}"
-                            maximumLength="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.precision}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.tooltip}" id="it13">
-                <f:validator binding="#{row.bindings.RejectionComments.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.label}" id="c14">
-              <f:facet name="filter">
-                <af:inputDate value="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ValidityFrom.value}"
-                              id="id1">
-                  <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.format}"/>
-                </af:inputDate>
-              </f:facet>
-              <af:inputDate value="#{row.bindings.ValidityFrom.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.displayWidth}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.tooltip}" id="id2">
-                <f:validator binding="#{row.bindings.ValidityFrom.validator}"/>
-                <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.format}"/>
-              </af:inputDate>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.name}" filterable="true"
-                       headerText="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.label}" id="c15">
-              <f:facet name="filter">
-                <af:inputDate value="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ValidityTill.value}"
-                              id="id3">
-                  <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.format}"/>
-                </af:inputDate>
-              </f:facet>
-              <af:inputDate value="#{row.bindings.ValidityTill.inputValue}"
-                            label="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.label}"
-                            required="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.mandatory}"
-                            columns="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.displayWidth}"
-                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.tooltip}" id="id4">
-                <f:validator binding="#{row.bindings.ValidityTill.validator}"/>
-                <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.format}"/>
-              </af:inputDate>
-            </af:column>
-          </af:table>
-        </af:panelCollection>
-      </af:panelBox>
-    </f:facet>
-  </af:panelStretchLayout>
 </ui:composition>

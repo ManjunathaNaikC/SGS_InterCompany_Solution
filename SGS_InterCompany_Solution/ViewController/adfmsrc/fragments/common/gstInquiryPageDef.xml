@@ -36,7 +36,8 @@
     </tree>
     <action IterBinding="SgsGstTblVO1Iterator" id="CreateInsert" InstanceName="SGSAppModuleDataControl.SgsGstTblVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
-    <action IterBinding="SgsGstTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsGstTblVO1"
+    <action IterBinding="SgsGstTblVO1Iterator" id="DeleteGst" InstanceName="SGSAppModuleDataControl.SgsGstTblVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

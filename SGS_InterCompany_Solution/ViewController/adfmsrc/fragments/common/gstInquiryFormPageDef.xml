@@ -94,7 +94,6 @@
         <Item Value="SgstReceivable"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
     <action IterBinding="SgsGstTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsGstTblVO1"
@@ -113,7 +112,7 @@
     </tree>
     <action IterBinding="SgsGstTaxRateApplicabilityVO2Iterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action IterBinding="SgsGstTaxRateApplicabilityVO2Iterator" id="Delete1" RequiresUpdateModel="false"
+    <action IterBinding="SgsGstTaxRateApplicabilityVO2Iterator" id="DeleteGstChild" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <attributeValues IterBinding="SgsGstTblVO1Iterator" id="UpdatedDate">
       <AttrNames>
@@ -125,5 +124,6 @@
         <Item Value="UpdatedBy"/>
       </AttrNames>
     </attributeValues>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

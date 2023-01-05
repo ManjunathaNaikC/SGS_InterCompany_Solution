@@ -22,221 +22,473 @@
     PrecisionRule="true"
     EntityAttrName="IcLineSeqNo"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="IC_LINE_SEQ_NO"/>
+    AliasName="IC_LINE_SEQ_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.IcLineSeqNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IcLineNo"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IcLineNo"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="IC_LINE_NO"/>
+    AliasName="IC_LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.IcLineNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvoiceSeqNo"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="InvoiceSeqNo"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="INVOICE_SEQ_NO"/>
+    AliasName="INVOICE_SEQ_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.InvoiceSeqNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CostIdentificationId"
     PrecisionRule="true"
     EntityAttrName="CostIdentificationId"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="COST_IDENTIFICATION_ID"/>
+    AliasName="COST_IDENTIFICATION_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.CostIdentificationId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AllocationBasis"
     PrecisionRule="true"
     EntityAttrName="AllocationBasis"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ALLOCATION_BASIS"/>
+    AliasName="ALLOCATION_BASIS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.AllocationBasis_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FromBu"
     PrecisionRule="true"
     EntityAttrName="FromBu"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="FROM_BU"/>
+    AliasName="FROM_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.FromBu_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FromOu"
     PrecisionRule="true"
     EntityAttrName="FromOu"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="FROM_OU"/>
+    AliasName="FROM_OU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.FromOu_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FromJobCode"
     PrecisionRule="true"
     EntityAttrName="FromJobCode"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="FROM_JOB_CODE"/>
+    AliasName="FROM_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.FromJobCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FromDepartmentId"
     PrecisionRule="true"
     EntityAttrName="FromDepartmentId"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="FROM_DEPARTMENT_ID"/>
+    AliasName="FROM_DEPARTMENT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.FromDepartmentId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourceCurrency"
     PrecisionRule="true"
     EntityAttrName="SourceCurrency"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="SOURCE_CURRENCY"/>
+    AliasName="SOURCE_CURRENCY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.SourceCurrency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourceAmount"
     PrecisionRule="true"
     EntityAttrName="SourceAmount"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="SOURCE_AMOUNT"/>
+    AliasName="SOURCE_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.SourceAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToBu"
     PrecisionRule="true"
     EntityAttrName="ToBu"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="TO_BU"/>
+    AliasName="TO_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.ToBu_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToOu"
     PrecisionRule="true"
     EntityAttrName="ToOu"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="TO_OU"/>
+    AliasName="TO_OU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.ToOu_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToJobCode"
     PrecisionRule="true"
     EntityAttrName="ToJobCode"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="TO_JOB_CODE"/>
+    AliasName="TO_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.ToJobCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToDepartmentId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="ToDepartmentId"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="TO_DEPARTMENT_ID"/>
+    AliasName="TO_DEPARTMENT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.ToDepartmentId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TargetGlAccountDr"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="TargetGlAccountDr"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="TARGET_GL_ACCOUNT_DR"/>
+    AliasName="TARGET_GL_ACCOUNT_DR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.TargetGlAccountDr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OffsetGlAccountCr"
     PrecisionRule="true"
     EntityAttrName="OffsetGlAccountCr"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="OFFSET_GL_ACCOUNT_CR"/>
+    AliasName="OFFSET_GL_ACCOUNT_CR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.OffsetGlAccountCr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AllocatedAmount"
     PrecisionRule="true"
     EntityAttrName="AllocatedAmount"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ALLOCATED_AMOUNT"/>
+    AliasName="ALLOCATED_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.AllocatedAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccountingTreatment"
     PrecisionRule="true"
     EntityAttrName="AccountingTreatment"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ACCOUNTING_TREATMENT"/>
+    AliasName="ACCOUNTING_TREATMENT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.AccountingTreatment_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="MarkupRate"
     PrecisionRule="true"
     EntityAttrName="MarkupRate"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="MARKUP_RATE"/>
+    AliasName="MARKUP_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.MarkupRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="MarkupAmount"
     PrecisionRule="true"
     EntityAttrName="MarkupAmount"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="MARKUP_AMOUNT"/>
+    AliasName="MARKUP_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.MarkupAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvoiceCurrency"
     PrecisionRule="true"
     EntityAttrName="InvoiceCurrency"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="INVOICE_CURRENCY"/>
+    AliasName="INVOICE_CURRENCY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.InvoiceCurrency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InvoiceLineAmount"
     PrecisionRule="true"
     EntityAttrName="InvoiceLineAmount"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="INVOICE_LINE_AMOUNT"/>
+    AliasName="INVOICE_LINE_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.InvoiceLineAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BaseAmountBeforeTax"
     PrecisionRule="true"
     EntityAttrName="BaseAmountBeforeTax"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="BASE_AMOUNT_BEFORE_TAX"/>
+    AliasName="BASE_AMOUNT_BEFORE_TAX">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.BaseAmountBeforeTax_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GstVatRate"
     PrecisionRule="true"
     EntityAttrName="GstVatRate"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="GST_VAT_RATE"/>
+    AliasName="GST_VAT_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.GstVatRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GstVatAmount"
     PrecisionRule="true"
     EntityAttrName="GstVatAmount"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="GST_VAT_AMOUNT"/>
+    AliasName="GST_VAT_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.GstVatAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TotalAmountAfterTax"
     PrecisionRule="true"
     EntityAttrName="TotalAmountAfterTax"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="TOTAL_AMOUNT_AFTER_TAX"/>
+    AliasName="TOTAL_AMOUNT_AFTER_TAX">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.TotalAmountAfterTax_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WhtRate"
     PrecisionRule="true"
     EntityAttrName="WhtRate"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="WHT_RATE"/>
+    AliasName="WHT_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.WhtRate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TransactionStatus"
     PrecisionRule="true"
     EntityAttrName="TransactionStatus"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="TRANSACTION_STATUS"/>
+    AliasName="TRANSACTION_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.TransactionStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourcePsftId"
     PrecisionRule="true"
     EntityAttrName="SourcePsftId"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="SOURCE_PSFT_ID"/>
+    AliasName="SOURCE_PSFT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.SourcePsftId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourceStdRateId"
     PrecisionRule="true"
     EntityAttrName="SourceStdRateId"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="SOURCE_STD_RATE_ID"/>
+    AliasName="SOURCE_STD_RATE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.SourceStdRateId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SourceStatId"
     PrecisionRule="true"
     EntityAttrName="SourceStatId"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="SOURCE_STAT_ID"/>
+    AliasName="SOURCE_STAT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.SourceStatId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedDate"
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.UpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
     EntityAttrName="UpdatedBy"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="UPDATED_BY"/>
+    AliasName="UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.UpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute1"
     PrecisionRule="true"
@@ -327,4 +579,8 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsIcInvoiceLineEO"
     AliasName="ATTRIBUTE15"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

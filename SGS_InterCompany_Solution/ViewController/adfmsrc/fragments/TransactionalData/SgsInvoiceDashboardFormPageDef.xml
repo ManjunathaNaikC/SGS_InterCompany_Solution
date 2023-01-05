@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="SgsInvoiceDashboardFormPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsIcInvoiceLineVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsIcInvoiceLineVO1Iterator"/>
+    <searchRegion Binds="SgsIcInvoiceLineVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsIcInvoiceLineVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsIcInvoiceLineVO1Iterator" id="SgsIcInvoiceLineVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO" Name="SgsIcInvoiceLineVO10">
+        <AttrNames>
+          <Item Value="IcLineSeqNo"/>
+          <Item Value="IcLineNo"/>
+          <Item Value="InvoiceSeqNo"/>
+          <Item Value="CostIdentificationId"/>
+          <Item Value="AllocationBasis"/>
+          <Item Value="FromBu"/>
+          <Item Value="FromOu"/>
+          <Item Value="FromJobCode"/>
+          <Item Value="FromDepartmentId"/>
+          <Item Value="SourceCurrency"/>
+          <Item Value="SourceAmount"/>
+          <Item Value="ToBu"/>
+          <Item Value="ToOu"/>
+          <Item Value="ToJobCode"/>
+          <Item Value="ToDepartmentId"/>
+          <Item Value="TargetGlAccountDr"/>
+          <Item Value="OffsetGlAccountCr"/>
+          <Item Value="AllocatedAmount"/>
+          <Item Value="AccountingTreatment"/>
+          <Item Value="MarkupRate"/>
+          <Item Value="MarkupAmount"/>
+          <Item Value="InvoiceCurrency"/>
+          <Item Value="InvoiceLineAmount"/>
+          <Item Value="BaseAmountBeforeTax"/>
+          <Item Value="GstVatRate"/>
+          <Item Value="GstVatAmount"/>
+          <Item Value="TotalAmountAfterTax"/>
+          <Item Value="WhtRate"/>
+          <Item Value="TransactionStatus"/>
+          <Item Value="SourcePsftId"/>
+          <Item Value="SourceStdRateId"/>
+          <Item Value="SourceStatId"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

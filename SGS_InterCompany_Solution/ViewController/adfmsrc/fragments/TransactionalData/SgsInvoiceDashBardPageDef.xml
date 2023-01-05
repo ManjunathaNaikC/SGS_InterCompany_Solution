@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="SgsInvoiceDashBardPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsIcInvoiceHeaderVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsIcInvoiceHeaderVO1Iterator"/>
+    <searchRegion Criteria="SgsIcInvoiceHeaderVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SgsIcInvoiceHeaderVO1Iterator"
+                  id="SgsIcInvoiceHeaderVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="SgsIcInvoiceHeaderVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO" Name="SgsIcInvoiceHeaderVO10">
+        <AttrNames>
+          <Item Value="InvoiceSeqNo"/>
+          <Item Value="Period"/>
+          <Item Value="TpaId"/>
+          <Item Value="TransactionCategory"/>
+          <Item Value="TransactionType"/>
+          <Item Value="IuVendor"/>
+          <Item Value="SourceBu"/>
+          <Item Value="SourceCurrency"/>
+          <Item Value="SourceAmount"/>
+          <Item Value="IuCustomer"/>
+          <Item Value="TargetBu"/>
+          <Item Value="AccountingTreatment"/>
+          <Item Value="MarkupRate"/>
+          <Item Value="TargetCurrency"/>
+          <Item Value="InvoiceHeaderAmount"/>
+          <Item Value="MarkupAmount"/>
+          <Item Value="BaseAmountBeforeTax"/>
+          <Item Value="GstVatRate"/>
+          <Item Value="GstVatAmount"/>
+          <Item Value="TotalAmountAfterTax"/>
+          <Item Value="WhtRate"/>
+          <Item Value="WhtAmount"/>
+          <Item Value="TransactionStatus"/>
+          <Item Value="PaymentStatus"/>
+          <Item Value="PaidAmount"/>
+          <Item Value="ReferenceVoucherNum"/>
+          <Item Value="ReferenceInvoiceNum"/>
+          <Item Value="ReviewAccEntries"/>
+          <Item Value="InputProvider"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

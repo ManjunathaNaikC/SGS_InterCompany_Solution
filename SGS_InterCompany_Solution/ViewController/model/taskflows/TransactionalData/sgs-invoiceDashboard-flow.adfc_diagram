@@ -15,10 +15,37 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>SgsInvoiceDashBard&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">155.89648</property>
+         name="y">258.68945</property>
       <property
          name="page">/fragments/TransactionalData/SgsInvoiceDashBard.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SgsInvoiceDashboardLinesForm&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">SgsInvoiceDashboardLinesForm</property>
+      <property
+         name="x">816.04395</property>
+      <property
+         name="y">286.1494</property>
+      <property
+         name="documentReference">/taskflows/TransactionalData/SgsInvoiceDashboardLinesForm.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">SgsInvoiceDashboardLinesForm</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">toChildLines</property>
+      <property
+         name="sdm:polyPoints">R50,454.0,258.33887,775.04395,285.79883,L50</property>
+   </ControlFlowCase>
 </SDM>

@@ -279,4 +279,42 @@ public class ActionEventsBean {
     public void onCostIdentifierSave(ActionEvent actionEvent) {
         // Add event code here...
     }
+
+    public void onTdsWhtDelete(DialogEvent dialogEvent) {
+        // Add event code here...
+        executeBinding("DeleteTdsWht");
+                        executeBinding(SAVE_DATA);
+                        ADFUtils.deleteNotifier();
+    }
+
+//    public void genericSave(ActionEvent actionEvent) {
+//        // Add event code here...
+//        executeBinding(SAVE_DATA);
+//        ADFUtils.saveNotifier();
+////    }
+//        public void genericSave(ActionEvent actionEvent) {
+//        executeBinding(SAVE_DATA);
+//        ADFUtils.saveNotifier();
+//    }
+
+    public void onTdsWhtSave(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
+
+    public void onWhtIdenDelete(DialogEvent dialogEvent) {
+        // Add event code here...
+        executeBinding("DeleteWhtIden");
+                        executeBinding(SAVE_DATA);
+                        ADFUtils.deleteNotifier();
+        }
+
+    public void onWhtRateDelete(DialogEvent dialogEvent) {
+        // Add event code here...
+        executeBinding("DeleteWhtRate");
+                        executeBinding(SAVE_DATA);
+                        ADFUtils.deleteNotifier();
+    }
 }
+

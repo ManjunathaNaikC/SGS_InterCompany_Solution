@@ -11,7 +11,7 @@
         <af:panelBox id="pb1" text="Goods and Service Tax (GST) Setup Form">
           <f:facet name="toolbar">
             <af:toolbar id="t1">
-              <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"/>
               <af:button text="Cancel" id="b2" action="back" immediate="true"
                          actionListener="#{bindings.Rollback.execute}"
                          rendered="#{pageFlowScope.pGSTAddEdit == 'EDIT'}"/>
@@ -181,11 +181,20 @@
               <af:toolbar id="t3">
                 <af:button actionListener="#{bindings.CreateInsert.execute}"
                            disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/icons/plus.png"/>
-                <af:button actionListener="#{bindings.Delete1.execute}"
-                           disabled="#{!bindings.Delete1.enabled}" id="b5" icon="/resources/icons/delete.png"/>
+                <af:button id="b5" icon="/resources/icons/delete.png" shortDesc="Delete GST Tax Applicability">
+                           <af:showPopupBehavior popupId="p1gstChild"/>
+                        </af:button>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1gstChild">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onGSTChildDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+                            </af:popup>
             <af:table value="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel}" var="row"
                       rows="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}"
                       emptyText="#{bindings.SgsGstTaxRateApplicabilityVO2.viewable ? 'No data to display.' : 'Access Denied.'}"

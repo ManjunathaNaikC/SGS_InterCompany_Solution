@@ -104,8 +104,16 @@
     Name="sgsMarkUpRateMasterVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO"/>
   <ViewUsage
+
     Name="sgsStatisticalDataTempVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO"/>
+  <ViewUsage
+    Name="SgsIcInvoiceHeaderVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO"/>
+  <ViewUsage
+    Name="SgsIcInvoiceLineVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO"/>
+
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -173,8 +181,34 @@
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsGstTblVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsGstTaxRateApplicabilityVO2"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="SgsInvoiceHeaderToLines1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.SgsInvoiceHeaderToLines"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsIcInvoiceHeaderVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsIcInvoiceLineVO1"
+    Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
+    <Method
+      Name="loginValidationMethod"
+      MethodName="loginValidationMethod">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="user"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pass"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getDBConnection"
+      MethodName="getDBConnection">
+      <Return
+        Name="_return_type_"
+        Type="java.sql.Connection"/>
+    </Method>
     <Method
       Name="loginValidationMethod"
       MethodName="loginValidationMethod">

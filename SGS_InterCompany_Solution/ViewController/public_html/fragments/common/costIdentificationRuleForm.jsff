@@ -107,6 +107,13 @@
                                           shortDesc="#{bindings.InvJournalGrpCode.hints.tooltip}" id="it29">
                                 <f:validator binding="#{bindings.InvJournalGrpCode.validator}"/>
                             </af:inputText>
+                            <af:inputText value="#{bindings.SACHSN.inputValue}" label="#{bindings.SACHSN.hints.label}"
+                                          required="#{bindings.SACHSN.hints.mandatory}"
+                                          columns="#{bindings.SACHSN.hints.displayWidth}"
+                                          maximumLength="#{bindings.SACHSN.hints.precision}"
+                                          shortDesc="#{bindings.SACHSN.hints.tooltip}" id="it34">
+                                <f:validator binding="#{bindings.SACHSN.validator}"/>
+                            </af:inputText>
                             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                       label="#{bindings.EffectiveFrom.hints.label}"
                                       required="#{bindings.EffectiveFrom.hints.mandatory}"
@@ -278,6 +285,18 @@
                                           rowSelection="single"
                                           fetchSize="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}" id="t2"
                                           partialTriggers="::b4 ::b9" columnStretching="none">
+                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
+                                               id="c30">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.tooltip}"
+                                                      id="it31">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.FromBusinessUnit.label}"
                                                id="c1">
                                         <af:inputText value="#{row.bindings.FromBusinessUnit.inputValue}"
@@ -386,18 +405,6 @@
                                             <af:convertDateTime pattern="#{bindings.SgsCostIdentificationCombinationVO.hints.EffectiveTo.format}"/>
                                         </af:inputDate>
                                     </af:column>
-                                    <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
-                                               id="c30">
-                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
-                                                      label="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
-                                                      required="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.mandatory}"
-                                                      columns="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.displayWidth}"
-                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.precision}"
-                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.tooltip}"
-                                                      id="it31">
-                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.TcLineNo.label}"
                                                id="c31">
                                         <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
@@ -411,7 +418,7 @@
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.label}"
-                                               id="c10">
+                                               id="c10" rendered="false">
                                         <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
                                                       label="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.label}"
                                                       required="#{bindings.SgsCostIdentificationCombinationVO.hints.OcLineNo.mandatory}"
@@ -455,6 +462,18 @@
                                           rowSelection="single"
                                           fetchSize="#{bindings.CrossChargeCombinationVO.rangeSize}" id="t5"
                                           styleClass="AFStretchWidth" partialTriggers="::b6 ::b11">
+                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.label}"
+                                               id="c104">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.label}"
+                                                      required="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.tooltip}"
+                                                      id="it171">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetBusinessUnit.label}"
                                                id="c9">
                                         <af:inputText value="#{row.bindings.TargetBusinessUnit.inputValue}"
@@ -576,7 +595,7 @@
                                         </af:inputDate>
                                     </af:column>
                                               <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.label}"
-                                               id="c301">
+                                               id="c301" rendered="false">
                                         <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
                                                       label="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.label}"
                                                       required="#{bindings.CrossChargeCombinationVO.hints.IcLineNo.mandatory}"
@@ -597,18 +616,6 @@
                                                       shortDesc="#{bindings.CrossChargeCombinationVO.hints.TcLineNo.tooltip}"
                                                       id="it302">
                                             <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
-                                    <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.label}"
-                                               id="c104">
-                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
-                                                      label="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.label}"
-                                                      required="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.mandatory}"
-                                                      columns="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.displayWidth}"
-                                                      maximumLength="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.precision}"
-                                                      shortDesc="#{bindings.CrossChargeCombinationVO.hints.OcLineNo.tooltip}"
-                                                      id="it171">
-                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
                                         </af:inputText>
                                     </af:column>
                                 </af:table>
@@ -759,6 +766,17 @@
                                             <af:convertDateTime pattern="#{bindings.AllocationRuleVO.hints.EffectiveTo.format}"/>
                                         </af:inputDate>
                                     </af:column>-->
+                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}" id="c317">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
+                                                      required="#{bindings.AllocationRuleVO.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.AllocationRuleVO.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.AllocationRuleVO.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.AllocationRuleVO.hints.TcLineNo.tooltip}"
+                                                      id="it312">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.AllocationRuleVO.hints.OffsetBusinessUnit.label}"
                                                id="c24">
                                         <af:inputText value="#{row.bindings.OffsetBusinessUnit.inputValue}"
@@ -889,18 +907,6 @@
                                                       shortDesc="#{bindings.AllocationRuleVO.hints.IcLineNo.tooltip}"
                                                       id="it314">
                                             <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
-                                    <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
-                                               id="c317">
-                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
-                                                      label="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
-                                                      required="#{bindings.AllocationRuleVO.hints.TcLineNo.mandatory}"
-                                                      columns="#{bindings.AllocationRuleVO.hints.TcLineNo.displayWidth}"
-                                                      maximumLength="#{bindings.AllocationRuleVO.hints.TcLineNo.precision}"
-                                                      shortDesc="#{bindings.AllocationRuleVO.hints.TcLineNo.tooltip}"
-                                                      id="it312">
-                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
                                         </af:inputText>
                                     </af:column>
                                     <af:column headerText="#{bindings.AllocationRuleVO.hints.OcLineNo.label}"

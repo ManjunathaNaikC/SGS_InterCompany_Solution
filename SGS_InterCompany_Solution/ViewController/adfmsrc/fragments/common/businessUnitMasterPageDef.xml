@@ -43,7 +43,7 @@
             InstanceName="SGSAppModuleDataControl.SgsBusinessUnitMasterVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
-    <action IterBinding="SgsBusinessUnitMasterVO1Iterator" id="Delete"
+    <action IterBinding="SgsBusinessUnitMasterVO1Iterator" id="DeleteBU"
             InstanceName="SGSAppModuleDataControl.SgsBusinessUnitMasterVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>

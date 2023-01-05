@@ -816,6 +816,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="SACHSN"
+    PrecisionRule="true"
+    EntityAttrName="SACHSN"
+    EntityUsage="SgsCostIdentificationRuleEO"
+    AliasName="SAC_HSN">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.SACHSN_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsCostIdentificationRuleVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"

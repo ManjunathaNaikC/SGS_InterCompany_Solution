@@ -298,6 +298,30 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="SERVICEPROVIDERLEGALENTITY"
+    Precision="80"
+    ColumnName="SERVICE_PROVIDER_LEGAL_ENTITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_VAT_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SERVICERECEIVERLEGALENTITY"
+    Precision="80"
+    ColumnName="SERVICE_RECEIVER_LEGAL_ENTITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_VAT_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsVatTaxApplicabilityEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsVatTaxApplicabilityAssoc"

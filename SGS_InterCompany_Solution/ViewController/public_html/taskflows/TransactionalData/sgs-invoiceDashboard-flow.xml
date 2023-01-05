@@ -8,6 +8,19 @@
     <view id="SgsInvoiceDashBard">
       <page>/fragments/TransactionalData/SgsInvoiceDashBard.jsff</page>
     </view>
+    <task-flow-call id="SgsInvoiceDashboardLinesForm">
+      <task-flow-reference>
+        <document>/taskflows/TransactionalData/SgsInvoiceDashboardLinesForm.xml</document>
+        <id>SgsInvoiceDashboardLinesForm</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>SgsInvoiceDashBard</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toChildLines</from-outcome>
+        <to-activity-id>SgsInvoiceDashboardLinesForm</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

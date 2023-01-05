@@ -115,19 +115,19 @@
           <Item Value="Documentation"/>
           <Item Value="ChargeabilityToTax"/>
           <Item Value="TdsWhtApplSeq"/>
+          <Item Value="NATUREOFEXPENSE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <action IterBinding="SgsTdsWhtIdentificationVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action IterBinding="SgsTdsWhtIdentificationVO1Iterator" id="Delete" RequiresUpdateModel="false"
+    <action IterBinding="SgsTdsWhtIdentificationVO1Iterator" id="DeleteWhtIden" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
     <action IterBinding="SgsTdsWhtRateApplicabilityVO1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action IterBinding="SgsTdsWhtRateApplicabilityVO1Iterator" id="Delete1" RequiresUpdateModel="false"
+    <action IterBinding="SgsTdsWhtRateApplicabilityVO1Iterator" id="DeleteWhtRate" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="SgsTdsWhtTblVO1Iterator" id="Delete2" InstanceName="SGSAppModuleDataControl.SgsTdsWhtTblVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
@@ -136,5 +136,16 @@
         <Item Value="UPDATEDBY"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="SERVICEPROVIDERLEGALENTITY">
+      <AttrNames>
+        <Item Value="SERVICEPROVIDERLEGALENTITY"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="SERVICERECEIVERLEGALENTITY">
+      <AttrNames>
+        <Item Value="SERVICERECEIVERLEGALENTITY"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

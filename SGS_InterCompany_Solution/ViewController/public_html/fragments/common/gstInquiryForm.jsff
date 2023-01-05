@@ -11,7 +11,7 @@
         <af:panelBox id="pb1" text="Goods and Service Tax (GST) Setup Form">
           <f:facet name="toolbar">
             <af:toolbar id="t1">
-              <af:button text="Save" id="b1" actionListener="#{bindings.Commit.execute}"/>
+              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"/>
               <af:button text="Cancel" id="b2" action="back" immediate="true"
                          actionListener="#{bindings.Rollback.execute}"
                          rendered="#{pageFlowScope.pGSTAddEdit == 'EDIT'}"/>
@@ -85,7 +85,7 @@
             <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
                           required="#{bindings.CreatedDate.hints.mandatory}"
                           columns="#{bindings.CreatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3">
+                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3" readOnly="true">
               <f:validator binding="#{bindings.CreatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
             </af:inputDate>
@@ -93,14 +93,14 @@
                           required="#{bindings.CreatedBy.hints.mandatory}"
                           columns="#{bindings.CreatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.CreatedBy.hints.precision}"
-                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it8">
+                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it8" readOnly="true">
               <f:validator binding="#{bindings.CreatedBy.validator}"/>
             </af:inputText>
             <af:inputDate value="#{bindings.UpdatedDate.inputValue}" 
                           required="#{bindings.UpdatedDate.hints.mandatory}"
                           columns="#{bindings.UpdatedDate.hints.displayWidth}"
                           shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4"
-                          label="#{bindings.UpdatedDate.hints.label}">
+                          label="#{bindings.UpdatedDate.hints.label}" readOnly="true">
               <f:validator binding="#{bindings.UpdatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
             </af:inputDate>
@@ -109,7 +109,7 @@
                           columns="#{bindings.UpdatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.UpdatedBy.hints.precision}"
                           shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it20"
-                          label="#{bindings.UpdatedBy.hints.label}">
+                          label="#{bindings.UpdatedBy.hints.label}" readOnly="true">
               <f:validator binding="#{bindings.UpdatedBy.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
@@ -181,11 +181,20 @@
               <af:toolbar id="t3">
                 <af:button actionListener="#{bindings.CreateInsert.execute}"
                            disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/icons/plus.png"/>
-                <af:button actionListener="#{bindings.Delete1.execute}"
-                           disabled="#{!bindings.Delete1.enabled}" id="b5" icon="/resources/icons/delete.png"/>
+                <af:button id="b5" icon="/resources/icons/delete.png" shortDesc="Delete GST Tax Applicability">
+                           <af:showPopupBehavior popupId="p1gstChild"/>
+                        </af:button>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1gstChild">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onGSTChildDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+                            </af:popup>
             <af:table value="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel}" var="row"
                       rows="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}"
                       emptyText="#{bindings.SgsGstTaxRateApplicabilityVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -194,7 +203,8 @@
                       selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
                       partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.mandatory}"
@@ -205,7 +215,8 @@
                   <f:validator binding="#{row.bindings.CostGroupingCode.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.mandatory}"

@@ -10,9 +10,9 @@
       <af:panelBox text="Business Unit Details" id="pb1">
         <f:facet name="toolbar">
           <af:toolbar id="t1">
-            <af:button id="b1" action="back"
-                       actionListener="#{bindings.Commit.execute}"
-                       text="Save and Close" accessKey="S"/>
+            <af:button id="b1" 
+                       actionListener="#{viewScope.ActionEventsBean.genericSave}"
+                       text="Save" accessKey="S"/>
             <af:button id="b2" action="back" immediate="true"
                        actionListener="#{bindings.Rollback.execute}" rendered="#{pageFlowScope.pBUMAddEdit == 'EDIT'}"
                        text="Cancel" accessKey="C"/>

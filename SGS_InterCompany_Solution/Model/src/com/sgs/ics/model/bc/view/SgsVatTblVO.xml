@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="bVatId"
     Kind="viewcriteria"
@@ -127,7 +128,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsVatTblEO"
-    AliasName="CREATED_DATE">
+    AliasName="CREATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -154,7 +156,8 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsVatTblEO"
-    AliasName="UPDATED_DATE">
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -291,6 +294,32 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsVatTblEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="SERVICEPROVIDERLEGALENTITY"
+    PrecisionRule="true"
+    EntityAttrName="SERVICEPROVIDERLEGALENTITY"
+    EntityUsage="SgsVatTblEO"
+    AliasName="SERVICE_PROVIDER_LEGAL_ENTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsVatTblVO.SERVICEPROVIDERLEGALENTITY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SERVICERECEIVERLEGALENTITY"
+    PrecisionRule="true"
+    EntityAttrName="SERVICERECEIVERLEGALENTITY"
+    EntityUsage="SgsVatTblEO"
+    AliasName="SERVICE_RECEIVER_LEGAL_ENTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsVatTblVO.SERVICERECEIVERLEGALENTITY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsVatTblVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsVatTblVO"

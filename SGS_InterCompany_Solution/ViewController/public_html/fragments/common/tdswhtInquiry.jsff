@@ -26,10 +26,18 @@
               </af:button>
               <af:button id="b2" icon="/resources/icons/plus.png" action="ADD"
                          actionListener="#{bindings.CreateInsert.execute}"/>
-              <af:button id="b3" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
+              <af:button id="b3" icon="/resources/icons/delete.png" >
+              <af:showPopupBehavior popupId="p1TdsWht"/>
+              </af:button>
             </af:toolbar>
           </f:facet>
           <f:facet name="statusbar"/>
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p1TdsWht">
+        <af:dialog id="d1" dialogListener="#{viewScope.ActionEventsBean.onTdsWhtDelete}">
+         <f:facet name="buttonBar"/>
+         <af:message id="m1" messageType="confirmation" message="Do You Really Want To Delete?"/>
+           </af:dialog>
+         </af:popup>
           <af:table value="#{bindings.SgsTdsWhtTblVO1.collectionModel}" var="row"
                     rows="#{bindings.SgsTdsWhtTblVO1.rangeSize}"
                     emptyText="#{bindings.SgsTdsWhtTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -75,6 +83,16 @@
             <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.WhtExpenseAcc.label}" id="resId1c9">
               <af:outputText value="#{row.WhtExpenseAcc}"
                              shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.WhtExpenseAcc.tooltip}" id="ot9"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c2">
+              <af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}"
+                             id="ot15"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c3">
+              <af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
+                             shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}"
+                             id="ot16"/>
             </af:column>
             <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.label}" id="resId1c10">
               <af:outputText value="#{row.EffectiveFrom}"

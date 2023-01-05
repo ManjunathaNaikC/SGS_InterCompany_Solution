@@ -101,6 +101,7 @@
           <Item Value="NatureOfExpense"/>
           <Item Value="TrueUpDownApplicability"/>
           <Item Value="TrueUpDownFrequency"/>
+          <Item Value="SACHSN"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

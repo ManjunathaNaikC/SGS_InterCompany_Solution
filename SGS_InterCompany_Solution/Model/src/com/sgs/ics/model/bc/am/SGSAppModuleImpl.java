@@ -456,6 +456,30 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getsgsStatisticalDataTempVO1() {
         return (ViewObjectImpl) findViewObject("sgsStatisticalDataTempVO1");
+        }
+     /**
+     * Container's getter for SgsIcInvoiceHeaderVO1.
+     * @return SgsIcInvoiceHeaderVO1
+     */
+    public ViewObjectImpl getSgsIcInvoiceHeaderVO1() {
+        return (ViewObjectImpl) findViewObject("SgsIcInvoiceHeaderVO1");
+    }
+
+    /**
+     * Container's getter for SgsIcInvoiceLineVO1.
+     * @return SgsIcInvoiceLineVO1
+     */
+    public ViewObjectImpl getSgsIcInvoiceLineVO1() {
+        return (ViewObjectImpl) findViewObject("SgsIcInvoiceLineVO1");
+    }
+
+    /**
+     * Container's getter for SgsInvoiceHeaderToLines1.
+     * @return SgsInvoiceHeaderToLines1
+     */
+    public ViewLinkImpl getSgsInvoiceHeaderToLines1() {
+        return (ViewLinkImpl) findViewLink("SgsInvoiceHeaderToLines1");
+
     }
 }
 

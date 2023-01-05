@@ -55,6 +55,8 @@ public class SgsVatTblEOImpl extends EntityImpl {
         VatInputGlAcc,
         VatOutputGlAcc,
         Attribute15,
+        SERVICEPROVIDERLEGALENTITY,
+        SERVICERECEIVERLEGALENTITY,
         SgsVatTaxApplicabilityEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -79,6 +81,7 @@ public class SgsVatTblEOImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsVatTblEOImpl.class);
+
 
     public static final int VATNUM = AttributesEnum.VatNum.index();
     public static final int VATSEQ = AttributesEnum.VatSeq.index();
@@ -108,12 +111,21 @@ public class SgsVatTblEOImpl extends EntityImpl {
     public static final int VATINPUTGLACC = AttributesEnum.VatInputGlAcc.index();
     public static final int VATOUTPUTGLACC = AttributesEnum.VatOutputGlAcc.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int SERVICEPROVIDERLEGALENTITY = AttributesEnum.SERVICEPROVIDERLEGALENTITY.index();
+    public static final int SERVICERECEIVERLEGALENTITY = AttributesEnum.SERVICERECEIVERLEGALENTITY.index();
     public static final int SGSVATTAXAPPLICABILITYEO = AttributesEnum.SgsVatTaxApplicabilityEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SgsVatTblEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsVatTblEO");
     }
 
     /**
@@ -236,13 +248,6 @@ public class SgsVatTblEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
@@ -268,13 +273,6 @@ public class SgsVatTblEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedDate.
-     * @param value value to set the UpdatedDate
-     */
-    public void setUpdatedDate(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedBy, using the alias name UpdatedBy.
@@ -565,11 +563,44 @@ public class SgsVatTblEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for SERVICEPROVIDERLEGALENTITY, using the alias name SERVICEPROVIDERLEGALENTITY.
+     * @return the value of SERVICEPROVIDERLEGALENTITY
+     */
+    public String getSERVICEPROVIDERLEGALENTITY() {
+        return (String) getAttributeInternal(SERVICEPROVIDERLEGALENTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SERVICEPROVIDERLEGALENTITY.
+     * @param value value to set the SERVICEPROVIDERLEGALENTITY
+     */
+    public void setSERVICEPROVIDERLEGALENTITY(String value) {
+        setAttributeInternal(SERVICEPROVIDERLEGALENTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for SERVICERECEIVERLEGALENTITY, using the alias name SERVICERECEIVERLEGALENTITY.
+     * @return the value of SERVICERECEIVERLEGALENTITY
+     */
+    public String getSERVICERECEIVERLEGALENTITY() {
+        return (String) getAttributeInternal(SERVICERECEIVERLEGALENTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SERVICERECEIVERLEGALENTITY.
+     * @param value value to set the SERVICERECEIVERLEGALENTITY
+     */
+    public void setSERVICERECEIVERLEGALENTITY(String value) {
+        setAttributeInternal(SERVICERECEIVERLEGALENTITY, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSgsVatTaxApplicabilityEO() {
         return (RowIterator) getAttributeInternal(SGSVATTAXAPPLICABILITYEO);
     }
+
 
     /**
      * @param vatSeq key constituent
@@ -578,13 +609,6 @@ public class SgsVatTblEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer vatSeq) {
         return new Key(new Object[] { vatSeq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsVatTblEO");
     }
 
     /**

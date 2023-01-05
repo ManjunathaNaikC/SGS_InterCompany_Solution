@@ -127,6 +127,11 @@
           <Item Value="BuUnit"/>
           <Item Value="EffectiveEndDate"/>
           <Item Value="EffectiveStartDate"/>
+          <Item Value="JOBCODE"/>
+          <Item Value="DEPTCOSTCENTER"/>
+          <Item Value="EMPLOYEEGRADELEVEL"/>
+          <Item Value="EMPLOYEEID"/>
+          <Item Value="PROGRAMNAME"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -137,5 +142,10 @@
     <action IterBinding="SgsStdRateLineTblVO4Iterator" id="DeleteStdRate"
             InstanceName="SGSAppModuleDataControl.SgsStdRateLineTblVO4" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsStandardRateSetupVO1Iterator" id="INPUTPROVIDER">
+      <AttrNames>
+        <Item Value="INPUTPROVIDER"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

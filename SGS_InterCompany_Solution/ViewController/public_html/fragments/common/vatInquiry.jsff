@@ -22,10 +22,20 @@
             <af:toolbar id="t1">
               <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
                          actionListener="#{bindings.CreateInsert.execute}"/>
-              <af:button id="b2" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
+              <af:button id="b2" icon="/resources/icons/delete.png" >
+               <af:showPopupBehavior popupId="p1vat"/>
+                                    </af:button>
             </af:toolbar>
           </f:facet>
           <f:facet name="statusbar"/>
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p1vat">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onVatDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+                            </af:popup>
           <af:table value="#{bindings.SgsVatTblVO1.collectionModel}" var="row" rows="#{bindings.SgsVatTblVO1.rangeSize}"
                     emptyText="#{bindings.SgsVatTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                     rowBandingInterval="0" selectedRowKeys="#{bindings.SgsVatTblVO1.collectionModel.selectedRow}"
@@ -54,6 +64,14 @@
             <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.label}" id="resId1c6">
               <af:outputText value="#{row.VatOutputGlAcc}"
                              shortDesc="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.tooltip}" id="ot6"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c1">
+              <af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
+                             shortDesc="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsVatTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c2">
+              <af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
+                             shortDesc="#{bindings.SgsVatTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}" id="ot13"/>
             </af:column>
             <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.label}" id="resId1c7">
               <af:outputText value="#{row.EffectiveFrom}"

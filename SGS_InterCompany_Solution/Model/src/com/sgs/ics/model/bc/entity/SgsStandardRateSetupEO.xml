@@ -370,6 +370,18 @@
     ColumnType="DATE"
     TableName="SGS_STANDARD_RATE_SETUP"
     HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="INPUTPROVIDER"
+    Precision="80"
+    ColumnName="INPUT_PROVIDER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STANDARD_RATE_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsStdRateLineTblEO"
     Association="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc"

@@ -156,13 +156,15 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsStdRateLineTblEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="UpdatedDate"
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsStdRateLineTblEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
@@ -259,6 +261,71 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsStdRateLineTblEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="JOBCODE"
+    PrecisionRule="true"
+    EntityAttrName="JOBCODE"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.JOBCODE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EMPLOYEEID"
+    PrecisionRule="true"
+    EntityAttrName="EMPLOYEEID"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="EMPLOYEE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.EMPLOYEEID_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EMPLOYEEGRADELEVEL"
+    PrecisionRule="true"
+    EntityAttrName="EMPLOYEEGRADELEVEL"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="EMPLOYEE_GRADE_LEVEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.EMPLOYEEGRADELEVEL_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DEPTCOSTCENTER"
+    PrecisionRule="true"
+    EntityAttrName="DEPTCOSTCENTER"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="DEPT_COST_CENTER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.DEPTCOSTCENTER_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PROGRAMNAME"
+    PrecisionRule="true"
+    EntityAttrName="PROGRAMNAME"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="PROGRAM_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.PROGRAMNAME_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

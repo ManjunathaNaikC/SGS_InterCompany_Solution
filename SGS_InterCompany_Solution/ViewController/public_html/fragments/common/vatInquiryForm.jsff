@@ -11,11 +11,12 @@
         <af:panelBox text="Value Added Tax" id="pb1">
           <f:facet name="toolbar">
             <af:toolbar id="t1">
-              <af:button text="Save and Close" id="b1" action="back" actionListener="#{bindings.Commit.execute}"/>
+              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"/>
               <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
-                         immediate="true" rendered="#{pageFlowScope.pVATAddEdit == 'EDIT'}"/>
+                         immediate="true" rendered="#{pageFlowScope.pVATAddEdit == 'EDIT'}" action="back"/>
               <af:button text="Cancel" id="b3" rendered="#{pageFlowScope.pVATAddEdit == 'ADD'}" immediate="true"
-                         actionListener="#{bindings.Delete.execute}" disabled="#{! bindings.Delete.enabled}"/>
+                         actionListener="#{bindings.DeleteVatTax.execute}" disabled="#{! bindings.DeleteVatTax.enabled}"
+                         action="back"/>
             </af:toolbar>
           </f:facet>
           <af:panelFormLayout id="pfl1" rows="8">
@@ -59,6 +60,22 @@
                           shortDesc="#{bindings.VatOutputGlAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.VatOutputGlAcc.validator}"/>
             </af:inputText>
+            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it11">
+              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it15">
+              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
+            </af:inputText>
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
                           columns="#{bindings.EffectiveFrom.hints.displayWidth}"
@@ -77,20 +94,20 @@
                           required="#{bindings.CreatedBy.hints.mandatory}"
                           columns="#{bindings.CreatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.CreatedBy.hints.precision}"
-                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it7">
+                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it7" readOnly="true">
               <f:validator binding="#{bindings.CreatedBy.validator}"/>
             </af:inputText>
             <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
                           required="#{bindings.CreatedDate.hints.mandatory}"
                           columns="#{bindings.CreatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3">
+                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3" readOnly="true">
               <f:validator binding="#{bindings.CreatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
             </af:inputDate>
             <af:inputDate value="#{bindings.UpdatedDate.inputValue}" label="#{bindings.UpdatedDate.hints.label}"
                           required="#{bindings.UpdatedDate.hints.mandatory}"
                           columns="#{bindings.UpdatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4">
+                          shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4" readOnly="true">
               <f:validator binding="#{bindings.UpdatedDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
             </af:inputDate>
@@ -98,7 +115,7 @@
                           required="#{bindings.UpdatedBy.hints.mandatory}"
                           columns="#{bindings.UpdatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.UpdatedBy.hints.precision}"
-                          shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it8">
+                          shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it8" readOnly="true">
               <f:validator binding="#{bindings.UpdatedBy.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
@@ -111,12 +128,22 @@
               <af:toolbar id="t3">
                 <af:button actionListener="#{bindings.CreateInsert.execute}"
                            disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/icons/plus.png"/>
-                <af:button actionListener="#{bindings.Delete1.execute}"
-                           disabled="#{!bindings.Delete1.enabled}" id="b5" icon="/resources/icons/delete.png"
-                           immediate="true"/>
+                <af:button 
+                           disabled="#{!bindings.DeleteVatTax.enabled}" id="b5" icon="/resources/icons/delete.png"
+                           immediate="true">
+                            <af:showPopupBehavior popupId="p1vat"/>
+                </af:button>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1vat">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onVatTaxDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+                            </af:popup>
             <af:table value="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel}" var="row"
                       rows="#{bindings.SgsVatTaxApplicabilityVO1.rangeSize}"
                       emptyText="#{bindings.SgsVatTaxApplicabilityVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -156,7 +183,8 @@
                   <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}" id="c5">
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}" id="c5"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.ItmServCat.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.mandatory}"
@@ -166,7 +194,8 @@
                   <f:validator binding="#{row.bindings.ItmServCat.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}" id="c6">
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}" id="c6"
+                         rendered="false">
                 <af:inputText value="#{row.bindings.ExemptSuppy.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.mandatory}"

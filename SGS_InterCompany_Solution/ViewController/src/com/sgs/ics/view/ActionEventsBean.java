@@ -276,9 +276,40 @@ public class ActionEventsBean {
         ADFUtils.saveNotifier();
     }
 
-    public void onCostIdentifierSave(ActionEvent actionEvent) {
+    
+    public void onGSTDelete(DialogEvent dialogEvent) {
         // Add event code here...
+        executeBinding("DeleteGst");
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
     }
+    
+    
+    public void genericSave(ActionEvent actionEvent) {
+            executeBinding(SAVE_DATA);
+            ADFUtils.saveNotifier();
+        }
+
+    public void onGSTChildDelete(DialogEvent dialogEvent) {
+        // Add event code here...
+        executeBinding("DeleteGstChild");
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
+    }
+
+    public void onBUDelete(DialogEvent dialogEvent) {
+        // Add event code here...
+        executeBinding("DeleteBU");
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
+    }
+
+    
+    public void genericSave(ActionEvent actionEvent) {
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
+
 
     public void onTdsWhtDelete(DialogEvent dialogEvent) {
         // Add event code here...
@@ -316,5 +347,25 @@ public class ActionEventsBean {
                         executeBinding(SAVE_DATA);
                         ADFUtils.deleteNotifier();
     }
+
+    public void onVatDelete(DialogEvent dialogEvent) {
+          // Add event code here...
+          executeBinding("DeleteVat");
+          executeBinding(SAVE_DATA);
+          ADFUtils.deleteNotifier();
+      }
+    public void onVatTaxDelete(DialogEvent dialogEvent) {
+          // Add event code here...
+          executeBinding("DeleteVatTax");
+          executeBinding(SAVE_DATA);
+          ADFUtils.deleteNotifier();
+      }
+    public void onStandardRateDelete(DialogEvent dialogEvent) {
+          // Add event code here...
+          executeBinding("DeleteStandardRate");
+          executeBinding(SAVE_DATA);
+          ADFUtils.deleteNotifier();
+      }
+
 }
 

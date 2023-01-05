@@ -31,7 +31,8 @@
     </tree>
     <action IterBinding="SgsVatTblVO1Iterator" id="CreateInsert" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
-    <action IterBinding="SgsVatTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
+    <action IterBinding="SgsVatTblVO1Iterator" id="DeleteVat" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

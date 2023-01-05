@@ -29,11 +29,20 @@
                 </af:button>
                 <af:button id="b2" icon="/resources/icons/plus.png" action="ADD"
                            actionListener="#{bindings.CreateInsert.execute}"/>
-                <af:button id="b3" icon="/resources/icons/delete.png"
-                           action="#{pageFlowScope.BusinessUnitsMasterBean.deleteBUMaster}"/>
+                <af:button id="b3" icon="/resources/icons/delete.png" shortDesc="Delete BU Master">
+                    <af:showPopupBehavior popupId="p1BuMaster"/>
+                </af:button>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1BuMaster">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onBUDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+            </af:popup>
             <af:table value="#{bindings.SgsBusinessUnitMasterVO1.collectionModel}" var="row"
                       rows="#{bindings.SgsBusinessUnitMasterVO1.rangeSize}"
                       emptyText="#{bindings.SgsBusinessUnitMasterVO1.viewable ? 'No data to display.' : 'Access Denied.'}"

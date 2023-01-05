@@ -25,10 +25,20 @@
               </af:button>
               <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
                          actionListener="#{bindings.CreateInsert.execute}"/>
-              <af:button id="b2" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
+              <af:button id="b2" icon="/resources/icons/delete.png" shortDesc="Delete GST" >
+                <af:showPopupBehavior popupId="p1gst"/>
+              </af:button>
             </af:toolbar>
           </f:facet>
           <f:facet name="statusbar"/>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1gst">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onGSTDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+             </af:popup>
           <af:table value="#{bindings.SgsGstTblVO1.collectionModel}" var="row" rows="#{bindings.SgsGstTblVO1.rangeSize}"
                     emptyText="#{bindings.SgsGstTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                     rowBandingInterval="0" selectedRowKeys="#{bindings.SgsGstTblVO1.collectionModel.selectedRow}"

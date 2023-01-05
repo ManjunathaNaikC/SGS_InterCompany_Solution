@@ -66,7 +66,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
+           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -448,6 +448,14 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getsgsMarkUpRateMasterVO1() {
         return (ViewObjectImpl) findViewObject("sgsMarkUpRateMasterVO1");
+    }
+
+    /**
+     * Container's getter for sgsStatisticalDataTempVO1.
+     * @return sgsStatisticalDataTempVO1
+     */
+    public ViewObjectImpl getsgsStatisticalDataTempVO1() {
+        return (ViewObjectImpl) findViewObject("sgsStatisticalDataTempVO1");
     }
 }
 

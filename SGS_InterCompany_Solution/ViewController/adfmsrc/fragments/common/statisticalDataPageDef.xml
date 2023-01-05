@@ -11,8 +11,8 @@
     <searchRegion Criteria="SgsStatisticalDataVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SgsStatisticalDataVO1Iterator"
                   id="SgsStatisticalDataVOCriteriaQuery"/>
-    <iterator id="sgsStatisticalDataTempVO1Iterator" Binds="sgsStatisticalDataTempVO1"
-              DataControl="SGSAppModuleDataControl" RangeSize="25"/>
+    <iterator Binds="sgsStatisticalDataTempVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
+              id="sgsStatisticalDataTempVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsStatisticalDataVO1Iterator" id="SgsStatisticalDataVO1">
@@ -43,6 +43,12 @@
     <action IterBinding="SgsStatisticalDataVO1Iterator" id="DeleteStatisticalData"
             InstanceName="SGSAppModuleDataControl.SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <!--<action IterBinding="sgsStatisticalDataTempVO1Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.sgsStatisticalDataTempVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="sgsStatisticalDataTempVO1Iterator" id="Execute"
+            InstanceName="SGSAppModuleDataControl.sgsStatisticalDataTempVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>-->
     <action IterBinding="sgsStatisticalDataTempVO1Iterator" id="CreateInsert"
             InstanceName="SGSAppModuleDataControl.sgsStatisticalDataTempVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>

@@ -11,11 +11,12 @@
         <af:panelBox text="Value Added Tax" id="pb1">
           <f:facet name="toolbar">
             <af:toolbar id="t1">
-              <af:button text="Save and Close" id="b1" action="back" actionListener="#{bindings.Commit.execute}"/>
+              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"/>
               <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
-                         immediate="true" rendered="#{pageFlowScope.pVATAddEdit == 'EDIT'}"/>
+                         immediate="true" rendered="#{pageFlowScope.pVATAddEdit == 'EDIT'}" action="back"/>
               <af:button text="Cancel" id="b3" rendered="#{pageFlowScope.pVATAddEdit == 'ADD'}" immediate="true"
-                         actionListener="#{bindings.Delete.execute}" disabled="#{! bindings.Delete.enabled}"/>
+                         actionListener="#{bindings.DeleteVatTax.execute}" disabled="#{! bindings.DeleteVatTax.enabled}"
+                         action="back"/>
             </af:toolbar>
           </f:facet>
           <af:panelFormLayout id="pfl1" rows="8">
@@ -127,12 +128,22 @@
               <af:toolbar id="t3">
                 <af:button actionListener="#{bindings.CreateInsert.execute}"
                            disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/icons/plus.png"/>
-                <af:button actionListener="#{bindings.Delete1.execute}"
-                           disabled="#{!bindings.Delete1.enabled}" id="b5" icon="/resources/icons/delete.png"
-                           immediate="true"/>
+                <af:button 
+                           disabled="#{!bindings.DeleteVatTax.enabled}" id="b5" icon="/resources/icons/delete.png"
+                           immediate="true">
+                            <af:showPopupBehavior popupId="p1vat"/>
+                </af:button>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1vat">
+                                <af:dialog id="d1"
+                                           dialogListener="#{viewScope.ActionEventsBean.onVatTaxDelete}">
+                                    <f:facet name="buttonBar"/>
+                                    <af:message id="m1" messageType="confirmation"
+                                                message="Do You Really Want To Delete?"/>
+                                </af:dialog>
+                            </af:popup>
             <af:table value="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel}" var="row"
                       rows="#{bindings.SgsVatTaxApplicabilityVO1.rangeSize}"
                       emptyText="#{bindings.SgsVatTaxApplicabilityVO1.viewable ? 'No data to display.' : 'Access Denied.'}"

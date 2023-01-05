@@ -279,4 +279,28 @@ public class ActionEventsBean {
     public void onCostIdentifierSave(ActionEvent actionEvent) {
         // Add event code here...
     }
+
+    
+    public void genericSave(ActionEvent actionEvent) {
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
+    public void onVatDelete(DialogEvent dialogEvent) {
+          // Add event code here...
+          executeBinding("DeleteVat");
+          executeBinding(SAVE_DATA);
+          ADFUtils.deleteNotifier();
+      }
+    public void onVatTaxDelete(DialogEvent dialogEvent) {
+          // Add event code here...
+          executeBinding("DeleteVatTax");
+          executeBinding(SAVE_DATA);
+          ADFUtils.deleteNotifier();
+      }
+    public void onStandardRateDelete(DialogEvent dialogEvent) {
+          // Add event code here...
+          executeBinding("DeleteStandardRate");
+          executeBinding(SAVE_DATA);
+          ADFUtils.deleteNotifier();
+      }
 }

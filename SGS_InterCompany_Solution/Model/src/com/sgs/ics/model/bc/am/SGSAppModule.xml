@@ -104,11 +104,16 @@
     Name="sgsMarkUpRateMasterVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO"/>
   <ViewUsage
+
+    Name="sgsStatisticalDataTempVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO"/>
+  <ViewUsage
     Name="SgsIcInvoiceHeaderVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO"/>
   <ViewUsage
     Name="SgsIcInvoiceLineVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO"/>
+
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

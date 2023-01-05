@@ -9,14 +9,19 @@
         <f:facet name="center">
             <af:panelBox text="Statistical Data" id="pb1" inlineStyle="margin-top: 1px;">
                 <f:facet name="toolbar"/>
-                <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelHeader text=" " id="ph1">
+                    <f:facet name="context"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
                     <af:query id="qryId1" headerText="Search" disclosed="true"
                               value="#{bindings.SgsStatisticalDataVOCriteriaQuery.queryDescriptor}"
                               model="#{bindings.SgsStatisticalDataVOCriteriaQuery.queryModel}"
                               queryListener="#{bindings.SgsStatisticalDataVOCriteriaQuery.processQuery}"
                               queryOperationListener="#{bindings.SgsStatisticalDataVOCriteriaQuery.processQueryOperation}"
-                              saveQueryMode="hidden" rows="3" maxColumns="3"/>
-                </af:panelGroupLayout>
+                              saveQueryMode="hidden" rows="3" maxColumns="3" resultComponentId="::pc1:t1"/>
+                </af:panelHeader>
                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">

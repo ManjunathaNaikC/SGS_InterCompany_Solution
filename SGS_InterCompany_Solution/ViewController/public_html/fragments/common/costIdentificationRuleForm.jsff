@@ -19,7 +19,7 @@
                        rendered="#{pageFlowScope.paddEditCIR == 'EDIT'}" text="Cancel" accessKey="C">
               <af:resetActionListener/>
                             </af:button>
-                            <af:button actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}"
+                            <af:button actionListener="#{bindings.Rollback.execute}"
                        id="b3" action="back"
                        rendered="#{pageFlowScope.paddEditCIR == 'ADD'}" immediate="true" text="Cancel"
                        accessKey="C"/>
@@ -280,13 +280,19 @@
                                           var="row" rows="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}"
                                           emptyText="#{bindings.SgsCostIdentificationCombinationVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                           rowBandingInterval="0"
+                                             filterModel="#{bindings.SgsCostIdentificationCombinationVOQuery.queryDescriptor}"
+                         
+                                      queryListener="#{bindings.SgsCostIdentificationCombinationVOQuery.processQuery}"
                                           selectedRowKeys="#{bindings.SgsCostIdentificationCombinationVO.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.SgsCostIdentificationCombinationVO.collectionModel.makeCurrent}"
                                           rowSelection="single"
                                           fetchSize="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}" id="t2"
-                                          partialTriggers="::b4 ::b9" columnStretching="none">
+                                          partialTriggers="::b4 ::b9" columnStretching="none" filterVisible="true">
                                     <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
-                                               id="c30">
+                                               id="c30"
+                                               sortProperty="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.name}"
+                     
+                                           filterable="true">
                                         <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
                                                       label="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.label}"
                                                       required="#{bindings.SgsCostIdentificationCombinationVO.hints.IcLineNo.mandatory}"

@@ -44,6 +44,10 @@
     Name="bNatureOfExpense"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bInputProvider"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AllocationBasisLOV"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
@@ -325,12 +329,12 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.AllocationBasis_LABEL"/>
-        <FIELDORDER
-          Value="3.0"/>
         <DISPLAYWIDTH
           Value="50"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <FIELDORDER
+          Value="3.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -537,10 +541,10 @@
     AliasName="COST_GROUP">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="19.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CostGroup_LABEL"/>
+        <FIELDORDER
+          Value="19.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -620,12 +624,12 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.DataSource_LABEL"/>
-        <FIELDORDER
-          Value="22.0"/>
         <DISPLAYWIDTH
           Value="50"/>
         <CONTROLTYPE
           Value="input_text_lov"/>
+        <FIELDORDER
+          Value="22.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -640,7 +644,7 @@
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveFrom_LABEL"/>
         <FIELDORDER
-          Value="23.0"/>
+          Value="24.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -655,7 +659,7 @@
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveTo_LABEL"/>
         <FIELDORDER
-          Value="24.0"/>
+          Value="25.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -667,10 +671,10 @@
     AliasName="INPUT_PROVIDER">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="25.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.InputProvider_LABEL"/>
+        <FIELDORDER
+          Value="23.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -682,10 +686,10 @@
     AliasName="INV_JOURNAL_GRP_CODE">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="26.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.InvJournalGrpCode_LABEL"/>
+        <FIELDORDER
+          Value="26.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -698,12 +702,12 @@
     LOVName="LOV_NatureOfExpense">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="27.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.NatureOfExpense_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <FIELDORDER
+          Value="27.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -718,10 +722,10 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
-        <FIELDORDER
-          Value="28.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.ServiceCategory_LABEL"/>
+        <FIELDORDER
+          Value="28.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -734,12 +738,12 @@
     LOVName="LOV_TrueUpDownApplicability">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="29.0"/>
         <CONTROLTYPE
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.TrueUpDownApplicability_LABEL"/>
+        <FIELDORDER
+          Value="29.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -752,12 +756,12 @@
     LOVName="LOV_TrueUpDownFrequency">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="30.0"/>
         <CONTROLTYPE
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.TrueUpDownFrequency_LABEL"/>
+        <FIELDORDER
+          Value="30.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -770,10 +774,10 @@
     IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="31.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.UpdatedBy_LABEL"/>
+        <FIELDORDER
+          Value="31.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -786,10 +790,10 @@
     IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="32.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.UpdatedDate_LABEL"/>
+        <FIELDORDER
+          Value="32.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -802,7 +806,14 @@
     Type="java.lang.String"
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="33.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NONPERSONNELCOST"
     PrecisionRule="true"
@@ -813,6 +824,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.NONPERSONNELCOST_LABEL"/>
+        <FIELDORDER
+          Value="34.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -826,6 +839,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.SACHSN_LABEL"/>
+        <FIELDORDER
+          Value="35.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -893,6 +908,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bEffectiveTo"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InputProvider"
+        ViewAttribute="InputProvider"
+        Operator="="
+        Conjunction="AND"
+        Value=":bInputProvider"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

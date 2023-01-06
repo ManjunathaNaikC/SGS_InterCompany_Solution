@@ -34,6 +34,17 @@
     Name="bOperatingUnit"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bInputProvider"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.bInputProvider_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <ViewAccessor
     Name="CostGroupLOV1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostGroupLOV"
@@ -64,7 +75,14 @@
     PrecisionRule="true"
     EntityAttrName="StatisticalDataId"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA_ID"/>
+    AliasName="STATISTICAL_DATA_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="0.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StatisticalDataCategory"
     IsNotNull="true"
@@ -76,6 +94,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.StatisticalDataCategory_LABEL"/>
+        <FIELDORDER
+          Value="1.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -89,6 +109,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ToBusinessUnit_LABEL"/>
+        <FIELDORDER
+          Value="2.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -102,6 +124,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ToJobCode_LABEL"/>
+        <FIELDORDER
+          Value="3.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -115,6 +139,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ToOperatingUnit_LABEL"/>
+        <FIELDORDER
+          Value="5.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -128,6 +154,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ToDepartmentId_LABEL"/>
+        <FIELDORDER
+          Value="6.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -141,6 +169,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.StatisticalData_LABEL"/>
+        <FIELDORDER
+          Value="7.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -154,6 +184,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UnitOfMeasure_LABEL"/>
+        <FIELDORDER
+          Value="8.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -170,6 +202,8 @@
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CostGroup_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <FIELDORDER
+          Value="9.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -183,6 +217,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Currency_LABEL"/>
+        <FIELDORDER
+          Value="10.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -196,6 +232,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.EmployeeId_LABEL"/>
+        <FIELDORDER
+          Value="11.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -209,6 +247,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.TargetAmount_LABEL"/>
+        <FIELDORDER
+          Value="12.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -222,6 +262,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.RejectedReason_LABEL"/>
+        <FIELDORDER
+          Value="13.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -235,6 +277,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.RejectionComments_LABEL"/>
+        <FIELDORDER
+          Value="14.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -248,6 +292,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityFrom_LABEL"/>
+        <FIELDORDER
+          Value="15.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -261,6 +307,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityTill_LABEL"/>
+        <FIELDORDER
+          Value="16.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -269,117 +317,250 @@
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="17.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedDate"
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsStatisticalDataEO"
     AliasName="UPDATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="18.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
     EntityAttrName="UpdatedBy"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="UPDATED_BY"/>
+    AliasName="UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="19.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute1"
     PrecisionRule="true"
     EntityAttrName="Attribute1"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE1"/>
+    AliasName="ATTRIBUTE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="20.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute2"
     PrecisionRule="true"
     EntityAttrName="Attribute2"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE2"/>
+    AliasName="ATTRIBUTE2">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="21.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute3"
     PrecisionRule="true"
     EntityAttrName="Attribute3"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE3"/>
+    AliasName="ATTRIBUTE3">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="22.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute4"
     PrecisionRule="true"
     EntityAttrName="Attribute4"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE4"/>
+    AliasName="ATTRIBUTE4">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="23.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute5"
     PrecisionRule="true"
     EntityAttrName="Attribute5"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE5"/>
+    AliasName="ATTRIBUTE5">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="24.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute6"
     PrecisionRule="true"
     EntityAttrName="Attribute6"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE6"/>
+    AliasName="ATTRIBUTE6">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="25.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute7"
     PrecisionRule="true"
     EntityAttrName="Attribute7"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE7"/>
+    AliasName="ATTRIBUTE7">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="26.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute8"
     PrecisionRule="true"
     EntityAttrName="Attribute8"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE8"/>
+    AliasName="ATTRIBUTE8">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="27.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute9"
     PrecisionRule="true"
     EntityAttrName="Attribute9"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE9"/>
+    AliasName="ATTRIBUTE9">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="28.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute10"
     PrecisionRule="true"
     EntityAttrName="Attribute10"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE10"/>
+    AliasName="ATTRIBUTE10">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="29.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute11"
     PrecisionRule="true"
     EntityAttrName="Attribute11"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE11"/>
+    AliasName="ATTRIBUTE11">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="30.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute12"
     PrecisionRule="true"
     EntityAttrName="Attribute12"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE12"/>
+    AliasName="ATTRIBUTE12">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="31.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute13"
     PrecisionRule="true"
     EntityAttrName="Attribute13"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE13"/>
+    AliasName="ATTRIBUTE13">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="32.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute14"
     PrecisionRule="true"
     EntityAttrName="Attribute14"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE14"/>
+    AliasName="ATTRIBUTE14">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="33.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute15"
     PrecisionRule="true"
     EntityAttrName="Attribute15"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE15"/>
+    AliasName="ATTRIBUTE15">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="34.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CREATEDDATE"
     IsUpdateable="false"
     PrecisionRule="true"
     EntityAttrName="CREATEDDATE"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="35.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GLACCOUNT"
     PrecisionRule="true"
@@ -390,6 +571,23 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.GLACCOUNT_LABEL"/>
+        <FIELDORDER
+          Value="36.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InputProvider"
+    PrecisionRule="true"
+    EntityAttrName="InputProvider"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="Input_Provider">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="4.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.InputProvider_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -457,6 +655,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bStastiticalData"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InputProvider"
+        ViewAttribute="InputProvider"
+        Operator="="
+        Conjunction="AND"
+        Value=":bInputProvider"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

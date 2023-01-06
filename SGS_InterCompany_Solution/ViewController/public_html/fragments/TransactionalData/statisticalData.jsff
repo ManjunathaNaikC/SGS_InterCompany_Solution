@@ -113,6 +113,17 @@
                                 <f:validator binding="#{row.bindings.ToJobCode.validator}"/>
                             </af:inputText>
                         </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}" sortProperty="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.name}" id="c17" filterable="true">
+                            <af:inputText value="#{row.bindings.InputProvider.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.tooltip}"
+                                          id="it14">
+                                <f:validator binding="#{row.bindings.InputProvider.validator}"/>
+                            </af:inputText>
+                        </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.label}" id="c4">

@@ -33,12 +33,28 @@
                           shortDesc="#{bindings.ServProvider.hints.tooltip}" id="it2">
               <f:validator binding="#{bindings.ServProvider.validator}"/>
             </af:inputText>
+            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it11">
+              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
+            </af:inputText>
             <af:inputText value="#{bindings.ServReceiver.inputValue}" label="#{bindings.ServReceiver.hints.label}"
                           required="#{bindings.ServReceiver.hints.mandatory}"
                           columns="#{bindings.ServReceiver.hints.displayWidth}"
                           maximumLength="#{bindings.ServReceiver.hints.precision}"
                           shortDesc="#{bindings.ServReceiver.hints.tooltip}" id="it3">
               <f:validator binding="#{bindings.ServReceiver.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it15">
+              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.Rcm.inputValue}" label="#{bindings.Rcm.hints.label}"
                           required="#{bindings.Rcm.hints.mandatory}" columns="#{bindings.Rcm.hints.displayWidth}"
@@ -59,22 +75,6 @@
                           maximumLength="#{bindings.VatOutputGlAcc.hints.precision}"
                           shortDesc="#{bindings.VatOutputGlAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.VatOutputGlAcc.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
-                          label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
-                          required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
-                          columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
-                          maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
-                          shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it11">
-              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
-                          label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
-                          required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
-                          columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
-                          maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
-                          shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it15">
-              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
             </af:inputText>
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"

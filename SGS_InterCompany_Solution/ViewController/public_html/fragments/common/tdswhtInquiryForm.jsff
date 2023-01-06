@@ -24,12 +24,28 @@
                           shortDesc="#{bindings.ServReceiver.hints.tooltip}" id="it2" showRequired="true">
               <f:validator binding="#{bindings.ServReceiver.validator}"/>
             </af:inputText>
+            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it25">
+              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
+            </af:inputText>
             <af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
                           required="#{bindings.ServProvider.hints.mandatory}"
                           columns="#{bindings.ServProvider.hints.displayWidth}"
                           maximumLength="#{bindings.ServProvider.hints.precision}"
                           shortDesc="#{bindings.ServProvider.hints.tooltip}" id="it3" showRequired="true">
               <f:validator binding="#{bindings.ServProvider.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
+                          label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
+                          required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
+                          columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
+                          maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
+                          shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it12">
+              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.DeductionPoint.inputValue}" label="#{bindings.DeductionPoint.hints.label}"
                           required="#{bindings.DeductionPoint.hints.mandatory}"
@@ -73,22 +89,6 @@
                           maximumLength="#{bindings.WhtExpenseAcc.hints.precision}"
                           shortDesc="#{bindings.WhtExpenseAcc.hints.tooltip}" id="it9">
               <f:validator binding="#{bindings.WhtExpenseAcc.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
-                          label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
-                          required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
-                          columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
-                          maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
-                          shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it12">
-              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
-                          label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
-                          required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
-                          columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
-                          maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
-                          shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it25">
-              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
             </af:inputText>
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
@@ -296,9 +296,9 @@
               </f:facet>
               <f:facet name="statusbar"/>
               <af:popup childCreation="deferred" autoCancel="disabled" id="p1whtTax">
-<af:dialog id="d1" dialogListener="#{viewScope.ActionEventsBean.onWhtRateDelete}">
+<af:dialog id="d2" dialogListener="#{viewScope.ActionEventsBean.onWhtRateDelete}">
 <f:facet name="buttonBar"/>
-<af:message id="m1" messageType="confirmation" message="Do You Really Want To Delete?"/>
+<af:message id="m2" messageType="confirmation" message="Do You Really Want To Delete?"/>
 </af:dialog>
 </af:popup>
               <af:table value="#{bindings.SgsTdsWhtRateApplicabilityVO1.collectionModel}" var="row"

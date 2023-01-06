@@ -61,7 +61,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         Attribute14,
         Attribute15,
         CREATEDDATE,
-        GLACCOUNT;
+        GLACCOUNT,
+        InputProvider;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -122,6 +123,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
     public static final int GLACCOUNT = AttributesEnum.GLACCOUNT.index();
+    public static final int INPUTPROVIDER = AttributesEnum.InputProvider.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -697,6 +699,22 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      */
     public void setGLACCOUNT(String value) {
         setAttributeInternal(GLACCOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for InputProvider, using the alias name InputProvider.
+     * @return the value of InputProvider
+     */
+    public String getInputProvider() {
+        return (String) getAttributeInternal(INPUTPROVIDER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InputProvider.
+     * @param value value to set the InputProvider
+     */
+    public void setInputProvider(String value) {
+        setAttributeInternal(INPUTPROVIDER, value);
     }
 
     /**

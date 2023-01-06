@@ -64,6 +64,10 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <Variable
+    Name="bInputProvider"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AllocationBasisLookupVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.AllocationBasisLookupVO"
@@ -468,6 +472,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bSubExpenseType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="INPUTPROVIDER"
+        ViewAttribute="INPUTPROVIDER"
+        Operator="="
+        Conjunction="AND"
+        Value=":bInputProvider"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

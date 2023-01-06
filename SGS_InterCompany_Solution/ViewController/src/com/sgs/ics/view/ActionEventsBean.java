@@ -305,10 +305,10 @@ public class ActionEventsBean {
     }
 
     
-    public void genericSave(ActionEvent actionEvent) {
-        executeBinding(SAVE_DATA);
-        ADFUtils.saveNotifier();
-    }
+//    public void genericSave(ActionEvent actionEvent) {
+//        executeBinding(SAVE_DATA);
+//        ADFUtils.saveNotifier();
+//    }
 
 
     public void onTdsWhtDelete(DialogEvent dialogEvent) {

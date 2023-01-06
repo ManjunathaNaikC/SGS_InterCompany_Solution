@@ -34,6 +34,7 @@
           <Item Value="ValidityFrom"/>
           <Item Value="ValidityTill"/>
           <Item Value="GLACCOUNT"/>
+          <Item Value="InputProvider"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

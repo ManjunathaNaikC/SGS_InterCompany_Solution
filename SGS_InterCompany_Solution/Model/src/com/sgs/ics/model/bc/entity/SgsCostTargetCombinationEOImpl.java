@@ -81,6 +81,7 @@ public class SgsCostTargetCombinationEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int COSTIDENTIFICATIONID = AttributesEnum.CostIdentificationId.index();
     public static final int TCLINENO = AttributesEnum.TcLineNo.index();
     public static final int ICLINENO = AttributesEnum.IcLineNo.index();
@@ -118,6 +119,13 @@ public class SgsCostTargetCombinationEOImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public SgsCostTargetCombinationEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCostTargetCombinationEO");
     }
 
     /**
@@ -598,6 +606,16 @@ public class SgsCostTargetCombinationEOImpl extends EntityImpl {
         setAttributeInternal(SGSCOSTIDENTIFICATIONRULEEO, value);
     }
 
+
+    //    /**
+//     * Add attribute defaulting logic in this method.
+//     * @param attributeList list of attribute names/values to initialize the row
+//     */
+//    protected void create(AttributeList attributeList) {
+//        super.create(attributeList);
+//        //SEQ_SGS_COST_TARGET_COMBINATION
+//    }
+
     /**
      * @param tcLineNo key constituent
 
@@ -606,22 +624,6 @@ public class SgsCostTargetCombinationEOImpl extends EntityImpl {
     public static Key createPrimaryKey(String tcLineNo) {
         return new Key(new Object[] { tcLineNo });
     }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCostTargetCombinationEO");
-    }
-
-//    /**
-//     * Add attribute defaulting logic in this method.
-//     * @param attributeList list of attribute names/values to initialize the row
-//     */
-//    protected void create(AttributeList attributeList) {
-//        super.create(attributeList);
-//        //SEQ_SGS_COST_TARGET_COMBINATION
-//    }
 
     public void setCreatedBy(String value) {
         setAttributeInternal(CREATEDBY, value);

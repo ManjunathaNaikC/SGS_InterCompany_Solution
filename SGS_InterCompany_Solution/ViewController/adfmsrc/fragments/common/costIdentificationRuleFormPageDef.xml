@@ -12,6 +12,19 @@
               id="AllocationRuleVOIterator"/>
     <iterator Binds="CrossChargeCombinationVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="CrossChargeCombinationVOIterator"/>
+    <searchRegion Binds="SgsCostIdentificationCombinationVOIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SgsCostIdentificationCombinationVO1Query"/>
+    <iterator Binds="SgsCostOffsetCombinationVO3" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsCostOffsetCombinationVO3Iterator"/>
+    <searchRegion Binds="SgsCostOffsetCombinationVO3Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SgsCostOffsetCombinationVO3Query"/>
+    <iterator Binds="SgsCostTargetCombinationVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsCostTargetCombinationVO1Iterator"/>
+    <searchRegion Binds="SgsCostTargetCombinationVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SgsCostTargetCombinationVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="CostIdentificationId">
@@ -175,13 +188,18 @@
             Action="createInsertRow"/>
     <action IterBinding="SgsCostIdentificationCombinationVOIterator" id="DeleteIdenCombo" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action IterBinding="AllocationRuleVOIterator" id="CreateInsertTargetCombo" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
-    <action IterBinding="AllocationRuleVOIterator" id="DeleteTargetCombo" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action IterBinding="CrossChargeCombinationVOIterator" id="CreateInsertCrossCombo" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
-    <action IterBinding="CrossChargeCombinationVOIterator" id="DeleteCrossCharge" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
+    <action IterBinding="SgsCostTargetCombinationVO1Iterator" id="CreateInsertTargetCombo" RequiresUpdateModel="true"
+            Action="createInsertRow" InstanceName="SGSAppModuleDataControl.SgsCostTargetCombinationVO1"
+            DataControl="SGSAppModuleDataControl"/>
+    <action IterBinding="SgsCostTargetCombinationVO1Iterator" id="DeleteTargetCombo" RequiresUpdateModel="false"
+            Action="removeCurrentRow" InstanceName="SGSAppModuleDataControl.SgsCostTargetCombinationVO1"
+            DataControl="SGSAppModuleDataControl"/>
+    <action IterBinding="SgsCostOffsetCombinationVO3Iterator" id="CreateInsertCrossCombo" RequiresUpdateModel="true"
+            Action="createInsertRow" InstanceName="SGSAppModuleDataControl.SgsCostOffsetCombinationVO3"
+            DataControl="SGSAppModuleDataControl"/>
+    <action IterBinding="SgsCostOffsetCombinationVO3Iterator" id="DeleteCrossCharge" RequiresUpdateModel="false"
+            Action="removeCurrentRow" InstanceName="SGSAppModuleDataControl.SgsCostOffsetCombinationVO3"
+            DataControl="SGSAppModuleDataControl"/>
     <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_NatureOfExpense"
           id="NatureOfExpense" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_AllocationBasis"
@@ -231,5 +249,57 @@
         <Item Value="SACHSN"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="SgsCostIdentificationCombinationVOIterator" id="SgsCostIdentificationCombinationVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO"
+                      Name="SgsCostIdentificationCombinationVO10">
+        <AttrNames>
+          <Item Value="IcLineNo"/>
+          <Item Value="TcLineNo"/>
+          <Item Value="OcLineNo"/>
+          <Item Value="FromBusinessUnit"/>
+          <Item Value="FromOperatingUnit"/>
+          <Item Value="FromJobCode"/>
+          <Item Value="FromDeptId"/>
+          <Item Value="FromGlAccount"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SgsCostOffsetCombinationVO3Iterator" id="SgsCostOffsetCombinationVO3">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostOffsetCombinationVO"
+                      Name="SgsCostOffsetCombinationVO30">
+        <AttrNames>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="FromGlAccount"/>
+          <Item Value="IcLineNo"/>
+          <Item Value="OcLineNo"/>
+          <Item Value="OffsetBusinessUnit"/>
+          <Item Value="OffsetGlAccount"/>
+          <Item Value="OffsetJobCode"/>
+          <Item Value="OffsetOperatingUnit"/>
+          <Item Value="TcLineNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SgsCostTargetCombinationVO1Iterator" id="SgsCostTargetCombinationVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCostTargetCombinationVO"
+                      Name="SgsCostTargetCombinationVO10">
+        <AttrNames>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="FromGlAccount"/>
+          <Item Value="IcLineNo"/>
+          <Item Value="OcLineNo"/>
+          <Item Value="TARGETDEPTID"/>
+          <Item Value="TargetBusinessUnit"/>
+          <Item Value="TargetGlAccount"/>
+          <Item Value="TargetJobCode"/>
+          <Item Value="TargetOperatingUnit"/>
+          <Item Value="TcLineNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

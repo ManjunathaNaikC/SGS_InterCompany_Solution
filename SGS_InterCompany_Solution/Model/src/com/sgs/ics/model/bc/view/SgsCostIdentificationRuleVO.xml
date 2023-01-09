@@ -971,6 +971,21 @@
     ViewLink="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToCostIdentificationCombinationlink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SgsCostIdentificationCombinationVO1"
+    ViewLink="com.sgs.ics.model.bc.view.link.CostAllocationToIdenCombVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SgsCostOffsetCombinationVO"
+    ViewLink="com.sgs.ics.model.bc.view.link.CostAllocationToOffsetCombVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SgsCostTargetCombinationVO"
+    ViewLink="com.sgs.ics.model.bc.view.link.CostAllocationToTargetComboVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

@@ -80,6 +80,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int COSTIDENTIFICATIONID = AttributesEnum.CostIdentificationId.index();
     public static final int ICLINENO = AttributesEnum.IcLineNo.index();
     public static final int TCLINENO = AttributesEnum.TcLineNo.index();
@@ -116,6 +117,13 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public SgsCostIdentificationCombinationEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCostIdentificationCombinationEO");
     }
 
     /**
@@ -302,13 +310,6 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
@@ -334,13 +335,6 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedDate.
-     * @param value value to set the UpdatedDate
-     */
-    public void setUpdatedDate(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedBy, using the alias name UpdatedBy.
@@ -612,6 +606,15 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
         setAttributeInternal(SGSCOSTIDENTIFICATIONRULEEO, value);
     }
 
+
+    //    /**
+//     * Add attribute defaulting logic in this method.
+//     * @param attributeList list of attribute names/values to initialize the row
+//     */
+//    protected void create(AttributeList attributeList) {
+//        super.create(attributeList);
+//    }
+
     /**
      * @param icLineNo key constituent
 
@@ -621,21 +624,6 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
         return new Key(new Object[] { icLineNo });
     }
 
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCostIdentificationCombinationEO");
-    }
-
-//    /**
-//     * Add attribute defaulting logic in this method.
-//     * @param attributeList list of attribute names/values to initialize the row
-//     */
-//    protected void create(AttributeList attributeList) {
-//        super.create(attributeList);
-//    }
-    
     /**
      * Add attribute defaulting logic in this method.
      * @param attributeList list of attribute names/values to initialize the row

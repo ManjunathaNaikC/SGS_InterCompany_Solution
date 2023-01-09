@@ -116,6 +116,18 @@
   <ViewUsage
     Name="SgsStatisticalPreviousMonthVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO"/>
+  <ViewUsage
+    Name="SgsCostIdentificationRuleVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"/>
+  <ViewUsage
+    Name="SgsCostOffsetCombinationVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsCostOffsetCombinationVO"/>
+  <ViewUsage
+    Name="SgsCostOffsetCombinationVO3"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsCostOffsetCombinationVO"/>
+  <ViewUsage
+    Name="SgsCostTargetCombinationVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsCostTargetCombinationVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -188,6 +200,24 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.SgsInvoiceHeaderToLines"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsIcInvoiceHeaderVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsIcInvoiceLineVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CostAllocationToOffsetCombVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostAllocationToOffsetCombVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostIdentificationRuleVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostOffsetCombinationVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CostAllocationToOffsetCombVL3"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostAllocationToOffsetCombVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostIdentificationRuleVO"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostOffsetCombinationVO3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CostAllocationToTargetComboVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostAllocationToTargetComboVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostIdentificationRuleVO"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostTargetCombinationVO1"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

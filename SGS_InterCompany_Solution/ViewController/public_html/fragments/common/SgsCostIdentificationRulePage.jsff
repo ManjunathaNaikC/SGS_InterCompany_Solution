@@ -238,7 +238,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.label}"
-                                           id="c18">
+                                           id="c18" rendered="false">
                                     <af:outputText value="#{row.CostGroup}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.tooltip}"
                                                    id="ot27"/>
@@ -246,7 +246,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.label}"
-                                           id="c27">
+                                           id="c27" rendered="false">
                                     <af:outputText value="#{row.InvJournalGrpCode}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.tooltip}"
                                                    id="ot35"/>

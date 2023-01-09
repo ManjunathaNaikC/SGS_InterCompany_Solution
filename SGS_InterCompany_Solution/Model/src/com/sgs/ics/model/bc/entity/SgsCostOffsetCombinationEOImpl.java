@@ -80,6 +80,7 @@ public class SgsCostOffsetCombinationEOImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int COSTIDENTIFICATIONID = AttributesEnum.CostIdentificationId.index();
     public static final int OCLINENO = AttributesEnum.OcLineNo.index();
     public static final int TCLINENO = AttributesEnum.TcLineNo.index();
@@ -116,6 +117,13 @@ public class SgsCostOffsetCombinationEOImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public SgsCostOffsetCombinationEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCostOffsetCombinationEO");
     }
 
     /**
@@ -588,6 +596,15 @@ public class SgsCostOffsetCombinationEOImpl extends EntityImpl {
         setAttributeInternal(SGSCOSTIDENTIFICATIONRULEEO, value);
     }
 
+
+    //    /**
+//     * Add attribute defaulting logic in this method.
+//     * @param attributeList list of attribute names/values to initialize the row
+//     */
+//    protected void create(AttributeList attributeList) {
+//        super.create(attributeList);
+//    }
+
     /**
      * @param ocLineNo key constituent
 
@@ -597,20 +614,6 @@ public class SgsCostOffsetCombinationEOImpl extends EntityImpl {
         return new Key(new Object[] { ocLineNo });
     }
 
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCostOffsetCombinationEO");
-    }
-
-//    /**
-//     * Add attribute defaulting logic in this method.
-//     * @param attributeList list of attribute names/values to initialize the row
-//     */
-//    protected void create(AttributeList attributeList) {
-//        super.create(attributeList);
-//    }
     /**
      * Add attribute defaulting logic in this method.
      * @param attributeList list of attribute names/values to initialize the row

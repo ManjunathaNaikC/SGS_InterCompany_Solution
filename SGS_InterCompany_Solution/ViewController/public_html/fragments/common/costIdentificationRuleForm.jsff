@@ -88,7 +88,7 @@
                                           required="#{bindings.CostGroup1.hints.mandatory}"
                                           columns="#{bindings.CostGroup1.hints.displayWidth}"
                                           maximumLength="#{bindings.CostGroup1.hints.precision}"
-                                          shortDesc="#{bindings.CostGroup1.hints.tooltip}" id="it32">
+                                          shortDesc="#{bindings.CostGroup1.hints.tooltip}" id="it32" rendered="false">
                                 <f:validator binding="#{bindings.CostGroup1.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.InputProvider.inputValue}"
@@ -104,7 +104,8 @@
                                           required="#{bindings.InvJournalGrpCode.hints.mandatory}"
                                           columns="#{bindings.InvJournalGrpCode.hints.displayWidth}"
                                           maximumLength="#{bindings.InvJournalGrpCode.hints.precision}"
-                                          shortDesc="#{bindings.InvJournalGrpCode.hints.tooltip}" id="it29">
+                                          shortDesc="#{bindings.InvJournalGrpCode.hints.tooltip}" id="it29"
+                                          rendered="false">
                                 <f:validator binding="#{bindings.InvJournalGrpCode.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.SACHSN.inputValue}" label="#{bindings.SACHSN.hints.label}"
@@ -275,8 +276,173 @@
                                         
                                     </af:toolbar>
                                 </f:facet>
+                                <af:table value="#{bindings.SgsCostIdentificationCombinationVO1.collectionModel}"
+                                          var="row" rows="#{bindings.SgsCostIdentificationCombinationVO1.rangeSize}"
+                                          emptyText="#{bindings.SgsCostIdentificationCombinationVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.SgsCostIdentificationCombinationVO1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.SgsCostIdentificationCombinationVO1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.SgsCostIdentificationCombinationVO1.rangeSize}"
+                                          filterModel="#{bindings.SgsCostIdentificationCombinationVO1Query.queryDescriptor}"
+                                          filterVisible="false"
+                                          queryListener="#{bindings.SgsCostIdentificationCombinationVO1Query.processQuery}"
+                                          varStatus="vs" id="t2">
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.label}"
+                                               id="c1">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.tooltip}"
+                                                      id="it4">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.label}"
+                                               id="c4">
+                                        <af:inputText value="#{row.bindings.FromBusinessUnit.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.tooltip}"
+                                                      id="it7">
+                                            <f:validator binding="#{row.bindings.FromBusinessUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.label}"
+                                               id="c5">
+                                        <af:inputText value="#{row.bindings.FromOperatingUnit.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.tooltip}"
+                                                      id="it8">
+                                            <f:validator binding="#{row.bindings.FromOperatingUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.label}"
+                                               id="c6">
+                                        <af:inputText value="#{row.bindings.FromJobCode.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.tooltip}"
+                                                      id="it17">
+                                            <f:validator binding="#{row.bindings.FromJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.label}"
+                                               id="c7">
+                                        <af:inputText value="#{row.bindings.FromDeptId.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.tooltip}"
+                                                      id="it27">
+                                            <f:validator binding="#{row.bindings.FromDeptId.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.label}"
+                                               id="c10">
+                                        <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.tooltip}"
+                                                      id="it30">
+                                            <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.label}"
+                                               id="c2">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.tooltip}"
+                                                      id="it5">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.label}"
+                                               id="c3" rendered="false">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.tooltip}"
+                                                      id="it6">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.label}"
+                                               id="c18">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsCostIdentificationCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
+                                                          id="id3">
+                                                <af:convertDateTime pattern="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.displayWidth}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.tooltip}"
+                                                      id="id4">
+                                            <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.label}"
+                                               id="c19">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsCostIdentificationCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
+                                                          id="id5">
+                                                <af:convertDateTime pattern="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                                      label="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.label}"
+                                                      required="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.mandatory}"
+                                                      columns="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.displayWidth}"
+                                                      shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.tooltip}"
+                                                      id="id11">
+                                            <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                </af:table>
                                 <!-- data-->
-                                <af:table value="#{bindings.SgsCostIdentificationCombinationVO.collectionModel}"
+                                <!--<af:table value="#{bindings.SgsCostIdentificationCombinationVO.collectionModel}"
                                           var="row" rows="#{bindings.SgsCostIdentificationCombinationVO.rangeSize}"
                                           emptyText="#{bindings.SgsCostIdentificationCombinationVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                           rowBandingInterval="0"
@@ -435,7 +601,7 @@
                                             <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                </af:table>
+                                </af:table>-->
                                 <f:facet name="statusbar"/>
                             </af:panelCollection>
                         </af:panelBox>
@@ -459,7 +625,172 @@
                                 </f:facet>
                                 <f:facet name="statusbar"/>
                                 <!-- data-->
-                                <af:table value="#{bindings.CrossChargeCombinationVO.collectionModel}" var="row"
+                                <af:table value="#{bindings.SgsCostOffsetCombinationVO3.collectionModel}" var="row"
+                                          rows="#{bindings.SgsCostOffsetCombinationVO3.rangeSize}"
+                                          emptyText="#{bindings.SgsCostOffsetCombinationVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.SgsCostOffsetCombinationVO3.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.SgsCostOffsetCombinationVO3.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.SgsCostOffsetCombinationVO3.rangeSize}"
+                                          filterModel="#{bindings.SgsCostOffsetCombinationVO3Query.queryDescriptor}"
+                                          filterVisible="false"
+                                          queryListener="#{bindings.SgsCostOffsetCombinationVO3Query.processQuery}"
+                                          varStatus="vs" id="t5">
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.label}"
+                                               id="c13">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.tooltip}"
+                                                      id="it18">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.label}"
+                                               id="c14">
+                                        <af:inputText value="#{row.bindings.OffsetBusinessUnit.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.tooltip}"
+                                                      id="it19">
+                                            <f:validator binding="#{row.bindings.OffsetBusinessUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.label}"
+                                               id="c17">
+                                        <af:inputText value="#{row.bindings.OffsetOperatingUnit.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.tooltip}"
+                                                      id="it31">
+                                            <f:validator binding="#{row.bindings.OffsetOperatingUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.label}"
+                                               id="c16">
+                                        <af:inputText value="#{row.bindings.OffsetJobCode.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.tooltip}"
+                                                      id="it21">
+                                            <f:validator binding="#{row.bindings.OffsetJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.label}"
+                                               id="c15">
+                                        <af:inputText value="#{row.bindings.OffsetGlAccount.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.tooltip}"
+                                                      id="it20">
+                                            <f:validator binding="#{row.bindings.OffsetGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.label}"
+                                               id="c11">
+                                        <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.tooltip}"
+                                                      id="it15">
+                                            <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.label}"
+                                               id="c30">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.tooltip}"
+                                                      id="it35">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.label}"
+                                               id="c8">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsCostOffsetCombinationVO3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
+                                                          id="id8">
+                                                <af:convertDateTime pattern="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.displayWidth}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.tooltip}"
+                                                      id="id9">
+                                            <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.label}"
+                                               id="c9">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsCostOffsetCombinationVO3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
+                                                          id="id10">
+                                                <af:convertDateTime pattern="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.displayWidth}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.tooltip}"
+                                                      id="id12">
+                                            <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.label}"
+                                               id="c12" rendered="false">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.label}"
+                                                      required="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.tooltip}"
+                                                      id="it16">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                                <!--<af:table value="#{bindings.CrossChargeCombinationVO.collectionModel}" var="row"
                                           rows="#{bindings.CrossChargeCombinationVO.rangeSize}"
                                           emptyText="#{bindings.CrossChargeCombinationVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                           rowBandingInterval="0" columnStretching="none"
@@ -540,7 +871,7 @@
                                             <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                    <!--<af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
+                                    --><!--<af:column headerText="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
                                                id="c10">
                                         <af:inputText value="#{row.bindings.TargetGlAccount.inputValue}"
                                                       label="#{bindings.CrossChargeCombinationVO.hints.TargetGlAccount.label}"
@@ -551,7 +882,7 @@
                                                       id="it17">
                                             <f:validator binding="#{row.bindings.TargetGlAccount.validator}"/>
                                         </af:inputText>
-                                    </af:column>-->
+                                    </af:column>--><!--
                                     <af:column headerText="#{bindings.CrossChargeCombinationVO.hints.EffectiveFrom.label}"
                                                id="c14">
                                         <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
@@ -624,7 +955,7 @@
                                             <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                </af:table>
+                                </af:table>-->
                             </af:panelCollection>
                         </af:panelBox>
                         <af:panelBox text="Target Combination" id="pb2">
@@ -727,7 +1058,186 @@
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="statusbar"/>
-                                <af:table value="#{bindings.AllocationRuleVO.collectionModel}" var="row"
+                                <af:table value="#{bindings.SgsCostTargetCombinationVO1.collectionModel}" var="row"
+                                          rows="#{bindings.SgsCostTargetCombinationVO1.rangeSize}"
+                                          emptyText="#{bindings.SgsCostTargetCombinationVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.SgsCostTargetCombinationVO1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.SgsCostTargetCombinationVO1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.SgsCostTargetCombinationVO1.rangeSize}"
+                                          filterModel="#{bindings.SgsCostTargetCombinationVO1Query.queryDescriptor}"
+                                          filterVisible="false"
+                                          queryListener="#{bindings.SgsCostTargetCombinationVO1Query.processQuery}"
+                                          varStatus="vs" id="t6">
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.label}"
+                                               id="c31">
+                                        <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.tooltip}"
+                                                      id="it36">
+                                            <f:validator binding="#{row.bindings.TcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.label}"
+                                               id="c26">
+                                        <af:inputText value="#{row.bindings.TargetBusinessUnit.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.tooltip}"
+                                                      id="it14">
+                                            <f:validator binding="#{row.bindings.TargetBusinessUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.label}"
+                                               id="c29">
+                                        <af:inputText value="#{row.bindings.TargetOperatingUnit.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.tooltip}"
+                                                      id="it24">
+                                            <f:validator binding="#{row.bindings.TargetOperatingUnit.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.label}"
+                                               id="c28">
+                                        <af:inputText value="#{row.bindings.TargetJobCode.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.tooltip}"
+                                                      id="it23">
+                                            <f:validator binding="#{row.bindings.TargetJobCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.label}"
+                                               id="c25">
+                                        <af:inputText value="#{row.bindings.TARGETDEPTID.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.tooltip}"
+                                                      id="it13">
+                                            <f:validator binding="#{row.bindings.TARGETDEPTID.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.label}"
+                                               id="c22" rendered="false">
+                                        <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.tooltip}"
+                                                      id="it10">
+                                            <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.label}"
+                                               id="c27">
+                                        <af:inputText value="#{row.bindings.TargetGlAccount.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.tooltip}"
+                                                      id="it22">
+                                            <f:validator binding="#{row.bindings.TargetGlAccount.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.label}"
+                                               id="c23">
+                                        <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.tooltip}"
+                                                      id="it11">
+                                            <f:validator binding="#{row.bindings.IcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.label}"
+                                               id="c24">
+                                        <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.displayWidth}"
+                                                      maximumLength="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.precision}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.tooltip}"
+                                                      id="it12">
+                                            <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.label}"
+                                               id="c20">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsCostTargetCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
+                                                          id="id6">
+                                                <af:convertDateTime pattern="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.displayWidth}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.tooltip}"
+                                                      id="id7">
+                                            <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.label}"
+                                               id="c21">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsCostTargetCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
+                                                          id="id13">
+                                                <af:convertDateTime pattern="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                                      label="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.label}"
+                                                      required="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.mandatory}"
+                                                      columns="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.displayWidth}"
+                                                      shortDesc="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.tooltip}"
+                                                      id="id14">
+                                            <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                </af:table>
+                                <!--<af:table value="#{bindings.AllocationRuleVO.collectionModel}" var="row"
                                           columnStretching="none"
                                           rows="#{bindings.AllocationRuleVO.rangeSize}"
                                           emptyText="#{bindings.AllocationRuleVO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -736,7 +1246,7 @@
                                           selectionListener="#{bindings.AllocationRuleVO.collectionModel.makeCurrent}"
                                           rowSelection="single" fetchSize="#{bindings.AllocationRuleVO.rangeSize}"
                                           id="t6" partialTriggers="::b5 ::b7">
-                                    <!--<af:column headerText="#{bindings.AllocationRuleVO.hints.CostIdentificationId.label}"
+                                    --><!--<af:column headerText="#{bindings.AllocationRuleVO.hints.CostIdentificationId.label}"
                                                id="c18">
                                         <af:inputText value="#{row.bindings.CostIdentificationId.inputValue}"
                                                       label="#{bindings.AllocationRuleVO.hints.CostIdentificationId.label}"
@@ -747,8 +1257,8 @@
                                                       id="it1">
                                             <f:validator binding="#{row.bindings.CostIdentificationId.validator}"/>
                                         </af:inputText>
-                                    </af:column>-->
-                                    <!--<af:column headerText="#{bindings.AllocationRuleVO.hints.EffectiveFrom.label}"
+                                    </af:column>--><!--
+                                    --><!--<af:column headerText="#{bindings.AllocationRuleVO.hints.EffectiveFrom.label}"
                                                id="c19">
                                         <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
                                                       label="#{bindings.AllocationRuleVO.hints.EffectiveFrom.label}"
@@ -771,7 +1281,7 @@
                                             <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.AllocationRuleVO.hints.EffectiveTo.format}"/>
                                         </af:inputDate>
-                                    </af:column>-->
+                                    </af:column>--><!--
                                     <af:column headerText="#{bindings.AllocationRuleVO.hints.TcLineNo.label}" id="c317">
                                         <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
                                                       label="#{bindings.AllocationRuleVO.hints.TcLineNo.label}"
@@ -927,7 +1437,7 @@
                                             <f:validator binding="#{row.bindings.OcLineNo.validator}"/>
                                         </af:inputText>
                                     </af:column>
-                                </af:table>
+                                </af:table>-->
                             </af:panelCollection>
                         </af:panelBox>
                         <af:panelBox text="Exceptions" id="pb5">

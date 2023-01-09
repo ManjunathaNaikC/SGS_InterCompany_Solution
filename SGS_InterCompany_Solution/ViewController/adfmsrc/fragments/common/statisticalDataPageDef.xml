@@ -13,6 +13,11 @@
                   id="SgsStatisticalDataVOCriteriaQuery"/>
     <iterator Binds="sgsStatisticalDataTempVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
               id="sgsStatisticalDataTempVO1Iterator"/>
+    <iterator Binds="SgsStatisticalPreviousMonthVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsStatisticalPreviousMonthVO1Iterator"/>
+    <searchRegion Binds="SgsStatisticalPreviousMonthVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SgsStatisticalPreviousMonthVO1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsStatisticalDataVO1Iterator" id="SgsStatisticalDataVO1">
@@ -57,5 +62,33 @@
     <action IterBinding="sgsStatisticalDataTempVO1Iterator" id="Execute"
             InstanceName="SGSAppModuleDataControl.sgsStatisticalDataTempVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <tree IterBinding="SgsStatisticalPreviousMonthVO1Iterator" id="SgsStatisticalPreviousMonthVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO"
+                      Name="SgsStatisticalPreviousMonthVO10">
+        <AttrNames>
+          <Item Value="CostGroup"/>
+          <Item Value="Currency"/>
+          <Item Value="EmployeeId"/>
+          <Item Value="GLACCOUNT"/>
+          <Item Value="InputProvider"/>
+          <Item Value="RejectedReason"/>
+          <Item Value="RejectionComments"/>
+          <Item Value="StatisticalData"/>
+          <Item Value="StatisticalDataCategory"/>
+          <Item Value="TargetAmount"/>
+          <Item Value="ToBusinessUnit"/>
+          <Item Value="ToDepartmentId"/>
+          <Item Value="ToJobCode"/>
+          <Item Value="ToOperatingUnit"/>
+          <Item Value="UnitOfMeasure"/>
+          <Item Value="ValidityFrom"/>
+          <Item Value="ValidityTill"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CREATEDDATE"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="UpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

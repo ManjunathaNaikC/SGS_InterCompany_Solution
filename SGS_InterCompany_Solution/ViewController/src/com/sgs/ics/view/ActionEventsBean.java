@@ -21,6 +21,7 @@ import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 
+import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.input.RichSelectManyChoice;
 import oracle.adf.view.rich.event.DialogEvent;
 
@@ -33,10 +34,14 @@ import oracle.jbo.uicli.binding.JUCtrlListBinding;
 
 import oracle.jbo.server.ViewDefImpl;
 import oracle.jbo.server.ViewObjectImpl;
+import java.util.TimeZone;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class ActionEventsBean {
     protected String SAVE_DATA="Commit";
-    
+    private RichPopup statisticspopupbind;
+
     public ActionEventsBean() {
     }
     
@@ -367,5 +372,69 @@ public class ActionEventsBean {
           ADFUtils.deleteNotifier();
       }
 
+    public void onCopyFromPreviousMonthActionEvent(ActionEvent actionEvent) {
+        GregorianCalendar gcal = new GregorianCalendar();
+              System.out.println("Current date: " + gcal.getTime());
+              // past month
+              gcal.add((GregorianCalendar.MONTH), -1);
+//               String month[] = { "Jan", "Feb", "Mar", "Apr",
+//                                   "May", "Jun", "Jul", "Aug",
+//                                   "Sep", "Oct", "Nov", "Dec" };
+        String month[] = { "1", "2", "3", "4",
+                            "5", "6", "7", "8",
+                            "9", "10", "11", "12" };
+                                   
+        System.out.println("Modified date (Previous Month) Month: " +   month[gcal.get(Calendar.MONTH)]);
+        System.out.println("Modified date (Previous Month) Month: " +   month[gcal.get(Calendar.MONTH)]); 
+        System.out.println("Modified date (Previous Month)  Year : " + gcal.get(Calendar.YEAR));
+        
+        
+        ViewObjectImpl viewImpl = null;
+        viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator").getViewObject();
+        viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+        viewImpl.setWhereClause("MONTH(VALIDITY_TILL) = '"+ month[gcal.get(Calendar.MONTH)]+"'  and YEAR(VALIDITY_TILL) ='"+gcal.get(Calendar.YEAR) +"'");
+        System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
+        viewImpl.executeQuery();
+        
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.statisticspopupbind.show(hints);
+               
+    }
+    
+//    
+//    public static void main(String []args){
+//        
+//
+//        GregorianCalendar gcal = new GregorianCalendar();
+//              System.out.println("Current date: " + gcal.getTime());
+//              // past month
+//              gcal.add((GregorianCalendar.MONTH), -1);
+//               String month[] = { "1", "2", "3", "4",
+//                                   "5", "6", "7", "8",
+//                                   "9", "10", "11", "12" };
+//                                   
+//            
+//        System.out.println("Modified date (Previous Month) Month: " +   month[gcal.get(Calendar.MONTH)]);
+//              
+//      System.out.println("Modified date (Previous Month) Month: " +   gcal.get(Calendar.MONTH));
+//        System.out.println("Modified date (Previous Month)  Year : " + gcal.get(Calendar.YEAR));
+//        
+//        
+//        
+//    }
+
+    public void setStatisticspopupbind(RichPopup statisticspopupbind) {
+        this.statisticspopupbind = statisticspopupbind;
+    }
+
+    public RichPopup getStatisticspopupbind() {
+        return statisticspopupbind;
+    }
+
+    public void onStatDataUpdate(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
 }
 

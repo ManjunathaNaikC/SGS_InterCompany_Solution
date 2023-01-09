@@ -113,7 +113,9 @@
   <ViewUsage
     Name="SgsIcInvoiceLineVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO"/>
-
+  <ViewUsage
+    Name="SgsStatisticalPreviousMonthVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

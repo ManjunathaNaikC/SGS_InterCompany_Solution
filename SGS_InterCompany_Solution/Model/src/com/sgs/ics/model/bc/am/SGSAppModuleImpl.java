@@ -489,5 +489,63 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getSgsStatisticalPreviousMonthVO1() {
         return (ViewObjectImpl) findViewObject("SgsStatisticalPreviousMonthVO1");
     }
+
+
+    /**
+     * Container's getter for SgsCostIdentificationRuleVO1.
+     * @return SgsCostIdentificationRuleVO1
+     */
+    public ViewObjectImpl getSgsCostIdentificationRuleVO1() {
+        return (ViewObjectImpl) findViewObject("SgsCostIdentificationRuleVO1");
+    }
+
+    /**
+     * Container's getter for SgsCostOffsetCombinationVO1.
+     * @return SgsCostOffsetCombinationVO1
+     */
+    public ViewObjectImpl getSgsCostOffsetCombinationVO1() {
+        return (ViewObjectImpl) findViewObject("SgsCostOffsetCombinationVO1");
+    }
+
+    /**
+     * Container's getter for CostAllocationToOffsetCombVL1.
+     * @return CostAllocationToOffsetCombVL1
+     */
+    public ViewLinkImpl getCostAllocationToOffsetCombVL1() {
+        return (ViewLinkImpl) findViewLink("CostAllocationToOffsetCombVL1");
+    }
+
+
+    /**
+     * Container's getter for SgsCostOffsetCombinationVO3.
+     * @return SgsCostOffsetCombinationVO3
+     */
+    public ViewObjectImpl getSgsCostOffsetCombinationVO3() {
+        return (ViewObjectImpl) findViewObject("SgsCostOffsetCombinationVO3");
+    }
+
+    /**
+     * Container's getter for CostAllocationToOffsetCombVL3.
+     * @return CostAllocationToOffsetCombVL3
+     */
+    public ViewLinkImpl getCostAllocationToOffsetCombVL3() {
+        return (ViewLinkImpl) findViewLink("CostAllocationToOffsetCombVL3");
+    }
+
+    /**
+     * Container's getter for SgsCostTargetCombinationVO1.
+     * @return SgsCostTargetCombinationVO1
+     */
+    public ViewObjectImpl getSgsCostTargetCombinationVO1() {
+        return (ViewObjectImpl) findViewObject("SgsCostTargetCombinationVO1");
+    }
+
+    /**
+     * Container's getter for CostAllocationToTargetComboVL1.
+     * @return CostAllocationToTargetComboVL1
+     */
+    public ViewLinkImpl getCostAllocationToTargetComboVL1() {
+        return (ViewLinkImpl) findViewLink("CostAllocationToTargetComboVL1");
+    }
 }
 

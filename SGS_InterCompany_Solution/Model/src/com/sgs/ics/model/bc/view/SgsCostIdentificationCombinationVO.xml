@@ -29,19 +29,40 @@
     PrecisionRule="true"
     EntityAttrName="IcLineNo"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="IC_LINE_NO"/>
+    AliasName="IC_LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.IcLineNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TcLineNo"
     PrecisionRule="true"
     EntityAttrName="TcLineNo"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="TC_LINE_NO"/>
+    AliasName="TC_LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.TcLineNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OcLineNo"
     PrecisionRule="true"
     EntityAttrName="OcLineNo"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="OC_LINE_NO"/>
+    AliasName="OC_LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.OcLineNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FromBusinessUnit"
     PrecisionRule="true"

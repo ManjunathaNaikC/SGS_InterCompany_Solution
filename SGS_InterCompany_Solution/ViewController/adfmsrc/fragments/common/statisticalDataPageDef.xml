@@ -41,6 +41,10 @@
           <Item Value="GLACCOUNT"/>
           <Item Value="InputProvider"/>
           <Item Value="NATUREOFEXPENSE"/>
+          <Item Value="FROMBU"/>
+          <Item Value="FROMOU"/>
+          <Item Value="FROMJOBCODE"/>
+          <Item Value="FROMDEPTID"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -640,6 +640,58 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="FROMBU"
+    PrecisionRule="true"
+    EntityAttrName="FROMBU"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMBU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMDEPTID"
+    PrecisionRule="true"
+    EntityAttrName="FROMDEPTID"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_DEPTID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMDEPTID_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMJOBCODE"
+    PrecisionRule="true"
+    EntityAttrName="FROMJOBCODE"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMJOBCODE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMOU"
+    PrecisionRule="true"
+    EntityAttrName="FROMOU"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_OU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMOU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

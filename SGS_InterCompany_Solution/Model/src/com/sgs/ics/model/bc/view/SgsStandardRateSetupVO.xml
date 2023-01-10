@@ -54,17 +54,6 @@
     </Properties>
   </Variable>
   <Variable
-    Name="bCostIdentifier"
-    Kind="viewcriteria"
-    Type="java.lang.String">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.bCostIdentifier_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Variable>
-  <Variable
     Name="bInputProvider"
     Kind="viewcriteria"
     Type="java.lang.String"/>
@@ -442,14 +431,6 @@
     <ViewCriteriaRow
       Name="SgsStandardRateSetupVOCriteria_row_0"
       UpperColumns="1">
-      <ViewCriteriaItem
-        Name="SgsStandardRateSetupVOCriteria_SgsStandardRateSetupVOCriteria_row_0_CostIdentifier"
-        ViewAttribute="CostIdentifier"
-        Operator="="
-        Conjunction="AND"
-        Value=":bCostIdentifier"
-        IsBindVarValue="true"
-        Required="Optional"/>
       <ViewCriteriaItem
         Name="EffectiveEndDate"
         ViewAttribute="EffectiveEndDate"

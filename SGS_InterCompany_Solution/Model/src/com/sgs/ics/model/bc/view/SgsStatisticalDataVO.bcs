@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsStatisticalDataVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupNatureOFExpenseVO1", name="bLookupType")
+def bLookupType_SgsLookupNatureOFExpenseVO1_BindVariable_BoundParameter()
+{
+'NATURE_OF_EXPENSE'
+}
+

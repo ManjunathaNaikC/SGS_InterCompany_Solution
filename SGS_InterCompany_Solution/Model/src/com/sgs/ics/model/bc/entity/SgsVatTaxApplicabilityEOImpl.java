@@ -52,6 +52,7 @@ public class SgsVatTaxApplicabilityEOImpl extends EntityImpl {
         CREATEDDATE,
         UPDATEDBY,
         UPDATEDDATE,
+        NATUREOFEXPENSE,
         SgsVatTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -104,6 +105,7 @@ public class SgsVatTaxApplicabilityEOImpl extends EntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
     public static final int UPDATEDBY = AttributesEnum.UPDATEDBY.index();
     public static final int UPDATEDDATE = AttributesEnum.UPDATEDDATE.index();
+    public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int SGSVATTBLEO = AttributesEnum.SgsVatTblEO.index();
 
     /**
@@ -118,6 +120,7 @@ public class SgsVatTaxApplicabilityEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsVatTaxApplicabilityEO");
     }
+
 
     /**
      * Gets the attribute value for VatSeq, using the alias name VatSeq.
@@ -503,13 +506,6 @@ public class SgsVatTaxApplicabilityEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CREATEDDATE.
-     * @param value value to set the CREATEDDATE
-     */
-    public void setCREATEDDATE(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UPDATEDBY, using the alias name UPDATEDBY.
@@ -535,12 +531,21 @@ public class SgsVatTaxApplicabilityEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
+
     /**
-     * Sets <code>value</code> as the attribute value for UPDATEDDATE.
-     * @param value value to set the UPDATEDDATE
+     * Gets the attribute value for NATUREOFEXPENSE, using the alias name NATUREOFEXPENSE.
+     * @return the value of NATUREOFEXPENSE
      */
-    public void setUPDATEDDATE(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
+    public String getNATUREOFEXPENSE() {
+        return (String) getAttributeInternal(NATUREOFEXPENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NATUREOFEXPENSE.
+     * @param value value to set the NATUREOFEXPENSE
+     */
+    public void setNATUREOFEXPENSE(String value) {
+        setAttributeInternal(NATUREOFEXPENSE, value);
     }
 
     /**

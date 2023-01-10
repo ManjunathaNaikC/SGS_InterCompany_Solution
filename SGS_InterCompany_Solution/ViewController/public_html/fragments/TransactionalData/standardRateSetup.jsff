@@ -43,6 +43,10 @@
                       selectionListener="#{bindings.SgsStandardRateSetupVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsStandardRateSetupVO1.rangeSize}" id="resId1"
                       styleClass="AFStretchWidth" columnStretching="column:resId1c2">
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3">
+                <af:outputText value="#{row.StandardRateId}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>
+              </af:column>
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.label}" id="resId1c2">
                 <!--<af:outputText value="#{row.ExpenseType}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="ot2"/>-->
@@ -50,14 +54,24 @@
                   <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
                 </af:link>
               </af:column>
-              <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="resId1c1">
-                <af:outputText value="#{row.StandardRateId}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot1"/>
-              </af:column>-->
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.SubExpenseType.label}" id="resId1c3">
                 <af:outputText value="#{row.SubExpenseType}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.SubExpenseType.tooltip}" id="ot3"/>
               </af:column>
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.label}" id="c2">
+                <af:selectOneChoice value="#{row.bindings.CostIdentifier.inputValue}"
+                                    label="#{row.bindings.CostIdentifier.label}"
+                                    required="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.mandatory}"
+                                    shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.CostIdentifier.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.CostIdentifier.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.CostIdentifier.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="resId1c1">
+                <af:outputText value="#{row.StandardRateId}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot1"/>
+              </af:column>-->
               <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.SrGeography.label}" id="resId1c4">
                 <af:outputText value="#{row.SrGeography}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.SrGeography.tooltip}" id="ot4"/>

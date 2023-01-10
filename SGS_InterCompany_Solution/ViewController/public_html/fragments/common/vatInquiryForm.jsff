@@ -162,6 +162,16 @@
                   <f:validator binding="#{row.bindings.CostGroupingCode.validator}"/>
                 </af:inputText>
               </af:column>
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c3">
+                <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                    label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                    required="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
+                                    shortDesc="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.label}" id="c2">
                 <af:inputText value="#{row.bindings.RateOfTax.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.label}"

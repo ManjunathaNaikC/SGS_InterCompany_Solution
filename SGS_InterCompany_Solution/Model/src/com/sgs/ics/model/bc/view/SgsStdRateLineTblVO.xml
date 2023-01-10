@@ -326,6 +326,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="OPERATINGUNIT"
+    PrecisionRule="true"
+    EntityAttrName="OPERATINGUNIT"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="OPERATING_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.OPERATINGUNIT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

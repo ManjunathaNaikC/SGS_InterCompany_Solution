@@ -18,8 +18,8 @@
         ResId="com.sgs.ics.model.bc.view.lookupVo.AllocationBasisLookupVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select LOOKUP_CODE,LOOKUP_TYPE,MEANING,DISPLAY_SEQUENCE from SGS_LOOKUP_TABLE  
-where LOOKUP_TYPE='ALLOCATION_BASIS']]></SQLQuery>
+  <SQLQuery><![CDATA[select LOOKUP_CODE,LOOKUP_TYPE,MEANING,DISPLAY_SEQUENCE from SGS_LOOKUP_TABLE   
+where LOOKUP_TYPE='ALLOCATION_BASIS' and ENABLED='Y']]></SQLQuery>
   <ViewAttribute
     Name="LOOKUPCODE"
     IsUpdateable="false"

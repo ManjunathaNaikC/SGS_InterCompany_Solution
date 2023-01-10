@@ -37,6 +37,13 @@
                                       shortDesc="#{bindings.ExpenseType.hints.tooltip}" id="it2">
                             <f:validator binding="#{bindings.ExpenseType.validator}"/>
                         </af:inputText>
+                        <af:selectOneChoice value="#{bindings.CostIdentifier1.inputValue}"
+                                            label="#{bindings.CostIdentifier1.label}"
+                                            required="#{bindings.CostIdentifier1.hints.mandatory}"
+                                            shortDesc="#{bindings.CostIdentifier1.hints.tooltip}" id="soc2">
+                            <f:selectItems value="#{bindings.CostIdentifier1.items}" id="si2"/>
+                            <f:validator binding="#{bindings.CostIdentifier1.validator}"/>
+                        </af:selectOneChoice>
                         <af:inputText value="#{bindings.SubExpenseType.inputValue}"
                                       label="#{bindings.SubExpenseType.hints.label}"
                                       required="#{bindings.SubExpenseType.hints.mandatory}"
@@ -266,6 +273,20 @@
                                         <f:validator binding="#{row.bindings.BuUnit.validator}"/>
                                     </af:inputText>
                                 </af:column>
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.label}"
+                                           id="c15"
+                                           sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.name}"
+                                           filterable="true">
+                                    <af:inputText value="#{row.bindings.OPERATINGUNIT.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.tooltip}"
+                                                  id="it26">
+                                        <f:validator binding="#{row.bindings.OPERATINGUNIT.validator}"/>
+                                    </af:inputText>
+                                </af:column>
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.JOBCODE.label}" id="c10"
                                 sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.JOBCODE.name}"
                                            filterable="true">
@@ -277,6 +298,19 @@
                                                   shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.JOBCODE.tooltip}"
                                                   id="it9">
                                         <f:validator binding="#{row.bindings.JOBCODE.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.Currency.name}"
+                                           filterable="true"
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}" id="c6">
+                                    <af:inputText value="#{row.bindings.Currency.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.Currency.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.Currency.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.Currency.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.Currency.tooltip}"
+                                                  id="it20">
+                                        <f:validator binding="#{row.bindings.Currency.validator}"/>
                                     </af:inputText>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.name}"
@@ -295,19 +329,6 @@
                                                           pattern="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.format}"/>
                                     </af:inputText>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.Currency.name}"
-                                           filterable="true"
-                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}" id="c6">
-                                    <af:inputText value="#{row.bindings.Currency.inputValue}"
-                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}"
-                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.Currency.mandatory}"
-                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.Currency.displayWidth}"
-                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.Currency.precision}"
-                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.Currency.tooltip}"
-                                                  id="it20">
-                                        <f:validator binding="#{row.bindings.Currency.validator}"/>
-                                    </af:inputText>
-                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.label}"
@@ -324,6 +345,45 @@
                                                           pattern="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.format}"/>
                                     </af:inputText>
                                 </af:column>
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.label}"
+                                           sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.name}"
+                                           filterable="true" id="c11">
+                                    <af:inputText value="#{row.bindings.DEPTCOSTCENTER.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.tooltip}"
+                                                  id="it22">
+                                        <f:validator binding="#{row.bindings.DEPTCOSTCENTER.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
+                                           sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.name}"
+                                           filterable="true" id="c12">
+                                    <af:inputText value="#{row.bindings.EMPLOYEEGRADELEVEL.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.tooltip}"
+                                                  id="it23">
+                                        <f:validator binding="#{row.bindings.EMPLOYEEGRADELEVEL.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
+                                           sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.name}"
+                                           filterable="true" id="c13">
+                                    <af:inputText value="#{row.bindings.EMPLOYEEID.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.tooltip}"
+                                                  id="it24">
+                                        <f:validator binding="#{row.bindings.EMPLOYEEID.validator}"/>
+                                    </af:inputText>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.label}"
@@ -336,48 +396,6 @@
                                                   shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.tooltip}"
                                                   id="it19">
                                         <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.label}"
-                                sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.name}"
-                                           filterable="true"
-                                           id="c11">
-                                    <af:inputText value="#{row.bindings.DEPTCOSTCENTER.inputValue}"
-                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.label}"
-                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.mandatory}"
-                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.displayWidth}"
-                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.precision}"
-                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.tooltip}"
-                                                  id="it22">
-                                        <f:validator binding="#{row.bindings.DEPTCOSTCENTER.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
-                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.name}"
-                                           filterable="true"
-                                           id="c12">
-                                    <af:inputText value="#{row.bindings.EMPLOYEEGRADELEVEL.inputValue}"
-                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
-                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.mandatory}"
-                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.displayWidth}"
-                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.precision}"
-                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.tooltip}"
-                                                  id="it23">
-                                        <f:validator binding="#{row.bindings.EMPLOYEEGRADELEVEL.validator}"/>
-                                    </af:inputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
-                                  sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.name}"
-                                           filterable="true"
-                                           id="c13">
-                                    <af:inputText value="#{row.bindings.EMPLOYEEID.inputValue}"
-                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
-                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.mandatory}"
-                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.displayWidth}"
-                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.precision}"
-                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.tooltip}"
-                                                  id="it24">
-                                        <f:validator binding="#{row.bindings.EMPLOYEEID.validator}"/>
                                     </af:inputText>
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.label}"

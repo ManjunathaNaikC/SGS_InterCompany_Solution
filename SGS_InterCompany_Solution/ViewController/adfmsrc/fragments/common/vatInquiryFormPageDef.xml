@@ -78,6 +78,7 @@
           <Item Value="ChargeabilityToTax"/>
           <Item Value="ItmServCat"/>
           <Item Value="ExemptSuppy"/>
+          <Item Value="NATUREOFEXPENSE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

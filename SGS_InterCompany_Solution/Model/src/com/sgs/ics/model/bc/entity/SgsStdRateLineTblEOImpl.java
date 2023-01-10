@@ -62,6 +62,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         EMPLOYEEGRADELEVEL,
         EMPLOYEEID,
         PROGRAMNAME,
+        OPERATINGUNIT,
         SgsStandardRateSetupEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -122,6 +123,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static final int EMPLOYEEGRADELEVEL = AttributesEnum.EMPLOYEEGRADELEVEL.index();
     public static final int EMPLOYEEID = AttributesEnum.EMPLOYEEID.index();
     public static final int PROGRAMNAME = AttributesEnum.PROGRAMNAME.index();
+    public static final int OPERATINGUNIT = AttributesEnum.OPERATINGUNIT.index();
     public static final int SGSSTANDARDRATESETUPEO = AttributesEnum.SgsStandardRateSetupEO.index();
 
     /**
@@ -682,6 +684,22 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
      */
     public void setPROGRAMNAME(String value) {
         setAttributeInternal(PROGRAMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for OPERATINGUNIT, using the alias name OPERATINGUNIT.
+     * @return the value of OPERATINGUNIT
+     */
+    public String getOPERATINGUNIT() {
+        return (String) getAttributeInternal(OPERATINGUNIT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OPERATINGUNIT.
+     * @param value value to set the OPERATINGUNIT
+     */
+    public void setOPERATINGUNIT(String value) {
+        setAttributeInternal(OPERATINGUNIT, value);
     }
 
     /**

@@ -273,6 +273,18 @@
     ColumnType="DATE"
     TableName="SGS_VAT_TAX_APPLICABILITY"
     HistoryColumn="DateHistory"/>
+  <Attribute
+    Name="NATUREOFEXPENSE"
+    Precision="80"
+    ColumnName="NATURE_OF_EXPENSE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_VAT_TAX_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsVatTblEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsVatTaxApplicabilityAssoc"

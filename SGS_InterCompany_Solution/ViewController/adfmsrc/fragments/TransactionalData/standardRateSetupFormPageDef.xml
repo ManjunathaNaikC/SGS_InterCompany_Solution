@@ -132,6 +132,7 @@
           <Item Value="EMPLOYEEGRADELEVEL"/>
           <Item Value="EMPLOYEEID"/>
           <Item Value="PROGRAMNAME"/>
+          <Item Value="OPERATINGUNIT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

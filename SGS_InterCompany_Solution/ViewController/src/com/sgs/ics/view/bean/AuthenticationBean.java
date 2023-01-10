@@ -134,7 +134,7 @@ public class AuthenticationBean {
     
     public void setSessionScopeValue(String name, String value) {
         ADFContext adfCtx = ADFContext.getCurrent();
-        Map sessionScope = adfCtx.getSessionScope();
+        Map sessionScope = adfCtx.getApplicationScope();
         sessionScope.put(name, value);
     }
 

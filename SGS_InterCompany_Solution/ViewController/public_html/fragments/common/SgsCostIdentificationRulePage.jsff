@@ -215,7 +215,7 @@
                                       rowSelection="single"
                                       fetchSize="#{bindings.SgsCostIdentificationRuleVO2.rangeSize}"
                                       filterModel="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor}"
-                                      filterVisible="true"
+                                      filterVisible="false"
                                       queryListener="#{bindings.SgsCostIdentificationRuleVOQuery.processQuery}"
                                       varStatus="vs" id="resId1" partialTriggers="::b1" 
                                       columnStretching="last">

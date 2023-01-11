@@ -57,8 +57,8 @@
                                     <af:menuBar id="mb1" >
                                         <af:menu id="m1" icon="/resources/icons/userIcon.png"
                                                  inlineStyle="color:green;">
-                                        <af:commandMenuItem text="User Id: #{sessionScope._username} " id="cmi1"/>
-                                         <af:commandMenuItem text="Email Id: #{sessionScope.USER_EMAIL}" id="cmi2"/>
+                                        <af:commandMenuItem text="User Id: #{applicationScope._username} " id="cmi1"/>
+                                         <af:commandMenuItem text="Email Id: #{applicationScope.USER_EMAIL}" id="cmi2"/>
                                             <af:commandMenuItem text="LogOut" id="cmi3"
                                                                 action="#{authenticationBean.logOut}"/>
                                         </af:menu>

@@ -92,8 +92,14 @@
           <Item Value="CREATEDDATE"/>
           <Item Value="UpdatedBy"/>
           <Item Value="UpdatedDate"/>
+          <Item Value="FROMBU"/>
+          <Item Value="FROMOU"/>
+          <Item Value="FROMJOBCODE"/>
+          <Item Value="FROMDEPTID"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

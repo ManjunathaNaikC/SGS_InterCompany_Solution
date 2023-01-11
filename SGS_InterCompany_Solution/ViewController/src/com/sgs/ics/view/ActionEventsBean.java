@@ -396,6 +396,9 @@ public class ActionEventsBean {
         System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
         viewImpl.executeQuery();
         
+        
+        
+        
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.statisticspopupbind.show(hints);
                
@@ -435,6 +438,16 @@ public class ActionEventsBean {
         // Add event code here...
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
+    }
+
+    public void onCloseOfStatDataEvent(ActionEvent actionEvent) {
+        // Add event code here...
+        this.statisticspopupbind.hide();
+    }
+
+    public void onCancelOfStatDataEvent(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding("Rollback");
     }
 }
 

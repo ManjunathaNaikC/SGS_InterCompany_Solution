@@ -12,13 +12,47 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
         ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <ViewAccessor
+    Name="SgsLookupNatureOFExpVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsStatisticalPreviousMonthVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_NATUREOFEXPENSE"
+    ListVOName="SgsLookupNatureOFExpVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NATUREOFEXPENSE"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsStatisticalDataEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStatisticalDataEO"/>
@@ -118,68 +152,145 @@
     PrecisionRule="true"
     EntityAttrName="CREATEDDATE"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CREATEDDATE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CostGroup"
     PrecisionRule="true"
     EntityAttrName="CostGroup"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="COST_GROUP"/>
+    AliasName="COST_GROUP">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CostGroup_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Currency"
     PrecisionRule="true"
     EntityAttrName="Currency"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="CURRENCY"/>
+    AliasName="CURRENCY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.Currency_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmployeeId"
     PrecisionRule="true"
     EntityAttrName="EmployeeId"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="EMPLOYEE_ID"/>
+    AliasName="EMPLOYEE_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.EmployeeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GLACCOUNT"
     PrecisionRule="true"
     EntityAttrName="GLACCOUNT"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="GL_ACCOUNT"/>
+    AliasName="GL_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.GLACCOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InputProvider"
     PrecisionRule="true"
     EntityAttrName="InputProvider"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="Input_Provider"/>
+    AliasName="Input_Provider">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.InputProvider_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RejectedReason"
     PrecisionRule="true"
     EntityAttrName="RejectedReason"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="REJECTED_REASON"/>
+    AliasName="REJECTED_REASON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.RejectedReason_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RejectionComments"
     PrecisionRule="true"
     EntityAttrName="RejectionComments"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="REJECTION_COMMENTS"/>
+    AliasName="REJECTION_COMMENTS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.RejectionComments_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StatisticalData"
     PrecisionRule="true"
     EntityAttrName="StatisticalData"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA"/>
+    AliasName="STATISTICAL_DATA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.StatisticalData_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StatisticalDataCategory"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="StatisticalDataCategory"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA_CATEGORY"/>
+    AliasName="STATISTICAL_DATA_CATEGORY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.StatisticalDataCategory_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StatisticalDataId"
     PrecisionRule="true"
@@ -191,62 +302,200 @@
     PrecisionRule="true"
     EntityAttrName="TargetAmount"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="TARGET_AMOUNT"/>
+    AliasName="TARGET_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TargetAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToBusinessUnit"
     PrecisionRule="true"
     EntityAttrName="ToBusinessUnit"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_BUSINESS_UNIT"/>
+    AliasName="TO_BUSINESS_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToBusinessUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToDepartmentId"
     PrecisionRule="true"
     EntityAttrName="ToDepartmentId"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_DEPARTMENT_ID"/>
+    AliasName="TO_DEPARTMENT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToDepartmentId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToJobCode"
     PrecisionRule="true"
     EntityAttrName="ToJobCode"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_JOB_CODE"/>
+    AliasName="TO_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToJobCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ToOperatingUnit"
     PrecisionRule="true"
     EntityAttrName="ToOperatingUnit"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_OPERATING_UNIT"/>
+    AliasName="TO_OPERATING_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToOperatingUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnitOfMeasure"
     PrecisionRule="true"
     EntityAttrName="UnitOfMeasure"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="UNIT_OF_MEASURE"/>
+    AliasName="UNIT_OF_MEASURE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UnitOfMeasure_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
     EntityAttrName="UpdatedBy"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="UPDATED_BY"/>
+    AliasName="UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedDate"
     IsUpdateable="false"
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ValidityFrom"
     PrecisionRule="true"
     EntityAttrName="ValidityFrom"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="VALIDITY_FROM"/>
+    AliasName="VALIDITY_FROM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ValidityFrom_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ValidityTill"
     PrecisionRule="true"
     EntityAttrName="ValidityTill"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="VALIDITY_TILL"/>
+    AliasName="VALIDITY_TILL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ValidityTill_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMBU"
+    PrecisionRule="true"
+    EntityAttrName="FROMBU"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.FROMBU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMDEPTID"
+    PrecisionRule="true"
+    EntityAttrName="FROMDEPTID"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_DEPTID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.FROMDEPTID_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMJOBCODE"
+    PrecisionRule="true"
+    EntityAttrName="FROMJOBCODE"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.FROMJOBCODE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMOU"
+    PrecisionRule="true"
+    EntityAttrName="FROMOU"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_OU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.FROMOU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NATUREOFEXPENSE"
+    PrecisionRule="true"
+    EntityAttrName="NATUREOFEXPENSE"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="NATURE_OF_EXPENSE"
+    LOVName="LOV_NATUREOFEXPENSE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.NATUREOFEXPENSE_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

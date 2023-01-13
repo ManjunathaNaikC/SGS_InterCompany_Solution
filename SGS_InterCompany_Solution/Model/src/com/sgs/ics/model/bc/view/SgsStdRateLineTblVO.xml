@@ -18,6 +18,27 @@
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll"/>
   </DesignTime>
+  <ViewAccessor
+    Name="NatureOfExpenseLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.NatureOfExpenseLookupVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_NatureofExpense"
+    ListVOName="NatureOfExpenseLookupVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NatureofExpense"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LOOKUPCODE"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MEANING"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsStdRateLineTblEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO"/>
@@ -336,6 +357,22 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.OPERATINGUNIT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NatureofExpense"
+    PrecisionRule="true"
+    EntityAttrName="NatureofExpense"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="Nature_of_Expense"
+    LOVName="LOV_NatureofExpense">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.NatureofExpense_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

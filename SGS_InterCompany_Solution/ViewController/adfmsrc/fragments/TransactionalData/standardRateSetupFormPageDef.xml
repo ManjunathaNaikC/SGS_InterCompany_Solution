@@ -133,6 +133,7 @@
           <Item Value="EMPLOYEEID"/>
           <Item Value="PROGRAMNAME"/>
           <Item Value="OPERATINGUNIT"/>
+          <Item Value="NatureofExpense"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

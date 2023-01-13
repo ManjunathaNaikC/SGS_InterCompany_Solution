@@ -246,9 +246,7 @@
             <url n="id" path="../../../../../Users/RP447WX/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
             <value n="isJDK" v="false"/>
          </hash>
-         
          <hash>
-
             <value n="id" v="Poi-3.7.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -274,7 +272,6 @@
             <value n="id" v="BC4J Security"/>
             <value n="isJDK" v="false"/>
          </hash>
-       
          <hash>
             <value n="id" v="Resource Bundle Support"/>
             <value n="isJDK" v="false"/>
@@ -283,7 +280,10 @@
             <value n="id" v="ADF Common Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
-
+         <hash>
+            <url n="id" path="../../../../../Users/RP447WX/AppData/Roaming/JDeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/Sqljdbc41.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">

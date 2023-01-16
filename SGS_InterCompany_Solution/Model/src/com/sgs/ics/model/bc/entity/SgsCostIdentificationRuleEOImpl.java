@@ -724,7 +724,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             //setCostIdentificationId("SGSID"+Math.random());
-            setCostIdentificationId("CIR"+am.getDBSequence("seq_SGS_COST_IDENTIFICATION_RULE"));
+            setCostIdentificationId("CIR"+am.getDBSequence("SEQ_SGS_COST_IDENTIFICATION_RULE"));
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());

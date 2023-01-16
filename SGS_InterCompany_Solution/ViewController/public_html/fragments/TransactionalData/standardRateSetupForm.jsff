@@ -233,7 +233,7 @@
                                       queryListener="#{bindings.SgsStdRateLineTblVO4Query.processQuery}" varStatus="vs"
                                       id="t2" columnStretching="last" partialTriggers="::b7 ::b9"
                                       styleClass="AFStretchWidth">
-                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.name}"
+                                <!--<af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.label}"
                                            id="c1">
@@ -246,6 +246,18 @@
                                                   id="it4">
                                         <f:validator binding="#{row.bindings.CostIdentifier.validator}"/>
                                     </af:inputText>
+                                </af:column>-->
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.NatureofExpense.label}"
+                                           id="c1" sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.NatureofExpense.name}"
+                                           filterable="true">
+                                    <af:selectOneChoice value="#{row.bindings.NatureofExpense.inputValue}"
+                                                        label="#{row.bindings.NatureofExpense.label}"
+                                                        required="#{bindings.SgsStdRateLineTblVO4.hints.NatureofExpense.mandatory}"
+                                                        shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.NatureofExpense.tooltip}"
+                                                        id="soc3">
+                                        <f:selectItems value="#{row.bindings.NatureofExpense.items}" id="si3"/>
+                                        <f:validator binding="#{row.bindings.NatureofExpense.validator}"/>
+                                    </af:selectOneChoice>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
                                            filterable="true"

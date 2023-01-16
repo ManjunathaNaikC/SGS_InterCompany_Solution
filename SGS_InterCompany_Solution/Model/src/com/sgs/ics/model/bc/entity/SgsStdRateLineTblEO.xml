@@ -377,6 +377,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="NatureofExpense"
+    Precision="80"
+    ColumnName="Nature_of_Expense"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STDRATE_LINE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsStandardRateSetupEO"
     Association="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc"

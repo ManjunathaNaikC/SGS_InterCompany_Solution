@@ -301,7 +301,7 @@
       <ViewCriteriaItem
         Name="NatureOfExpenses"
         ViewAttribute="NatureOfExpenses"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bNatureOfExpense"
         IsBindVarValue="true"
@@ -309,7 +309,7 @@
       <ViewCriteriaItem
         Name="SpBusinessUnit"
         ViewAttribute="SpBusinessUnit"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSPBusinessUnit"
         IsBindVarValue="true"
@@ -317,7 +317,7 @@
       <ViewCriteriaItem
         Name="SpGeography"
         ViewAttribute="SpGeography"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSpgeography"
         IsBindVarValue="true"
@@ -325,7 +325,7 @@
       <ViewCriteriaItem
         Name="SpLegalEntity"
         ViewAttribute="SpLegalEntity"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSPLegalEntity"
         IsBindVarValue="true"
@@ -333,7 +333,7 @@
       <ViewCriteriaItem
         Name="SrBusinessUnit"
         ViewAttribute="SrBusinessUnit"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSRBusinessUnit"
         IsBindVarValue="true"
@@ -341,7 +341,7 @@
       <ViewCriteriaItem
         Name="SrGeography"
         ViewAttribute="SrGeography"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSRGeography"
         IsBindVarValue="true"
@@ -349,7 +349,7 @@
       <ViewCriteriaItem
         Name="SrLegalEntity"
         ViewAttribute="SrLegalEntity"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSRLegalEntity"
         IsBindVarValue="true"

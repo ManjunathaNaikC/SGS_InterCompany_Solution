@@ -125,7 +125,7 @@
       <ViewCriteriaItem
         Name="LookupType"
         ViewAttribute="LookupType"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bLookupType"
         IsBindVarValue="true"
@@ -136,6 +136,10 @@
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="DisplaySequence"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="DisplaySequence"/>

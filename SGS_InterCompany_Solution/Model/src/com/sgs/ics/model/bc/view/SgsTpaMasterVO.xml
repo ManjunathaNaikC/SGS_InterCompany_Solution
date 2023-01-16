@@ -210,7 +210,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="OperationUnit"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="OperationUnit"
     EntityUsage="SgsTpaMaster"
@@ -608,7 +607,7 @@
       <ViewCriteriaItem
         Name="TpaId"
         ViewAttribute="TpaId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bTPAId"
         IsBindVarValue="true"
@@ -616,7 +615,7 @@
       <ViewCriteriaItem
         Name="LeServiceProvider"
         ViewAttribute="LeServiceProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bLeServiceProvider"
         IsBindVarValue="true"
@@ -632,7 +631,7 @@
       <ViewCriteriaItem
         Name="NettingApplicatibility"
         ViewAttribute="NettingApplicatibility"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bNettingApplicatibility"
         IsBindVarValue="true"

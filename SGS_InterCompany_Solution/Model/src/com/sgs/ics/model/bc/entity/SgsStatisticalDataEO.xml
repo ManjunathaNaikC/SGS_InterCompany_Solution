@@ -210,8 +210,7 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STATISTICAL_DATA_TBL"
-    HistoryColumn="DateHistory"/>
+    TableName="SGS_STATISTICAL_DATA_TBL"/>
   <Attribute
     Name="UpdatedBy"
     Precision="80"
@@ -370,9 +369,7 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STATISTICAL_DATA_TBL"
-    IsUpdateable="while_insert"
-    HistoryColumn="DateHistory"/>
+    TableName="SGS_STATISTICAL_DATA_TBL"/>
   <Attribute
     Name="GLACCOUNT"
     Precision="80"

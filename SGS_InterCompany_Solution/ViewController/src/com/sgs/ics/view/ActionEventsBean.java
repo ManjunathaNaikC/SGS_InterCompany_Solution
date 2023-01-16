@@ -1,6 +1,7 @@
 package com.sgs.ics.view;
 
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
+import com.sgs.ics.model.bc.commonutils.CommonUtils;
 import com.sgs.ics.ui.utils.ADFUtils;
 
 import java.sql.Connection;
@@ -36,7 +37,10 @@ import oracle.jbo.server.ViewDefImpl;
 import oracle.jbo.server.ViewObjectImpl;
 import java.util.TimeZone;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
+
+import oracle.jbo.ViewObject;
 
 public class ActionEventsBean {
     protected String SAVE_DATA="Commit";
@@ -436,7 +440,64 @@ public class ActionEventsBean {
 
     public void onStatDataUpdate(ActionEvent actionEvent) {
         // Add event code here...
+        
+        DCIteratorBinding previousMonthData =  null;
+        DCIteratorBinding    statisticalData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+              try {
+                   previousMonthData = getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator");
+
+                  oracle.jbo.Row[] previousMonthDatarows = previousMonthData.getAllRowsInRange();
+                  
+                  System.out.println("previousMonthDatarows:: "+previousMonthDatarows.length);
+                  CommonUtils util= new CommonUtils();
+                  Object user= (Object)util.getSessionScopeValue("_username").toString();
+
+                  for (int i = 0; i < previousMonthDatarows.length; i++) {
+                      System.out.println("value :: "+previousMonthDatarows[i].getAttribute("STATISTICALDATACATEGORY"));
+                      executeBinding("CreateStatisticalData");
+                      //previousMonthDatarows[i].getAttribute("StatisticalDataCategory");
+                      Row row = statisticalData.getCurrentRow();
+                      row.setAttribute("StatisticalDataCategory", previousMonthDatarows[i].getAttribute("STATISTICALDATACATEGORY"));                      
+                      row.setAttribute("FROMOU", previousMonthDatarows[i].getAttribute("FROMOU"));
+                      row.setAttribute("FROMJOBCODE", previousMonthDatarows[i].getAttribute("FROMJOBCODE"));
+                      row.setAttribute("FROMDEPTID", previousMonthDatarows[i].getAttribute("FROMDEPTID"));
+                      row.setAttribute("FROMBU", previousMonthDatarows[i].getAttribute("FROMBU"));
+                      row.setAttribute("NATUREOFEXPENSE", previousMonthDatarows[i].getAttribute("NATUREOFEXPENSE"));
+                      row.setAttribute("InputProvider", previousMonthDatarows[i].getAttribute("InputProvider"));
+                      row.setAttribute("GLACCOUNT", previousMonthDatarows[i].getAttribute("GLACCOUNT"));
+                      row.setAttribute("CREATEDDATE", new java.sql.Date(new Date().getTime()));
+                      row.setAttribute("UpdatedBy", user);
+                      row.setAttribute("UpdatedDate", new java.sql.Date(new Date().getTime()));
+                      row.setAttribute("CreatedBy", user);
+                      row.setAttribute("ValidityTill", previousMonthDatarows[i].getAttribute("VALIDITYTILL"));
+                      row.setAttribute("ValidityFrom", previousMonthDatarows[i].getAttribute("VALIDITYFROM"));
+                      row.setAttribute("RejectionComments", previousMonthDatarows[i].getAttribute("REJECTIONCOMMENTS"));
+                      row.setAttribute("RejectedReason", previousMonthDatarows[i].getAttribute("REJECTEDREASON"));
+                      row.setAttribute("TargetAmount", previousMonthDatarows[i].getAttribute("TARGETAMOUNT"));
+                      row.setAttribute("EmployeeId", previousMonthDatarows[i].getAttribute("EMPLOYEEID"));
+                      row.setAttribute("Currency", previousMonthDatarows[i].getAttribute("CURRENCY"));
+                      row.setAttribute("CostGroup", previousMonthDatarows[i].getAttribute("COSTGROUP"));
+                      row.setAttribute("UnitOfMeasure", previousMonthDatarows[i].getAttribute("UNITOFMEASURE"));
+                      row.setAttribute("StatisticalData", previousMonthDatarows[i].getAttribute("STATISTICALDATA"));
+                      row.setAttribute("ToDepartmentId", previousMonthDatarows[i].getAttribute("TODEPARTMENTID"));
+                      row.setAttribute("ToOperatingUnit", previousMonthDatarows[i].getAttribute("TOOPERATINGUNIT"));
+                      row.setAttribute("ToJobCode", previousMonthDatarows[i].getAttribute("TOJOBCODE"));
+                      row.setAttribute("ToBusinessUnit", previousMonthDatarows[i].getAttribute("TOBUSINESSUNIT"));
+                      
+                      
+                      
+                     // previousMonthDatarows[i].getAttribute("StatisticalDataCategory");
+                      System.out.println("value :: "+previousMonthDatarows[i].getAttribute("STATISTICALDATACATEGORY"));
+              
+                  } 
+              } catch (Exception e) {
+                  // TODO: Add catch code
+                  e.printStackTrace(); 
+
+              }
         executeBinding(SAVE_DATA);
+        ViewObject object = statisticalData.getViewObject();
+        object.executeQuery();
         ADFUtils.saveNotifier();
     }
 

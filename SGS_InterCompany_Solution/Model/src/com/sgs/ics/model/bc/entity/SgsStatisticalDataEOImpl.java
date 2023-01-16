@@ -388,6 +388,14 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public void setValidityFrom(Date value) {
         setAttributeInternal(VALIDITYFROM, value);
     }
+    
+    public void setCREATEDDATE(Date value) {
+        setAttributeInternal(CREATEDDATE, value);
+    }
+    
+    public void setUpdatedDate(Date value) {
+        setAttributeInternal(UPDATEDDATE, value);
+    }
 
     /**
      * Gets the attribute value for ValidityTill, using the alias name ValidityTill.
@@ -428,6 +436,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public Date getUpdatedDate() {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
+    
 
 
     /**
@@ -693,6 +702,10 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public Date getCREATEDDATE() {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
+    
+//    public void setCREATEDDATE(Date value) {
+//        setAttributeInternal(CREATEDDATE, value);
+//    }
 
 
     /**
@@ -824,6 +837,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());
+            setCREATEDDATE(new java.sql.Date(new java.util.Date().getTime()));
         } catch (Exception e) {
             LOG.severe(e);
         }
@@ -846,6 +860,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
+            setUpdatedDate(new java.sql.Date(new java.util.Date().getTime()));
         }
         
         super.doDML(operation, e);

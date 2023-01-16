@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -671,7 +672,7 @@
       <ViewCriteriaItem
         Name="BussinessUnitGeography"
         ViewAttribute="BussinessUnitGeography"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bBUGeography"
         IsBindVarValue="true"
@@ -687,7 +688,7 @@
       <ViewCriteriaItem
         Name="BussinessUnitStatus"
         ViewAttribute="BussinessUnitStatus"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bBUStatus"
         IsBindVarValue="true"
@@ -703,7 +704,7 @@
       <ViewCriteriaItem
         Name="LegalEntity"
         ViewAttribute="LegalEntity"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bLegalEntity"
         IsBindVarValue="true"
@@ -711,7 +712,7 @@
       <ViewCriteriaItem
         Name="SubLedgerApplicability"
         ViewAttribute="SubLedgerApplicability"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSubLedgerApp"
         IsBindVarValue="true"

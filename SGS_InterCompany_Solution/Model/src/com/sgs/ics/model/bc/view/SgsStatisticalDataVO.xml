@@ -727,7 +727,7 @@
       <ViewCriteriaItem
         Name="StatisticalDataCategory"
         ViewAttribute="StatisticalDataCategory"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bStatsCategory"
         IsBindVarValue="true"
@@ -735,7 +735,7 @@
       <ViewCriteriaItem
         Name="ToBusinessUnit"
         ViewAttribute="ToBusinessUnit"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bBusinessUnit"
         IsBindVarValue="true"
@@ -743,7 +743,7 @@
       <ViewCriteriaItem
         Name="ToJobCode"
         ViewAttribute="ToJobCode"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bJobCode"
         IsBindVarValue="true"
@@ -751,7 +751,7 @@
       <ViewCriteriaItem
         Name="ToOperatingUnit"
         ViewAttribute="ToOperatingUnit"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bOperatingUnit"
         IsBindVarValue="true"
@@ -759,7 +759,7 @@
       <ViewCriteriaItem
         Name="StatisticalData"
         ViewAttribute="StatisticalData"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bStastiticalData"
         IsBindVarValue="true"
@@ -767,7 +767,7 @@
       <ViewCriteriaItem
         Name="InputProvider"
         ViewAttribute="InputProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bInputProvider"
         IsBindVarValue="true"

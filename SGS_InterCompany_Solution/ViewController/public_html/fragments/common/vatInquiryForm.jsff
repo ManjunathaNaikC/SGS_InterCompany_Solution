@@ -15,7 +15,7 @@
               <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
                          immediate="true" rendered="#{pageFlowScope.pVATAddEdit == 'EDIT'}" action="back"/>
               <af:button text="Cancel" id="b3" rendered="#{pageFlowScope.pVATAddEdit == 'ADD'}" immediate="true"
-                         actionListener="#{bindings.DeleteVatTax.execute}" disabled="#{! bindings.DeleteVatTax.enabled}"
+                         actionListener="#{bindings.Delete.execute}" disabled="#{! bindings.Delete.enabled}"
                          action="back"/>
             </af:toolbar>
           </f:facet>
@@ -131,12 +131,12 @@
                 <af:button 
                            disabled="#{!bindings.DeleteVatTax.enabled}" id="b5" icon="/resources/icons/delete.png"
                            immediate="true">
-                            <af:showPopupBehavior popupId="p1vat"/>
+                            <af:showPopupBehavior popupId="p1vatTax"/>
                 </af:button>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p1vat">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1vatTax">
                                 <af:dialog id="d1"
                                            dialogListener="#{viewScope.ActionEventsBean.onVatTaxDelete}">
                                     <f:facet name="buttonBar"/>

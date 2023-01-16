@@ -442,7 +442,7 @@
       <ViewCriteriaItem
         Name="ExpenseType"
         ViewAttribute="ExpenseType"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bExpenseType"
         IsBindVarValue="true"
@@ -450,7 +450,7 @@
       <ViewCriteriaItem
         Name="SubExpenseType"
         ViewAttribute="SubExpenseType"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSubExpenseType"
         IsBindVarValue="true"
@@ -458,7 +458,7 @@
       <ViewCriteriaItem
         Name="INPUTPROVIDER"
         ViewAttribute="INPUTPROVIDER"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bInputProvider"
         IsBindVarValue="true"

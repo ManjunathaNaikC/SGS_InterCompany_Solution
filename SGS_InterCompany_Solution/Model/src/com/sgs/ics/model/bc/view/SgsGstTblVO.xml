@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="bGstId"
     Kind="viewcriteria"
@@ -281,7 +282,8 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsGstTblEO"
-    AliasName="CREATED_DATE">
+    AliasName="CREATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -311,7 +313,8 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsGstTblEO"
-    AliasName="UPDATED_DATE">
+    AliasName="UPDATED_DATE"
+    IsUpdateable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -560,7 +563,7 @@
       <ViewCriteriaItem
         Name="GstNum"
         ViewAttribute="GstNum"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bGstId"
         IsBindVarValue="true"
@@ -568,7 +571,7 @@
       <ViewCriteriaItem
         Name="ServProvider"
         ViewAttribute="ServProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bServiceProvider"
         IsBindVarValue="true"
@@ -576,7 +579,7 @@
       <ViewCriteriaItem
         Name="SupplyPlace"
         ViewAttribute="SupplyPlace"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bPlaceOfSupply"
         IsBindVarValue="true"
@@ -584,7 +587,7 @@
       <ViewCriteriaItem
         Name="SupplyType"
         ViewAttribute="SupplyType"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bTypeOfSupply"
         IsBindVarValue="true"

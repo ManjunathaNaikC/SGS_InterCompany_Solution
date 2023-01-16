@@ -6,14 +6,13 @@
   Name="SgsStatisticalPreviousMonthVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="JDBC"
-  CustomQuery="false"
-  SelectAllAttributes="false"
+  CustomQuery="true"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -53,106 +52,243 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <EntityUsage
-    Name="SgsStatisticalDataEO"
-    Entity="com.sgs.ics.model.bc.entity.SgsStatisticalDataEO"/>
+  <SQLQuery><![CDATA[SELECT SgsStatisticalDataEO.ATTRIBUTE1,   
+       SgsStatisticalDataEO.ATTRIBUTE10,   
+       SgsStatisticalDataEO.ATTRIBUTE11,   
+       SgsStatisticalDataEO.ATTRIBUTE12,   
+       SgsStatisticalDataEO.ATTRIBUTE13,   
+       SgsStatisticalDataEO.ATTRIBUTE14,   
+       SgsStatisticalDataEO.ATTRIBUTE15,   
+       SgsStatisticalDataEO.ATTRIBUTE2,   
+       SgsStatisticalDataEO.ATTRIBUTE3,   
+       SgsStatisticalDataEO.ATTRIBUTE4,   
+       SgsStatisticalDataEO.ATTRIBUTE5,   
+       SgsStatisticalDataEO.ATTRIBUTE6,   
+       SgsStatisticalDataEO.ATTRIBUTE7,   
+       SgsStatisticalDataEO.ATTRIBUTE8,   
+       SgsStatisticalDataEO.ATTRIBUTE9,   
+       SgsStatisticalDataEO.CREATED_DATE,   
+       SgsStatisticalDataEO.COST_GROUP,   
+       SgsStatisticalDataEO.CREATED_BY,   
+       SgsStatisticalDataEO.CURRENCY,   
+       SgsStatisticalDataEO.EMPLOYEE_ID,   
+       SgsStatisticalDataEO.GL_ACCOUNT,   
+       SgsStatisticalDataEO.Input_Provider,   
+       SgsStatisticalDataEO.REJECTED_REASON,   
+       SgsStatisticalDataEO.REJECTION_COMMENTS,   
+       SgsStatisticalDataEO.STATISTICAL_DATA,   
+       SgsStatisticalDataEO.STATISTICAL_DATA_CATEGORY,   
+       SgsStatisticalDataEO.STATISTICAL_DATA_ID,   
+       SgsStatisticalDataEO.TARGET_AMOUNT,   
+       SgsStatisticalDataEO.TO_BUSINESS_UNIT,   
+       SgsStatisticalDataEO.TO_DEPARTMENT_ID,   
+       SgsStatisticalDataEO.TO_JOB_CODE,   
+       SgsStatisticalDataEO.TO_OPERATING_UNIT,   
+       SgsStatisticalDataEO.UNIT_OF_MEASURE,   
+       SgsStatisticalDataEO.UPDATED_BY,   
+       SgsStatisticalDataEO.UPDATED_DATE,   
+       SgsStatisticalDataEO.VALIDITY_FROM,   
+       SgsStatisticalDataEO.VALIDITY_TILL,   
+       SgsStatisticalDataEO.FROM_BU,   
+       SgsStatisticalDataEO.FROM_DEPTID,   
+       SgsStatisticalDataEO.FROM_JOB_CODE,   
+       SgsStatisticalDataEO.FROM_OU,   
+       SgsStatisticalDataEO.NATURE_OF_EXPENSE  
+FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
   <ViewAttribute
-    Name="Attribute1"
+    Name="ATTRIBUTE1"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute1"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE1"/>
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="ATTRIBUTE1"
+    Expression="ATTRIBUTE1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
-    Name="Attribute10"
+    Name="ATTRIBUTE10"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute10"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE10"/>
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="ATTRIBUTE10"
+    Expression="ATTRIBUTE10"
+    SQLType="DATE"/>
   <ViewAttribute
-    Name="Attribute11"
+    Name="ATTRIBUTE11"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute11"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE11"/>
+    Precision="20"
+    Scale="5"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    AliasName="ATTRIBUTE11"
+    Expression="ATTRIBUTE11"
+    SQLType="NUMERIC"/>
   <ViewAttribute
-    Name="Attribute12"
+    Name="ATTRIBUTE12"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute12"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE12"/>
+    Precision="20"
+    Scale="5"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    AliasName="ATTRIBUTE12"
+    Expression="ATTRIBUTE12"
+    SQLType="NUMERIC"/>
   <ViewAttribute
-    Name="Attribute13"
+    Name="ATTRIBUTE13"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute13"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE13"/>
+    Precision="20"
+    Scale="5"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    AliasName="ATTRIBUTE13"
+    Expression="ATTRIBUTE13"
+    SQLType="NUMERIC"/>
   <ViewAttribute
-    Name="Attribute14"
+    Name="ATTRIBUTE14"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute14"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE14"/>
+    Precision="10"
+    Scale="5"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    AliasName="ATTRIBUTE14"
+    Expression="ATTRIBUTE14"
+    SQLType="NUMERIC"/>
   <ViewAttribute
-    Name="Attribute15"
+    Name="ATTRIBUTE15"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute15"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE15"/>
+    Precision="10"
+    Scale="5"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    AliasName="ATTRIBUTE15"
+    Expression="ATTRIBUTE15"
+    SQLType="NUMERIC"/>
   <ViewAttribute
-    Name="Attribute2"
+    Name="ATTRIBUTE2"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute2"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE2"/>
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="ATTRIBUTE2"
+    Expression="ATTRIBUTE2"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
-    Name="Attribute3"
+    Name="ATTRIBUTE3"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute3"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE3"/>
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="ATTRIBUTE3"
+    Expression="ATTRIBUTE3"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
-    Name="Attribute4"
+    Name="ATTRIBUTE4"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute4"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE4"/>
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="ATTRIBUTE4"
+    Expression="ATTRIBUTE4"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
-    Name="Attribute5"
+    Name="ATTRIBUTE5"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute5"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE5"/>
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="ATTRIBUTE5"
+    Expression="ATTRIBUTE5"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
-    Name="Attribute6"
+    Name="ATTRIBUTE6"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute6"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE6"/>
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="ATTRIBUTE6"
+    Expression="ATTRIBUTE6"
+    SQLType="DATE"/>
   <ViewAttribute
-    Name="Attribute7"
+    Name="ATTRIBUTE7"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute7"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE7"/>
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="ATTRIBUTE7"
+    Expression="ATTRIBUTE7"
+    SQLType="DATE"/>
   <ViewAttribute
-    Name="Attribute8"
+    Name="ATTRIBUTE8"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute8"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE8"/>
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="ATTRIBUTE8"
+    Expression="ATTRIBUTE8"
+    SQLType="DATE"/>
   <ViewAttribute
-    Name="Attribute9"
+    Name="ATTRIBUTE9"
+    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Attribute9"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="ATTRIBUTE9"/>
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="ATTRIBUTE9"
+    Expression="ATTRIBUTE9"
+    SQLType="DATE"/>
   <ViewAttribute
     Name="CREATEDDATE"
-    IsUpdateable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="CREATEDDATE"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="CREATED_DATE">
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="CREATED_DATE"
+    Expression="CREATED_DATE"
+    SQLType="DATE">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -161,63 +297,98 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CostGroup"
+    Name="COSTGROUP"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="CostGroup"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="COST_GROUP">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="COST_GROUP"
+    Expression="COST_GROUP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CostGroup_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.COSTGROUP_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CreatedBy"
+    Name="CREATEDBY"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="CREATED_BY">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CREATED_BY"
+    Expression="CREATED_BY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CreatedBy_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CREATEDBY_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="Currency"
+    Name="CURRENCY"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="Currency"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="CURRENCY">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CURRENCY"
+    Expression="CURRENCY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.Currency_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CURRENCY_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="EmployeeId"
+    Name="EMPLOYEEID"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="EmployeeId"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="EMPLOYEE_ID">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="EMPLOYEE_ID"
+    Expression="EMPLOYEE_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.EmployeeId_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.EMPLOYEEID_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="GLACCOUNT"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="GLACCOUNT"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="GL_ACCOUNT">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="GL_ACCOUNT"
+    Expression="GL_ACCOUNT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -227,10 +398,17 @@
   </ViewAttribute>
   <ViewAttribute
     Name="InputProvider"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="InputProvider"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="Input_Provider">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="Input_Provider"
+    Expression="Input_Provider"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -239,201 +417,293 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="RejectedReason"
+    Name="REJECTEDREASON"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="RejectedReason"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="REJECTED_REASON">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="REJECTED_REASON"
+    Expression="REJECTED_REASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.RejectedReason_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.REJECTEDREASON_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="RejectionComments"
+    Name="REJECTIONCOMMENTS"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="RejectionComments"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="REJECTION_COMMENTS">
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="REJECTION_COMMENTS"
+    Expression="REJECTION_COMMENTS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.RejectionComments_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.REJECTIONCOMMENTS_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="StatisticalData"
+    Name="STATISTICALDATA"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="StatisticalData"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="STATISTICAL_DATA"
+    Expression="STATISTICAL_DATA"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.StatisticalData_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.STATISTICALDATA_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="StatisticalDataCategory"
-    IsNotNull="true"
+    Name="STATISTICALDATACATEGORY"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="StatisticalDataCategory"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA_CATEGORY">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="STATISTICAL_DATA_CATEGORY"
+    Expression="STATISTICAL_DATA_CATEGORY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.StatisticalDataCategory_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.STATISTICALDATACATEGORY_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="StatisticalDataId"
+    Name="STATISTICALDATAID"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="StatisticalDataId"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA_ID"/>
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="STATISTICAL_DATA_ID"
+    Expression="STATISTICAL_DATA_ID"
+    SQLType="INTEGER"/>
   <ViewAttribute
-    Name="TargetAmount"
+    Name="TARGETAMOUNT"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="TargetAmount"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="TARGET_AMOUNT">
+    Precision="20"
+    Scale="5"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    AliasName="TARGET_AMOUNT"
+    Expression="TARGET_AMOUNT"
+    SQLType="NUMERIC">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TargetAmount_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TARGETAMOUNT_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ToBusinessUnit"
+    Name="TOBUSINESSUNIT"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ToBusinessUnit"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_BUSINESS_UNIT">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="TO_BUSINESS_UNIT"
+    Expression="TO_BUSINESS_UNIT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToBusinessUnit_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TOBUSINESSUNIT_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ToDepartmentId"
+    Name="TODEPARTMENTID"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ToDepartmentId"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_DEPARTMENT_ID">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="TO_DEPARTMENT_ID"
+    Expression="TO_DEPARTMENT_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToDepartmentId_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TODEPARTMENTID_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ToJobCode"
+    Name="TOJOBCODE"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ToJobCode"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_JOB_CODE">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="TO_JOB_CODE"
+    Expression="TO_JOB_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToJobCode_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TOJOBCODE_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ToOperatingUnit"
+    Name="TOOPERATINGUNIT"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ToOperatingUnit"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="TO_OPERATING_UNIT">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="TO_OPERATING_UNIT"
+    Expression="TO_OPERATING_UNIT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ToOperatingUnit_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TOOPERATINGUNIT_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="UnitOfMeasure"
+    Name="UNITOFMEASURE"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="UnitOfMeasure"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="UNIT_OF_MEASURE">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="UNIT_OF_MEASURE"
+    Expression="UNIT_OF_MEASURE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UnitOfMeasure_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UNITOFMEASURE_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="UpdatedBy"
+    Name="UPDATEDBY"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="UpdatedBy"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="UPDATED_BY">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="UPDATED_BY"
+    Expression="UPDATED_BY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UpdatedBy_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UPDATEDBY_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="UpdatedDate"
-    IsUpdateable="false"
+    Name="UPDATEDDATE"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="UpdatedDate"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="UPDATED_DATE">
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="UPDATED_DATE"
+    Expression="UPDATED_DATE"
+    SQLType="DATE">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UpdatedDate_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UPDATEDDATE_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ValidityFrom"
+    Name="VALIDITYFROM"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ValidityFrom"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="VALIDITY_FROM">
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="VALIDITY_FROM"
+    Expression="VALIDITY_FROM"
+    SQLType="DATE">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ValidityFrom_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYFROM_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ValidityTill"
+    Name="VALIDITYTILL"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="ValidityTill"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="VALIDITY_TILL">
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="VALIDITY_TILL"
+    Expression="VALIDITY_TILL"
+    SQLType="DATE">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ValidityTill_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYTILL_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="FROMBU"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="FROMBU"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="FROM_BU">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FROM_BU"
+    Expression="FROM_BU"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -443,10 +713,17 @@
   </ViewAttribute>
   <ViewAttribute
     Name="FROMDEPTID"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="FROMDEPTID"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="FROM_DEPTID">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FROM_DEPTID"
+    Expression="FROM_DEPTID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -456,10 +733,17 @@
   </ViewAttribute>
   <ViewAttribute
     Name="FROMJOBCODE"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="FROMJOBCODE"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="FROM_JOB_CODE">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FROM_JOB_CODE"
+    Expression="FROM_JOB_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -469,10 +753,17 @@
   </ViewAttribute>
   <ViewAttribute
     Name="FROMOU"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="FROMOU"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="FROM_OU">
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FROM_OU"
+    Expression="FROM_OU"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -482,17 +773,24 @@
   </ViewAttribute>
   <ViewAttribute
     Name="NATUREOFEXPENSE"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="NATUREOFEXPENSE"
-    EntityUsage="SgsStatisticalDataEO"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
     AliasName="NATURE_OF_EXPENSE"
+    Expression="NATURE_OF_EXPENSE"
+    SQLType="VARCHAR"
     LOVName="LOV_NATUREOFEXPENSE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.NATUREOFEXPENSE_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.NATUREOFEXPENSE_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

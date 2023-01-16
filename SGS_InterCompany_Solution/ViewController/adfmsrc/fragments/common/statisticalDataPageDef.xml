@@ -71,35 +71,86 @@
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO"
                       Name="SgsStatisticalPreviousMonthVO10">
         <AttrNames>
-          <Item Value="CostGroup"/>
-          <Item Value="Currency"/>
-          <Item Value="EmployeeId"/>
           <Item Value="GLACCOUNT"/>
           <Item Value="InputProvider"/>
-          <Item Value="RejectedReason"/>
-          <Item Value="RejectionComments"/>
-          <Item Value="StatisticalData"/>
-          <Item Value="StatisticalDataCategory"/>
-          <Item Value="TargetAmount"/>
-          <Item Value="ToBusinessUnit"/>
-          <Item Value="ToDepartmentId"/>
-          <Item Value="ToJobCode"/>
-          <Item Value="ToOperatingUnit"/>
-          <Item Value="UnitOfMeasure"/>
-          <Item Value="ValidityFrom"/>
-          <Item Value="ValidityTill"/>
-          <Item Value="CreatedBy"/>
           <Item Value="CREATEDDATE"/>
-          <Item Value="UpdatedBy"/>
-          <Item Value="UpdatedDate"/>
           <Item Value="FROMBU"/>
           <Item Value="FROMOU"/>
           <Item Value="FROMJOBCODE"/>
           <Item Value="FROMDEPTID"/>
+          <Item Value="ATTRIBUTE1"/>
+          <Item Value="ATTRIBUTE10"/>
+          <Item Value="ATTRIBUTE11"/>
+          <Item Value="ATTRIBUTE12"/>
+          <Item Value="ATTRIBUTE13"/>
+          <Item Value="ATTRIBUTE14"/>
+          <Item Value="ATTRIBUTE15"/>
+          <Item Value="ATTRIBUTE2"/>
+          <Item Value="ATTRIBUTE3"/>
+          <Item Value="ATTRIBUTE4"/>
+          <Item Value="ATTRIBUTE5"/>
+          <Item Value="ATTRIBUTE6"/>
+          <Item Value="ATTRIBUTE7"/>
+          <Item Value="ATTRIBUTE8"/>
+          <Item Value="ATTRIBUTE9"/>
+          <Item Value="COSTGROUP"/>
+          <Item Value="CREATEDBY"/>
+          <Item Value="CURRENCY"/>
+          <Item Value="EMPLOYEEID"/>
+          <Item Value="NATUREOFEXPENSE"/>
+          <Item Value="REJECTEDREASON"/>
+          <Item Value="REJECTIONCOMMENTS"/>
+          <Item Value="STATISTICALDATA"/>
+          <Item Value="STATISTICALDATACATEGORY"/>
+          <Item Value="STATISTICALDATAID"/>
+          <Item Value="TARGETAMOUNT"/>
+          <Item Value="TOBUSINESSUNIT"/>
+          <Item Value="TODEPARTMENTID"/>
+          <Item Value="TOJOBCODE"/>
+          <Item Value="TOOPERATINGUNIT"/>
+          <Item Value="UNITOFMEASURE"/>
+          <Item Value="UPDATEDBY"/>
+          <Item Value="UPDATEDDATE"/>
+          <Item Value="VALIDITYFROM"/>
+          <Item Value="VALIDITYTILL"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
+    <tree IterBinding="SgsStatisticalPreviousMonthVO1Iterator" id="SgsStatisticalPreviousMonthVO11">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO"
+                      Name="SgsStatisticalPreviousMonthVO110">
+        <AttrNames>
+          <Item Value="CREATEDDATE"/>
+          <Item Value="COSTGROUP"/>
+          <Item Value="CREATEDBY"/>
+          <Item Value="CURRENCY"/>
+          <Item Value="EMPLOYEEID"/>
+          <Item Value="GLACCOUNT"/>
+          <Item Value="InputProvider"/>
+          <Item Value="REJECTEDREASON"/>
+          <Item Value="REJECTIONCOMMENTS"/>
+          <Item Value="STATISTICALDATA"/>
+          <Item Value="STATISTICALDATACATEGORY"/>
+          <Item Value="STATISTICALDATAID"/>
+          <Item Value="TARGETAMOUNT"/>
+          <Item Value="TOBUSINESSUNIT"/>
+          <Item Value="TODEPARTMENTID"/>
+          <Item Value="TOJOBCODE"/>
+          <Item Value="TOOPERATINGUNIT"/>
+          <Item Value="UNITOFMEASURE"/>
+          <Item Value="UPDATEDBY"/>
+          <Item Value="UPDATEDDATE"/>
+          <Item Value="VALIDITYFROM"/>
+          <Item Value="VALIDITYTILL"/>
+          <Item Value="FROMBU"/>
+          <Item Value="FROMDEPTID"/>
+          <Item Value="FROMJOBCODE"/>
+          <Item Value="FROMOU"/>
+          <Item Value="NATUREOFEXPENSE"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

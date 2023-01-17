@@ -99,6 +99,11 @@
           <Item Value="UpdatedBy"/>
           <Item Value="EffectiveFrom"/>
           <Item Value="EffectiveTo"/>
+          <Item Value="Attachment"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

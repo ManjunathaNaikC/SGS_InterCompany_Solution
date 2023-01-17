@@ -555,6 +555,7 @@ public class SgsTpaDocTypeImpl extends EntityImpl {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());
+           // setUploadedDate();
         } catch (Exception e) {
             LOG.severe(e);
         }

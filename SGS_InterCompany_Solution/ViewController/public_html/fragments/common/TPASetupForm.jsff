@@ -20,7 +20,7 @@
                                    text="Cancel" accessKey="C"/>
                     </af:toolbar>
                 </f:facet>
-                <af:panelFormLayout id="pfl1" rows="5">
+                <af:panelFormLayout id="pfl1" rows="6">
                     <af:inputText value="#{bindings.TpaId.inputValue}" label="#{bindings.TpaId.hints.label}"
                                   required="#{bindings.TpaId.hints.mandatory}"
                                   columns="#{bindings.TpaId.hints.displayWidth}"
@@ -52,15 +52,23 @@
                                   shortDesc="#{bindings.NettingApplicatibility.hints.tooltip}" id="it4">
                         <f:validator binding="#{bindings.NettingApplicatibility.validator}"/>
                     </af:inputText>
-                    <af:inputText value="#{bindings.BdCommissionApplicability.inputValue}"
+                    <af:selectOneRadio value="#{bindings.BdCommissionApplicability1.inputValue}"
+                                       label="#{bindings.BdCommissionApplicability1.label}"
+                                       required="#{bindings.BdCommissionApplicability1.hints.mandatory}"
+                                       shortDesc="#{bindings.BdCommissionApplicability1.hints.tooltip}" id="sor2"
+                                       autoSubmit="true" partialTriggers="plam1" layout="horizontal">
+                        <f:selectItems value="#{bindings.BdCommissionApplicability1.items}" id="si3"/>
+                        <f:validator binding="#{bindings.BdCommissionApplicability1.validator}"/>
+                    </af:selectOneRadio>
+                    <!--<af:inputText value="#{bindings.BdCommissionApplicability.inputValue}"
                                   label="#{bindings.BdCommissionApplicability.hints.label}"
                                   required="#{bindings.BdCommissionApplicability.hints.mandatory}"
                                   columns="#{bindings.BdCommissionApplicability.hints.displayWidth}"
                                   maximumLength="#{bindings.BdCommissionApplicability.hints.precision}"
                                   shortDesc="#{bindings.BdCommissionApplicability.hints.tooltip}" id="it5">
                         <f:validator binding="#{bindings.BdCommissionApplicability.validator}"/>
-                    </af:inputText>
-                    <af:panelLabelAndMessage label="BD Commission Rate" id="plam1">
+                    </af:inputText>-->
+                    <af:panelLabelAndMessage label="BD Commission Rate" id="plam1" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
                         <af:panelGroupLayout id="pgl1" layout="horizontal">
                             <af:inputText value="#{bindings.BdCommissionRate.inputValue}"
                                           required="#{bindings.BdCommissionRate.hints.mandatory}"
@@ -73,6 +81,14 @@
                             <af:outputText value="%" id="ot1"/>
                         </af:panelGroupLayout>
                     </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.BDCOMMCHARGINGUNIT.inputValue}"
+                                  label="#{bindings.BDCOMMCHARGINGUNIT.hints.label}"
+                                  required="#{bindings.BDCOMMCHARGINGUNIT.hints.mandatory}"
+                                  columns="#{bindings.BDCOMMCHARGINGUNIT.hints.displayWidth}"
+                                  maximumLength="#{bindings.BDCOMMCHARGINGUNIT.hints.precision}"
+                                  shortDesc="#{bindings.BDCOMMCHARGINGUNIT.hints.tooltip}" id="it14">
+                        <f:validator binding="#{bindings.BDCOMMCHARGINGUNIT.validator}"/>
+                    </af:inputText>
                     <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                   label="#{bindings.EffectiveFrom.hints.label}"
                                   required="#{bindings.EffectiveFrom.hints.mandatory}"
@@ -126,7 +142,7 @@
                                            required="#{bindings.PassThroughFlag1.hints.mandatory}"
                                            shortDesc="#{bindings.PassThroughFlag1.hints.tooltip}" id="sor1"
                                            layout="horizontal" autoSubmit="true"
-                                           partialTriggers="pb4 pfl2 it10 it11 it7 it13">
+                                           partialTriggers="pb4 pfl2 it10 it11 it7 it13 it17">
                             <f:selectItems value="#{bindings.PassThroughFlag1.items}" id="si1"/>
                             <f:validator binding="#{bindings.PassThroughFlag1.validator}"/>
                         </af:selectOneRadio>
@@ -165,6 +181,14 @@
                                       shortDesc="#{bindings.PASSTHROUGHJOBCODE.hints.tooltip}" id="it13">
                             <f:validator binding="#{bindings.PASSTHROUGHJOBCODE.validator}"/>
                         </af:inputText>
+                        <af:inputText value="#{bindings.PASSTHROUGHGLACCOUNT.inputValue}"
+                                      label="#{bindings.PASSTHROUGHGLACCOUNT.hints.label}"
+                                      required="#{bindings.PASSTHROUGHGLACCOUNT.hints.mandatory}"
+                                      columns="#{bindings.PASSTHROUGHGLACCOUNT.hints.displayWidth}"
+                                      maximumLength="#{bindings.PASSTHROUGHGLACCOUNT.hints.precision}"
+                                      shortDesc="#{bindings.PASSTHROUGHGLACCOUNT.hints.tooltip}" id="it17">
+                            <f:validator binding="#{bindings.PASSTHROUGHGLACCOUNT.validator}"/>
+                        </af:inputText>
                     </af:panelFormLayout>
                 </af:panelBox>
                 <!--<af:inputText value="#{bindings.PassThroughFlag.inputValue}"
@@ -200,7 +224,15 @@
                                   columnStretching="last" styleClass="AFStretchWidth">
                             <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.label}" id="c1"
                                        width="150">
-                                <af:inputText value="#{row.bindings.DocumentTypeValue.inputValue}"
+                                <af:selectOneChoice value="#{row.bindings.DocumentTypeValue.inputValue}"
+                                                    label="#{row.bindings.DocumentTypeValue.label}"
+                                                    required="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.mandatory}"
+                                                    shortDesc="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.tooltip}"
+                                                    id="soc1" autoSubmit="true">
+                                    <f:selectItems value="#{row.bindings.DocumentTypeValue.items}" id="si2"/>
+                                    <f:validator binding="#{row.bindings.DocumentTypeValue.validator}"/>
+                                </af:selectOneChoice>
+                                <!--<af:inputText value="#{row.bindings.DocumentTypeValue.inputValue}"
                                               label="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.label}"
                                               required="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.mandatory}"
                                               columns="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.displayWidth}"
@@ -208,7 +240,7 @@
                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.tooltip}"
                                               id="it12" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.DocumentTypeValue.validator}"/>
-                                </af:inputText>
+                                </af:inputText>-->
                             </af:column>
                             <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.Attachment.label}" id="c2"
                                        width="150">
@@ -310,7 +342,7 @@
                         </af:table>
                     </af:panelCollection>
                 </af:panelBox>
-                <af:panelBox text="Markup Details" id="pb3">
+                <af:panelBox text="Markup Details" id="pb3" rendered="false">
                     <f:facet name="toolbar"/>
                     <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                         <f:facet name="menus"/>

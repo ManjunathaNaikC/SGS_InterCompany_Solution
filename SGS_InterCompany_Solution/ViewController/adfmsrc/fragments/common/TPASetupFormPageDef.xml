@@ -144,5 +144,17 @@
     <action IterBinding="SgsMarkupRateTblVOIterator" id="DeleteMarkUp"
             InstanceName="SGSAppModuleDataControl.SgsMarkupRateTblVO" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="BDCOMMCHARGINGUNIT">
+      <AttrNames>
+        <Item Value="BDCOMMCHARGINGUNIT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="PASSTHROUGHGLACCOUNT">
+      <AttrNames>
+        <Item Value="PASSTHROUGHGLACCOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SgsTpaMasterVOIterator" StaticList="false" Uses="LOV_BdCommissionApplicability"
+          id="BdCommissionApplicability1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

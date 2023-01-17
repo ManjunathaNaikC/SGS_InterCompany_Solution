@@ -60,6 +60,8 @@ public class SgsTpaMasterImpl extends EntityImpl {
         Attribute15,
         PASSTHROUGHDEPTID,
         PASSTHROUGHJOBCODE,
+        BDCOMMCHARGINGUNIT,
+        PASSTHROUGHGLACCOUNT,
         SgsTpaDocType1,
         SgsMarkupRateTblEO;
         private static AttributesEnum[] vals = null;
@@ -120,6 +122,8 @@ public class SgsTpaMasterImpl extends EntityImpl {
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int PASSTHROUGHDEPTID = AttributesEnum.PASSTHROUGHDEPTID.index();
     public static final int PASSTHROUGHJOBCODE = AttributesEnum.PASSTHROUGHJOBCODE.index();
+    public static final int BDCOMMCHARGINGUNIT = AttributesEnum.BDCOMMCHARGINGUNIT.index();
+    public static final int PASSTHROUGHGLACCOUNT = AttributesEnum.PASSTHROUGHGLACCOUNT.index();
     public static final int SGSTPADOCTYPE1 = AttributesEnum.SgsTpaDocType1.index();
     public static final int SGSMARKUPRATETBLEO = AttributesEnum.SgsMarkupRateTblEO.index();
 
@@ -636,6 +640,38 @@ public class SgsTpaMasterImpl extends EntityImpl {
      */
     public void setPASSTHROUGHJOBCODE(String value) {
         setAttributeInternal(PASSTHROUGHJOBCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for BDCOMMCHARGINGUNIT, using the alias name BDCOMMCHARGINGUNIT.
+     * @return the value of BDCOMMCHARGINGUNIT
+     */
+    public String getBDCOMMCHARGINGUNIT() {
+        return (String) getAttributeInternal(BDCOMMCHARGINGUNIT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BDCOMMCHARGINGUNIT.
+     * @param value value to set the BDCOMMCHARGINGUNIT
+     */
+    public void setBDCOMMCHARGINGUNIT(String value) {
+        setAttributeInternal(BDCOMMCHARGINGUNIT, value);
+    }
+
+    /**
+     * Gets the attribute value for PASSTHROUGHGLACCOUNT, using the alias name PASSTHROUGHGLACCOUNT.
+     * @return the value of PASSTHROUGHGLACCOUNT
+     */
+    public String getPASSTHROUGHGLACCOUNT() {
+        return (String) getAttributeInternal(PASSTHROUGHGLACCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PASSTHROUGHGLACCOUNT.
+     * @param value value to set the PASSTHROUGHGLACCOUNT
+     */
+    public void setPASSTHROUGHGLACCOUNT(String value) {
+        setAttributeInternal(PASSTHROUGHGLACCOUNT, value);
     }
 
     /**

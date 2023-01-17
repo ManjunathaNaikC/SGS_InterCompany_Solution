@@ -112,7 +112,17 @@
                     selectionListener="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.makeCurrent}"
                     rowSelection="single" fetchSize="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}" id="t2"
                     partialTriggers="::b1" styleClass="AFStretchWidth">
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}" id="c1"
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}" id="c1" width="150">
+              <af:inputText value="#{row.bindings.MARKUPNAME.inputValue}"
+                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}"
+                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.mandatory}"
+                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.displayWidth}"
+                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.precision}"
+                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.MARKUPNAME.validator}"/>
+              </af:inputText>
+            </af:column>
+            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}" id="c1"
                        rendered="false">
               <af:inputText value="#{row.bindings.MarkUpRateId.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}"
@@ -124,7 +134,7 @@
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.format}"/>
               </af:inputText>
-            </af:column>
+            </af:column>-->
             <af:column id="c14" headerText="Service Provider (SP)		" align="center">
               <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}" id="c2">
                 <af:inputText value="#{row.bindings.SpGeography.inputValue}"

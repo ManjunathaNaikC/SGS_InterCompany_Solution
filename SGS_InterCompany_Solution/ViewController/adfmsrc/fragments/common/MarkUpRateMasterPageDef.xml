@@ -55,6 +55,7 @@
           <Item Value="EFFECTIVEFROM"/>
           <Item Value="EFFECTIVETO"/>
           <Item Value="STATUS"/>
+          <Item Value="MARKUPNAME"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

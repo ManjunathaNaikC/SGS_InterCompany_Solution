@@ -24,6 +24,8 @@
           <Item Value="EffectiveTo"/>
           <Item Value="PASSTHROUGHDEPTID"/>
           <Item Value="PASSTHROUGHJOBCODE"/>
+          <Item Value="BDCOMMCHARGINGUNIT"/>
+          <Item Value="PASSTHROUGHGLACCOUNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

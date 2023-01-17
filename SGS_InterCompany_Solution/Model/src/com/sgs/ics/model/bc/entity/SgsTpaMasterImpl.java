@@ -89,6 +89,8 @@ public class SgsTpaMasterImpl extends EntityImpl {
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsTpaMasterImpl.class);
 
 
+
+
     public static final int TPASEQID = AttributesEnum.TpaSeqId.index();
     public static final int TPAID = AttributesEnum.TpaId.index();
     public static final int LESERVICEPROVIDER = AttributesEnum.LeServiceProvider.index();

@@ -272,6 +272,19 @@
     EntityAttrName="EFFECTIVEFROM"
     EntityUsage="sgsMarkUpRateMasterEO"
     AliasName="EFFECTIVE_FROM"/>
+  <ViewAttribute
+    Name="MARKUPNAME"
+    PrecisionRule="true"
+    EntityAttrName="MARKUPNAME"
+    EntityUsage="sgsMarkUpRateMasterEO"
+    AliasName="MARK_UP_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.MARKUPNAME_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="sgsMarkUpRateMasterVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO"

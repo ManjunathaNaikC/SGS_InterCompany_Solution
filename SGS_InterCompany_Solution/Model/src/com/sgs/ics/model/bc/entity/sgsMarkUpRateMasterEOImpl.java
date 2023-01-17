@@ -56,7 +56,8 @@ public class sgsMarkUpRateMasterEOImpl extends EntityImpl {
         Attribute15,
         EFFECTIVEFROM,
         EFFECTIVETO,
-        STATUS;
+        STATUS,
+        MARKUPNAME;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -113,6 +114,7 @@ public class sgsMarkUpRateMasterEOImpl extends EntityImpl {
     public static final int EFFECTIVEFROM = AttributesEnum.EFFECTIVEFROM.index();
     public static final int EFFECTIVETO = AttributesEnum.EFFECTIVETO.index();
     public static final int STATUS = AttributesEnum.STATUS.index();
+    public static final int MARKUPNAME = AttributesEnum.MARKUPNAME.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -126,6 +128,7 @@ public class sgsMarkUpRateMasterEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.sgsMarkUpRateMasterEO");
     }
+
 
     /**
      * Gets the attribute value for MarkUpRateId, using the alias name MarkUpRateId.
@@ -623,6 +626,22 @@ public class sgsMarkUpRateMasterEOImpl extends EntityImpl {
         setAttributeInternal(STATUS, value);
     }
 
+
+    /**
+     * Gets the attribute value for MARKUPNAME, using the alias name MARKUPNAME.
+     * @return the value of MARKUPNAME
+     */
+    public String getMARKUPNAME() {
+        return (String) getAttributeInternal(MARKUPNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for MARKUPNAME.
+     * @param value value to set the MARKUPNAME
+     */
+    public void setMARKUPNAME(String value) {
+        setAttributeInternal(MARKUPNAME, value);
+    }
 
     /**
      * @param markUpRateId key constituent

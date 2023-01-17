@@ -192,6 +192,9 @@
                         <f:facet name="statusbar"/>
                         <af:table value="#{bindings.SgsTpaDocTypeVO.collectionModel}" var="row"
                                   rows="#{bindings.SgsTpaDocTypeVO.rangeSize}"
+                                   selectedRowKeys="#{bindings.SgsTpaDocTypeVO.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.SgsTpaDocTypeVO.collectionModel.makeCurrent}"
+                                  rowSelection="single"
                                   emptyText="#{bindings.SgsTpaDocTypeVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0" fetchSize="#{bindings.SgsTpaDocTypeVO.rangeSize}" id="t2"
                                   columnStretching="last" styleClass="AFStretchWidth">
@@ -203,7 +206,7 @@
                                               columns="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.displayWidth}"
                                               maximumLength="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.precision}"
                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.tooltip}"
-                                              id="it12">
+                                              id="it12" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.DocumentTypeValue.validator}"/>
                                 </af:inputText>
                             </af:column>
@@ -217,31 +220,16 @@
                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.Attachment.tooltip}" id="it13">
                   <f:validator binding="#{row.bindings.Attachment.validator}"/>
                 </af:inputText>-->
-                                <af:link text="#{row.bindings.Attachment.inputValue}" id="l1"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}" id="c3">
-                                <af:inputDate value="#{row.bindings.UpdatedDate.inputValue}"
-                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}"
-                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.mandatory}"
-                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.displayWidth}"
-                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.tooltip}"
-                                              id="id5">
-                                    <f:validator binding="#{row.bindings.UpdatedDate.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.format}"/>
-                                </af:inputDate>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}" id="c4">
-                                <af:inputText value="#{row.bindings.UpdatedBy.inputValue}"
-                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}"
-                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.mandatory}"
-                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.displayWidth}"
-                                              maximumLength="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.precision}"
-                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.tooltip}" id="it14">
-                                    <f:validator binding="#{row.bindings.UpdatedBy.validator}"/>
-                                </af:inputText>
+                 <af:link text="#{row.bindings.Attachment.inputValue}" id="l1">
+                                    <af:fileDownloadActionListener filename="#{row.Attachment}"
+                                                                   method="#{viewScope.ActionEventsBean.onTpaDocsDownload}"/>
+                                </af:link>
+                                <!--<af:link text="#{row.bindings.Attachment.inputValue}" id="l1"/>-->
                             </af:column>
                             <af:column id="c5" headerText="Uploaded Document">
-                                <af:inputFile id="if1"/>
+                                <af:inputFile id="if1"
+                                              valueChangeListener="#{viewScope.ActionEventsBean.onTPADocsUpload}"
+                                              autoSubmit="true" uploadType="submit"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.label}" id="c6">
                                 <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
@@ -249,7 +237,7 @@
                                               required="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.mandatory}"
                                               columns="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.displayWidth}"
                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.tooltip}"
-                                              id="id3">
+                                              id="id3" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.format}"/>
                                 </af:inputDate>
@@ -259,11 +247,65 @@
                                               label="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.label}"
                                               required="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.mandatory}"
                                               columns="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.displayWidth}"
-                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.tooltip}"
-                                              id="id6">
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.tooltip}" id="id6"
+                                              autoSubmit="true">
                                     <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.format}"/>
                                 </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.label}" id="c3">
+                                <!--<af:inputDate value="#{row.bindings.UpdatedDate.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.displayWidth}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.tooltip}"
+                                              id="id5" autoSubmit="true">
+                                    <f:validator binding="#{row.bindings.UpdatedDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.format}"/>
+                                </af:inputDate>-->
+                                <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.displayWidth}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.tooltip}"
+                                              id="id7" autoSubmit="true" readOnly="true">
+                                    <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.label}" id="c4">
+                                <!--<af:inputText value="#{row.bindings.UpdatedBy.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.displayWidth}"
+                                              maximumLength="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.precision}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.tooltip}" id="it14"
+                                              readOnly="true" autoSubmit="true">
+                                    <f:validator binding="#{row.bindings.UpdatedBy.validator}"/>
+                                </af:inputText>-->
+                                <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.displayWidth}"
+                                              maximumLength="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.precision}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.tooltip}" id="it9"
+                                              readOnly="true">
+                                    <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}" id="c10"
+                                       rendered="false">
+                                <af:outputText value="#{row.UpdatedBy}"
+                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}" id="c11"
+                                       rendered="false">
+                                <af:outputText value="#{row.UpdatedDate}"
+                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.tooltip}"
+                                               id="ot3">
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.format}"/>
+                                </af:outputText>
                             </af:column>
                         </af:table>
                     </af:panelCollection>

@@ -624,6 +624,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="STATUS"
+    PrecisionRule="true"
+    EntityAttrName="STATUS"
+    EntityUsage="SgsTpaMaster"
+    AliasName="STATUS"/>
   <ViewCriteria
     Name="SgsTpaMasterVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaMasterVO"

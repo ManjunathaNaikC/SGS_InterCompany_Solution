@@ -62,6 +62,7 @@ public class SgsTpaMasterImpl extends EntityImpl {
         PASSTHROUGHJOBCODE,
         BDCOMMCHARGINGUNIT,
         PASSTHROUGHGLACCOUNT,
+        STATUS,
         SgsTpaDocType1,
         SgsMarkupRateTblEO;
         private static AttributesEnum[] vals = null;
@@ -87,8 +88,6 @@ public class SgsTpaMasterImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsTpaMasterImpl.class);
-
-
 
 
     public static final int TPASEQID = AttributesEnum.TpaSeqId.index();
@@ -126,6 +125,7 @@ public class SgsTpaMasterImpl extends EntityImpl {
     public static final int PASSTHROUGHJOBCODE = AttributesEnum.PASSTHROUGHJOBCODE.index();
     public static final int BDCOMMCHARGINGUNIT = AttributesEnum.BDCOMMCHARGINGUNIT.index();
     public static final int PASSTHROUGHGLACCOUNT = AttributesEnum.PASSTHROUGHGLACCOUNT.index();
+    public static final int STATUS = AttributesEnum.STATUS.index();
     public static final int SGSTPADOCTYPE1 = AttributesEnum.SgsTpaDocType1.index();
     public static final int SGSMARKUPRATETBLEO = AttributesEnum.SgsMarkupRateTblEO.index();
 
@@ -674,6 +674,22 @@ public class SgsTpaMasterImpl extends EntityImpl {
      */
     public void setPASSTHROUGHGLACCOUNT(String value) {
         setAttributeInternal(PASSTHROUGHGLACCOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for STATUS, using the alias name STATUS.
+     * @return the value of STATUS
+     */
+    public String getSTATUS() {
+        return (String) getAttributeInternal(STATUS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STATUS.
+     * @param value value to set the STATUS
+     */
+    public void setSTATUS(String value) {
+        setAttributeInternal(STATUS, value);
     }
 
     /**

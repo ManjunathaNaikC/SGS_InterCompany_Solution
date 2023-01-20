@@ -381,6 +381,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="STATUS"
+    Precision="80"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TPA_MASTER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsTpaDocType"
     Association="com.sgs.ics.model.bc.entity.assoc.FKSGSTPADOCATTACHMENTAssoc"

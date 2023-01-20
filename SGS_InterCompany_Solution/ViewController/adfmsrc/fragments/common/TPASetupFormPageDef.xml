@@ -156,5 +156,10 @@
     </attributeValues>
     <list IterBinding="SgsTpaMasterVOIterator" StaticList="false" Uses="LOV_BdCommissionApplicability"
           id="BdCommissionApplicability1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="STATUS">
+      <AttrNames>
+        <Item Value="STATUS"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

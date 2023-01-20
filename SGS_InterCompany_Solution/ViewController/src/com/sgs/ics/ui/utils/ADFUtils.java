@@ -917,7 +917,7 @@ public class ADFUtils {
         
         String path = "NOPATH";
         String queryString =
-            "select meaning from SGS_LOOKUP_TABLE where LOOKUP_TYPE ='UPLOAD_DOCS' and ENABLED='Y'";
+            "select MEANING FROM SGS_LOOKUP_TABLE where LOOKUP_TYPE ='UPLOAD_DOCS' and ENABLED='Y'";
         Connection conn = null;
         PreparedStatement pst = null;
         System.out.println("Query :: " + queryString);

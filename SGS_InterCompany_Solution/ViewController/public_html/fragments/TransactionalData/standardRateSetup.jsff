@@ -42,7 +42,7 @@
                       selectedRowKeys="#{bindings.SgsStandardRateSetupVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsStandardRateSetupVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsStandardRateSetupVO1.rangeSize}" id="resId1"
-                      styleClass="AFStretchWidth">
+                      styleClass="AFStretchWidth" inlineStyle="height:250px;" autoHeightRows="10">
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
                          width="220">
                 <af:outputText value="#{row.StandardRateId}"

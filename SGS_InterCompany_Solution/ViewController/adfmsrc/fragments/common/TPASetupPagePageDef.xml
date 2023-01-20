@@ -26,6 +26,8 @@
           <Item Value="PASSTHROUGHJOBCODE"/>
           <Item Value="BDCOMMCHARGINGUNIT"/>
           <Item Value="PASSTHROUGHGLACCOUNT"/>
+          <Item Value="STATUS"/>
+          <Item Value="EffectiveFrom"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

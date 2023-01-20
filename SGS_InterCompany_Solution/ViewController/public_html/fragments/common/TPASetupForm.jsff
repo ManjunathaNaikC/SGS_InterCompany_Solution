@@ -11,7 +11,7 @@
                 <f:facet name="toolbar">
                     <af:toolbar id="t1">
                         <af:button text="Save" id="b1" 
-                                   actionListener="#{bindings.Commit.execute}" accessKey="S"/>
+                                   actionListener="#{bindings.Commit.execute}" accessKey="S" />
                         <af:button id="b2" action="back" immediate="true" actionListener="#{bindings.Rollback.execute}"
                                    rendered="#{pageFlowScope.pTPAAddEdit == 'EDIT'}" text="Cancel" accessKey="C"/>
                         <af:button id="b3" actionListener="#{bindings.Delete.execute}"
@@ -56,7 +56,7 @@
                                        label="#{bindings.BdCommissionApplicability1.label}"
                                        required="#{bindings.BdCommissionApplicability1.hints.mandatory}"
                                        shortDesc="#{bindings.BdCommissionApplicability1.hints.tooltip}" id="sor2"
-                                       autoSubmit="true" partialTriggers="plam1" layout="horizontal">
+                                       autoSubmit="true" partialTriggers="plam1 pgl3 pb4" layout="horizontal">
                         <f:selectItems value="#{bindings.BdCommissionApplicability1.items}" id="si3"/>
                         <f:validator binding="#{bindings.BdCommissionApplicability1.validator}"/>
                     </af:selectOneRadio>
@@ -68,26 +68,21 @@
                                   shortDesc="#{bindings.BdCommissionApplicability.hints.tooltip}" id="it5">
                         <f:validator binding="#{bindings.BdCommissionApplicability.validator}"/>
                     </af:inputText>-->
-                    <af:panelLabelAndMessage label="BD Commission Rate" id="plam1" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
-                        <af:panelGroupLayout id="pgl1" layout="horizontal">
-                            <af:inputText value="#{bindings.BdCommissionRate.inputValue}"
-                                          required="#{bindings.BdCommissionRate.hints.mandatory}"
-                                          columns="#{bindings.BdCommissionRate.hints.displayWidth}"
-                                          maximumLength="#{bindings.BdCommissionRate.hints.precision}"
-                                          shortDesc="#{bindings.BdCommissionRate.hints.tooltip}" id="it6">
-                                <f:validator binding="#{bindings.BdCommissionRate.validator}"/>
-                                <af:convertNumber/>
-                            </af:inputText>
-                            <af:outputText value="%" id="ot1"/>
-                        </af:panelGroupLayout>
-                    </af:panelLabelAndMessage>
-                    <af:inputText value="#{bindings.BDCOMMCHARGINGUNIT.inputValue}"
-                                  label="#{bindings.BDCOMMCHARGINGUNIT.hints.label}"
-                                  required="#{bindings.BDCOMMCHARGINGUNIT.hints.mandatory}"
-                                  columns="#{bindings.BDCOMMCHARGINGUNIT.hints.displayWidth}"
-                                  maximumLength="#{bindings.BDCOMMCHARGINGUNIT.hints.precision}"
-                                  shortDesc="#{bindings.BDCOMMCHARGINGUNIT.hints.tooltip}" id="it14">
-                        <f:validator binding="#{bindings.BDCOMMCHARGINGUNIT.validator}"/>
+                    <af:selectOneRadio value="#{bindings.PassThroughFlag1.inputValue}"
+                                       label="#{bindings.PassThroughFlag1.label}"
+                                       required="#{bindings.PassThroughFlag1.hints.mandatory}"
+                                       shortDesc="#{bindings.PassThroughFlag1.hints.tooltip}" id="sor1"
+                                       layout="horizontal" autoSubmit="true"
+                                       partialTriggers="pfl2 it10 it11 it7 it13 it17 pb5">
+                        <f:selectItems value="#{bindings.PassThroughFlag1.items}" id="si1"/>
+                        <f:validator binding="#{bindings.PassThroughFlag1.validator}"/>
+                    </af:selectOneRadio>
+                    <af:inputText value="#{bindings.STATUS.inputValue}" label="#{bindings.STATUS.hints.label}"
+                                  required="#{bindings.STATUS.hints.mandatory}"
+                                  columns="#{bindings.STATUS.hints.displayWidth}"
+                                  maximumLength="#{bindings.STATUS.hints.precision}"
+                                  shortDesc="#{bindings.STATUS.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.STATUS.validator}"/>
                     </af:inputText>
                     <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                   label="#{bindings.EffectiveFrom.hints.label}"
@@ -133,23 +128,47 @@
                         <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
                     </af:inputDate>
                 </af:panelFormLayout>
-                <af:panelBox id="pb4"
-                             styleClass="AFStretchWidth">
+                <af:panelBox text="BD Commision Details" id="pb4" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
                     <f:facet name="toolbar"/>
-                    <af:panelGroupLayout id="pgl2" layout="horizontal">
-                        <af:selectOneRadio value="#{bindings.PassThroughFlag1.inputValue}"
-                                           label="#{bindings.PassThroughFlag1.label}"
-                                           required="#{bindings.PassThroughFlag1.hints.mandatory}"
-                                           shortDesc="#{bindings.PassThroughFlag1.hints.tooltip}" id="sor1"
-                                           layout="horizontal" autoSubmit="true"
-                                           partialTriggers="pb4 pfl2 it10 it11 it7 it13 it17">
-                            <f:selectItems value="#{bindings.PassThroughFlag1.items}" id="si1"/>
-                            <f:validator binding="#{bindings.PassThroughFlag1.validator}"/>
-                        </af:selectOneRadio>
+                    <af:panelGroupLayout id="pgl3" layout="vertical"
+                                         visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
+                        <af:panelFormLayout id="pfl3">
+                            <f:facet name="footer"/>
+                            <af:panelLabelAndMessage label="BD Commission Rate" id="plam1"
+                                                     visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
+                                <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                    <af:inputText value="#{bindings.BdCommissionRate.inputValue}"
+                                                  required="#{bindings.BdCommissionRate.hints.mandatory}"
+                                                  columns="#{bindings.BdCommissionRate.hints.displayWidth}"
+                                                  maximumLength="#{bindings.BdCommissionRate.hints.precision}"
+                                                  shortDesc="#{bindings.BdCommissionRate.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.BdCommissionRate.validator}"/>
+                                        <af:convertNumber/>
+                                    </af:inputText>
+                                    <af:outputText value="%" id="ot1"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="BD Commission Charging Unit" id="plam2">
+                                <af:inputText value="#{bindings.BDCOMMCHARGINGUNIT.inputValue}"
+                                              required="#{bindings.BDCOMMCHARGINGUNIT.hints.mandatory}"
+                                              columns="#{bindings.BDCOMMCHARGINGUNIT.hints.displayWidth}"
+                                              maximumLength="#{bindings.BDCOMMCHARGINGUNIT.hints.precision}"
+                                              shortDesc="#{bindings.BDCOMMCHARGINGUNIT.hints.tooltip}" id="it14">
+                                    <f:validator binding="#{bindings.BDCOMMCHARGINGUNIT.validator}"/>
+                                </af:inputText>
+                            </af:panelLabelAndMessage>
+                        </af:panelFormLayout>
                     </af:panelGroupLayout>
-                    <af:panelFormLayout id="pfl2" rows="3" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
-                                        partialTriggers="sor1 pgl2">
-                        <af:inputText value="#{bindings.PassThroughBu.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                </af:panelBox>
+                <af:panelBox text="Pass Through Details" id="pb5"
+                             visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                             partialTriggers="sor1">
+                    <f:facet name="toolbar"/>
+                    <af:panelFormLayout id="pfl2" rows="3"
+                                        visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                                        partialTriggers="sor1">
+                        <af:inputText value="#{bindings.PassThroughBu.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PassThroughBu.hints.label}"
                                       required="#{bindings.PassThroughBu.hints.mandatory}"
                                       columns="#{bindings.PassThroughBu.hints.displayWidth}"
@@ -157,7 +176,8 @@
                                       shortDesc="#{bindings.PassThroughBu.hints.tooltip}" id="it10">
                             <f:validator binding="#{bindings.PassThroughBu.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.OperationUnit.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                        <af:inputText value="#{bindings.OperationUnit.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.OperationUnit.hints.label}"
                                       required="#{bindings.OperationUnit.hints.mandatory}"
                                       columns="#{bindings.OperationUnit.hints.displayWidth}"
@@ -165,7 +185,8 @@
                                       shortDesc="#{bindings.OperationUnit.hints.tooltip}" id="it11">
                             <f:validator binding="#{bindings.OperationUnit.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.PASSTHROUGHDEPTID.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                        <af:inputText value="#{bindings.PASSTHROUGHDEPTID.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PASSTHROUGHDEPTID.hints.label}"
                                       required="#{bindings.PASSTHROUGHDEPTID.hints.mandatory}"
                                       columns="#{bindings.PASSTHROUGHDEPTID.hints.displayWidth}"
@@ -173,7 +194,8 @@
                                       shortDesc="#{bindings.PASSTHROUGHDEPTID.hints.tooltip}" id="it7">
                             <f:validator binding="#{bindings.PASSTHROUGHDEPTID.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.PASSTHROUGHJOBCODE.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                        <af:inputText value="#{bindings.PASSTHROUGHJOBCODE.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PASSTHROUGHJOBCODE.hints.label}"
                                       required="#{bindings.PASSTHROUGHJOBCODE.hints.mandatory}"
                                       columns="#{bindings.PASSTHROUGHJOBCODE.hints.displayWidth}"

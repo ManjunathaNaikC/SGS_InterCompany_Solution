@@ -245,7 +245,7 @@ public class ActionEventsBean {
         System.out.println("natureOfExpenseString :: " + natureOfExpenseString);
 
         String queryString =
-            "select LOOKUP_CODE from SGS_LOOKUP_TABLE where LOOKUP_TYPE='NATURE_OF_EXPENSE' and LOOKUP_ID IN (" +
+            "select LOOKUP_CODE FROM SGS_LOOKUP_TABLE WHERE LOOKUP_TYPE='NATURE_OF_EXPENSE' AND LOOKUP_ID IN (" +
             natureOfExpenseString + ")";
         String natureOfExpenseLookupCode = "'" + "none" + "'";
         Connection conn = null;

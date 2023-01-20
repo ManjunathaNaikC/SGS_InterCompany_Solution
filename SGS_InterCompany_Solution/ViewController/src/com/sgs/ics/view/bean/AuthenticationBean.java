@@ -180,7 +180,7 @@ public class AuthenticationBean {
         
         String userEmail = "none@gmail.com";
         String queryString =
-            "select email_id from USER_AUTHENTICATION where user_id ='" + user + "'";
+            "select EMAIL_ID FROM USER_AUTHENTICATION WHERE USER_ID ='" + user + "'";
         Connection conn = null;
         PreparedStatement pst = null;
         System.out.println("Query :: " + queryString);

@@ -67,7 +67,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         FROMBU,
         FROMDEPTID,
         FROMJOBCODE,
-        FROMOU;
+        FROMOU,
+        ADDTEXPENSECAT;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -134,6 +135,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int FROMDEPTID = AttributesEnum.FROMDEPTID.index();
     public static final int FROMJOBCODE = AttributesEnum.FROMJOBCODE.index();
     public static final int FROMOU = AttributesEnum.FROMOU.index();
+    public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -818,6 +820,22 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      */
     public void setFROMOU(String value) {
         setAttributeInternal(FROMOU, value);
+    }
+
+    /**
+     * Gets the attribute value for ADDTEXPENSECAT, using the alias name ADDTEXPENSECAT.
+     * @return the value of ADDTEXPENSECAT
+     */
+    public String getADDTEXPENSECAT() {
+        return (String) getAttributeInternal(ADDTEXPENSECAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ADDTEXPENSECAT.
+     * @param value value to set the ADDTEXPENSECAT
+     */
+    public void setADDTEXPENSECAT(String value) {
+        setAttributeInternal(ADDTEXPENSECAT, value);
     }
 
     /**

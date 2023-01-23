@@ -235,6 +235,13 @@
                                                    id="ot1"/>-->
                                     <af:link text="#{row.CostIdentificationName}" id="l1" action="Edit"/>
                                 </af:column>
+                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.ADDTEXPENSECAT.label}"
+                                           sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.ADDTEXPENSECAT.name}"
+                                           filterable="true" id="c4">
+                                    <af:outputText value="#{row.ADDTEXPENSECAT}"
+                                                   shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.ADDTEXPENSECAT.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.label}"

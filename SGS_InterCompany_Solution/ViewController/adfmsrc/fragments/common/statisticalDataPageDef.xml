@@ -45,6 +45,7 @@
           <Item Value="FROMOU"/>
           <Item Value="FROMJOBCODE"/>
           <Item Value="FROMDEPTID"/>
+          <Item Value="ADDTEXPENSECAT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

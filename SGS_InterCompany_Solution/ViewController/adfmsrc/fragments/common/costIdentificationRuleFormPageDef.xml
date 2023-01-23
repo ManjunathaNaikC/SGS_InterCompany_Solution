@@ -301,5 +301,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="ADDTEXPENSECAT">
+      <AttrNames>
+        <Item Value="ADDTEXPENSECAT"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

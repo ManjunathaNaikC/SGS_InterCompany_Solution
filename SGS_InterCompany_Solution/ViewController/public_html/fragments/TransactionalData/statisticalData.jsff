@@ -65,6 +65,19 @@
                                 <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.name}"
+                                   filterable="true" id="c50">
+                            <af:inputText value="#{row.bindings.ADDTEXPENSECAT.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.tooltip}"
+                                          id="it41">
+                                <f:validator binding="#{row.bindings.ADDTEXPENSECAT.validator}"/>
+                            </af:inputText>
+                        </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.name}" id="c17"
                                    filterable="true">

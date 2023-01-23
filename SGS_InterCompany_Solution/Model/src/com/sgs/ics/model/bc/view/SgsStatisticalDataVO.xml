@@ -698,6 +698,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ADDTEXPENSECAT"
+    PrecisionRule="true"
+    EntityAttrName="ADDTEXPENSECAT"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="ADDT_EXPENSE_CAT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ADDTEXPENSECAT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

@@ -63,6 +63,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
         Attribute15,
         NONPERSONNELCOST,
         SACHSN,
+        ADDTEXPENSECAT,
         SgsCostOffsetCombinationEO,
         SgsCostTargetCombinationEO,
         SgsCostIdentificationCombinationEO;
@@ -126,6 +127,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int NONPERSONNELCOST = AttributesEnum.NONPERSONNELCOST.index();
     public static final int SACHSN = AttributesEnum.SACHSN.index();
+    public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
     public static final int SGSCOSTOFFSETCOMBINATIONEO = AttributesEnum.SgsCostOffsetCombinationEO.index();
     public static final int SGSCOSTTARGETCOMBINATIONEO = AttributesEnum.SgsCostTargetCombinationEO.index();
     public static final int SGSCOSTIDENTIFICATIONCOMBINATIONEO =
@@ -680,6 +682,22 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
      */
     public void setSACHSN(String value) {
         setAttributeInternal(SACHSN, value);
+    }
+
+    /**
+     * Gets the attribute value for ADDTEXPENSECAT, using the alias name ADDTEXPENSECAT.
+     * @return the value of ADDTEXPENSECAT
+     */
+    public String getADDTEXPENSECAT() {
+        return (String) getAttributeInternal(ADDTEXPENSECAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ADDTEXPENSECAT.
+     * @param value value to set the ADDTEXPENSECAT
+     */
+    public void setADDTEXPENSECAT(String value) {
+        setAttributeInternal(ADDTEXPENSECAT, value);
     }
 
     /**

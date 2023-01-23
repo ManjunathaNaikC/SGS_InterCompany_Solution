@@ -44,6 +44,14 @@
                                           shortDesc="#{bindings.CostIdentificationName.hints.tooltip}" id="it9">
                                 <f:validator binding="#{bindings.CostIdentificationName.validator}"/>
                             </af:inputText>
+                            <af:inputText value="#{bindings.ADDTEXPENSECAT.inputValue}"
+                                          label="#{bindings.ADDTEXPENSECAT.hints.label}"
+                                          required="#{bindings.ADDTEXPENSECAT.hints.mandatory}"
+                                          columns="#{bindings.ADDTEXPENSECAT.hints.displayWidth}"
+                                          maximumLength="#{bindings.ADDTEXPENSECAT.hints.precision}"
+                                          shortDesc="#{bindings.ADDTEXPENSECAT.hints.tooltip}" id="it37">
+                                <f:validator binding="#{bindings.ADDTEXPENSECAT.validator}"/>
+                            </af:inputText>
                             <af:selectOneChoice value="#{bindings.AccountingTreatment.inputValue}"
                                             label="#{bindings.AccountingTreatment.label}"
                                             required="#{bindings.AccountingTreatment.hints.mandatory}"

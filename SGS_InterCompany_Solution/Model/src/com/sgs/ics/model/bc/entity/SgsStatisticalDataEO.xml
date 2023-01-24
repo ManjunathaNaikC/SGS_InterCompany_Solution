@@ -86,18 +86,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="StatisticalData"
-    Precision="80"
-    ColumnName="STATISTICAL_DATA"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STATISTICAL_DATA_TBL">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="UnitOfMeasure"
     Precision="80"
     ColumnName="UNIT_OF_MEASURE"
@@ -461,6 +449,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="STATISTICALDATA"
+     Precision="20"
+    Scale="5"
+        SQLType="NUMERIC"
+    ColumnType="NUMERIC"
+    ColumnName="STATISTICAL_DATA"
+    Type="java.math.BigDecimal"
     TableName="SGS_STATISTICAL_DATA_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>

@@ -491,7 +491,7 @@ public class ActionEventsBean {
                       row.setAttribute("Currency", previousMonthDatarows[i].getAttribute("CURRENCY"));
                       row.setAttribute("CostGroup", previousMonthDatarows[i].getAttribute("COSTGROUP"));
                       row.setAttribute("UnitOfMeasure", previousMonthDatarows[i].getAttribute("UNITOFMEASURE"));
-                      row.setAttribute("StatisticalData", previousMonthDatarows[i].getAttribute("STATISTICALDATA"));
+                      row.setAttribute("STATISTICALDATA", previousMonthDatarows[i].getAttribute("STATISTICALDATA"));
                       row.setAttribute("ToDepartmentId", previousMonthDatarows[i].getAttribute("TODEPARTMENTID"));
                       row.setAttribute("ToOperatingUnit", previousMonthDatarows[i].getAttribute("TOOPERATINGUNIT"));
                       row.setAttribute("ToJobCode", previousMonthDatarows[i].getAttribute("TOJOBCODE"));

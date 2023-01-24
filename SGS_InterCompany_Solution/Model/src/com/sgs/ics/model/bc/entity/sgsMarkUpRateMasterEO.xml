@@ -23,7 +23,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_MARKUP_RATE_MASTER_TBL"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="SpGeography"
     Precision="80"

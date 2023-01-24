@@ -7,131 +7,136 @@
     <f:facet name="top"/>
     <f:facet name="bottom"/>
     <f:facet name="center">
-      <af:panelGroupLayout layout="vertical" id="pgl1">
-        <af:panelHeader text="Goods and Service Tax (GST) Setup" id="ph1">
-          <af:query id="qryId1" headerText="Search" disclosed="true"
-                    value="#{bindings.SgsGstTblVOCriteriaQuery.queryDescriptor}"
-                    model="#{bindings.SgsGstTblVOCriteriaQuery.queryModel}"
-                    queryListener="#{bindings.SgsGstTblVOCriteriaQuery.processQuery}"
-                    queryOperationListener="#{bindings.SgsGstTblVOCriteriaQuery.processQueryOperation}"
-                    resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
-        </af:panelHeader>
-        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-          <f:facet name="menus"/>
-          <f:facet name="toolbar">
-            <af:toolbar id="t1">
-              <af:button id="b3" icon="/resources/icons/microsoft-excel.png">
-                <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="GstInquiry.xls"/>
-              </af:button>
-              <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
-                         actionListener="#{bindings.CreateInsert.execute}"/>
-              <af:button id="b2" icon="/resources/icons/delete.png" shortDesc="Delete GST" >
-                <af:showPopupBehavior popupId="p1gst"/>
-              </af:button>
-            </af:toolbar>
-          </f:facet>
-          <f:facet name="statusbar"/>
+      <af:panelBox text="Goods and Service Tax (GST) Setup" id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text=" " id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.SgsGstTblVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.SgsGstTblVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.SgsGstTblVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.SgsGstTblVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t1">
+                <af:button id="b3" icon="/resources/icons/microsoft-excel.png">
+                  <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="GstInquiry.xls"/>
+                </af:button>
+                <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
+                           actionListener="#{bindings.CreateInsert.execute}"/>
+                <af:button id="b2" icon="/resources/icons/delete.png" shortDesc="Delete GST">
+                  <af:showPopupBehavior popupId="p1gst"/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p1gst">
-                                <af:dialog id="d1"
-                                           dialogListener="#{viewScope.ActionEventsBean.onGSTDelete}">
-                                    <f:facet name="buttonBar"/>
-                                    <af:message id="m1" messageType="confirmation"
-                                                message="Do You Really Want To Delete?"/>
-                                </af:dialog>
-             </af:popup>
-          <af:table value="#{bindings.SgsGstTblVO1.collectionModel}" var="row" rows="#{bindings.SgsGstTblVO1.rangeSize}"
-                    emptyText="#{bindings.SgsGstTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0" selectedRowKeys="#{bindings.SgsGstTblVO1.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.SgsGstTblVO1.collectionModel.makeCurrent}" rowSelection="single"
-                    fetchSize="#{bindings.SgsGstTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
-                    partialTriggers="::b1 ::b2">
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.GstNum.label}" id="resId1c1">
-              <!--<af:outputText value="#{row.GstNum}" shortDesc="#{bindings.SgsGstTblVO1.hints.GstNum.tooltip}" id="ot1"/>-->
-              <af:link text="#{row.GstNum}" id="l1" action="EDIT"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.ServProvider.label}" id="resId1c2">
-              <af:outputText value="#{row.ServProvider}" shortDesc="#{bindings.SgsGstTblVO1.hints.ServProvider.tooltip}"
-                             id="ot2"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyPlace.label}" id="resId1c3">
-              <af:outputText value="#{row.SupplyPlace}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyPlace.tooltip}"
-                             id="ot3"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4">
-              <af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
-                             id="ot4"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstReceivable.label}" id="resId1c7" rendered="false">
-              <af:outputText value="#{row.IgstReceivable}"
-                             shortDesc="#{bindings.SgsGstTblVO1.hints.IgstReceivable.tooltip}" id="ot7"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstReceivable.label}" id="resId1c8" rendered="false">
-              <af:outputText value="#{row.CgstReceivable}"
-                             shortDesc="#{bindings.SgsGstTblVO1.hints.CgstReceivable.tooltip}" id="ot8"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.SgstReceivable.label}" id="resId1c9" rendered="false">
-              <af:outputText value="#{row.SgstReceivable}"
-                             shortDesc="#{bindings.SgsGstTblVO1.hints.SgstReceivable.tooltip}" id="ot9"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstPayable.label}" id="resId1c10" rendered="false">
-              <af:outputText value="#{row.IgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.IgstPayable.tooltip}"
-                             id="ot10"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstPayable.label}" id="resId1c11" rendered="false">
-              <af:outputText value="#{row.CgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.CgstPayable.tooltip}"
-                             id="ot11"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.SgstPayable.label}" id="resId1c12" rendered="false">
-              <af:outputText value="#{row.SgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.SgstPayable.tooltip}"
-                             id="ot12"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.Rcm.label}" id="resId1c13">
-              <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsGstTblVO1.hints.Rcm.tooltip}" id="ot13"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.Recoverable.label}" id="resId1c14" rendered="false">
-              <af:outputText value="#{row.Recoverable}" shortDesc="#{bindings.SgsGstTblVO1.hints.Recoverable.tooltip}"
-                             id="ot14"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.IdenticalGstReg.label}" id="resId1c15"
-                       rendered="false">
-              <af:outputText value="#{row.IdenticalGstReg}"
-                             shortDesc="#{bindings.SgsGstTblVO1.hints.IdenticalGstReg.tooltip}" id="ot15"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.label}" id="resId1c5">
-              <af:outputText value="#{row.EffectiveFrom}"
-                             shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.tooltip}" id="ot5">
-                <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveTo.label}" id="resId1c6">
-              <af:outputText value="#{row.EffectiveTo}" shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveTo.tooltip}"
-                             id="ot6">
-                <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveTo.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedDate.label}" id="resId1c16">
-              <af:outputText value="#{row.UpdatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedDate.tooltip}"
-                             id="ot16">
-                <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.UpdatedDate.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedBy.label}" id="resId1c17">
-              <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedBy.tooltip}"
-                             id="ot17"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedDate.label}" id="resId1c18">
-              <af:outputText value="#{row.CreatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedDate.tooltip}"
-                             id="ot18">
-                <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.CreatedDate.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedBy.label}" id="resId1c19">
-              <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedBy.tooltip}"
-                             id="ot19"/>
-            </af:column>
-          </af:table>
-        </af:panelCollection>
-      </af:panelGroupLayout>
+              <af:dialog id="d1" dialogListener="#{viewScope.ActionEventsBean.onGSTDelete}">
+                <f:facet name="buttonBar"/>
+                <af:message id="m1" messageType="confirmation" message="Do You Really Want To Delete?"/>
+              </af:dialog>
+            </af:popup>
+            <af:table value="#{bindings.SgsGstTblVO1.collectionModel}" var="row"
+                      rows="#{bindings.SgsGstTblVO1.rangeSize}"
+                      emptyText="#{bindings.SgsGstTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.SgsGstTblVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SgsGstTblVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.SgsGstTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
+                      partialTriggers="::b1 ::b2">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.GstNum.label}" id="resId1c1">
+                <!--<af:outputText value="#{row.GstNum}" shortDesc="#{bindings.SgsGstTblVO1.hints.GstNum.tooltip}" id="ot1"/>-->
+                <af:link text="#{row.GstNum}" id="l1" action="EDIT"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.ServProvider.label}" id="resId1c2">
+                <af:outputText value="#{row.ServProvider}"
+                               shortDesc="#{bindings.SgsGstTblVO1.hints.ServProvider.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyPlace.label}" id="resId1c3">
+                <af:outputText value="#{row.SupplyPlace}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyPlace.tooltip}"
+                               id="ot3"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4">
+                <af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
+                               id="ot4"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstReceivable.label}" id="resId1c7"
+                         rendered="false">
+                <af:outputText value="#{row.IgstReceivable}"
+                               shortDesc="#{bindings.SgsGstTblVO1.hints.IgstReceivable.tooltip}" id="ot7"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstReceivable.label}" id="resId1c8"
+                         rendered="false">
+                <af:outputText value="#{row.CgstReceivable}"
+                               shortDesc="#{bindings.SgsGstTblVO1.hints.CgstReceivable.tooltip}" id="ot8"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SgstReceivable.label}" id="resId1c9"
+                         rendered="false">
+                <af:outputText value="#{row.SgstReceivable}"
+                               shortDesc="#{bindings.SgsGstTblVO1.hints.SgstReceivable.tooltip}" id="ot9"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstPayable.label}" id="resId1c10" rendered="false">
+                <af:outputText value="#{row.IgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.IgstPayable.tooltip}"
+                               id="ot10"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstPayable.label}" id="resId1c11" rendered="false">
+                <af:outputText value="#{row.CgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.CgstPayable.tooltip}"
+                               id="ot11"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SgstPayable.label}" id="resId1c12" rendered="false">
+                <af:outputText value="#{row.SgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.SgstPayable.tooltip}"
+                               id="ot12"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Rcm.label}" id="resId1c13">
+                <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsGstTblVO1.hints.Rcm.tooltip}" id="ot13"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Recoverable.label}" id="resId1c14" rendered="false">
+                <af:outputText value="#{row.Recoverable}" shortDesc="#{bindings.SgsGstTblVO1.hints.Recoverable.tooltip}"
+                               id="ot14"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.IdenticalGstReg.label}" id="resId1c15"
+                         rendered="false">
+                <af:outputText value="#{row.IdenticalGstReg}"
+                               shortDesc="#{bindings.SgsGstTblVO1.hints.IdenticalGstReg.tooltip}" id="ot15"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.label}" id="resId1c5">
+                <af:outputText value="#{row.EffectiveFrom}"
+                               shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.tooltip}" id="ot5">
+                  <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveTo.label}" id="resId1c6">
+                <af:outputText value="#{row.EffectiveTo}" shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveTo.tooltip}"
+                               id="ot6">
+                  <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveTo.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedDate.label}" id="resId1c16">
+                <af:outputText value="#{row.UpdatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedDate.tooltip}"
+                               id="ot16">
+                  <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.UpdatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedBy.label}" id="resId1c17">
+                <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedBy.tooltip}"
+                               id="ot17"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedDate.label}" id="resId1c18">
+                <af:outputText value="#{row.CreatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedDate.tooltip}"
+                               id="ot18">
+                  <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.CreatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedBy.label}" id="resId1c19">
+                <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedBy.tooltip}"
+                               id="ot19"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:panelBox>
     </f:facet>
   </af:panelStretchLayout>
 </ui:composition>

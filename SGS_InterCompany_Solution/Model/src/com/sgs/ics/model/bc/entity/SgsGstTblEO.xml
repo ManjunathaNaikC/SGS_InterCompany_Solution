@@ -36,7 +36,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_GST_TBL"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="ServProvider"
     Precision="80"

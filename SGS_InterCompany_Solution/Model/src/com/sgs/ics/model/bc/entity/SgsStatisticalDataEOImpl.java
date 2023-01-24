@@ -32,7 +32,6 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         ToJobCode,
         ToOperatingUnit,
         ToDepartmentId,
-        StatisticalData,
         UnitOfMeasure,
         CostGroup,
         Currency,
@@ -68,7 +67,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         FROMDEPTID,
         FROMJOBCODE,
         FROMOU,
-        ADDTEXPENSECAT;
+        ADDTEXPENSECAT,
+        STATISTICALDATA;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -99,7 +99,6 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int TOJOBCODE = AttributesEnum.ToJobCode.index();
     public static final int TOOPERATINGUNIT = AttributesEnum.ToOperatingUnit.index();
     public static final int TODEPARTMENTID = AttributesEnum.ToDepartmentId.index();
-    public static final int STATISTICALDATA = AttributesEnum.StatisticalData.index();
     public static final int UNITOFMEASURE = AttributesEnum.UnitOfMeasure.index();
     public static final int COSTGROUP = AttributesEnum.CostGroup.index();
     public static final int CURRENCY = AttributesEnum.Currency.index();
@@ -136,6 +135,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int FROMJOBCODE = AttributesEnum.FROMJOBCODE.index();
     public static final int FROMOU = AttributesEnum.FROMOU.index();
     public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
+    public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -247,21 +247,6 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         setAttributeInternal(TODEPARTMENTID, value);
     }
 
-    /**
-     * Gets the attribute value for StatisticalData, using the alias name StatisticalData.
-     * @return the value of StatisticalData
-     */
-    public String getStatisticalData() {
-        return (String) getAttributeInternal(STATISTICALDATA);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for StatisticalData.
-     * @param value value to set the StatisticalData
-     */
-    public void setStatisticalData(String value) {
-        setAttributeInternal(STATISTICALDATA, value);
-    }
 
     /**
      * Gets the attribute value for UnitOfMeasure, using the alias name UnitOfMeasure.
@@ -837,6 +822,24 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public void setADDTEXPENSECAT(String value) {
         setAttributeInternal(ADDTEXPENSECAT, value);
     }
+
+
+    /**
+     * Gets the attribute value for STATISTICALDATA, using the alias name STATISTICALDATA.
+     * @return the value of STATISTICALDATA
+     */
+    public BigDecimal getSTATISTICALDATA() {
+        return (BigDecimal) getAttributeInternal(STATISTICALDATA);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STATISTICALDATA.
+     * @param value value to set the STATISTICALDATA
+     */
+    public void setSTATISTICALDATA(BigDecimal value) {
+        setAttributeInternal(STATISTICALDATA, value);
+    }
+
 
     /**
      * @param statisticalDataId key constituent

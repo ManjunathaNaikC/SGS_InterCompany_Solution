@@ -66,7 +66,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
             // TODO: Add catch code

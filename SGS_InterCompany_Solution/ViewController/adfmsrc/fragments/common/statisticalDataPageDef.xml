@@ -28,7 +28,6 @@
           <Item Value="ToJobCode"/>
           <Item Value="ToOperatingUnit"/>
           <Item Value="ToDepartmentId"/>
-          <Item Value="StatisticalData"/>
           <Item Value="UnitOfMeasure"/>
           <Item Value="CostGroup"/>
           <Item Value="Currency"/>
@@ -46,6 +45,7 @@
           <Item Value="FROMJOBCODE"/>
           <Item Value="FROMDEPTID"/>
           <Item Value="ADDTEXPENSECAT"/>
+          <Item Value="STATISTICALDATA"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

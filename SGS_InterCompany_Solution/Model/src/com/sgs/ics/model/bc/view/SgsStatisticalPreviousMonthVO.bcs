@@ -10,3 +10,10 @@ def bLookupType_SgsLookupNatureOFExpVO1_BindVariable_BoundParameter()
 'NATURE_OF_EXPENSE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupAllocBasisVO1", name="bLookupType")
+def bLookupType_SgsLookupAllocBasisVO1_BindVariable_BoundParameter()
+{
+'ALLOCATION_BASIS'
+}
+

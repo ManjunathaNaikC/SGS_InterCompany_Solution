@@ -128,6 +128,15 @@
   <ViewUsage
     Name="SgsCostTargetCombinationVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsCostTargetCombinationVO"/>
+  <ViewUsage
+    Name="SgsTransBCostAllocationVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO"/>
+  <ViewUsage
+    Name="SgsTransReceivablesTempVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO"/>
+  <ViewUsage
+    Name="SgsOtrTargetVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsOtrTargetVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -218,6 +227,12 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostAllocationToTargetComboVL"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostIdentificationRuleVO"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsCostTargetCombinationVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKOTRTARGETViewLink1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.FKOTRTARGETViewLink"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTransBCostAllocationVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsOtrTargetVO1"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

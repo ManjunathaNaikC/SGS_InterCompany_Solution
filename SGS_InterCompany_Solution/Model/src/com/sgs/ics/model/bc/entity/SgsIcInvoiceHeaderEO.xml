@@ -24,7 +24,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="IC_INVOICE_HEADER"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>

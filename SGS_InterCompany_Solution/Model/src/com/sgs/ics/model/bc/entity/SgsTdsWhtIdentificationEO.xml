@@ -23,7 +23,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_TDS_WHT_IDENTIFICATION"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="LegalEntity"
     Precision="80"

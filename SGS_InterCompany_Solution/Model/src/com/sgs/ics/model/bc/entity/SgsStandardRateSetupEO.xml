@@ -23,7 +23,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_STANDARD_RATE_SETUP"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="StandardRateId"
     IsNotNull="true"

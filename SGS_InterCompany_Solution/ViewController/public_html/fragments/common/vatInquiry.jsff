@@ -7,107 +7,109 @@
     <f:facet name="top"/>
     <f:facet name="bottom"/>
     <f:facet name="center">
-      <af:panelGroupLayout layout="vertical" id="pgl1">
-        <af:panelHeader text="VAT Inquiry" id="ph1">
-          <af:query id="qryId1" headerText="Search" disclosed="true"
-                    value="#{bindings.SgsVatTblVOCriteriaQuery.queryDescriptor}"
-                    model="#{bindings.SgsVatTblVOCriteriaQuery.queryModel}"
-                    queryListener="#{bindings.SgsVatTblVOCriteriaQuery.processQuery}"
-                    queryOperationListener="#{bindings.SgsVatTblVOCriteriaQuery.processQueryOperation}"
-                    resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
-        </af:panelHeader>
-        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-          <f:facet name="menus"/>
-          <f:facet name="toolbar">
-            <af:toolbar id="t1">
-              <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
-                         actionListener="#{bindings.CreateInsert.execute}"/>
-              <af:button id="b2" icon="/resources/icons/delete.png" >
-               <af:showPopupBehavior popupId="p1vat"/>
-                                    </af:button>
-            </af:toolbar>
-          </f:facet>
-          <f:facet name="statusbar"/>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p1vat">
-                                <af:dialog id="d1"
-                                           dialogListener="#{viewScope.ActionEventsBean.onVatDelete}">
-                                    <f:facet name="buttonBar"/>
-                                    <af:message id="m1" messageType="confirmation"
-                                                message="Do You Really Want To Delete?"/>
-                                </af:dialog>
-                            </af:popup>
-          <af:table value="#{bindings.SgsVatTblVO1.collectionModel}" var="row" rows="#{bindings.SgsVatTblVO1.rangeSize}"
-                    emptyText="#{bindings.SgsVatTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0" selectedRowKeys="#{bindings.SgsVatTblVO1.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.SgsVatTblVO1.collectionModel.makeCurrent}" rowSelection="single"
-                    fetchSize="#{bindings.SgsVatTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
-                    partialTriggers="::b1 ::b2">
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatNum.label}" id="resId1c1">
-              <af:link text="#{row.VatNum}" id="l1" action="EDIT"/>
-              <!--<af:outputText value="#{row.VatNum}" shortDesc="#{bindings.SgsVatTblVO1.hints.VatNum.tooltip}" id="ot1"/>-->
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServProvider.label}" id="resId1c2">
-              <af:outputText value="#{row.ServProvider}" shortDesc="#{bindings.SgsVatTblVO1.hints.ServProvider.tooltip}"
-                             id="ot2"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServReceiver.label}" id="resId1c3">
-              <af:outputText value="#{row.ServReceiver}" shortDesc="#{bindings.SgsVatTblVO1.hints.ServReceiver.tooltip}"
-                             id="ot3"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="resId1c4">
-              <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsVatTblVO1.hints.Rcm.tooltip}" id="ot4"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.label}" id="resId1c5">
-              <af:outputText value="#{row.VatInputGlAcc}"
-                             shortDesc="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.tooltip}" id="ot5"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.label}" id="resId1c6">
-              <af:outputText value="#{row.VatOutputGlAcc}"
-                             shortDesc="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.tooltip}" id="ot6"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c1">
-              <af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
-                             shortDesc="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}" id="ot1"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c2">
-              <af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
-                             shortDesc="#{bindings.SgsVatTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}" id="ot13"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.label}" id="resId1c7">
-              <af:outputText value="#{row.EffectiveFrom}"
-                             shortDesc="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.tooltip}" id="ot7">
-                <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveTo.label}" id="resId1c8">
-              <af:outputText value="#{row.EffectiveTo}" shortDesc="#{bindings.SgsVatTblVO1.hints.EffectiveTo.tooltip}"
-                             id="ot8">
-                <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.EffectiveTo.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedDate.label}" id="resId1c9">
-              <af:outputText value="#{row.CreatedDate}" shortDesc="#{bindings.SgsVatTblVO1.hints.CreatedDate.tooltip}"
-                             id="ot9">
-                <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.CreatedDate.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedBy.label}" id="resId1c10">
-              <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsVatTblVO1.hints.CreatedBy.tooltip}"
-                             id="ot10"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedDate.label}" id="resId1c11">
-              <af:outputText value="#{row.UpdatedDate}" shortDesc="#{bindings.SgsVatTblVO1.hints.UpdatedDate.tooltip}"
-                             id="ot11">
-                <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.UpdatedDate.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedBy.label}" id="resId1c12">
-              <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsVatTblVO1.hints.UpdatedBy.tooltip}"
-                             id="ot12"/>
-            </af:column>
-          </af:table>
-        </af:panelCollection>
-      </af:panelGroupLayout>
+      <af:panelBox text="VAT Inquiry" id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text="" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.SgsVatTblVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.SgsVatTblVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.SgsVatTblVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.SgsVatTblVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t1">
+                <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
+                           actionListener="#{bindings.CreateInsert.execute}"/>
+                <af:button id="b2" icon="/resources/icons/delete.png">
+                  <af:showPopupBehavior popupId="p1vat"/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1vat">
+              <af:dialog id="d1" dialogListener="#{viewScope.ActionEventsBean.onVatDelete}">
+                <f:facet name="buttonBar"/>
+                <af:message id="m1" messageType="confirmation" message="Do You Really Want To Delete?"/>
+              </af:dialog>
+            </af:popup>
+            <af:table value="#{bindings.SgsVatTblVO1.collectionModel}" var="row"
+                      rows="#{bindings.SgsVatTblVO1.rangeSize}"
+                      emptyText="#{bindings.SgsVatTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.SgsVatTblVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SgsVatTblVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.SgsVatTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
+                      partialTriggers="::b1 ::b2">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatNum.label}" id="resId1c1">
+                <af:link text="#{row.VatNum}" id="l1" action="EDIT"/>
+                <!--<af:outputText value="#{row.VatNum}" shortDesc="#{bindings.SgsVatTblVO1.hints.VatNum.tooltip}" id="ot1"/>-->
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServProvider.label}" id="resId1c2">
+                <af:outputText value="#{row.ServProvider}"
+                               shortDesc="#{bindings.SgsVatTblVO1.hints.ServProvider.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServReceiver.label}" id="resId1c3">
+                <af:outputText value="#{row.ServReceiver}"
+                               shortDesc="#{bindings.SgsVatTblVO1.hints.ServReceiver.tooltip}" id="ot3"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="resId1c4">
+                <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsVatTblVO1.hints.Rcm.tooltip}" id="ot4"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.label}" id="resId1c5">
+                <af:outputText value="#{row.VatInputGlAcc}"
+                               shortDesc="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.tooltip}" id="ot5"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.label}" id="resId1c6">
+                <af:outputText value="#{row.VatOutputGlAcc}"
+                               shortDesc="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.tooltip}" id="ot6"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c1">
+                <af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
+                               shortDesc="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}" id="ot1"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c2">
+                <af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
+                               shortDesc="#{bindings.SgsVatTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}" id="ot13"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.label}" id="resId1c7">
+                <af:outputText value="#{row.EffectiveFrom}"
+                               shortDesc="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.tooltip}" id="ot7">
+                  <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveTo.label}" id="resId1c8">
+                <af:outputText value="#{row.EffectiveTo}" shortDesc="#{bindings.SgsVatTblVO1.hints.EffectiveTo.tooltip}"
+                               id="ot8">
+                  <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.EffectiveTo.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedDate.label}" id="resId1c9">
+                <af:outputText value="#{row.CreatedDate}" shortDesc="#{bindings.SgsVatTblVO1.hints.CreatedDate.tooltip}"
+                               id="ot9">
+                  <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.CreatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedBy.label}" id="resId1c10">
+                <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsVatTblVO1.hints.CreatedBy.tooltip}"
+                               id="ot10"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedDate.label}" id="resId1c11">
+                <af:outputText value="#{row.UpdatedDate}" shortDesc="#{bindings.SgsVatTblVO1.hints.UpdatedDate.tooltip}"
+                               id="ot11">
+                  <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.UpdatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedBy.label}" id="resId1c12">
+                <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsVatTblVO1.hints.UpdatedBy.tooltip}"
+                               id="ot12"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:panelBox>
     </f:facet>
   </af:panelStretchLayout>
 </ui:composition>

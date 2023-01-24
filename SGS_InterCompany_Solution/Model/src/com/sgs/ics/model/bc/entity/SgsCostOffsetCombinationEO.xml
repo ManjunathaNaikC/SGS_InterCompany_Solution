@@ -37,7 +37,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_COST_OFFSET_COMBINATION"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>

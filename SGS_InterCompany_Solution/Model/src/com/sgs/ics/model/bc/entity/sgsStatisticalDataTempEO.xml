@@ -23,7 +23,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_STATISTICAL_DATA_TEMP_TBL"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="StatisticalDataCategory"
     IsNotNull="true"

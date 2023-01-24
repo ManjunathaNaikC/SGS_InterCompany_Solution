@@ -18,7 +18,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_LOOKUP_TABLE"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="LookupCode"
     IsNotNull="true"

@@ -31,7 +31,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_GST_TAX_RATE_APPLICABILITY"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="CostGroupingCode"
     Precision="80"

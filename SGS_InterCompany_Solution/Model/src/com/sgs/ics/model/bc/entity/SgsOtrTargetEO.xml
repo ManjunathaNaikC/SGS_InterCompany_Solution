@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SgsOtrTargetEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SGS_OTR_TARGET"
+  AliasName="SgsOtrTargetEO"
+  BindingStyle="JDBC"
+  RowClass="com.sgs.ics.model.bc.entity.SgsOtrTargetEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="TbcaId"
+    IsNotNull="true"
+    Precision="80"
+    ColumnName="TBCA_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ToBusinessUnit"
+    Precision="80"
+    ColumnName="TO_BUSINESS_UNIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ToOperatingUnit"
+    Precision="80"
+    ColumnName="TO_OPERATING_UNIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ToJobCode"
+    Precision="80"
+    ColumnName="TO_JOB_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ToDeptId"
+    Precision="80"
+    ColumnName="TO_DEPT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DrGlAccount"
+    Precision="80"
+    ColumnName="DR_GL_ACCOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BaseCurrency"
+    Precision="80"
+    ColumnName="BASE_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TransactionCurrency"
+    Precision="80"
+    ColumnName="TRANSACTION_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TargetAmount"
+    Precision="20"
+    Scale="4"
+    ColumnName="TARGET_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_OTR_TARGET"/>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_OTR_TARGET"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="80"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UpdatedDate"
+    ColumnName="UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_OTR_TARGET"/>
+  <Attribute
+    Name="UpdatedBy"
+    Precision="80"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_OTR_TARGET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SgsTransBCostAllocation"
+    Association="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc.SgsTransBCostAllocation"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc.SgsOtrTargetEO"
+    Type="com.sgs.ics.model.bc.entity.SgsTransBCostAllocationImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SgsotrtargeteoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SGSOTRTARGETEO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsOtrTargetEO.TbcaId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FKSGSOTRTARGET">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_SGS_TRANS_B_COST_ALLOCATION"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SGS_OTR_TARGET"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsOtrTargetEO.TbcaId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SgsOtrTargetEO">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SGS_TRANS_RECEIVABLES_TEMP_TBL"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_SgsOtrTargetEO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsOtrTargetEO.TbcaId"/>
+    </AttrArray>
+  </Key>
+</Entity>

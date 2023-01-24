@@ -66,9 +66,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-
-           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW1;integratedSecurity=true;";
-
+           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -548,6 +546,38 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewLinkImpl getCostAllocationToTargetComboVL1() {
         return (ViewLinkImpl) findViewLink("CostAllocationToTargetComboVL1");
+    }
+
+    /**
+     * Container's getter for SgsTransBCostAllocationVO1.
+     * @return SgsTransBCostAllocationVO1
+     */
+    public ViewObjectImpl getSgsTransBCostAllocationVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTransBCostAllocationVO1");
+    }
+
+    /**
+     * Container's getter for SgsTransReceivablesTempVO1.
+     * @return SgsTransReceivablesTempVO1
+     */
+    public ViewObjectImpl getSgsTransReceivablesTempVO1() {
+        return (ViewObjectImpl) findViewObject("SgsTransReceivablesTempVO1");
+    }
+
+    /**
+     * Container's getter for SgsOtrTargetVO1.
+     * @return SgsOtrTargetVO1
+     */
+    public ViewObjectImpl getSgsOtrTargetVO1() {
+        return (ViewObjectImpl) findViewObject("SgsOtrTargetVO1");
+    }
+
+    /**
+     * Container's getter for FKOTRTARGETViewLink1.
+     * @return FKOTRTARGETViewLink1
+     */
+    public ViewLinkImpl getFKOTRTARGETViewLink1() {
+        return (ViewLinkImpl) findViewLink("FKOTRTARGETViewLink1");
     }
 }
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sgs-transBCostAllocationMain-flow">
+    <default-activity>transBCostAllocation</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__4">
+      <managed-bean-name>TransBCostAllocationBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.bean.common.TransBCostAllocationBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="transBCostAllocation">
+      <page>/fragments/TransactionalData/transBCostAllocation.jsff</page>
+    </view>
+    <task-flow-call id="transBCostAllocationADD">
+      <task-flow-reference>
+        <document>/taskflows/TransactionalData/sgs-transBCostAllocationForm-flow.xml</document>
+        <id>sgs-transBCostAllocationForm-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pTransBCAAddEdit</name>
+        <value>ADD</value>
+      </input-parameter>
+      <input-parameter id="__6">
+        <name>pStatus</name>
+        <value>#{pageFlowScope.status}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="transBCostAllocationEDIT">
+      <task-flow-reference>
+        <document>/taskflows/TransactionalData/sgs-transBCostAllocationForm-flow.xml</document>
+        <id>sgs-transBCostAllocationForm-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__7">
+        <name>pTransBCAAddEdit</name>
+        <value>EDIT</value>
+      </input-parameter>
+      <input-parameter id="__8">
+        <name>pStatus</name>
+        <value>#{pageFlowScope.status}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>transBCostAllocation</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ADD</from-outcome>
+        <to-activity-id>transBCostAllocationADD</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>EDIT</from-outcome>
+        <to-activity-id>transBCostAllocationEDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

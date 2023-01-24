@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="transBCostAllocationPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTransBCostAllocationVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTransBCostAllocationVO1Iterator"/>
+    <searchRegion Criteria="SgsTransBCostAllocationVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsTransBCostAllocationVO1Iterator" id="SgsTransBCostAllocationVOCriteriaQuery"/>
+    <iterator id="SgsTransReceivablesTempVO1Iterator" Binds="SgsTransReceivablesTempVO1"
+              DataControl="SGSAppModuleDataControl" RangeSize="25"/>
+    <iterator Binds="SgsOtrTargetVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
+              id="SgsOtrTargetVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsTransBCostAllocationVO1Iterator" id="SgsTransBCostAllocationVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO" Name="SgsTransBCostAllocationVO10">
+        <AttrNames>
+          <Item Value="TransactionPeriod"/>
+          <Item Value="ExtractId"/>
+          <Item Value="PeoplesoftTransactionId"/>
+          <Item Value="CirId"/>
+          <Item Value="BuId"/>
+          <Item Value="OprationalUnit"/>
+          <Item Value="JobCode"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="InputProvider"/>
+          <Item Value="NatureOfExpense"/>
+          <Item Value="JournalId"/>
+          <Item Value="GlAccount"/>
+          <Item Value="TransactionCurrency"/>
+          <Item Value="TransactionAmount"/>
+          <Item Value="ServiceCategory"/>
+          <Item Value="AccountTreatment"/>
+          <Item Value="TransactionStatus"/>
+          <Item Value="ExtractedBy"/>
+          <Item Value="TransactionCategory"/>
+          <Item Value="SourceSystem"/>
+          <Item Value="SourceModule"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsTransBCostAllocationVO1Iterator" id="CreateInsertTransBAlloc"
+            InstanceName="SGSAppModuleDataControl.SgsTransBCostAllocationVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsTransBCostAllocationVO1Iterator" id="Delete"
+            InstanceName="SGSAppModuleDataControl.SgsTransBCostAllocationVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SgsTransReceivablesTempVO1Iterator" id="CreateInsertTempTbl"
+            InstanceName="SGSAppModuleDataControl.SgsTransReceivablesTempVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExecuteTransBCostAlloc"
+            InstanceName="SGSAppModuleDataControl.SgsTransBCostAllocationVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="SgsOtrTargetVO1Iterator" id="ExecuteOtrTarget" InstanceName="SGSAppModuleDataControl.SgsOtrTargetVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

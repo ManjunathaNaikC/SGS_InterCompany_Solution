@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="transBCostAllocationFormPageDef" Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTransBCostAllocationVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTransBCostAllocationVO1Iterator"/>
+    <iterator Binds="SgsOtrTargetVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsOtrTargetVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExtractId">
+      <AttrNames>
+        <Item Value="ExtractId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="PeoplesoftTransactionId">
+      <AttrNames>
+        <Item Value="PeoplesoftTransactionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="CirId">
+      <AttrNames>
+        <Item Value="CirId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="InputProvider">
+      <AttrNames>
+        <Item Value="InputProvider"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ApprovalReqType">
+      <AttrNames>
+        <Item Value="ApprovalReqType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="RectificationId">
+      <AttrNames>
+        <Item Value="RectificationId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="AllocationBasis">
+      <AttrNames>
+        <Item Value="AllocationBasis"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="LegalEntity">
+      <AttrNames>
+        <Item Value="LegalEntity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="BuId">
+      <AttrNames>
+        <Item Value="BuId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="OprationalUnit">
+      <AttrNames>
+        <Item Value="OprationalUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="GlAccount">
+      <AttrNames>
+        <Item Value="GlAccount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="JobCode">
+      <AttrNames>
+        <Item Value="JobCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="AffiliateCode">
+      <AttrNames>
+        <Item Value="AffiliateCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="VerticalCode">
+      <AttrNames>
+        <Item Value="VerticalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="HorizontalCode">
+      <AttrNames>
+        <Item Value="HorizontalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="BookCode">
+      <AttrNames>
+        <Item Value="BookCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="SourceSystem">
+      <AttrNames>
+        <Item Value="SourceSystem"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="SourceModule">
+      <AttrNames>
+        <Item Value="SourceModule"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="SourceTable">
+      <AttrNames>
+        <Item Value="SourceTable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionPeriod">
+      <AttrNames>
+        <Item Value="TransactionPeriod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="GlDate">
+      <AttrNames>
+        <Item Value="GlDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionDate">
+      <AttrNames>
+        <Item Value="TransactionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionName">
+      <AttrNames>
+        <Item Value="TransactionName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="VendorId">
+      <AttrNames>
+        <Item Value="VendorId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="PoNumber">
+      <AttrNames>
+        <Item Value="PoNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="VoucherId">
+      <AttrNames>
+        <Item Value="VoucherId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="VoucherNo">
+      <AttrNames>
+        <Item Value="VoucherNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionType">
+      <AttrNames>
+        <Item Value="TransactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionCategory">
+      <AttrNames>
+        <Item Value="TransactionCategory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionCurrency">
+      <AttrNames>
+        <Item Value="TransactionCurrency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionAmount">
+      <AttrNames>
+        <Item Value="TransactionAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="IgstAmount">
+      <AttrNames>
+        <Item Value="IgstAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="CgstAmount">
+      <AttrNames>
+        <Item Value="CgstAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="SgstAmount">
+      <AttrNames>
+        <Item Value="SgstAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="FunctionalCurrency">
+      <AttrNames>
+        <Item Value="FunctionalCurrency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ForeignExchangeRate">
+      <AttrNames>
+        <Item Value="ForeignExchangeRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="JournalId">
+      <AttrNames>
+        <Item Value="JournalId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="NatureOfExpense">
+      <AttrNames>
+        <Item Value="NatureOfExpense"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="AccountTreatment">
+      <AttrNames>
+        <Item Value="AccountTreatment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExtractedBy">
+      <AttrNames>
+        <Item Value="ExtractedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExtractedDate">
+      <AttrNames>
+        <Item Value="ExtractedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="TransactionStatus">
+      <AttrNames>
+        <Item Value="TransactionStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <tree IterBinding="SgsOtrTargetVO1Iterator" id="SgsOtrTargetVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsOtrTargetVO" Name="SgsOtrTargetVO10">
+        <AttrNames>
+          <Item Value="ToBusinessUnit"/>
+          <Item Value="ToOperatingUnit"/>
+          <Item Value="ToJobCode"/>
+          <Item Value="ToDeptId"/>
+          <Item Value="DrGlAccount"/>
+          <Item Value="BaseCurrency"/>
+          <Item Value="TransactionCurrency"/>
+          <Item Value="TargetAmount"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="TbcaId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

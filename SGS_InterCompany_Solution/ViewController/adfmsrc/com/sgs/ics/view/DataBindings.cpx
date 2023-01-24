@@ -39,6 +39,10 @@
           usageId="com_sgs_ics_view_SgsInvoiceDashBardPageDef"/>
     <page path="/fragments/TransactionalData/SgsInvoiceDashboardForm.jsff"
           usageId="com_sgs_ics_view_SgsInvoiceDashboardFormPageDef"/>
+    <page path="/fragments/TransactionalData/transBCostAllocation.jsff"
+          usageId="com_sgs_ics_view_transBCostAllocationPageDef"/>
+    <page path="/fragments/TransactionalData/transBCostAllocationForm.jsff"
+          usageId="com_sgs_ics_view_transBCostAllocationFormPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -70,6 +74,10 @@
     <page id="com_sgs_ics_view_SgsInvoiceDashBardPageDef" path="fragments.TransactionalData.SgsInvoiceDashBardPageDef"/>
     <page id="com_sgs_ics_view_SgsInvoiceDashboardFormPageDef"
           path="fragments.TransactionalData.SgsInvoiceDashboardFormPageDef"/>
+    <page id="com_sgs_ics_view_transBCostAllocationPageDef"
+          path="fragments.TransactionalData.transBCostAllocationPageDef"/>
+    <page id="com_sgs_ics_view_transBCostAllocationFormPageDef"
+          path="fragments.TransactionalData.transBCostAllocationFormPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

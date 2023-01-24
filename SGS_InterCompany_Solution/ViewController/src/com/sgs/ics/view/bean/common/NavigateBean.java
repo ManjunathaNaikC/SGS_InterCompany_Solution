@@ -137,4 +137,9 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-invoiceDashboard-flow.xml#sgs-invoiceDashboard-flow");
         return null;
     }
+
+    public String sgstransBCostAllocationMainflow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-transBCostAllocationMain-flow.xml#sgs-transBCostAllocationMain-flow");
+        return null;
+    }
 }

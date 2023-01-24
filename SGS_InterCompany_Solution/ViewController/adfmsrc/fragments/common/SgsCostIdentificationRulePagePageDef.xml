@@ -102,6 +102,7 @@
           <Item Value="TrueUpDownApplicability"/>
           <Item Value="TrueUpDownFrequency"/>
           <Item Value="SACHSN"/>
+          <Item Value="ADDTEXPENSECAT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

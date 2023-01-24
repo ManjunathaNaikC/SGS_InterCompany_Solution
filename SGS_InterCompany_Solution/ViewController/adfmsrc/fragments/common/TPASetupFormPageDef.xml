@@ -99,6 +99,11 @@
           <Item Value="UpdatedBy"/>
           <Item Value="EffectiveFrom"/>
           <Item Value="EffectiveTo"/>
+          <Item Value="Attachment"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -139,5 +144,22 @@
     <action IterBinding="SgsMarkupRateTblVOIterator" id="DeleteMarkUp"
             InstanceName="SGSAppModuleDataControl.SgsMarkupRateTblVO" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="BDCOMMCHARGINGUNIT">
+      <AttrNames>
+        <Item Value="BDCOMMCHARGINGUNIT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="PASSTHROUGHGLACCOUNT">
+      <AttrNames>
+        <Item Value="PASSTHROUGHGLACCOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SgsTpaMasterVOIterator" StaticList="false" Uses="LOV_BdCommissionApplicability"
+          id="BdCommissionApplicability1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SgsTpaMasterVOIterator" id="STATUS">
+      <AttrNames>
+        <Item Value="STATUS"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -11,7 +11,7 @@
                 <f:facet name="toolbar">
                     <af:toolbar id="t1">
                         <af:button text="Save" id="b1" 
-                                   actionListener="#{bindings.Commit.execute}" accessKey="S"/>
+                                   actionListener="#{bindings.Commit.execute}" accessKey="S" />
                         <af:button id="b2" action="back" immediate="true" actionListener="#{bindings.Rollback.execute}"
                                    rendered="#{pageFlowScope.pTPAAddEdit == 'EDIT'}" text="Cancel" accessKey="C"/>
                         <af:button id="b3" actionListener="#{bindings.Delete.execute}"
@@ -20,7 +20,7 @@
                                    text="Cancel" accessKey="C"/>
                     </af:toolbar>
                 </f:facet>
-                <af:panelFormLayout id="pfl1" rows="5">
+                <af:panelFormLayout id="pfl1" rows="6">
                     <af:inputText value="#{bindings.TpaId.inputValue}" label="#{bindings.TpaId.hints.label}"
                                   required="#{bindings.TpaId.hints.mandatory}"
                                   columns="#{bindings.TpaId.hints.displayWidth}"
@@ -52,27 +52,38 @@
                                   shortDesc="#{bindings.NettingApplicatibility.hints.tooltip}" id="it4">
                         <f:validator binding="#{bindings.NettingApplicatibility.validator}"/>
                     </af:inputText>
-                    <af:inputText value="#{bindings.BdCommissionApplicability.inputValue}"
+                    <af:selectOneRadio value="#{bindings.BdCommissionApplicability1.inputValue}"
+                                       label="#{bindings.BdCommissionApplicability1.label}"
+                                       required="#{bindings.BdCommissionApplicability1.hints.mandatory}"
+                                       shortDesc="#{bindings.BdCommissionApplicability1.hints.tooltip}" id="sor2"
+                                       autoSubmit="true" partialTriggers="plam1 pgl3 pb4" layout="horizontal">
+                        <f:selectItems value="#{bindings.BdCommissionApplicability1.items}" id="si3"/>
+                        <f:validator binding="#{bindings.BdCommissionApplicability1.validator}"/>
+                    </af:selectOneRadio>
+                    <!--<af:inputText value="#{bindings.BdCommissionApplicability.inputValue}"
                                   label="#{bindings.BdCommissionApplicability.hints.label}"
                                   required="#{bindings.BdCommissionApplicability.hints.mandatory}"
                                   columns="#{bindings.BdCommissionApplicability.hints.displayWidth}"
                                   maximumLength="#{bindings.BdCommissionApplicability.hints.precision}"
                                   shortDesc="#{bindings.BdCommissionApplicability.hints.tooltip}" id="it5">
                         <f:validator binding="#{bindings.BdCommissionApplicability.validator}"/>
+                    </af:inputText>-->
+                    <af:selectOneRadio value="#{bindings.PassThroughFlag1.inputValue}"
+                                       label="#{bindings.PassThroughFlag1.label}"
+                                       required="#{bindings.PassThroughFlag1.hints.mandatory}"
+                                       shortDesc="#{bindings.PassThroughFlag1.hints.tooltip}" id="sor1"
+                                       layout="horizontal" autoSubmit="true"
+                                       partialTriggers="pfl2 it10 it11 it7 it13 it17 pb5">
+                        <f:selectItems value="#{bindings.PassThroughFlag1.items}" id="si1"/>
+                        <f:validator binding="#{bindings.PassThroughFlag1.validator}"/>
+                    </af:selectOneRadio>
+                    <af:inputText value="#{bindings.STATUS.inputValue}" label="#{bindings.STATUS.hints.label}"
+                                  required="#{bindings.STATUS.hints.mandatory}"
+                                  columns="#{bindings.STATUS.hints.displayWidth}"
+                                  maximumLength="#{bindings.STATUS.hints.precision}"
+                                  shortDesc="#{bindings.STATUS.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.STATUS.validator}"/>
                     </af:inputText>
-                    <af:panelLabelAndMessage label="BD Commission Rate" id="plam1">
-                        <af:panelGroupLayout id="pgl1" layout="horizontal">
-                            <af:inputText value="#{bindings.BdCommissionRate.inputValue}"
-                                          required="#{bindings.BdCommissionRate.hints.mandatory}"
-                                          columns="#{bindings.BdCommissionRate.hints.displayWidth}"
-                                          maximumLength="#{bindings.BdCommissionRate.hints.precision}"
-                                          shortDesc="#{bindings.BdCommissionRate.hints.tooltip}" id="it6">
-                                <f:validator binding="#{bindings.BdCommissionRate.validator}"/>
-                                <af:convertNumber/>
-                            </af:inputText>
-                            <af:outputText value="%" id="ot1"/>
-                        </af:panelGroupLayout>
-                    </af:panelLabelAndMessage>
                     <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                   label="#{bindings.EffectiveFrom.hints.label}"
                                   required="#{bindings.EffectiveFrom.hints.mandatory}"
@@ -117,23 +128,47 @@
                         <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
                     </af:inputDate>
                 </af:panelFormLayout>
-                <af:panelBox id="pb4"
-                             styleClass="AFStretchWidth">
+                <af:panelBox text="BD Commision Details" id="pb4" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
                     <f:facet name="toolbar"/>
-                    <af:panelGroupLayout id="pgl2" layout="horizontal">
-                        <af:selectOneRadio value="#{bindings.PassThroughFlag1.inputValue}"
-                                           label="#{bindings.PassThroughFlag1.label}"
-                                           required="#{bindings.PassThroughFlag1.hints.mandatory}"
-                                           shortDesc="#{bindings.PassThroughFlag1.hints.tooltip}" id="sor1"
-                                           layout="horizontal" autoSubmit="true"
-                                           partialTriggers="pb4 pfl2 it10 it11 it7 it13">
-                            <f:selectItems value="#{bindings.PassThroughFlag1.items}" id="si1"/>
-                            <f:validator binding="#{bindings.PassThroughFlag1.validator}"/>
-                        </af:selectOneRadio>
+                    <af:panelGroupLayout id="pgl3" layout="vertical"
+                                         visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
+                        <af:panelFormLayout id="pfl3">
+                            <f:facet name="footer"/>
+                            <af:panelLabelAndMessage label="BD Commission Rate" id="plam1"
+                                                     visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
+                                <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                    <af:inputText value="#{bindings.BdCommissionRate.inputValue}"
+                                                  required="#{bindings.BdCommissionRate.hints.mandatory}"
+                                                  columns="#{bindings.BdCommissionRate.hints.displayWidth}"
+                                                  maximumLength="#{bindings.BdCommissionRate.hints.precision}"
+                                                  shortDesc="#{bindings.BdCommissionRate.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.BdCommissionRate.validator}"/>
+                                        <af:convertNumber/>
+                                    </af:inputText>
+                                    <af:outputText value="%" id="ot1"/>
+                                </af:panelGroupLayout>
+                            </af:panelLabelAndMessage>
+                            <af:panelLabelAndMessage label="BD Commission Charging Unit" id="plam2">
+                                <af:inputText value="#{bindings.BDCOMMCHARGINGUNIT.inputValue}"
+                                              required="#{bindings.BDCOMMCHARGINGUNIT.hints.mandatory}"
+                                              columns="#{bindings.BDCOMMCHARGINGUNIT.hints.displayWidth}"
+                                              maximumLength="#{bindings.BDCOMMCHARGINGUNIT.hints.precision}"
+                                              shortDesc="#{bindings.BDCOMMCHARGINGUNIT.hints.tooltip}" id="it14">
+                                    <f:validator binding="#{bindings.BDCOMMCHARGINGUNIT.validator}"/>
+                                </af:inputText>
+                            </af:panelLabelAndMessage>
+                        </af:panelFormLayout>
                     </af:panelGroupLayout>
-                    <af:panelFormLayout id="pfl2" rows="3" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
-                                        partialTriggers="sor1 pgl2">
-                        <af:inputText value="#{bindings.PassThroughBu.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                </af:panelBox>
+                <af:panelBox text="Pass Through Details" id="pb5"
+                             visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                             partialTriggers="sor1">
+                    <f:facet name="toolbar"/>
+                    <af:panelFormLayout id="pfl2" rows="3"
+                                        visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                                        partialTriggers="sor1">
+                        <af:inputText value="#{bindings.PassThroughBu.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PassThroughBu.hints.label}"
                                       required="#{bindings.PassThroughBu.hints.mandatory}"
                                       columns="#{bindings.PassThroughBu.hints.displayWidth}"
@@ -141,7 +176,8 @@
                                       shortDesc="#{bindings.PassThroughBu.hints.tooltip}" id="it10">
                             <f:validator binding="#{bindings.PassThroughBu.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.OperationUnit.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                        <af:inputText value="#{bindings.OperationUnit.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.OperationUnit.hints.label}"
                                       required="#{bindings.OperationUnit.hints.mandatory}"
                                       columns="#{bindings.OperationUnit.hints.displayWidth}"
@@ -149,7 +185,8 @@
                                       shortDesc="#{bindings.OperationUnit.hints.tooltip}" id="it11">
                             <f:validator binding="#{bindings.OperationUnit.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.PASSTHROUGHDEPTID.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                        <af:inputText value="#{bindings.PASSTHROUGHDEPTID.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PASSTHROUGHDEPTID.hints.label}"
                                       required="#{bindings.PASSTHROUGHDEPTID.hints.mandatory}"
                                       columns="#{bindings.PASSTHROUGHDEPTID.hints.displayWidth}"
@@ -157,13 +194,22 @@
                                       shortDesc="#{bindings.PASSTHROUGHDEPTID.hints.tooltip}" id="it7">
                             <f:validator binding="#{bindings.PASSTHROUGHDEPTID.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.PASSTHROUGHJOBCODE.inputValue}" visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
+                        <af:inputText value="#{bindings.PASSTHROUGHJOBCODE.inputValue}"
+                                      visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                                       label="#{bindings.PASSTHROUGHJOBCODE.hints.label}"
                                       required="#{bindings.PASSTHROUGHJOBCODE.hints.mandatory}"
                                       columns="#{bindings.PASSTHROUGHJOBCODE.hints.displayWidth}"
                                       maximumLength="#{bindings.PASSTHROUGHJOBCODE.hints.precision}"
                                       shortDesc="#{bindings.PASSTHROUGHJOBCODE.hints.tooltip}" id="it13">
                             <f:validator binding="#{bindings.PASSTHROUGHJOBCODE.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.PASSTHROUGHGLACCOUNT.inputValue}"
+                                      label="#{bindings.PASSTHROUGHGLACCOUNT.hints.label}"
+                                      required="#{bindings.PASSTHROUGHGLACCOUNT.hints.mandatory}"
+                                      columns="#{bindings.PASSTHROUGHGLACCOUNT.hints.displayWidth}"
+                                      maximumLength="#{bindings.PASSTHROUGHGLACCOUNT.hints.precision}"
+                                      shortDesc="#{bindings.PASSTHROUGHGLACCOUNT.hints.tooltip}" id="it17">
+                            <f:validator binding="#{bindings.PASSTHROUGHGLACCOUNT.validator}"/>
                         </af:inputText>
                     </af:panelFormLayout>
                 </af:panelBox>
@@ -192,20 +238,31 @@
                         <f:facet name="statusbar"/>
                         <af:table value="#{bindings.SgsTpaDocTypeVO.collectionModel}" var="row"
                                   rows="#{bindings.SgsTpaDocTypeVO.rangeSize}"
+                                   selectedRowKeys="#{bindings.SgsTpaDocTypeVO.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.SgsTpaDocTypeVO.collectionModel.makeCurrent}"
+                                  rowSelection="single"
                                   emptyText="#{bindings.SgsTpaDocTypeVO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0" fetchSize="#{bindings.SgsTpaDocTypeVO.rangeSize}" id="t2"
                                   columnStretching="last" styleClass="AFStretchWidth">
                             <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.label}" id="c1"
                                        width="150">
-                                <af:inputText value="#{row.bindings.DocumentTypeValue.inputValue}"
+                                <af:selectOneChoice value="#{row.bindings.DocumentTypeValue.inputValue}"
+                                                    label="#{row.bindings.DocumentTypeValue.label}"
+                                                    required="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.mandatory}"
+                                                    shortDesc="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.tooltip}"
+                                                    id="soc1" autoSubmit="true">
+                                    <f:selectItems value="#{row.bindings.DocumentTypeValue.items}" id="si2"/>
+                                    <f:validator binding="#{row.bindings.DocumentTypeValue.validator}"/>
+                                </af:selectOneChoice>
+                                <!--<af:inputText value="#{row.bindings.DocumentTypeValue.inputValue}"
                                               label="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.label}"
                                               required="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.mandatory}"
                                               columns="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.displayWidth}"
                                               maximumLength="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.precision}"
                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.DocumentTypeValue.tooltip}"
-                                              id="it12">
+                                              id="it12" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.DocumentTypeValue.validator}"/>
-                                </af:inputText>
+                                </af:inputText>-->
                             </af:column>
                             <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.Attachment.label}" id="c2"
                                        width="150">
@@ -217,31 +274,16 @@
                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.Attachment.tooltip}" id="it13">
                   <f:validator binding="#{row.bindings.Attachment.validator}"/>
                 </af:inputText>-->
-                                <af:link text="#{row.bindings.Attachment.inputValue}" id="l1"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}" id="c3">
-                                <af:inputDate value="#{row.bindings.UpdatedDate.inputValue}"
-                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}"
-                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.mandatory}"
-                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.displayWidth}"
-                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.tooltip}"
-                                              id="id5">
-                                    <f:validator binding="#{row.bindings.UpdatedDate.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.format}"/>
-                                </af:inputDate>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}" id="c4">
-                                <af:inputText value="#{row.bindings.UpdatedBy.inputValue}"
-                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}"
-                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.mandatory}"
-                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.displayWidth}"
-                                              maximumLength="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.precision}"
-                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.tooltip}" id="it14">
-                                    <f:validator binding="#{row.bindings.UpdatedBy.validator}"/>
-                                </af:inputText>
+                 <af:link text="#{row.bindings.Attachment.inputValue}" id="l1">
+                                    <af:fileDownloadActionListener filename="#{row.Attachment}"
+                                                                   method="#{viewScope.ActionEventsBean.onTpaDocsDownload}"/>
+                                </af:link>
+                                <!--<af:link text="#{row.bindings.Attachment.inputValue}" id="l1"/>-->
                             </af:column>
                             <af:column id="c5" headerText="Uploaded Document">
-                                <af:inputFile id="if1"/>
+                                <af:inputFile id="if1"
+                                              valueChangeListener="#{viewScope.ActionEventsBean.onTPADocsUpload}"
+                                              autoSubmit="true" uploadType="submit"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.label}" id="c6">
                                 <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
@@ -249,7 +291,7 @@
                                               required="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.mandatory}"
                                               columns="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.displayWidth}"
                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.tooltip}"
-                                              id="id3">
+                                              id="id3" autoSubmit="true">
                                     <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.EffectiveFrom.format}"/>
                                 </af:inputDate>
@@ -259,16 +301,70 @@
                                               label="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.label}"
                                               required="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.mandatory}"
                                               columns="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.displayWidth}"
-                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.tooltip}"
-                                              id="id6">
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.tooltip}" id="id6"
+                                              autoSubmit="true">
                                     <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.EffectiveTo.format}"/>
                                 </af:inputDate>
                             </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.label}" id="c3">
+                                <!--<af:inputDate value="#{row.bindings.UpdatedDate.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.displayWidth}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.tooltip}"
+                                              id="id5" autoSubmit="true">
+                                    <f:validator binding="#{row.bindings.UpdatedDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.format}"/>
+                                </af:inputDate>-->
+                                <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.displayWidth}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.tooltip}"
+                                              id="id7" autoSubmit="true" readOnly="true">
+                                    <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.CreatedDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.label}" id="c4">
+                                <!--<af:inputText value="#{row.bindings.UpdatedBy.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.displayWidth}"
+                                              maximumLength="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.precision}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.tooltip}" id="it14"
+                                              readOnly="true" autoSubmit="true">
+                                    <f:validator binding="#{row.bindings.UpdatedBy.validator}"/>
+                                </af:inputText>-->
+                                <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                                              label="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.label}"
+                                              required="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.mandatory}"
+                                              columns="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.displayWidth}"
+                                              maximumLength="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.precision}"
+                                              shortDesc="#{bindings.SgsTpaDocTypeVO.hints.CreatedBy.tooltip}" id="it9"
+                                              readOnly="true">
+                                    <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.label}" id="c10"
+                                       rendered="false">
+                                <af:outputText value="#{row.UpdatedBy}"
+                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedBy.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.label}" id="c11"
+                                       rendered="false">
+                                <af:outputText value="#{row.UpdatedDate}"
+                                               shortDesc="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.tooltip}"
+                                               id="ot3">
+                                    <af:convertDateTime pattern="#{bindings.SgsTpaDocTypeVO.hints.UpdatedDate.format}"/>
+                                </af:outputText>
+                            </af:column>
                         </af:table>
                     </af:panelCollection>
                 </af:panelBox>
-                <af:panelBox text="Markup Details" id="pb3">
+                <af:panelBox text="Markup Details" id="pb3" rendered="false">
                     <f:facet name="toolbar"/>
                     <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                         <f:facet name="menus"/>

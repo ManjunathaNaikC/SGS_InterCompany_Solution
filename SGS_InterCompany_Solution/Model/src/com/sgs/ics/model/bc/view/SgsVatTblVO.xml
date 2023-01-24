@@ -349,7 +349,7 @@
       <ViewCriteriaItem
         Name="VatNum"
         ViewAttribute="VatNum"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bVatId"
         IsBindVarValue="true"
@@ -357,7 +357,7 @@
       <ViewCriteriaItem
         Name="ServProvider"
         ViewAttribute="ServProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bServiceProvider"
         IsBindVarValue="true"
@@ -365,7 +365,7 @@
       <ViewCriteriaItem
         Name="ServReceiver"
         ViewAttribute="ServReceiver"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bServiceReceiver"
         IsBindVarValue="true"

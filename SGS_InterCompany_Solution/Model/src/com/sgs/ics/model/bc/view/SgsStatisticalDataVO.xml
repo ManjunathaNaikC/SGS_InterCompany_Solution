@@ -355,6 +355,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="17.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CreatedBy_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -363,12 +365,13 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="UPDATED_DATE"
-    IsUpdateable="false">
+    AliasName="UPDATED_DATE">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="18.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UpdatedDate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -382,6 +385,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="19.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UpdatedBy_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -582,7 +587,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="CREATEDDATE"
-    IsUpdateable="false"
     PrecisionRule="true"
     EntityAttrName="CREATEDDATE"
     EntityUsage="SgsStatisticalDataEO"
@@ -591,6 +595,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="35.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CREATEDDATE_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -640,6 +646,71 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="FROMBU"
+    PrecisionRule="true"
+    EntityAttrName="FROMBU"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMBU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMDEPTID"
+    PrecisionRule="true"
+    EntityAttrName="FROMDEPTID"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_DEPTID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMDEPTID_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMJOBCODE"
+    PrecisionRule="true"
+    EntityAttrName="FROMJOBCODE"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_JOB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMJOBCODE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FROMOU"
+    PrecisionRule="true"
+    EntityAttrName="FROMOU"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="FROM_OU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMOU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ADDTEXPENSECAT"
+    PrecisionRule="true"
+    EntityAttrName="ADDTEXPENSECAT"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="ADDT_EXPENSE_CAT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ADDTEXPENSECAT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"
@@ -669,7 +740,7 @@
       <ViewCriteriaItem
         Name="StatisticalDataCategory"
         ViewAttribute="StatisticalDataCategory"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bStatsCategory"
         IsBindVarValue="true"
@@ -677,7 +748,7 @@
       <ViewCriteriaItem
         Name="ToBusinessUnit"
         ViewAttribute="ToBusinessUnit"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bBusinessUnit"
         IsBindVarValue="true"
@@ -685,7 +756,7 @@
       <ViewCriteriaItem
         Name="ToJobCode"
         ViewAttribute="ToJobCode"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bJobCode"
         IsBindVarValue="true"
@@ -693,7 +764,7 @@
       <ViewCriteriaItem
         Name="ToOperatingUnit"
         ViewAttribute="ToOperatingUnit"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bOperatingUnit"
         IsBindVarValue="true"
@@ -701,7 +772,7 @@
       <ViewCriteriaItem
         Name="StatisticalData"
         ViewAttribute="StatisticalData"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bStastiticalData"
         IsBindVarValue="true"
@@ -709,7 +780,7 @@
       <ViewCriteriaItem
         Name="InputProvider"
         ViewAttribute="InputProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bInputProvider"
         IsBindVarValue="true"

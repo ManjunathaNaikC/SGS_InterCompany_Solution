@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="bPeriod"
     Kind="viewcriteria"
@@ -589,7 +590,7 @@
       <ViewCriteriaItem
         Name="Period"
         ViewAttribute="Period"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bPeriod"
         IsBindVarValue="true"
@@ -597,7 +598,7 @@
       <ViewCriteriaItem
         Name="IuVendor"
         ViewAttribute="IuVendor"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bIuVendor"
         IsBindVarValue="true"
@@ -605,7 +606,7 @@
       <ViewCriteriaItem
         Name="IuCustomer"
         ViewAttribute="IuCustomer"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bIuCustomer"
         IsBindVarValue="true"
@@ -613,7 +614,7 @@
       <ViewCriteriaItem
         Name="TargetBu"
         ViewAttribute="TargetBu"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bTargetBu"
         IsBindVarValue="true"
@@ -621,7 +622,7 @@
       <ViewCriteriaItem
         Name="SgsIcInvoiceHeaderVOCriteria_SgsIcInvoiceHeaderVOCriteria_row_0_AccountingTreatment"
         ViewAttribute="AccountingTreatment"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bAccountTreatment"
         IsBindVarValue="true"
@@ -629,7 +630,7 @@
       <ViewCriteriaItem
         Name="PaymentStatus"
         ViewAttribute="PaymentStatus"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bPaymentStatus"
         IsBindVarValue="true"
@@ -637,7 +638,7 @@
       <ViewCriteriaItem
         Name="InputProvider"
         ViewAttribute="InputProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bInputProvider"
         IsBindVarValue="true"

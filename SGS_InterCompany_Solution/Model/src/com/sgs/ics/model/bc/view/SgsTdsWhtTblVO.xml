@@ -371,7 +371,7 @@
       <ViewCriteriaItem
         Name="TdsWhtId"
         ViewAttribute="TdsWhtId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bTdsWhtId"
         IsBindVarValue="true"
@@ -379,7 +379,7 @@
       <ViewCriteriaItem
         Name="ServReceiver"
         ViewAttribute="ServReceiver"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bServiceReceiver"
         IsBindVarValue="true"
@@ -387,7 +387,7 @@
       <ViewCriteriaItem
         Name="ServProvider"
         ViewAttribute="ServProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bServiceProvider"
         IsBindVarValue="true"
@@ -395,7 +395,7 @@
       <ViewCriteriaItem
         Name="DeductionPoint"
         ViewAttribute="DeductionPoint"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bPointofDeduction"
         IsBindVarValue="true"

@@ -85,7 +85,7 @@
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
-    <action IterBinding="SgsVatTblVO1Iterator" id="DeleteVatTax" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
+    <action IterBinding="SgsVatTblVO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsVatTblVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="SgsVatTaxApplicabilityVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
@@ -99,5 +99,8 @@
         <Item Value="SERVICERECEIVERLEGALENTITY"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="SgsVatTaxApplicabilityVO1Iterator" id="DeleteVatTax"
+            InstanceName="SGSAppModuleDataControl.SgsVatTaxApplicabilityVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

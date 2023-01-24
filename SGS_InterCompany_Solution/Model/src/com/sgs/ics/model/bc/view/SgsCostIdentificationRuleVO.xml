@@ -844,6 +844,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ADDTEXPENSECAT"
+    PrecisionRule="true"
+    EntityAttrName="ADDTEXPENSECAT"
+    EntityUsage="SgsCostIdentificationRuleEO"
+    AliasName="ADDT_EXPENSE_CAT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.ADDTEXPENSECAT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsCostIdentificationRuleVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO"
@@ -881,7 +894,7 @@
       <ViewCriteriaItem
         Name="CostGroup"
         ViewAttribute="CostGroup"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bCostGroup"
         IsBindVarValue="true"
@@ -889,7 +902,7 @@
       <ViewCriteriaItem
         Name="CostIdentificationName"
         ViewAttribute="CostIdentificationName"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bCostIdentificationId"
         IsBindVarValue="true"
@@ -913,7 +926,7 @@
       <ViewCriteriaItem
         Name="InputProvider"
         ViewAttribute="InputProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bInputProvider"
         IsBindVarValue="true"

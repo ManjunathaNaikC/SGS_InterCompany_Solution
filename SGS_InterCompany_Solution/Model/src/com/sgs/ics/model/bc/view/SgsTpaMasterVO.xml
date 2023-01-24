@@ -110,6 +110,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_BdCommissionApplicability"
+    ListVOName="SgsLookupVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BdCommissionApplicability"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsTpaMaster"
     Entity="com.sgs.ics.model.bc.entity.SgsTpaMaster"/>
@@ -210,7 +227,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="OperationUnit"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="OperationUnit"
     EntityUsage="SgsTpaMaster"
@@ -244,13 +260,16 @@
     PrecisionRule="true"
     EntityAttrName="BdCommissionApplicability"
     EntityUsage="SgsTpaMaster"
-    AliasName="BD_COMMISSION_APPLICABILITY">
+    AliasName="BD_COMMISSION_APPLICABILITY"
+    LOVName="LOV_BdCommissionApplicability">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="9.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTpaMasterVO.BdCommissionApplicability_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -579,6 +598,38 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="BDCOMMCHARGINGUNIT"
+    PrecisionRule="true"
+    EntityAttrName="BDCOMMCHARGINGUNIT"
+    EntityUsage="SgsTpaMaster"
+    AliasName="BD_COMM_CHARGING_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTpaMasterVO.BDCOMMCHARGINGUNIT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PASSTHROUGHGLACCOUNT"
+    PrecisionRule="true"
+    EntityAttrName="PASSTHROUGHGLACCOUNT"
+    EntityUsage="SgsTpaMaster"
+    AliasName="PASS_THROUGH_GL_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTpaMasterVO.PASSTHROUGHGLACCOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="STATUS"
+    PrecisionRule="true"
+    EntityAttrName="STATUS"
+    EntityUsage="SgsTpaMaster"
+    AliasName="STATUS"/>
   <ViewCriteria
     Name="SgsTpaMasterVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaMasterVO"
@@ -608,7 +659,7 @@
       <ViewCriteriaItem
         Name="TpaId"
         ViewAttribute="TpaId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bTPAId"
         IsBindVarValue="true"
@@ -616,7 +667,7 @@
       <ViewCriteriaItem
         Name="LeServiceProvider"
         ViewAttribute="LeServiceProvider"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bLeServiceProvider"
         IsBindVarValue="true"
@@ -632,7 +683,7 @@
       <ViewCriteriaItem
         Name="NettingApplicatibility"
         ViewAttribute="NettingApplicatibility"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bNettingApplicatibility"
         IsBindVarValue="true"

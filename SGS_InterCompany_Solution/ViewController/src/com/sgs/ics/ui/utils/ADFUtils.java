@@ -1,6 +1,13 @@
 package com.sgs.ics.ui.utils;
 
+import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
+
 import com.sun.faces.component.visit.FullVisitContext;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -903,5 +910,39 @@ public class ADFUtils {
         ADFContext adfCtx = ADFContext.getCurrent();
         Map sessionScope = adfCtx.getSessionScope();
         sessionScope.put(name, value);
+    }
+    
+    
+    public static String getPath(){
+        
+        String path = "NOPATH";
+        String queryString =
+            "select MEANING FROM SGS_LOOKUP_TABLE where LOOKUP_TYPE ='UPLOAD_DOCS' and ENABLED='Y'";
+        Connection conn = null;
+        PreparedStatement pst = null;
+        System.out.println("Query :: " + queryString);
+        try {
+            SGSAppModuleImpl am = new SGSAppModuleImpl();
+            conn = am.getDBConnection();
+            String sqlIdentifier = queryString;
+            pst = conn.prepareStatement(sqlIdentifier);
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                path= (String) rs.getString(1);
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return path;
     }
 }

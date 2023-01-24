@@ -63,6 +63,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         EMPLOYEEID,
         PROGRAMNAME,
         OPERATINGUNIT,
+        NatureofExpense,
         SgsStandardRateSetupEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -124,6 +125,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static final int EMPLOYEEID = AttributesEnum.EMPLOYEEID.index();
     public static final int PROGRAMNAME = AttributesEnum.PROGRAMNAME.index();
     public static final int OPERATINGUNIT = AttributesEnum.OPERATINGUNIT.index();
+    public static final int NATUREOFEXPENSE = AttributesEnum.NatureofExpense.index();
     public static final int SGSSTANDARDRATESETUPEO = AttributesEnum.SgsStandardRateSetupEO.index();
 
     /**
@@ -700,6 +702,22 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
      */
     public void setOPERATINGUNIT(String value) {
         setAttributeInternal(OPERATINGUNIT, value);
+    }
+
+    /**
+     * Gets the attribute value for NatureofExpense, using the alias name NatureofExpense.
+     * @return the value of NatureofExpense
+     */
+    public String getNatureofExpense() {
+        return (String) getAttributeInternal(NATUREOFEXPENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NatureofExpense.
+     * @param value value to set the NatureofExpense
+     */
+    public void setNatureofExpense(String value) {
+        setAttributeInternal(NATUREOFEXPENSE, value);
     }
 
     /**

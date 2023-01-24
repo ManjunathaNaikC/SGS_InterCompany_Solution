@@ -63,7 +63,12 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         CREATEDDATE,
         GLACCOUNT,
         InputProvider,
-        NATUREOFEXPENSE;
+        NATUREOFEXPENSE,
+        FROMBU,
+        FROMDEPTID,
+        FROMJOBCODE,
+        FROMOU,
+        ADDTEXPENSECAT;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -126,6 +131,11 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int GLACCOUNT = AttributesEnum.GLACCOUNT.index();
     public static final int INPUTPROVIDER = AttributesEnum.InputProvider.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
+    public static final int FROMBU = AttributesEnum.FROMBU.index();
+    public static final int FROMDEPTID = AttributesEnum.FROMDEPTID.index();
+    public static final int FROMJOBCODE = AttributesEnum.FROMJOBCODE.index();
+    public static final int FROMOU = AttributesEnum.FROMOU.index();
+    public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -380,6 +390,14 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public void setValidityFrom(Date value) {
         setAttributeInternal(VALIDITYFROM, value);
     }
+    
+    public void setCREATEDDATE(Date value) {
+        setAttributeInternal(CREATEDDATE, value);
+    }
+    
+    public void setUpdatedDate(Date value) {
+        setAttributeInternal(UPDATEDDATE, value);
+    }
 
     /**
      * Gets the attribute value for ValidityTill, using the alias name ValidityTill.
@@ -420,6 +438,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public Date getUpdatedDate() {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
+    
 
 
     /**
@@ -685,6 +704,10 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public Date getCREATEDDATE() {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
+    
+//    public void setCREATEDDATE(Date value) {
+//        setAttributeInternal(CREATEDDATE, value);
+//    }
 
 
     /**
@@ -736,6 +759,86 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for FROMBU, using the alias name FROMBU.
+     * @return the value of FROMBU
+     */
+    public String getFROMBU() {
+        return (String) getAttributeInternal(FROMBU);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMBU.
+     * @param value value to set the FROMBU
+     */
+    public void setFROMBU(String value) {
+        setAttributeInternal(FROMBU, value);
+    }
+
+    /**
+     * Gets the attribute value for FROMDEPTID, using the alias name FROMDEPTID.
+     * @return the value of FROMDEPTID
+     */
+    public String getFROMDEPTID() {
+        return (String) getAttributeInternal(FROMDEPTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMDEPTID.
+     * @param value value to set the FROMDEPTID
+     */
+    public void setFROMDEPTID(String value) {
+        setAttributeInternal(FROMDEPTID, value);
+    }
+
+    /**
+     * Gets the attribute value for FROMJOBCODE, using the alias name FROMJOBCODE.
+     * @return the value of FROMJOBCODE
+     */
+    public String getFROMJOBCODE() {
+        return (String) getAttributeInternal(FROMJOBCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMJOBCODE.
+     * @param value value to set the FROMJOBCODE
+     */
+    public void setFROMJOBCODE(String value) {
+        setAttributeInternal(FROMJOBCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for FROMOU, using the alias name FROMOU.
+     * @return the value of FROMOU
+     */
+    public String getFROMOU() {
+        return (String) getAttributeInternal(FROMOU);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMOU.
+     * @param value value to set the FROMOU
+     */
+    public void setFROMOU(String value) {
+        setAttributeInternal(FROMOU, value);
+    }
+
+    /**
+     * Gets the attribute value for ADDTEXPENSECAT, using the alias name ADDTEXPENSECAT.
+     * @return the value of ADDTEXPENSECAT
+     */
+    public String getADDTEXPENSECAT() {
+        return (String) getAttributeInternal(ADDTEXPENSECAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ADDTEXPENSECAT.
+     * @param value value to set the ADDTEXPENSECAT
+     */
+    public void setADDTEXPENSECAT(String value) {
+        setAttributeInternal(ADDTEXPENSECAT, value);
+    }
+
+    /**
      * @param statisticalDataId key constituent
 
      * @return a Key object based on given key constituents.
@@ -752,6 +855,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());
+            setCREATEDDATE(new java.sql.Date(new java.util.Date().getTime()));
         } catch (Exception e) {
             LOG.severe(e);
         }
@@ -774,6 +878,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
+            setUpdatedDate(new java.sql.Date(new java.util.Date().getTime()));
         }
         
         super.doDML(operation, e);

@@ -27,8 +27,7 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t2">
                             <af:button text="Copy From Previous Month" id="b3"
-                                       actionListener="#{viewScope.ActionEventsBean.onCopyFromPreviousMonthActionEvent}"
-                                       disabled="true"/>
+                                       actionListener="#{viewScope.ActionEventsBean.onCopyFromPreviousMonthActionEvent}"/>
                             <af:button text="Upload Data" id="b5" partialSubmit="true">
                                 <af:showPopupBehavior popupId="p1Upload" triggerType="action"/>
                             </af:button>
@@ -53,7 +52,7 @@
                               rowSelection="single" fetchSize="#{bindings.SgsStatisticalDataVO1.rangeSize}"
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
-                              styleClass="AFStretchWidth" inlineStyle="height:800px">
+                              styleClass="AFStretchWidth" inlineStyle="height:250px" autoHeightRows="10">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.label}" id="c39"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.name}"
                                    filterable="true">
@@ -65,6 +64,19 @@
                                 <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si2"/>
                                 <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
                             </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.name}"
+                                   filterable="true" id="c50">
+                            <af:inputText value="#{row.bindings.ADDTEXPENSECAT.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.tooltip}"
+                                          id="it41">
+                                <f:validator binding="#{row.bindings.ADDTEXPENSECAT.validator}"/>
+                            </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.name}" id="c17"
@@ -114,6 +126,56 @@
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.tooltip}"
                                           id="it1">
                                 <f:validator binding="#{row.bindings.StatisticalDataCategory.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}" 
+                        sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.name}"
+                                   filterable="true" id="c40">
+                            <af:inputText value="#{row.bindings.FROMBU.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.tooltip}" id="it30">
+                                <f:validator binding="#{row.bindings.FROMBU.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.label}" 
+                        sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.name}"
+                                   filterable="true" id="c41">
+                            <af:inputText value="#{row.bindings.FROMOU.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.tooltip}" id="it31">
+                                <f:validator binding="#{row.bindings.FROMOU.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.label}" 
+                        sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.name}"
+                                   filterable="true" id="c42">
+                            <af:inputText value="#{row.bindings.FROMJOBCODE.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.tooltip}"
+                                          id="it32">
+                                <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}" 
+                        sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.name}"
+                                   filterable="true" id="c43">
+                            <af:inputText value="#{row.bindings.FROMDEPTID.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.tooltip}"
+                                          id="it33">
+                                <f:validator binding="#{row.bindings.FROMDEPTID.validator}"/>
                             </af:inputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.name}"
@@ -166,6 +228,19 @@
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.tooltip}"
                                           id="it5">
                                 <f:validator binding="#{row.bindings.ToDepartmentId.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}" id="c16"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.name}"
+                                   filterable="true">
+                            <af:inputText value="#{row.bindings.GLACCOUNT.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.tooltip}"
+                                          id="it8">
+                                <f:validator binding="#{row.bindings.GLACCOUNT.validator}"/>
                             </af:inputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.name}"
@@ -232,19 +307,6 @@
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.tooltip}"
                                           id="it13">
                                 <f:validator binding="#{row.bindings.RejectionComments.validator}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}" id="c16"
-                        sortProperty="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.name}"
-                                   filterable="true">
-                            <af:inputText value="#{row.bindings.GLACCOUNT.inputValue}"
-                                          label="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}"
-                                          required="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.mandatory}"
-                                          columns="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.displayWidth}"
-                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.precision}"
-                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.tooltip}"
-                                          id="it8">
-                                <f:validator binding="#{row.bindings.GLACCOUNT.validator}"/>
                             </af:inputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.Currency.name}"
@@ -324,19 +386,448 @@
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="stsStat"
                               binding="#{viewScope.ActionEventsBean.statisticspopupbind}">
-                        <af:dialog id="d2">
+                        <af:dialog id="d2" title="Previous Month Data">
                             <f:facet name="buttonBar"/>
-                            <af:panelGroupLayout id="pgl1" layout="scroll" styleClass="AFStretchWidth">
-                                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
-                                    <f:facet name="menus"/>
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t4">
-                                            <af:button text="Save" id="b6"
-                                                       actionListener="#{viewScope.ActionEventsBean.onStatDataUpdate}"/>
-                                        </af:toolbar>
-                                    </f:facet>
-                                    <f:facet name="statusbar"/>
-                                    <af:table value="#{bindings.SgsStatisticalPreviousMonthVO1.collectionModel}"
+                            <af:panelCollection id="pc2" styleClass="AFStretchWidth" inlineStyle="width:850px">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t4">
+                                        <af:button text="Save" id="b6"
+                                                   actionListener="#{viewScope.ActionEventsBean.onStatDataUpdate}"/>
+                                        <af:button text="Cancel" id="b9"
+                                                   actionListener="#{viewScope.ActionEventsBean.onCancelOfStatDataEvent}"/>
+                                        <af:button text="Close" id="b8"
+                                                   actionListener="#{viewScope.ActionEventsBean.onCloseOfStatDataEvent}"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.SgsStatisticalPreviousMonthVO11.collectionModel}" var="row"
+                                          rows="#{bindings.SgsStatisticalPreviousMonthVO11.rangeSize}"
+                                          emptyText="#{bindings.SgsStatisticalPreviousMonthVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.SgsStatisticalPreviousMonthVO11.collectionModel.selectedRow}"
+                                          rowSelection="multiple"
+                                          fetchSize="#{bindings.SgsStatisticalPreviousMonthVO11.rangeSize}"
+                                          filterModel="#{bindings.SgsStatisticalPreviousMonthVO1Query.queryDescriptor}"
+                                          filterVisible="false"
+                                          queryListener="#{bindings.SgsStatisticalPreviousMonthVO1Query.processQuery}"
+                                          varStatus="vs" id="t3" inlineStyle="width:800px" styleClass="AFStretchWidth">
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.label}"
+                                               id="c49">
+                                        <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                                            label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                                            required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.mandatory}"
+                                                            shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.tooltip}"
+                                                            id="soc3">
+                                            <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si3"/>
+                                            <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                                        </af:selectOneChoice>
+                                        <!--<af:inputText value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.tooltip}"
+                                                      id="it41">
+                                            <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                                        </af:inputText>-->
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.InputProvider.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.InputProvider.label}"
+                                               id="c24">
+                                        <af:inputText value="#{row.bindings.InputProvider.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.InputProvider.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.InputProvider.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.InputProvider.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.InputProvider.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.InputProvider.tooltip}"
+                                                      id="it20">
+                                            <f:validator binding="#{row.bindings.InputProvider.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.COSTGROUP.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.COSTGROUP.label}"
+                                               id="c19">
+                                        <af:inputText value="#{row.bindings.COSTGROUP.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.COSTGROUP.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.COSTGROUP.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.COSTGROUP.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.COSTGROUP.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.COSTGROUP.tooltip}"
+                                                      id="it15">
+                                            <f:validator binding="#{row.bindings.COSTGROUP.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATACATEGORY.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATACATEGORY.label}"
+                                               id="c28">
+                                        <af:inputText value="#{row.bindings.STATISTICALDATACATEGORY.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATACATEGORY.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATACATEGORY.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATACATEGORY.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATACATEGORY.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATACATEGORY.tooltip}"
+                                                      id="it24">
+                                            <f:validator binding="#{row.bindings.STATISTICALDATACATEGORY.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.label}"
+                                               id="c45">
+                                        <af:inputText value="#{row.bindings.FROMBU.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.tooltip}"
+                                                      id="it37">
+                                            <f:validator binding="#{row.bindings.FROMBU.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.label}"
+                                               id="c48">
+                                        <af:inputText value="#{row.bindings.FROMOU.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.tooltip}"
+                                                      id="it40">
+                                            <f:validator binding="#{row.bindings.FROMOU.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.label}"
+                                               id="c47">
+                                        <af:inputText value="#{row.bindings.FROMJOBCODE.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.tooltip}"
+                                                      id="it39">
+                                            <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.label}"
+                                               id="c46">
+                                        <af:inputText value="#{row.bindings.FROMDEPTID.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.tooltip}"
+                                                      id="it38">
+                                            <f:validator binding="#{row.bindings.FROMDEPTID.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.label}"
+                                               id="c31">
+                                        <af:inputText value="#{row.bindings.TOBUSINESSUNIT.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.tooltip}"
+                                                      id="it27">
+                                            <f:validator binding="#{row.bindings.TOBUSINESSUNIT.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOOPERATINGUNIT.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOOPERATINGUNIT.label}"
+                                               id="c34">
+                                        <af:inputText value="#{row.bindings.TOOPERATINGUNIT.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOOPERATINGUNIT.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOOPERATINGUNIT.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOOPERATINGUNIT.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOOPERATINGUNIT.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOOPERATINGUNIT.tooltip}"
+                                                      id="it34">
+                                            <f:validator binding="#{row.bindings.TOOPERATINGUNIT.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOJOBCODE.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOJOBCODE.label}"
+                                               id="c33">
+                                        <af:inputText value="#{row.bindings.TOJOBCODE.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOJOBCODE.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOJOBCODE.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOJOBCODE.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOJOBCODE.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOJOBCODE.tooltip}"
+                                                      id="it29">
+                                            <f:validator binding="#{row.bindings.TOJOBCODE.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TODEPARTMENTID.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TODEPARTMENTID.label}"
+                                               id="c32">
+                                        <af:inputText value="#{row.bindings.TODEPARTMENTID.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TODEPARTMENTID.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TODEPARTMENTID.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TODEPARTMENTID.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TODEPARTMENTID.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TODEPARTMENTID.tooltip}"
+                                                      id="it28">
+                                            <f:validator binding="#{row.bindings.TODEPARTMENTID.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.GLACCOUNT.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.GLACCOUNT.label}"
+                                               id="c23">
+                                        <af:inputText value="#{row.bindings.GLACCOUNT.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.GLACCOUNT.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.GLACCOUNT.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.GLACCOUNT.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.GLACCOUNT.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.GLACCOUNT.tooltip}"
+                                                      id="it19">
+                                            <f:validator binding="#{row.bindings.GLACCOUNT.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATA.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATA.label}"
+                                               id="c27">
+                                        <af:inputText value="#{row.bindings.STATISTICALDATA.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATA.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATA.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATA.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATA.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATA.tooltip}"
+                                                      id="it23">
+                                            <f:validator binding="#{row.bindings.STATISTICALDATA.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UNITOFMEASURE.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UNITOFMEASURE.label}"
+                                               id="c35">
+                                        <af:inputText value="#{row.bindings.UNITOFMEASURE.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UNITOFMEASURE.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UNITOFMEASURE.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UNITOFMEASURE.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UNITOFMEASURE.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UNITOFMEASURE.tooltip}"
+                                                      id="it35">
+                                            <f:validator binding="#{row.bindings.UNITOFMEASURE.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.EMPLOYEEID.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.EMPLOYEEID.label}"
+                                               id="c22">
+                                        <af:inputText value="#{row.bindings.EMPLOYEEID.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.EMPLOYEEID.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.EMPLOYEEID.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.EMPLOYEEID.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.EMPLOYEEID.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.EMPLOYEEID.tooltip}"
+                                                      id="it18">
+                                            <f:validator binding="#{row.bindings.EMPLOYEEID.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTEDREASON.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTEDREASON.label}"
+                                               id="c25">
+                                        <af:inputText value="#{row.bindings.REJECTEDREASON.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTEDREASON.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTEDREASON.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTEDREASON.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTEDREASON.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTEDREASON.tooltip}"
+                                                      id="it21">
+                                            <f:validator binding="#{row.bindings.REJECTEDREASON.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTIONCOMMENTS.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTIONCOMMENTS.label}"
+                                               id="c26">
+                                        <af:inputText value="#{row.bindings.REJECTIONCOMMENTS.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTIONCOMMENTS.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTIONCOMMENTS.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTIONCOMMENTS.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTIONCOMMENTS.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.REJECTIONCOMMENTS.tooltip}"
+                                                      id="it22">
+                                            <f:validator binding="#{row.bindings.REJECTIONCOMMENTS.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CURRENCY.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CURRENCY.label}"
+                                               id="c21">
+                                        <af:inputText value="#{row.bindings.CURRENCY.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CURRENCY.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CURRENCY.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CURRENCY.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CURRENCY.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CURRENCY.tooltip}"
+                                                      id="it17">
+                                            <f:validator binding="#{row.bindings.CURRENCY.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.label}"
+                                               id="c30">
+                                        <af:inputText value="#{row.bindings.TARGETAMOUNT.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.tooltip}"
+                                                      id="it26">
+                                            <f:validator binding="#{row.bindings.TARGETAMOUNT.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.label}"
+                                               id="c38">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsStatisticalPreviousMonthVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.VALIDITYFROM.value}"
+                                                          id="id9">
+                                                <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.VALIDITYFROM.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.displayWidth}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.tooltip}"
+                                                      id="id10">
+                                            <f:validator binding="#{row.bindings.VALIDITYFROM.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.label}"
+                                               id="c44">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsStatisticalPreviousMonthVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.VALIDITYTILL.value}"
+                                                          id="id11">
+                                                <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.VALIDITYTILL.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.displayWidth}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.tooltip}"
+                                                      id="id12">
+                                            <f:validator binding="#{row.bindings.VALIDITYTILL.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYTILL.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDBY.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDBY.label}"
+                                               id="c20">
+                                        <af:inputText value="#{row.bindings.CREATEDBY.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDBY.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDBY.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDBY.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDBY.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDBY.tooltip}"
+                                                      id="it16" readOnly="true">
+                                            <f:validator binding="#{row.bindings.CREATEDBY.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.label}"
+                                               id="c18">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsStatisticalPreviousMonthVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CREATEDDATE.value}"
+                                                          id="id5">
+                                                <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.CREATEDDATE.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.displayWidth}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.tooltip}"
+                                                      id="id6" readOnly="true">
+                                            <f:validator binding="#{row.bindings.CREATEDDATE.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.CREATEDDATE.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.label}"
+                                               id="c29" rendered="false">
+                                        <af:inputText value="#{row.bindings.STATISTICALDATAID.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.tooltip}"
+                                                      id="it25">
+                                            <f:validator binding="#{row.bindings.STATISTICALDATAID.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.STATISTICALDATAID.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDBY.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDBY.label}"
+                                               id="c36">
+                                        <af:inputText value="#{row.bindings.UPDATEDBY.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDBY.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDBY.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDBY.displayWidth}"
+                                                      maximumLength="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDBY.precision}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDBY.tooltip}"
+                                                      id="it36" readOnly="true">
+                                            <f:validator binding="#{row.bindings.UPDATEDBY.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.label}"
+                                               id="c37">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SgsStatisticalPreviousMonthVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.UPDATEDDATE.value}"
+                                                          id="id7">
+                                                <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.UPDATEDDATE.inputValue}"
+                                                      label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.label}"
+                                                      required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.mandatory}"
+                                                      columns="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.displayWidth}"
+                                                      shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.tooltip}"
+                                                      id="id8" readOnly="true">
+                                            <f:validator binding="#{row.bindings.UPDATEDDATE.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.UPDATEDDATE.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                </af:table>
+                                <!--<af:table value="#{bindings.SgsStatisticalPreviousMonthVO1.collectionModel}"
                                               var="row" rows="#{bindings.SgsStatisticalPreviousMonthVO1.rangeSize}"
                                               emptyText="#{bindings.SgsStatisticalPreviousMonthVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                               rowBandingInterval="0"
@@ -345,49 +836,143 @@
                                               rowSelection="single"
                                               fetchSize="#{bindings.SgsStatisticalPreviousMonthVO1.rangeSize}"
                                               filterModel="#{bindings.SgsStatisticalPreviousMonthVO1Query.queryDescriptor}"
-                                              filterVisible="true"
+                                              filterVisible="false"
                                               queryListener="#{bindings.SgsStatisticalPreviousMonthVO1Query.processQuery}"
                                               varStatus="vs" id="t3" styleClass="AFStretchWidth">
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.name}"
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.name}"
                                                    filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.label}"
-                                                   id="c18">
-                                            <af:inputText value="#{row.bindings.CostGroup.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.tooltip}"
-                                                          id="it15">
-                                                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.label}"
+                                                   id="c22">
+                                            <af:inputText value="#{row.bindings.InputProvider.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.tooltip}"
+                                                          id="it19">
+                                                <f:validator binding="#{row.bindings.InputProvider.validator}"/>
                                             </af:inputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.name}"
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.name}"
                                                    filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.label}"
-                                                   id="c19">
-                                            <af:inputText value="#{row.bindings.Currency.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.tooltip}"
-                                                          id="it16">
-                                                <f:validator binding="#{row.bindings.Currency.validator}"/>
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.label}"
+                                                   id="c26">
+                                            <af:inputText value="#{row.bindings.StatisticalDataCategory.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.tooltip}"
+                                                          id="it23">
+                                                <f:validator binding="#{row.bindings.StatisticalDataCategory.validator}"/>
                                             </af:inputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.name}"
+                                        <af:column headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMBU.label}"
+                                                   sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMBU.name}"
+                                                   filterable="true" id="c44">
+                                            <af:inputText value="#{row.bindings.FROMBU.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMBU.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMBU.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMBU.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMBU.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMBU.tooltip}"
+                                                          id="it34">
+                                                <f:validator binding="#{row.bindings.FROMBU.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMOU.label}"
+                                                   sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMOU.name}"
+                                                   filterable="true" id="c45">
+                                            <af:inputText value="#{row.bindings.FROMOU.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMOU.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMOU.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMOU.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMOU.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMOU.tooltip}"
+                                                          id="it35">
+                                                <f:validator binding="#{row.bindings.FROMOU.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMJOBCODE.label}"
+                                                   sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMJOBCODE.name}"
+                                                   filterable="true" id="c46">
+                                            <af:inputText value="#{row.bindings.FROMJOBCODE.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMJOBCODE.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMJOBCODE.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMJOBCODE.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMJOBCODE.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMJOBCODE.tooltip}"
+                                                          id="it36">
+                                                <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMDEPTID.label}"
+                                                   sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMDEPTID.name}"
+                                                   filterable="true" id="c47">
+                                            <af:inputText value="#{row.bindings.FROMDEPTID.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMDEPTID.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMDEPTID.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMDEPTID.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMDEPTID.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.FROMDEPTID.tooltip}"
+                                                          id="it37">
+                                                <f:validator binding="#{row.bindings.FROMDEPTID.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.name}"
                                                    filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.label}"
-                                                   id="c20">
-                                            <af:inputText value="#{row.bindings.EmployeeId.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.tooltip}"
-                                                          id="it17">
-                                                <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.label}"
+                                                   id="c28">
+                                            <af:inputText value="#{row.bindings.ToBusinessUnit.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.tooltip}"
+                                                          id="it25">
+                                                <f:validator binding="#{row.bindings.ToBusinessUnit.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.label}"
+                                                   id="c31">
+                                            <af:inputText value="#{row.bindings.ToOperatingUnit.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.tooltip}"
+                                                          id="it28">
+                                                <f:validator binding="#{row.bindings.ToOperatingUnit.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.label}"
+                                                   id="c30">
+                                            <af:inputText value="#{row.bindings.ToJobCode.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.tooltip}"
+                                                          id="it27">
+                                                <f:validator binding="#{row.bindings.ToJobCode.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.label}"
+                                                   id="c29">
+                                            <af:inputText value="#{row.bindings.ToDepartmentId.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.tooltip}"
+                                                          id="it26">
+                                                <f:validator binding="#{row.bindings.ToDepartmentId.validator}"/>
                                             </af:inputText>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.GLACCOUNT.name}"
@@ -404,18 +989,46 @@
                                                 <f:validator binding="#{row.bindings.GLACCOUNT.validator}"/>
                                             </af:inputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.name}"
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.name}"
                                                    filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.label}"
-                                                   id="c22">
-                                            <af:inputText value="#{row.bindings.InputProvider.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.InputProvider.tooltip}"
-                                                          id="it19">
-                                                <f:validator binding="#{row.bindings.InputProvider.validator}"/>
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.label}"
+                                                   id="c25">
+                                            <af:inputText value="#{row.bindings.StatisticalData.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.tooltip}"
+                                                          id="it22">
+                                                <f:validator binding="#{row.bindings.StatisticalData.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.label}"
+                                                   id="c32">
+                                            <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.tooltip}"
+                                                          id="it29">
+                                                <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.label}"
+                                                   id="c20">
+                                            <af:inputText value="#{row.bindings.EmployeeId.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.EmployeeId.tooltip}"
+                                                          id="it17">
+                                                <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
                                             </af:inputText>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.RejectedReason.name}"
@@ -446,38 +1059,38 @@
                                                 <f:validator binding="#{row.bindings.RejectionComments.validator}"/>
                                             </af:inputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.name}"
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.name}"
                                                    filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.label}"
-                                                   id="c25">
-                                            <af:inputText value="#{row.bindings.StatisticalData.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalData.tooltip}"
-                                                          id="it22">
-                                                <f:validator binding="#{row.bindings.StatisticalData.validator}"/>
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.label}"
+                                                   id="c18" rendered="false">
+                                            <af:inputText value="#{row.bindings.CostGroup.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.CostGroup.tooltip}"
+                                                          id="it15">
+                                                <f:validator binding="#{row.bindings.CostGroup.validator}"/>
                                             </af:inputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.name}"
+                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.name}"
                                                    filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.label}"
-                                                   id="c26">
-                                            <af:inputText value="#{row.bindings.StatisticalDataCategory.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.StatisticalDataCategory.tooltip}"
-                                                          id="it23">
-                                                <f:validator binding="#{row.bindings.StatisticalDataCategory.validator}"/>
+                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.label}"
+                                                   id="c19" rendered="false">
+                                            <af:inputText value="#{row.bindings.Currency.inputValue}"
+                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.label}"
+                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.mandatory}"
+                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.displayWidth}"
+                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.precision}"
+                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.Currency.tooltip}"
+                                                          id="it16">
+                                                <f:validator binding="#{row.bindings.Currency.validator}"/>
                                             </af:inputText>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.TargetAmount.name}"
                                                    filterable="true"
                                                    headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.TargetAmount.label}"
-                                                   id="c27">
+                                                   id="c27" rendered="false">
                                             <af:inputText value="#{row.bindings.TargetAmount.inputValue}"
                                                           label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.TargetAmount.label}"
                                                           required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.TargetAmount.mandatory}"
@@ -488,76 +1101,6 @@
                                                 <f:validator binding="#{row.bindings.TargetAmount.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.SgsStatisticalPreviousMonthVO1.hints.TargetAmount.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.name}"
-                                                   filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.label}"
-                                                   id="c28">
-                                            <af:inputText value="#{row.bindings.ToBusinessUnit.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToBusinessUnit.tooltip}"
-                                                          id="it25">
-                                                <f:validator binding="#{row.bindings.ToBusinessUnit.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.name}"
-                                                   filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.label}"
-                                                   id="c29">
-                                            <af:inputText value="#{row.bindings.ToDepartmentId.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToDepartmentId.tooltip}"
-                                                          id="it26">
-                                                <f:validator binding="#{row.bindings.ToDepartmentId.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.name}"
-                                                   filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.label}"
-                                                   id="c30">
-                                            <af:inputText value="#{row.bindings.ToJobCode.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToJobCode.tooltip}"
-                                                          id="it27">
-                                                <f:validator binding="#{row.bindings.ToJobCode.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.name}"
-                                                   filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.label}"
-                                                   id="c31">
-                                            <af:inputText value="#{row.bindings.ToOperatingUnit.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ToOperatingUnit.tooltip}"
-                                                          id="it28">
-                                                <f:validator binding="#{row.bindings.ToOperatingUnit.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.name}"
-                                                   filterable="true"
-                                                   headerText="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.label}"
-                                                   id="c32">
-                                            <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
-                                                          label="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.label}"
-                                                          required="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.mandatory}"
-                                                          columns="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.displayWidth}"
-                                                          maximumLength="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.precision}"
-                                                          shortDesc="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UnitOfMeasure.tooltip}"
-                                                          id="it29">
-                                                <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
                                             </af:inputText>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO1.hints.ValidityFrom.name}"
@@ -648,9 +1191,9 @@
                                                 <af:convertDateTime pattern="#{bindings.SgsStatisticalPreviousMonthVO1.hints.UpdatedDate.format}"/>
                                             </af:outputText>
                                         </af:column>
-                                    </af:table>
-                                </af:panelCollection>
-                            </af:panelGroupLayout>
+                                    </af:table>-->
+                            </af:panelCollection>
+                            <!--<af:panelGroupLayout id="pgl1" layout="scroll"/>-->
                         </af:dialog>
                     </af:popup>
                 </af:panelCollection>

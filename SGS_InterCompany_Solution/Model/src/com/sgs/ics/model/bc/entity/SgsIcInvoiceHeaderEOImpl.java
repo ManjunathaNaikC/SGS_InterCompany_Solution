@@ -75,6 +75,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        ALLOCATEDHEADERAMOUNT,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -148,6 +149,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int ALLOCATEDHEADERAMOUNT = AttributesEnum.ALLOCATEDHEADERAMOUNT.index();
     public static final int SGSICINVOICELINEEO = AttributesEnum.SgsIcInvoiceLineEO.index();
 
     /**
@@ -930,6 +932,22 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      */
     public void setAttribute15(BigDecimal value) {
         setAttributeInternal(ATTRIBUTE15, value);
+    }
+
+    /**
+     * Gets the attribute value for ALLOCATEDHEADERAMOUNT, using the alias name ALLOCATEDHEADERAMOUNT.
+     * @return the value of ALLOCATEDHEADERAMOUNT
+     */
+    public BigDecimal getALLOCATEDHEADERAMOUNT() {
+        return (BigDecimal) getAttributeInternal(ALLOCATEDHEADERAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ALLOCATEDHEADERAMOUNT.
+     * @param value value to set the ALLOCATEDHEADERAMOUNT
+     */
+    public void setALLOCATEDHEADERAMOUNT(BigDecimal value) {
+        setAttributeInternal(ALLOCATEDHEADERAMOUNT, value);
     }
 
     /**

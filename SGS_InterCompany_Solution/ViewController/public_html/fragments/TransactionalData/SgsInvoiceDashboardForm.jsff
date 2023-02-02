@@ -46,6 +46,17 @@
               <af:outputText value="#{row.CostIdentificationId}"
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.CostIdentificationId.tooltip}" id="ot4"/>
             </af:column>
+            <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.NATUREOFEXPENSE.label}" 
+            sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.NATUREOFEXPENSE.name}" filterable="true" id="c37">
+              <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                  label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                  required="#{bindings.SgsIcInvoiceLineVO1.hints.NATUREOFEXPENSE.mandatory}"
+                                  shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.NATUREOFEXPENSE.tooltip}" id="soc1"
+                                  readOnly="true">
+                <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
             <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.AllocationBasis.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.AllocationBasis.label}" id="c5">
               <af:outputText value="#{row.AllocationBasis}"
@@ -160,7 +171,8 @@
               </af:outputText>
             </af:column>
             <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.BaseAmountBeforeTax.name}" filterable="true"
-                       headerText="#{bindings.SgsIcInvoiceLineVO1.hints.BaseAmountBeforeTax.label}" id="c24">
+                       headerText="#{bindings.SgsIcInvoiceLineVO1.hints.BaseAmountBeforeTax.label}" id="c24"
+                       rendered="false">
               <af:outputText value="#{row.BaseAmountBeforeTax}"
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.BaseAmountBeforeTax.tooltip}" id="ot24">
                 <af:convertNumber groupingUsed="false"
@@ -196,6 +208,14 @@
               <af:outputText value="#{row.WhtRate}" shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.WhtRate.tooltip}"
                              id="ot28">
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsIcInvoiceLineVO1.hints.WhtRate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.WHTAMOUNT.label}"
+            sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.WHTAMOUNT.name}" filterable="true"   id="c38">
+              <af:outputText value="#{row.WHTAMOUNT}"
+                             shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.WHTAMOUNT.tooltip}" id="ot37">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceLineVO1.hints.WHTAMOUNT.format}"/>
               </af:outputText>
             </af:column>
             <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.TransactionStatus.name}" filterable="true"

@@ -514,6 +514,15 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="ALLOCATEDHEADERAMOUNT"
+    Precision="20"
+    Scale="5"
+    ColumnName="ALLOCATED_HEADER_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
   <AccessorAttribute
     Name="SgsIcInvoiceLineEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

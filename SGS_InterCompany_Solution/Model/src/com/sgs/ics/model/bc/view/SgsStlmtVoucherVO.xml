@@ -467,7 +467,7 @@
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.lang.Boolean"
+    Type="java.lang.String"
     ColumnType="BIT"
     AliasName="VIEW_ATTR"
     SQLType="BIT"/>

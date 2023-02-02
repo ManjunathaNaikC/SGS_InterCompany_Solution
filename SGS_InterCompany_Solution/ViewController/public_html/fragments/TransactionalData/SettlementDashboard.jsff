@@ -34,19 +34,10 @@
                                          binding="#{viewScope.ActionEventsBean.vouchercheckBoxSelectBind}"
                                         shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.tooltip}"
                                         id="sbc1"/>
-              <!--<af:inputText value="#{row.bindings.SelectRecord.inputValue}"
-                            label="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.label}"
-                            required="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.mandatory}"
-                            columns="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.displayWidth}"
-                            maximumLength="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.precision}"
-                            shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.tooltip}" id="it1">
-                <f:validator binding="#{row.bindings.SelectRecord.validator}"/>
-              </af:inputText>-->
               <f:facet name="header">
                 <af:selectBooleanCheckbox text="Select All"  id="sbc2" autoSubmit="true"
                                           valueChangeListener="#{viewScope.ActionEventsBean.onSelectAllVouchers}"
-                                          partialTriggers="::t2 c55 sbc1"
-                                         />
+                                          partialTriggers="::t2 c55 sbc1"/>
               </f:facet>
             </af:column>
             <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.VoucherId.name}" filterable="true"
@@ -255,27 +246,31 @@
                     filterModel="#{bindings.SgsStlmtInvVO1Query.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsStlmtInvVO1Query.processQuery}" varStatus="vs" id="t1"
                     styleClass="AFStretchWidth">
-            <af:column headerText="#{bindings.SgsStlmtInvVO1.hints.SelectRecord.label}" id="c56"
+            <af:column headerText="#{bindings.SgsStlmtInvVO1.hints.SelectRecordInvoice.label}" id="c56"
                        binding="#{viewScope.ActionEventsBean.invoiceColSelectBind}">
-              <af:selectBooleanCheckbox value="#{row.bindings.SelectRecord.inputValue}"
-                                        label="#{row.bindings.SelectRecord.label}"
-                                        shortDesc="#{bindings.SgsStlmtInvVO1.hints.SelectRecord.tooltip}" id="sbc3"
+              <af:selectBooleanCheckbox value="#{row.bindings.SelectRecordInvoice.inputValue}"
+                                        label="#{row.bindings.SelectRecordInvoice.label}"
+                                        shortDesc="#{bindings.SgsStlmtInvVO1.hints.SelectRecordInvoice.tooltip}"
+                                        id="sbc3" binding="#{viewScope.ActionEventsBean.invoiceCheckBoxSelectBind}"/>
+              <f:facet name="header">
+                <af:selectBooleanCheckbox text="Select All"  id="sbc4"
+                                          valueChangeListener="#{viewScope.ActionEventsBean.onSelectAllInvoice}"
+                                          partialTriggers="::t1 c56 sbc3" autoSubmit="true"/>
+              </f:facet>
+            </af:column>
+            <!--<af:column headerText="#{bindings.SgsStlmtInvVO1.hints.SelectRecordInvoice.label}" id="c56"
+                       binding="#{viewScope.ActionEventsBean.invoiceColSelectBind}">
+              <af:selectBooleanCheckbox value="#{row.bindings.SelectRecordInvoice.inputValue}"
+                                        label="#{row.bindings.SelectRecordInvoice.label}"
+                                        shortDesc="#{bindings.SgsStlmtInvVO1.hints.SelectRecordInvoice.tooltip}" id="sbc3"
                                         binding="#{viewScope.ActionEventsBean.invoiceCheckBoxSelectBind}"/>
-              <!--<af:inputText value="#{row.bindings.SelectRecord.inputValue}"
-                            label="#{bindings.SgsStlmtInvVO1.hints.SelectRecord.label}"
-                            required="#{bindings.SgsStlmtInvVO1.hints.SelectRecord.mandatory}"
-                            columns="#{bindings.SgsStlmtInvVO1.hints.SelectRecord.displayWidth}"
-                            maximumLength="#{bindings.SgsStlmtInvVO1.hints.SelectRecord.precision}"
-                            shortDesc="#{bindings.SgsStlmtInvVO1.hints.SelectRecord.tooltip}" id="it1">
-                <f:validator binding="#{row.bindings.SelectRecord.validator}"/>
-              </af:inputText>-->
               <f:facet name="header">
                 <af:selectBooleanCheckbox text="Select All"  id="sbc4" autoSubmit="true"
                                           
                                           partialTriggers="::t1 c56 sbc3"
                                           valueChangeListener="#{viewScope.ActionEventsBean.onSelectAllInvoice}"/>
               </f:facet>
-            </af:column>
+            </af:column>-->
             <af:column sortProperty="#{bindings.SgsStlmtInvVO1.hints.InvoiceId.name}" filterable="true"
                        headerText="#{bindings.SgsStlmtInvVO1.hints.InvoiceId.label}" id="c1" rendered="false">
               <af:outputText value="#{row.InvoiceId}" shortDesc="#{bindings.SgsStlmtInvVO1.hints.InvoiceId.tooltip}"

@@ -659,26 +659,28 @@ public class ActionEventsBean {
         DCIteratorBinding voucherData = null;
         voucherData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         oracle.jbo.Row[] voucherDatarows = voucherData.getAllRowsInRange();
-        if ((Boolean) valueChangeEvent.getNewValue()) {
-         
+        if ((Boolean)valueChangeEvent.getNewValue()) {   
             System.out.println("voucherDatarows:: " + voucherDatarows.length);
             for (int i = 0; i < voucherDatarows.length; i++) {
                 System.out.println("voucher period  :: " + voucherDatarows[i].getAttribute("Period"));
                 System.out.println("value :: " + voucherDatarows[i].getAttribute("SelectRecord"));
-                Row row = voucherData.getCurrentRow();
-                row.setAttribute("SelectRecord", true);
-                System.out.println("row :: " + row.getAttribute("SelectRecord"));
+//                Row row = voucherData.getCurrentRow();
+//                row.setAttribute("SelectRecord", "Yes");
+//                vouchercheckBoxSelectBind.setValue("Yes");
+                 voucherDatarows[i].setAttribute("SelectRecord", "Yes");
+                System.out.println("row :: " + voucherDatarows[i].getAttribute("SelectRecord"));
             }
 
-        }else{
-            
+        }else {     
             System.out.println("voucherDatarows else:: " + voucherDatarows.length);
             for (int i = 0; i < voucherDatarows.length; i++) {
                 System.out.println("voucher period  :: " + voucherDatarows[i].getAttribute("Period"));
                 System.out.println("value :: " + voucherDatarows[i].getAttribute("SelectRecord"));
-                Row row = voucherData.getCurrentRow();
-                row.setAttribute("SelectRecord", false);
-                System.out.println("row :: " + row.getAttribute("SelectRecord"));
+//                Row row = voucherData.getCurrentRow();
+//                row.setAttribute("SelectRecord", "No");
+//                vouchercheckBoxSelectBind.setValue("No");
+                voucherDatarows[i].setAttribute("SelectRecord", "No");
+                System.out.println("row :: " + voucherDatarows[i].getAttribute("SelectRecord"));
             }
             
         }
@@ -693,25 +695,27 @@ public class ActionEventsBean {
         DCIteratorBinding invoiceData = null;
         invoiceData = getDCIteratorBindings("SgsStlmtInvVO1Iterator");
         oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
-        if ((Boolean) valueChangeEvent.getNewValue()) {
+        if ((Boolean)valueChangeEvent.getNewValue()) {
             System.out.println("invoices Datarows:: " + invoiceDatarows.length);
             for (int i = 0; i < invoiceDatarows.length; i++) {
                 System.out.println("invoice period  :: " + invoiceDatarows[i].getAttribute("Period"));
-                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecord"));
-                Row row = invoiceData.getCurrentRow();
-                row.setAttribute("SelectRecord", true);
-                System.out.println(" invoice rows :: " + row.getAttribute("SelectRecord"));
-            }
-            
-        
-        }else{
+                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
+//                Row row = invoiceData.getCurrentRow();
+//                row.setAttribute("SelectRecordInvoice", "Yes");
+                 invoiceDatarows[i].setAttribute("SelectRecordInvoice", "Yes");
+              //  invoiceCheckBoxSelectBind.setValue("Yes");
+                System.out.println(" invoice SelectRecordInvoice :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
+            }               
+        }else {
             System.out.println("invoices Datarows else:: " + invoiceDatarows.length);
             for (int i = 0; i < invoiceDatarows.length; i++) {
                 System.out.println("invoice period  :: " + invoiceDatarows[i].getAttribute("Period"));
-                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecord"));
-                Row row = invoiceData.getCurrentRow();
-                row.setAttribute("SelectRecord", false);
-                System.out.println(" invoice rows :: " + row.getAttribute("SelectRecord"));
+                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
+//                Row row = invoiceData.getCurrentRow();
+//                row.setAttribute("SelectRecordInvoice", "No");
+                invoiceDatarows[i].setAttribute("SelectRecordInvoice", "No");
+               // invoiceCheckBoxSelectBind.setValue("No");
+                System.out.println(" invoice rows :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
             }
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(invoiceCheckBoxSelectBind);

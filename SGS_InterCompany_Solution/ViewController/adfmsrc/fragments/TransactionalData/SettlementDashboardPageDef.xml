@@ -48,7 +48,7 @@
           <Item Value="CreatedBy"/>
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
-          <Item Value="SelectRecord" Binds="SelectRecord1"/>
+          <Item Value="SelectRecordInvoice" Binds="SelectRecordInvoice"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -90,17 +90,17 @@
         <Item Value="SelectRecord"/>
       </AttrNames>
       <ValueList>
-        <Item Value="true"/>
-        <Item Value="false"/>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
       </ValueList>
     </button>
-    <button IterBinding="SgsStlmtInvVO1Iterator" id="SelectRecord1" DTSupportsMRU="false" StaticList="true">
+    <button IterBinding="SgsStlmtInvVO1Iterator" id="SelectRecordInvoice" DTSupportsMRU="false" StaticList="true">
       <AttrNames>
-        <Item Value="SelectRecord"/>
+        <Item Value="SelectRecordInvoice"/>
       </AttrNames>
       <ValueList>
-        <Item Value="true"/>
-        <Item Value="false"/>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
       </ValueList>
     </button>
   </bindings>

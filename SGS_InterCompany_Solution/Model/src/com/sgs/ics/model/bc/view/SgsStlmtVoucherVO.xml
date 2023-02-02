@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="bBusinessUnit"
     Kind="viewcriteria"
@@ -35,6 +36,10 @@
     Type="java.lang.String"/>
   <Variable
     Name="bPeriod"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bSupplierBU"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <EntityUsage
@@ -511,6 +516,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bBusinessUnit"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IcSupplierBu"
+        ViewAttribute="IcSupplierBu"
+        Operator="="
+        Conjunction="AND"
+        Value=":bSupplierBU"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

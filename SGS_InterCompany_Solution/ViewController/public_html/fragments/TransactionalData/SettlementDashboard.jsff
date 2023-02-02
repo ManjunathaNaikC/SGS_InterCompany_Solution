@@ -12,7 +12,7 @@
                       model="#{bindings.SgsStlmtVoucherVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsStlmtVoucherVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsStlmtVoucherVOCriteriaQuery.processQueryOperation}"
-                      saveQueryMode="hidden" rows="3" maxColumns="2"/>
+                      saveQueryMode="hidden" rows="4" maxColumns="2"/>
         
         </af:panelGroupLayout>
         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
@@ -231,7 +231,7 @@
                       model="#{bindings.SgsStlmtInvVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsStlmtInvVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsStlmtInvVOCriteriaQuery.processQueryOperation}"
-                      saveQueryMode="hidden" rows="3" maxColumns="2"/>
+                      saveQueryMode="hidden" rows="4" maxColumns="2"/>
      
         </af:panelGroupLayout>
         <af:panelCollection id="pc2" styleClass="AFStretchWidth">

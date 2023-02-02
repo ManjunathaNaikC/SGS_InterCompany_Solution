@@ -12,7 +12,41 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="SgsLookupNatureExpVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsIcInvoiceLineVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_NATUREOFEXPENSE"
+    ListVOName="SgsLookupNatureExpVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NATUREOFEXPENSE"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsIcInvoiceLineEO"
     Entity="com.sgs.ics.model.bc.entity.SgsIcInvoiceLineEO"/>
@@ -579,6 +613,35 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsIcInvoiceLineEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="NATUREOFEXPENSE"
+    PrecisionRule="true"
+    EntityAttrName="NATUREOFEXPENSE"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="NATURE_OF_EXPENSE"
+    LOVName="LOV_NATUREOFEXPENSE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.NATUREOFEXPENSE_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WHTAMOUNT"
+    PrecisionRule="true"
+    EntityAttrName="WHTAMOUNT"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="WHT_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.WHTAMOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

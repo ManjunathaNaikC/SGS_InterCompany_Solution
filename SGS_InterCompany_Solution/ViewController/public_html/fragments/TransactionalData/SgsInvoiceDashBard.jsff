@@ -109,6 +109,16 @@
               <af:outputText value="#{row.AccountingTreatment}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.AccountingTreatment.tooltip}" id="ot12"/>
             </af:column>
+            <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.label}" 
+             sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.name}"
+                       filterable="true" id="c34">
+              <af:outputText value="#{row.ALLOCATEDHEADERAMOUNT}"
+                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.tooltip}"
+                             id="ot34">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.format}"/>
+              </af:outputText>
+            </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.label}" id="c13"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.name}" filterable="true">
               <af:outputText value="#{row.MarkupRate}"
@@ -141,7 +151,7 @@
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.label}" id="c17"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.name}"
-                       filterable="true">
+                       filterable="true" rendered="false">
               <af:outputText value="#{row.BaseAmountBeforeTax}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.tooltip}" id="ot17">
                 <af:convertNumber groupingUsed="false"

@@ -203,6 +203,16 @@
                       selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
                       partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.label}" id="c6">
+                <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                    label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                    required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.mandatory}"
+                                    shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.tooltip}"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
               <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1"
                          rendered="false">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"

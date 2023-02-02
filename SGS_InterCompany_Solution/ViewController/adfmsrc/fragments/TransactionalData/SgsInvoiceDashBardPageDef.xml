@@ -47,6 +47,7 @@
           <Item Value="CreatedBy"/>
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
+          <Item Value="ALLOCATEDHEADERAMOUNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

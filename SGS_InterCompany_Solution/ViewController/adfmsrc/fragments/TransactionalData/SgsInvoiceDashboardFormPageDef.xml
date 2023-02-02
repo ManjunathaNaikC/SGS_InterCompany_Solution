@@ -49,6 +49,8 @@
           <Item Value="CreatedBy"/>
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
+          <Item Value="NATUREOFEXPENSE"/>
+          <Item Value="WHTAMOUNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

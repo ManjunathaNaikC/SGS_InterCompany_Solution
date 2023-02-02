@@ -107,6 +107,7 @@
           <Item Value="HsnCode"/>
           <Item Value="ItemServCat"/>
           <Item Value="RateOfTax"/>
+          <Item Value="NATUREOFEXPENSE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

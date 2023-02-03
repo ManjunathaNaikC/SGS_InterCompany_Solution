@@ -37,6 +37,8 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichColumn;
 import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
 import oracle.adf.view.rich.component.rich.input.RichSelectManyChoice;
+import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
+import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.binding.BindingContainer;
@@ -66,6 +68,10 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox invoiceCheckBoxSelectBind;
     private RichSelectBooleanCheckbox vouchercheckBoxSelectBind;
     private RichColumn voucherColSelectBind;
+    private RichShowDetailItem bindStlmtPanelTab;
+    private RichShowDetailItem bindStlmtVoucherTab;
+    private RichShowDetailItem bindStlmtInvoiceTab;
+    private RichPanelTabbed bindStlmtDashboardPanelTab;
 
     public ActionEventsBean() {
     }
@@ -752,6 +758,45 @@ public class ActionEventsBean {
 
     public RichColumn getVoucherColSelectBind() {
         return voucherColSelectBind;
+    }
+
+
+    public void setBindStlmtVoucherTab(RichShowDetailItem bindStlmtVoucherTab) {
+        this.bindStlmtVoucherTab = bindStlmtVoucherTab;
+    }
+
+    public RichShowDetailItem getBindStlmtVoucherTab() {
+        return bindStlmtVoucherTab;
+    }
+
+    public void setBindStlmtInvoiceTab(RichShowDetailItem bindStlmtInvoiceTab) {
+        this.bindStlmtInvoiceTab = bindStlmtInvoiceTab;
+    }
+
+    public RichShowDetailItem getBindStlmtInvoiceTab() {
+        return bindStlmtInvoiceTab;
+    }
+
+    public void setBindStlmtDashboardPanelTab(RichPanelTabbed bindStlmtDashboardPanelTab) {
+        this.bindStlmtDashboardPanelTab = bindStlmtDashboardPanelTab;
+    }
+
+    public RichPanelTabbed getBindStlmtDashboardPanelTab() {
+        return bindStlmtDashboardPanelTab;
+    }
+
+    public void onVoucherTabArInvoice(ActionEvent actionEvent) {
+        bindStlmtVoucherTab.setDisclosed(false);
+        bindStlmtInvoiceTab.setDisclosed(true);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtInvoiceTab);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtVoucherTab);
+    }
+
+    public void onInvoiceTabArVoucher(ActionEvent actionEvent) {
+        bindStlmtInvoiceTab.setDisclosed(false);
+        bindStlmtVoucherTab.setDisclosed(true);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtInvoiceTab);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtVoucherTab);
     }
 }
 

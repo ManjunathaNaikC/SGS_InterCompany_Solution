@@ -3,8 +3,9 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelBox text="Settlement DashBoard" id="pb1">
     <f:facet name="toolbar"/>
-    <af:panelTabbed position="above" id="pt1">
-      <af:showDetailItem id="tab1" text="Settlement of Inter-Company Vouchers">
+    <af:panelTabbed position="above" id="pt1" binding="#{viewScope.ActionEventsBean.bindStlmtDashboardPanelTab}">
+      <af:showDetailItem id="tab1" text="Settlement of Inter-Company Vouchers"
+                         binding="#{viewScope.ActionEventsBean.bindStlmtVoucherTab}">
         <af:panelGroupLayout layout="horizontal" id="pgl1">
          
             <af:query id="qryId1" headerText="Search" disclosed="true"
@@ -174,7 +175,7 @@
             </af:column>
             <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.name}" filterable="true"
                        headerText="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.label}" id="c49">
-              <af:link id="l1">
+              <af:link id="l1" actionListener="#{viewScope.ActionEventsBean.onVoucherTabArInvoice}">
                 <af:outputText value="#{row.RefToArInvoice}"
                                shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.tooltip}" id="ot49"/>
               </af:link>
@@ -223,7 +224,8 @@
           </af:table>
         </af:panelCollection>
       </af:showDetailItem>
-      <af:showDetailItem id="tab2" text="Settlement of Inter-Company Invoices">
+      <af:showDetailItem id="tab2" text="Settlement of Inter-Company Invoices"
+                         binding="#{viewScope.ActionEventsBean.bindStlmtInvoiceTab}">
         <af:panelGroupLayout layout="horizontal" id="pgl2">
           
             <af:query id="qryId2" headerText="Search" disclosed="true"
@@ -416,7 +418,7 @@
             </af:column>
             <af:column sortProperty="#{bindings.SgsStlmtInvVO1.hints.RefToApVoucher.name}" filterable="true"
                        headerText="#{bindings.SgsStlmtInvVO1.hints.RefToApVoucher.label}" id="c23">
-              <af:link  id="l2">
+              <af:link  id="l2" actionListener="#{viewScope.ActionEventsBean.onInvoiceTabArVoucher}">
                 <af:outputText value="#{row.RefToApVoucher}"
                                shortDesc="#{bindings.SgsStlmtInvVO1.hints.RefToApVoucher.tooltip}" id="ot23"/>
               </af:link>

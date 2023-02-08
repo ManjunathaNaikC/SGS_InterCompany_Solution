@@ -586,6 +586,21 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsTpaMaster1VO1() {
         return (ViewObjectImpl) findViewObject("SgsTpaMaster1VO1");
+        }
+    /**
+     * Container's getter for SgsStlmtVoucherVO1.
+     * @return SgsStlmtVoucherVO1
+     */
+    public ViewObjectImpl getSgsStlmtVoucherVO1() {
+        return (ViewObjectImpl) findViewObject("SgsStlmtVoucherVO1");
+    }
+
+    /**
+     * Container's getter for SgsStlmtInvVO1.
+     * @return SgsStlmtInvVO1
+     */
+    public ViewObjectImpl getSgsStlmtInvVO1() {
+        return (ViewObjectImpl) findViewObject("SgsStlmtInvVO1");
     }
 }
 

@@ -3,335 +3,264 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="SgsIcInvoiceHeaderEO"
+  Name="SgsStlmtInvEO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   DBObjectType="table"
-  DBObjectName="IC_INVOICE_HEADER"
-  AliasName="SgsIcInvoiceHeaderEO"
-  BindingStyle="JDBC"
-  RowClass="com.sgs.ics.model.bc.entity.SgsIcInvoiceHeaderEOImpl">
-  <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
-    <Attr Name="_isCodegen" Value="true"/>
-  </DesignTime>
+  DBObjectName="SGS_STLMT_INV"
+  AliasName="SgsStlmtInvEO"
+  BindingStyle="JDBC">
   <Attribute
-    Name="InvoiceSeqNo"
+    Name="InvoiceId"
     IsNotNull="true"
-    Precision="30"
-    ColumnName="INVOICE_SEQ_NO"
+    Precision="80"
+    ColumnName="INVOICE_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER"
-    PrimaryKey="true"
-    ChangeIndicator="true">
+    TableName="SGS_STLMT_INV"
+    PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
+      <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Period"
-    IsNotNull="true"
-    Precision="30"
+    Precision="80"
     ColumnName="PERIOD"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="TpaId"
-    Precision="30"
-    ColumnName="TPA_ID"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="TransactionCategory"
-    Precision="80"
-    ColumnName="TRANSACTION_CATEGORY"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="TransactionType"
+    Name="AcctDate"
+    ColumnName="ACCT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_STLMT_INV"/>
+  <Attribute
+    Name="PsInvoiceNo"
     Precision="80"
-    ColumnName="TRANSACTION_TYPE"
+    ColumnName="PS_INVOICE_NO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="IuVendor"
+    Name="LegalEntity"
     Precision="80"
-    ColumnName="IU_VENDOR"
+    ColumnName="LEGAL_ENTITY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="SourceBu"
+    Name="IcSupplierBu"
     Precision="80"
-    ColumnName="SOURCE_BU"
+    ColumnName="IC_SUPPLIER_BU"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="SourceCurrency"
+    Name="IcCustomerBu"
     Precision="80"
-    ColumnName="SOURCE_CURRENCY"
+    ColumnName="IC_CUSTOMER_BU"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="SourceAmount"
+    Name="TxnCurrency"
+    Precision="80"
+    ColumnName="TXN_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_INV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InvoiceAmount"
     Precision="20"
-    Scale="5"
-    ColumnName="SOURCE_AMOUNT"
+    Scale="2"
+    ColumnName="INVOICE_AMOUNT"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="IuCustomer"
-    Precision="80"
-    ColumnName="IU_CUSTOMER"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
+    Name="TaxRecoverable"
+    Precision="20"
+    Scale="2"
+    ColumnName="TAX_RECOVERABLE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="TargetBu"
-    Precision="80"
-    ColumnName="TARGET_BU"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="AccountingTreatment"
-    Precision="80"
-    ColumnName="ACCOUNTING_TREATMENT"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="MarkupRate"
+    Name="WhtTdsRate"
     Precision="10"
-    Scale="5"
-    ColumnName="MARKUP_RATE"
+    Scale="2"
+    ColumnName="WHT_TDS_RATE"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="TargetCurrency"
-    IsNotNull="true"
-    Precision="30"
-    ColumnName="TARGET_CURRENCY"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="InvoiceHeaderAmount"
-    IsNotNull="true"
+    Name="WhtTdsAmount"
     Precision="20"
-    Scale="5"
-    ColumnName="INVOICE_HEADER_AMOUNT"
+    Scale="2"
+    ColumnName="WHT_TDS_AMOUNT"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="MarkupAmount"
+    Name="NetAmountReceivable"
     Precision="20"
-    Scale="5"
-    ColumnName="MARKUP_AMOUNT"
+    Scale="2"
+    ColumnName="NET_AMOUNT_RECEIVABLE"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="BaseAmountBeforeTax"
+    Name="AmountSettledTillDate"
     Precision="20"
-    Scale="5"
-    ColumnName="BASE_AMOUNT_BEFORE_TAX"
+    Scale="2"
+    ColumnName="AMOUNT_SETTLED_TILL_DATE"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="GstVatRate"
-    Precision="10"
-    Scale="5"
-    ColumnName="GST_VAT_RATE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
-  <Attribute
-    Name="GstVatAmount"
+    Name="StlmtAmount"
     Precision="20"
-    Scale="5"
-    ColumnName="GST_VAT_AMOUNT"
+    Scale="2"
+    ColumnName="STLMT_AMOUNT"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="TotalAmountAfterTax"
+    Name="AmountWrittenOff"
     Precision="20"
-    Scale="5"
-    ColumnName="TOTAL_AMOUNT_AFTER_TAX"
+    Scale="2"
+    ColumnName="AMOUNT_WRITTEN_OFF"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="WhtRate"
-    Precision="10"
-    Scale="5"
-    ColumnName="WHT_RATE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
-  <Attribute
-    Name="WhtAmount"
+    Name="OsAmountReceivable"
     Precision="20"
-    Scale="5"
-    ColumnName="WHT_AMOUNT"
+    Scale="2"
+    ColumnName="OS_AMOUNT_RECEIVABLE"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="TransactionStatus"
-    Precision="30"
-    ColumnName="TRANSACTION_STATUS"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="PaymentStatus"
-    Precision="30"
-    ColumnName="PAYMENT_STATUS"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="PaidAmount"
+    Name="BankCharges"
     Precision="20"
-    Scale="5"
-    ColumnName="PAID_AMOUNT"
+    Scale="2"
+    ColumnName="BANK_CHARGES"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
-    Name="ReferenceVoucherNum"
+    Name="ReceiptStatus"
     Precision="80"
-    ColumnName="REFERENCE_VOUCHER_NUM"
+    ColumnName="RECEIPT_STATUS"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="ReferenceInvoiceNum"
+    Name="StlmtCategory"
     Precision="80"
-    ColumnName="REFERENCE_INVOICE_NUM"
+    ColumnName="STLMT_CATEGORY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="ReviewAccEntries"
+    Name="DepositId"
     Precision="80"
-    ColumnName="REVIEW_ACC_ENTRIES"
+    ColumnName="DEPOSIT_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="InputProvider"
+    Name="TxnReferenceNo"
     Precision="80"
-    ColumnName="INPUT_PROVIDER"
+    ColumnName="TXN_REFERENCE_NO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RefToApVoucher"
+    Precision="80"
+    ColumnName="REF_TO_AP_VOUCHER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_INV">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StlmtStatus"
+    Precision="80"
+    ColumnName="STLMT_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -342,7 +271,7 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="CreatedBy"
     Precision="80"
@@ -350,7 +279,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -361,7 +290,7 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="UpdatedBy"
     Precision="80"
@@ -369,7 +298,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -381,7 +310,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -393,7 +322,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -405,7 +334,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -417,7 +346,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -429,7 +358,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="IC_INVOICE_HEADER">
+    TableName="SGS_STLMT_INV">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -440,62 +369,62 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute7"
     ColumnName="ATTRIBUTE7"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute8"
     ColumnName="ATTRIBUTE8"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute9"
     ColumnName="ATTRIBUTE9"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute10"
     ColumnName="ATTRIBUTE10"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute11"
-    Precision="10"
+    Precision="20"
     Scale="5"
     ColumnName="ATTRIBUTE11"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute12"
-    Precision="10"
+    Precision="20"
     Scale="5"
     ColumnName="ATTRIBUTE12"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute13"
-    Precision="10"
+    Precision="20"
     Scale="5"
     ColumnName="ATTRIBUTE13"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute14"
     Precision="10"
@@ -504,7 +433,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
+    TableName="SGS_STLMT_INV"/>
   <Attribute
     Name="Attribute15"
     Precision="10"
@@ -513,31 +442,15 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
-  <Attribute
-    Name="ALLOCATEDHEADERAMOUNT"
-    Precision="20"
-    Scale="5"
-    ColumnName="ALLOCATED_HEADER_AMOUNT"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="IC_INVOICE_HEADER"/>
-  <AccessorAttribute
-    Name="SgsIcInvoiceLineEO"
-    Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"
-    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine.SgsIcInvoiceLineEO"
-    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine.SgsIcInvoiceHeaderEO"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+    TableName="SGS_STLMT_INV"/>
   <Key
-    Name="PKICINVOICEHEADER"
+    Name="PKSGSSTLMTINV"
     PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DBObjectName" Value="PK_IC_INVOICE_HEADER"/>
+      <Attr Name="_DBObjectName" Value="PK_SGS_STLMT_INV"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sgs.ics.model.bc.entity.SgsIcInvoiceHeaderEO.InvoiceSeqNo"/>
+      <Item Value="com.sgs.ics.model.bc.entity.SgsStlmtInvEO.InvoiceId"/>
     </AttrArray>
   </Key>
 </Entity>

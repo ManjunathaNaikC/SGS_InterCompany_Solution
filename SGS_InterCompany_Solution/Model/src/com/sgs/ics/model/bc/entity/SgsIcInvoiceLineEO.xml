@@ -551,6 +551,27 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="NATUREOFEXPENSE"
+    Precision="80"
+    ColumnName="NATURE_OF_EXPENSE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="IC_INVOICE_LINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WHTAMOUNT"
+    Precision="20"
+    Scale="5"
+    ColumnName="WHT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_LINE"/>
   <AccessorAttribute
     Name="SgsIcInvoiceHeaderEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

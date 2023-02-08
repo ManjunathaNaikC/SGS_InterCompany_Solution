@@ -60,6 +60,8 @@
                                              id="gl7" inlineStyle="font-weight:bold;"/>
                                     <af:link text="#{viewcontrollerBundle.ISDSetup}" destination="" id="gl8"
                                              inlineStyle="font-weight:bold;"/>-->
+                                    <af:link text="TPA" id="l12"
+                                             action="#{pageFlowScope.navigateBean.sgstpaInquiryflow}" immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Transaction" text="Transactional Data">

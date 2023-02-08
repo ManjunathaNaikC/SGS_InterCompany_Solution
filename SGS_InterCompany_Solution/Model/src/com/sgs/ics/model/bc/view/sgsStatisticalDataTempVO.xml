@@ -39,7 +39,16 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="sgsStatisticalDataTempEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.CreatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Currency"
     PrecisionRule="true"
@@ -131,19 +140,46 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="sgsStatisticalDataTempEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.UpdatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.UpdatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ValidityFrom"
     PrecisionRule="true"
     EntityAttrName="ValidityFrom"
     EntityUsage="sgsStatisticalDataTempEO"
-    AliasName="VALIDITY_FROM"/>
+    AliasName="VALIDITY_FROM">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.ValidityFrom_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.ValidityFrom_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ValidityTill"
     PrecisionRule="true"
     EntityAttrName="ValidityTill"
     EntityUsage="sgsStatisticalDataTempEO"
-    AliasName="VALIDITY_TILL"/>
+    AliasName="VALIDITY_TILL">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.ValidityTill_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.sgsStatisticalDataTempVO.ValidityTill_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

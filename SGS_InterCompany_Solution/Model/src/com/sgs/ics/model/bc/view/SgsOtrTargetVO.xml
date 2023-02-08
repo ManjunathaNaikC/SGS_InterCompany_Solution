@@ -58,6 +58,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsOtrTargetVO.CreatedDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsOtrTargetVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsOtrTargetVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -189,6 +193,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsOtrTargetVO.UpdatedDate_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsOtrTargetVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsOtrTargetVO.UpdatedDate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

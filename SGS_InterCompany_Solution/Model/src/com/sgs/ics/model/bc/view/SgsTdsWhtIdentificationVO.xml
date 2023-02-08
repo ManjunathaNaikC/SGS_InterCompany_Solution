@@ -73,6 +73,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.ValidityPeriodFrom_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.ValidityPeriodFrom_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.ValidityPeriodFrom_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -87,6 +91,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.ValidityPeriodTo_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.ValidityPeriodTo_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.ValidityPeriodTo_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -135,6 +143,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.LastUpdatedDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.LastUpdatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.LastUpdatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -149,7 +161,16 @@
     PrecisionRule="true"
     EntityAttrName="CREATEDDATE"
     EntityUsage="SgsTdsWhtIdentificationEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.CREATEDDATE_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.CREATEDDATE_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

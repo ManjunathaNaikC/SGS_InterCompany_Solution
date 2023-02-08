@@ -481,6 +481,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.CreatedDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -507,6 +511,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.UpdatedDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.UpdatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.UpdatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -558,31 +566,76 @@
     PrecisionRule="true"
     EntityAttrName="Attribute6"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ATTRIBUTE6"/>
+    AliasName="ATTRIBUTE6">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute6_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute6_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute7"
     PrecisionRule="true"
     EntityAttrName="Attribute7"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ATTRIBUTE7"/>
+    AliasName="ATTRIBUTE7">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute7_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute7_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute8"
     PrecisionRule="true"
     EntityAttrName="Attribute8"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ATTRIBUTE8"/>
+    AliasName="ATTRIBUTE8">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute8_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute8_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute9"
     PrecisionRule="true"
     EntityAttrName="Attribute9"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ATTRIBUTE9"/>
+    AliasName="ATTRIBUTE9">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute9_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute9_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute10"
     PrecisionRule="true"
     EntityAttrName="Attribute10"
     EntityUsage="SgsIcInvoiceLineEO"
-    AliasName="ATTRIBUTE10"/>
+    AliasName="ATTRIBUTE10">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute10_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.Attribute10_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute11"
     PrecisionRule="true"

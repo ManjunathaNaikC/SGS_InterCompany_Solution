@@ -27,20 +27,32 @@
                           shortDesc="#{bindings.GstNum.hints.tooltip}" id="it1">
               <f:validator binding="#{bindings.GstNum.validator}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
+            <!--<af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
                           required="#{bindings.ServProvider.hints.mandatory}"
                           columns="#{bindings.ServProvider.hints.displayWidth}"
                           maximumLength="#{bindings.ServProvider.hints.precision}"
                           shortDesc="#{bindings.ServProvider.hints.tooltip}" id="it2">
               <f:validator binding="#{bindings.ServProvider.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.SupplyPlace.inputValue}" label="#{bindings.SupplyPlace.hints.label}"
+            </af:inputText>-->
+            <af:selectOneChoice value="#{bindings.ServProvider1.inputValue}" label="#{bindings.ServProvider1.label}"
+                                required="#{bindings.ServProvider1.hints.mandatory}"
+                                shortDesc="#{bindings.ServProvider1.hints.tooltip}" id="soc2">
+              <f:selectItems value="#{bindings.ServProvider1.items}" id="si2"/>
+              <f:validator binding="#{bindings.ServProvider1.validator}"/>
+            </af:selectOneChoice>
+            <!--<af:inputText value="#{bindings.SupplyPlace.inputValue}" label="#{bindings.SupplyPlace.hints.label}"
                           required="#{bindings.SupplyPlace.hints.mandatory}"
                           columns="#{bindings.SupplyPlace.hints.displayWidth}"
                           maximumLength="#{bindings.SupplyPlace.hints.precision}"
                           shortDesc="#{bindings.SupplyPlace.hints.tooltip}" id="it3">
               <f:validator binding="#{bindings.SupplyPlace.validator}"/>
-            </af:inputText>
+            </af:inputText>-->
+            <af:selectOneChoice value="#{bindings.SupplyPlace1.inputValue}" label="#{bindings.SupplyPlace1.label}"
+                                required="#{bindings.SupplyPlace1.hints.mandatory}"
+                                shortDesc="#{bindings.SupplyPlace1.hints.tooltip}" id="soc3">
+              <f:selectItems value="#{bindings.SupplyPlace1.items}" id="si3"/>
+              <f:validator binding="#{bindings.SupplyPlace1.validator}"/>
+            </af:selectOneChoice>
             <af:inputText value="#{bindings.SupplyType.inputValue}" label="#{bindings.SupplyType.hints.label}"
                           required="#{bindings.SupplyType.hints.mandatory}"
                           columns="#{bindings.SupplyType.hints.displayWidth}"

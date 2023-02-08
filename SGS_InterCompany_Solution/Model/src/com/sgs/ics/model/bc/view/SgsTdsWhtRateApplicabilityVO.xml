@@ -179,7 +179,16 @@
     PrecisionRule="true"
     EntityAttrName="CREATEDDATE"
     EntityUsage="SgsTdsWhtRateApplicabilityEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.CREATEDDATE_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.CREATEDDATE_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UPDATEDBY"
     PrecisionRule="true"
@@ -191,7 +200,16 @@
     PrecisionRule="true"
     EntityAttrName="UPDATEDDATE"
     EntityUsage="SgsTdsWhtRateApplicabilityEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.UPDATEDDATE_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.UPDATEDDATE_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NATUREOFEXPENSE"
     PrecisionRule="true"

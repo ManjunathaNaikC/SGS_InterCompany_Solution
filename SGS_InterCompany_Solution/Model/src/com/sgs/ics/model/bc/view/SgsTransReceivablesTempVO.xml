@@ -58,7 +58,16 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsTransReceivablesTempEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.CreatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DrGlAccount"
     PrecisionRule="true"
@@ -106,7 +115,16 @@
     PrecisionRule="true"
     EntityAttrName="GlDate"
     EntityUsage="SgsTransReceivablesTempEO"
-    AliasName="GL_DATE"/>
+    AliasName="GL_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.GlDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.GlDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NatureOfExpense"
     PrecisionRule="true"
@@ -185,7 +203,16 @@
     PrecisionRule="true"
     EntityAttrName="TransactionDate"
     EntityUsage="SgsTransReceivablesTempEO"
-    AliasName="TRANSACTION_DATE"/>
+    AliasName="TRANSACTION_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.TransactionDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.TransactionDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TransactionPeriod"
     PrecisionRule="true"
@@ -204,7 +231,16 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsTransReceivablesTempEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransReceivablesTempVO.UpdatedDate_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="VendorId"
     PrecisionRule="true"

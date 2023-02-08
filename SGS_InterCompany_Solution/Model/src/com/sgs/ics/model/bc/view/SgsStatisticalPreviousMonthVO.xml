@@ -152,7 +152,16 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     ColumnType="DATE"
     AliasName="ATTRIBUTE10"
     Expression="ATTRIBUTE10"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE10_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE10_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ATTRIBUTE11"
     IsUpdateable="false"
@@ -282,7 +291,16 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     ColumnType="DATE"
     AliasName="ATTRIBUTE6"
     Expression="ATTRIBUTE6"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE6_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE6_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ATTRIBUTE7"
     IsUpdateable="false"
@@ -292,7 +310,16 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     ColumnType="DATE"
     AliasName="ATTRIBUTE7"
     Expression="ATTRIBUTE7"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE7_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE7_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ATTRIBUTE8"
     IsUpdateable="false"
@@ -302,7 +329,16 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     ColumnType="DATE"
     AliasName="ATTRIBUTE8"
     Expression="ATTRIBUTE8"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE8_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE8_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ATTRIBUTE9"
     IsUpdateable="false"
@@ -312,7 +348,16 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     ColumnType="DATE"
     AliasName="ATTRIBUTE9"
     Expression="ATTRIBUTE9"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE9_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.ATTRIBUTE9_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CREATEDDATE"
     IsPersistent="false"
@@ -326,6 +371,10 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CREATEDDATE_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CREATEDDATE_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.CREATEDDATE_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -498,7 +547,7 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     ColumnType="VARCHAR"
     AliasName="STATISTICAL_DATA"
     Expression="STATISTICAL_DATA"
-    SQLType="VARCHAR">
+    SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -692,6 +741,10 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UPDATEDDATE_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UPDATEDDATE_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.UPDATEDDATE_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -708,6 +761,10 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYFROM_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYFROM_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYFROM_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -724,6 +781,10 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYTILL_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYTILL_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.VALIDITYTILL_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

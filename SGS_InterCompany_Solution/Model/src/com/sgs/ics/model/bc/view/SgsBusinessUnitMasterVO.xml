@@ -127,6 +127,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="11.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute10_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute10_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -257,6 +261,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="21.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute6_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute6_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -270,6 +278,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="22.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute7_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute7_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -283,6 +295,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="23.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute8_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute8_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -296,6 +312,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="8.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute9_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.Attribute9_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -447,6 +467,10 @@
           Value="28.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.CreatedDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -477,6 +501,10 @@
           Value="7.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.EFFECTIVEENDDATE_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.EFFECTIVEENDDATE_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.EFFECTIVEENDDATE_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -492,6 +520,10 @@
           Value="30.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.EFFECTIVESTARTDATE_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.EFFECTIVESTARTDATE_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.EFFECTIVESTARTDATE_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -640,6 +672,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="38.0"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.UpdatedDate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -236,6 +236,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveFrom_LABEL"/>
         <FIELDORDER
           Value="11.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveFrom_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveFrom_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -251,6 +255,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveTo_LABEL"/>
         <FIELDORDER
           Value="4.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveTo_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveTo_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -267,6 +275,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.CreatedDate_LABEL"/>
         <FIELDORDER
           Value="12.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -299,6 +311,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UpdatedDate_LABEL"/>
         <FIELDORDER
           Value="14.0"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UpdatedDate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -38,7 +38,16 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="SgsLookupTableEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsLookupVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsLookupVO.CreatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DisplaySequence"
     PrecisionRule="true"
@@ -88,7 +97,16 @@
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsLookupTableEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsLookupVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsLookupVO.UpdatedDate_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsLookupVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"

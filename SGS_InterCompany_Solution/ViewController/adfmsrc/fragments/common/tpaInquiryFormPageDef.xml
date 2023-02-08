@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="tpaInquiryFormPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTpaMaster1VO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTpaMaster1VO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="TpaId">
+      <AttrNames>
+        <Item Value="TpaId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="LeServiceProvider">
+      <AttrNames>
+        <Item Value="LeServiceProvider"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="LeServiceReceiver">
+      <AttrNames>
+        <Item Value="LeServiceReceiver"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="NettingApplicatibility">
+      <AttrNames>
+        <Item Value="NettingApplicatibility"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="BdCommissionApplicability">
+      <AttrNames>
+        <Item Value="BdCommissionApplicability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="BdCommissionRate">
+      <AttrNames>
+        <Item Value="BdCommissionRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="BdCommChargingUnit">
+      <AttrNames>
+        <Item Value="BdCommChargingUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="PassThroughFlag">
+      <AttrNames>
+        <Item Value="PassThroughFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="PassThroughBu">
+      <AttrNames>
+        <Item Value="PassThroughBu"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="PassThroughDeptid">
+      <AttrNames>
+        <Item Value="PassThroughDeptid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="PassThroughJobcode">
+      <AttrNames>
+        <Item Value="PassThroughJobcode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="PassThroughGlAccount">
+      <AttrNames>
+        <Item Value="PassThroughGlAccount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="OperationUnit">
+      <AttrNames>
+        <Item Value="OperationUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="EffectiveFrom">
+      <AttrNames>
+        <Item Value="EffectiveFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="EffectiveTo">
+      <AttrNames>
+        <Item Value="EffectiveTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="UpdatedDate">
+      <AttrNames>
+        <Item Value="UpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="UpdatedBy">
+      <AttrNames>
+        <Item Value="UpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="SgsTpaMaster1VO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsTpaMaster1VO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

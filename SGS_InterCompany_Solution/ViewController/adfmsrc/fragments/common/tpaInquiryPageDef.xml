@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="tpaInquiryPageDef"
+                Package="fragments.common">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTpaMaster1VO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTpaMaster1VO1Iterator"/>
+    <searchRegion Criteria="SgsTpaMaster1VOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsTpaMaster1VO1Iterator" id="SgsTpaMaster1VOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsTpaMaster1VO1Iterator" id="SgsTpaMaster1VO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTpaMaster1VO" Name="SgsTpaMaster1VO10">
+        <AttrNames>
+          <Item Value="TpaId"/>
+          <Item Value="LeServiceProvider"/>
+          <Item Value="LeServiceReceiver"/>
+          <Item Value="NettingApplicatibility"/>
+          <Item Value="BdCommissionApplicability"/>
+          <Item Value="PassThroughFlag"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsTpaMaster1VO1Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsTpaMaster1VO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsTpaMaster1VO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsTpaMaster1VO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

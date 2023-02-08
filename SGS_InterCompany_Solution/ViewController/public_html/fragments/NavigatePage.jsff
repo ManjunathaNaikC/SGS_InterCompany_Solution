@@ -60,6 +60,8 @@
                                              id="gl7" inlineStyle="font-weight:bold;"/>
                                     <af:link text="#{viewcontrollerBundle.ISDSetup}" destination="" id="gl8"
                                              inlineStyle="font-weight:bold;"/>-->
+                                    <af:link text="TPA" id="l12"
+                                             action="#{pageFlowScope.navigateBean.sgstpaInquiryflow}" immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Transaction" text="Transactional Data">
@@ -72,6 +74,8 @@
                                     <af:link text="PeopleSoft Transactions"
                                              action="#{pageFlowScope.navigateBean.sgstransBCostAllocationMainflow}"
                                              id="l11"/>
+                                    <af:link text="Fixed Assets Transactions"
+                                             action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"/>
                                     <af:link text="Settlement DashBoard"
                                              action="#{pageFlowScope.navigateBean.settlementdashboardflow}" id="l12"/>
                                 </af:panelList>
@@ -86,7 +90,9 @@
                     <f:facet name="second">
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
-                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::l12 ::l12"/>
+
+                                       partialTriggers="::l1 ::l2 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::fat01 ::l12"/>
+
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->

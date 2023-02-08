@@ -1,8 +1,13 @@
 package com.sgs.ics.model.bc.entity;
 
+import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
+import com.sgs.ics.model.bc.commonutils.CommonUtils;
+
 import java.math.BigDecimal;
 
 import java.sql.Date;
+
+import oracle.adf.share.logging.ADFLogger;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
@@ -93,6 +98,7 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
             return vals;
         }
     }
+    private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsTransBCostAllocationImpl.class);
 
 
     public static final int TBCAID = AttributesEnum.TbcaId.index();
@@ -207,6 +213,9 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
      */
     public void setBuId(String value) {
         setAttributeInternal(BUID, value);
+     // SgsBusinessUnitMasterEOImpl bu =(SgsBusinessUnitMasterEOImpl)getBussinessUnitId();
+      //setLegalEntity(bu.getLegalEntity());
+        
     }
 
     /**
@@ -271,6 +280,7 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
      */
     public void setLegalEntity(String value) {
         setAttributeInternal(LEGALENTITY, value);
+        
     }
 
     /**
@@ -986,6 +996,8 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
      */
     protected void create(AttributeList attributeList) {
         super.create(attributeList);
+        
+        
     }
 }
 

@@ -28,6 +28,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -343,74 +344,162 @@ public class TransBCostAllocationBean {
                         System.out.println("Index------>" + Index);
 
                         if (Index == 0) {
+                            System.out.println("NatureOfExpense------>"+MytempCell.getCellType());
+                            System.out.println("NatureOfExpense------>"+MytempCell.getStringCellValue());
+                            
 
                             row.setAttribute("NatureOfExpense", MytempCell.getStringCellValue());
 
                         } else if (Index == 1) {
+                            System.out.println("FromBusinessUnit------>"+MytempCell.getCellType());
+                            System.out.println("FromBusinessUnit------>"+MytempCell.getStringCellValue());
 
                             row.setAttribute("FromBusinessUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 2) {
-
+                            
+                            System.out.println("FromJobCode Type*****------>"+MytempCell.getCellType());
+                            
+                            if(MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("FromJobCode Value*****------>"+str);
+                                row.setAttribute("FromJobCode", str);
+                            }else{
+                            
                             row.setAttribute("FromJobCode", MytempCell.getStringCellValue());
+                                
+                            }   
+                            
 
                         } else if (Index == 3) {
+                            System.out.println("CrGlAccount------>"+MytempCell.getCellType());
+                            System.out.println("CrGlAccount------>"+MytempCell.getStringCellValue());
 
                             row.setAttribute("CrGlAccount", MytempCell.getStringCellValue());
 
                         } else if (Index == 4) {
+                            System.out.println("FromOperatingUnit------>"+MytempCell.getCellType());
+                            System.out.println("FromOperatingUnit------>"+MytempCell.getStringCellValue());
 
                             row.setAttribute("FromOperatingUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 5) {
-
+                            
+                            System.out.println("FromDepartmentId Type*****------>"+MytempCell.getCellType());
+                            
+                            if(MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("FromDepartmentId Value*****------>"+str);
+                                row.setAttribute("FromDepartmentId", str);
+                            }else{
+                            
                             row.setAttribute("FromDepartmentId", MytempCell.getStringCellValue());
+                                
+                            }   
+                            
 
                         } else if (Index == 6) {
+                            System.out.println("ToBusinessUnit------>"+MytempCell.getCellType());
+                            System.out.println("ToBusinessUnit------>"+MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToBusinessUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 7) {
+                            System.out.println("ToOperatingUnit------>"+MytempCell.getCellType());
+                            System.out.println("ToOperatingUnit------>"+MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToOperatingUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 8) {
-
+                            
+                            System.out.println("ToJobCode Type*****------>"+MytempCell.getCellType());
+                            
+                            if(MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("ToJobCode Value*****------>"+str);
+                                row.setAttribute("ToJobCode", str);
+                            }else{
+                            
                             row.setAttribute("ToJobCode", MytempCell.getStringCellValue());
+                                
+                            }   
+                            
 
                         } else if (Index == 9) {
-
-
+                            System.out.println("ToDeptId Type*****------>"+MytempCell.getCellType());
+                            
+                            if(MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("ToDeptId Value*****------>"+str);
+                                row.setAttribute("ToDeptId", str);
+                            }else{
+                            
                             row.setAttribute("ToDeptId", MytempCell.getStringCellValue());
+                                
+                            }   
+                            
 
                         } else if (Index == 10) {
+                            System.out.println("DrGlAccount------>"+MytempCell.getCellType());
+                            System.out.println("DrGlAccount------>"+MytempCell.getStringCellValue());
 
                             row.setAttribute("DrGlAccount", MytempCell.getStringCellValue());
 
                         } else if (Index == 11) {
+                            System.out.println("BaseCurrency------>"+MytempCell.getCellType());
+                            System.out.println("BaseCurrency------>"+MytempCell.getStringCellValue());
 
                             row.setAttribute("BaseCurrency", MytempCell.getStringCellValue());
 
                         } else if (Index == 12) {
+                            System.out.println("ToTransactionCurrency------>"+MytempCell.getCellType());
+                            System.out.println("ToTransactionCurrency------>"+MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToTransactionCurrency", MytempCell.getStringCellValue());
 
                         } else if (Index == 13) {
+                            System.out.println("TargetAmount------>"+MytempCell.getCellType());
+                            System.out.println("TargetAmount------>"+MytempCell.getNumericCellValue());
 
                             row.setAttribute("TargetAmount", MytempCell.getNumericCellValue());
 
                         } else if (Index == 14) {
+                            System.out.println("BookCode------>"+MytempCell.getCellType());
+                            System.out.println("BookCode------>"+MytempCell.getStringCellValue());
 
                             row.setAttribute("BookCode", MytempCell.getStringCellValue());
 
                         } else if (Index == 15) {
+                            System.out.println("TransactionPeriod------>"+MytempCell.getCellType());
+                            System.out.println("TransactionPeriod------>"+MytempCell.getDateCellValue());
 
-                            row.setAttribute("TransactionPeriod", MytempCell.getStringCellValue());
+                           // row.setAttribute("TransactionPeriod", MytempCell.getStringCellValue());
+                           java.util.Date date = MytempCell.getDateCellValue();
+                           if (null != date) {
+                               System.out.println("DATE-TransactionPeriod    :" + date);
+                               DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                               
+                               String date1 = dateFormat.format(date);
+                               System.out.println("date1" + date1);
+                               try {
+                                   date = dateFormat.parse(date1);
+                               } catch (ParseException e) {
+                                   System.out.println("Exception : " + e);
+                               }
+                               java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                               oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
+                               row.setAttribute("TransactionPeriod", jboDate);
+                           } else {
+                               row.setAttribute("TransactionPeriod", null);
+                           }
+
 
                         } else if (Index == 16) {
+                            System.out.println("GlDate------>"+MytempCell.getCellType());
+                            System.out.println("GlDate------>"+MytempCell.getDateCellValue());
 
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
@@ -432,6 +521,8 @@ public class TransBCostAllocationBean {
                             }
 
                         } else if (Index == 17) {
+                            System.out.println("TransactionDate------>"+MytempCell.getCellType());
+                           
                             
                             System.out.println("TransactionDate------>" + MytempCell.getDateCellValue());
 
@@ -455,43 +546,84 @@ public class TransBCostAllocationBean {
                             }
 
                         } else if (Index == 18) {
+                            System.out.println("FromTransactionCurrency------>"+MytempCell.getCellType());
+                            System.out.println("FromTransactionCurrency------>"+MytempCell.getStringCellValue());
                             
 
                             row.setAttribute("FromTransactionCurrency", MytempCell.getStringCellValue());
 
                         } else if (Index == 19) {
+                            System.out.println("TransactionAmount------>"+MytempCell.getCellType());
+                            System.out.println("TransactionAmount------>"+MytempCell.getNumericCellValue());
                             
                             row.setAttribute("TransactionAmount", MytempCell.getNumericCellValue());
                             
                         } else if (Index == 20) {
+                            System.out.println("FunctionalCurrency------>"+MytempCell.getCellType());
+                            System.out.println("FunctionalCurrency------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("FunctionalCurrency", MytempCell.getStringCellValue());
                             
                         } else if (Index == 21) {
+                            System.out.println("AccountTreatment------>"+MytempCell.getCellType());
+                            System.out.println("AccountTreatment------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("AccountTreatment", MytempCell.getStringCellValue());
                             
                         } else if (Index == 22) {
+                            System.out.println("PeoplesoftTransactionId------>"+MytempCell.getCellType());
+                            System.out.println("PeoplesoftTransactionId------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("PeoplesoftTransactionId", MytempCell.getStringCellValue());
                             
                         } else if (Index == 23) {
+                            System.out.println("VendorId Type*****------>"+MytempCell.getCellType());
+                            
+                            if(MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("VendorId Value*****------>"+str);
+                                row.setAttribute("VendorId", str);
+                            }else{
                             
                             row.setAttribute("VendorId", MytempCell.getStringCellValue());
-                            
+                                
+                            }
                         } else if (Index == 24) {
+                            System.out.println("PoNumber------>"+MytempCell.getCellType());
+                            System.out.println("PoNumber------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("PoNumber", MytempCell.getStringCellValue());
                             
                         } else if (Index == 25) {
+                            System.out.println("VoucherId Type*****------>"+MytempCell.getCellType());
+                            
+                            if(MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("VoucherId Value*****------>"+str);
+                                row.setAttribute("VoucherId", str);
+                            }else{
                             
                             row.setAttribute("VoucherId", MytempCell.getStringCellValue());
+                                
+                            }
+                           
                             
                         } else if (Index == 26) {
+                        System.out.println("VoucherNo Type*****------>"+MytempCell.getCellType());
+                        
+                        if(MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                            String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                            System.out.println("VoucherNo Value*****------>"+str);
+                            row.setAttribute("VoucherNo", str);
+                        }else{
+                        
+                        row.setAttribute("VoucherNo", MytempCell.getStringCellValue());
                             
-                            row.setAttribute("VoucherNo", MytempCell.getStringCellValue());
-                            
+                        }   
+    
                         } else if (Index == 27) {
+                            System.out.println("SourceModule------>"+MytempCell.getCellType());
+                            System.out.println("SourceModule------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("SourceModule", MytempCell.getStringCellValue());
                             

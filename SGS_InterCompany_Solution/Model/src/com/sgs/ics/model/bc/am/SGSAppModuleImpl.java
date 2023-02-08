@@ -579,5 +579,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewLinkImpl getFKOTRTARGETViewLink1() {
         return (ViewLinkImpl) findViewLink("FKOTRTARGETViewLink1");
     }
+
+    /**
+     * Container's getter for SgsFixedAssetsTxnVO1.
+     * @return SgsFixedAssetsTxnVO1
+     */
+    public ViewObjectImpl getSgsFixedAssetsTxnVO1() {
+        return (ViewObjectImpl) findViewObject("SgsFixedAssetsTxnVO1");
+    }
 }
 

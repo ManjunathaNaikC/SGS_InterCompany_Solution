@@ -43,6 +43,7 @@
           usageId="com_sgs_ics_view_transBCostAllocationPageDef"/>
     <page path="/fragments/TransactionalData/transBCostAllocationForm.jsff"
           usageId="com_sgs_ics_view_transBCostAllocationFormPageDef"/>
+    <page path="/fragments/TransactionalData/FixedAssets.jsff" usageId="com_sgs_ics_view_FixedAssetsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -78,6 +79,7 @@
           path="fragments.TransactionalData.transBCostAllocationPageDef"/>
     <page id="com_sgs_ics_view_transBCostAllocationFormPageDef"
           path="fragments.TransactionalData.transBCostAllocationFormPageDef"/>
+    <page id="com_sgs_ics_view_FixedAssetsPageDef" path="fragments.TransactionalData.FixedAssetsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

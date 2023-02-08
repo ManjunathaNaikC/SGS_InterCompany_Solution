@@ -43,7 +43,7 @@
             </af:panelGroupLayout>
         </f:facet>
         <f:facet name="center">
-            <af:panelBox text="Review Imported Transactions from PeopleSoft" id="pb1">
+            <af:panelBox text="PeopleSoft Transactions" id="pb1">
                 <f:facet name="toolbar"/>
                 <af:panelGroupLayout id="pgl1" layout="vertical">
                     <af:panelHeader text=" " id="ph1">
@@ -89,7 +89,8 @@
                                   selectedRowKeys="#{bindings.SgsTransBCostAllocationVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsTransBCostAllocationVO1.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
-                                  id="t2" styleClass="AFStretchWidth" allDetailsEnabled="true" partialTriggers="::b1">
+                                  id="t2" styleClass="AFStretchWidth" allDetailsEnabled="true" partialTriggers="::b1"
+                                  inlineStyle="height:250px; " autoHeightRows="10">
                             <af:column id="c2" align="center" headerText="Select" >
                                 <af:selectBooleanCheckbox id="sbc1"/>
                             </af:column>
@@ -99,6 +100,14 @@
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.tooltip}"
                                                id="ot10"/>
                             </af:column>
+                            <!--<af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.label}"
+                                       id="c1">
+                                <af:outputText value="#{row.TransactionPeriod}"
+                                               shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.tooltip}"
+                                               id="ot1">
+                                    <af:convertDateTime pattern="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.format}"/>
+                                </af:outputText>
+                            </af:column>-->
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractId.label}"
                                        id="c10" width="120">
                                 <!--<af:outputText value="#{row.ExtractId}"

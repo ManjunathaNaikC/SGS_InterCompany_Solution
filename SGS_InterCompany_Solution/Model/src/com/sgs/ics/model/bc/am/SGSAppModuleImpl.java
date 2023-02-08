@@ -581,6 +581,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     }
 
     /**
+     * Container's getter for SgsFixedAssetsTxnVO1.
+     * @return SgsFixedAssetsTxnVO1
+     */
+    public ViewObjectImpl getSgsFixedAssetsTxnVO1() {
+        return (ViewObjectImpl) findViewObject("SgsFixedAssetsTxnVO1");
+    }
+    /**
      * Container's getter for SgsTpaMaster1VO1.
      * @return SgsTpaMaster1VO1
      */
@@ -601,6 +608,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsStlmtInvVO1() {
         return (ViewObjectImpl) findViewObject("SgsStlmtInvVO1");
+
     }
 }
 

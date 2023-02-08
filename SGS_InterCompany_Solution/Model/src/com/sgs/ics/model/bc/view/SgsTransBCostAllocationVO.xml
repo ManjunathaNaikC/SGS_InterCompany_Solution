@@ -49,7 +49,7 @@
   <Variable
     Name="bTransactionPeriod"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
+    Type="java.sql.Date"/>
   <Variable
     Name="bInputprovider"
     Kind="viewcriteria"

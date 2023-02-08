@@ -41,6 +41,7 @@
           usageId="com_sgs_ics_view_transBCostAllocationPageDef"/>
     <page path="/fragments/TransactionalData/transBCostAllocationForm.jsff"
           usageId="com_sgs_ics_view_transBCostAllocationFormPageDef"/>
+    <page path="/fragments/TransactionalData/FixedAssets.jsff" usageId="com_sgs_ics_view_FixedAssetsPageDef"/>
     <page path="/fragments/common/tpaInquiry.jsff" usageId="com_sgs_ics_view_tpaInquiryPageDef"/>
     <page path="/fragments/common/tpaInquiryForm.jsff" usageId="com_sgs_ics_view_tpaInquiryFormPageDef"/>
     <page path="/fragments/TransactionalData/SettlementDashboard.jsff"
@@ -78,6 +79,7 @@
           path="fragments.TransactionalData.transBCostAllocationPageDef"/>
     <page id="com_sgs_ics_view_transBCostAllocationFormPageDef"
           path="fragments.TransactionalData.transBCostAllocationFormPageDef"/>
+    <page id="com_sgs_ics_view_FixedAssetsPageDef" path="fragments.TransactionalData.FixedAssetsPageDef"/>
     <page id="com_sgs_ics_view_tpaInquiryPageDef" path="fragments.common.tpaInquiryPageDef"/>
     <page id="com_sgs_ics_view_tpaInquiryFormPageDef" path="fragments.common.tpaInquiryFormPageDef"/>
     <page id="com_sgs_ics_view_SettlementDashboardPageDef"

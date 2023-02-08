@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="FixedAssetsPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsFixedAssetsTxnVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsFixedAssetsTxnVO1Iterator"/>
+    <searchRegion Criteria="SgsFixedAssetsTxnVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsFixedAssetsTxnVO1Iterator" id="SgsFixedAssetsTxnVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsFixedAssetsTxnVO1Iterator" id="SgsFixedAssetsTxnVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO" Name="SgsFixedAssetsTxnVO10">
+        <AttrNames>
+          <Item Value="FstId"/>
+          <Item Value="TransactionCategory"/>
+          <Item Value="PeoplesoftAssetNo"/>
+          <Item Value="AssetDescription"/>
+          <Item Value="PeoplesoftTransactionId"/>
+          <Item Value="FromLegalEntity"/>
+          <Item Value="FromBusinessUnit"/>
+          <Item Value="FromOperatingUnit"/>
+          <Item Value="FromJobCode"/>
+          <Item Value="FromDeptId"/>
+          <Item Value="FromGlAccount"/>
+          <Item Value="ToBusinessUnit"/>
+          <Item Value="ToOperatingUnit"/>
+          <Item Value="ToJobCode"/>
+          <Item Value="ToDeptId"/>
+          <Item Value="ToGlAccount"/>
+          <Item Value="GstVatRate"/>
+          <Item Value="GstVatAmount"/>
+          <Item Value="AccountingEntry"/>
+          <Item Value="Approval"/>
+          <Item Value="DepAmount"/>
+          <Item Value="InvoiceValue"/>
+          <Item Value="InvoicingCurrency"/>
+          <Item Value="NetBookValue"/>
+          <Item Value="OriginalCost"/>
+          <Item Value="Status"/>
+          <Item Value="TransactionCurrency"/>
+          <Item Value="TransferDate"/>
+          <Item Value="TransferValue"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="UpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

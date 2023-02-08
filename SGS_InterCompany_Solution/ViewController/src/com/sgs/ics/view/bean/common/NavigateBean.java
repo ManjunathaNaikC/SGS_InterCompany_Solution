@@ -143,11 +143,15 @@ public class NavigateBean implements Serializable {
         return null;
     }
 
+
+    public String sgsfixedAssetsTxnflow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-fixedAssetsTxn-flow.xml#sgs-fixedAssetsTxn-flow");
+        return null;
+     }
     public String sgstpaInquiryflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-tpaInquiry.xml#sgs-tpaInquiry");
         return null;
      }
-
 
     public String settlementdashboardflow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/settlementdashboard-flow.xml#settlementdashboard-flow");

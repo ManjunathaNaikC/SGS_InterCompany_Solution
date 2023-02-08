@@ -231,12 +231,12 @@
   </Attribute>
   <Attribute
     Name="TransactionPeriod"
-    Precision="80"
     ColumnName="TRANSACTION_PERIOD"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_TRANS_B_COST_ALLOCATION">
+    TableName="SGS_TRANS_B_COST_ALLOCATION"
+    Precision="80">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

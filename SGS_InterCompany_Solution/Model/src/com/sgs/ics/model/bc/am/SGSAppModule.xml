@@ -137,6 +137,9 @@
   <ViewUsage
     Name="SgsOtrTargetVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsOtrTargetVO"/>
+  <ViewUsage
+    Name="SgsTpaMaster1VO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaMaster1VO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

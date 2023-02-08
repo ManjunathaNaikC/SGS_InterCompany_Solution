@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sgs-tpaInquiry">
+    <default-activity>tpaInquiry</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+     <managed-bean id="__6">
+      <managed-bean-name>ActionEventsBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.ActionEventsBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <view id="tpaInquiry">
+      <page>/fragments/common/tpaInquiry.jsff</page>
+    </view>
+    <task-flow-call id="sgs-tpaInquiryFormADD">
+      <task-flow-reference>
+        <document>/taskflows/commom/sgs-tpaInquiryForm-flow.xml</document>
+        <id>sgs-tpaInquiryForm-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__4">
+        <name>pTPAAddEdit</name>
+        <value>ADD</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="sgs-tpaInquiryFormEDIT">
+      <task-flow-reference>
+        <document>/taskflows/commom/sgs-tpaInquiryForm-flow.xml</document>
+        <id>sgs-tpaInquiryForm-flow</id>
+      </task-flow-reference>
+      <input-parameter id="__5">
+        <name>pTPAAddEdit</name>
+        <value>EDIT</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>tpaInquiry</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>ADD</from-outcome>
+        <to-activity-id>sgs-tpaInquiryFormADD</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>EDIT</from-outcome>
+        <to-activity-id>sgs-tpaInquiryFormEDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

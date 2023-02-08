@@ -77,6 +77,8 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        NATUREOFEXPENSE,
+        WHTAMOUNT,
         SgsIcInvoiceHeaderEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -153,6 +155,8 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
+    public static final int WHTAMOUNT = AttributesEnum.WHTAMOUNT.index();
     public static final int SGSICINVOICEHEADEREO = AttributesEnum.SgsIcInvoiceHeaderEO.index();
 
     /**
@@ -983,6 +987,38 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
      */
     public void setAttribute15(BigDecimal value) {
         setAttributeInternal(ATTRIBUTE15, value);
+    }
+
+    /**
+     * Gets the attribute value for NATUREOFEXPENSE, using the alias name NATUREOFEXPENSE.
+     * @return the value of NATUREOFEXPENSE
+     */
+    public String getNATUREOFEXPENSE() {
+        return (String) getAttributeInternal(NATUREOFEXPENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NATUREOFEXPENSE.
+     * @param value value to set the NATUREOFEXPENSE
+     */
+    public void setNATUREOFEXPENSE(String value) {
+        setAttributeInternal(NATUREOFEXPENSE, value);
+    }
+
+    /**
+     * Gets the attribute value for WHTAMOUNT, using the alias name WHTAMOUNT.
+     * @return the value of WHTAMOUNT
+     */
+    public BigDecimal getWHTAMOUNT() {
+        return (BigDecimal) getAttributeInternal(WHTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for WHTAMOUNT.
+     * @param value value to set the WHTAMOUNT
+     */
+    public void setWHTAMOUNT(BigDecimal value) {
+        setAttributeInternal(WHTAMOUNT, value);
     }
 
     /**

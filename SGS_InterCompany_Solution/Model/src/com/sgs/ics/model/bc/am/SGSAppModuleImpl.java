@@ -66,7 +66,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -586,6 +586,29 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsFixedAssetsTxnVO1() {
         return (ViewObjectImpl) findViewObject("SgsFixedAssetsTxnVO1");
+    }
+    /**
+     * Container's getter for SgsTpaMaster1VO1.
+     * @return SgsTpaMaster1VO1
+     */
+    public ViewObjectImpl getSgsTpaMaster1VO1() {
+        return (ViewObjectImpl) findViewObject("SgsTpaMaster1VO1");
+        }
+    /**
+     * Container's getter for SgsStlmtVoucherVO1.
+     * @return SgsStlmtVoucherVO1
+     */
+    public ViewObjectImpl getSgsStlmtVoucherVO1() {
+        return (ViewObjectImpl) findViewObject("SgsStlmtVoucherVO1");
+    }
+
+    /**
+     * Container's getter for SgsStlmtInvVO1.
+     * @return SgsStlmtInvVO1
+     */
+    public ViewObjectImpl getSgsStlmtInvVO1() {
+        return (ViewObjectImpl) findViewObject("SgsStlmtInvVO1");
+
     }
 }
 

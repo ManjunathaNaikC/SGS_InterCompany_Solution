@@ -24,7 +24,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="SGS_COST_IDENTIFICATION_RULE"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>

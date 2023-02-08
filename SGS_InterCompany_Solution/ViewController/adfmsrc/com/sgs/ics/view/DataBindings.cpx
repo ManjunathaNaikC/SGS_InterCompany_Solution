@@ -13,8 +13,6 @@
     <page path="/fragments/NavigatePage.jsff" usageId="com_sgs_ics_view_NavigatePagePageDef"/>
     <page path="/fragments/common/costIdentificationRuleForm.jsff"
           usageId="com_sgs_ics_view_costIdentificationRuleFormPageDef"/>
-    <page path="/taskflows/commom/TPASetup-flow.xml#TPASetupBTF@SetCurrentRowWithKeyValue"
-          usageId="com_sgs_ics_view_TPASetup_flow_TPASetupBTF_SetCurrentRowWithKeyValuePageDef"/>
     <page path="/fragments/common/TPASetupPage.jsff" usageId="com_sgs_ics_view_TPASetupPagePageDef"/>
     <page path="/fragments/common/TPASetupForm.jsff" usageId="com_sgs_ics_view_TPASetupFormPageDef"/>
     <page path="/fragments/common/businessUnitMaster.jsff" usageId="com_sgs_ics_view_businessUnitMasterPageDef"/>
@@ -44,6 +42,10 @@
     <page path="/fragments/TransactionalData/transBCostAllocationForm.jsff"
           usageId="com_sgs_ics_view_transBCostAllocationFormPageDef"/>
     <page path="/fragments/TransactionalData/FixedAssets.jsff" usageId="com_sgs_ics_view_FixedAssetsPageDef"/>
+    <page path="/fragments/common/tpaInquiry.jsff" usageId="com_sgs_ics_view_tpaInquiryPageDef"/>
+    <page path="/fragments/common/tpaInquiryForm.jsff" usageId="com_sgs_ics_view_tpaInquiryFormPageDef"/>
+    <page path="/fragments/TransactionalData/SettlementDashboard.jsff"
+          usageId="com_sgs_ics_view_SettlementDashboardPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -52,8 +54,6 @@
     <page id="com_sgs_ics_view_NavigatePagePageDef" path="fragments.NavigatePagePageDef"/>
     <page id="com_sgs_ics_view_costIdentificationRuleFormPageDef"
           path="fragments.common.costIdentificationRuleFormPageDef"/>
-    <page id="com_sgs_ics_view_TPASetup_flow_TPASetupBTF_SetCurrentRowWithKeyValuePageDef"
-          path="taskflows.commom.TPASetup_flow_TPASetupBTF_SetCurrentRowWithKeyValuePageDef"/>
     <page id="com_sgs_ics_view_TPASetupPagePageDef" path="fragments.common.TPASetupPagePageDef"/>
     <page id="com_sgs_ics_view_TPASetupFormPageDef" path="fragments.common.TPASetupFormPageDef"/>
     <page id="com_sgs_ics_view_businessUnitMasterPageDef" path="fragments.common.businessUnitMasterPageDef"/>
@@ -80,6 +80,10 @@
     <page id="com_sgs_ics_view_transBCostAllocationFormPageDef"
           path="fragments.TransactionalData.transBCostAllocationFormPageDef"/>
     <page id="com_sgs_ics_view_FixedAssetsPageDef" path="fragments.TransactionalData.FixedAssetsPageDef"/>
+    <page id="com_sgs_ics_view_tpaInquiryPageDef" path="fragments.common.tpaInquiryPageDef"/>
+    <page id="com_sgs_ics_view_tpaInquiryFormPageDef" path="fragments.common.tpaInquiryFormPageDef"/>
+    <page id="com_sgs_ics_view_SettlementDashboardPageDef"
+          path="fragments.TransactionalData.SettlementDashboardPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

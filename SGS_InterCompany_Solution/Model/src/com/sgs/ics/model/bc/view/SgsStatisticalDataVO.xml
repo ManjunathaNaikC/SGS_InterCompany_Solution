@@ -65,6 +65,22 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupAlllocBasisVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsStatisticalDataVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_CostGroup"
     ListVOName="CostGroupLOV1"
@@ -99,6 +115,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_StatisticalDataCategory"
+    ListVOName="SgsLookupAlllocBasisVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StatisticalDataCategory"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsStatisticalDataEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStatisticalDataEO"/>
@@ -122,13 +155,16 @@
     PrecisionRule="true"
     EntityAttrName="StatisticalDataCategory"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA_CATEGORY">
+    AliasName="STATISTICAL_DATA_CATEGORY"
+    LOVName="LOV_StatisticalDataCategory">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.StatisticalDataCategory_LABEL"/>
         <FIELDORDER
           Value="1.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -189,21 +225,6 @@
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ToDepartmentId_LABEL"/>
         <FIELDORDER
           Value="6.0"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="StatisticalData"
-    PrecisionRule="true"
-    EntityAttrName="StatisticalData"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.StatisticalData_LABEL"/>
-        <FIELDORDER
-          Value="7.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -711,6 +732,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="STATISTICALDATA"
+    PrecisionRule="true"
+    EntityAttrName="STATISTICALDATA"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="STATISTICAL_DATA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.STATISTICALDATA_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"
@@ -767,14 +801,6 @@
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bOperatingUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="StatisticalData"
-        ViewAttribute="StatisticalData"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bStastiticalData"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

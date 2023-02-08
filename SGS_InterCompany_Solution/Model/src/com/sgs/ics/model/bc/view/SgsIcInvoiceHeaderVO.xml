@@ -561,6 +561,19 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsIcInvoiceHeaderEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="ALLOCATEDHEADERAMOUNT"
+    PrecisionRule="true"
+    EntityAttrName="ALLOCATEDHEADERAMOUNT"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="ALLOCATED_HEADER_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.ALLOCATEDHEADERAMOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsIcInvoiceHeaderVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO"

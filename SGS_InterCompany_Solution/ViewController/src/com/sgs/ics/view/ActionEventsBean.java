@@ -34,7 +34,11 @@ import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.data.RichColumn;
+import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
 import oracle.adf.view.rich.component.rich.input.RichSelectManyChoice;
+import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
+import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.binding.BindingContainer;
@@ -51,6 +55,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import oracle.adf.view.rich.context.AdfFacesContext;
+
 import oracle.jbo.ViewObject;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
@@ -58,6 +64,14 @@ import org.apache.myfaces.trinidad.model.UploadedFile;
 public class ActionEventsBean {
     protected String SAVE_DATA="Commit";
     private RichPopup statisticspopupbind;
+    private RichColumn invoiceColSelectBind;
+    private RichSelectBooleanCheckbox invoiceCheckBoxSelectBind;
+    private RichSelectBooleanCheckbox vouchercheckBoxSelectBind;
+    private RichColumn voucherColSelectBind;
+    private RichShowDetailItem bindStlmtPanelTab;
+    private RichShowDetailItem bindStlmtVoucherTab;
+    private RichShowDetailItem bindStlmtInvoiceTab;
+    private RichPanelTabbed bindStlmtDashboardPanelTab;
 
     public ActionEventsBean() {
     }
@@ -491,7 +505,7 @@ public class ActionEventsBean {
                       row.setAttribute("Currency", previousMonthDatarows[i].getAttribute("CURRENCY"));
                       row.setAttribute("CostGroup", previousMonthDatarows[i].getAttribute("COSTGROUP"));
                       row.setAttribute("UnitOfMeasure", previousMonthDatarows[i].getAttribute("UNITOFMEASURE"));
-                      row.setAttribute("StatisticalData", previousMonthDatarows[i].getAttribute("STATISTICALDATA"));
+                      row.setAttribute("STATISTICALDATA", previousMonthDatarows[i].getAttribute("STATISTICALDATA"));
                       row.setAttribute("ToDepartmentId", previousMonthDatarows[i].getAttribute("TODEPARTMENTID"));
                       row.setAttribute("ToOperatingUnit", previousMonthDatarows[i].getAttribute("TOOPERATINGUNIT"));
                       row.setAttribute("ToJobCode", previousMonthDatarows[i].getAttribute("TOJOBCODE"));
@@ -645,6 +659,144 @@ public class ActionEventsBean {
         }
 
     }
-    
+
+    public void onSelectAllVouchers(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At Vouchers:: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding voucherData = null;
+        voucherData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
+        oracle.jbo.Row[] voucherDatarows = voucherData.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {   
+            System.out.println("voucherDatarows:: " + voucherDatarows.length);
+            for (int i = 0; i < voucherDatarows.length; i++) {
+                System.out.println("voucher period  :: " + voucherDatarows[i].getAttribute("Period"));
+                System.out.println("value :: " + voucherDatarows[i].getAttribute("SelectRecord"));
+//                Row row = voucherData.getCurrentRow();
+//                row.setAttribute("SelectRecord", "Yes");
+//                vouchercheckBoxSelectBind.setValue("Yes");
+                 voucherDatarows[i].setAttribute("SelectRecord", "Yes");
+                System.out.println("row :: " + voucherDatarows[i].getAttribute("SelectRecord"));
+            }
+
+        }else {     
+            System.out.println("voucherDatarows else:: " + voucherDatarows.length);
+            for (int i = 0; i < voucherDatarows.length; i++) {
+                System.out.println("voucher period  :: " + voucherDatarows[i].getAttribute("Period"));
+                System.out.println("value :: " + voucherDatarows[i].getAttribute("SelectRecord"));
+//                Row row = voucherData.getCurrentRow();
+//                row.setAttribute("SelectRecord", "No");
+//                vouchercheckBoxSelectBind.setValue("No");
+                voucherDatarows[i].setAttribute("SelectRecord", "No");
+                System.out.println("row :: " + voucherDatarows[i].getAttribute("SelectRecord"));
+            }
+            
+        }
+        
+        AdfFacesContext.getCurrentInstance().addPartialTarget(vouchercheckBoxSelectBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(voucherColSelectBind);
+
+    }
+
+    public void onSelectAllInvoice(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At Invoices :: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding invoiceData = null;
+        invoiceData = getDCIteratorBindings("SgsStlmtInvVO1Iterator");
+        oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("invoices Datarows:: " + invoiceDatarows.length);
+            for (int i = 0; i < invoiceDatarows.length; i++) {
+                System.out.println("invoice period  :: " + invoiceDatarows[i].getAttribute("Period"));
+                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
+//                Row row = invoiceData.getCurrentRow();
+//                row.setAttribute("SelectRecordInvoice", "Yes");
+                 invoiceDatarows[i].setAttribute("SelectRecordInvoice", "Yes");
+              //  invoiceCheckBoxSelectBind.setValue("Yes");
+                System.out.println(" invoice SelectRecordInvoice :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
+            }               
+        }else {
+            System.out.println("invoices Datarows else:: " + invoiceDatarows.length);
+            for (int i = 0; i < invoiceDatarows.length; i++) {
+                System.out.println("invoice period  :: " + invoiceDatarows[i].getAttribute("Period"));
+                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
+//                Row row = invoiceData.getCurrentRow();
+//                row.setAttribute("SelectRecordInvoice", "No");
+                invoiceDatarows[i].setAttribute("SelectRecordInvoice", "No");
+               // invoiceCheckBoxSelectBind.setValue("No");
+                System.out.println(" invoice rows :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
+            }
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(invoiceCheckBoxSelectBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(invoiceColSelectBind);
+    }
+
+    public void setInvoiceColSelectBind(RichColumn invoiceColSelectBind) {
+        this.invoiceColSelectBind = invoiceColSelectBind;
+    }
+
+    public RichColumn getInvoiceColSelectBind() {
+        return invoiceColSelectBind;
+    }
+
+    public void setInvoiceCheckBoxSelectBind(RichSelectBooleanCheckbox invoiceCheckBoxSelectBind) {
+        this.invoiceCheckBoxSelectBind = invoiceCheckBoxSelectBind;
+    }
+
+    public RichSelectBooleanCheckbox getInvoiceCheckBoxSelectBind() {
+        return invoiceCheckBoxSelectBind;
+    }
+
+    public void setVouchercheckBoxSelectBind(RichSelectBooleanCheckbox vouchercheckBoxSelectBind) {
+        this.vouchercheckBoxSelectBind = vouchercheckBoxSelectBind;
+    }
+
+    public RichSelectBooleanCheckbox getVouchercheckBoxSelectBind() {
+        return vouchercheckBoxSelectBind;
+    }
+
+    public void setVoucherColSelectBind(RichColumn voucherColSelectBind) {
+        this.voucherColSelectBind = voucherColSelectBind;
+    }
+
+    public RichColumn getVoucherColSelectBind() {
+        return voucherColSelectBind;
+    }
+
+
+    public void setBindStlmtVoucherTab(RichShowDetailItem bindStlmtVoucherTab) {
+        this.bindStlmtVoucherTab = bindStlmtVoucherTab;
+    }
+
+    public RichShowDetailItem getBindStlmtVoucherTab() {
+        return bindStlmtVoucherTab;
+    }
+
+    public void setBindStlmtInvoiceTab(RichShowDetailItem bindStlmtInvoiceTab) {
+        this.bindStlmtInvoiceTab = bindStlmtInvoiceTab;
+    }
+
+    public RichShowDetailItem getBindStlmtInvoiceTab() {
+        return bindStlmtInvoiceTab;
+    }
+
+    public void setBindStlmtDashboardPanelTab(RichPanelTabbed bindStlmtDashboardPanelTab) {
+        this.bindStlmtDashboardPanelTab = bindStlmtDashboardPanelTab;
+    }
+
+    public RichPanelTabbed getBindStlmtDashboardPanelTab() {
+        return bindStlmtDashboardPanelTab;
+    }
+
+    public void onVoucherTabArInvoice(ActionEvent actionEvent) {
+        bindStlmtVoucherTab.setDisclosed(false);
+        bindStlmtInvoiceTab.setDisclosed(true);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtInvoiceTab);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtVoucherTab);
+    }
+
+    public void onInvoiceTabArVoucher(ActionEvent actionEvent) {
+        bindStlmtInvoiceTab.setDisclosed(false);
+        bindStlmtVoucherTab.setDisclosed(true);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtInvoiceTab);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtVoucherTab);
+    }
 }
 

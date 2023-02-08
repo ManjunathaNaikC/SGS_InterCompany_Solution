@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsGstTaxRateApplicabilityVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupNatureExpVO1", name="bLookupType")
+def bLookupType_SgsLookupNatureExpVO1_BindVariable_BoundParameter()
+{
+'NATURE_OF_EXPENSE'
+}
+

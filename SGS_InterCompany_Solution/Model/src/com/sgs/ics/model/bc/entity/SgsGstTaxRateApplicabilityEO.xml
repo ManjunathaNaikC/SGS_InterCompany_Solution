@@ -31,7 +31,8 @@
     Type="java.lang.Integer"
     ColumnType="INT"
     TableName="SGS_GST_TAX_RATE_APPLICABILITY"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    ChangeIndicator="true"/>
   <Attribute
     Name="CostGroupingCode"
     Precision="80"
@@ -263,6 +264,18 @@
     Name="CREATEDBY"
     Precision="80"
     ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_GST_TAX_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NATUREOFEXPENSE"
+    Precision="80"
+    ColumnName="NATURE_OF_EXPENSE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"

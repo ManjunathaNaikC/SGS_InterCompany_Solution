@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="SgsTpaMaster1VO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsTpaMaster1VO1Iterator"/>
+    <iterator Binds="SgsTpaDocAttachment1VO2" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTpaDocAttachment1VO2Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="TpaId">
@@ -112,6 +114,27 @@
             Action="rollbackTransaction"/>
     <action IterBinding="SgsTpaMaster1VO1Iterator" id="Delete" InstanceName="SGSAppModuleDataControl.SgsTpaMaster1VO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <tree IterBinding="SgsTpaDocAttachment1VO2Iterator" id="SgsTpaDocAttachment1VO2">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsTpaDocAttachment1VO" Name="SgsTpaDocAttachment1VO20">
+        <AttrNames>
+          <Item Value="DocumentTypeValue"/>
+          <Item Value="Attachment"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsTpaDocAttachment1VO2Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsTpaDocAttachment1VO2" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsTpaDocAttachment1VO2Iterator" id="Delete1"
+            InstanceName="SGSAppModuleDataControl.SgsTpaDocAttachment1VO2" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="SgsTpaMaster1VO1Iterator" StaticList="false" Uses="LOV_PassThroughFlag" id="PassThroughFlag1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsTpaMaster1VO1Iterator" StaticList="false" Uses="LOV_BdCommissionApplicability"
+          id="BdCommissionApplicability1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

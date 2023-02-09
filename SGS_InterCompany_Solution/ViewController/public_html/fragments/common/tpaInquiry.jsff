@@ -10,7 +10,7 @@
       <af:panelBox id="pb1">
         <f:facet name="toolbar"/>
         <af:panelGroupLayout layout="vertical" id="pgl1">
-          <af:panelHeader text="TPA" id="ph1">
+          <af:panelHeader text="Transfer Pricing Master" id="ph1">
             <af:query id="qryId1" headerText="Search" disclosed="true"
                       value="#{bindings.SgsTpaMaster1VOCriteriaQuery.queryDescriptor}"
                       model="#{bindings.SgsTpaMaster1VOCriteriaQuery.queryModel}"
@@ -25,7 +25,7 @@
               <af:toolbar id="t1">
                 <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
                            actionListener="#{bindings.CreateInsert.execute}"/>
-                <af:button id="b2" icon="/resources/icons/delete.png"/>
+                <af:button id="b2" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
@@ -34,7 +34,8 @@
                       emptyText="#{bindings.SgsTpaMaster1VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTpaMaster1VO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTpaMaster1VO1.collectionModel.makeCurrent}" rowSelection="single"
-                      fetchSize="#{bindings.SgsTpaMaster1VO1.rangeSize}" id="resId1" partialTriggers="::b1 ::b2">
+                      fetchSize="#{bindings.SgsTpaMaster1VO1.rangeSize}" id="resId1" partialTriggers="::b1 ::b2"
+                      styleClass="AFStretchWidth">
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.TpaId.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.TpaId.tooltip}"
                              id="ot1"/>-->

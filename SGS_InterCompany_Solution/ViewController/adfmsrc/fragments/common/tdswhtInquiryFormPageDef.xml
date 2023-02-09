@@ -147,5 +147,9 @@
       </AttrNames>
     </attributeValues>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="SgsTdsWhtTblVO1Iterator" StaticList="false" Uses="LOV_DeductionPoint" id="DeductionPoint1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsTdsWhtTblVO1Iterator" StaticList="false" Uses="LOV_TaxBase" id="TaxBase1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

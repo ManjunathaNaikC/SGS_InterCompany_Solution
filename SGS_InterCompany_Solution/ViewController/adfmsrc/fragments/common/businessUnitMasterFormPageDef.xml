@@ -129,5 +129,9 @@
             InstanceName="SGSAppModuleDataControl.SgsBusinessUnitMasterVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="SgsBusinessUnitMasterVO1Iterator" StaticList="false" Uses="LOV_BussinessUnitStatus"
+          id="BussinessUnitStatus1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsBusinessUnitMasterVO1Iterator" StaticList="false" Uses="LOV_BussinessUnitZone"
+          id="BussinessUnitZone1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

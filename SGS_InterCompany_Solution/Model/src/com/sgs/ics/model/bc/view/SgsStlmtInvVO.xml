@@ -494,7 +494,43 @@
     Type="java.lang.String"
     ColumnType="BIT"
     AliasName="VIEW_ATTR"
-    SQLType="BIT"/>
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="DISBUSEMENTBANKACCOUNT"
+    PrecisionRule="true"
+    EntityAttrName="DISBUSEMENTBANKACCOUNT"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="DISBUSEMENT_BANK_ACCOUNT"/>
+  <ViewAttribute
+    Name="ICCUSTOMERGEO"
+    PrecisionRule="true"
+    EntityAttrName="ICCUSTOMERGEO"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="IC_CUSTOMER_GEO"/>
+  <ViewAttribute
+    Name="ICSUPPLIERGEO"
+    PrecisionRule="true"
+    EntityAttrName="ICSUPPLIERGEO"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="IC_SUPPLIER_GEO"/>
+  <ViewAttribute
+    Name="PAYMENTDATE"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTDATE"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="PAYMENT_DATE"/>
+  <ViewAttribute
+    Name="PAYMENTMETHOD"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTMETHOD"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="PAYMENT_METHOD"/>
+  <ViewAttribute
+    Name="RECEIVERBANKACCOUNT"
+    PrecisionRule="true"
+    EntityAttrName="RECEIVERBANKACCOUNT"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="RECEIVER_BANK_ACCOUNT"/>
   <ViewCriteria
     Name="SgsStlmtInvVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtInvVO"

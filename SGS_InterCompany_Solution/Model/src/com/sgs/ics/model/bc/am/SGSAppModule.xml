@@ -143,6 +143,12 @@
   <ViewUsage
     Name="SgsStlmtInvVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtInvVO"/>
+  <ViewUsage
+    Name="CreateStlmtRVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.CreateStlmtRVO"/>
+  <ViewUsage
+    Name="SgsCreateSettlementVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsCreateSettlementVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

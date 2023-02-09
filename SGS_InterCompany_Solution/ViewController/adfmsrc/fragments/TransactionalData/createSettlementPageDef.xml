@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="createSettlementPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CreateStlmtRVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="CreateStlmtRVO1Iterator"/>
+    <iterator Binds="SgsCreateSettlementVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsCreateSettlementVO1Iterator"/>
+    <searchRegion Binds="SgsCreateSettlementVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsCreateSettlementVO1Query"/>
+    <iterator id="SgsStlmtVoucherVO1Iterator" Binds="SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="PAYMENTID">
+      <AttrNames>
+        <Item Value="PAYMENTID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="PAYMENTDATE">
+      <AttrNames>
+        <Item Value="PAYMENTDATE"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="DISBUSEMENTBANKACCOUNT">
+      <AttrNames>
+        <Item Value="DISBUSEMENTBANKACCOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="RECEIVERBANKACCOUNT">
+      <AttrNames>
+        <Item Value="RECEIVERBANKACCOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="TRANSACTIONREFERENCENO">
+      <AttrNames>
+        <Item Value="TRANSACTIONREFERENCENO"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="TRXAMOUNT">
+      <AttrNames>
+        <Item Value="TRXAMOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICSUPPLIERGEO" id="ICSUPPLIERGEO"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICCUSTOMERGEO" id="ICCUSTOMERGEO"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICSUPPLIERBU" id="ICSUPPLIERBU"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICCUSTOMERBU" id="ICCUSTOMERBU"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SgsCreateSettlementVO1Iterator" id="SgsCreateSettlementVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCreateSettlementVO" Name="SgsCreateSettlementVO10">
+        <AttrNames>
+          <Item Value="SELECTRECORDS" Binds="SELECTRECORDS"/>
+          <Item Value="DATE"/>
+          <Item Value="PSVOUCHERNUMBER"/>
+          <Item Value="PSINVOICENUMBER"/>
+          <Item Value="TRANSACTIONCURRENCY"/>
+          <Item Value="NETAMOUNTPAYABLE"/>
+          <Item Value="OUTSTANDINGAMOUNT"/>
+          <Item Value="SETTLEMENTAMOUNT"/>
+          <Item Value="PAYMENTSTATUS"/>
+          <Item Value="SETTLEMENTSTATUS"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYMENTCURRENCY" id="PAYMENTCURRENCY"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYMENTMETHOD" id="PAYMENTMETHOD"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <button IterBinding="SgsCreateSettlementVO1Iterator" id="SELECTRECORDS" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SELECTRECORDS"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
+    <action IterBinding="SgsCreateSettlementVO1Iterator" id="CreateSettlement"
+            InstanceName="SGSAppModuleDataControl.SgsCreateSettlementVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

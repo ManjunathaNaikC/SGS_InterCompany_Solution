@@ -42,6 +42,22 @@
     Name="bSupplierBU"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bCusGeo"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bSupGeo"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bCusBu"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bSupBu"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsStlmtVoucherEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO"/>
@@ -475,7 +491,43 @@
     Type="java.lang.String"
     ColumnType="BIT"
     AliasName="VIEW_ATTR"
-    SQLType="BIT"/>
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="DISBUSEMENTBANKACCOUNT"
+    PrecisionRule="true"
+    EntityAttrName="DISBUSEMENTBANKACCOUNT"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="DISBUSEMENT_BANK_ACCOUNT"/>
+  <ViewAttribute
+    Name="ICCUSTOMERGEO"
+    PrecisionRule="true"
+    EntityAttrName="ICCUSTOMERGEO"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="IC_CUSTOMER_GEO"/>
+  <ViewAttribute
+    Name="ICSUPPLIERGEO"
+    PrecisionRule="true"
+    EntityAttrName="ICSUPPLIERGEO"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="IC_SUPPLIER_GEO"/>
+  <ViewAttribute
+    Name="PAYMENTDATE"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTDATE"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="PAYMENT_DATE"/>
+  <ViewAttribute
+    Name="PAYMENTMETHOD"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTMETHOD"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="PAYMENT_METHOD"/>
+  <ViewAttribute
+    Name="RECEIVERBANKACCOUNT"
+    PrecisionRule="true"
+    EntityAttrName="RECEIVERBANKACCOUNT"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="RECEIVER_BANK_ACCOUNT"/>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"
@@ -556,6 +608,66 @@
         Operator="="
         Conjunction="AND"
         Value=":bStatus"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="SgsCreateStlmtVoucherVOCriteria"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SgsStlmtVoucherVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="IcCustomerBu"
+        ViewAttribute="IcCustomerBu"
+        Operator="="
+        Conjunction="AND"
+        Value=":bCusBu"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IcSupplierBu"
+        ViewAttribute="IcSupplierBu"
+        Operator="="
+        Conjunction="AND"
+        Value=":bSupBu"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ICCUSTOMERGEO"
+        ViewAttribute="ICCUSTOMERGEO"
+        Operator="="
+        Conjunction="AND"
+        Value=":bCusGeo"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ICSUPPLIERGEO"
+        ViewAttribute="ICSUPPLIERGEO"
+        Operator="="
+        Conjunction="AND"
+        Value=":bSupGeo"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

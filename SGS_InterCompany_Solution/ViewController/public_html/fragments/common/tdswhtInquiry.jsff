@@ -61,12 +61,35 @@
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.tooltip}" id="ot3"/>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.label}" id="resId1c4">
-                <af:outputText value="#{row.DeductionPoint}"
-                               shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.tooltip}" id="ot4"/>
+                <!--<af:outputText value="#{row.DeductionPoint}"
+                               shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.tooltip}" id="ot4"/>-->
+                <!--<af:selectOneChoice value="#{row.bindings.DeductionPoint.inputValue}"
+                                    label="#{row.bindings.DeductionPoint.label}"
+                                    required="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.tooltip}" id="soc1"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.DeductionPoint.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.DeductionPoint.validator}"/>
+                </af:selectOneChoice>-->
+                <af:selectOneChoice value="#{row.bindings.DeductionPoint.inputValue}"
+                                    label="#{row.bindings.DeductionPoint.label}"
+                                    required="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.tooltip}" id="soc1"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.DeductionPoint.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.DeductionPoint.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.label}" id="resId1c5">
-                <af:outputText value="#{row.TaxBase}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.tooltip}"
-                               id="ot5"/>
+                <!--<af:outputText value="#{row.TaxBase}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.tooltip}"
+                               id="ot5"/>-->
+                <af:selectOneChoice value="#{row.bindings.TaxBase.inputValue}" label="#{row.bindings.TaxBase.label}"
+                                    required="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.tooltip}" id="soc2"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.TaxBase.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.TaxBase.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.WhtLibilityAcc.label}" id="resId1c6">
                 <af:outputText value="#{row.WhtLibilityAcc}"

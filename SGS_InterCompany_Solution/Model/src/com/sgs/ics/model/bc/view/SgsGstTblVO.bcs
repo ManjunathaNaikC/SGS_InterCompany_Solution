@@ -17,3 +17,10 @@ def bLookupType_SgsLookupSupPlcVO1_BindVariable_BoundParameter()
 'SUPPLY_PLACE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupSupTypVO1", name="bLookupType")
+def bLookupType_SgsLookupSupTypVO1_BindVariable_BoundParameter()
+{
+'SUPPLY_TYPE'
+}
+

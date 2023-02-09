@@ -81,9 +81,17 @@
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.label}"
                          id="resId1c7">
-                <af:outputText value="#{row.BussinessUnitStatus}"
+                <!--<af:outputText value="#{row.BussinessUnitStatus}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.tooltip}"
-                               id="ot7"/>
+                               id="ot7"/>-->
+                <af:selectOneChoice value="#{row.bindings.BussinessUnitStatus.inputValue}"
+                                    label="#{row.bindings.BussinessUnitStatus.label}"
+                                    required="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.mandatory}"
+                                    shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.BussinessUnitStatus.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.BussinessUnitStatus.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.FunctionalCurrency.label}" id="resId1c8">
                 <af:outputText value="#{row.FunctionalCurrency}"
@@ -138,9 +146,17 @@
                                id="ot16"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.label}" id="resId1c17">
-                <af:outputText value="#{row.BussinessUnitZone}"
+                <!--<af:outputText value="#{row.BussinessUnitZone}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.tooltip}"
-                               id="ot17"/>
+                               id="ot17"/>-->
+                <af:selectOneChoice value="#{row.bindings.BussinessUnitZone.inputValue}"
+                                    label="#{row.bindings.BussinessUnitZone.label}"
+                                    required="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.mandatory}"
+                                    shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.tooltip}"
+                                    id="soc2" readOnly="true">
+                  <f:selectItems value="#{row.bindings.BussinessUnitZone.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.BussinessUnitZone.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CollectionBu.label}" id="resId1c18">
                 <af:outputText value="#{row.CollectionBu}"

@@ -361,6 +361,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="5.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute10_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute10_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -491,6 +495,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="15.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute6_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute6_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -504,6 +512,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="16.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute7_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute7_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -517,6 +529,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="17.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute8_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute8_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -530,6 +546,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="18.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute9_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.Attribute9_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -609,6 +629,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CreatedDate_LABEL"/>
         <FIELDORDER
           Value="21.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -645,6 +669,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveFrom_LABEL"/>
         <FIELDORDER
           Value="24.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveFrom_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveFrom_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -660,6 +688,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveTo_LABEL"/>
         <FIELDORDER
           Value="25.0"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveTo_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.EffectiveTo_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -794,6 +826,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.UpdatedDate_LABEL"/>
         <FIELDORDER
           Value="32.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.UpdatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationRuleVO.UpdatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -132,6 +132,10 @@
           Value="5.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.CreatedDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -177,6 +181,10 @@
           Value="2.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.EffectiveEndDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.EffectiveEndDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.EffectiveEndDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -192,6 +200,10 @@
           Value="8.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.EffectiveStartDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.EffectiveStartDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.EffectiveStartDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -389,6 +401,10 @@
           Value="19.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.UpdatedDate_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStandardRateSetupVO.UpdatedDate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

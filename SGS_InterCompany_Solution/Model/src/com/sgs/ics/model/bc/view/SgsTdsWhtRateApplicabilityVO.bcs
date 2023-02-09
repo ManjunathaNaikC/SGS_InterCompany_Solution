@@ -10,3 +10,17 @@ def bLookupType_SgsLookupVO1_BindVariable_BoundParameter()
 'NATURE_OF_EXPENSE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupDocVO2", name="bLookupType")
+def bLookupType_SgsLookupDocVO2_BindVariable_BoundParameter()
+{
+'DOCUMENTATION'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupChrgTaxVO2", name="bLookupType")
+def bLookupType_SgsLookupChrgTaxVO2_BindVariable_BoundParameter()
+{
+'CHARGEABILITY_TO_TAX'
+}
+

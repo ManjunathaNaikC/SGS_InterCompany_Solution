@@ -138,6 +138,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.EffectiveFrom_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.EffectiveFrom_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.EffectiveFrom_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -151,6 +155,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.EffectiveTo_LABEL"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.EffectiveTo_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.EffectiveTo_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -161,7 +169,16 @@
     EntityAttrName="CreatedDate"
     EntityUsage="SgsCostIdentificationCombina1"
     AliasName="CREATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.CreatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -176,7 +193,16 @@
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsCostIdentificationCombina1"
     AliasName="UPDATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.UpdatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.UpdatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
@@ -219,31 +245,76 @@
     PrecisionRule="true"
     EntityAttrName="Attribute6"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="ATTRIBUTE6"/>
+    AliasName="ATTRIBUTE6">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute6_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute6_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute7"
     PrecisionRule="true"
     EntityAttrName="Attribute7"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="ATTRIBUTE7"/>
+    AliasName="ATTRIBUTE7">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute7_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute7_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute8"
     PrecisionRule="true"
     EntityAttrName="Attribute8"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="ATTRIBUTE8"/>
+    AliasName="ATTRIBUTE8">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute8_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute8_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute9"
     PrecisionRule="true"
     EntityAttrName="Attribute9"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="ATTRIBUTE9"/>
+    AliasName="ATTRIBUTE9">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute9_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute9_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute10"
     PrecisionRule="true"
     EntityAttrName="Attribute10"
     EntityUsage="SgsCostIdentificationCombina1"
-    AliasName="ATTRIBUTE10"/>
+    AliasName="ATTRIBUTE10">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute10_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.Attribute10_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute11"
     PrecisionRule="true"

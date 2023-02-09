@@ -49,7 +49,7 @@
   <Variable
     Name="bTransactionPeriod"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
+    Type="java.sql.Date"/>
   <Variable
     Name="bInputprovider"
     Kind="viewcriteria"
@@ -192,6 +192,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="17.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -250,6 +254,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="20.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.ExtractedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.ExtractedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -304,6 +312,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="23.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.GlDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.GlDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -615,6 +627,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="41.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.TransactionDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.TransactionDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -697,6 +713,10 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="45.0"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO.UpdatedDate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

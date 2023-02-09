@@ -51,16 +51,40 @@
                 <af:link text="#{row.GstNum}" id="l1" action="EDIT"/>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.ServProvider.label}" id="resId1c2">
-                <af:outputText value="#{row.ServProvider}"
-                               shortDesc="#{bindings.SgsGstTblVO1.hints.ServProvider.tooltip}" id="ot2"/>
+                <!--<af:outputText value="#{row.ServProvider}"
+                               shortDesc="#{bindings.SgsGstTblVO1.hints.ServProvider.tooltip}" id="ot2"/>-->
+                <af:selectOneChoice value="#{row.bindings.ServProvider.inputValue}"
+                                    label="#{row.bindings.ServProvider.label}"
+                                    required="#{bindings.SgsGstTblVO1.hints.ServProvider.mandatory}"
+                                    shortDesc="#{bindings.SgsGstTblVO1.hints.ServProvider.tooltip}" id="soc1"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.ServProvider.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.ServProvider.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyPlace.label}" id="resId1c3">
-                <af:outputText value="#{row.SupplyPlace}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyPlace.tooltip}"
-                               id="ot3"/>
+                <!--<af:outputText value="#{row.SupplyPlace}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyPlace.tooltip}"
+                               id="ot3"/>-->
+                <af:selectOneChoice value="#{row.bindings.SupplyPlace.inputValue}"
+                                    label="#{row.bindings.SupplyPlace.label}"
+                                    required="#{bindings.SgsGstTblVO1.hints.SupplyPlace.mandatory}"
+                                    shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyPlace.tooltip}" id="soc2"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.SupplyPlace.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.SupplyPlace.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4">
-                <af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
-                               id="ot4"/>
+                <!--<af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
+                               id="ot4"/>-->
+                <af:selectOneChoice value="#{row.bindings.SupplyType.inputValue}"
+                                    label="#{row.bindings.SupplyType.label}"
+                                    required="#{bindings.SgsGstTblVO1.hints.SupplyType.mandatory}"
+                                    shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}" id="soc3"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.SupplyType.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.SupplyType.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstReceivable.label}" id="resId1c7"
                          rendered="false">

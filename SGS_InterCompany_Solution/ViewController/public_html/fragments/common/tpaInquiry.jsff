@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelBox id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text="Transfer Pricing Master" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.SgsTpaMaster1VOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.SgsTpaMaster1VOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.SgsTpaMaster1VOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.SgsTpaMaster1VOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1" styleClass="AFStretchWidth" saveQueryMode="hidden" rows="3"
+                      maxColumns="2"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t1">
+                <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
+                           actionListener="#{bindings.CreateInsert.execute}"/>
+                <af:button id="b2" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SgsTpaMaster1VO1.collectionModel}" var="row"
+                      rows="#{bindings.SgsTpaMaster1VO1.rangeSize}"
+                      emptyText="#{bindings.SgsTpaMaster1VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTpaMaster1VO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SgsTpaMaster1VO1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.SgsTpaMaster1VO1.rangeSize}" id="resId1" partialTriggers="::b1 ::b2"
+                      styleClass="AFStretchWidth">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.TpaId.label}" id="resId1c1">
+                <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.TpaId.tooltip}"
+                             id="ot1"/>-->
+                <af:link text="#{row.TpaId}" id="l1" action="EDIT"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.label}" id="resId1c2">
+                <af:outputText value="#{row.LeServiceProvider}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.label}" id="resId1c3">
+                <af:outputText value="#{row.LeServiceReceiver}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.tooltip}" id="ot3"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="resId1c4">
+                <af:outputText value="#{row.NettingApplicatibility}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.tooltip}" id="ot4"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.label}" id="resId1c5">
+                <af:outputText value="#{row.BdCommissionApplicability}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.tooltip}"
+                               id="ot5"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.PassThroughFlag.label}" id="resId1c6">
+                <af:outputText value="#{row.PassThroughFlag}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.PassThroughFlag.tooltip}" id="ot6"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.label}" id="resId1c7">
+                <af:outputText value="#{row.EffectiveFrom}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.tooltip}" id="ot7">
+                  <af:convertDateTime pattern="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.label}" id="resId1c8">
+                <af:outputText value="#{row.EffectiveTo}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.tooltip}" id="ot8">
+                  <af:convertDateTime pattern="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.Status.label}" id="resId1c9">
+                <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.Status.tooltip}"
+                               id="ot9"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:panelBox>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

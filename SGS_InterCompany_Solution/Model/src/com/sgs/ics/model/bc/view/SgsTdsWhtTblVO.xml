@@ -69,6 +69,72 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <ViewAccessor
+    Name="SgsLookupPntDdcnVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupTaxBasesVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_DeductionPoint"
+    ListVOName="SgsLookupPntDdcnVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DeductionPoint"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TaxBase"
+    ListVOName="SgsLookupTaxBasesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TaxBase"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsTdsWhtTblEO"
     Entity="com.sgs.ics.model.bc.entity.SgsTdsWhtTblEO"/>
@@ -137,13 +203,16 @@
     PrecisionRule="true"
     EntityAttrName="DeductionPoint"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="DEDUCTION_POINT">
+    AliasName="DEDUCTION_POINT"
+    LOVName="LOV_DeductionPoint">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.DeductionPoint_LABEL"/>
         <FIELDORDER
           Value="1.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -152,13 +221,16 @@
     PrecisionRule="true"
     EntityAttrName="TaxBase"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="TAX_BASE">
+    AliasName="TAX_BASE"
+    LOVName="LOV_TaxBase">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.TaxBase_LABEL"/>
         <FIELDORDER
           Value="6.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -236,6 +308,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveFrom_LABEL"/>
         <FIELDORDER
           Value="11.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveFrom_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveFrom_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -251,6 +327,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveTo_LABEL"/>
         <FIELDORDER
           Value="4.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveTo_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.EffectiveTo_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -267,6 +347,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.CreatedDate_LABEL"/>
         <FIELDORDER
           Value="12.0"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -299,6 +383,10 @@
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UpdatedDate_LABEL"/>
         <FIELDORDER
           Value="14.0"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UpdatedDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.UpdatedDate_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

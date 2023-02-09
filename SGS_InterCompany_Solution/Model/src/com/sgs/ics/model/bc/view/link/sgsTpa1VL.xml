@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="sgsTpa1VL"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="com.sgs.ics.model.bc.entity.assoc.sgsTpa1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.sgs.ics.model.bc.view.link.sgsTpa1VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SgsTpaMaster1VO"
+    Cardinality="1"
+    Source="true"
+    Owner="com.sgs.ics.model.bc.view.SgsTpaMaster1VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="SgsTpaMaster1VO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.view.SgsTpaMaster1VO.TpaId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SgsTpaDocAttachment1VO"
+    Cardinality="-1"
+    Owner="com.sgs.ics.model.bc.view.SgsTpaDocAttachment1VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="SgsTpaDocAttachment1VO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.view.SgsTpaDocAttachment1VO.TpaId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

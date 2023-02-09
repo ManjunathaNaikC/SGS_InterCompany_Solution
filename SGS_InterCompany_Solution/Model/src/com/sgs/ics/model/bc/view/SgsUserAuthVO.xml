@@ -52,7 +52,16 @@
     EntityAttrName="CreatedDate"
     EntityUsage="SgsUserAuthEO"
     AliasName="CREATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.CreatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.CreatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -65,7 +74,16 @@
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsUserAuthEO"
     AliasName="UPDATED_DATE"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.UpdatedDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.UpdatedDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
@@ -107,13 +125,31 @@
     PrecisionRule="true"
     EntityAttrName="Attribute6"
     EntityUsage="SgsUserAuthEO"
-    AliasName="ATTRIBUTE6"/>
+    AliasName="ATTRIBUTE6">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.Attribute6_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.Attribute6_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute7"
     PrecisionRule="true"
     EntityAttrName="Attribute7"
     EntityUsage="SgsUserAuthEO"
-    AliasName="ATTRIBUTE7"/>
+    AliasName="ATTRIBUTE7">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.Attribute7_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsUserAuthVO.Attribute7_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute8"
     PrecisionRule="true"
@@ -176,4 +212,8 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

@@ -138,6 +138,12 @@
     Name="SgsOtrTargetVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsOtrTargetVO"/>
   <ViewUsage
+    Name="SgsFixedAssetsTxnVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO"/>
+ <ViewUsage
+    Name="SgsTpaMaster1VO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaMaster1VO"/>
+ <ViewUsage
     Name="SgsStlmtVoucherVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"/>
   <ViewUsage
@@ -149,6 +155,9 @@
   <ViewUsage
     Name="SgsCreateSettlementVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsCreateSettlementVO"/>
+  <ViewUsage
+    Name="SgsTpaDocAttachment1VO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaDocAttachment1VO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -245,6 +254,12 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.FKOTRTARGETViewLink"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTransBCostAllocationVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsOtrTargetVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="sgsTpa1VL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsTpa1VL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaMaster1VO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaDocAttachment1VO2"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

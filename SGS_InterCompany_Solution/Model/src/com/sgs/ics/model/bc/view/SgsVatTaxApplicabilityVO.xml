@@ -30,6 +30,22 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupChrgbltyTaxVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsVatTaxApplicabilityVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_NATUREOFEXPENSE"
     ListVOName="SgsLookupNatureOFExpVO1"
@@ -37,6 +53,23 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="NATUREOFEXPENSE"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ChargeabilityToTax"
+    ListVOName="SgsLookupChrgbltyTaxVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ChargeabilityToTax"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -82,11 +115,14 @@
     PrecisionRule="true"
     EntityAttrName="ChargeabilityToTax"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="CHARGEABILITY_TO_TAX">
+    AliasName="CHARGEABILITY_TO_TAX"
+    LOVName="LOV_ChargeabilityToTax">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.ChargeabilityToTax_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -164,31 +200,76 @@
     PrecisionRule="true"
     EntityAttrName="Attribute6"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="ATTRIBUTE6"/>
+    AliasName="ATTRIBUTE6">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute6_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute6_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute7"
     PrecisionRule="true"
     EntityAttrName="Attribute7"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="ATTRIBUTE7"/>
+    AliasName="ATTRIBUTE7">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute7_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute7_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute8"
     PrecisionRule="true"
     EntityAttrName="Attribute8"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="ATTRIBUTE8"/>
+    AliasName="ATTRIBUTE8">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute8_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute8_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute9"
     PrecisionRule="true"
     EntityAttrName="Attribute9"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="ATTRIBUTE9"/>
+    AliasName="ATTRIBUTE9">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute9_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute9_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute10"
     PrecisionRule="true"
     EntityAttrName="Attribute10"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="ATTRIBUTE10"/>
+    AliasName="ATTRIBUTE10">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute10_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.Attribute10_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute11"
     PrecisionRule="true"
@@ -231,7 +312,16 @@
     PrecisionRule="true"
     EntityAttrName="CREATEDDATE"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.CREATEDDATE_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.CREATEDDATE_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UPDATEDBY"
     PrecisionRule="true"
@@ -244,7 +334,16 @@
     PrecisionRule="true"
     EntityAttrName="UPDATEDDATE"
     EntityUsage="SgsVatTaxApplicabilityEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.UPDATEDDATE_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsVatTaxApplicabilityVO.UPDATEDDATE_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NATUREOFEXPENSE"
     PrecisionRule="true"

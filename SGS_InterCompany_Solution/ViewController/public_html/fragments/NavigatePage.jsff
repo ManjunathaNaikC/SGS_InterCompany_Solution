@@ -19,8 +19,8 @@
                                     <af:link text="Cost Allocation Setup"
                                              action="#{pageFlowScope.navigateBean.sgscostIdentificationRuleflow}"
                                              id="l1" immediate="true"/>
-                                    <af:link text="Transfer Pricing Master" action="#{pageFlowScope.navigateBean.tPASetupBTF}"
-                                             id="l2" immediate="true"/>
+                                    <!--<af:link text="Transfer Pricing Master" action="#{pageFlowScope.navigateBean.tPASetupBTF}"
+                                             id="l2" immediate="true"/>-->
                                     <af:link text="Standard Rate Setup"
                                              action="#{pageFlowScope.navigateBean.sgsstandardSetupRuleflow}" id="l7"
                                              immediate="true"/>
@@ -60,7 +60,7 @@
                                              id="gl7" inlineStyle="font-weight:bold;"/>
                                     <af:link text="#{viewcontrollerBundle.ISDSetup}" destination="" id="gl8"
                                              inlineStyle="font-weight:bold;"/>-->
-                                    <af:link text="TPA" id="l12"
+                                    <af:link text="Transer Pricing Agreement" id="l12"
                                              action="#{pageFlowScope.navigateBean.sgstpaInquiryflow}" immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>

@@ -3,266 +3,189 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="SgsStlmtInvEO"
+  Name="SgsCreateSettlementEO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   DBObjectType="table"
-  DBObjectName="SGS_STLMT_INV"
-  AliasName="SgsStlmtInvEO"
-  BindingStyle="JDBC">
+  DBObjectName="SGS_CREATE_SETTLEMENT"
+  AliasName="SgsCreateSettlementEO"
+  BindingStyle="JDBC"
+  RowClass="com.sgs.ics.model.bc.entity.SgsCreateSettlementEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
-    Name="InvoiceId"
+    Name="SettlementId"
     IsNotNull="true"
-    Precision="80"
-    ColumnName="INVOICE_ID"
+    ColumnName="SETTLEMENT_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_CREATE_SETTLEMENT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="PaymentId"
+    Precision="100"
+    ColumnName="PAYMENT_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV"
-    PrimaryKey="true">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="Period"
-    Precision="80"
-    ColumnName="PERIOD"
+    Name="IcCustomerGeo"
+    Precision="100"
+    ColumnName="IC_CUSTOMER_GEO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="AcctDate"
-    ColumnName="ACCT_DATE"
-    SQLType="DATE"
-    Type="java.sql.Date"
-    ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="PsInvoiceNo"
-    Precision="80"
-    ColumnName="PS_INVOICE_NO"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="LegalEntity"
-    Precision="80"
-    ColumnName="LEGAL_ENTITY"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="IcSupplierBu"
-    Precision="80"
-    ColumnName="IC_SUPPLIER_BU"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="IcCustomerBu"
-    Precision="80"
+    Precision="100"
     ColumnName="IC_CUSTOMER_BU"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="TxnCurrency"
-    Precision="80"
-    ColumnName="TXN_CURRENCY"
+    Name="IcSupplierGeo"
+    Precision="100"
+    ColumnName="IC_SUPPLIER_GEO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="InvoiceAmount"
+    Name="IcSupplierBu"
+    Precision="100"
+    ColumnName="IC_SUPPLIER_BU"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentDate"
+    ColumnName="PAYMENT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_CREATE_SETTLEMENT"/>
+  <Attribute
+    Name="ReceiptDate"
+    ColumnName="RECEIPT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_CREATE_SETTLEMENT"/>
+  <Attribute
+    Name="DisbusementBankAccount"
+    Precision="100"
+    ColumnName="DISBUSEMENT_BANK_ACCOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReceiverBankAccount"
+    Precision="100"
+    ColumnName="RECEIVER_BANK_ACCOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentMethod"
+    Precision="100"
+    ColumnName="PAYMENT_METHOD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TransactionReferenceNo"
+    Precision="100"
+    ColumnName="TRANSACTION_REFERENCE_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentCurrency"
+    Precision="100"
+    ColumnName="PAYMENT_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TrxAmount"
     Precision="20"
     Scale="2"
-    ColumnName="INVOICE_AMOUNT"
-    SQLType="NUMERIC"
+    ColumnName="TRX_AMOUNT"
+    SQLType="DECIMAL"
     Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="TaxRecoverable"
-    Precision="20"
-    Scale="2"
-    ColumnName="TAX_RECOVERABLE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="WhtTdsRate"
-    Precision="10"
-    Scale="2"
-    ColumnName="WHT_TDS_RATE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="WhtTdsAmount"
-    Precision="20"
-    Scale="2"
-    ColumnName="WHT_TDS_AMOUNT"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="NetAmountReceivable"
-    Precision="20"
-    Scale="2"
-    ColumnName="NET_AMOUNT_RECEIVABLE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="AmountSettledTillDate"
-    Precision="20"
-    Scale="2"
-    ColumnName="AMOUNT_SETTLED_TILL_DATE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="StlmtAmount"
-    Precision="20"
-    Scale="2"
-    ColumnName="STLMT_AMOUNT"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="AmountWrittenOff"
-    Precision="20"
-    Scale="2"
-    ColumnName="AMOUNT_WRITTEN_OFF"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
-  <Attribute
-    Name="OsAmountReceivable"
-    Precision="20"
-    Scale="2"
-    ColumnName="OS_AMOUNT_RECEIVABLE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
+    ColumnType="DECIMAL"
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="BankCharges"
     Precision="20"
     Scale="2"
     ColumnName="BANK_CHARGES"
-    SQLType="NUMERIC"
+    SQLType="DECIMAL"
     Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
+    ColumnType="DECIMAL"
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
-    Name="ReceiptStatus"
-    Precision="80"
-    ColumnName="RECEIPT_STATUS"
+    Name="PurposeCode"
+    Precision="100"
+    ColumnName="PURPOSE_CODE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="StlmtCategory"
-    Precision="80"
-    ColumnName="STLMT_CATEGORY"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="DepositId"
-    Precision="80"
-    ColumnName="DEPOSIT_ID"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="TxnReferenceNo"
-    Precision="80"
-    ColumnName="TXN_REFERENCE_NO"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="RefToApVoucher"
-    Precision="80"
-    ColumnName="REF_TO_AP_VOUCHER"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="StlmtStatus"
-    Precision="80"
-    ColumnName="STLMT_STATUS"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
@@ -271,17 +194,17 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="CreatedBy"
-    Precision="80"
+    Precision="100"
     ColumnName="CREATED_BY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
@@ -290,17 +213,17 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="UpdatedBy"
-    Precision="80"
+    Precision="100"
     ColumnName="UPDATED_BY"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
@@ -310,7 +233,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -322,7 +245,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -334,7 +257,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -346,7 +269,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -358,7 +281,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -369,62 +292,62 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute7"
     ColumnName="ATTRIBUTE7"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute8"
     ColumnName="ATTRIBUTE8"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute9"
     ColumnName="ATTRIBUTE9"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute10"
     ColumnName="ATTRIBUTE10"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute11"
-    Precision="20"
+    Precision="10"
     Scale="5"
     ColumnName="ATTRIBUTE11"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute12"
-    Precision="20"
+    Precision="10"
     Scale="5"
     ColumnName="ATTRIBUTE12"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute13"
-    Precision="20"
+    Precision="10"
     Scale="5"
     ColumnName="ATTRIBUTE13"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute14"
     Precision="10"
@@ -433,7 +356,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
     Name="Attribute15"
     Precision="10"
@@ -442,82 +365,109 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
-    Name="DISBUSEMENTBANKACCOUNT"
-    Precision="100"
-    ColumnName="DISBUSEMENT_BANK_ACCOUNT"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="ICCUSTOMERGEO"
-    Precision="100"
-    ColumnName="IC_CUSTOMER_GEO"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="ICSUPPLIERGEO"
-    Precision="100"
-    ColumnName="IC_SUPPLIER_GEO"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="PAYMENTDATE"
-    ColumnName="PAYMENT_DATE"
+    Name="DATE"
+    ColumnName="DATE"
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STLMT_INV"/>
+    TableName="SGS_CREATE_SETTLEMENT"/>
   <Attribute
-    Name="PAYMENTMETHOD"
+    Name="NETAMOUNTPAYABLE"
+    Precision="20"
+    Scale="5"
+    ColumnName="NET_AMOUNT_PAYABLE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_CREATE_SETTLEMENT"/>
+  <Attribute
+    Name="OUTSTANDINGAMOUNT"
+    Precision="20"
+    Scale="5"
+    ColumnName="OUTSTANDING_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_CREATE_SETTLEMENT"/>
+  <Attribute
+    Name="PAYMENTSTATUS"
     Precision="100"
-    ColumnName="PAYMENT_METHOD"
+    ColumnName="PAYMENT_STATUS"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="RECEIVERBANKACCOUNT"
+    Name="PSINVOICENUMBER"
     Precision="100"
-    ColumnName="RECEIVER_BANK_ACCOUNT"
+    ColumnName="PS_INVOICE_NUMBER"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STLMT_INV">
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PSVOUCHERNUMBER"
+    Precision="100"
+    ColumnName="PS_VOUCHER_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SETTLEMENTAMOUNT"
+    Precision="20"
+    Scale="5"
+    ColumnName="SETTLEMENT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_CREATE_SETTLEMENT"/>
+  <Attribute
+    Name="SETTLEMENTSTATUS"
+    Precision="100"
+    ColumnName="SETTLEMENT_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TRANSACTIONCURRENCY"
+    Precision="100"
+    ColumnName="TRANSACTION_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Key
-    Name="PKSGSSTLMTINV"
+    Name="PKSGSCREATESETTLEMENT"
     PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DBObjectName" Value="PK_SGS_STLMT_INV"/>
+      <Attr Name="_DBObjectName" Value="PK_SGS_CREATE_SETTLEMENT"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.sgs.ics.model.bc.entity.SgsStlmtInvEO.InvoiceId"/>
+      <Item Value="com.sgs.ics.model.bc.entity.SgsCreateSettlementEO.SettlementId"/>
     </AttrArray>
   </Key>
 </Entity>

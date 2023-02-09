@@ -150,6 +150,12 @@
     Name="SgsStlmtInvVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtInvVO"/>
   <ViewUsage
+    Name="CreateStlmtRVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.CreateStlmtRVO"/>
+  <ViewUsage
+    Name="SgsCreateSettlementVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsCreateSettlementVO"/>
+  <ViewUsage
     Name="SgsTpaDocAttachment1VO2"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaDocAttachment1VO"/>
   <ViewLinkUsage

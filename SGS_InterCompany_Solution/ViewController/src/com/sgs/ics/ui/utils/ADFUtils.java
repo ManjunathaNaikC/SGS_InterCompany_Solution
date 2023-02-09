@@ -945,4 +945,16 @@ public class ADFUtils {
         
         return path;
     }
+    
+    
+    public static Object executeBinding(String binding) {
+        BindingContainer bindings = getBindings();
+        OperationBinding operationBinding = bindings.getOperationBinding(binding);
+        Object result = operationBinding.execute();
+        return result;
+    }
+    public static BindingContainer getBindings(){
+        
+        return (BindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        }
 }

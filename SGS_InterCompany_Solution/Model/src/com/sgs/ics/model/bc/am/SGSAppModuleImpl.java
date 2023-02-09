@@ -627,5 +627,21 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewLinkImpl getsgsTpa1VL1() {
         return (ViewLinkImpl) findViewLink("sgsTpa1VL1");
     }
+
+    /**
+     * Container's getter for CreateStlmtRVO1.
+     * @return CreateStlmtRVO1
+     */
+    public ViewObjectImpl getCreateStlmtRVO1() {
+        return (ViewObjectImpl) findViewObject("CreateStlmtRVO1");
+    }
+
+    /**
+     * Container's getter for SgsCreateSettlementVO1.
+     * @return SgsCreateSettlementVO1
+     */
+    public ViewObjectImpl getSgsCreateSettlementVO1() {
+        return (ViewObjectImpl) findViewObject("SgsCreateSettlementVO1");
+    }
 }
 

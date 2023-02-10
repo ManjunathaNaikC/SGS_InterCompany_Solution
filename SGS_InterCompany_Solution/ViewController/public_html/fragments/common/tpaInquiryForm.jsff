@@ -12,7 +12,8 @@
           <f:facet name="toolbar">
             <af:toolbar id="t1">
                <af:button text="Save" id="b1" 
-                          actionListener="#{viewScope.ActionEventsBean.genericSave}" />
+                          actionListener="#{viewScope.ActionEventsBean.genericSave}" partialSubmit="true"/>
+              <!--<af:button text="Save" id="b1"/>-->
               <af:button text="Cancel" id="b2" action="back"
                          actionListener="#{bindings.Rollback.execute}" immediate="true"
                          rendered="#{pageFlowScope.pTPAAddEdit=='EDIT'}"/>
@@ -73,7 +74,8 @@
                                label="#{bindings.BdCommissionApplicability1.label}"
                                required="#{bindings.BdCommissionApplicability1.hints.mandatory}"
                                shortDesc="#{bindings.BdCommissionApplicability1.hints.tooltip}" 
-                               partialTriggers="plam1 pgl3 pb4" id="sor2" layout="horizontal" autoSubmit="true">
+                                partialTriggers=""
+                               id="sor2" layout="horizontal" autoSubmit="true">
               <f:selectItems value="#{bindings.BdCommissionApplicability1.items}" id="si2"/>
               <f:validator binding="#{bindings.BdCommissionApplicability1.validator}"/>
             </af:selectOneRadio>
@@ -203,10 +205,12 @@
               <f:validator binding="#{bindings.Status.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
-          <af:panelBox text="BD Commision Details" id="pb4" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}">
+          <!--<af:panelBox text="BD Commision Details" id="pb4" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}"
+          partialTriggers="sor2">
                     <f:facet name="toolbar"/>
                     <af:panelGroupLayout id="pgl3" layout="vertical"
-                                         visible="#{bindings.BdCommissionApplicability.inputValue eq 'Yes' ? true : false}">
+                                         visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}"
+                                         partialTriggers="sor2">
                         <af:panelFormLayout id="pfl3">
                             <f:facet name="footer"/>
                             <af:panelLabelAndMessage label="BD Commission Rate" id="plam1"
@@ -234,7 +238,7 @@
                             </af:panelLabelAndMessage>
                         </af:panelFormLayout>
                     </af:panelGroupLayout>
-                </af:panelBox>
+                </af:panelBox>-->
                 <af:panelBox text="Pass Through Details" id="pb5"
                              visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                              partialTriggers="sor1">

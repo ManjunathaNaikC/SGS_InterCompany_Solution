@@ -1,15 +1,26 @@
 
 package com.sgs.ics.view.bean.common;
 
+import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
+import com.sgs.ics.ui.utils.ADFUtils;
+
 import java.io.Serializable;
 
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.controller.TaskFlowId;
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.fragment.RichRegion;
 import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
 import oracle.adf.view.rich.context.AdfFacesContext;
+
+import oracle.binding.BindingContainer;
+import oracle.binding.OperationBinding;
+
+import oracle.jbo.Row;
 
 import org.apache.myfaces.trinidad.event.DisclosureEvent;
 
@@ -157,4 +168,25 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/TransactionalData/settlementdashboard-flow.xml#settlementdashboard-flow");
         return null;
     }
+
+    public String createsettlement_flow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/createsettlement_flow.xml#createsettlement_flow");
+        ADFUtils.executeBinding("CreateSettlement");
+        SGSAppModuleImpl am = new SGSAppModuleImpl();
+        String value= "PS_"+ (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        row.setAttribute("PAYMENTID",value);
+        return null;
+    }
+    
+    private DCIteratorBinding getDCIteratorBindings(String iterName) {
+        DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        return bindings.findIteratorBinding(iterName);
+
+    } 
+    
+
+    
+    
 }

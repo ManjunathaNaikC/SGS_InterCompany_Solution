@@ -10,3 +10,17 @@ def bLookupType_SgsLookupNatureExpVO1_BindVariable_BoundParameter()
 'NATURE_OF_EXPENSE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupHSNCodeVO1", name="bLookupType")
+def bLookupType_SgsLookupHSNCodeVO1_BindVariable_BoundParameter()
+{
+'HSN_CODE'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupItmSerCatVO1", name="bLookupType")
+def bLookupType_SgsLookupItmSerCatVO1_BindVariable_BoundParameter()
+{
+'ITEM_SERV_CAT'
+}
+

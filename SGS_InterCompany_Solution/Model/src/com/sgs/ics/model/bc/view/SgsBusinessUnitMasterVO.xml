@@ -86,6 +86,72 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <ViewAccessor
+    Name="SgsLookupBUStatusVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsBusinessUnitMasterVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupBUZoneVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsBusinessUnitMasterVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_BussinessUnitStatus"
+    ListVOName="SgsLookupBUStatusVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BussinessUnitStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BussinessUnitZone"
+    ListVOName="SgsLookupBUZoneVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BussinessUnitZone"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsBusinessUnitMasterEO"
     Entity="com.sgs.ics.model.bc.entity.SgsBusinessUnitMasterEO"/>
@@ -396,13 +462,16 @@
     PrecisionRule="true"
     EntityAttrName="BussinessUnitStatus"
     EntityUsage="SgsBusinessUnitMasterEO"
-    AliasName="BUSSINESS_UNIT_STATUS">
+    AliasName="BUSSINESS_UNIT_STATUS"
+    LOVName="LOV_BussinessUnitStatus">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="5.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.BussinessUnitStatus_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -411,13 +480,16 @@
     PrecisionRule="true"
     EntityAttrName="BussinessUnitZone"
     EntityUsage="SgsBusinessUnitMasterEO"
-    AliasName="BUSSINESS_UNIT_ZONE">
+    AliasName="BUSSINESS_UNIT_ZONE"
+    LOVName="LOV_BussinessUnitZone">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="25.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.BussinessUnitZone_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

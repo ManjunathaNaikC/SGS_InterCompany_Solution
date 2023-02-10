@@ -425,6 +425,73 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_STLMT_VOUCHER"/>
+  <Attribute
+    Name="DISBUSEMENTBANKACCOUNT"
+    Precision="100"
+    ColumnName="DISBUSEMENT_BANK_ACCOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ICCUSTOMERGEO"
+    Precision="100"
+    ColumnName="IC_CUSTOMER_GEO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ICSUPPLIERGEO"
+    Precision="100"
+    ColumnName="IC_SUPPLIER_GEO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PAYMENTDATE"
+    ColumnName="PAYMENT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_STLMT_VOUCHER"/>
+  <Attribute
+    Name="PAYMENTMETHOD"
+    Precision="100"
+    ColumnName="PAYMENT_METHOD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RECEIVERBANKACCOUNT"
+    Precision="100"
+    ColumnName="RECEIVER_BANK_ACCOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTLMTVOUCHER"
     PrimaryKey="true">

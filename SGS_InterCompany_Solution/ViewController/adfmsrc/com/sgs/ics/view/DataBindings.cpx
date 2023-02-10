@@ -46,6 +46,7 @@
     <page path="/fragments/common/tpaInquiryForm.jsff" usageId="com_sgs_ics_view_tpaInquiryFormPageDef"/>
     <page path="/fragments/TransactionalData/SettlementDashboard.jsff"
           usageId="com_sgs_ics_view_SettlementDashboardPageDef"/>
+    <page path="/fragments/TransactionalData/createSettlement.jsff" usageId="com_sgs_ics_view_createSettlementPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -84,6 +85,7 @@
     <page id="com_sgs_ics_view_tpaInquiryFormPageDef" path="fragments.common.tpaInquiryFormPageDef"/>
     <page id="com_sgs_ics_view_SettlementDashboardPageDef"
           path="fragments.TransactionalData.SettlementDashboardPageDef"/>
+    <page id="com_sgs_ics_view_createSettlementPageDef" path="fragments.TransactionalData.createSettlementPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

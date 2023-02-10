@@ -1,0 +1,19 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupBUStatusVO1", name="bLookupType")
+def bLookupType_SgsLookupBUStatusVO1_BindVariable_BoundParameter()
+{
+'BUSSINESS_UNIT_STATUS'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupBUZoneVO1", name="bLookupType")
+def bLookupType_SgsLookupBUZoneVO1_BindVariable_BoundParameter()
+{
+'BUSSINESS_UNIT_ZONE'
+}
+

@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.math.BigDecimal;
+
 import java.net.MalformedURLException;
 
 import java.sql.Connection;
@@ -57,6 +59,8 @@ import java.util.GregorianCalendar;
 
 import oracle.adf.view.rich.context.AdfFacesContext;
 
+import oracle.jbo.RowSetIterator;
+import oracle.jbo.ViewCriteria;
 import oracle.jbo.ViewObject;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
@@ -72,6 +76,8 @@ public class ActionEventsBean {
     private RichShowDetailItem bindStlmtVoucherTab;
     private RichShowDetailItem bindStlmtInvoiceTab;
     private RichPanelTabbed bindStlmtDashboardPanelTab;
+    private RichSelectBooleanCheckbox bindSettlementRowCheckBox;
+    private RichColumn bindSettlementSelectColumn;
 
     public ActionEventsBean() {
     }
@@ -797,6 +803,131 @@ public class ActionEventsBean {
         bindStlmtVoucherTab.setDisclosed(true);
         AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtInvoiceTab);
         AdfFacesContext.getCurrentInstance().addPartialTarget(bindStlmtVoucherTab);
+    }
+
+    public void onCreateSettlementSelectAll(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At create settlement :: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding settlementData = null;
+        settlementData = getDCIteratorBindings("SgsCreateSettlementVO1Iterator");
+        oracle.jbo.Row[] settlementDataDatarows = settlementData.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("settlementDataDatarows Datarows:: " + settlementDataDatarows.length);
+            for (int i = 0; i < settlementDataDatarows.length; i++) {
+                System.out.println(" SELECTRECORDS :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
+                 settlementDataDatarows[i].setAttribute("SELECTRECORDS", "Yes");
+                System.out.println(" settlementDataDatarows SELECTRECORDS :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
+            }               
+        }else {
+            System.out.println("settlementDataDatarows Datarows else:: " + settlementDataDatarows.length);
+            for (int i = 0; i < settlementDataDatarows.length; i++) {
+                System.out.println("SELECTRECORDS  :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
+                settlementDataDatarows[i].setAttribute("SELECTRECORDS", "No");
+                System.out.println(" SELECTRECORDS rows :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
+            }
+        }
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementRowCheckBox);
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementSelectColumn);
+    }
+
+    public void setBindSettlementRowCheckBox(RichSelectBooleanCheckbox bindSettlementRowCheckBox) {
+        this.bindSettlementRowCheckBox = bindSettlementRowCheckBox;
+    }
+
+    public RichSelectBooleanCheckbox getBindSettlementRowCheckBox() {
+        return bindSettlementRowCheckBox;
+    }
+
+    public void setBindSettlementSelectColumn(RichColumn bindSettlementSelectColumn) {
+        this.bindSettlementSelectColumn = bindSettlementSelectColumn;
+    }
+
+    public RichColumn getBindSettlementSelectColumn() {
+        return bindSettlementSelectColumn;
+    }
+
+    public void onSelectAllForSettlement(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At create settlement 11 :: " + valueChangeEvent.getNewValue());
+    }
+
+    public void onGenerateSettlementEvent(ActionEvent actionEvent) {
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        String PAYMENTID = (String) row.getAttribute("PAYMENTID");
+        Date PAYMENTDATE = (Date) row.getAttribute("PAYMENTDATE");
+        String DISBUSEMENTBANKACCOUNT = (String) row.getAttribute("DISBUSEMENTBANKACCOUNT");
+        String RECEIVERBANKACCOUNT = (String) row.getAttribute("RECEIVERBANKACCOUNT");
+        String PAYMENTMETHOD = (String) row.getAttribute("PAYMENTMETHOD");
+        String TRANSACTIONREFERENCENO = (String) row.getAttribute("TRANSACTIONREFERENCENO");
+        String PAYMENTCURRENCY = (String) row.getAttribute("PAYMENTCURRENCY");
+        BigDecimal TRXAMOUNT = (BigDecimal) row.getAttribute("TRXAMOUNT");
+        
+        System.out.println("PAYMENTID 11 :: " + PAYMENTID);
+
+        System.out.println("PAYMENTDATE 11 :: " + PAYMENTDATE);
+        System.out.println("DISBUSEMENTBANKACCOUNT 11 :: " + DISBUSEMENTBANKACCOUNT);
+        System.out.println("RECEIVERBANKACCOUNT 11 :: " + RECEIVERBANKACCOUNT);
+        System.out.println("PAYMENTMETHOD 11 :: " + PAYMENTMETHOD);
+        System.out.println("TRANSACTIONREFERENCENO 11 :: " + TRANSACTIONREFERENCENO);
+        System.out.println("PAYMENTCURRENCY 11 :: " + PAYMENTCURRENCY);
+        System.out.println("TRXAMOUNT 11 :: " + TRXAMOUNT);
+        
+        //SgsStlmtVoucherVO1Iterator
+       // SgsStlmtInvVO1Iterator
+        
+    }
+
+    public void onCreateSettlementSearch(ActionEvent actionEvent) {
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        String PAYMENTID = (String) row.getAttribute("PAYMENTID");
+        String ICCUSTOMERGEO = (String) row.getAttribute("ICCUSTOMERGEO");
+        String ICCUSTOMERBU = (String) row.getAttribute("ICCUSTOMERBU");
+        String ICSUPPLIERGEO = (String) row.getAttribute("ICSUPPLIERGEO");
+        String ICSUPPLIERBU = (String) row.getAttribute("ICSUPPLIERBU");
+
+        DCIteratorBinding iteratorBinding = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
+        RowSetIterator rowSetIterator = iteratorBinding.getRowSetIterator();
+        ViewObjectImpl voucherView = (ViewObjectImpl) iteratorBinding.getViewObject();
+        ViewCriteria criteria = voucherView.getViewCriteria("SgsCreateStlmtVoucherVOCriteria");
+        voucherView.applyViewCriteria(criteria);
+        voucherView.setNamedWhereClauseParam("bCusBu", ICCUSTOMERBU);
+        voucherView.setNamedWhereClauseParam("bCusGeo", ICCUSTOMERGEO);
+        voucherView.setNamedWhereClauseParam("bSupBu", ICSUPPLIERBU);
+        voucherView.setNamedWhereClauseParam("bSupGeo", ICSUPPLIERGEO);
+        voucherView.executeQuery();
+
+
+        oracle.jbo.Row[] voucherDatarows = voucherView.getAllRowsInRange();
+        System.out.println(" voucherDatarows length :: " + voucherDatarows.length);
+        DCIteratorBinding createSettlementData = getDCIteratorBindings("SgsCreateSettlementVO1Iterator");
+        for (int i = 0; i < voucherDatarows.length; i++) {
+            System.out.println(" PsVoucherNo :: " + voucherDatarows[i].getAttribute("PsVoucherNo"));
+            executeBinding("CreateSettlement");
+            Row row1 = createSettlementData.getCurrentRow();
+            row1.setAttribute("DATE", voucherDatarows[i].getAttribute("AcctDate"));
+            row1.setAttribute("NETAMOUNTPAYABLE", voucherDatarows[i].getAttribute("NetAmountPayable"));
+            row1.setAttribute("OUTSTANDINGAMOUNT", voucherDatarows[i].getAttribute("OsAmountPayable"));
+            row1.setAttribute("PAYMENTSTATUS", voucherDatarows[i].getAttribute("PaymentStatus"));
+            row1.setAttribute("PSINVOICENUMBER", voucherDatarows[i].getAttribute("RefToArInvoice"));
+            row1.setAttribute("PSVOUCHERNUMBER", voucherDatarows[i].getAttribute("PsVoucherNo"));
+            row1.setAttribute("SETTLEMENTAMOUNT", voucherDatarows[i].getAttribute("StlmtAmount"));
+            row1.setAttribute("SETTLEMENTSTATUS", voucherDatarows[i].getAttribute("StlmtStatus"));
+            row1.setAttribute("TRANSACTIONCURRENCY", voucherDatarows[i].getAttribute("TxnCurrency"));
+
+        }
+        executeBinding(SAVE_DATA);
+        ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
+        data.executeQuery();
+
+
+    }
+
+    public void onCreateSettlementSave(ActionEvent actionEvent) {
+        executeBinding(SAVE_DATA);
+        
+        ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
+        data.executeQuery();
+        ADFUtils.saveNotifier();
     }
 }
 

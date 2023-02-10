@@ -75,8 +75,16 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4">
-                <af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
-                               id="ot4"/>
+                <!--<af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
+                               id="ot4"/>-->
+                <af:selectOneChoice value="#{row.bindings.SupplyType.inputValue}"
+                                    label="#{row.bindings.SupplyType.label}"
+                                    required="#{bindings.SgsGstTblVO1.hints.SupplyType.mandatory}"
+                                    shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}" id="soc3"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.SupplyType.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.SupplyType.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstReceivable.label}" id="resId1c7"
                          rendered="false">

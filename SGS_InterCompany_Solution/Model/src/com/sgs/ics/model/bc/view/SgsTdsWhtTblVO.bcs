@@ -1,0 +1,19 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsTdsWhtTblVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupPntDdcnVO1", name="bLookupType")
+def bLookupType_SgsLookupPntDdcnVO1_BindVariable_BoundParameter()
+{
+'DEDUCTION_POINT'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupTaxBasesVO1", name="bLookupType")
+def bLookupType_SgsLookupTaxBasesVO1_BindVariable_BoundParameter()
+{
+'TAX_BASE'
+}
+

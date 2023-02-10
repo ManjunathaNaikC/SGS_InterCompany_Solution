@@ -12,6 +12,16 @@
     </taskFlow>
     <taskFlow id="dynamicRegion1" taskFlowId="${pageFlowScope.navigateBean.dynamicTaskFlowId}" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="CreateStlmtRVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
+              id="CreateStlmtRVO1Iterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action IterBinding="CreateStlmtRVO1Iterator" id="CreateSettlement" InstanceName="SGSAppModuleDataControl.CreateStlmtRVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="PAYMENTID">
+      <AttrNames>
+        <Item Value="PAYMENTID"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

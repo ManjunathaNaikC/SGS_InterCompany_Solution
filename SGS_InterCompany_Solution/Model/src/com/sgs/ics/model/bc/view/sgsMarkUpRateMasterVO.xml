@@ -87,10 +87,6 @@
           Value="8.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.CreatedDate_LABEL"/>
-        <FMT_FORMATTER
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.CreatedDate_FMT_FORMATTER"/>
-        <FMT_FORMAT
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.CreatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -121,10 +117,6 @@
           Value="10.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.LastUpdatedDate_LABEL"/>
-        <FMT_FORMATTER
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.LastUpdatedDate_FMT_FORMATTER"/>
-        <FMT_FORMAT
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.LastUpdatedDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -273,31 +265,13 @@
     PrecisionRule="true"
     EntityAttrName="EFFECTIVETO"
     EntityUsage="sgsMarkUpRateMasterEO"
-    AliasName="EFFECTIVE_TO">
-    <Properties>
-      <SchemaBasedProperties>
-        <FMT_FORMATTER
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.EFFECTIVETO_FMT_FORMATTER"/>
-        <FMT_FORMAT
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.EFFECTIVETO_FMT_FORMAT"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="EFFECTIVE_TO"/>
   <ViewAttribute
     Name="EFFECTIVEFROM"
     PrecisionRule="true"
     EntityAttrName="EFFECTIVEFROM"
     EntityUsage="sgsMarkUpRateMasterEO"
-    AliasName="EFFECTIVE_FROM">
-    <Properties>
-      <SchemaBasedProperties>
-        <FMT_FORMAT
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.EFFECTIVEFROM_FMT_FORMAT"/>
-        <FMT_FORMATTER
-          ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.EFFECTIVEFROM_FMT_FORMATTER"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="EFFECTIVE_FROM"/>
   <ViewAttribute
     Name="MARKUPNAME"
     PrecisionRule="true"

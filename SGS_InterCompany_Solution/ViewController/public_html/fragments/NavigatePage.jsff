@@ -85,7 +85,13 @@
                                              action="#{pageFlowScope.navigateBean.settlementdashboardflow}" id="l12"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Process" text="Process"/>
+                            <af:showDetailItem id="Process" text="Process">
+                                <af:panelList id="pl3">
+                                    <!--<af:link text="link 1" id="l2"/>-->
+                                    <af:link text="Allocation Run"
+                                             action="#{pageFlowScope.navigateBean.sgsAllocationRunflow}" id="arp01"/>
+                                </af:panelList>
+                            </af:showDetailItem>
                             <af:showDetailItem id="Reports" text="Reports"/>
                             <af:showDetailItem id="Security" text="Security" disclosed="true">
                                 <f:facet name="toolbar"/>
@@ -96,7 +102,7 @@
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
 
-                                       partialTriggers="::l1 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::fat01 ::tpa02"/>
+                                       partialTriggers="::l1 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::fat01 ::tpa02 ::arp01"/>
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->

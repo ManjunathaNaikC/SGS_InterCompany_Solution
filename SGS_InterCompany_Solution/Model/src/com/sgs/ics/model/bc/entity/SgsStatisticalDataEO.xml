@@ -373,7 +373,7 @@
   <Attribute
     Name="InputProvider"
     Precision="80"
-    ColumnName="Input_Provider"
+    ColumnName="INPUT_PROVIDER"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
@@ -462,6 +462,37 @@
     ColumnType="NUMERIC"
     ColumnName="STATISTICAL_DATA"
     Type="java.math.BigDecimal"
+    TableName="SGS_STATISTICAL_DATA_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CONCATEID"
+    Precision="200"
+    ColumnName="CONCATE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EMPGRADE"
+    ColumnName="EMP_GRADE"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_STATISTICAL_DATA_TBL"/>
+  <Attribute
+    Name="STATGEOGRAPHY"
+    Precision="80"
+    ColumnName="STAT_GEOGRAPHY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
     TableName="SGS_STATISTICAL_DATA_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>

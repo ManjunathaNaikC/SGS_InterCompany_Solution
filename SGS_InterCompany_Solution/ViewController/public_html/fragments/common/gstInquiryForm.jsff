@@ -265,6 +265,16 @@
                   <f:validator binding="#{row.bindings.HsnCode.validator}"/>
                 </af:inputText>
               </af:column>-->
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}" id="c5">
+                <af:inputText value="#{row.bindings.RateOfTax.inputValue}"
+                              label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}"
+                              required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.mandatory}"
+                              columns="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.displayWidth}"
+                              maximumLength="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.precision}"
+                              shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.tooltip}" id="it2">
+                  <f:validator binding="#{row.bindings.RateOfTax.validator}"/>
+                </af:inputText>
+              </af:column>
               <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3">
                 <af:selectOneChoice value="#{row.bindings.HsnCode.inputValue}" label="#{row.bindings.HsnCode.label}"
                                     required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.mandatory}"

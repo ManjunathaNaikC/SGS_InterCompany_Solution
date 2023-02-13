@@ -78,6 +78,11 @@ public class ActionEventsBean {
     private RichPanelTabbed bindStlmtDashboardPanelTab;
     private RichSelectBooleanCheckbox bindSettlementRowCheckBox;
     private RichColumn bindSettlementSelectColumn;
+    private RichSelectBooleanCheckbox bindNetSelectRecHeader;
+    private RichColumn bindGeo2SelectCol;
+    private RichSelectBooleanCheckbox bindSelectAllGeo2;
+    private RichSelectBooleanCheckbox bindSelectAllGeo1;
+    private RichColumn bindGeo1SelectCol;
 
     public ActionEventsBean() {
     }
@@ -928,6 +933,168 @@ public class ActionEventsBean {
         ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
         data.executeQuery();
         ADFUtils.saveNotifier();
+    }
+
+    public void onNettingHeaderSelectRecord(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At Netting :: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding settlementData = null;
+        settlementData = getDCIteratorBindings("SgsNettingInvoiceVoucherVO1Iterator");
+        oracle.jbo.Row[] NettingDataDatarows = settlementData.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("NettingDataDatarows Datarows:: " + NettingDataDatarows.length);
+            for (int i = 0; i < NettingDataDatarows.length; i++) {
+                System.out.println(" SELECTRECORDS :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
+                 NettingDataDatarows[i].setAttribute("SelectedNettingRec", "Yes");
+                System.out.println(" NettingDataDatarows SELECTRECORDS :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
+            }               
+        }else {
+            System.out.println("NettingDataDatarows Datarows else:: " + NettingDataDatarows.length);
+            for (int i = 0; i < NettingDataDatarows.length; i++) {
+                System.out.println("SelectedNettingRec  :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
+                NettingDataDatarows[i].setAttribute("SelectedNettingRec", "No");
+                System.out.println(" SelectedNettingRec rows :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
+            }
+        }
+    }
+
+    public void setBindNetSelectRecHeader(RichSelectBooleanCheckbox bindNetSelectRecHeader) {
+        this.bindNetSelectRecHeader = bindNetSelectRecHeader;
+    }
+
+    public RichSelectBooleanCheckbox getBindNetSelectRecHeader() {
+        return bindNetSelectRecHeader;
+    }
+
+    public void onClickOfNettingHeaderLink(ActionEvent actionEvent) {
+
+        DCIteratorBinding nettingData = getDCIteratorBindings("SgsNettingInvoiceVoucherVO1Iterator");
+        Row row = nettingData.getCurrentRow();
+        String geos = (String) row.getAttribute("NettingId");
+        System.out.println("Geos :: "+geos);
+        if (null != geos && !geos.isEmpty()) {
+            String[] result = new String[2];
+            // String s = "USA-IND";
+            result = geos.split("\\-", 0); // splitting the string at "-"
+            String Geo1 = result[0];
+            String Geo2 = result[1];
+            if (null != Geo1 && !Geo1.isEmpty()) {
+                ViewObjectImpl viewImpl1 = null;
+                viewImpl1 = (ViewObjectImpl) getDCIteratorBindings("SgsNettingGeo1VO1Iterator").getViewObject();
+                viewImpl1.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+                viewImpl1.setWhereClause(" GEOGRAPHY_1 IN ( '" + Geo1 + "')");
+                System.out.println("viewImpl1 getQuery :: " + viewImpl1.getQuery());
+                viewImpl1.executeQuery();
+                
+                
+                ViewObjectImpl viewImplsum = null;
+                viewImplsum = (ViewObjectImpl) getDCIteratorBindings("SgsGeo1SumValuesVO1Iterator").getViewObject();
+                viewImplsum.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+                viewImplsum.setWhereClause(" GEOGRAPHY_1 IN ( '" + Geo1 + "')");
+                System.out.println("viewImplsum getQuery :: " + viewImplsum.getQuery());
+                viewImplsum.executeQuery();
+                
+                
+            }
+            if (null != Geo2 && !Geo2.isEmpty()) {
+                ViewObjectImpl viewImpl2 = null;
+                viewImpl2 = (ViewObjectImpl) getDCIteratorBindings("SgsNettingGeo2VO1Iterator").getViewObject();
+                viewImpl2.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+                viewImpl2.setWhereClause(" GEOGRAPHY_2 IN ( '" + Geo2 + "')");
+                System.out.println("viewImpl2 getQuery :: " + viewImpl2.getQuery());
+                viewImpl2.executeQuery();
+                
+                
+                ViewObjectImpl viewImplsum = null;
+                viewImplsum = (ViewObjectImpl) getDCIteratorBindings("SgsGeo2SumValuesVO1Iterator").getViewObject();
+                viewImplsum.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+                viewImplsum.setWhereClause(" GEOGRAPHY_2 IN ( '" + Geo2 + "')");
+                System.out.println("viewImplsum getQuery :: " + viewImplsum.getQuery());
+                viewImplsum.executeQuery();
+            }
+        }
+
+    }
+
+    public void onNettingGeo2SelectRec(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At Netting Geo2 :: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding geo2Data = null;
+        geo2Data = getDCIteratorBindings("SgsNettingGeo2VO1Iterator");
+        oracle.jbo.Row[] geo2Datarows = geo2Data.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("geo2Datarows Datarows:: " + geo2Datarows.length);
+            for (int i = 0; i < geo2Datarows.length; i++) {
+                System.out.println(" SelectGeo2Rec :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
+                 geo2Datarows[i].setAttribute("SelectGeo2Rec", "Yes");
+                System.out.println(" geo2Datarows SELECTRECORDS :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
+            }               
+        }else {
+            System.out.println("NettingDataDatarows Datarows else:: " + geo2Datarows.length);
+            for (int i = 0; i < geo2Datarows.length; i++) {
+                System.out.println("SelectGeo2Rec  :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
+                geo2Datarows[i].setAttribute("SelectGeo2Rec", "No");
+                System.out.println(" SelectGeo2Rec rows :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
+            }
+        }
+        
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindGeo2SelectCol);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSelectAllGeo2);
+    }
+
+    public void onNettingGeo1SelectRec(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At Netting Geo1 :: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding geo1Data = null;
+        geo1Data = getDCIteratorBindings("SgsNettingGeo1VO1Iterator");
+        oracle.jbo.Row[] geo1Datarows = geo1Data.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("geo1Datarows Datarows:: " + geo1Datarows.length);
+            for (int i = 0; i < geo1Datarows.length; i++) {
+                System.out.println(" SelectGeo1Rec :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
+                 geo1Datarows[i].setAttribute("SelectGeo1Rec", "Yes");
+                System.out.println(" geo1Datarows SELECTRECORDS :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
+            }               
+        }else {
+            System.out.println("geo1Datarows Datarows else:: " + geo1Datarows.length);
+            for (int i = 0; i < geo1Datarows.length; i++) {
+                System.out.println("SelectGeo1Rec  :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
+                geo1Datarows[i].setAttribute("SelectGeo1Rec", "No");
+                System.out.println(" SelectGeo1Rec rows :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
+            }
+        }
+        
+                AdfFacesContext.getCurrentInstance().addPartialTarget(bindSelectAllGeo1);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(bindGeo1SelectCol);
+    }
+
+    public void setBindGeo2SelectCol(RichColumn bindGeo2SelectCol) {
+        this.bindGeo2SelectCol = bindGeo2SelectCol;
+    }
+
+    public RichColumn getBindGeo2SelectCol() {
+        return bindGeo2SelectCol;
+    }
+
+    public void setBindSelectAllGeo2(RichSelectBooleanCheckbox bindSelectAllGeo2) {
+        this.bindSelectAllGeo2 = bindSelectAllGeo2;
+    }
+
+    public RichSelectBooleanCheckbox getBindSelectAllGeo2() {
+        return bindSelectAllGeo2;
+    }
+
+    public void setBindSelectAllGeo1(RichSelectBooleanCheckbox bindSelectAllGeo1) {
+        this.bindSelectAllGeo1 = bindSelectAllGeo1;
+    }
+
+    public RichSelectBooleanCheckbox getBindSelectAllGeo1() {
+        return bindSelectAllGeo1;
+    }
+
+    public void setBindGeo1SelectCol(RichColumn bindGeo1SelectCol) {
+        this.bindGeo1SelectCol = bindGeo1SelectCol;
+    }
+
+    public RichColumn getBindGeo1SelectCol() {
+        return bindGeo1SelectCol;
     }
 }
 

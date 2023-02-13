@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="NettingLinesPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsNettingGeo1VO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsNettingGeo1VO1Iterator"/>
+    <searchRegion Binds="SgsNettingGeo1VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNettingGeo1VO1Query"/>
+    <iterator Binds="SgsNettingGeo2VO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsNettingGeo2VO1Iterator"/>
+    <searchRegion Binds="SgsNettingGeo2VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNettingGeo2VO1Query"/>
+    <iterator Binds="SgsNettingInvoiceVoucherVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsNettingInvoiceVoucherVO1Iterator"/>
+    <iterator Binds="SgsGeo2SumValuesVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsGeo2SumValuesVO1Iterator"/>
+    <iterator Binds="SgsGeo1SumValuesVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsGeo1SumValuesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsNettingGeo1VO1Iterator" id="SgsNettingGeo1VO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsNettingGeo1VO" Name="SgsNettingGeo1VO10">
+        <AttrNames>
+          <Item Value="SelectGeo1Rec"/>
+          <Item Value="PERIOD"/>
+          <Item Value="PSFTVOUCHERNO"/>
+          <Item Value="CURRENCY"/>
+          <Item Value="VOUCHERAMOUNT"/>
+          <Item Value="WHTTDS"/>
+          <Item Value="AMTAVAILABLENET"/>
+          <Item Value="AMTNET"/>
+          <Item Value="BALANCEPENDING"/>
+          <Item Value="PARTIALFULLNET"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SgsNettingGeo2VO1Iterator" id="SgsNettingGeo2VO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsNettingGeo2VO" Name="SgsNettingGeo2VO10">
+        <AttrNames>
+          <Item Value="SelectGeo2Rec"/>
+          <Item Value="PERIOD"/>
+          <Item Value="PSFTVOUCHERNO2"/>
+          <Item Value="CURRENCY2"/>
+          <Item Value="VOUCHERAMOUNT2"/>
+          <Item Value="WHTTDS2"/>
+          <Item Value="AMTAVAILABLENET2"/>
+          <Item Value="AMTNET2"/>
+          <Item Value="BALANCEPENDING2"/>
+          <Item Value="PARTIALFULLNET2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="SgsNettingGeo1VO1Iterator" id="SelectGeo1Rec" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectGeo1Rec"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
+    <button IterBinding="SgsNettingGeo2VO1Iterator" id="SelectGeo2Rec" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectGeo2Rec"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="SgsNettingInvoiceVoucherVO1Iterator" id="NettingId">
+      <AttrNames>
+        <Item Value="NettingId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNettingInvoiceVoucherVO1Iterator" id="ALLOWABLENETTINGLIMIT">
+      <AttrNames>
+        <Item Value="ALLOWABLENETTINGLIMIT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNettingInvoiceVoucherVO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNettingInvoiceVoucherVO1Iterator" id="BusinessUnit1">
+      <AttrNames>
+        <Item Value="BusinessUnit1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNettingInvoiceVoucherVO1Iterator" id="BusinessUnit2">
+      <AttrNames>
+        <Item Value="BusinessUnit2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNettingInvoiceVoucherVO1Iterator" id="ApprovedBy">
+      <AttrNames>
+        <Item Value="ApprovedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNettingInvoiceVoucherVO1Iterator" id="ApprovalDate">
+      <AttrNames>
+        <Item Value="ApprovalDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo2SumValuesVO1Iterator" id="VOUCHERAMOUNT">
+      <AttrNames>
+        <Item Value="VOUCHERAMOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo1SumValuesVO1Iterator" id="VOUCHERAMOUNT1">
+      <AttrNames>
+        <Item Value="VOUCHERAMOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo1SumValuesVO1Iterator" id="WHTTDS">
+      <AttrNames>
+        <Item Value="WHTTDS"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo1SumValuesVO1Iterator" id="AMTAVAILABLENET">
+      <AttrNames>
+        <Item Value="AMTAVAILABLENET"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo1SumValuesVO1Iterator" id="AMTNET">
+      <AttrNames>
+        <Item Value="AMTNET"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo2SumValuesVO1Iterator" id="WHTTDS1">
+      <AttrNames>
+        <Item Value="WHTTDS"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo2SumValuesVO1Iterator" id="AMTAVAILABLENET1">
+      <AttrNames>
+        <Item Value="AMTAVAILABLENET"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsGeo2SumValuesVO1Iterator" id="AMTNET1">
+      <AttrNames>
+        <Item Value="AMTNET"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

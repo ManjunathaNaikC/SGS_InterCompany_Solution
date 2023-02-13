@@ -47,6 +47,8 @@
     <page path="/fragments/TransactionalData/SettlementDashboard.jsff"
           usageId="com_sgs_ics_view_SettlementDashboardPageDef"/>
     <page path="/fragments/TransactionalData/createSettlement.jsff" usageId="com_sgs_ics_view_createSettlementPageDef"/>
+    <page path="/fragments/TransactionalData/NettingHeader.jsff" usageId="com_sgs_ics_view_NettingHeaderPageDef"/>
+    <page path="/fragments/TransactionalData/NettingLines.jsff" usageId="com_sgs_ics_view_NettingLinesPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -86,6 +88,8 @@
     <page id="com_sgs_ics_view_SettlementDashboardPageDef"
           path="fragments.TransactionalData.SettlementDashboardPageDef"/>
     <page id="com_sgs_ics_view_createSettlementPageDef" path="fragments.TransactionalData.createSettlementPageDef"/>
+    <page id="com_sgs_ics_view_NettingHeaderPageDef" path="fragments.TransactionalData.NettingHeaderPageDef"/>
+    <page id="com_sgs_ics_view_NettingLinesPageDef" path="fragments.TransactionalData.NettingLinesPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

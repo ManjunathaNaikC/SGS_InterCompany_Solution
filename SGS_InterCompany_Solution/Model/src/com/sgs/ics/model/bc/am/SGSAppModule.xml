@@ -158,6 +158,24 @@
   <ViewUsage
     Name="SgsTpaDocAttachment1VO2"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTpaDocAttachment1VO"/>
+  <ViewUsage
+    Name="SgsNettingInvoiceVoucherVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNettingInvoiceVoucherVO"/>
+  <ViewUsage
+    Name="SgsNettingInvoiceVoucherVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNettingInvoiceVoucherVO"/>
+  <ViewUsage
+    Name="SgsNettingGeo1VO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNettingGeo1VO"/>
+  <ViewUsage
+    Name="SgsNettingGeo2VO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNettingGeo2VO"/>
+  <ViewUsage
+    Name="SgsGeo1SumValuesVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsGeo1SumValuesVO"/>
+  <ViewUsage
+    Name="SgsGeo2SumValuesVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsGeo2SumValuesVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -263,6 +281,26 @@
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
+    <Method
+      Name="loginValidationMethod"
+      MethodName="loginValidationMethod">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="user"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pass"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getDBConnection"
+      MethodName="getDBConnection">
+      <Return
+        Name="_return_type_"
+        Type="java.sql.Connection"/>
+    </Method>
     <Method
       Name="loginValidationMethod"
       MethodName="loginValidationMethod">

@@ -1,5 +1,7 @@
 package com.sgs.ics.model.bc.entity;
 
+import com.asn1c.core.Null;
+
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 
 import com.sgs.ics.model.bc.commonutils.CommonUtils;
@@ -64,6 +66,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
         NONPERSONNELCOST,
         SACHSN,
         ADDTEXPENSECAT,
+        CONCATEID,
         SgsCostOffsetCombinationEO,
         SgsCostTargetCombinationEO,
         SgsCostIdentificationCombinationEO;
@@ -128,6 +131,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
     public static final int NONPERSONNELCOST = AttributesEnum.NONPERSONNELCOST.index();
     public static final int SACHSN = AttributesEnum.SACHSN.index();
     public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
+    public static final int CONCATEID = AttributesEnum.CONCATEID.index();
     public static final int SGSCOSTOFFSETCOMBINATIONEO = AttributesEnum.SgsCostOffsetCombinationEO.index();
     public static final int SGSCOSTTARGETCOMBINATIONEO = AttributesEnum.SgsCostTargetCombinationEO.index();
     public static final int SGSCOSTIDENTIFICATIONCOMBINATIONEO =
@@ -701,6 +705,22 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for CONCATEID, using the alias name CONCATEID.
+     * @return the value of CONCATEID
+     */
+    public String getCONCATEID() {
+        return (String) getAttributeInternal(CONCATEID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CONCATEID.
+     * @param value value to set the CONCATEID
+     */
+    public void setCONCATEID(String value) {
+        setAttributeInternal(CONCATEID, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSgsCostTargetCombinationEO() {
@@ -761,6 +781,20 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
+            System.out.println("ConcateID**** "+getNatureOfExpense()+getInputProvider()+getADDTEXPENSECAT());
+            String natureOfExpense="";
+            String inputProvider="";
+            String addExpenseQuilfier="";
+            if(getNatureOfExpense() != null){
+                natureOfExpense = getNatureOfExpense().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getInputProvider() != null){
+                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         }
 
         super.doDML(operation, e);

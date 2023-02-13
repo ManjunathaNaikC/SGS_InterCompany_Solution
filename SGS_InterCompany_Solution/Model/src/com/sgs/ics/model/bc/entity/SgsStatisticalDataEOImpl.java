@@ -68,7 +68,10 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         FROMJOBCODE,
         FROMOU,
         ADDTEXPENSECAT,
-        STATISTICALDATA;
+        STATISTICALDATA,
+        CONCATEID,
+        EMPGRADE,
+        STATGEOGRAPHY;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -136,6 +139,9 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int FROMOU = AttributesEnum.FROMOU.index();
     public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
     public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
+    public static final int CONCATEID = AttributesEnum.CONCATEID.index();
+    public static final int EMPGRADE = AttributesEnum.EMPGRADE.index();
+    public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -842,6 +848,54 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
 
 
     /**
+     * Gets the attribute value for CONCATEID, using the alias name CONCATEID.
+     * @return the value of CONCATEID
+     */
+    public String getCONCATEID() {
+        return (String) getAttributeInternal(CONCATEID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CONCATEID.
+     * @param value value to set the CONCATEID
+     */
+    public void setCONCATEID(String value) {
+        setAttributeInternal(CONCATEID, value);
+    }
+
+    /**
+     * Gets the attribute value for EMPGRADE, using the alias name EMPGRADE.
+     * @return the value of EMPGRADE
+     */
+    public Integer getEMPGRADE() {
+        return (Integer) getAttributeInternal(EMPGRADE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for EMPGRADE.
+     * @param value value to set the EMPGRADE
+     */
+    public void setEMPGRADE(Integer value) {
+        setAttributeInternal(EMPGRADE, value);
+    }
+
+    /**
+     * Gets the attribute value for STATGEOGRAPHY, using the alias name STATGEOGRAPHY.
+     * @return the value of STATGEOGRAPHY
+     */
+    public String getSTATGEOGRAPHY() {
+        return (String) getAttributeInternal(STATGEOGRAPHY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STATGEOGRAPHY.
+     * @param value value to set the STATGEOGRAPHY
+     */
+    public void setSTATGEOGRAPHY(String value) {
+        setAttributeInternal(STATGEOGRAPHY, value);
+    }
+
+    /**
      * @param statisticalDataId key constituent
 
      * @return a Key object based on given key constituents.
@@ -882,6 +936,19 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
             setUpdatedDate(new java.sql.Date(new java.util.Date().getTime()));
+            String natureOfExpense="";
+            String inputProvider="";
+            String addExpenseQuilfier="";
+            if(getNATUREOFEXPENSE() != null){
+                natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getInputProvider() != null){
+                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         }
         
         super.doDML(operation, e);

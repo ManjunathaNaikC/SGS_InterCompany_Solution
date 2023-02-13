@@ -13,7 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  AccessMode="DEFAULT">
+  AccessMode="RANGE_PAGING"
+  FetchSize="25"
+  RangeSize="25"
+  FetchMode="FETCH_AS_NEEDED">
   <Properties>
     <SchemaBasedProperties>
       <LABEL

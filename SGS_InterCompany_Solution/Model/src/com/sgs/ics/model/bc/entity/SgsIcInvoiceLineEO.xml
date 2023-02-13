@@ -130,13 +130,16 @@
   </Attribute>
   <Attribute
     Name="SourceCurrency"
-    Precision="20"
-    Scale="5"
+    Precision="80"
     ColumnName="SOURCE_CURRENCY"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
-    TableName="IC_INVOICE_LINE"/>
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="IC_INVOICE_LINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    </Attribute>
   <Attribute
     Name="SourceAmount"
     Precision="20"

@@ -79,6 +79,10 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox bindSettlementRowCheckBox;
     private RichColumn bindSettlementSelectColumn;
     private RichSelectBooleanCheckbox bindNetSelectRecHeader;
+    private RichColumn bindGeo2SelectCol;
+    private RichSelectBooleanCheckbox bindSelectAllGeo2;
+    private RichSelectBooleanCheckbox bindSelectAllGeo1;
+    private RichColumn bindGeo1SelectCol;
 
     public ActionEventsBean() {
     }
@@ -1031,6 +1035,9 @@ public class ActionEventsBean {
                 System.out.println(" SelectGeo2Rec rows :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
             }
         }
+        
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindGeo2SelectCol);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSelectAllGeo2);
     }
 
     public void onNettingGeo1SelectRec(ValueChangeEvent valueChangeEvent) {
@@ -1053,6 +1060,41 @@ public class ActionEventsBean {
                 System.out.println(" SelectGeo1Rec rows :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
             }
         }
+        
+                AdfFacesContext.getCurrentInstance().addPartialTarget(bindSelectAllGeo1);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(bindGeo1SelectCol);
+    }
+
+    public void setBindGeo2SelectCol(RichColumn bindGeo2SelectCol) {
+        this.bindGeo2SelectCol = bindGeo2SelectCol;
+    }
+
+    public RichColumn getBindGeo2SelectCol() {
+        return bindGeo2SelectCol;
+    }
+
+    public void setBindSelectAllGeo2(RichSelectBooleanCheckbox bindSelectAllGeo2) {
+        this.bindSelectAllGeo2 = bindSelectAllGeo2;
+    }
+
+    public RichSelectBooleanCheckbox getBindSelectAllGeo2() {
+        return bindSelectAllGeo2;
+    }
+
+    public void setBindSelectAllGeo1(RichSelectBooleanCheckbox bindSelectAllGeo1) {
+        this.bindSelectAllGeo1 = bindSelectAllGeo1;
+    }
+
+    public RichSelectBooleanCheckbox getBindSelectAllGeo1() {
+        return bindSelectAllGeo1;
+    }
+
+    public void setBindGeo1SelectCol(RichColumn bindGeo1SelectCol) {
+        this.bindGeo1SelectCol = bindGeo1SelectCol;
+    }
+
+    public RichColumn getBindGeo1SelectCol() {
+        return bindGeo1SelectCol;
     }
 }
 

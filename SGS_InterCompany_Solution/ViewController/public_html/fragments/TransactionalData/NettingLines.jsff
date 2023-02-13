@@ -39,24 +39,23 @@
                 rows="#{bindings.SgsNettingGeo1VO1.rangeSize}"
                 emptyText="#{bindings.SgsNettingGeo1VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                 rowBandingInterval="0" selectedRowKeys="#{bindings.SgsNettingGeo1VO1.collectionModel.selectedRow}"
-                rowSelection="multiple" fetchSize="#{bindings.SgsNettingGeo1VO1.rangeSize}"
+                rowSelection="single" fetchSize="#{bindings.SgsNettingGeo1VO1.rangeSize}"
                 filterModel="#{bindings.SgsNettingGeo1VO1Query.queryDescriptor}" filterVisible="false"
                 queryListener="#{bindings.SgsNettingGeo1VO1Query.processQuery}" varStatus="vs" id="t1"
-                styleClass="AFStretchWidth">
-        <af:column headerText="#{bindings.SgsNettingGeo1VO1.hints.SelectGeo1Rec.label}" id="c19">
+                styleClass="AFStretchWidth"
+                selectionListener="#{bindings.SgsNettingGeo1VO1.collectionModel.makeCurrent}">
+        <af:column     headerText="#{bindings.SgsNettingGeo1VO1.hints.SelectGeo1Rec.label}" id="c19" binding="#{viewScope.ActionEventsBean.bindGeo1SelectCol}">
           <af:selectBooleanCheckbox value="#{row.bindings.SelectGeo1Rec.inputValue}"
-                                    label="#{row.bindings.SelectGeo1Rec.label}"
+                                    label="#{row.bindings.SelectGeo1Rec.label}" binding="#{viewScope.ActionEventsBean.bindSelectAllGeo1}"
                                     shortDesc="#{bindings.SgsNettingGeo1VO1.hints.SelectGeo1Rec.tooltip}" id="sbc1"/>
           <f:facet name="header">
-               <af:selectBooleanCheckbox text="Select All"  id="sbc4" 
-                                   
-                                    autoSubmit="true"
+            <af:selectBooleanCheckbox text="Select All" id="sbc4"
                                       valueChangeListener="#{viewScope.ActionEventsBean.onNettingGeo1SelectRec}"
-                                     partialTriggers="::t1 c19 sbc1"/>
+                                      partialTriggers="::t1 c19 sbc1" autoSubmit="true"
+                                      />
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.label}" id="c1">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.label}" id="c1">
           <f:facet name="filter">
             <af:inputDate value="#{bindings.SgsNettingGeo1VO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.PERIOD.value}"
                           id="id1">
@@ -67,18 +66,15 @@
             <af:convertDateTime pattern="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.format}"/>
           </af:outputText>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.PSFTVOUCHERNO.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PSFTVOUCHERNO.label}" id="c2">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PSFTVOUCHERNO.label}" id="c2">
           <af:outputText value="#{row.PSFTVOUCHERNO}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.PSFTVOUCHERNO.tooltip}" id="ot2"/>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.CURRENCY.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo1VO1.hints.CURRENCY.label}" id="c3">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.CURRENCY.label}" id="c3">
           <af:outputText value="#{row.CURRENCY}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.CURRENCY.tooltip}"
                          id="ot3"/>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.label}" id="c4">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.label}" id="c4">
           <af:outputText value="#{row.VOUCHERAMOUNT}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.tooltip}" id="ot4">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.format}"/>
@@ -90,8 +86,7 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.label}" id="c5">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.label}" id="c5">
           <af:outputText value="#{row.WHTTDS}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.tooltip}" id="ot5">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.format}"/>
           </af:outputText>
@@ -101,8 +96,7 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.label}" id="c6">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.label}" id="c6">
           <af:outputText value="#{row.AMTAVAILABLENET}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.tooltip}" id="ot6">
             <af:convertNumber groupingUsed="false"
@@ -115,8 +109,7 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.label}" id="c7">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.label}" id="c7">
           <af:outputText value="#{row.AMTNET}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.tooltip}" id="ot7">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.format}"/>
           </af:outputText>
@@ -126,15 +119,13 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.label}" id="c8">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.label}" id="c8">
           <af:outputText value="#{row.BALANCEPENDING}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.tooltip}" id="ot8">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.format}"/>
           </af:outputText>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.label}" id="c9">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.label}" id="c9">
           <af:outputText value="#{row.PARTIALFULLNET}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.tooltip}" id="ot9">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.format}"/>
@@ -160,20 +151,18 @@
                 filterModel="#{bindings.SgsNettingGeo2VO1Query.queryDescriptor}" filterVisible="false"
                 queryListener="#{bindings.SgsNettingGeo2VO1Query.processQuery}" varStatus="vs" id="t2"
                 styleClass="AFStretchWidth">
-        <af:column headerText="#{bindings.SgsNettingGeo2VO1.hints.SelectGeo2Rec.label}" id="c20">
+        <af:column   headerText="#{bindings.SgsNettingGeo2VO1.hints.SelectGeo2Rec.label}"  id="c20" binding="#{viewScope.ActionEventsBean.bindGeo2SelectCol}">
           <af:selectBooleanCheckbox value="#{row.bindings.SelectGeo2Rec.inputValue}"
                                     label="#{row.bindings.SelectGeo2Rec.label}"
-                                    shortDesc="#{bindings.SgsNettingGeo2VO1.hints.SelectGeo2Rec.tooltip}" id="sbc2"/>
+                                    shortDesc="#{bindings.SgsNettingGeo2VO1.hints.SelectGeo2Rec.tooltip}" id="sbc2"
+                                    binding="#{viewScope.ActionEventsBean.bindSelectAllGeo2}"/>
           <f:facet name="header">
-                      <af:selectBooleanCheckbox text="Select All"  id="sbc3" 
-                                   
-                                    autoSubmit="true"
+            <af:selectBooleanCheckbox text="Select All" id="sbc3"
                                       valueChangeListener="#{viewScope.ActionEventsBean.onNettingGeo2SelectRec}"
-                                      partialTriggers="::t2 c20 sbc2"/>
+                                      partialTriggers="::t2 c20 sbc2" autoSubmit="true"/>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.label}" id="c10">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.label}" id="c10">
           <f:facet name="filter">
             <af:inputDate value="#{bindings.SgsNettingGeo2VO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.PERIOD.value}"
                           id="id2">
@@ -184,18 +173,15 @@
             <af:convertDateTime pattern="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.format}"/>
           </af:outputText>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.PSFTVOUCHERNO2.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PSFTVOUCHERNO2.label}" id="c11">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PSFTVOUCHERNO2.label}" id="c11">
           <af:outputText value="#{row.PSFTVOUCHERNO2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.PSFTVOUCHERNO2.tooltip}" id="ot11"/>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.CURRENCY2.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo2VO1.hints.CURRENCY2.label}" id="c12">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.CURRENCY2.label}" id="c12">
           <af:outputText value="#{row.CURRENCY2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.CURRENCY2.tooltip}"
                          id="ot12"/>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.label}" id="c13">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.label}" id="c13">
           <af:outputText value="#{row.VOUCHERAMOUNT2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.tooltip}" id="ot13">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.format}"/>
@@ -207,8 +193,7 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.label}" id="c14">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.label}" id="c14">
           <af:outputText value="#{row.WHTTDS2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.tooltip}"
                          id="ot14">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.format}"/>
@@ -220,8 +205,7 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.label}" id="c15">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.label}" id="c15">
           <af:outputText value="#{row.AMTAVAILABLENET2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.tooltip}" id="ot15">
             <af:convertNumber groupingUsed="false"
@@ -234,8 +218,7 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.name}" filterable="true" sortable="true"
-                   headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.label}" id="c16">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.label}" id="c16">
           <af:outputText value="#{row.AMTNET2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.tooltip}"
                          id="ot16">
             <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.format}"/>
@@ -247,16 +230,14 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.label}" id="c17">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.label}" id="c17">
           <af:outputText value="#{row.BALANCEPENDING2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.tooltip}" id="ot17">
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.format}"/>
           </af:outputText>
         </af:column>
-        <af:column sortProperty="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.name}" filterable="true"
-                   sortable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.label}" id="c18">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.label}" id="c18">
           <af:outputText value="#{row.PARTIALFULLNET2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.tooltip}" id="ot18">
             <af:convertNumber groupingUsed="false"

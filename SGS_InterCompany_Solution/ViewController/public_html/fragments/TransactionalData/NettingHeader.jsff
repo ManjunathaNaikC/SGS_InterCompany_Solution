@@ -18,12 +18,13 @@
     <af:table value="#{bindings.SgsNettingInvoiceVoucherVO1.collectionModel}" var="row"
               rows="#{bindings.SgsNettingInvoiceVoucherVO1.rangeSize}"
               emptyText="#{bindings.SgsNettingInvoiceVoucherVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-              rowBandingInterval="0"
+              rowBandingInterval="0" 
+              selectionListener="#{bindings.SgsNettingInvoiceVoucherVO1.collectionModel.makeCurrent}"
               selectedRowKeys="#{bindings.SgsNettingInvoiceVoucherVO1.collectionModel.selectedRow}"
-              rowSelection="multiple" fetchSize="#{bindings.SgsNettingInvoiceVoucherVO1.rangeSize}"
+               fetchSize="#{bindings.SgsNettingInvoiceVoucherVO1.rangeSize}"
               filterModel="#{bindings.SgsNettingInvoiceVoucherVO1Query.queryDescriptor}"
               queryListener="#{bindings.SgsNettingInvoiceVoucherVO1Query.processQuery}" varStatus="vs" id="t1"
-              styleClass="AFStretchWidth">
+              styleClass="AFStretchWidth" rowSelection="single">
       <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.SelectedNettingRec.label}" id="c10">
         <af:selectBooleanCheckbox value="#{row.bindings.SelectedNettingRec.inputValue}"
                                   label="#{row.bindings.SelectedNettingRec.label}"

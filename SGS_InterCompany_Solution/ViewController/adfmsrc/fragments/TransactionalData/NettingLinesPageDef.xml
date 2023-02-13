@@ -23,6 +23,7 @@
     <tree IterBinding="SgsNettingGeo1VO1Iterator" id="SgsNettingGeo1VO1">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsNettingGeo1VO" Name="SgsNettingGeo1VO10">
         <AttrNames>
+          <Item Value="SelectGeo1Rec"/>
           <Item Value="PERIOD"/>
           <Item Value="PSFTVOUCHERNO"/>
           <Item Value="CURRENCY"/>
@@ -32,13 +33,13 @@
           <Item Value="AMTNET"/>
           <Item Value="BALANCEPENDING"/>
           <Item Value="PARTIALFULLNET"/>
-          <Item Value="SelectGeo1Rec" Binds="SelectGeo1Rec"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <tree IterBinding="SgsNettingGeo2VO1Iterator" id="SgsNettingGeo2VO1">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsNettingGeo2VO" Name="SgsNettingGeo2VO10">
         <AttrNames>
+          <Item Value="SelectGeo2Rec"/>
           <Item Value="PERIOD"/>
           <Item Value="PSFTVOUCHERNO2"/>
           <Item Value="CURRENCY2"/>
@@ -48,7 +49,6 @@
           <Item Value="AMTNET2"/>
           <Item Value="BALANCEPENDING2"/>
           <Item Value="PARTIALFULLNET2"/>
-          <Item Value="SelectGeo2Rec" Binds="SelectGeo2Rec"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

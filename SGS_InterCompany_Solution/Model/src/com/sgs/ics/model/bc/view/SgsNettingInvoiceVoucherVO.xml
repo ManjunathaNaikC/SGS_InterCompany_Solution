@@ -250,13 +250,27 @@
     PrecisionRule="true"
     EntityAttrName="ApprovedBy"
     EntityUsage="SgsNettingInvoiceVoucherEO"
-    AliasName="APPROVED_BY"/>
+    AliasName="APPROVED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNettingInvoiceVoucherVO.ApprovedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ApprovalDate"
     PrecisionRule="true"
     EntityAttrName="ApprovalDate"
     EntityUsage="SgsNettingInvoiceVoucherEO"
-    AliasName="APPROVAL_DATE"/>
+    AliasName="APPROVAL_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNettingInvoiceVoucherVO.ApprovalDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"

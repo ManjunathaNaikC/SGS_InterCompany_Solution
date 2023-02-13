@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Netting Of Inter-Company Voucher and Invoice " id="pb1">
+    <f:facet name="toolbar"/>
+    <af:panelGroupLayout id="pgl2" layout="horizontal">
+      <af:inputDate label="Netting Combinations and respective balances as on date" id="id2"/>
+    </af:panelGroupLayout>
+    <af:spacer id="s4" height="10"/>
+    <af:panelGroupLayout id="pgl1" layout="horizontal" halign="start">
+      <af:button text="Approve" id="b1"/>
+      <af:spacer id="s2" width="30"/>
+      <af:button text="Hold" id="b2"/>
+      <af:spacer id="s3" width="30"/>
+      <af:button text="Netting" id="b3"/>
+    </af:panelGroupLayout>
+    <af:spacer id="s1" height="40"/>
+    <af:table value="#{bindings.SgsNettingInvoiceVoucherVO1.collectionModel}" var="row"
+              rows="#{bindings.SgsNettingInvoiceVoucherVO1.rangeSize}"
+              emptyText="#{bindings.SgsNettingInvoiceVoucherVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0"
+              selectedRowKeys="#{bindings.SgsNettingInvoiceVoucherVO1.collectionModel.selectedRow}"
+              rowSelection="multiple" fetchSize="#{bindings.SgsNettingInvoiceVoucherVO1.rangeSize}"
+              filterModel="#{bindings.SgsNettingInvoiceVoucherVO1Query.queryDescriptor}"
+              queryListener="#{bindings.SgsNettingInvoiceVoucherVO1Query.processQuery}" varStatus="vs" id="t1"
+              styleClass="AFStretchWidth">
+      <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.SelectedNettingRec.label}" id="c10">
+        <af:selectBooleanCheckbox value="#{row.bindings.SelectedNettingRec.inputValue}"
+                                  label="#{row.bindings.SelectedNettingRec.label}"
+                                  shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.SelectedNettingRec.tooltip}"
+                                  id="sbc1" binding="#{viewScope.ActionEventsBean.bindNetSelectRecHeader}"/>
+        <f:facet name="header">
+            <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
+                                   
+                                    autoSubmit="true"
+                                      valueChangeListener="#{viewScope.ActionEventsBean.onNettingHeaderSelectRecord}"
+                                      partialTriggers="::t1 c10 sbc1"/>
+        </f:facet>
+      </af:column>
+      <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.NettingId.label}" id="c1"
+                 sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography1.name}" filterable="true"
+                 sortable="true">
+        <af:link  id="l1" action="toLines" actionListener="#{viewScope.ActionEventsBean.onClickOfNettingHeaderLink}">
+          <af:outputText value="#{row.NettingId}"
+                         shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.NettingId.tooltip}" id="ot1"/>
+        </af:link>
+      </af:column>
+      <af:column id="c11" headerText="Netting Participant Geo1">
+        <af:column sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography1.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography1.label}" id="c2">
+          <af:outputText value="#{row.Geography1}"
+                         shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography1.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE1.label}" id="c6">
+          <af:outputText value="#{row.ACCOUNTSPAYABLE1}"
+                         shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE1.tooltip}" id="ot6">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE1.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE1.label}" id="c7">
+          <af:outputText value="#{row.ACCOUNTSRECEIVABLE1}"
+                         shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE1.tooltip}" id="ot7">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE1.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:column>
+      <af:column id="c12" headerText="Netting Participant Geo2">
+        <af:column sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography2.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography2.label}" id="c3">
+          <af:outputText value="#{row.Geography2}"
+                         shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography2.tooltip}" id="ot3"/>
+        </af:column>
+        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE2.label}" id="c8">
+          <af:outputText value="#{row.ACCOUNTSPAYABLE2}"
+                         shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE2.tooltip}" id="ot8">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE2.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE2.label}" id="c9">
+          <af:outputText value="#{row.ACCOUNTSRECEIVABLE2}"
+                         shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE2.tooltip}" id="ot9">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE2.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:column>
+      <af:column  sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.label}" id="c4">
+        <af:outputText value="#{row.ALLOWABLENETTINGLIMIT}"
+                       shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.tooltip}" id="ot4">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.label}" id="c13">
+        <af:outputText value="#{row.AMOUNTNETTEDOFF}"
+                       shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.tooltip}" id="ot10">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Status.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Status.label}" id="c5">
+        <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Status.tooltip}"
+                       id="ot5"/>
+      </af:column>
+    </af:table>
+  </af:panelBox>
+</ui:composition>

@@ -77,12 +77,12 @@
 
                                     <af:link text="Create Settlement"
                                              action="#{pageFlowScope.navigateBean.createsettlement_flow}" id="l13"/>
-
-                                    <af:link text="Fixed Assets Transactions"
-                                             action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"/>
-
                                     <af:link text="Settlement DashBoard"
                                              action="#{pageFlowScope.navigateBean.settlementdashboardflow}" id="l12"/>
+                                    <af:link text="Fixed Assets Transactions"
+                                             action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"/>
+                                    <af:link text="Netting Settlement"
+                                             action="#{pageFlowScope.navigateBean.sgsnettingflow}" id="l2"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Process" text="Process">
@@ -102,7 +102,7 @@
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
 
-                                       partialTriggers="::l1 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::fat01 ::tpa02 ::arp01"/>
+                                       partialTriggers="::l1 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::fat01 ::tpa02 ::arp01 ::l2"/>
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->

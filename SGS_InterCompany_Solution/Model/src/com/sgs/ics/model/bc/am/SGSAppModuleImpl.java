@@ -66,7 +66,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -642,6 +642,54 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsCreateSettlementVO1() {
         return (ViewObjectImpl) findViewObject("SgsCreateSettlementVO1");
+    }
+
+    /**
+     * Container's getter for SgsNettingInvoiceVoucherVO1.
+     * @return SgsNettingInvoiceVoucherVO1
+     */
+    public ViewObjectImpl getSgsNettingInvoiceVoucherVO1() {
+        return (ViewObjectImpl) findViewObject("SgsNettingInvoiceVoucherVO1");
+    }
+
+    /**
+     * Container's getter for SgsNettingInvoiceVoucherVO2.
+     * @return SgsNettingInvoiceVoucherVO2
+     */
+    public ViewObjectImpl getSgsNettingInvoiceVoucherVO2() {
+        return (ViewObjectImpl) findViewObject("SgsNettingInvoiceVoucherVO2");
+    }
+
+    /**
+     * Container's getter for SgsNettingGeo1VO1.
+     * @return SgsNettingGeo1VO1
+     */
+    public ViewObjectImpl getSgsNettingGeo1VO1() {
+        return (ViewObjectImpl) findViewObject("SgsNettingGeo1VO1");
+    }
+
+    /**
+     * Container's getter for SgsNettingGeo2VO1.
+     * @return SgsNettingGeo2VO1
+     */
+    public ViewObjectImpl getSgsNettingGeo2VO1() {
+        return (ViewObjectImpl) findViewObject("SgsNettingGeo2VO1");
+    }
+
+    /**
+     * Container's getter for SgsGeo1SumValuesVO1.
+     * @return SgsGeo1SumValuesVO1
+     */
+    public ViewObjectImpl getSgsGeo1SumValuesVO1() {
+        return (ViewObjectImpl) findViewObject("SgsGeo1SumValuesVO1");
+    }
+
+    /**
+     * Container's getter for SgsGeo2SumValuesVO1.
+     * @return SgsGeo2SumValuesVO1
+     */
+    public ViewObjectImpl getSgsGeo2SumValuesVO1() {
+        return (ViewObjectImpl) findViewObject("SgsGeo2SumValuesVO1");
     }
 }
 

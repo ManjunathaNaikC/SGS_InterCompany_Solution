@@ -85,21 +85,21 @@
                                       shortDesc="#{bindings.SrGeography.hints.tooltip}" id="it6" rendered="false">
                             <f:validator binding="#{bindings.SrGeography.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.EmployeeId.inputValue}"
+                        <!--<af:inputText value="#{bindings.EmployeeId.inputValue}"
                                       label="#{bindings.EmployeeId.hints.label}"
                                       required="#{bindings.EmployeeId.hints.mandatory}"
                                       columns="#{bindings.EmployeeId.hints.displayWidth}"
                                       maximumLength="#{bindings.EmployeeId.hints.precision}"
                                       shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it7" rendered="false">
                             <f:validator binding="#{bindings.EmployeeId.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
                         <af:inputText value="#{bindings.EmployeeGradeLevel.inputValue}"
                                       label="#{bindings.EmployeeGradeLevel.hints.label}"
                                       required="#{bindings.EmployeeGradeLevel.hints.mandatory}"
                                       columns="#{bindings.EmployeeGradeLevel.hints.displayWidth}"
                                       maximumLength="#{bindings.EmployeeGradeLevel.hints.precision}"
                                       shortDesc="#{bindings.EmployeeGradeLevel.hints.tooltip}" id="it8"
-                                      rendered="false">
+                                      rendered="true">
                             <f:validator binding="#{bindings.EmployeeGradeLevel.validator}"/>
                         </af:inputText>
                         <!--<af:inputText value="#{bindings.Currency.inputValue}" label="#{bindings.Currency.hints.label}"
@@ -117,14 +117,14 @@
                                       shortDesc="#{bindings.UnitOfMeasure.hints.tooltip}" id="it10">
                             <f:validator binding="#{bindings.UnitOfMeasure.validator}"/>
                         </af:inputText>-->
-                        <af:inputText value="#{bindings.ProgramName.inputValue}"
+                        <!--<af:inputText value="#{bindings.ProgramName.inputValue}"
                                       label="#{bindings.ProgramName.hints.label}"
                                       required="#{bindings.ProgramName.hints.mandatory}"
                                       columns="#{bindings.ProgramName.hints.displayWidth}"
                                       maximumLength="#{bindings.ProgramName.hints.precision}"
                                       shortDesc="#{bindings.ProgramName.hints.tooltip}" id="it11" rendered="false">
                             <f:validator binding="#{bindings.ProgramName.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
                         <af:inputText value="#{bindings.StandardCost.inputValue}"
                                       label="#{bindings.StandardCost.hints.label}"
                                       required="#{bindings.StandardCost.hints.mandatory}"
@@ -262,7 +262,7 @@
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
-                                           id="c2" rendered="false">
+                                           id="c2" rendered="true">
                                     <af:inputText value="#{row.bindings.SrGeography.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.mandatory}"
@@ -398,7 +398,7 @@
                                         <f:validator binding="#{row.bindings.EMPLOYEEGRADELEVEL.validator}"/>
                                     </af:inputText>
                                 </af:column>
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
+                                <!--<af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.name}"
                                            filterable="true" id="c13">
                                     <af:inputText value="#{row.bindings.EMPLOYEEID.inputValue}"
@@ -410,8 +410,8 @@
                                                   id="it24">
                                         <f:validator binding="#{row.bindings.EMPLOYEEID.validator}"/>
                                     </af:inputText>
-                                </af:column>
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.label}"
+                                </af:column>-->
+                                <!--<af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.label}"
                                  sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.name}"
                                            filterable="true"
                                            id="c14">
@@ -424,7 +424,7 @@
                                                   id="it25">
                                         <f:validator binding="#{row.bindings.PROGRAMNAME.validator}"/>
                                     </af:inputText>
-                                </af:column>
+                                </af:column>-->
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.label}"

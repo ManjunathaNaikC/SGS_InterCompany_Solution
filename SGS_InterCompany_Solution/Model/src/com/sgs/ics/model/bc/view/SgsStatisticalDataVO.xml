@@ -781,6 +781,32 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="EMPGRADE"
+    PrecisionRule="true"
+    EntityAttrName="EMPGRADE"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="EMP_GRADE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.EMPGRADE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="STATGEOGRAPHY"
+    PrecisionRule="true"
+    EntityAttrName="STATGEOGRAPHY"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="STAT_GEOGRAPHY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.STATGEOGRAPHY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

@@ -137,5 +137,7 @@
     <list IterBinding="SgsTpaMaster1VO1Iterator" StaticList="false" Uses="LOV_BdCommissionApplicability"
           id="BdCommissionApplicability1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <list IterBinding="SgsTpaMaster1VO1Iterator" StaticList="false" Uses="LOV_NettingApplicatibility"
+          id="NettingApplicatibility1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

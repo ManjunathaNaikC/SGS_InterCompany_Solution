@@ -132,5 +132,9 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="SgsGstTblVO1Iterator" StaticList="false" Uses="LOV_SupplyType" id="SupplyType1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsGstTblVO1Iterator" StaticList="false" Uses="LOV_Rcm" id="Rcm1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsGstTblVO1Iterator" StaticList="false" Uses="LOV_Recoverable" id="Recoverable1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

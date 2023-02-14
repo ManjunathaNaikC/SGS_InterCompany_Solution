@@ -354,6 +354,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ADDITIONALEXPQUALIFIER"
+    Precision="80"
+    ColumnName="ADDITIONAL_EXP_QUALIFIER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_MARKUP_RATE_MASTER_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSMARKUPRATEMASTERTBL"
     PrimaryKey="true">

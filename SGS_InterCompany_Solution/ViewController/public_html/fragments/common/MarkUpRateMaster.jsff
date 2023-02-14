@@ -203,6 +203,16 @@
                 </af:inputText>
               </af:column>
             </af:column>
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.label}" id="c19">
+              <af:selectOneChoice value="#{row.bindings.ADDITIONALEXPQUALIFIER.inputValue}"
+                                  label="#{row.bindings.ADDITIONALEXPQUALIFIER.label}"
+                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.mandatory}"
+                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.tooltip}"
+                                  id="soc1">
+                <f:selectItems value="#{row.bindings.ADDITIONALEXPQUALIFIER.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.ADDITIONALEXPQUALIFIER.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
             <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
               <af:inputText value="#{row.bindings.NatureOfExpenses.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}"

@@ -49,10 +49,20 @@
                 <af:outputText value="#{row.LeServiceReceiver}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.tooltip}" id="ot3"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="resId1c4">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="c1">
+                <af:selectOneChoice value="#{row.bindings.NettingApplicatibility.inputValue}"
+                                    label="#{row.bindings.NettingApplicatibility.label}"
+                                    required="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.mandatory}"
+                                    shortDesc="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.tooltip}"
+                                    id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.NettingApplicatibility.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.NettingApplicatibility.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <!--<af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="resId1c4">
                 <af:outputText value="#{row.NettingApplicatibility}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.tooltip}" id="ot4"/>
-              </af:column>
+              </af:column>-->
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.label}" id="resId1c5">
                 <af:outputText value="#{row.BdCommissionApplicability}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.tooltip}"

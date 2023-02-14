@@ -17,3 +17,10 @@ def bLookupType_SgsLookupBDCmsnAppVO1_BindVariable_BoundParameter()
 'YESORNO'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupNetApplicabilityVO1", name="bLookupType")
+def bLookupType_SgsLookupNetApplicabilityVO1_BindVariable_BoundParameter()
+{
+'YESORNO'
+}
+

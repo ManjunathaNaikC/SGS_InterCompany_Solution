@@ -586,7 +586,7 @@ public class ActionEventsBean {
                     path = filePath1 + fileNames;
                     saveFile(path, fileName, bfi);
 
-                    DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocTypeVOIterator");
+                    DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocAttachment1VO2Iterator");
                     Row row = docs.getCurrentRow();
                     // row.setAttribute("FileContent",sbyte);
                     //row.setAttribute("EffectiveFrom",new java.sql.Date(new java.util.Date().getTime()));

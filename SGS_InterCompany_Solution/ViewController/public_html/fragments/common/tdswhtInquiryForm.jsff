@@ -280,14 +280,15 @@
                   </af:inputDate>
                 </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.label}" id="c7">
-                  <af:inputText value="#{row.bindings.Attachment.inputValue}"
+                  <!--<af:inputText value="#{row.bindings.Attachment.inputValue}"
                                 label="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.label}"
                                 required="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.mandatory}"
                                 columns="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.displayWidth}"
                                 maximumLength="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.precision}"
                                 shortDesc="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.tooltip}" id="it15">
                     <f:validator binding="#{row.bindings.Attachment.validator}"/>
-                  </af:inputText>
+                  </af:inputText>-->
+                  <af:inputFile label="Upload File" id="if1"/>
                 </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.LastUpdatedBy.label}" id="c8">
                   <af:inputText value="#{row.bindings.LastUpdatedBy.inputValue}"

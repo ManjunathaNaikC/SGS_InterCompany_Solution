@@ -113,7 +113,30 @@
                                 <f:validator binding="#{row.bindings.CostGroup.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
-                        
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}" id="c51">
+                            <af:inputText value="#{row.bindings.EMPGRADE.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.tooltip}"
+                                          id="it23">
+                                <f:validator binding="#{row.bindings.EMPGRADE.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
+                            <af:inputText value="#{row.bindings.STATGEOGRAPHY.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.tooltip}"
+                                          id="it24">
+                                <f:validator binding="#{row.bindings.STATGEOGRAPHY.validator}"/>
+                            </af:inputText>
+                        </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"
@@ -136,7 +159,7 @@
                                 <f:validator binding="#{row.bindings.StatisticalDataCategory.validator}"/>
                             </af:inputText>-->
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}" 
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.name}"
                                    filterable="true" id="c40">
                             <af:inputText value="#{row.bindings.FROMBU.inputValue}"
@@ -172,7 +195,7 @@
                                           id="it32">
                                 <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
                             </af:inputText>
-                        </af:column>
+                        </af:column>-->
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.name}"
                                    filterable="true" id="c43">

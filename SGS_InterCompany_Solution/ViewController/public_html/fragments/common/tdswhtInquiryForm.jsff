@@ -356,6 +356,16 @@
                     <f:validator binding="#{row.bindings.CostIdenId.validator}"/>
                   </af:inputText>
                 </af:column>
+                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c1">
+                  <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                      label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                      required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
+                                      shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
+                                      id="soc1">
+                    <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
+                    <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.AccountingTreatment.label}"
                            id="c11">
                   <af:inputText value="#{row.bindings.AccountingTreatment.inputValue}"
@@ -368,16 +378,7 @@
                     <f:validator binding="#{row.bindings.AccountingTreatment.validator}"/>
                   </af:inputText>
                 </af:column>
-                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c1">
-                  <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
-                                      label="#{row.bindings.NATUREOFEXPENSE.label}"
-                                      required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
-                                      shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
-                                      id="soc1">
-                    <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
-                    <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
+               
                 <!--<af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.label}"
                            id="c17">
                   <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"

@@ -91,13 +91,16 @@
                           shortDesc="#{bindings.Recoverable.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.Recoverable.validator}"/>
             </af:inputText>-->
-            <af:inputText value="#{bindings.IdenticalGstReg.inputValue}" label="#{bindings.IdenticalGstReg.hints.label}"
+           <!--<af:inputText value="#{bindings.IdenticalGstReg.inputValue}" label="#{bindings.IdenticalGstReg.hints.label}"
+
+            </af:inputText>-->
+            <!--<af:inputText value="#{bindings.IdenticalGstReg.inputValue}" label="#{bindings.IdenticalGstReg.hints.label}"
                           required="#{bindings.IdenticalGstReg.hints.mandatory}"
                           columns="#{bindings.IdenticalGstReg.hints.displayWidth}"
                           maximumLength="#{bindings.IdenticalGstReg.hints.precision}"
                           shortDesc="#{bindings.IdenticalGstReg.hints.tooltip}" id="it7">
               <f:validator binding="#{bindings.IdenticalGstReg.validator}"/>
-            </af:inputText>
+            </af:inputText>-->
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
                           columns="#{bindings.EffectiveFrom.hints.displayWidth}"

@@ -158,6 +158,26 @@
                       selectionListener="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsVatTaxApplicabilityVO1.rangeSize}" id="t2"
                       partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
+             <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c3">
+                <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                    label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                    required="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
+                                    shortDesc="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.label}" id="c4">
+                <af:selectOneChoice value="#{row.bindings.ChargeabilityToTax.inputValue}"
+                                    label="#{row.bindings.ChargeabilityToTax.label}"
+                                    required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.mandatory}"
+                                    shortDesc="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.tooltip}"
+                                    id="soc2">
+                  <f:selectItems value="#{row.bindings.ChargeabilityToTax.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.CostGroupingCode.label}" id="c1"
                          visible="false">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"
@@ -169,16 +189,7 @@
                   <f:validator binding="#{row.bindings.CostGroupingCode.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c3">
-                <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
-                                    label="#{row.bindings.NATUREOFEXPENSE.label}"
-                                    required="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
-                                    shortDesc="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
-                                    id="soc1">
-                  <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
-                  <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
-                </af:selectOneChoice>
-              </af:column>
+              
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.label}" id="c2">
                 <af:inputText value="#{row.bindings.RateOfTax.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.label}"
@@ -200,16 +211,7 @@
                   <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                 </af:inputText>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.label}" id="c4">
-                <af:selectOneChoice value="#{row.bindings.ChargeabilityToTax.inputValue}"
-                                    label="#{row.bindings.ChargeabilityToTax.label}"
-                                    required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.mandatory}"
-                                    shortDesc="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.tooltip}"
-                                    id="soc2">
-                  <f:selectItems value="#{row.bindings.ChargeabilityToTax.items}" id="si2"/>
-                  <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
-                </af:selectOneChoice>
-              </af:column>
+             
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}" id="c5"
                          rendered="false">
                 <af:inputText value="#{row.bindings.ItmServCat.inputValue}"

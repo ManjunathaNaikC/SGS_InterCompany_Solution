@@ -57,7 +57,8 @@ public class sgsMarkUpRateMasterEOImpl extends EntityImpl {
         EFFECTIVEFROM,
         EFFECTIVETO,
         STATUS,
-        MARKUPNAME;
+        MARKUPNAME,
+        ADDITIONALEXPQUALIFIER;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -115,6 +116,7 @@ public class sgsMarkUpRateMasterEOImpl extends EntityImpl {
     public static final int EFFECTIVETO = AttributesEnum.EFFECTIVETO.index();
     public static final int STATUS = AttributesEnum.STATUS.index();
     public static final int MARKUPNAME = AttributesEnum.MARKUPNAME.index();
+    public static final int ADDITIONALEXPQUALIFIER = AttributesEnum.ADDITIONALEXPQUALIFIER.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -641,6 +643,22 @@ public class sgsMarkUpRateMasterEOImpl extends EntityImpl {
      */
     public void setMARKUPNAME(String value) {
         setAttributeInternal(MARKUPNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for ADDITIONALEXPQUALIFIER, using the alias name ADDITIONALEXPQUALIFIER.
+     * @return the value of ADDITIONALEXPQUALIFIER
+     */
+    public String getADDITIONALEXPQUALIFIER() {
+        return (String) getAttributeInternal(ADDITIONALEXPQUALIFIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ADDITIONALEXPQUALIFIER.
+     * @param value value to set the ADDITIONALEXPQUALIFIER
+     */
+    public void setADDITIONALEXPQUALIFIER(String value) {
+        setAttributeInternal(ADDITIONALEXPQUALIFIER, value);
     }
 
     /**

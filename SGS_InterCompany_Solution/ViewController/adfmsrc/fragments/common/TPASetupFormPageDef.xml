@@ -161,5 +161,7 @@
         <Item Value="STATUS"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="SgsTpaMasterVOIterator" StaticList="false" Uses="LOV_NettingApplicatibility"
+          id="NettingApplicatibility1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

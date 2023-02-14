@@ -93,6 +93,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupNetApplicabilityVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_PassThroughFlag"
     ListVOName="SgsLookupVO1"
@@ -117,6 +121,23 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="BdCommissionApplicability"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NettingApplicatibility"
+    ListVOName="SgsLookupNetApplicabilityVO2"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NettingApplicatibility"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -245,13 +266,16 @@
     PrecisionRule="true"
     EntityAttrName="NettingApplicatibility"
     EntityUsage="SgsTpaMaster"
-    AliasName="NETTING_APPLICATIBILITY">
+    AliasName="NETTING_APPLICATIBILITY"
+    LOVName="LOV_NettingApplicatibility">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="4.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTpaMasterVO.NettingApplicatibility_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

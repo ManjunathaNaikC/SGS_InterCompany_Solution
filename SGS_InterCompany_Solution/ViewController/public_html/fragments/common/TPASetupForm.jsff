@@ -44,14 +44,21 @@
                                   shortDesc="#{bindings.LeServiceReceiver.hints.tooltip}" id="it3">
                         <f:validator binding="#{bindings.LeServiceReceiver.validator}"/>
                     </af:inputText>
-                    <af:inputText value="#{bindings.NettingApplicatibility.inputValue}"
+                    <af:selectOneChoice value="#{bindings.NettingApplicatibility1.inputValue}"
+                                        label="#{bindings.NettingApplicatibility1.label}"
+                                        required="#{bindings.NettingApplicatibility1.hints.mandatory}"
+                                        shortDesc="#{bindings.NettingApplicatibility1.hints.tooltip}" id="soc2">
+                        <f:selectItems value="#{bindings.NettingApplicatibility1.items}" id="si4"/>
+                        <f:validator binding="#{bindings.NettingApplicatibility1.validator}"/>
+                    </af:selectOneChoice>
+                    <!--<af:inputText value="#{bindings.NettingApplicatibility.inputValue}"
                                   label="#{bindings.NettingApplicatibility.hints.label}"
                                   required="#{bindings.NettingApplicatibility.hints.mandatory}"
                                   columns="#{bindings.NettingApplicatibility.hints.displayWidth}"
                                   maximumLength="#{bindings.NettingApplicatibility.hints.precision}"
                                   shortDesc="#{bindings.NettingApplicatibility.hints.tooltip}" id="it4">
                         <f:validator binding="#{bindings.NettingApplicatibility.validator}"/>
-                    </af:inputText>
+                    </af:inputText>-->
                     <af:selectOneRadio value="#{bindings.BdCommissionApplicability1.inputValue}"
                                        label="#{bindings.BdCommissionApplicability1.label}"
                                        required="#{bindings.BdCommissionApplicability1.hints.mandatory}"

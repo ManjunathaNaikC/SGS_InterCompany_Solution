@@ -45,14 +45,21 @@
                           shortDesc="#{bindings.LeServiceReceiver.hints.tooltip}" id="it3">
               <f:validator binding="#{bindings.LeServiceReceiver.validator}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.NettingApplicatibility.inputValue}"
+            <af:selectOneChoice value="#{bindings.NettingApplicatibility1.inputValue}"
+                                label="#{bindings.NettingApplicatibility1.label}"
+                                required="#{bindings.NettingApplicatibility1.hints.mandatory}"
+                                shortDesc="#{bindings.NettingApplicatibility1.hints.tooltip}" id="soc1">
+              <f:selectItems value="#{bindings.NettingApplicatibility1.items}" id="si3"/>
+              <f:validator binding="#{bindings.NettingApplicatibility1.validator}"/>
+            </af:selectOneChoice>
+            <!--<af:inputText value="#{bindings.NettingApplicatibility.inputValue}"
                           label="#{bindings.NettingApplicatibility.hints.label}"
                           required="#{bindings.NettingApplicatibility.hints.mandatory}"
                           columns="#{bindings.NettingApplicatibility.hints.displayWidth}"
                           maximumLength="#{bindings.NettingApplicatibility.hints.precision}"
                           shortDesc="#{bindings.NettingApplicatibility.hints.tooltip}" id="it4">
               <f:validator binding="#{bindings.NettingApplicatibility.validator}"/>
-            </af:inputText>
+            </af:inputText>-->
             <!--<af:inputText value="#{bindings.BdCommissionApplicability.inputValue}"
                           label="#{bindings.BdCommissionApplicability.hints.label}"
                           required="#{bindings.BdCommissionApplicability.hints.mandatory}"
@@ -323,14 +330,9 @@
                 </af:inputText>
               </af:column>
               <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.label}" id="c2">
-                <af:inputText value="#{row.bindings.Attachment.inputValue}"
-                              label="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.label}"
-                              required="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.mandatory}"
-                              columns="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.displayWidth}"
-                              maximumLength="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.precision}"
-                              shortDesc="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.tooltip}" id="it18">
-                  <f:validator binding="#{row.bindings.Attachment.validator}"/>
-                </af:inputText>
+             <af:inputFile id="if1"
+                                              valueChangeListener="#{viewScope.ActionEventsBean.onTPADocsUpload}"
+                                              autoSubmit="true" uploadType="submit"/>
               </af:column>
               <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveFrom.label}" id="c3">
                 <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"

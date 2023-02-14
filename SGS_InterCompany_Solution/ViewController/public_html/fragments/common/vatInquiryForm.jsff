@@ -56,12 +56,18 @@
                           shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it15">
               <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.Rcm.inputValue}" label="#{bindings.Rcm.hints.label}"
+            <af:selectOneChoice value="#{bindings.Rcm1.inputValue}" label="#{bindings.Rcm1.label}"
+                                required="#{bindings.Rcm1.hints.mandatory}" shortDesc="#{bindings.Rcm1.hints.tooltip}"
+                                id="soc3">
+              <f:selectItems value="#{bindings.Rcm1.items}" id="si3"/>
+              <f:validator binding="#{bindings.Rcm1.validator}"/>
+            </af:selectOneChoice>
+            <!--<af:inputText value="#{bindings.Rcm.inputValue}" label="#{bindings.Rcm.hints.label}"
                           required="#{bindings.Rcm.hints.mandatory}" columns="#{bindings.Rcm.hints.displayWidth}"
                           maximumLength="#{bindings.Rcm.hints.precision}" shortDesc="#{bindings.Rcm.hints.tooltip}"
                           id="it4">
               <f:validator binding="#{bindings.Rcm.validator}"/>
-            </af:inputText>
+            </af:inputText>-->
             <af:inputText value="#{bindings.VatInputGlAcc.inputValue}" label="#{bindings.VatInputGlAcc.hints.label}"
                           required="#{bindings.VatInputGlAcc.hints.mandatory}"
                           columns="#{bindings.VatInputGlAcc.hints.displayWidth}"

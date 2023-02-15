@@ -75,6 +75,15 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         IgstAmount,
         CgstAmount,
         SgstAmount,
+        Duedate,
+        HoldReason,
+        HoldRemarks,
+        Holdby,
+        Holdon,
+        ReleaseAction,
+        ReleaseRemarks,
+        Releasedby,
+        Releasedon,
         SgsOtrTargetEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -151,6 +160,15 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
     public static final int IGSTAMOUNT = AttributesEnum.IgstAmount.index();
     public static final int CGSTAMOUNT = AttributesEnum.CgstAmount.index();
     public static final int SGSTAMOUNT = AttributesEnum.SgstAmount.index();
+    public static final int DUEDATE = AttributesEnum.Duedate.index();
+    public static final int HOLDREASON = AttributesEnum.HoldReason.index();
+    public static final int HOLDREMARKS = AttributesEnum.HoldRemarks.index();
+    public static final int HOLDBY = AttributesEnum.Holdby.index();
+    public static final int HOLDON = AttributesEnum.Holdon.index();
+    public static final int RELEASEACTION = AttributesEnum.ReleaseAction.index();
+    public static final int RELEASEREMARKS = AttributesEnum.ReleaseRemarks.index();
+    public static final int RELEASEDBY = AttributesEnum.Releasedby.index();
+    public static final int RELEASEDON = AttributesEnum.Releasedon.index();
     public static final int SGSOTRTARGETEO = AttributesEnum.SgsOtrTargetEO.index();
 
     /**
@@ -972,6 +990,150 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         setAttributeInternal(SGSTAMOUNT, value);
     }
 
+
+    /**
+     * Gets the attribute value for Duedate, using the alias name Duedate.
+     * @return the value of Duedate
+     */
+    public Date getDuedate() {
+        return (Date) getAttributeInternal(DUEDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Duedate.
+     * @param value value to set the Duedate
+     */
+    public void setDuedate(Date value) {
+        setAttributeInternal(DUEDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for HoldReason, using the alias name HoldReason.
+     * @return the value of HoldReason
+     */
+    public String getHoldReason() {
+        return (String) getAttributeInternal(HOLDREASON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for HoldReason.
+     * @param value value to set the HoldReason
+     */
+    public void setHoldReason(String value) {
+        setAttributeInternal(HOLDREASON, value);
+    }
+
+    /**
+     * Gets the attribute value for HoldRemarks, using the alias name HoldRemarks.
+     * @return the value of HoldRemarks
+     */
+    public String getHoldRemarks() {
+        return (String) getAttributeInternal(HOLDREMARKS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for HoldRemarks.
+     * @param value value to set the HoldRemarks
+     */
+    public void setHoldRemarks(String value) {
+        setAttributeInternal(HOLDREMARKS, value);
+    }
+
+    /**
+     * Gets the attribute value for Holdby, using the alias name Holdby.
+     * @return the value of Holdby
+     */
+    public String getHoldby() {
+        return (String) getAttributeInternal(HOLDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Holdby.
+     * @param value value to set the Holdby
+     */
+    public void setHoldby(String value) {
+        setAttributeInternal(HOLDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for Holdon, using the alias name Holdon.
+     * @return the value of Holdon
+     */
+    public Date getHoldon() {
+        return (Date) getAttributeInternal(HOLDON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Holdon.
+     * @param value value to set the Holdon
+     */
+    public void setHoldon(Date value) {
+        setAttributeInternal(HOLDON, value);
+    }
+
+    /**
+     * Gets the attribute value for ReleaseAction, using the alias name ReleaseAction.
+     * @return the value of ReleaseAction
+     */
+    public String getReleaseAction() {
+        return (String) getAttributeInternal(RELEASEACTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ReleaseAction.
+     * @param value value to set the ReleaseAction
+     */
+    public void setReleaseAction(String value) {
+        setAttributeInternal(RELEASEACTION, value);
+    }
+
+    /**
+     * Gets the attribute value for ReleaseRemarks, using the alias name ReleaseRemarks.
+     * @return the value of ReleaseRemarks
+     */
+    public String getReleaseRemarks() {
+        return (String) getAttributeInternal(RELEASEREMARKS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ReleaseRemarks.
+     * @param value value to set the ReleaseRemarks
+     */
+    public void setReleaseRemarks(String value) {
+        setAttributeInternal(RELEASEREMARKS, value);
+    }
+
+    /**
+     * Gets the attribute value for Releasedby, using the alias name Releasedby.
+     * @return the value of Releasedby
+     */
+    public String getReleasedby() {
+        return (String) getAttributeInternal(RELEASEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Releasedby.
+     * @param value value to set the Releasedby
+     */
+    public void setReleasedby(String value) {
+        setAttributeInternal(RELEASEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for Releasedon, using the alias name Releasedon.
+     * @return the value of Releasedon
+     */
+    public Date getReleasedon() {
+        return (Date) getAttributeInternal(RELEASEDON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Releasedon.
+     * @param value value to set the Releasedon
+     */
+    public void setReleasedon(Date value) {
+        setAttributeInternal(RELEASEDON, value);
+    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.

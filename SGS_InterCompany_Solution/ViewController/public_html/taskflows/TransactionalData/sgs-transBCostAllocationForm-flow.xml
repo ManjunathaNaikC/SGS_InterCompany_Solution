@@ -15,6 +15,11 @@
       <value>#{pageFlowScope.pStatus}</value>
       <class>java.lang.String</class>
     </input-parameter-definition>
+    <managed-bean id="__5">
+      <managed-bean-name>TransBCostAllocationBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.bean.common.TransBCostAllocationBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <view id="transBCostAllocationForm">
       <page>/fragments/TransactionalData/transBCostAllocationForm.jsff</page>
     </view>

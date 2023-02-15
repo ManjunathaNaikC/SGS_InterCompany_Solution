@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelStretchLayout id="psl1">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top"/>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+            <af:panelBox text="" id="pb1" showDisclosure="false">
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1"></af:toolbar>
+                </f:facet>
+                <af:spacer id="s2" width="50"/>
+                <af:outputText value="Particulars" id="ot1" inlineStyle="font-weight:bold;font-size:14px;"/>
+                <af:spacer id="s22" width="80"/>
+                <af:outputText value="Details" id="ot13" inlineStyle="font-weight:bold;font-size:14px;"/>
+                <af:separator id="s1"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.Holdby.inputValue}" label="#{bindings.Holdby.hints.label}"
+                                  required="#{bindings.Holdby.hints.mandatory}"
+                                  columns="#{bindings.Holdby.hints.displayWidth}"
+                                  maximumLength="#{bindings.Holdby.hints.precision}"
+                                  shortDesc="#{bindings.Holdby.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.Holdby.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Holdon.inputValue}" label="#{bindings.Holdon.hints.label}"
+                                  required="#{bindings.Holdon.hints.mandatory}"
+                                  columns="#{bindings.Holdon.hints.displayWidth}"
+                                  maximumLength="#{bindings.Holdon.hints.precision}"
+                                  shortDesc="#{bindings.Holdon.hints.tooltip}" id="it2" readOnly="true">
+                        <f:validator binding="#{bindings.Holdon.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.Holdon.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.HoldReason.inputValue}" label="#{bindings.HoldReason.hints.label}"
+                                  required="#{bindings.HoldReason.hints.mandatory}"
+                                  columns="#{bindings.HoldReason.hints.displayWidth}"
+                                  maximumLength="#{bindings.HoldReason.hints.precision}"
+                                  shortDesc="#{bindings.HoldReason.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.HoldReason.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.Duedate.inputValue}" label="#{bindings.Duedate.hints.label}"
+                                  required="#{bindings.Duedate.hints.mandatory}"
+                                  columns="#{bindings.Duedate.hints.displayWidth}"
+                                  shortDesc="#{bindings.Duedate.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.Duedate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.Duedate.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.HoldRemarks.inputValue}" label="#{bindings.HoldRemarks.hints.label}"
+                                  required="#{bindings.HoldRemarks.hints.mandatory}"
+                                  columns="#{bindings.HoldRemarks.hints.displayWidth}"
+                                  maximumLength="#{bindings.HoldRemarks.hints.precision}"
+                                  shortDesc="#{bindings.HoldRemarks.hints.tooltip}" id="it4" rows="4">
+                        <f:validator binding="#{bindings.HoldRemarks.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

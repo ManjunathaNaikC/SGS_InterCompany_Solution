@@ -39,7 +39,7 @@
                       rowBandingInterval="0"  rowSelection="single"
                       fetchSize="#{bindings.SgsTpaMasterVO.rangeSize}" id="resId1" partialTriggers="::b2"
                       styleClass="AFStretchWidth" columnStretching="column:resId1c3" inlineStyle="height:250px;"
-                      autoHeightRows="12">
+                      autoHeightRows="12" scrollPolicy="page">
               <af:column headerText="#{bindings.SgsTpaMasterVO.hints.TpaId.label}" id="resId1c1" width="250"
                          minimumWidth="12">
                 <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMasterVO.hints.TpaId.tooltip}" id="ot1"/>-->

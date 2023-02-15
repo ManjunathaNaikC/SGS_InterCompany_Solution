@@ -13,7 +13,9 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  AccessMode="DEFAULT">
+  FetchSize="25"
+  FetchMode="FETCH_AS_NEEDED"
+  AccessMode="RANGE_PAGING">
   <Variable
     Name="bPointofDeduction"
     Kind="viewcriteria"

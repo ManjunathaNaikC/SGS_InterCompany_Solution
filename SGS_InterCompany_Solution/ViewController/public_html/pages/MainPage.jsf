@@ -34,7 +34,7 @@
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="50%" id="gc2" valign="middle" halign="center">
                                 <af:panelGroupLayout id="pgl4" valign="middle" halign="center">
-                                    <af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
+                                    <af:outputText value="Intercompany Workbench Application"
                                                    id="ot3"
                                                    inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:White;"/>
                                 </af:panelGroupLayout>

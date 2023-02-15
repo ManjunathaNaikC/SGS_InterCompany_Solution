@@ -46,7 +46,7 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTdsWhtTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTdsWhtTblVO1.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.SgsTdsWhtTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
-                      partialTriggers="::b2 ::b3">
+                      partialTriggers="::b2 ::b3" scrollPolicy="page">
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.TdsWhtId}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.tooltip}"
                              id="ot1"/>-->

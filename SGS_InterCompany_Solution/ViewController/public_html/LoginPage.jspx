@@ -34,7 +34,7 @@
                                                id="ot1"
                                                inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
                             </af:panelGroupLayout>-->
-                            <af:outputFormatted value="Sutherland Global Services – Intercompany Workbench Application"
+                            <af:outputFormatted value="Intercompany Workbench Application"
                                                 id="of2"
                                                 inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
                             <af:panelBox id="pb2" showDisclosure="false" titleHalign="center"

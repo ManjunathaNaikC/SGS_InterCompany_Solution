@@ -42,7 +42,7 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsVatTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsVatTblVO1.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.SgsVatTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
-                      partialTriggers="::b1 ::b2">
+                      partialTriggers="::b1 ::b2" scrollPolicy="page">
               <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatNum.label}" id="resId1c1">
                 <af:link text="#{row.VatNum}" id="l1" action="EDIT"/>
                 <!--<af:outputText value="#{row.VatNum}" shortDesc="#{bindings.SgsVatTblVO1.hints.VatNum.tooltip}" id="ot1"/>-->

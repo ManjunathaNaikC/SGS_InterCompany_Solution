@@ -13,7 +13,7 @@
                 <af:panelSplitter orientation="horizontal" splitterPosition="240" id="ps1">
                     <f:facet name="first">
                         <!-- Left -->
-                        <af:panelAccordion discloseMany="false" id="MenuOptions" styleClass="">
+                        <af:panelAccordion discloseMany="true" id="MenuOptions" styleClass="">
                             <af:showDetailItem id="Setup" text="Setup">
                                 <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options">
                                     <af:link text="Cost Allocation Setup"

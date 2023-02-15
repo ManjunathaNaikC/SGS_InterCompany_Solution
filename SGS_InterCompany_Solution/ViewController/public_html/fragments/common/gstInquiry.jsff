@@ -45,7 +45,7 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsGstTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsGstTblVO1.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.SgsGstTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
-                      partialTriggers="::b1 ::b2">
+                      partialTriggers="::b1 ::b2" scrollPolicy="page">
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.GstNum.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.GstNum}" shortDesc="#{bindings.SgsGstTblVO1.hints.GstNum.tooltip}" id="ot1"/>-->
                 <af:link text="#{row.GstNum}" id="l1" action="EDIT"/>

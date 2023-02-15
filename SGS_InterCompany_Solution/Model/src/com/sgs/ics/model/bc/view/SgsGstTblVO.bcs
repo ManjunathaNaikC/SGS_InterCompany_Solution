@@ -24,3 +24,17 @@ def bLookupType_SgsLookupSupTypVO1_BindVariable_BoundParameter()
 'SUPPLY_TYPE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupRCMVO1", name="bLookupType")
+def bLookupType_SgsLookupRCMVO1_BindVariable_BoundParameter()
+{
+'YESORNO'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupRecoverableVO1", name="bLookupType")
+def bLookupType_SgsLookupRecoverableVO1_BindVariable_BoundParameter()
+{
+'YESORNO'
+}
+

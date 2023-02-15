@@ -184,9 +184,16 @@ public class NavigateBean implements Serializable {
         DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
         return bindings.findIteratorBinding(iterName);
 
-    } 
-    
+    }
 
-    
-    
+
+    public String sgsAllocationRunflow() {
+        setDynamicTaskFlowId("/taskflows/Process/sgs-Allocation-Run-flow.xml#sgs-Allocation-Run-flow");
+        return null;
+    }
+
+    public String sgsnettingflow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-netting-flow.xml#sgs-netting-flow");
+        return null;
+    }
 }

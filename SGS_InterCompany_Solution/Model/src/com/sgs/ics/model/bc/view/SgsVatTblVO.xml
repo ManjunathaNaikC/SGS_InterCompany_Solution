@@ -30,6 +30,39 @@
     Name="bEffectiveTo"
     Kind="viewcriteria"
     Type="java.sql.Date"/>
+  <ViewAccessor
+    Name="SgsLookupRCMVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsVatTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_Rcm"
+    ListVOName="SgsLookupRCMVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Rcm"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsVatTblEO"
     Entity="com.sgs.ics.model.bc.entity.SgsVatTblEO"/>
@@ -86,11 +119,14 @@
     PrecisionRule="true"
     EntityAttrName="Rcm"
     EntityUsage="SgsVatTblEO"
-    AliasName="RCM">
+    AliasName="RCM"
+    LOVName="LOV_Rcm">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsVatTblVO.Rcm_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

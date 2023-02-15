@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Netting Transactions" id="pb3">
+    <f:facet name="toolbar">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:button text="Submit For Netting" id="b2"/>
+        <af:spacer id="s1" width="5"/>
+        <af:button text="Back" id="b1" action="toHeader"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <af:panelFormLayout id="pfl1" maxColumns="2" rows="3">
+      <f:facet name="footer"/>
+      <af:panelLabelAndMessage label="#{bindings.NettingId.hints.label}" id="plam1">
+        <af:outputText value="#{bindings.NettingId.inputValue}" shortDesc="#{bindings.NettingId.hints.tooltip}"
+                       id="ot19"/>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.ALLOWABLENETTINGLIMIT.hints.label}" id="plam2">
+        <af:outputText value="#{bindings.ALLOWABLENETTINGLIMIT.inputValue}"
+                       shortDesc="#{bindings.ALLOWABLENETTINGLIMIT.hints.tooltip}" id="ot20">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.ALLOWABLENETTINGLIMIT.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.Status.hints.label}" id="plam3">
+        <af:outputText value="#{bindings.Status.inputValue}" shortDesc="#{bindings.Status.hints.tooltip}" id="ot21"/>
+      </af:panelLabelAndMessage>
+    </af:panelFormLayout>
+    <af:spacer id="s2" height="40"/>
+    <af:panelBox text="Geo 1 Netting Transactions" id="pb2">
+      <f:facet name="toolbar"/>
+      <af:panelFormLayout id="pfl2" rows="2" maxColumns="2">
+        <f:facet name="footer"/>
+        <af:panelLabelAndMessage label="#{bindings.BusinessUnit1.hints.label}" id="plam4">
+          <af:outputText value="#{bindings.BusinessUnit1.inputValue}"
+                         shortDesc="#{bindings.BusinessUnit1.hints.tooltip}" id="ot22"/>
+        </af:panelLabelAndMessage>
+      </af:panelFormLayout>
+      <af:table value="#{bindings.SgsNettingGeo1VO1.collectionModel}" var="row"
+                rows="#{bindings.SgsNettingGeo1VO1.rangeSize}"
+                emptyText="#{bindings.SgsNettingGeo1VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.SgsNettingGeo1VO1.collectionModel.selectedRow}"
+                rowSelection="single" fetchSize="#{bindings.SgsNettingGeo1VO1.rangeSize}"
+                filterModel="#{bindings.SgsNettingGeo1VO1Query.queryDescriptor}" filterVisible="false"
+                queryListener="#{bindings.SgsNettingGeo1VO1Query.processQuery}" varStatus="vs" id="t1"
+                styleClass="AFStretchWidth"
+                selectionListener="#{bindings.SgsNettingGeo1VO1.collectionModel.makeCurrent}">
+        <af:column     headerText="#{bindings.SgsNettingGeo1VO1.hints.SelectGeo1Rec.label}" id="c19" binding="#{viewScope.ActionEventsBean.bindGeo1SelectCol}">
+          <af:selectBooleanCheckbox value="#{row.bindings.SelectGeo1Rec.inputValue}"
+                                    label="#{row.bindings.SelectGeo1Rec.label}" binding="#{viewScope.ActionEventsBean.bindSelectAllGeo1}"
+                                    shortDesc="#{bindings.SgsNettingGeo1VO1.hints.SelectGeo1Rec.tooltip}" id="sbc1"/>
+          <f:facet name="header">
+            <af:selectBooleanCheckbox text="Select All" id="sbc4"
+                                      valueChangeListener="#{viewScope.ActionEventsBean.onNettingGeo1SelectRec}"
+                                      partialTriggers="::t1 c19 sbc1" autoSubmit="true"
+                                      />
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.label}" id="c1">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.SgsNettingGeo1VO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.PERIOD.value}"
+                          id="id1">
+              <af:convertDateTime pattern="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.PERIOD}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.tooltip}" id="ot1">
+            <af:convertDateTime pattern="#{bindings.SgsNettingGeo1VO1.hints.PERIOD.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PSFTVOUCHERNO.label}" id="c2">
+          <af:outputText value="#{row.PSFTVOUCHERNO}"
+                         shortDesc="#{bindings.SgsNettingGeo1VO1.hints.PSFTVOUCHERNO.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.CURRENCY.label}" id="c3">
+          <af:outputText value="#{row.CURRENCY}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.CURRENCY.tooltip}"
+                         id="ot3"/>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.label}" id="c4">
+          <af:outputText value="#{row.VOUCHERAMOUNT}"
+                         shortDesc="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.tooltip}" id="ot4">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.VOUCHERAMOUNT1.inputValue}"
+                           shortDesc="#{bindings.VOUCHERAMOUNT1.hints.tooltip}" id="ot27">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.VOUCHERAMOUNT1.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.label}" id="c5">
+          <af:outputText value="#{row.WHTTDS}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.tooltip}" id="ot5">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.WHTTDS.inputValue}" shortDesc="#{bindings.WHTTDS.hints.tooltip}" id="ot28">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.WHTTDS.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.label}" id="c6">
+          <af:outputText value="#{row.AMTAVAILABLENET}"
+                         shortDesc="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.tooltip}" id="ot6">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.AMTAVAILABLENET.inputValue}"
+                           shortDesc="#{bindings.AMTAVAILABLENET.hints.tooltip}" id="ot29">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.AMTAVAILABLENET.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.label}" id="c7">
+          <af:outputText value="#{row.AMTNET}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.tooltip}" id="ot7">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.AMTNET.inputValue}" shortDesc="#{bindings.AMTNET.hints.tooltip}" id="ot30">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.AMTNET.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.label}" id="c8">
+          <af:outputText value="#{row.BALANCEPENDING}"
+                         shortDesc="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.tooltip}" id="ot8">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.label}" id="c9">
+          <af:outputText value="#{row.PARTIALFULLNET}"
+                         shortDesc="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.tooltip}" id="ot9">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelBox>
+    <af:spacer id="s3" height="40"/>
+    <af:panelBox text="Geo 2 Netting Transactions" id="pb1">
+      <f:facet name="toolbar"/>
+      <af:panelFormLayout id="pfl3" rows="2" maxColumns="2">
+        <f:facet name="footer"/>
+        <af:panelLabelAndMessage label="#{bindings.BusinessUnit2.hints.label}" id="plam5">
+          <af:outputText value="#{bindings.BusinessUnit2.inputValue}"
+                         shortDesc="#{bindings.BusinessUnit2.hints.tooltip}" id="ot23"/>
+        </af:panelLabelAndMessage>
+      </af:panelFormLayout>
+      <af:table value="#{bindings.SgsNettingGeo2VO1.collectionModel}" var="row"
+                rows="#{bindings.SgsNettingGeo2VO1.rangeSize}"
+                emptyText="#{bindings.SgsNettingGeo2VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.SgsNettingGeo2VO1.collectionModel.selectedRow}"
+                rowSelection="multiple" fetchSize="#{bindings.SgsNettingGeo2VO1.rangeSize}"
+                filterModel="#{bindings.SgsNettingGeo2VO1Query.queryDescriptor}" filterVisible="false"
+                queryListener="#{bindings.SgsNettingGeo2VO1Query.processQuery}" varStatus="vs" id="t2"
+                styleClass="AFStretchWidth">
+        <af:column   headerText="#{bindings.SgsNettingGeo2VO1.hints.SelectGeo2Rec.label}"  id="c20" binding="#{viewScope.ActionEventsBean.bindGeo2SelectCol}">
+          <af:selectBooleanCheckbox value="#{row.bindings.SelectGeo2Rec.inputValue}"
+                                    label="#{row.bindings.SelectGeo2Rec.label}"
+                                    shortDesc="#{bindings.SgsNettingGeo2VO1.hints.SelectGeo2Rec.tooltip}" id="sbc2"
+                                    binding="#{viewScope.ActionEventsBean.bindSelectAllGeo2}"/>
+          <f:facet name="header">
+            <af:selectBooleanCheckbox text="Select All" id="sbc3"
+                                      valueChangeListener="#{viewScope.ActionEventsBean.onNettingGeo2SelectRec}"
+                                      partialTriggers="::t2 c20 sbc2" autoSubmit="true"/>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.label}" id="c10">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.SgsNettingGeo2VO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.PERIOD.value}"
+                          id="id2">
+              <af:convertDateTime pattern="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.PERIOD}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.tooltip}" id="ot10">
+            <af:convertDateTime pattern="#{bindings.SgsNettingGeo2VO1.hints.PERIOD.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PSFTVOUCHERNO2.label}" id="c11">
+          <af:outputText value="#{row.PSFTVOUCHERNO2}"
+                         shortDesc="#{bindings.SgsNettingGeo2VO1.hints.PSFTVOUCHERNO2.tooltip}" id="ot11"/>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.CURRENCY2.label}" id="c12">
+          <af:outputText value="#{row.CURRENCY2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.CURRENCY2.tooltip}"
+                         id="ot12"/>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.label}" id="c13">
+          <af:outputText value="#{row.VOUCHERAMOUNT2}"
+                         shortDesc="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.tooltip}" id="ot13">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.VOUCHERAMOUNT.inputValue}"
+                           shortDesc="#{bindings.VOUCHERAMOUNT.hints.tooltip}" id="ot26">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.VOUCHERAMOUNT.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.label}" id="c14">
+          <af:outputText value="#{row.WHTTDS2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.tooltip}"
+                         id="ot14">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.WHTTDS1.inputValue}" shortDesc="#{bindings.WHTTDS1.hints.tooltip}"
+                           id="ot31">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.WHTTDS1.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.label}" id="c15">
+          <af:outputText value="#{row.AMTAVAILABLENET2}"
+                         shortDesc="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.tooltip}" id="ot15">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.AMTAVAILABLENET1.inputValue}"
+                           shortDesc="#{bindings.AMTAVAILABLENET1.hints.tooltip}" id="ot32">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.AMTAVAILABLENET1.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.label}" id="c16">
+          <af:outputText value="#{row.AMTNET2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.tooltip}"
+                         id="ot16">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.format}"/>
+          </af:outputText>
+          <f:facet name="footer">
+            <af:outputText value="#{bindings.AMTNET1.inputValue}" shortDesc="#{bindings.AMTNET1.hints.tooltip}"
+                           id="ot33">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.AMTNET1.format}"/>
+            </af:outputText>
+          </f:facet>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.label}" id="c17">
+          <af:outputText value="#{row.BALANCEPENDING2}"
+                         shortDesc="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.tooltip}" id="ot17">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.label}" id="c18">
+          <af:outputText value="#{row.PARTIALFULLNET2}"
+                         shortDesc="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.tooltip}" id="ot18">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </af:panelBox>
+    <af:spacer id="s4" height="40"/>
+    <af:panelFormLayout id="pfl4" maxColumns="2" rows="2">
+      <f:facet name="footer"/>
+      <af:panelLabelAndMessage label="#{bindings.ApprovedBy.hints.label}" id="plam6">
+        <af:outputText value="#{bindings.ApprovedBy.inputValue}" shortDesc="#{bindings.ApprovedBy.hints.tooltip}"
+                       id="ot24"/>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.ApprovalDate.hints.label}" id="plam7">
+        <af:outputText value="#{bindings.ApprovalDate.inputValue}" shortDesc="#{bindings.ApprovalDate.hints.tooltip}"
+                       id="ot25">
+          <af:convertDateTime pattern="#{bindings.ApprovalDate.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+    </af:panelFormLayout>
+  </af:panelBox>
+</ui:composition>

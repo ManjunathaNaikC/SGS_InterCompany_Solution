@@ -102,5 +102,7 @@
     <action IterBinding="SgsVatTaxApplicabilityVO1Iterator" id="DeleteVatTax"
             InstanceName="SGSAppModuleDataControl.SgsVatTaxApplicabilityVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_Rcm" id="Rcm1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

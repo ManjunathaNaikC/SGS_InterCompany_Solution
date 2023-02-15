@@ -50,6 +50,8 @@
     <page path="/fragments/TransactionalData/HoldDetailsForm.jsff" usageId="com_sgs_ics_view_HoldDetailsFormPageDef1"/>
     <page path="/fragments/TransactionalData/ReleaseDetailsForm.jsff"
           usageId="com_sgs_ics_view_ReleaseDetailsFormPageDef"/>
+    <page path="/fragments/TransactionalData/NettingHeader.jsff" usageId="com_sgs_ics_view_NettingHeaderPageDef"/>
+    <page path="/fragments/TransactionalData/NettingLines.jsff" usageId="com_sgs_ics_view_NettingLinesPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -92,6 +94,8 @@
     <page id="com_sgs_ics_view_HoldDetailsFormPageDef" path="com.sgs.ics.view.pageDefs.HoldDetailsFormPageDef"/>
     <page id="com_sgs_ics_view_HoldDetailsFormPageDef1" path="fragments.TransactionalData.HoldDetailsFormPageDef"/>
     <page id="com_sgs_ics_view_ReleaseDetailsFormPageDef" path="fragments.TransactionalData.ReleaseDetailsFormPageDef"/>
+    <page id="com_sgs_ics_view_NettingHeaderPageDef" path="fragments.TransactionalData.NettingHeaderPageDef"/>
+    <page id="com_sgs_ics_view_NettingLinesPageDef" path="fragments.TransactionalData.NettingLinesPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

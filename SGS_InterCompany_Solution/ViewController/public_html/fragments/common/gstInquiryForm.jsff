@@ -66,26 +66,41 @@
               <f:selectItems value="#{bindings.SupplyType1.items}" id="si4"/>
               <f:validator binding="#{bindings.SupplyType1.validator}"/>
             </af:selectOneChoice>
-            <af:inputText value="#{bindings.Rcm.inputValue}" label="#{bindings.Rcm.hints.label}"
+            <af:selectOneChoice value="#{bindings.Rcm1.inputValue}" label="#{bindings.Rcm1.label}"
+                                required="#{bindings.Rcm1.hints.mandatory}" shortDesc="#{bindings.Rcm1.hints.tooltip}"
+                                id="soc7">
+              <f:selectItems value="#{bindings.Rcm1.items}" id="si7"/>
+              <f:validator binding="#{bindings.Rcm1.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.Recoverable1.inputValue}" label="#{bindings.Recoverable1.label}"
+                                required="#{bindings.Recoverable1.hints.mandatory}"
+                                shortDesc="#{bindings.Recoverable1.hints.tooltip}" id="soc8">
+              <f:selectItems value="#{bindings.Recoverable1.items}" id="si8"/>
+              <f:validator binding="#{bindings.Recoverable1.validator}"/>
+            </af:selectOneChoice>
+            <!--<af:inputText value="#{bindings.Rcm.inputValue}" label="#{bindings.Rcm.hints.label}"
                           required="#{bindings.Rcm.hints.mandatory}" columns="#{bindings.Rcm.hints.displayWidth}"
                           maximumLength="#{bindings.Rcm.hints.precision}" shortDesc="#{bindings.Rcm.hints.tooltip}"
                           id="it5">
               <f:validator binding="#{bindings.Rcm.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.Recoverable.inputValue}" label="#{bindings.Recoverable.hints.label}"
+            </af:inputText>-->
+            <!--<af:inputText value="#{bindings.Recoverable.inputValue}" label="#{bindings.Recoverable.hints.label}"
                           required="#{bindings.Recoverable.hints.mandatory}"
                           columns="#{bindings.Recoverable.hints.displayWidth}"
                           maximumLength="#{bindings.Recoverable.hints.precision}"
                           shortDesc="#{bindings.Recoverable.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.Recoverable.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.IdenticalGstReg.inputValue}" label="#{bindings.IdenticalGstReg.hints.label}"
+            </af:inputText>-->
+           <!--<af:inputText value="#{bindings.IdenticalGstReg.inputValue}" label="#{bindings.IdenticalGstReg.hints.label}"
+
+            </af:inputText>-->
+            <!--<af:inputText value="#{bindings.IdenticalGstReg.inputValue}" label="#{bindings.IdenticalGstReg.hints.label}"
                           required="#{bindings.IdenticalGstReg.hints.mandatory}"
                           columns="#{bindings.IdenticalGstReg.hints.displayWidth}"
                           maximumLength="#{bindings.IdenticalGstReg.hints.precision}"
                           shortDesc="#{bindings.IdenticalGstReg.hints.tooltip}" id="it7">
               <f:validator binding="#{bindings.IdenticalGstReg.validator}"/>
-            </af:inputText>
+            </af:inputText>-->
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
                           columns="#{bindings.EffectiveFrom.hints.displayWidth}"
@@ -265,6 +280,16 @@
                   <f:validator binding="#{row.bindings.HsnCode.validator}"/>
                 </af:inputText>
               </af:column>-->
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}" id="c5">
+                <af:inputText value="#{row.bindings.RateOfTax.inputValue}"
+                              label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.label}"
+                              required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.mandatory}"
+                              columns="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.displayWidth}"
+                              maximumLength="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.precision}"
+                              shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.RateOfTax.tooltip}" id="it2">
+                  <f:validator binding="#{row.bindings.RateOfTax.validator}"/>
+                </af:inputText>
+              </af:column>
               <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3">
                 <af:selectOneChoice value="#{row.bindings.HsnCode.inputValue}" label="#{row.bindings.HsnCode.label}"
                                     required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.mandatory}"

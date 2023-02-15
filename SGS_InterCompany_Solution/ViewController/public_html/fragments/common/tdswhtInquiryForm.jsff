@@ -280,14 +280,15 @@
                   </af:inputDate>
                 </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.label}" id="c7">
-                  <af:inputText value="#{row.bindings.Attachment.inputValue}"
+                  <!--<af:inputText value="#{row.bindings.Attachment.inputValue}"
                                 label="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.label}"
                                 required="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.mandatory}"
                                 columns="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.displayWidth}"
                                 maximumLength="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.precision}"
                                 shortDesc="#{bindings.SgsTdsWhtIdentificationVO1.hints.Attachment.tooltip}" id="it15">
                     <f:validator binding="#{row.bindings.Attachment.validator}"/>
-                  </af:inputText>
+                  </af:inputText>-->
+                  <af:inputFile label="Upload File" id="if1"/>
                 </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.LastUpdatedBy.label}" id="c8">
                   <af:inputText value="#{row.bindings.LastUpdatedBy.inputValue}"
@@ -355,6 +356,16 @@
                     <f:validator binding="#{row.bindings.CostIdenId.validator}"/>
                   </af:inputText>
                 </af:column>
+                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c1">
+                  <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                      label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                      required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
+                                      shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
+                                      id="soc1">
+                    <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
+                    <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.AccountingTreatment.label}"
                            id="c11">
                   <af:inputText value="#{row.bindings.AccountingTreatment.inputValue}"
@@ -367,16 +378,7 @@
                     <f:validator binding="#{row.bindings.AccountingTreatment.validator}"/>
                   </af:inputText>
                 </af:column>
-                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c1">
-                  <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
-                                      label="#{row.bindings.NATUREOFEXPENSE.label}"
-                                      required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
-                                      shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.tooltip}"
-                                      id="soc1">
-                    <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si1"/>
-                    <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
+               
                 <!--<af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.ChargeabilityToTax.label}"
                            id="c17">
                   <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"

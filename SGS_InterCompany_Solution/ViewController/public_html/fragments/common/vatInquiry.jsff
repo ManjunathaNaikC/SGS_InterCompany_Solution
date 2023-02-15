@@ -55,9 +55,17 @@
                 <af:outputText value="#{row.ServReceiver}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.ServReceiver.tooltip}" id="ot3"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="resId1c4">
-                <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsVatTblVO1.hints.Rcm.tooltip}" id="ot4"/>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="c3">
+                <af:selectOneChoice value="#{row.bindings.Rcm.inputValue}" label="#{row.bindings.Rcm.label}"
+                                    required="#{bindings.SgsVatTblVO1.hints.Rcm.mandatory}"
+                                    shortDesc="#{bindings.SgsVatTblVO1.hints.Rcm.tooltip}" id="soc1" readOnly="true">
+                  <f:selectItems value="#{row.bindings.Rcm.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.Rcm.validator}"/>
+                </af:selectOneChoice>
               </af:column>
+              <!--<af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="resId1c4">
+                <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsVatTblVO1.hints.Rcm.tooltip}" id="ot4"/>
+              </af:column>-->
               <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.label}" id="resId1c5">
                 <af:outputText value="#{row.VatInputGlAcc}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.tooltip}" id="ot5"/>

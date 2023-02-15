@@ -585,6 +585,99 @@
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Duedate"
+    ColumnName="Due_date"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TRANS_B_COST_ALLOCATION"/>
+  <Attribute
+    Name="HoldReason"
+    Precision="150"
+    ColumnName="Hold_Reason"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TRANS_B_COST_ALLOCATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HoldRemarks"
+    Precision="255"
+    ColumnName="Hold_Remarks"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TRANS_B_COST_ALLOCATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Holdby"
+    Precision="100"
+    ColumnName="Hold_by"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TRANS_B_COST_ALLOCATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Holdon"
+    ColumnName="Hold_on"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TRANS_B_COST_ALLOCATION"/>
+  <Attribute
+    Name="ReleaseAction"
+    Precision="150"
+    ColumnName="Release_Action"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TRANS_B_COST_ALLOCATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReleaseRemarks"
+    Precision="255"
+    ColumnName="Release_Remarks"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TRANS_B_COST_ALLOCATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Releasedby"
+    Precision="100"
+    ColumnName="Released_by"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TRANS_B_COST_ALLOCATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Releasedon"
+    ColumnName="Released_on"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TRANS_B_COST_ALLOCATION"/>
   <AccessorAttribute
     Name="SgsOtrTargetEO"
     Association="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc"

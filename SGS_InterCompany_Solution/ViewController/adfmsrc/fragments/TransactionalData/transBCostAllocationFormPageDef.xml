@@ -8,6 +8,12 @@
               id="SgsTransBCostAllocationVO1Iterator"/>
     <iterator Binds="SgsOtrTargetVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsOtrTargetVO1Iterator"/>
+    <taskFlow id="sgsholdDetailsFormflow1"
+              taskFlowId="/taskflows/TransactionalData/sgs-holdDetailsForm-flow.xml#sgs-holdDetailsForm-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sgsReleaseDetailsFormflow1"
+              taskFlowId="/taskflows/TransactionalData/sgs-ReleaseDetailsForm-flow.xml#sgs-ReleaseDetailsForm-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExtractId">
@@ -245,5 +251,52 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Holdby">
+      <AttrNames>
+        <Item Value="Holdby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Holdon">
+      <AttrNames>
+        <Item Value="Holdon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="HoldReason">
+      <AttrNames>
+        <Item Value="HoldReason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Duedate">
+      <AttrNames>
+        <Item Value="Duedate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="HoldRemarks">
+      <AttrNames>
+        <Item Value="HoldRemarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Releasedby">
+      <AttrNames>
+        <Item Value="Releasedby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Releasedon">
+      <AttrNames>
+        <Item Value="Releasedon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ReleaseAction">
+      <AttrNames>
+        <Item Value="ReleaseAction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ReleaseRemarks">
+      <AttrNames>
+        <Item Value="ReleaseRemarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

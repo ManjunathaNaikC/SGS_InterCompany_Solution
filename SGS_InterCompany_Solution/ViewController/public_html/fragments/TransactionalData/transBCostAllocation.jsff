@@ -7,8 +7,9 @@
         <f:facet name="top"/>
         <f:facet name="bottom">
             <af:panelGroupLayout id="pgl2">
-                <!--<af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-                          binding="#{pageFlowScope.TransBCostAllocationBean.holdDetailPopup}">
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                          binding="#{pageFlowScope.TransBCostAllocationBean.holdReleasePopup}"
+                          popupCanceledListener="#{pageFlowScope.TransBCostAllocationBean.HoldReleaseCancelButton}">
                     <af:dialog id="d1" contentWidth="500" contentHeight="300" type="none">
                         <f:facet name="buttonBar">
                             <af:button text="Save" id="b8"
@@ -19,9 +20,11 @@
                         <af:spacer id="s2" width="170"/>
                         <af:outputText value="Hold / Release Details" id="ot1"
                                        inlineStyle="font-weight:bold;font-size:15px;"/>
-                        <af:region value="#{bindings.holdReleaseDetailBTF1.regionModel}" id="r1"/>
+                        <!--<af:region value="#{bindings.holdReleaseDetailBTF1.regionModel}" id="r1"/>-->
+                        <af:region value="#{bindings.sgsholdDetailsFormflow1.regionModel}" id="r1"/>
+                        <af:region value="#{bindings.sgsReleaseDetailsFormflow1.regionModel}" id="r2"/>
                     </af:dialog>
-                </af:popup>-->
+                </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
                     <af:dialog id="d3" contentWidth="400" contentHeight="80" type="ok"
                                title="Upload Other Receivables"
@@ -72,7 +75,7 @@
                                            action="#{pageFlowScope.TransBCostAllocationBean.deleteTransBCostAllocation}"
                                            disabled="true"/>
                                 <af:button text="Hold/Release" id="b4">
-                                    <!--<af:showPopupBehavior popupId="::p1"/>-->
+                                    <af:showPopupBehavior popupId="::p1"/>
                                 </af:button>
                                 <af:button text="Upload Other Receivables" id="b3">
                                     <af:showPopupBehavior popupId="::p2"/>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelStretchLayout id="psl1">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top"/>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+            <af:panelBox text="" id="pb1" showDisclosure="false">
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1"></af:toolbar>
+                </f:facet>
+                <af:spacer id="s2" width="50"/>
+                <af:outputText value="Particulars" id="ot1" inlineStyle="font-weight:bold;font-size:14px;"/>
+                <af:spacer id="s22" width="80"/>
+                <af:outputText value="Details" id="ot13" inlineStyle="font-weight:bold;font-size:14px;"/>
+                <af:separator id="s1"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.Releasedby.inputValue}" label="#{bindings.Releasedby.hints.label}"
+                                  required="#{bindings.Releasedby.hints.mandatory}"
+                                  columns="#{bindings.Releasedby.hints.displayWidth}"
+                                  maximumLength="#{bindings.Releasedby.hints.precision}"
+                                  shortDesc="#{bindings.Releasedby.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.Releasedby.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Releasedon.inputValue}" label="#{bindings.Releasedon.hints.label}"
+                                  required="#{bindings.Releasedon.hints.mandatory}"
+                                  columns="#{bindings.Releasedon.hints.displayWidth}"
+                                  maximumLength="#{bindings.Releasedon.hints.precision}"
+                                  shortDesc="#{bindings.Releasedon.hints.tooltip}" id="it2" readOnly="true">
+                        <f:validator binding="#{bindings.Releasedon.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.Releasedon.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ReleaseAction.inputValue}"
+                                  label="#{bindings.ReleaseAction.hints.label}"
+                                  required="#{bindings.ReleaseAction.hints.mandatory}"
+                                  columns="#{bindings.ReleaseAction.hints.displayWidth}"
+                                  maximumLength="#{bindings.ReleaseAction.hints.precision}"
+                                  shortDesc="#{bindings.ReleaseAction.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.ReleaseAction.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ReleaseRemarks.inputValue}"
+                                  label="#{bindings.ReleaseRemarks.hints.label}"
+                                  required="#{bindings.ReleaseRemarks.hints.mandatory}"
+                                  columns="#{bindings.ReleaseRemarks.hints.displayWidth}"
+                                  maximumLength="#{bindings.ReleaseRemarks.hints.precision}"
+                                  shortDesc="#{bindings.ReleaseRemarks.hints.tooltip}" id="it4" rows="4">
+                        <f:validator binding="#{bindings.ReleaseRemarks.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

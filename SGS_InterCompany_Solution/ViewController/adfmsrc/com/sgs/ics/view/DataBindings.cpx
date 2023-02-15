@@ -47,6 +47,9 @@
     <page path="/fragments/TransactionalData/SettlementDashboard.jsff"
           usageId="com_sgs_ics_view_SettlementDashboardPageDef"/>
     <page path="/fragments/TransactionalData/createSettlement.jsff" usageId="com_sgs_ics_view_createSettlementPageDef"/>
+    <page path="/fragments/TransactionalData/HoldDetailsForm.jsff" usageId="com_sgs_ics_view_HoldDetailsFormPageDef1"/>
+    <page path="/fragments/TransactionalData/ReleaseDetailsForm.jsff"
+          usageId="com_sgs_ics_view_ReleaseDetailsFormPageDef"/>
     <page path="/fragments/TransactionalData/NettingHeader.jsff" usageId="com_sgs_ics_view_NettingHeaderPageDef"/>
     <page path="/fragments/TransactionalData/NettingLines.jsff" usageId="com_sgs_ics_view_NettingLinesPageDef"/>
   </pageMap>
@@ -88,6 +91,9 @@
     <page id="com_sgs_ics_view_SettlementDashboardPageDef"
           path="fragments.TransactionalData.SettlementDashboardPageDef"/>
     <page id="com_sgs_ics_view_createSettlementPageDef" path="fragments.TransactionalData.createSettlementPageDef"/>
+    <page id="com_sgs_ics_view_HoldDetailsFormPageDef" path="com.sgs.ics.view.pageDefs.HoldDetailsFormPageDef"/>
+    <page id="com_sgs_ics_view_HoldDetailsFormPageDef1" path="fragments.TransactionalData.HoldDetailsFormPageDef"/>
+    <page id="com_sgs_ics_view_ReleaseDetailsFormPageDef" path="fragments.TransactionalData.ReleaseDetailsFormPageDef"/>
     <page id="com_sgs_ics_view_NettingHeaderPageDef" path="fragments.TransactionalData.NettingHeaderPageDef"/>
     <page id="com_sgs_ics_view_NettingLinesPageDef" path="fragments.TransactionalData.NettingLinesPageDef"/>
   </pageDefinitionUsages>

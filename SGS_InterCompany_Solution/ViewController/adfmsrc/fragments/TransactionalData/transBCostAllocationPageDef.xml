@@ -13,6 +13,12 @@
               DataControl="SGSAppModuleDataControl" RangeSize="25"/>
     <iterator Binds="SgsOtrTargetVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
               id="SgsOtrTargetVO1Iterator"/>
+    <taskFlow id="sgsholdDetailsFormflow1"
+              taskFlowId="/taskflows/TransactionalData/sgs-holdDetailsForm-flow.xml#sgs-holdDetailsForm-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sgsReleaseDetailsFormflow1"
+              taskFlowId="/taskflows/TransactionalData/sgs-ReleaseDetailsForm-flow.xml#sgs-ReleaseDetailsForm-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsTransBCostAllocationVO1Iterator" id="SgsTransBCostAllocationVO1">

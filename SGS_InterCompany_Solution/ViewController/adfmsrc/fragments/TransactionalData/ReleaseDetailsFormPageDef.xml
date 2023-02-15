@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ReleaseDetailsFormPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsTransBCostAllocationVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTransBCostAllocationVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Releasedby">
+      <AttrNames>
+        <Item Value="Releasedby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Releasedon">
+      <AttrNames>
+        <Item Value="Releasedon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ReleaseAction">
+      <AttrNames>
+        <Item Value="ReleaseAction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ReleaseRemarks">
+      <AttrNames>
+        <Item Value="ReleaseRemarks"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

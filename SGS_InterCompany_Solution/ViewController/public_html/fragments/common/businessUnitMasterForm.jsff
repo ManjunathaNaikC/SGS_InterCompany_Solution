@@ -23,13 +23,13 @@
           </af:toolbar>
         </f:facet>
         <af:panelFormLayout id="pfl1" rows="12">
-          <af:inputText value="#{bindings.BussinessUnitId.inputValue}" label="#{bindings.BussinessUnitId.hints.label}"
+          <!--<af:inputText value="#{bindings.BussinessUnitId.inputValue}" label="#{bindings.BussinessUnitId.hints.label}"
                         required="#{bindings.BussinessUnitId.hints.mandatory}"
                         columns="#{bindings.BussinessUnitId.hints.displayWidth}"
                         maximumLength="#{bindings.BussinessUnitId.hints.precision}"
                         shortDesc="#{bindings.BussinessUnitId.hints.tooltip}" id="it1">
             <f:validator binding="#{bindings.BussinessUnitId.validator}"/>
-          </af:inputText>
+          </af:inputText>-->
           <af:inputText value="#{bindings.BussinessUnitName.inputValue}"
                         label="#{bindings.BussinessUnitName.hints.label}"
                         required="#{bindings.BussinessUnitName.hints.mandatory}"

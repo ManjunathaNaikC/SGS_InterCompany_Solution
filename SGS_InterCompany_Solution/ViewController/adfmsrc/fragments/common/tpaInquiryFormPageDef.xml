@@ -8,6 +8,8 @@
               id="SgsTpaMaster1VO1Iterator"/>
     <iterator Binds="SgsTpaDocAttachment1VO2" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsTpaDocAttachment1VO2Iterator"/>
+    <searchRegion Binds="SgsTpaDocAttachment1VO2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsTpaDocAttachment1VO2Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsTpaMaster1VO1Iterator" id="TpaId">

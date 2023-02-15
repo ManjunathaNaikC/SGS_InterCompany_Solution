@@ -8,6 +8,8 @@
               id="SgsTpaMaster1VO1Iterator"/>
     <searchRegion Criteria="SgsTpaMaster1VOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsTpaMaster1VO1Iterator" id="SgsTpaMaster1VOCriteriaQuery"/>
+    <searchRegion Binds="SgsTpaMaster1VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsTpaMaster1VO1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsTpaMaster1VO1Iterator" id="SgsTpaMaster1VO1">

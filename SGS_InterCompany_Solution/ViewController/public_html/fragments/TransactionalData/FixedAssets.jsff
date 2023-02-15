@@ -20,12 +20,21 @@
                     </af:panelHeader>
                     <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                         <f:facet name="menus"/>
-                        <f:facet name="toolbar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:button id="b1" icon="/resources/icons/microsoft-excel.png" shortDesc="Export to Excel">
+                                        <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="FixedAssets.xls"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
                         <f:facet name="statusbar"/>
                         <af:table value="#{bindings.SgsFixedAssetsTxnVO1.collectionModel}" var="row"
                                   rows="#{bindings.SgsFixedAssetsTxnVO1.rangeSize}"
                                   emptyText="#{bindings.SgsFixedAssetsTxnVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0"
+                                  queryListener="#{bindings.SgsFixedAssetsTxnVO1Query.processQuery}"
+			          filterModel="#{bindings.SgsFixedAssetsTxnVO1Query.queryDescriptor}"
+                                  filterVisible="false"
                                   selectedRowKeys="#{bindings.SgsFixedAssetsTxnVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsFixedAssetsTxnVO1.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SgsFixedAssetsTxnVO1.rangeSize}"
@@ -47,97 +56,129 @@
                                 </af:outputText>
                             </af:column>-->
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCategory.label}"
-                                       id="resId1c2">
+                                       id="resId1c2"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCategory.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransactionCategory}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCategory.tooltip}"
                                                id="ot2"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.PeoplesoftAssetNo.label}"
-                                       id="resId1c3">
+                                       id="resId1c3"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.PeoplesoftAssetNo.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.PeoplesoftAssetNo}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.PeoplesoftAssetNo.tooltip}"
                                                id="ot3"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.AssetDescription.label}"
-                                       id="resId1c4">
+                                       id="resId1c4"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.AssetDescription.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.AssetDescription}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.AssetDescription.tooltip}"
                                                id="ot4"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.PeoplesoftTransactionId.label}"
-                                       id="resId1c5">
+                                       id="resId1c5"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.PeoplesoftTransactionId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.PeoplesoftTransactionId}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.PeoplesoftTransactionId.tooltip}"
                                                id="ot5"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FromLegalEntity.label}"
-                                       id="resId1c6">
+                                       id="resId1c6"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.FromLegalEntity.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.FromLegalEntity}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FromLegalEntity.tooltip}"
                                                id="ot6"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FromBusinessUnit.label}"
-                                       id="resId1c7">
+                                       id="resId1c7"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.FromBusinessUnit.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.FromBusinessUnit}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FromBusinessUnit.tooltip}"
                                                id="ot7"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FromOperatingUnit.label}"
-                                       id="resId1c8">
+                                       id="resId1c8"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.FromOperatingUnit.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.FromOperatingUnit}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FromOperatingUnit.tooltip}"
                                                id="ot8"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FromJobCode.label}"
-                                       id="resId1c9">
+                                       id="resId1c9"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.FromJobCode.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.FromJobCode}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FromJobCode.tooltip}"
                                                id="ot9"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FromDeptId.label}"
-                                       id="resId1c10">
+                                       id="resId1c10"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.FromDeptId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.FromDeptId}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FromDeptId.tooltip}"
                                                id="ot10"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FromGlAccount.label}"
-                                       id="resId1c11">
+                                       id="resId1c11"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.FromGlAccount.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.FromGlAccount}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FromGlAccount.tooltip}"
                                                id="ot11"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ToBusinessUnit.label}"
-                                       id="resId1c12">
+                                       id="resId1c12"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.ToBusinessUnit.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.ToBusinessUnit}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ToBusinessUnit.tooltip}"
                                                id="ot12"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ToOperatingUnit.label}"
-                                       id="resId1c13">
+                                       id="resId1c13"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.ToOperatingUnit.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.ToOperatingUnit}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ToOperatingUnit.tooltip}"
                                                id="ot13"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ToJobCode.label}"
-                                       id="resId1c14">
+                                       id="resId1c14"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.ToJobCode.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.ToJobCode}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ToJobCode.tooltip}"
                                                id="ot14"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ToDeptId.label}"
-                                       id="resId1c15">
+                                       id="resId1c15"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.ToDeptId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.ToDeptId}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ToDeptId.tooltip}"
                                                id="ot15"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ToGlAccount.label}"
-                                       id="resId1c16">
+                                       id="resId1c16"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.ToGlAccount.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.ToGlAccount}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ToGlAccount.tooltip}"
                                                id="ot16"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.label}"
-                                       id="resId1c17">
+                                       id="resId1c17"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.GstVatRate}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.tooltip}"
                                                id="ot17">
@@ -146,7 +187,9 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatAmount.label}"
-                                       id="resId1c18">
+                                       id="resId1c18"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatAmount.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.GstVatAmount}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatAmount.tooltip}"
                                                id="ot18">
@@ -155,19 +198,25 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.AccountingEntry.label}"
-                                       id="resId1c19">
+                                       id="resId1c19"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.AccountingEntry.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.AccountingEntry}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.AccountingEntry.tooltip}"
                                                id="ot19"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.Approval.label}"
-                                       id="resId1c20">
+                                       id="resId1c20"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.Approval.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.Approval}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.Approval.tooltip}"
                                                id="ot20"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.DepAmount.label}"
-                                       id="resId1c21">
+                                       id="resId1c21"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.DepAmount.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.DepAmount}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.DepAmount.tooltip}"
                                                id="ot21">
@@ -176,7 +225,9 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.label}"
-                                       id="resId1c22">
+                                       id="resId1c22"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.InvoiceValue}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.tooltip}"
                                                id="ot22">
@@ -185,13 +236,17 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoicingCurrency.label}"
-                                       id="resId1c23">
+                                       id="resId1c23"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoicingCurrency.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.InvoicingCurrency}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoicingCurrency.tooltip}"
                                                id="ot23"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.NetBookValue.label}"
-                                       id="resId1c24">
+                                       id="resId1c24"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.NetBookValue.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.NetBookValue}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.NetBookValue.tooltip}"
                                                id="ot24">
@@ -200,7 +255,9 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.label}"
-                                       id="resId1c25">
+                                       id="resId1c25"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.OriginalCost}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.tooltip}"
                                                id="ot25">
@@ -208,19 +265,25 @@
                                                       pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.format}"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.label}" id="resId1c26">
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.label}" id="resId1c26"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.Status}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.tooltip}"
                                                id="ot26"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCurrency.label}"
-                                       id="resId1c27">
+                                       id="resId1c27"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCurrency.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransactionCurrency}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCurrency.tooltip}"
                                                id="ot27"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.label}"
-                                       id="resId1c28">
+                                       id="resId1c28"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransferDate}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.tooltip}"
                                                id="ot28">
@@ -228,7 +291,9 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferValue.label}"
-                                       id="resId1c29">
+                                       id="resId1c29"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferValue.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransferValue}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferValue.tooltip}"
                                                id="ot29">
@@ -237,13 +302,17 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedBy.label}"
-                                       id="resId1c30">
+                                       id="resId1c30"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedBy.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.CreatedBy}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedBy.tooltip}"
                                                id="ot30"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedDate.label}"
-                                       id="resId1c31">
+                                       id="resId1c31"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedDate.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.CreatedDate}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedDate.tooltip}"
                                                id="ot31">
@@ -251,13 +320,17 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.UpdatedBy.label}"
-                                       id="resId1c32">
+                                       id="resId1c32"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.UpdatedBy.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.UpdatedBy}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.UpdatedBy.tooltip}"
                                                id="ot32"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.UpdatedDate.label}"
-                                       id="resId1c33">
+                                       id="resId1c33"
+                                       sortProperty="#{bindings.SgsFixedAssetsTxnVO1.hints.UpdatedDate.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.UpdatedDate}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.UpdatedDate.tooltip}"
                                                id="ot33">

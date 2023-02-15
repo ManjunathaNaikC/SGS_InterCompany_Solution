@@ -217,11 +217,16 @@
                       rows="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}"
                       emptyText="#{bindings.SgsGstTaxRateApplicabilityVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0"
+                      queryListener="#{bindings.SgsGstTaxRateApplicabilityVO2Query.processQuery}"
+                      filterModel="#{bindings.SgsGstTaxRateApplicabilityVO2Query.queryDescriptor}"
+                      filterVisible="false"
                       selectedRowKeys="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
                       partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.label}" id="c6">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.label}" id="c6"
+                         sortProperty="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.name}"
+                         sortable="true" filterable="true">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
                                     label="#{row.bindings.NATUREOFEXPENSE.label}"
                                     required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.mandatory}"
@@ -232,7 +237,9 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}" id="c1"
-                         rendered="false">
+                         rendered="false"
+                         sortProperty="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.name}"
+                         sortable="true" filterable="true">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.CostGroupingCode.mandatory}"
@@ -244,7 +251,9 @@
                 </af:inputText>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}" id="c2"
-                         rendered="false">
+                         rendered="false"
+                         sortProperty="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.name}"
+                         sortable="true" filterable="true">
                 <af:inputText value="#{row.bindings.ChargeabilityToTax.inputValue}"
                               label="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.label}"
                               required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ChargeabilityToTax.mandatory}"
@@ -265,7 +274,9 @@
                   <f:validator binding="#{row.bindings.HsnCode.validator}"/>
                 </af:inputText>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.name}">
                 <af:selectOneChoice value="#{row.bindings.HsnCode.inputValue}" label="#{row.bindings.HsnCode.label}"
                                     required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.mandatory}"
                                     shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.tooltip}"
@@ -292,7 +303,9 @@
                   <f:selectItems value="#{row.bindings.ItemServCat.items}" id="si6"/>
                   <f:validator binding="#{row.bindings.ItemServCat.validator}"/>
                 </af:selectOneChoice>-->
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.label}" id="c4">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.label}" id="c4"
+                         sortProperty="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.name}" sortable="true"
+                         filterable="true">
                 <af:selectOneChoice value="#{row.bindings.ItemServCat.inputValue}"
                                     label="#{row.bindings.ItemServCat.label}"
                                     required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.ItemServCat.mandatory}"

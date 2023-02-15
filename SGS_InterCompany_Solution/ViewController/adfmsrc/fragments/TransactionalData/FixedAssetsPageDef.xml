@@ -8,6 +8,8 @@
               id="SgsFixedAssetsTxnVO1Iterator"/>
     <searchRegion Criteria="SgsFixedAssetsTxnVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsFixedAssetsTxnVO1Iterator" id="SgsFixedAssetsTxnVOCriteriaQuery"/>
+    <searchRegion Binds="SgsFixedAssetsTxnVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsFixedAssetsTxnVO1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsFixedAssetsTxnVO1Iterator" id="SgsFixedAssetsTxnVO1">

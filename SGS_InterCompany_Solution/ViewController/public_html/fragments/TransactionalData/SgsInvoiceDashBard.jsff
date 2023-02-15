@@ -25,8 +25,7 @@
             <af:toolbar id="t2">
            
                     <af:button id="b1" icon="/resources/icons/microsoft-excel.png"
-                                           shortDesc="Export to Excel"
-                                           disabled="#{bindings.SgsIcInvoiceHeaderVO1.estimatedRowCount &lt;=0}">
+                                           shortDesc="Export to Excel">
                    <af:exportCollectionActionListener type="excelHTML" exportedId="ivd1" filename="InvoiceDashBoard.xls"/>
                 </af:button>
             </af:toolbar>
@@ -43,50 +42,58 @@
                     filterModel="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.processQuery}" varStatus="vs">
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.label}" id="c1"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.name}" filterable="true"
+                       sortable="true">
               <af:link  id="l1" action="toChildLines">
                 <af:outputText value="#{row.InvoiceSeqNo}"
                                shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.tooltip}" id="ot1"/>
               </af:link>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.label}" id="c2"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.Period}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.tooltip}"
                              id="ot2"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.label}" id="c3"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.tooltip}"
                              id="ot3"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.label}" id="c4"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.name}"
-                       filterable="true">
+                       filterable="true" sortable="true">
               <af:outputText value="#{row.TransactionCategory}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.tooltip}" id="ot4"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.label}" id="c5"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.TransactionType}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.tooltip}" id="ot5"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.label}" id="c6"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.IuVendor}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.tooltip}" id="ot6"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceBu.label}" id="c7"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceBu.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceBu.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.SourceBu}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceBu.tooltip}" id="ot7"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceCurrency.label}" id="c8"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceCurrency.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceCurrency.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.SourceCurrency}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceCurrency.tooltip}" id="ot8"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.label}" id="c9"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.SourceAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.tooltip}" id="ot9">
                 <af:convertNumber groupingUsed="false"
@@ -94,24 +101,26 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.label}" id="c10"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.IuCustomer}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.tooltip}" id="ot10"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetBu.label}" id="c11"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetBu.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetBu.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.TargetBu}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetBu.tooltip}" id="ot11"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.AccountingTreatment.label}" id="c12"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.AccountingTreatment.name}"
-                       filterable="true">
+                       filterable="true" sortable="true">
               <af:outputText value="#{row.AccountingTreatment}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.AccountingTreatment.tooltip}" id="ot12"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.label}" 
              sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.name}"
-                       filterable="true" id="c34">
+                       filterable="true" id="c34" sortable="true">
               <af:outputText value="#{row.ALLOCATEDHEADERAMOUNT}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.tooltip}"
                              id="ot34">
@@ -120,7 +129,8 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.label}" id="c13"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.MarkupRate}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.tooltip}" id="ot13">
                 <af:convertNumber groupingUsed="false"
@@ -128,13 +138,14 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetCurrency.label}" id="c14"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetCurrency.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetCurrency.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.TargetCurrency}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TargetCurrency.tooltip}" id="ot14"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceHeaderAmount.label}" id="c15"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceHeaderAmount.name}"
-                       filterable="true">
+                       filterable="true" sortable="true">
               <af:outputText value="#{row.InvoiceHeaderAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceHeaderAmount.tooltip}" id="ot15">
                 <af:convertNumber groupingUsed="false"
@@ -142,7 +153,8 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.label}" id="c16"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.MarkupAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.tooltip}" id="ot16">
                 <af:convertNumber groupingUsed="false"
@@ -151,7 +163,7 @@
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.label}" id="c17"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.name}"
-                       filterable="true" rendered="false">
+                       filterable="true" rendered="false" sortable="true">
               <af:outputText value="#{row.BaseAmountBeforeTax}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.tooltip}" id="ot17">
                 <af:convertNumber groupingUsed="false"
@@ -159,7 +171,8 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.label}" id="c18"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.GstVatRate}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.tooltip}" id="ot18">
                 <af:convertNumber groupingUsed="false"
@@ -167,7 +180,8 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.label}" id="c19"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.GstVatAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.tooltip}" id="ot19">
                 <af:convertNumber groupingUsed="false"
@@ -176,7 +190,7 @@
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TotalAmountAfterTax.label}" id="c20"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TotalAmountAfterTax.name}"
-                       filterable="true">
+                       filterable="true" sortable="true">
               <af:outputText value="#{row.TotalAmountAfterTax}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TotalAmountAfterTax.tooltip}" id="ot20">
                 <af:convertNumber groupingUsed="false"
@@ -184,7 +198,8 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtRate.label}" id="c21"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtRate.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtRate.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.WhtRate}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtRate.tooltip}"
                              id="ot21">
                 <af:convertNumber groupingUsed="false"
@@ -192,7 +207,8 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.label}" id="c22"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.WhtAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.tooltip}" id="ot22">
                 <af:convertNumber groupingUsed="false"
@@ -200,17 +216,20 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionStatus.label}" id="c23"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionStatus.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionStatus.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.TransactionStatus}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionStatus.tooltip}" id="ot23"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaymentStatus.label}" id="c24"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaymentStatus.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaymentStatus.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.PaymentStatus}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaymentStatus.tooltip}" id="ot24"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.label}" id="c25"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.PaidAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.tooltip}" id="ot25">
                 <af:convertNumber groupingUsed="false"
@@ -219,28 +238,31 @@
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReferenceVoucherNum.label}" id="c26"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReferenceVoucherNum.name}"
-                       filterable="true">
+                       filterable="true" sortable="true">
               <af:outputText value="#{row.ReferenceVoucherNum}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReferenceVoucherNum.tooltip}" id="ot26"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReferenceInvoiceNum.label}" id="c27"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReferenceInvoiceNum.name}"
-                       filterable="true">
+                       filterable="true" sortable="true">
               <af:outputText value="#{row.ReferenceInvoiceNum}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReferenceInvoiceNum.tooltip}" id="ot27"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReviewAccEntries.label}" id="c28"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReviewAccEntries.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReviewAccEntries.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.ReviewAccEntries}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReviewAccEntries.tooltip}" id="ot28"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InputProvider.label}" id="c29"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InputProvider.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InputProvider.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.InputProvider}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.InputProvider.tooltip}" id="ot29"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedDate.label}" id="c30"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedDate.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedDate.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.CreatedDate}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedDate.tooltip}" id="ot30">
                 <af:convertDateTime pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedDate.format}"/>
@@ -253,12 +275,14 @@
               </f:facet>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedBy.label}" id="c31"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedBy.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedBy.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.CreatedBy}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedBy.tooltip}" id="ot31"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.label}" id="c32"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.UpdatedDate}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.tooltip}" id="ot32">
                 <af:convertDateTime pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.format}"/>
@@ -271,7 +295,8 @@
               </f:facet>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.label}" id="c33"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.name}" filterable="true"
+                       sortable="true">
               <af:outputText value="#{row.UpdatedBy}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.tooltip}" id="ot33"/>
             </af:column>

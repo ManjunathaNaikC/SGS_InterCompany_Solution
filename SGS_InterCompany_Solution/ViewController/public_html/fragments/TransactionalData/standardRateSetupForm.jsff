@@ -249,7 +249,7 @@
                                 </af:column>-->
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.NatureofExpense.label}"
                                            id="c1" sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.NatureofExpense.name}"
-                                           filterable="true">
+                                           filterable="true" sortable="true">
                                     <af:selectOneChoice value="#{row.bindings.NatureofExpense.inputValue}"
                                                         label="#{row.bindings.NatureofExpense.label}"
                                                         required="#{bindings.SgsStdRateLineTblVO4.hints.NatureofExpense.mandatory}"
@@ -262,7 +262,7 @@
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
-                                           id="c2" rendered="false">
+                                           id="c2" rendered="false" sortable="true">
                                     <af:inputText value="#{row.bindings.SrGeography.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.mandatory}"
@@ -275,7 +275,8 @@
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.name}"
                                            filterable="true"
-                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.label}" id="c7">
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.label}" id="c7"
+                                           sortable="true">
                                     <af:inputText value="#{row.bindings.BuUnit.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.mandatory}"
@@ -289,7 +290,7 @@
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.label}"
                                            id="c15"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.name}"
-                                           filterable="true">
+                                           filterable="true" sortable="true">
                                     <af:inputText value="#{row.bindings.OPERATINGUNIT.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.OPERATINGUNIT.mandatory}"
@@ -302,7 +303,7 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.JOBCODE.label}" id="c10"
                                 sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.JOBCODE.name}"
-                                           filterable="true">
+                                           filterable="true" sortable="true">
                                     <af:inputText value="#{row.bindings.JOBCODE.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.JOBCODE.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.JOBCODE.mandatory}"
@@ -315,7 +316,7 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.label}"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.name}"
-                                           filterable="true" id="c11">
+                                           filterable="true" id="c11" sortable="true">
                                     <af:inputText value="#{row.bindings.DEPTCOSTCENTER.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.mandatory}"
@@ -328,7 +329,8 @@
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.Currency.name}"
                                            filterable="true"
-                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}" id="c6">
+                                           headerText="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}" id="c6"
+                                           sortable="true">
                                     <af:inputText value="#{row.bindings.Currency.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.Currency.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.Currency.mandatory}"
@@ -342,7 +344,7 @@
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.label}"
-                                           id="c3">
+                                           id="c3" sortable="true">
                                     <af:inputText value="#{row.bindings.StandardCost.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.mandatory}"
@@ -358,7 +360,7 @@
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.label}"
-                                           id="c4">
+                                           id="c4" sortable="true">
                                     <af:inputText value="#{row.bindings.NonPersonnelCost.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.mandatory}"
@@ -374,7 +376,7 @@
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.label}"
-                                           id="c5">
+                                           id="c5" sortable="true">
                                     <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.mandatory}"
@@ -387,7 +389,7 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.name}"
-                                           filterable="true" id="c12">
+                                           filterable="true" id="c12" sortable="true">
                                     <af:inputText value="#{row.bindings.EMPLOYEEGRADELEVEL.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.mandatory}"
@@ -400,7 +402,7 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.name}"
-                                           filterable="true" id="c13">
+                                           filterable="true" id="c13" sortable="true">
                                     <af:inputText value="#{row.bindings.EMPLOYEEID.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.mandatory}"
@@ -414,7 +416,7 @@
                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.label}"
                                  sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.name}"
                                            filterable="true"
-                                           id="c14">
+                                           id="c14" sortable="true">
                                     <af:inputText value="#{row.bindings.PROGRAMNAME.inputValue}"
                                                   label="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.label}"
                                                   required="#{bindings.SgsStdRateLineTblVO4.hints.PROGRAMNAME.mandatory}"
@@ -428,7 +430,7 @@
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveEndDate.label}"
-                                           id="c8">
+                                           id="c8" sortable="true">
                                     <f:facet name="filter">
                                         <af:inputDate value="#{bindings.SgsStdRateLineTblVO4Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveEndDate.value}"
                                                       id="id5">
@@ -448,7 +450,7 @@
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.label}"
-                                           id="c9">
+                                           id="c9" sortable="true">
                                     <f:facet name="filter">
                                         <af:inputDate value="#{bindings.SgsStdRateLineTblVO4Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveStartDate.value}"
                                                       id="id7">

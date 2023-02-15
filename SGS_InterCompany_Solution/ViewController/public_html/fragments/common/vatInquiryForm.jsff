@@ -148,12 +148,16 @@
                       rows="#{bindings.SgsVatTaxApplicabilityVO1.rangeSize}"
                       emptyText="#{bindings.SgsVatTaxApplicabilityVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0"
+                      queryListener="#{bindings.SgsVatTaxApplicabilityVO1Query.processQuery}"
+                      filterModel="#{bindings.SgsVatTaxApplicabilityVO1Query.queryDescriptor}"
+                      filterVisible="false"
                       selectedRowKeys="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsVatTaxApplicabilityVO1.rangeSize}" id="t2"
                       partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.CostGroupingCode.label}" id="c1"
-                         visible="false">
+                         visible="false" filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsVatTaxApplicabilityVO1.hints.CostGroupingCode.name}">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.CostGroupingCode.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.CostGroupingCode.mandatory}"
@@ -163,7 +167,9 @@
                   <f:validator binding="#{row.bindings.CostGroupingCode.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c3">
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c3"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.name}">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
                                     label="#{row.bindings.NATUREOFEXPENSE.label}"
                                     required="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
@@ -173,7 +179,9 @@
                   <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.label}" id="c2">
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.label}" id="c2"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.name}">
                 <af:inputText value="#{row.bindings.RateOfTax.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.RateOfTax.mandatory}"
@@ -194,7 +202,9 @@
                   <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                 </af:inputText>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.label}" id="c4">
+              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.label}" id="c4"
+                         sortProperty="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.name}" sortable="true"
+                         filterable="true">
                 <af:selectOneChoice value="#{row.bindings.ChargeabilityToTax.inputValue}"
                                     label="#{row.bindings.ChargeabilityToTax.label}"
                                     required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.mandatory}"
@@ -205,7 +215,8 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}" id="c5"
-                         rendered="false">
+                         rendered="false" sortProperty="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.name}"
+                         sortable="true" filterable="true">
                 <af:inputText value="#{row.bindings.ItmServCat.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ItmServCat.mandatory}"
@@ -216,7 +227,8 @@
                 </af:inputText>
               </af:column>
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}" id="c6"
-                         rendered="false">
+                         rendered="false" sortProperty="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.name}"
+                         sortable="true" filterable="true">
                 <af:inputText value="#{row.bindings.ExemptSuppy.inputValue}"
                               label="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.label}"
                               required="#{bindings.SgsVatTaxApplicabilityVO1.hints.ExemptSuppy.mandatory}"

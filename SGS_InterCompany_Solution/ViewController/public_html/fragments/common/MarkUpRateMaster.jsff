@@ -111,11 +111,16 @@
                     rows="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}"
                     emptyText="#{bindings.sgsMarkUpRateMasterVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
                     rowBandingInterval="0"
+                    queryListener="#{bindings.sgsMarkUpRateMasterVO1Query.processQuery}"
+                    filterModel="#{bindings.sgsMarkUpRateMasterVO1Query.queryDescriptor}"
+                    filterVisible="false"
                     selectedRowKeys="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.selectedRow}"
                     selectionListener="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.makeCurrent}"
                     rowSelection="single" fetchSize="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}" id="t2"
                     partialTriggers="::b1" styleClass="AFStretchWidth" inlineStyle="height:250px;" autoHeightRows="10">
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}" id="c1" width="150">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}" id="c1" width="150"
+                        sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}" sortable="true"
+                       filterable="true">
               <af:inputText value="#{row.bindings.MARKUPNAME.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.mandatory}"
@@ -139,7 +144,9 @@
               </af:inputText>
             </af:column>-->
             <af:column id="c14" headerText="Service Provider (SP)		" align="center">
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}" id="c2">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}" id="c2"
+                         sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.name}" sortable="true"
+                         filterable="true">
                 <af:inputText value="#{row.bindings.SpGeography.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.mandatory}"
@@ -149,7 +156,9 @@
                   <f:validator binding="#{row.bindings.SpGeography.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c3">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c3"
+                         sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.name}" sortable="true"
+                         filterable="true">
                 <af:inputText value="#{row.bindings.SpLegalEntity.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
@@ -159,7 +168,9 @@
                   <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}" id="c4">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}" id="c4"
+                         sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.name}" sortable="true"
+                         filterable="true">
                 <af:inputText value="#{row.bindings.SpBusinessUnit.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.mandatory}"
@@ -171,7 +182,9 @@
               </af:column>
             </af:column>
             <af:column id="c15" headerText="Service Receiver (SR)" align="center">
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}" id="c5">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}" id="c5"
+                         filterable="true" sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.name}"
+                         sortable="true">
                 <af:inputText value="#{row.bindings.SrGeography.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.mandatory}"
@@ -181,7 +194,9 @@
                   <f:validator binding="#{row.bindings.SrGeography.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c6">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c6"
+                         filterable="true" sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.name}"
+                         sortable="true">
                 <af:inputText value="#{row.bindings.SrLegalEntity.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
@@ -191,7 +206,9 @@
                   <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}" id="c7">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}" id="c7"
+                         filterable="true" sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.name}"
+                         sortable="true">
                 <af:inputText value="#{row.bindings.SrBusinessUnit.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.mandatory}"
@@ -202,7 +219,9 @@
                 </af:inputText>
               </af:column>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputText value="#{row.bindings.NatureOfExpenses.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.mandatory}"
@@ -212,7 +231,9 @@
                 <f:validator binding="#{row.bindings.NatureOfExpenses.validator}"/>
               </af:inputText>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}" id="c9">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}" id="c9"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputText value="#{row.bindings.MarkUpRate.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.mandatory}"
@@ -224,7 +245,9 @@
                                   pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.format}"/>
               </af:inputText>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.label}" id="c16">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.label}" id="c16"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputDate value="#{row.bindings.EFFECTIVEFROM.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.mandatory}"
@@ -234,7 +257,9 @@
                 <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.format}"/>-->
               </af:inputDate>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.label}" id="c17">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.label}" id="c17"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputDate value="#{row.bindings.EFFECTIVETO.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.mandatory}"
@@ -244,7 +269,8 @@
                 <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.format}"/>-->
               </af:inputDate>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.label}" id="c18">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.label}" id="c18" filterable="true"
+                       sortable="true" sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputText value="#{row.bindings.STATUS.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.mandatory}"
@@ -254,7 +280,9 @@
                 <f:validator binding="#{row.bindings.STATUS.validator}"/>
               </af:inputText>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.label}" id="c10">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.label}" id="c10"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.mandatory}"
@@ -264,7 +292,9 @@
                 <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
               </af:inputText>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.label}" id="c11">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.label}" id="c11"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.mandatory}"
@@ -274,7 +304,9 @@
                 <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.format}"/>-->
               </af:inputDate>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.label}" id="c12">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.label}" id="c12"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputText value="#{row.bindings.LastUpdatedBy.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.mandatory}"
@@ -284,7 +316,9 @@
                 <f:validator binding="#{row.bindings.LastUpdatedBy.validator}"/>
               </af:inputText>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.label}" id="c13">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.label}" id="c13"
+                       filterable="true" sortable="true"
+                       sortProperty="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.name}">
               <af:inputDate value="#{row.bindings.LastUpdatedDate.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.mandatory}"

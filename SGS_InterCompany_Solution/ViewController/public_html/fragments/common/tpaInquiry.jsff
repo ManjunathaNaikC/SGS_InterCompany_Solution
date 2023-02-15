@@ -23,6 +23,9 @@
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t1">
+                <af:button id="b3" icon="/resources/icons/microsoft-excel.png" shortDesc="Export to Excel">
+                    <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="TPAMaster.xls"/>
+                </af:button>
                 <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
                            actionListener="#{bindings.CreateInsert.execute}"/>
                 <af:button id="b2" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
@@ -31,50 +34,62 @@
             <f:facet name="statusbar"/>
             <af:table value="#{bindings.SgsTpaMaster1VO1.collectionModel}" var="row"
                       rows="#{bindings.SgsTpaMaster1VO1.rangeSize}"
+                      queryListener="#{bindings.SgsTpaMaster1VO1Query.processQuery}"
+		      filterModel="#{bindings.SgsTpaMaster1VO1Query.queryDescriptor}"
+		      filterVisible="false"
                       emptyText="#{bindings.SgsTpaMaster1VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTpaMaster1VO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTpaMaster1VO1.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.SgsTpaMaster1VO1.rangeSize}" id="resId1" partialTriggers="::b1 ::b2"
                       styleClass="AFStretchWidth">
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.TpaId.label}" id="resId1c1">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.TpaId.label}" id="resId1c1"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.TpaId.name}" sortable="true" filterable="true">
                 <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.TpaId.tooltip}"
                              id="ot1"/>-->
                 <af:link text="#{row.TpaId}" id="l1" action="EDIT"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.label}" id="resId1c2">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.label}" id="resId1c2"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.LeServiceProvider}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.tooltip}" id="ot2"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.label}" id="resId1c3">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.label}" id="resId1c3"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.LeServiceReceiver}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.tooltip}" id="ot3"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="resId1c4">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="resId1c4"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.NettingApplicatibility}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.tooltip}" id="ot4"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.label}" id="resId1c5">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.label}" id="resId1c5"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.BdCommissionApplicability}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.tooltip}"
                                id="ot5"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.PassThroughFlag.label}" id="resId1c6">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.PassThroughFlag.label}" id="resId1c6"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.PassThroughFlag.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.PassThroughFlag}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.PassThroughFlag.tooltip}" id="ot6"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.label}" id="resId1c7">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.label}" id="resId1c7"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.EffectiveFrom}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.tooltip}" id="ot7">
                   <af:convertDateTime pattern="#{bindings.SgsTpaMaster1VO1.hints.EffectiveFrom.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.label}" id="resId1c8">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.label}" id="resId1c8"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.EffectiveTo}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.tooltip}" id="ot8">
                   <af:convertDateTime pattern="#{bindings.SgsTpaMaster1VO1.hints.EffectiveTo.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.Status.label}" id="resId1c9">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.Status.label}" id="resId1c9"
+                         sortProperty="#{bindings.SgsTpaMaster1VO1.hints.Status.name}" sortable="true" filterable="true">
                 <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.Status.tooltip}"
                                id="ot9"/>
               </af:column>

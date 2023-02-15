@@ -5,53 +5,14 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="SgsStlmtInvVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsStlmtInvVO1Iterator"/>
-    <searchRegion Binds="SgsStlmtInvVO1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStlmtInvVO1Query"/>
     <iterator Binds="SgsStlmtVoucherVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsStlmtVoucherVO1Iterator"/>
     <searchRegion Binds="SgsStlmtVoucherVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStlmtVoucherVO1Query"/>
     <searchRegion Criteria="SgsStlmtVoucherVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsStlmtVoucherVO1Iterator" id="SgsStlmtVoucherVOCriteriaQuery"/>
-    <searchRegion Criteria="SgsStlmtInvVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="SgsStlmtInvVO1Iterator" id="SgsStlmtInvVOCriteriaQuery"/>
   </executables>
   <bindings>
-    <tree IterBinding="SgsStlmtInvVO1Iterator" id="SgsStlmtInvVO1">
-      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStlmtInvVO" Name="SgsStlmtInvVO10">
-        <AttrNames>
-          <Item Value="InvoiceId"/>
-          <Item Value="Period"/>
-          <Item Value="AcctDate"/>
-          <Item Value="PsInvoiceNo"/>
-          <Item Value="LegalEntity"/>
-          <Item Value="IcSupplierBu"/>
-          <Item Value="IcCustomerBu"/>
-          <Item Value="TxnCurrency"/>
-          <Item Value="InvoiceAmount"/>
-          <Item Value="TaxRecoverable"/>
-          <Item Value="WhtTdsRate"/>
-          <Item Value="WhtTdsAmount"/>
-          <Item Value="NetAmountReceivable"/>
-          <Item Value="AmountSettledTillDate"/>
-          <Item Value="StlmtAmount"/>
-          <Item Value="AmountWrittenOff"/>
-          <Item Value="OsAmountReceivable"/>
-          <Item Value="BankCharges"/>
-          <Item Value="ReceiptStatus"/>
-          <Item Value="StlmtCategory"/>
-          <Item Value="DepositId"/>
-          <Item Value="TxnReferenceNo"/>
-          <Item Value="RefToApVoucher"/>
-          <Item Value="StlmtStatus"/>
-          <Item Value="CreatedDate"/>
-          <Item Value="CreatedBy"/>
-          <Item Value="UpdatedDate"/>
-          <Item Value="UpdatedBy"/>
-          <Item Value="SelectRecordInvoice" Binds="SelectRecordInvoice"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="SgsStlmtVoucherVO1Iterator" id="SgsStlmtVoucherVO1">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO" Name="SgsStlmtVoucherVO10">
         <AttrNames>

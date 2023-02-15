@@ -10,6 +10,10 @@
               id="SgsTdsWhtIdentificationVO1Iterator"/>
     <iterator Binds="SgsTdsWhtRateApplicabilityVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsTdsWhtRateApplicabilityVO1Iterator"/>
+    <searchRegion Binds="SgsTdsWhtIdentificationVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsTdsWhtIdentificationVO1Query"/>
+    <searchRegion Binds="SgsTdsWhtRateApplicabilityVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsTdsWhtRateApplicabilityVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsTdsWhtTblVO1Iterator" id="TdsWhtId">

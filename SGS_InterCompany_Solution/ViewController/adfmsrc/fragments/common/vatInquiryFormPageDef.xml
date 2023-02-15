@@ -7,6 +7,8 @@
     <iterator Binds="SgsVatTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsVatTblVO1Iterator"/>
     <iterator Binds="SgsVatTaxApplicabilityVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsVatTaxApplicabilityVO1Iterator"/>
+    <searchRegion Binds="SgsVatTaxApplicabilityVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsVatTaxApplicabilityVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsVatTblVO1Iterator" id="VatNum">

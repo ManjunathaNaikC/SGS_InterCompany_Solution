@@ -59,8 +59,7 @@
                         <f:facet name="toolbar">
                             <af:toolbar id="t1">
                                 <af:button id="b10" icon="/resources/icons/microsoft-excel.png"
-                                           shortDesc="Export to Excel"
-                                           disabled="#{bindings.SgsTransBCostAllocationVO1.estimatedRowCount &lt;= 0}">
+                                           shortDesc="Export to Excel">
                                     <af:exportCollectionActionListener type="excelHTML" exportedId="t2"
                                                                        filename="TransactionBeforeCostAllocation.xls"/>
                                 </af:button>
@@ -86,6 +85,9 @@
                                   rows="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
                                   emptyText="#{bindings.SgsTransBCostAllocationVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0"
+                                  queryListener="#{bindings.SgsTransBCostAllocationVO1Query.processQuery}"
+			          filterModel="#{bindings.SgsTransBCostAllocationVO1Query.queryDescriptor}"
+                                  filterVisible="false"
                                   selectedRowKeys="#{bindings.SgsTransBCostAllocationVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsTransBCostAllocationVO1.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
@@ -95,7 +97,9 @@
                                 <af:selectBooleanCheckbox id="sbc1"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.label}"
-                                       id="c9">
+                                       id="c9"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransactionPeriod}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.tooltip}"
                                                id="ot10"/>
@@ -109,7 +113,9 @@
                                 </af:outputText>
                             </af:column>-->
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractId.label}"
-                                       id="c10" width="120">
+                                       id="c10" width="120"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractId.name}"
+                                       sortable="true" filterable="true">
                                 <!--<af:outputText value="#{row.ExtractId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractId.tooltip}"
                                                id="ot11"/>-->
@@ -119,71 +125,95 @@
                                 </af:link>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.PeoplesoftTransactionId.label}"
-                                       id="c11">
+                                       id="c11"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.PeoplesoftTransactionId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.PeoplesoftTransactionId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.PeoplesoftTransactionId.tooltip}"
                                                id="ot12"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.CirId.label}" id="c12"
-                                       width="200">
+                                       width="200"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.CirId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.CirId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.CirId.tooltip}"
                                                id="ot13"/>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.BuId.label}" id="c13">
+                            <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.BuId.label}" id="c13"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.BuId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.BuId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.BuId.tooltip}"
                                                id="ot14"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.OprationalUnit.label}"
-                                       id="c14">
+                                       id="c14"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.OprationalUnit.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.OprationalUnit}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.OprationalUnit.tooltip}"
                                                id="ot15"/>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.JobCode.label}" id="c15">
+                            <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.JobCode.label}" id="c15"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.JobCode.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.JobCode}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.JobCode.tooltip}"
                                                id="ot16"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.DepartmentId.label}"
-                                       id="c16">
+                                       id="c16"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.DepartmentId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.DepartmentId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.DepartmentId.tooltip}"
                                                id="ot17"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.InputProvider.label}"
-                                       id="c17">
+                                       id="c17"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.InputProvider.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.InputProvider}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.InputProvider.tooltip}"
                                                id="ot18"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.NatureOfExpense.label}"
-                                       id="c18">
+                                       id="c18"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.NatureOfExpense.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.NatureOfExpense}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.NatureOfExpense.tooltip}"
                                                id="ot19"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.JournalId.label}"
-                                       id="c19">
+                                       id="c19"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.JournalId.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.JournalId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.JournalId.tooltip}"
                                                id="ot20"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.GlAccount.label}"
-                                       id="c20">
+                                       id="c20"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.GlAccount.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.GlAccount}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.GlAccount.tooltip}"
                                                id="ot21"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionCurrency.label}"
-                                       id="c21">
+                                       id="c21"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionCurrency.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransactionCurrency}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionCurrency.tooltip}"
                                                id="ot22"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.label}"
-                                       id="c22">
+                                       id="c22"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransactionAmount}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.tooltip}"
                                                id="ot23">
@@ -192,43 +222,57 @@
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.label}"
-                                       id="c23">
+                                       id="c23"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.ServiceCategory}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.tooltip}"
                                                id="ot24"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.AccountTreatment.label}"
-                                       id="c24">
+                                       id="c24"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.AccountTreatment.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.AccountTreatment}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.AccountTreatment.tooltip}"
                                                id="ot25"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionStatus.label}"
-                                       id="c25">
+                                       id="c25"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionStatus.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransactionStatus}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionStatus.tooltip}"
                                                id="ot26"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractedBy.label}"
-                                       id="c42" rendered="false">
+                                       id="c42" rendered="false"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractedBy.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.ExtractedBy}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractedBy.tooltip}"
                                                id="ot27"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionCategory.label}"
-                                       id="c43" rendered="false">
+                                       id="c43" rendered="false"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionCategory.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.TransactionCategory}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionCategory.tooltip}"
                                                id="ot28"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.SourceSystem.label}"
-                                       id="c44">
+                                       id="c44"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.SourceSystem.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.SourceSystem}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.SourceSystem.tooltip}"
                                                id="ot29"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.SourceModule.label}"
-                                       id="c45">
+                                       id="c45"
+                                       sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.SourceModule.name}"
+                                       sortable="true" filterable="true">
                                 <af:outputText value="#{row.SourceModule}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.SourceModule.tooltip}"
                                                id="ot30"/>

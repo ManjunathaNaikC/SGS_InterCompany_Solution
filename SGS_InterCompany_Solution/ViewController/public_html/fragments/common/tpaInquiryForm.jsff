@@ -308,11 +308,16 @@
                       rows="#{bindings.SgsTpaDocAttachment1VO2.rangeSize}"
                       emptyText="#{bindings.SgsTpaDocAttachment1VO2.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0"
+                      queryListener="#{bindings.SgsTpaDocAttachment1VO2Query.processQuery}"
+                      filterModel="#{bindings.SgsTpaDocAttachment1VO2Query.queryDescriptor}"
+                      filterVisible="false"
                       selectedRowKeys="#{bindings.SgsTpaDocAttachment1VO2.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTpaDocAttachment1VO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsTpaDocAttachment1VO2.rangeSize}" id="t2"
                       styleClass="AFStretchWidth" partialTriggers="::b5 ::b4">
-              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.DocumentTypeValue.label}" id="c1">
+              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.DocumentTypeValue.label}" id="c1"
+                         sortProperty="#{bindings.SgsTpaDocAttachment1VO2.hints.DocumentTypeValue.name}"
+                         sortable="true" filterable="true">
                 <af:inputText value="#{row.bindings.DocumentTypeValue.inputValue}"
                               label="#{bindings.SgsTpaDocAttachment1VO2.hints.DocumentTypeValue.label}"
                               required="#{bindings.SgsTpaDocAttachment1VO2.hints.DocumentTypeValue.mandatory}"
@@ -322,7 +327,9 @@
                   <f:validator binding="#{row.bindings.DocumentTypeValue.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.label}" id="c2">
+              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.label}" id="c2"
+                         sortProperty="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.name}"
+                         sortable="true" filterable="true">
                 <af:inputText value="#{row.bindings.Attachment.inputValue}"
                               label="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.label}"
                               required="#{bindings.SgsTpaDocAttachment1VO2.hints.Attachment.mandatory}"
@@ -332,7 +339,9 @@
                   <f:validator binding="#{row.bindings.Attachment.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveFrom.label}" id="c3">
+              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveFrom.label}" id="c3"
+                         sortProperty="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveFrom.name}"
+                         sortable="true" filterable="true">
                 <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
                               label="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveFrom.label}"
                               required="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveFrom.mandatory}"
@@ -342,7 +351,9 @@
                   <af:convertDateTime pattern="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveFrom.format}"/>
                 </af:inputDate>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveTo.label}" id="c4">
+              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveTo.label}" id="c4"
+                         sortProperty="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveTo.name}"
+                         sortable="true" filterable="true">
                 <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
                               label="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveTo.label}"
                               required="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveTo.mandatory}"
@@ -352,7 +363,9 @@
                   <af:convertDateTime pattern="#{bindings.SgsTpaDocAttachment1VO2.hints.EffectiveTo.format}"/>
                 </af:inputDate>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedDate.label}" id="c5">
+              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedDate.label}" id="c5"
+                         sortProperty="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedDate.name}"
+                         sortable="true" filterable="true">
                 <af:inputDate value="#{row.bindings.UpdatedDate.inputValue}"
                               label="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedDate.label}"
                               required="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedDate.mandatory}"
@@ -362,7 +375,9 @@
                   <af:convertDateTime pattern="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedDate.format}"/>
                 </af:inputDate>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedBy.label}" id="c6">
+              <af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedBy.label}" id="c6"
+                         sortProperty="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedBy.name}"
+                         sortable="true" filterable="true">
                 <af:inputText value="#{row.bindings.UpdatedBy.inputValue}"
                               label="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedBy.label}"
                               required="#{bindings.SgsTpaDocAttachment1VO2.hints.UpdatedBy.mandatory}"

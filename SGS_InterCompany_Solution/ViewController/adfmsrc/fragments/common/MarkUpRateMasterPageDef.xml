@@ -9,6 +9,8 @@
     <searchRegion Criteria="sgsMarkUpRateMasterVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="sgsMarkUpRateMasterVO1Iterator"
                   id="sgsMarkUpRateMasterVOCriteriaQuery"/>
+    <searchRegion Binds="sgsMarkUpRateMasterVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="sgsMarkUpRateMasterVO1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="sgsMarkUpRateMasterVO1Iterator" id="sgsMarkUpRateMasterVO1">

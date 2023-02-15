@@ -7,6 +7,8 @@
     <iterator Binds="SgsVatTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsVatTblVO1Iterator"/>
     <searchRegion Criteria="SgsVatTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsVatTblVO1Iterator" id="SgsVatTblVOCriteriaQuery"/>
+    <searchRegion Binds="SgsVatTblVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsVatTblVO1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsVatTblVO1Iterator" id="SgsVatTblVO1">

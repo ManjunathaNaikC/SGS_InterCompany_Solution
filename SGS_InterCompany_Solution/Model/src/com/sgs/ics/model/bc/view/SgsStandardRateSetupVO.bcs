@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsStandardRateSetupVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupExpnsTypVO1", name="bLookupType")
+def bLookupType_SgsLookupExpnsTypVO1_BindVariable_BoundParameter()
+{
+'EXPENSE_TYPE'
+}
+

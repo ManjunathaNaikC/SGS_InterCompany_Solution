@@ -138,6 +138,7 @@
                                 <f:validator binding="#{row.bindings.STATGEOGRAPHY.validator}"/>
                             </af:inputText>
                         </af:column>
+                        
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"

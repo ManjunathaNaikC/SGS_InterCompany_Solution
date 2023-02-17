@@ -447,6 +447,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="STDRATEGEOGRAPHY"
+    PrecisionRule="true"
+    EntityAttrName="STDRATEGEOGRAPHY"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="STDRATE_GEOGRAPHY"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

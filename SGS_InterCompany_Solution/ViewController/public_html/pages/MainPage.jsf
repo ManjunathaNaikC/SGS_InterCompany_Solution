@@ -43,6 +43,10 @@
                                          inlineStyle="margin-left:10px; margin-top:70px;margin-right:30px;background-image: none;border:none;"
                                          valign="middle">
                                 <af:panelGroupLayout id="pgl3" layout="horizontal" valign="middle" halign="center">
+                                   <af:outputText value="Logged in Username : #{applicationScope._username}" id="ot1"
+                                                   inlineStyle="font-weight:bold; margin-left:20px; color:White;"
+                                                   shortDesc="Logged in Username"/>
+                                    <af:spacer id="s1" width="15"/>
                                     <af:link id="l1" destination="/faces/jsf/welcomePage.jsf"
                                              icon="/resources/icons/HomeWhite.png" shortDesc="Home"/>
                                     <af:button text="" id="b2"
@@ -50,14 +54,12 @@
                                                icon="/resources/icons/login.png" rendered="false">
                                         <f:facet name="popup"/>
                                     </af:button>
-                                    <af:outputText value="" id="ot1"
-                                                   inlineStyle="font-weight:bold; margin-left:20px; color:White;"
-                                                   shortDesc="Logged in Username"/>
+                                 
                                                    
                                     <af:menuBar id="mb1" >
                                         <af:menu id="m1" icon="/resources/icons/userIcon.png"
                                                  inlineStyle="color:green;">
-                                        <af:commandMenuItem text="User Id: #{applicationScope._username} " id="cmi1"/>
+                                        <!--<af:commandMenuItem text="User Id: #{applicationScope._username} " id="cmi1"/>-->
                                          <af:commandMenuItem text="Email Id: #{applicationScope.USER_EMAIL}" id="cmi2"/>
                                             <af:commandMenuItem text="LogOut" id="cmi3"
                                                                 action="#{authenticationBean.logOut}"/>

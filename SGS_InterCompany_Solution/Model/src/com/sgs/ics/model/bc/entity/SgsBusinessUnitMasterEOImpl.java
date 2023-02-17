@@ -764,6 +764,7 @@ public class SgsBusinessUnitMasterEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             setBuSeq(am.getDBSequence1("SEQ_SGS_BUSINESS_UNIT_MASTER"));
+            setBussinessUnitId("BU"+am.getDBSequence("SEQ_SGS_BUSINESS_UNIT_MASTER"));
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());

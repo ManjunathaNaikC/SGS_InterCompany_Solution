@@ -29,14 +29,21 @@
                                       shortDesc="#{bindings.StandardRateId.hints.tooltip}" id="it1">
                             <f:validator binding="#{bindings.StandardRateId.validator}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.ExpenseType.inputValue}"
+                        <!--<af:inputText value="#{bindings.ExpenseType.inputValue}"
                                       label="#{bindings.ExpenseType.hints.label}"
                                       required="#{bindings.ExpenseType.hints.mandatory}"
                                       columns="#{bindings.ExpenseType.hints.displayWidth}"
                                       maximumLength="#{bindings.ExpenseType.hints.precision}"
                                       shortDesc="#{bindings.ExpenseType.hints.tooltip}" id="it2">
                             <f:validator binding="#{bindings.ExpenseType.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
+                        <af:selectOneChoice value="#{bindings.ExpenseType1.inputValue}"
+                                            label="#{bindings.ExpenseType1.label}"
+                                            required="#{bindings.ExpenseType1.hints.mandatory}"
+                                            shortDesc="#{bindings.ExpenseType1.hints.tooltip}" id="soc4">
+                            <f:selectItems value="#{bindings.ExpenseType1.items}" id="si4"/>
+                            <f:validator binding="#{bindings.ExpenseType1.validator}"/>
+                        </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.CostIdentifier1.inputValue}"
                                             label="#{bindings.CostIdentifier1.label}"
                                             required="#{bindings.CostIdentifier1.hints.mandatory}"
@@ -93,7 +100,7 @@
                                       shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it7" rendered="false">
                             <f:validator binding="#{bindings.EmployeeId.validator}"/>
                         </af:inputText>-->
-                        <af:inputText value="#{bindings.EmployeeGradeLevel.inputValue}"
+                        <!--<af:inputText value="#{bindings.EmployeeGradeLevel.inputValue}"
                                       label="#{bindings.EmployeeGradeLevel.hints.label}"
                                       required="#{bindings.EmployeeGradeLevel.hints.mandatory}"
                                       columns="#{bindings.EmployeeGradeLevel.hints.displayWidth}"
@@ -101,7 +108,7 @@
                                       shortDesc="#{bindings.EmployeeGradeLevel.hints.tooltip}" id="it8"
                                       rendered="true">
                             <f:validator binding="#{bindings.EmployeeGradeLevel.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
                         <!--<af:inputText value="#{bindings.Currency.inputValue}" label="#{bindings.Currency.hints.label}"
                                       required="#{bindings.Currency.hints.mandatory}"
                                       columns="#{bindings.Currency.hints.displayWidth}"
@@ -259,7 +266,7 @@
                                         <f:validator binding="#{row.bindings.NatureofExpense.validator}"/>
                                     </af:selectOneChoice>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
+                                <!--<af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
                                            id="c2" rendered="true" sortable="true">
@@ -271,6 +278,19 @@
                                                   shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.tooltip}"
                                                   id="it16">
                                         <f:validator binding="#{row.bindings.SrGeography.validator}"/>
+                                    </af:inputText>
+                                </af:column>-->
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.label}"
+                                           id="c2" sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.name}"
+                                           filterable="true" >
+                                    <af:inputText value="#{row.bindings.STDRATEGEOGRAPHY.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.STDRATEGEOGRAPHY.validator}"/>
                                     </af:inputText>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.name}"
@@ -325,6 +345,19 @@
                                                   shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.DEPTCOSTCENTER.tooltip}"
                                                   id="it22">
                                         <f:validator binding="#{row.bindings.DEPTCOSTCENTER.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                 <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
+                                           sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.name}"
+                                           filterable="true" id="c12">
+                                    <af:inputText value="#{row.bindings.EMPLOYEEGRADELEVEL.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.tooltip}"
+                                                  id="it23">
+                                        <f:validator binding="#{row.bindings.EMPLOYEEGRADELEVEL.validator}"/>
                                     </af:inputText>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.Currency.name}"
@@ -400,6 +433,7 @@
                                         <f:validator binding="#{row.bindings.EMPLOYEEGRADELEVEL.validator}"/>
                                     </af:inputText>
                                 </af:column>
+
                                 <!--<af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.name}"
                                            filterable="true" id="c13">

@@ -390,6 +390,24 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="STDRATEGEOGRAPHY"
+    Precision="80"
+    ColumnName="STDRATE_GEOGRAPHY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STDRATE_LINE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO.STDRATEGEOGRAPHY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SgsStandardRateSetupEO"
     Association="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc"
@@ -419,4 +437,8 @@
       <Item Value="com.sgs.ics.model.bc.entity.SgsStdRateLineTblEO.StandardRateSeq"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

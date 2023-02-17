@@ -138,6 +138,7 @@
                                 <f:validator binding="#{row.bindings.STATGEOGRAPHY.validator}"/>
                             </af:inputText>
                         </af:column>
+                        
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"
@@ -160,9 +161,9 @@
                                 <f:validator binding="#{row.bindings.StatisticalDataCategory.validator}"/>
                             </af:inputText>-->
                         </af:column>
-                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}" 
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.name}"
-                                   filterable="true" id="c40">
+                                   filterable="true" id="c400">
                             <af:inputText value="#{row.bindings.FROMBU.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.mandatory}"
@@ -196,7 +197,7 @@
                                           id="it32">
                                 <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
                             </af:inputText>
-                        </af:column>-->
+                        </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.name}"
                                    filterable="true" id="c43">

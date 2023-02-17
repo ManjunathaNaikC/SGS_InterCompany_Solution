@@ -134,6 +134,7 @@
           <Item Value="PROGRAMNAME"/>
           <Item Value="OPERATINGUNIT"/>
           <Item Value="NatureofExpense"/>
+          <Item Value="STDRATEGEOGRAPHY"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -149,5 +150,7 @@
         <Item Value="INPUTPROVIDER"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="SgsStandardRateSetupVO1Iterator" StaticList="false" Uses="LOV_ExpenseType" id="ExpenseType1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

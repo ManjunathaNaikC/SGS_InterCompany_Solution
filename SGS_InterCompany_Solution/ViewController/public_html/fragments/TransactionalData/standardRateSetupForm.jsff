@@ -259,7 +259,7 @@
                                         <f:validator binding="#{row.bindings.NatureofExpense.validator}"/>
                                     </af:selectOneChoice>
                                 </af:column>
-                                <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
+                                <!--<af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
                                            id="c2" rendered="true">
@@ -271,6 +271,19 @@
                                                   shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.tooltip}"
                                                   id="it16">
                                         <f:validator binding="#{row.bindings.SrGeography.validator}"/>
+                                    </af:inputText>
+                                </af:column>-->
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.label}"
+                                           id="c2" sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.name}"
+                                           filterable="true" >
+                                    <af:inputText value="#{row.bindings.STDRATEGEOGRAPHY.inputValue}"
+                                                  label="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.label}"
+                                                  required="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.mandatory}"
+                                                  columns="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.STDRATEGEOGRAPHY.validator}"/>
                                     </af:inputText>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.name}"

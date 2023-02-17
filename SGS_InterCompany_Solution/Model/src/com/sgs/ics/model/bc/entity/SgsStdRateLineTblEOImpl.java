@@ -64,6 +64,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         PROGRAMNAME,
         OPERATINGUNIT,
         NatureofExpense,
+        STDRATEGEOGRAPHY,
         SgsStandardRateSetupEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -126,6 +127,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static final int PROGRAMNAME = AttributesEnum.PROGRAMNAME.index();
     public static final int OPERATINGUNIT = AttributesEnum.OPERATINGUNIT.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NatureofExpense.index();
+    public static final int STDRATEGEOGRAPHY = AttributesEnum.STDRATEGEOGRAPHY.index();
     public static final int SGSSTANDARDRATESETUPEO = AttributesEnum.SgsStandardRateSetupEO.index();
 
     /**
@@ -718,6 +720,22 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
      */
     public void setNatureofExpense(String value) {
         setAttributeInternal(NATUREOFEXPENSE, value);
+    }
+
+    /**
+     * Gets the attribute value for STDRATEGEOGRAPHY, using the alias name STDRATEGEOGRAPHY.
+     * @return the value of STDRATEGEOGRAPHY
+     */
+    public String getSTDRATEGEOGRAPHY() {
+        return (String) getAttributeInternal(STDRATEGEOGRAPHY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STDRATEGEOGRAPHY.
+     * @param value value to set the STDRATEGEOGRAPHY
+     */
+    public void setSTDRATEGEOGRAPHY(String value) {
+        setAttributeInternal(STDRATEGEOGRAPHY, value);
     }
 
     /**

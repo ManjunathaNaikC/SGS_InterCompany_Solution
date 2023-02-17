@@ -230,7 +230,8 @@
                                 </af:column>-->
                                    <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.name}"
                                    headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.label}"
-                                           filterable="true" id="c20" inlineStyle="width:350px" width="250">
+                                           filterable="true" id="c20" inlineStyle="width:350px" width="250"
+                                              sortable="true">
                                     <!--<af:outputText value="#{row.CostIdentificationName}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO1.hints.CostIdentificationName.tooltip}"
                                                    id="ot1"/>-->
@@ -238,7 +239,7 @@
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.ADDTEXPENSECAT.label}"
                                            sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.ADDTEXPENSECAT.name}"
-                                           filterable="true" id="c4">
+                                           filterable="true" id="c4" sortable="true">
                                     <af:outputText value="#{row.ADDTEXPENSECAT}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.ADDTEXPENSECAT.tooltip}"
                                                    id="ot2"/>
@@ -246,7 +247,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.label}"
-                                           id="c18" rendered="false">
+                                           id="c18" rendered="false" sortable="true">
                                     <af:outputText value="#{row.CostGroup}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.CostGroup.tooltip}"
                                                    id="ot27"/>
@@ -254,7 +255,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.label}"
-                                           id="c27" rendered="false">
+                                           id="c27" rendered="false" sortable="true">
                                     <af:outputText value="#{row.InvJournalGrpCode}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.InvJournalGrpCode.tooltip}"
                                                    id="ot35"/>
@@ -262,7 +263,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.label}"
-                                           id="c28" rendered="false">
+                                           id="c28" rendered="false" sortable="true">
                                     <af:selectOneChoice value="#{row.bindings.NatureOfExpense.inputValue}"
                                                         label="#{row.bindings.NatureOfExpense.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.NatureOfExpense.mandatory}"
@@ -275,7 +276,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.label}"
-                                           id="c2" width="200">
+                                           id="c2" width="200" sortable="true">
                                     <af:selectOneChoice value="#{row.bindings.AllocationBasis.inputValue}"
                                                         label="#{row.bindings.AllocationBasis.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.AllocationBasis.mandatory}"
@@ -299,7 +300,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.label}"
-                                           id="c23" width="150">
+                                           id="c23" width="150" sortable="true">
                                     <af:selectOneChoice value="#{row.bindings.DataSource.inputValue}"
                                                         label="#{row.bindings.DataSource.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.DataSource.mandatory}"
@@ -323,7 +324,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.label}"
-                                           id="c1" width="200">
+                                           id="c1" width="200" sortable="true">
                                     <af:selectOneChoice value="#{row.bindings.AccountingTreatment.inputValue}"
                                                         label="#{row.bindings.AccountingTreatment.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.AccountingTreatment.mandatory}"
@@ -336,7 +337,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.label}"
-                                           id="c29" rendered="false">
+                                           id="c29" rendered="false" sortable="true">
                                     <af:selectOneChoice value="#{row.bindings.ServiceCategory.inputValue}"
                                                         label="#{row.bindings.ServiceCategory.label}"
                                                         required="#{bindings.SgsCostIdentificationRuleVO2.hints.ServiceCategory.mandatory}"
@@ -349,7 +350,7 @@
                                 <af:column headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.label}"
                                  filterable="true"
                                         sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.name}"
-                                           id="c3" width="200">
+                                           id="c3" width="200" sortable="true">
                                     <af:outputText value="#{row.SACHSN}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.tooltip}"
                                                    id="ot1"/>
@@ -365,7 +366,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.InputProvider.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.InputProvider.label}"
-                                           id="c26">
+                                           id="c26" sortable="true">
                                     <af:outputText value="#{row.InputProvider}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.InputProvider.tooltip}"
                                                    id="ot34"/>
@@ -373,7 +374,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownApplicability.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownApplicability.label}"
-                                           id="c30" rendered="false">
+                                           id="c30" rendered="false" sortable="true">
                                     <af:outputText value="#{row.TrueUpDownApplicability}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownApplicability.tooltip}"
                                                    id="ot36"/>
@@ -381,7 +382,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownFrequency.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownFrequency.label}"
-                                           id="c31" rendered="false">
+                                           id="c31" rendered="false" sortable="true">
                                     <af:outputText value="#{row.TrueUpDownFrequency}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.TrueUpDownFrequency.tooltip}"
                                                    id="ot37"/>
@@ -389,7 +390,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveFrom.label}"
-                                           id="c24">
+                                           id="c24" sortable="true">
                                     <f:facet name="filter">
                                         <af:inputDate value="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
                                                       id="id7">
@@ -405,7 +406,7 @@
                                 <af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.EffectiveTo.label}"
-                                           id="c25">
+                                           id="c25" sortable="true">
                                     <f:facet name="filter">
                                         <af:inputDate value="#{bindings.SgsCostIdentificationRuleVOQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
                                                       id="id8">

@@ -299,7 +299,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.label}"
-                                       id="c1">
+                                       id="c1" sortable="true">
                                 <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.mandatory}"
@@ -313,7 +313,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.label}"
-                                       id="c4">
+                                       id="c4" sortable="true">
                                 <af:inputText value="#{row.bindings.FromBusinessUnit.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromBusinessUnit.mandatory}"
@@ -327,7 +327,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.label}"
-                                       id="c5">
+                                       id="c5" sortable="true">
                                 <af:inputText value="#{row.bindings.FromOperatingUnit.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromOperatingUnit.mandatory}"
@@ -341,7 +341,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.label}"
-                                       id="c6">
+                                       id="c6" sortable="true">
                                 <af:inputText value="#{row.bindings.FromJobCode.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromJobCode.mandatory}"
@@ -355,7 +355,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.label}"
-                                       id="c7">
+                                       id="c7" sortable="true">
                                 <af:inputText value="#{row.bindings.FromDeptId.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromDeptId.mandatory}"
@@ -369,7 +369,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.label}"
-                                       id="c10">
+                                       id="c10" sortable="true">
                                 <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.FromGlAccount.mandatory}"
@@ -383,7 +383,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.label}"
-                                       id="c2">
+                                       id="c2" sortable="true">
                                 <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.mandatory}"
@@ -397,7 +397,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.label}"
-                                       id="c3" rendered="false">
+                                       id="c3" rendered="false" sortable="true">
                                 <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
                                               label="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.label}"
                                               required="#{bindings.SgsCostIdentificationCombinationVO1.hints.OcLineNo.mandatory}"
@@ -411,7 +411,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveFrom.label}"
-                                       id="c18">
+                                       id="c18" sortable="true">
                                 <f:facet name="filter">
                                     <af:inputDate value="#{bindings.SgsCostIdentificationCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
                                                   id="id3">
@@ -431,7 +431,7 @@
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.EffectiveTo.label}"
-                                       id="c19">
+                                       id="c19" sortable="true">
                                 <f:facet name="filter">
                                     <af:inputDate value="#{bindings.SgsCostIdentificationCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
                                                   id="id5">
@@ -647,7 +647,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.label}"
-                                       id="c13">
+                                       id="c13" sortable="true">
                                 <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.mandatory}"
@@ -661,7 +661,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.label}"
-                                       id="c14">
+                                       id="c14" sortable="true">
                                 <af:inputText value="#{row.bindings.OffsetBusinessUnit.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetBusinessUnit.mandatory}"
@@ -675,7 +675,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.label}"
-                                       id="c17">
+                                       id="c17" sortable="true">
                                 <af:inputText value="#{row.bindings.OffsetOperatingUnit.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetOperatingUnit.mandatory}"
@@ -689,7 +689,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.label}"
-                                       id="c16">
+                                       id="c16" sortable="true">
                                 <af:inputText value="#{row.bindings.OffsetJobCode.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetJobCode.mandatory}"
@@ -703,7 +703,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.label}"
-                                       id="c15">
+                                       id="c15" sortable="true">
                                 <af:inputText value="#{row.bindings.OffsetGlAccount.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.OffsetGlAccount.mandatory}"
@@ -717,7 +717,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.label}"
-                                       id="c11">
+                                       id="c11" sortable="true">
                                 <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.FromGlAccount.mandatory}"
@@ -731,7 +731,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.label}"
-                                       id="c30">
+                                       id="c30" sortable="true">
                                 <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.TcLineNo.mandatory}"
@@ -745,7 +745,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveFrom.label}"
-                                       id="c8">
+                                       id="c8" sortable="true">
                                 <f:facet name="filter">
                                     <af:inputDate value="#{bindings.SgsCostOffsetCombinationVO3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
                                                   id="id8">
@@ -765,7 +765,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.EffectiveTo.label}"
-                                       id="c9">
+                                       id="c9" sortable="true">
                                 <f:facet name="filter">
                                     <af:inputDate value="#{bindings.SgsCostOffsetCombinationVO3Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
                                                   id="id10">
@@ -785,7 +785,7 @@
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.label}"
-                                       id="c12" rendered="false">
+                                       id="c12" rendered="false" sortable="true">
                                 <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
                                               label="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.label}"
                                               required="#{bindings.SgsCostOffsetCombinationVO3.hints.IcLineNo.mandatory}"
@@ -1088,7 +1088,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.label}"
-                                       id="c31">
+                                       id="c31" sortable="true">
                                 <af:inputText value="#{row.bindings.TcLineNo.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.mandatory}"
@@ -1102,7 +1102,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.label}"
-                                       id="c26">
+                                       id="c26" sortable="true">
                                 <af:inputText value="#{row.bindings.TargetBusinessUnit.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetBusinessUnit.mandatory}"
@@ -1116,7 +1116,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.label}"
-                                       id="c29">
+                                       id="c29" sortable="true">
                                 <af:inputText value="#{row.bindings.TargetOperatingUnit.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetOperatingUnit.mandatory}"
@@ -1130,7 +1130,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.label}"
-                                       id="c28">
+                                       id="c28" sortable="true">
                                 <af:inputText value="#{row.bindings.TargetJobCode.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetJobCode.mandatory}"
@@ -1144,7 +1144,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.label}"
-                                       id="c25">
+                                       id="c25" sortable="true">
                                 <af:inputText value="#{row.bindings.TARGETDEPTID.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.TARGETDEPTID.mandatory}"
@@ -1158,7 +1158,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.label}"
-                                       id="c22" rendered="false">
+                                       id="c22" rendered="false" sortable="true">
                                 <af:inputText value="#{row.bindings.FromGlAccount.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.FromGlAccount.mandatory}"
@@ -1172,7 +1172,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.label}"
-                                       id="c27">
+                                       id="c27" sortable="true">
                                 <af:inputText value="#{row.bindings.TargetGlAccount.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.TargetGlAccount.mandatory}"
@@ -1186,7 +1186,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.label}"
-                                       id="c23">
+                                       id="c23" sortable="true">
                                 <af:inputText value="#{row.bindings.IcLineNo.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.IcLineNo.mandatory}"
@@ -1200,7 +1200,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.label}"
-                                       id="c24">
+                                       id="c24" sortable="true">
                                 <af:inputText value="#{row.bindings.OcLineNo.inputValue}"
                                               label="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.label}"
                                               required="#{bindings.SgsCostTargetCombinationVO1.hints.OcLineNo.mandatory}"
@@ -1214,7 +1214,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveFrom.label}"
-                                       id="c20">
+                                       id="c20" sortable="true">
                                 <f:facet name="filter">
                                     <af:inputDate value="#{bindings.SgsCostTargetCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveFrom.value}"
                                                   id="id6">
@@ -1234,7 +1234,7 @@
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.EffectiveTo.label}"
-                                       id="c21">
+                                       id="c21" sortable="true">
                                 <f:facet name="filter">
                                     <af:inputDate value="#{bindings.SgsCostTargetCombinationVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EffectiveTo.value}"
                                                   id="id13">

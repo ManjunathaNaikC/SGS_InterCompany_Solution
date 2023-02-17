@@ -45,16 +45,27 @@
                       styleClass="AFStretchWidth" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page">
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
                          width="220">
-                <af:outputText value="#{row.StandardRateId}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>
+                <!--<af:outputText value="#{row.StandardRateId}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>-->
+                               <af:link text="#{row.StandardRateId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                  <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
+                </af:link>
               </af:column>
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.label}" id="resId1c2"
                          width="220">
                 <!--<af:outputText value="#{row.ExpenseType}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="ot2"/>-->
-                <af:link text="#{row.ExpenseType}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                <af:selectOneChoice value="#{row.bindings.ExpenseType.inputValue}"
+                                    label="#{row.bindings.ExpenseType.label}"
+                                    required="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.mandatory}"
+                                    shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="soc1"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.ExpenseType.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.ExpenseType.validator}"/>
+                </af:selectOneChoice>
+                <!--<af:link text="#{row.ExpenseType}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
                   <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
-                </af:link>
+                </af:link>-->
               </af:column>
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.SubExpenseType.label}" id="resId1c3"
                          width="220">
@@ -143,19 +154,20 @@
                 <af:outputText value="#{row.UnitOfMeasure}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.UnitOfMeasure.tooltip}" id="ot15"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.label}" id="resId1c11"
-                         width="200">
-                <af:outputText value="#{row.EffectiveEndDate}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.tooltip}" id="ot11">
-                  <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.format}"/>
-                </af:outputText>
-              </af:column>
+             
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.label}" id="resId1c10"
                          width="200">
                 <af:outputText value="#{row.EffectiveStartDate}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.tooltip}"
                                id="ot10">
                   <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveStartDate.format}"/>
+                </af:outputText>
+              </af:column>
+               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.label}" id="resId1c11"
+                         width="200">
+                <af:outputText value="#{row.EffectiveEndDate}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.tooltip}" id="ot11">
+                  <af:convertDateTime pattern="#{bindings.SgsStandardRateSetupVO1.hints.EffectiveEndDate.format}"/>
                 </af:outputText>
               </af:column>
               <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.UpdatedDate.label}" id="resId1c16">

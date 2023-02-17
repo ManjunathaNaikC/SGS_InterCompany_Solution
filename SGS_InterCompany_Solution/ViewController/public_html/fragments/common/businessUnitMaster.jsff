@@ -55,32 +55,36 @@
                 <af:outputText value="#{row.BussinessUnitId}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitId.tooltip}" id="ot1"/>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitName.label}" id="resId1c2">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitName.label}" id="resId1c2"
+                         sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitName.name}" >
                 <!--<af:outputText value="#{row.BussinessUnitName}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitName.tooltip}"
                                id="ot2"/>-->
                 <af:link text="#{row.BussinessUnitName}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.label}" id="resId1c3">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.label}" id="resId1c3"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.name}">
                 <af:outputText value="#{row.OperatingUnit}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.tooltip}" id="ot3"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.label}" id="resId1c4">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.label}" id="resId1c4"
+               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.name}">
                 <af:outputText value="#{row.DepartmentId}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.tooltip}" id="ot4"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.label}" id="resId1c5">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.label}" id="resId1c5"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.name}">
                 <af:outputText value="#{row.LegalEntity}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}" id="ot5"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.label}"
-                         id="resId1c6">
+                         id="resId1c6"  sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.name}">
                 <af:outputText value="#{row.BussinessUnitGeography}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.tooltip}"
                                id="ot6"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.label}"
-                         id="resId1c7">
+                         id="resId1c7"  sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.name}">
                 <!--<af:outputText value="#{row.BussinessUnitStatus}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.tooltip}"
                                id="ot7"/>-->
@@ -93,59 +97,66 @@
                   <f:validator binding="#{row.bindings.BussinessUnitStatus.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.FunctionalCurrency.label}" id="resId1c8">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.FunctionalCurrency.label}" id="resId1c8"
+               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.FunctionalCurrency.name}">
                 <af:outputText value="#{row.FunctionalCurrency}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.FunctionalCurrency.tooltip}"
                                id="ot8"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.SubLedgerApplicability.label}"
-                         id="resId1c9">
+                         id="resId1c9"  sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.SubLedgerApplicability.name}">
                 <af:outputText value="#{row.SubLedgerApplicability}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.SubLedgerApplicability.tooltip}"
                                id="ot9"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.label}"
-                         id="resId1c10">
+                         id="resId1c10" sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.name}">
                 <af:outputText value="#{row.EFFECTIVESTARTDATE}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.tooltip}"
                                id="ot10">
                   <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.label}" id="resId1c11">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.label}" id="resId1c11"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.name}">
                 <af:outputText value="#{row.EFFECTIVEENDDATE}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.tooltip}"
                                id="ot11">
                   <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.label}" id="resId1c12">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.label}" id="resId1c12"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.name}">
                 <af:outputText value="#{row.CreatedBy}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.tooltip}" id="ot12"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.label}" id="resId1c13">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.label}" id="resId1c13"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.name}">
                 <af:outputText value="#{row.CreatedDate}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.tooltip}" id="ot13">
                   <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.label}" id="resId1c14">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.label}" id="resId1c14"
+               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.name}">
                 <af:outputText value="#{row.UpdatedDate}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.tooltip}" id="ot14">
                   <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.label}" id="resId1c15">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.label}" id="resId1c15"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.name}">
                 <af:outputText value="#{row.UpdatedBy}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.tooltip}" id="ot15"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.label}"
-                         id="resId1c16">
+                         id="resId1c16" sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.name}">
                 <af:outputText value="#{row.BusinessControllers}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.tooltip}"
                                id="ot16"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.label}" id="resId1c17">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.label}" id="resId1c17"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.name}">
                 <!--<af:outputText value="#{row.BussinessUnitZone}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.tooltip}"
                                id="ot17"/>-->
@@ -158,25 +169,30 @@
                   <f:validator binding="#{row.bindings.BussinessUnitZone.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CollectionBu.label}" id="resId1c18">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CollectionBu.label}" id="resId1c18"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.CollectionBu.name}">
                 <af:outputText value="#{row.CollectionBu}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CollectionBu.tooltip}" id="ot18"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.GstRegNum.label}" id="resId1c19">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.GstRegNum.label}" id="resId1c19"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.GstRegNum.name}">
                 <af:outputText value="#{row.GstRegNum}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.GstRegNum.tooltip}" id="ot19"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoCustomerName.label}" id="resId1c20">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoCustomerName.label}" id="resId1c20"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoCustomerName.name}">
                 <af:outputText value="#{row.IcoCustomerName}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoCustomerName.tooltip}"
                                id="ot20"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoSupplierName.label}" id="resId1c21">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoSupplierName.label}" id="resId1c21"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoSupplierName.name}">
                 <af:outputText value="#{row.IcoSupplierName}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.IcoSupplierName.tooltip}"
                                id="ot21"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.label}" id="resId1c22">
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.label}" id="resId1c22"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.name}">
                 <af:outputText value="#{row.PayingBu}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.tooltip}" id="ot22"/>
               </af:column>

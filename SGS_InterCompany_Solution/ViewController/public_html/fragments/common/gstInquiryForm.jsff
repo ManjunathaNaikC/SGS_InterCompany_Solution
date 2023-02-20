@@ -235,8 +235,9 @@
                       selectedRowKeys="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
-                      partialTriggers="::b4 ::b5" styleClass="AFStretchWidth">
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.label}" id="c6">
+                      partialTriggers="::b4 ::b5" styleClass="AFStretchWidth" columnStretching="column:c3">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.label}" id="c6"
+                         width="140">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
                                     label="#{row.bindings.NATUREOFEXPENSE.label}"
                                     required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.mandatory}"
@@ -290,7 +291,7 @@
                   <f:validator binding="#{row.bindings.RateOfTax.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3">
+              <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.label}" id="c3" width="150">
                 <af:selectOneChoice value="#{row.bindings.HsnCode.inputValue}" label="#{row.bindings.HsnCode.label}"
                                     required="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.mandatory}"
                                     shortDesc="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.HsnCode.tooltip}"

@@ -45,12 +45,12 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsGstTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsGstTblVO1.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.SgsGstTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
-                      partialTriggers="::b1 ::b2" scrollPolicy="page">
+                      partialTriggers="::b1 ::b2" scrollPolicy="page" columnStretching="column:resId1c1">
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.GstNum.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.GstNum}" shortDesc="#{bindings.SgsGstTblVO1.hints.GstNum.tooltip}" id="ot1"/>-->
                 <af:link text="#{row.GstNum}" id="l1" action="EDIT"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.ServProvider.label}" id="resId1c2">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.ServProvider.label}" id="resId1c2" width="120">
                 <!--<af:outputText value="#{row.ServProvider}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.ServProvider.tooltip}" id="ot2"/>-->
                 <af:selectOneChoice value="#{row.bindings.ServProvider.inputValue}"
@@ -62,7 +62,7 @@
                   <f:validator binding="#{row.bindings.ServProvider.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyPlace.label}" id="resId1c3">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyPlace.label}" id="resId1c3" width="115">
                 <!--<af:outputText value="#{row.SupplyPlace}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyPlace.tooltip}"
                                id="ot3"/>-->
                 <af:selectOneChoice value="#{row.bindings.SupplyPlace.inputValue}"
@@ -74,7 +74,7 @@
                   <f:validator binding="#{row.bindings.SupplyPlace.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4" width="100">
                 <!--<af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
                                id="ot4"/>-->
                 <af:selectOneChoice value="#{row.bindings.SupplyType.inputValue}"
@@ -87,12 +87,12 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstReceivable.label}" id="resId1c7"
-                         rendered="false">
+                         rendered="false" width="100">
                 <af:outputText value="#{row.IgstReceivable}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.IgstReceivable.tooltip}" id="ot7"/>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstReceivable.label}" id="resId1c8"
-                         rendered="false">
+                         rendered="false" width="120">
                 <af:outputText value="#{row.CgstReceivable}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.CgstReceivable.tooltip}" id="ot8"/>
               </af:column>
@@ -113,7 +113,7 @@
                 <af:outputText value="#{row.SgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.SgstPayable.tooltip}"
                                id="ot12"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Rcm.label}" id="c1">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Rcm.label}" id="c1" width="175">
                 <af:selectOneChoice value="#{row.bindings.Rcm.inputValue}" label="#{row.bindings.Rcm.label}"
                                     required="#{bindings.SgsGstTblVO1.hints.Rcm.mandatory}"
                                     shortDesc="#{bindings.SgsGstTblVO1.hints.Rcm.tooltip}" id="soc4" 

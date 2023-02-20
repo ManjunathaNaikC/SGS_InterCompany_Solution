@@ -63,12 +63,14 @@
                 <af:link text="#{row.BussinessUnitName}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.label}" id="resId1c3"
-              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.name}">
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.name}"
+                         visible="false">
                 <af:outputText value="#{row.OperatingUnit}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.tooltip}" id="ot3"/>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.label}" id="resId1c4"
-               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.name}">
+               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.name}"
+                         visible="false">
                 <af:outputText value="#{row.DepartmentId}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.DepartmentId.tooltip}" id="ot4"/>
               </af:column>

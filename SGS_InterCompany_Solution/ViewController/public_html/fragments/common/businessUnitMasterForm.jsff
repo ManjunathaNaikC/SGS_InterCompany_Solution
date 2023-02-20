@@ -42,14 +42,14 @@
                         required="#{bindings.OperatingUnit.hints.mandatory}"
                         columns="#{bindings.OperatingUnit.hints.displayWidth}"
                         maximumLength="#{bindings.OperatingUnit.hints.precision}"
-                        shortDesc="#{bindings.OperatingUnit.hints.tooltip}" id="it3">
+                        shortDesc="#{bindings.OperatingUnit.hints.tooltip}" id="it3" visible="false">
             <f:validator binding="#{bindings.OperatingUnit.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.hints.label}"
                         required="#{bindings.DepartmentId.hints.mandatory}"
                         columns="#{bindings.DepartmentId.hints.displayWidth}"
                         maximumLength="#{bindings.DepartmentId.hints.precision}"
-                        shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it4">
+                        shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it4" visible="false">
             <f:validator binding="#{bindings.DepartmentId.validator}"/>
           </af:inputText>
           <af:inputText value="#{bindings.LegalEntity.inputValue}" label="#{bindings.LegalEntity.hints.label}"

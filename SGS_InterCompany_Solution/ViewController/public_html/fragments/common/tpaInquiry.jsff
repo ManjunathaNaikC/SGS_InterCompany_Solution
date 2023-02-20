@@ -35,21 +35,24 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTpaMaster1VO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTpaMaster1VO1.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.SgsTpaMaster1VO1.rangeSize}" id="resId1" partialTriggers="::b1 ::b2"
-                      styleClass="AFStretchWidth" scrollPolicy="page">
+                      styleClass="AFStretchWidth" scrollPolicy="page" columnStretching="last">
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.TpaId.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.TpaId.tooltip}"
                              id="ot1"/>-->
                 <af:link text="#{row.TpaId}" id="l1" action="EDIT"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.label}" id="resId1c2">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.label}" id="resId1c2"
+                         width="190">
                 <af:outputText value="#{row.LeServiceProvider}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.tooltip}" id="ot2"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.label}" id="resId1c3">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.label}" id="resId1c3"
+                         width="190">
                 <af:outputText value="#{row.LeServiceReceiver}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.tooltip}" id="ot3"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="c1">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="c1"
+                         width="130">
                 <af:selectOneChoice value="#{row.bindings.NettingApplicatibility.inputValue}"
                                     label="#{row.bindings.NettingApplicatibility.label}"
                                     required="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.mandatory}"
@@ -63,7 +66,8 @@
                 <af:outputText value="#{row.NettingApplicatibility}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.tooltip}" id="ot4"/>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.label}" id="resId1c5">
+              <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.label}" id="resId1c5"
+                         width="190">
                 <af:outputText value="#{row.BdCommissionApplicability}"
                                shortDesc="#{bindings.SgsTpaMaster1VO1.hints.BdCommissionApplicability.tooltip}"
                                id="ot5"/>

@@ -29,14 +29,16 @@
                     </af:gridRow>
                     <af:gridRow height="100%" id="gr2">
                         <af:gridCell width="100%" halign="center" id="gc3" valign="middle" columnSpan="1">
+                            <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                <af:spacer id="s1" width="145"/>
+                                <af:outputFormatted value="Intercompany Workbench Application" id="of2"
+                                                    inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
+                            </af:panelGroupLayout>
                             <!--<af:panelGroupLayout id="pgl7" layout="horizontal" halign="center">
                                 <af:outputText value="Sutherland Global Services – Intercompany Workbench Application"
                                                id="ot1"
                                                inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
                             </af:panelGroupLayout>-->
-                            <af:outputFormatted value="Intercompany Workbench Application"
-                                                id="of2"
-                                                inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:white;"/>
                             <af:panelBox id="pb2" showDisclosure="false" titleHalign="center"
                                          inlineStyle="text-align:center; margin:70px;    margin-left: 150px; border-bottom-left-radius:5px 5px; border-bottom-right-radius:5px 5px; width:359px;">
                                 <f:facet name="toolbar"/>

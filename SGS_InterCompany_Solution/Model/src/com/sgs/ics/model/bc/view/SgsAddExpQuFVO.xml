@@ -18,9 +18,10 @@
         ResId="com.sgs.ics.model.bc.view.SgsAddExpQuFVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT  
-      ADDT_EXPENSE_CAT 
-  FROM SGS_COST_IDENTIFICATION_RULE]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT   
+     DISTINCT ADDT_EXPENSE_CAT  
+FROM SGS_COST_IDENTIFICATION_RULE 
+WHERE ADDT_EXPENSE_CAT IS NOT NULL]]></SQLQuery>
   <ViewAttribute
     Name="ADDTEXPENSECAT"
     IsUpdateable="false"

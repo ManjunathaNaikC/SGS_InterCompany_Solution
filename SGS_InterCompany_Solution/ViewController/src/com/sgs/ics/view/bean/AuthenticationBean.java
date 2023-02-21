@@ -2,7 +2,6 @@ package com.sgs.ics.view.bean;
 
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 import com.sgs.ics.ui.utils.ADFUtils;
-
 import java.io.IOException;
 
 import java.sql.Connection;
@@ -10,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.Map;
@@ -34,7 +34,6 @@ import oracle.binding.OperationBinding;
 
 import javax.servlet.http.HttpServletResponse;
 
-import oracle.mds.internal.security.SecurityUtils;
 
 
 public class AuthenticationBean {
@@ -137,6 +136,17 @@ public class AuthenticationBean {
         Map sessionScope = adfCtx.getApplicationScope();
         sessionScope.put(name, value);
     }
+    
+    public void setapplicationScopePageList(ArrayList<String> pageList) {
+        ADFContext adfCtx = ADFContext.getCurrent();
+        ArrayList<String> appScope = (ArrayList<String>) adfCtx.getApplicationScope();
+        if(null != pageList && !(pageList.isEmpty())){
+            for (int i = 0; i < pageList.size(); i++){
+            appScope.add(pageList.get(i));
+            }  
+        }
+        System.out.println("PAge List :: "+appScope);
+    }
 
     public String loginValidation() {
         // Add event code here...
@@ -153,7 +163,8 @@ public class AuthenticationBean {
         setSessionScopeValue("_username",_username);      
         String useremail = getUserEmailId(_username);
         setSessionScopeValue("USER_EMAIL",useremail);
-        
+        ArrayList<String> pageList = pageList(_username);
+        ADFContext.getCurrent().getApplicationScope().put("pageList",pageList); 
         try {
             if (ob.getResult() != null) {
                 String userId = ob.getResult().toString();
@@ -207,6 +218,44 @@ public class AuthenticationBean {
         }
         
         return userEmail;
+    }
+    
+    private ArrayList<String>  pageList(String userId){
+        ArrayList<String> pageList = new ArrayList<>();
+        String queryString =
+            "SELECT PAGE_ID from ROLE_PAGE_MAPPING WHERE ROLE_ID IN( SELECT ROLE_ID FROM [USER_ROLE_MAPPING] WHERE USER_ID='"+userId+"')";
+        Connection conn = null;
+        PreparedStatement pst = null;
+        System.out.println("Query :: " + queryString);
+        try {
+            SGSAppModuleImpl am = new SGSAppModuleImpl();
+            conn = am.getDBConnection();
+            String sqlIdentifier = queryString;
+            pst = conn.prepareStatement(sqlIdentifier);
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                pageList.add((String) rs.getString(1));
+            }
+            if( null == pageList){
+                pageList.add("NO_PAGES");
+            }
+
+        System.out.println("PAge List :: "+ pageList.toString());
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        
+        
+        return pageList;
     }
 
 

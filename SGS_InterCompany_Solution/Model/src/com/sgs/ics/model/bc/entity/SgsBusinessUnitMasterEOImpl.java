@@ -89,6 +89,7 @@ public class SgsBusinessUnitMasterEOImpl extends EntityImpl {
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsBusinessUnitMasterEOImpl.class);
 
+
     public static final int BUSEQ = AttributesEnum.BuSeq.index();
     public static final int BUSSINESSUNITID = AttributesEnum.BussinessUnitId.index();
     public static final int BUSSINESSUNITNAME = AttributesEnum.BussinessUnitName.index();
@@ -745,6 +746,7 @@ public class SgsBusinessUnitMasterEOImpl extends EntityImpl {
         setAttributeInternal(EFFECTIVESTARTDATE, value);
     }
 
+
     /**
      * @param bussinessUnitId key constituent
 
@@ -754,7 +756,6 @@ public class SgsBusinessUnitMasterEOImpl extends EntityImpl {
         return new Key(new Object[] { bussinessUnitId });
     }
 
- 
     /**
      * Add attribute defaulting logic in this method.
      * @param attributeList list of attribute names/values to initialize the row
@@ -763,8 +764,8 @@ public class SgsBusinessUnitMasterEOImpl extends EntityImpl {
         super.create(attributeList);        
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
-            setBuSeq(am.getDBSequence1("SEQ_SGS_BUSINESS_UNIT_MASTER"));
-            setBussinessUnitId("BU"+am.getDBSequence("SEQ_SGS_BUSINESS_UNIT_MASTER"));
+            setBuSeq(am.getDBSequence1("SGS_BUSINESS_UNIT_MASTER_SEQ"));
+            setBussinessUnitId("BU"+am.getDBSequence("SGS_BUSINESS_UNIT_MASTER_SEQ"));
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());

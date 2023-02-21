@@ -21,7 +21,8 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INT"
-    TableName="SGS_BUSINESS_UNIT_MASTER"/>
+    TableName="SGS_BUSINESS_UNIT_MASTER"
+    IsNotNull="true"/>
   <Attribute
     Name="BussinessUnitId"
     IsNotNull="true"
@@ -434,6 +435,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.sgs.ics.model.bc.entity.SgsBusinessUnitMasterEO.BussinessUnitId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SGSBUSINESSUNITMASTERBUSEQCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"BU_SEQ" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SGSBUSINESSUNITMASTERBUSEQChec"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsBusinessUnitMasterEO.BuSeq"/>
     </AttrArray>
   </Key>
 </Entity>

@@ -512,7 +512,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
-    IsUpdateable="false"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
@@ -732,6 +731,8 @@
       <SchemaBasedProperties>
         <FIELDORDER
           Value="37.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.UpdatedBy_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -750,6 +751,8 @@
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.UpdatedDate_FMT_FORMAT"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.UpdatedDate_FMT_FORMATTER"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.UpdatedDate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

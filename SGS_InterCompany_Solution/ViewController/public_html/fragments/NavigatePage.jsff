@@ -14,32 +14,32 @@
                     <f:facet name="first">
                         <!-- Left -->
                         <af:panelAccordion discloseMany="true" id="MenuOptions" styleClass="">
-                            <af:showDetailItem id="Setup" text="Setup">
+                            <af:showDetailItem id="Setup" text="Setup" rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('SET_UP')}">
                                 <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options">
-                                    <af:link text="Cost Allocation Setup"
+                                    <af:link text="Cost Allocation Setup"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')   or  applicationScope.get('pageList').contains('COST_ALLOWCATE')}"
                                              action="#{pageFlowScope.navigateBean.sgscostIdentificationRuleflow}"
                                              id="l1" immediate="true"/>
                                     <!--<af:link text="Transfer Pricing Master" action="#{pageFlowScope.navigateBean.tPASetupBTF}"
                                              id="l2" immediate="true"/>-->
-                                    <af:link text="Standard Rate Setup"
+                                    <af:link text="Standard Rate Setup"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('STD_RATE')}"
                                              action="#{pageFlowScope.navigateBean.sgsstandardSetupRuleflow}" id="l7"
                                              immediate="true"/>
                                     <!--<af:link text="welcome-empty-flow"
                                              action="#{pageFlowScope.navigateBean.welcomeemptyflow}" id="l4"/>-->
 
-                                    <af:link text="Business Unit Setup"
+                                    <af:link text="Business Unit Setup"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')   or  applicationScope.get('pageList').contains('BU')}"
                                              action="#{pageFlowScope.navigateBean.sgsbusinessUnitMasterflow}" id="l3"
                                              immediate="true"/>
-                                    <af:link text="Goods and Service Tax (GST) Setup"
+                                    <af:link text="Goods and Service Tax (GST) Setup"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('GST')}"
                                              action="#{pageFlowScope.navigateBean.sgsgstInquiryflow}" id="l5"
                                              immediate="true"/>
-                                    <af:link text="Value Added Tax(VAT) Setup"
+                                    <af:link text="Value Added Tax(VAT) Setup"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('VAT')}"
                                              action="#{pageFlowScope.navigateBean.sgsvatInquiryflow}" id="l6"
                                              immediate="true"/>
-                                    <af:link text="Withholding Tax (WHT)/ TDS Setup"
+                                    <af:link text="Withholding Tax (WHT)/ TDS Setup"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('WHT')}"
                                              action="#{pageFlowScope.navigateBean.sgstdswhtInquiryflow}" id="l8"
                                              immediate="true"/>
-                                    <af:link text="Mark-Up Rate Setup"
+                                    <af:link text="Mark-Up Rate Setup"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or  applicationScope.get('pageList').contains('MARKUP')}"
                                              action="#{pageFlowScope.navigateBean.sgsMarkUpRateMasterflow}" id="l9"
                                              immediate="true"/>
                                     <!--<af:link text="#{viewcontrollerBundle.CostAllocationSetup}" destination="" id="gl1"
@@ -60,40 +60,40 @@
                                              id="gl7" inlineStyle="font-weight:bold;"/>
                                     <af:link text="#{viewcontrollerBundle.ISDSetup}" destination="" id="gl8"
                                              inlineStyle="font-weight:bold;"/>-->
-                                    <af:link text="Transer Pricing Agreement" id="tpa02"
+                                    <af:link text="Transer Pricing Agreement" id="tpa02"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')   or  applicationScope.get('pageList').contains('TPA')}"
                                              action="#{pageFlowScope.navigateBean.sgstpaInquiryflow}" immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Transaction" text="Transactional Data">
+                            <af:showDetailItem id="Transaction" text="Transactional Data"  rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('TXN_DATA')}">
                                 <af:panelList id="pl2">
                  
-                                    <af:link text="Statistical Data"
+                                    <af:link text="Statistical Data" rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('STAT_DATA')}"
                                              action="#{pageFlowScope.navigateBean.sgsstatisticalDateflow}" id="l4"/>
-                                    <af:link text="Invoice DashBoard"
+                                    <af:link text="Invoice DashBoard" rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('INV_DB')}"
                                              action="#{pageFlowScope.navigateBean.sgsinvoiceDashboardflow}" id="l10"/>
-                                    <af:link text="PeopleSoft Transactions"
+                                    <af:link text="PeopleSoft Transactions" rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('PS_TXN')}"
                                              action="#{pageFlowScope.navigateBean.sgstransBCostAllocationMainflow}"
                                              id="l11"/>
 
-                                    <af:link text="Create Settlement"
+                                    <af:link text="Create Settlement"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or  applicationScope.get('pageList').contains('CREATE_SETTLEMENT')}"
                                              action="#{pageFlowScope.navigateBean.createsettlement_flow}" id="l13"/>
-                                    <af:link text="Settlement DashBoard"
+                                    <af:link text="Settlement DashBoard"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('SETTLEMENT_DB')}"
                                              action="#{pageFlowScope.navigateBean.settlementdashboardflow}" id="l12"/>
-                                    <af:link text="Fixed Assets Transactions"
+                                    <af:link text="Fixed Assets Transactions"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or  applicationScope.get('pageList').contains('FIXED_ASSETS')}"
                                              action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"/>
-                                    <af:link text="Netting Settlement"
+                                    <af:link text="Netting Settlement"   rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')  or  applicationScope.get('pageList').contains('NETTING')}"
                                              action="#{pageFlowScope.navigateBean.sgsnettingflow}" id="l2"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Process" text="Process">
+                            <af:showDetailItem id="Process" text="Process" rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')}">
                                 <af:panelList id="pl3">
                                     <!--<af:link text="link 1" id="l2"/>-->
                                     <af:link text="Allocation Run"
                                              action="#{pageFlowScope.navigateBean.sgsAllocationRunflow}" id="arp01"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Reports" text="Reports"/>
-                            <af:showDetailItem id="Security" text="Security" disclosed="true">
+                            <af:showDetailItem id="Reports" text="Reports" rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')}"/>
+                            <af:showDetailItem id="Security" text="Security" disclosed="true" rendered="#{applicationScope.get('pageList').contains('ALL_PAGE')}">
                                 <f:facet name="toolbar"/>
                             </af:showDetailItem>
                         </af:panelAccordion>

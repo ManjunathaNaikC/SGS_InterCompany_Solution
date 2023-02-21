@@ -809,6 +809,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="APPROVESTATUS"
+    PrecisionRule="true"
+    EntityAttrName="APPROVESTATUS"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="APPROVE_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.APPROVESTATUS_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

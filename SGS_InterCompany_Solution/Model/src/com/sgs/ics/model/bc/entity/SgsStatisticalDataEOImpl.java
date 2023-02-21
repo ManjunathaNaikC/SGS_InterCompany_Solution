@@ -71,7 +71,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         STATISTICALDATA,
         CONCATEID,
         EMPGRADE,
-        STATGEOGRAPHY;
+        STATGEOGRAPHY,
+        APPROVESTATUS;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -142,6 +143,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int CONCATEID = AttributesEnum.CONCATEID.index();
     public static final int EMPGRADE = AttributesEnum.EMPGRADE.index();
     public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
+    public static final int APPROVESTATUS = AttributesEnum.APPROVESTATUS.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -893,6 +895,22 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      */
     public void setSTATGEOGRAPHY(String value) {
         setAttributeInternal(STATGEOGRAPHY, value);
+    }
+
+    /**
+     * Gets the attribute value for APPROVESTATUS, using the alias name APPROVESTATUS.
+     * @return the value of APPROVESTATUS
+     */
+    public String getAPPROVESTATUS() {
+        return (String) getAttributeInternal(APPROVESTATUS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for APPROVESTATUS.
+     * @param value value to set the APPROVESTATUS
+     */
+    public void setAPPROVESTATUS(String value) {
+        setAttributeInternal(APPROVESTATUS, value);
     }
 
     /**

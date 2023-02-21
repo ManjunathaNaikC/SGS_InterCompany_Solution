@@ -35,6 +35,10 @@
                             <af:button text="Submit For Approval" id="b7"/>
                             <af:button actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save"
                                        id="b4"/>
+                            <af:button text="Approve" id="b10"
+                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_APPROVE')}"/>
+                            <af:button text="Reject" id="b11"
+                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_REJECT')}"/>
                             <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
                                        actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
                             <af:button id="b1" action="ADD" icon="/resources/icons/plus.png"
@@ -289,6 +293,18 @@
                                 <f:validator binding="#{row.bindings.STATISTICALDATA.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}" id="c52"  sortProperty="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.name}"
+                                   filterable="true">
+                            <af:inputText value="#{row.bindings.APPROVESTATUS.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.tooltip}"
+                                          id="it42">
+                                <f:validator binding="#{row.bindings.APPROVESTATUS.validator}"/>
                             </af:inputText>
                         </af:column>
                         <!--<af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.name}"

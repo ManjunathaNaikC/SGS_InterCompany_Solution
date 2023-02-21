@@ -48,6 +48,7 @@
           <Item Value="STATISTICALDATA"/>
           <Item Value="EMPGRADE"/>
           <Item Value="STATGEOGRAPHY"/>
+          <Item Value="APPROVESTATUS"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

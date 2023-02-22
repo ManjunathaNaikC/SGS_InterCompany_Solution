@@ -1,5 +1,7 @@
 package com.sgs.ics.view.bean.common;
 
+import com.sgs.ics.ui.utils.ADFUtils;
+
 import java.io.IOException;
 
 import java.io.InputStream;
@@ -17,6 +19,8 @@ import javax.faces.event.ValueChangeEvent;
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.context.AdfFacesContext;
+
+import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.binding.BindingContainer;
 
@@ -92,6 +96,8 @@ public class UploadExcelBean {
         return createParam;
 
     }
+    
+  
 
 
     /**Method to read xls file and upload to table.
@@ -338,74 +344,135 @@ public class UploadExcelBean {
                             row.setAttribute("StatisticalDataId", MytempCell.getNumericCellValue());
                              
                         } else if (Index == 1) {
+                            System.out.println("NATUREOFEXPENSE------>"+MytempCell.getStringCellValue());
+                            System.out.println("NATUREOFEXPENSEAVVVV------>"+row.getAttribute("NATUREOFEXPENSE"));
+                            
+                            
+                            row.setAttribute("NATUREOFEXPENSE", MytempCell.getStringCellValue());
+
+                        } else if (Index == 2) {
                             System.out.println("StatisticalDataCategory------>"+MytempCell.getStringCellValue());
                             System.out.println("StatisticalDataCategoryAVVVV------>"+row.getAttribute("StatisticalDataCategory"));
                             
                             
                             row.setAttribute("StatisticalDataCategory", MytempCell.getStringCellValue());
 
-                        } else if (Index == 2) {
+                        } else if (Index == 3) {
+                            
+                            System.out.println("FROMBU------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("FROMBU", MytempCell.getStringCellValue());
+
+                        } else if (Index == 4) {
+                            
+                            System.out.println("FROMJOBCODE------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("FROMJOBCODE", MytempCell.getStringCellValue());
+
+                        } else if (Index == 5) {
+                            
+                            System.out.println("FROMOU------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("FROMOU", MytempCell.getStringCellValue());
+
+                        } else if (Index == 6) {
+                            
+                            System.out.println("FROMDEPTID------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("FROMDEPTID", MytempCell.getStringCellValue());
+
+                        } else if (Index == 7) {
                             
                             System.out.println("ToBusinessUnit------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("ToBusinessUnit", MytempCell.getStringCellValue());
 
-                        } else if (Index == 3) {
+                        } else if (Index == 8) {
                             System.out.println("ToJobCode------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("ToJobCode", MytempCell.getStringCellValue());
 
-                        } else if (Index == 4) {
+                        } else if (Index == 9) {
                             System.out.println("ToOperatingUnit------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("ToOperatingUnit", MytempCell.getStringCellValue());
 
-                        } else if (Index == 5) {
+                        } else if (Index == 10) {
                             System.out.println("ToDepartmentId------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("ToDepartmentId", MytempCell.getStringCellValue());
 
-                        } else if (Index == 6) {
+                        } else if (Index == 11) {
                             System.out.println("StatisticalData------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("StatisticalData", MytempCell.getStringCellValue());
 
-                        } else if (Index == 7) {
+                        } else if (Index == 12) {
+                            
+                            System.out.println("STATGEOGRAPHY------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("STATGEOGRAPHY", MytempCell.getStringCellValue());
+
+                        } else if (Index == 13) {
+                            
+                            System.out.println("INPUTPROVIDER------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("INPUTPROVIDER", MytempCell.getStringCellValue());
+
+                        } else if (Index == 14) {
+                            
+                            System.out.println("ADDTEXPENSECAT------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("ADDTEXPENSECAT", MytempCell.getStringCellValue());
+
+                        } else if (Index == 15) {
+                            
+                            System.out.println("GLACCOUNT------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("GLACCOUNT", MytempCell.getStringCellValue());
+
+                        } else if (Index == 16) {
                             System.out.println("UnitOfMeasure------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("UnitOfMeasure", MytempCell.getStringCellValue());
 
-                        } else if (Index == 8) {
+                        } else if (Index == 17) {
                             System.out.println("CostGroup------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("CostGroup", MytempCell.getStringCellValue());
 
-                        } else if (Index == 9) {
+                        } else if (Index == 18) {
                             System.out.println("Currency------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("Currency", MytempCell.getStringCellValue());
 
-                        } else if (Index == 10) {
+                        } else if (Index == 19) {
                             System.out.println("EmployeeId------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("EmployeeId", MytempCell.getStringCellValue());
 
-                        } else if (Index == 11) {
+                        } else if (Index == 20) {
+                            
+                            System.out.println("EMPGRADE------>"+MytempCell.getNumericCellValue());
+                            
+                            row.setAttribute("EMPGRADE", MytempCell.getNumericCellValue());
+
+                        } else if (Index == 21) {
                             System.out.println("TargetAmount------>"+MytempCell.getNumericCellValue());
                             
                             row.setAttribute("TargetAmount", MytempCell.getNumericCellValue());
 
-                        } else if (Index == 12) {
+                        } else if (Index == 22) {
                             System.out.println("RejectedReason------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("RejectedReason", MytempCell.getStringCellValue());
 
-                        } else if (Index == 13) {
+                        } else if (Index == 23) {
                             System.out.println("RejectionComments------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("RejectionComments", MytempCell.getStringCellValue());
 
-                        } else if (Index == 14) {
+                        } else if (Index == 24) {
                             System.out.println("ValidityFrom------>"+MytempCell.getDateCellValue());
                             
                             java.util.Date date = MytempCell.getDateCellValue();
@@ -426,7 +493,7 @@ public class UploadExcelBean {
                             } else {
                                 row.setAttribute("ValidityFrom", null);
                             }
-                        } else if (Index == 15) {
+                        } else if (Index == 25) {
                             System.out.println("ValidityTill------>"+MytempCell.getDateCellValue());
                             
                             java.util.Date date = MytempCell.getDateCellValue();
@@ -448,59 +515,7 @@ public class UploadExcelBean {
                                 row.setAttribute("ValidityTill", null);
                             }
 
-                        } else if (Index == 16) {
-                            System.out.println("CreatedBy------>"+MytempCell.getStringCellValue());
-                            
-                            row.setAttribute("CreatedBy", MytempCell.getStringCellValue());
-
-                        } else if (Index == 17) {
-                            System.out.println("UpdatedDate------>"+MytempCell.getDateCellValue());
-                            
-                            java.util.Date date = MytempCell.getDateCellValue();
-                            if (null != date) {
-                                System.out.println("dATE-ValidateFrom" + date);
-                                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                                System.out.println("d");
-                                String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
-                                try {
-                                    date = dateFormat.parse(date1);
-                                } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
-                                }
-                                java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-                                oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
-                                row.setAttribute("UpdatedDate", jboDate);
-                            } else {
-                                row.setAttribute("UpdatedDate", null);
-                            }
-
-                        } else if (Index == 18) {
-                            System.out.println("UpdatedBy------>"+MytempCell.getStringCellValue());
-                            
-                            row.setAttribute("UpdatedBy", MytempCell.getStringCellValue());
-
-                        } else if (Index == 19) {
-                            System.out.println("CreatedDate------>"+MytempCell.getDateCellValue());
-                            
-                            java.util.Date date = MytempCell.getDateCellValue();
-                            if (null != date) {
-                                System.out.println("dATE-ValidateFrom" + date);
-                                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                                System.out.println("d");
-                                String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
-                                try {
-                                    date = dateFormat.parse(date1);
-                                } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
-                                }
-                                java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-                                oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
-                                row.setAttribute("CreatedDate", jboDate);
-                            } else {
-                                row.setAttribute("CreatedDate", null);
-                            }
+                         
                         } else {
                             System.out.println("-----> cell Is empty Please fill the cell with data"+tempRow.getRowNum()+"+"+tempRow.getCell(column));
                             System.out.println("-----> cell Is empty Please fill the cell with data at Index"+Index);
@@ -529,5 +544,15 @@ public class UploadExcelBean {
         executeOperation("Commit").execute();
         
     }
+    
+    
+    
+    public void okButtonDialogListner(DialogEvent dialogEvent) {
+        if (dialogEvent.getOutcome() == DialogEvent.Outcome.ok) {
 
+            executeOperation("ExecuteStatisticalData").execute();
+            ADFUtils.saveNotifier();
+        }
+
+     }
 }

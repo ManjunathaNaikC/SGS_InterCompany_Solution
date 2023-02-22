@@ -456,12 +456,11 @@
   </Attribute>
   <Attribute
     Name="STATISTICALDATA"
-     Precision="20"
-    Scale="5"
+    Precision="80"
         SQLType="NUMERIC"
-    ColumnType="NUMERIC"
+    ColumnType="VARCHAR"
     ColumnName="STATISTICAL_DATA"
-    Type="java.math.BigDecimal"
+    Type="java.lang.String"
     TableName="SGS_STATISTICAL_DATA_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>

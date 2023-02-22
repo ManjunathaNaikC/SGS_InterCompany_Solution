@@ -836,15 +836,15 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      * Gets the attribute value for STATISTICALDATA, using the alias name STATISTICALDATA.
      * @return the value of STATISTICALDATA
      */
-    public BigDecimal getSTATISTICALDATA() {
-        return (BigDecimal) getAttributeInternal(STATISTICALDATA);
+    public String getSTATISTICALDATA() {
+        return (String) getAttributeInternal(STATISTICALDATA);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for STATISTICALDATA.
      * @param value value to set the STATISTICALDATA
      */
-    public void setSTATISTICALDATA(BigDecimal value) {
+    public void setSTATISTICALDATA(String value) {
         setAttributeInternal(STATISTICALDATA, value);
     }
 
@@ -912,6 +912,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public void setAPPROVESTATUS(String value) {
         setAttributeInternal(APPROVESTATUS, value);
     }
+
 
     /**
      * @param statisticalDataId key constituent

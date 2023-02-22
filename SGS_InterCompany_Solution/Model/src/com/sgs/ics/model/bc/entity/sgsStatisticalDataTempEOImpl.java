@@ -2,6 +2,8 @@ package com.sgs.ics.model.bc.entity;
 
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 
+import com.sgs.ics.model.bc.commonutils.CommonUtils;
+
 import java.math.BigDecimal;
 
 import java.sql.Date;
@@ -42,7 +44,17 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         CreatedBy,
         UpdatedDate,
         UpdatedBy,
-        CreatedDate;
+        CreatedDate,
+        ADDTEXPENSECAT,
+        EMPGRADE,
+        FROMBU,
+        FROMDEPTID,
+        FROMJOBCODE,
+        FROMOU,
+        GLACCOUNT,
+        INPUTPROVIDER,
+        NATUREOFEXPENSE,
+        STATGEOGRAPHY;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -66,8 +78,8 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(sgsStatisticalDataTempEOImpl.class);
-    
-    
+
+
     public static final int STATISTICALDATAID = AttributesEnum.StatisticalDataId.index();
     public static final int STATISTICALDATACATEGORY = AttributesEnum.StatisticalDataCategory.index();
     public static final int TOBUSINESSUNIT = AttributesEnum.ToBusinessUnit.index();
@@ -88,11 +100,28 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     public static final int UPDATEDDATE = AttributesEnum.UpdatedDate.index();
     public static final int UPDATEDBY = AttributesEnum.UpdatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
+    public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
+    public static final int EMPGRADE = AttributesEnum.EMPGRADE.index();
+    public static final int FROMBU = AttributesEnum.FROMBU.index();
+    public static final int FROMDEPTID = AttributesEnum.FROMDEPTID.index();
+    public static final int FROMJOBCODE = AttributesEnum.FROMJOBCODE.index();
+    public static final int FROMOU = AttributesEnum.FROMOU.index();
+    public static final int GLACCOUNT = AttributesEnum.GLACCOUNT.index();
+    public static final int INPUTPROVIDER = AttributesEnum.INPUTPROVIDER.index();
+    public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
+    public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public sgsStatisticalDataTempEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.sgsStatisticalDataTempEO");
     }
 
     /**
@@ -416,19 +445,173 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for ADDTEXPENSECAT, using the alias name ADDTEXPENSECAT.
+     * @return the value of ADDTEXPENSECAT
+     */
+    public String getADDTEXPENSECAT() {
+        return (String) getAttributeInternal(ADDTEXPENSECAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ADDTEXPENSECAT.
+     * @param value value to set the ADDTEXPENSECAT
+     */
+    public void setADDTEXPENSECAT(String value) {
+        setAttributeInternal(ADDTEXPENSECAT, value);
+    }
+
+    /**
+     * Gets the attribute value for EMPGRADE, using the alias name EMPGRADE.
+     * @return the value of EMPGRADE
+     */
+    public Integer getEMPGRADE() {
+        return (Integer) getAttributeInternal(EMPGRADE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for EMPGRADE.
+     * @param value value to set the EMPGRADE
+     */
+    public void setEMPGRADE(Integer value) {
+        setAttributeInternal(EMPGRADE, value);
+    }
+
+    /**
+     * Gets the attribute value for FROMBU, using the alias name FROMBU.
+     * @return the value of FROMBU
+     */
+    public String getFROMBU() {
+        return (String) getAttributeInternal(FROMBU);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMBU.
+     * @param value value to set the FROMBU
+     */
+    public void setFROMBU(String value) {
+        setAttributeInternal(FROMBU, value);
+    }
+
+    /**
+     * Gets the attribute value for FROMDEPTID, using the alias name FROMDEPTID.
+     * @return the value of FROMDEPTID
+     */
+    public String getFROMDEPTID() {
+        return (String) getAttributeInternal(FROMDEPTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMDEPTID.
+     * @param value value to set the FROMDEPTID
+     */
+    public void setFROMDEPTID(String value) {
+        setAttributeInternal(FROMDEPTID, value);
+    }
+
+    /**
+     * Gets the attribute value for FROMJOBCODE, using the alias name FROMJOBCODE.
+     * @return the value of FROMJOBCODE
+     */
+    public String getFROMJOBCODE() {
+        return (String) getAttributeInternal(FROMJOBCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMJOBCODE.
+     * @param value value to set the FROMJOBCODE
+     */
+    public void setFROMJOBCODE(String value) {
+        setAttributeInternal(FROMJOBCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for FROMOU, using the alias name FROMOU.
+     * @return the value of FROMOU
+     */
+    public String getFROMOU() {
+        return (String) getAttributeInternal(FROMOU);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FROMOU.
+     * @param value value to set the FROMOU
+     */
+    public void setFROMOU(String value) {
+        setAttributeInternal(FROMOU, value);
+    }
+
+    /**
+     * Gets the attribute value for GLACCOUNT, using the alias name GLACCOUNT.
+     * @return the value of GLACCOUNT
+     */
+    public String getGLACCOUNT() {
+        return (String) getAttributeInternal(GLACCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GLACCOUNT.
+     * @param value value to set the GLACCOUNT
+     */
+    public void setGLACCOUNT(String value) {
+        setAttributeInternal(GLACCOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for INPUTPROVIDER, using the alias name INPUTPROVIDER.
+     * @return the value of INPUTPROVIDER
+     */
+    public String getINPUTPROVIDER() {
+        return (String) getAttributeInternal(INPUTPROVIDER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for INPUTPROVIDER.
+     * @param value value to set the INPUTPROVIDER
+     */
+    public void setINPUTPROVIDER(String value) {
+        setAttributeInternal(INPUTPROVIDER, value);
+    }
+
+    /**
+     * Gets the attribute value for NATUREOFEXPENSE, using the alias name NATUREOFEXPENSE.
+     * @return the value of NATUREOFEXPENSE
+     */
+    public String getNATUREOFEXPENSE() {
+        return (String) getAttributeInternal(NATUREOFEXPENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NATUREOFEXPENSE.
+     * @param value value to set the NATUREOFEXPENSE
+     */
+    public void setNATUREOFEXPENSE(String value) {
+        setAttributeInternal(NATUREOFEXPENSE, value);
+    }
+
+    /**
+     * Gets the attribute value for STATGEOGRAPHY, using the alias name STATGEOGRAPHY.
+     * @return the value of STATGEOGRAPHY
+     */
+    public String getSTATGEOGRAPHY() {
+        return (String) getAttributeInternal(STATGEOGRAPHY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STATGEOGRAPHY.
+     * @param value value to set the STATGEOGRAPHY
+     */
+    public void setSTATGEOGRAPHY(String value) {
+        setAttributeInternal(STATGEOGRAPHY, value);
+    }
+
+
+    /**
      * @param statisticalDataId key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer statisticalDataId) {
         return new Key(new Object[] { statisticalDataId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.sgsStatisticalDataTempEO");
     }
 
     /**
@@ -440,9 +623,15 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             setStatisticalDataId(am.getDBSequence1("SEQ_SGS_STATISTICAL_DATA_TEMP_TBL"));
+            CommonUtils util = new CommonUtils();
+            Object user = (Object) util.getSessionScopeValue("_username").toString();
+            setCreatedBy(user.toString());
+            setCreatedDate(new java.sql.Date(new java.util.Date().getTime()));
         } catch (Exception e) {
             LOG.severe(e);
         }
     }
+    
+    
 }
 

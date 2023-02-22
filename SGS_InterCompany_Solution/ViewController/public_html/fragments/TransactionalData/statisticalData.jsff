@@ -291,8 +291,8 @@
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.tooltip}"
                                           id="it6">
                                 <f:validator binding="#{row.bindings.STATISTICALDATA.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>
+                                <!--<af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>-->
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}" id="c52"  sortProperty="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.name}"
@@ -441,7 +441,8 @@
                         </af:column>
                     </af:table>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1Upload" contentDelivery="immediate">
-                        <af:dialog id="d1" type="ok" contentWidth="30" contentHeight="30">
+                        <af:dialog id="d1" type="ok" contentWidth="30" contentHeight="30"
+                                   dialogListener="#{viewScope.UploadExcelBean.okButtonDialogListner}">
                             <f:facet name="buttonBar"/>
                             <af:inputFile label="Select File" id="if1" labelStyle="font-weight:bold;color:navy;"
                                           valueChangeListener="#{viewScope.UploadExcelBean.uploadFileVCE}"

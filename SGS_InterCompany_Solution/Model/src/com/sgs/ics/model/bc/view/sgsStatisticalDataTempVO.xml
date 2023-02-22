@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -180,6 +181,66 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="FROMBU"
+    PrecisionRule="true"
+    EntityAttrName="FROMBU"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="FROM_BU"/>
+  <ViewAttribute
+    Name="EMPGRADE"
+    PrecisionRule="true"
+    EntityAttrName="EMPGRADE"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="EMP_GRADE"/>
+  <ViewAttribute
+    Name="FROMDEPTID"
+    PrecisionRule="true"
+    EntityAttrName="FROMDEPTID"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="FROM_DEPTID"/>
+  <ViewAttribute
+    Name="FROMJOBCODE"
+    PrecisionRule="true"
+    EntityAttrName="FROMJOBCODE"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="FROM_JOB_CODE"/>
+  <ViewAttribute
+    Name="FROMOU"
+    PrecisionRule="true"
+    EntityAttrName="FROMOU"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="FROM_OU"/>
+  <ViewAttribute
+    Name="GLACCOUNT"
+    PrecisionRule="true"
+    EntityAttrName="GLACCOUNT"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="GL_ACCOUNT"/>
+  <ViewAttribute
+    Name="INPUTPROVIDER"
+    PrecisionRule="true"
+    EntityAttrName="INPUTPROVIDER"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="INPUT_PROVIDER"/>
+  <ViewAttribute
+    Name="NATUREOFEXPENSE"
+    PrecisionRule="true"
+    EntityAttrName="NATUREOFEXPENSE"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="NATURE_OF_EXPENSE"/>
+  <ViewAttribute
+    Name="STATGEOGRAPHY"
+    PrecisionRule="true"
+    EntityAttrName="STATGEOGRAPHY"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="STAT_GEOGRAPHY"/>
+  <ViewAttribute
+    Name="ADDTEXPENSECAT"
+    PrecisionRule="true"
+    EntityAttrName="ADDTEXPENSECAT"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="ADDT_EXPENSE_CAT"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

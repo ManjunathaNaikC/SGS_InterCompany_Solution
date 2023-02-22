@@ -156,5 +156,8 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="SgsStatisticalDataVO1Iterator" id="ExecuteStatisticalData"
+            InstanceName="SGSAppModuleDataControl.SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

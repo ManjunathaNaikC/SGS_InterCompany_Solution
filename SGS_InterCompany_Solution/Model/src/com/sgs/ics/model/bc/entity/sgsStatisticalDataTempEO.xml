@@ -231,6 +231,121 @@
     Type="java.sql.Date"
     ColumnType="DATE"
     TableName="SGS_STATISTICAL_DATA_TEMP_TBL"/>
+  <Attribute
+    Name="ADDTEXPENSECAT"
+    Precision="80"
+    ColumnName="ADDT_EXPENSE_CAT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EMPGRADE"
+    ColumnName="EMP_GRADE"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL"/>
+  <Attribute
+    Name="FROMBU"
+    Precision="80"
+    ColumnName="FROM_BU"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FROMDEPTID"
+    Precision="80"
+    ColumnName="FROM_DEPTID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FROMJOBCODE"
+    Precision="80"
+    ColumnName="FROM_JOB_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FROMOU"
+    Precision="80"
+    ColumnName="FROM_OU"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GLACCOUNT"
+    Precision="80"
+    ColumnName="GL_ACCOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="INPUTPROVIDER"
+    Precision="80"
+    ColumnName="INPUT_PROVIDER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NATUREOFEXPENSE"
+    Precision="80"
+    ColumnName="NATURE_OF_EXPENSE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="STATGEOGRAPHY"
+    Precision="80"
+    ColumnName="STAT_GEOGRAPHY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTATISTICALDATATEMPTBL"
     PrimaryKey="true">

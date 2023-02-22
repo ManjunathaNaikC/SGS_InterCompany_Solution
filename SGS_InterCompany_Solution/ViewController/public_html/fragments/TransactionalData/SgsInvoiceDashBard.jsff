@@ -72,7 +72,8 @@
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.tooltip}" id="ot5"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.label}" id="c6"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.name}" filterable="true"
+                       visible="false">
               <af:outputText value="#{row.IuVendor}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.tooltip}" id="ot6"/>
             </af:column>
@@ -95,7 +96,7 @@
               </af:outputText>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.label}" id="c10"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.name}" filterable="true">
+                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.name}" filterable="true" visible="false">
               <af:outputText value="#{row.IuCustomer}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.tooltip}" id="ot10"/>
             </af:column>

@@ -380,6 +380,17 @@
                                     <f:validator binding="#{row.bindings.FromGlAccount.validator}"/>
                                 </af:inputText>
                             </af:column>
+                            <af:column headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.CUSTOMERCATEGORY.label}"
+                                       id="c32">
+                                <af:selectOneChoice value="#{row.bindings.CUSTOMERCATEGORY.inputValue}"
+                                                    label="#{row.bindings.CUSTOMERCATEGORY.label}"
+                                                    required="#{bindings.SgsCostIdentificationCombinationVO1.hints.CUSTOMERCATEGORY.mandatory}"
+                                                    shortDesc="#{bindings.SgsCostIdentificationCombinationVO1.hints.CUSTOMERCATEGORY.tooltip}"
+                                                    id="soc8">
+                                    <f:selectItems value="#{row.bindings.CUSTOMERCATEGORY.items}" id="si8"/>
+                                    <f:validator binding="#{row.bindings.CUSTOMERCATEGORY.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.TcLineNo.label}"

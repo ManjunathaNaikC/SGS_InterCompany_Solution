@@ -12,7 +12,41 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="SgsLookupCustCatVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsCostIdentificationCombinationVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_CUSTOMERCATEGORY"
+    ListVOName="SgsLookupCustCatVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CUSTOMERCATEGORY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsCostIdentificationCombina1"
     Entity="com.sgs.ics.model.bc.entity.SgsCostIdentificationCombinationEO"/>
@@ -345,6 +379,22 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsCostIdentificationCombina1"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="CUSTOMERCATEGORY"
+    PrecisionRule="true"
+    EntityAttrName="CUSTOMERCATEGORY"
+    EntityUsage="SgsCostIdentificationCombina1"
+    AliasName="CUSTOMER_CATEGORY"
+    LOVName="LOV_CUSTOMERCATEGORY">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO.CUSTOMERCATEGORY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

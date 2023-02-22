@@ -57,6 +57,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
+        CUSTOMERCATEGORY,
         SgsCostIdentificationRuleEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -80,6 +81,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
             return vals;
         }
     }
+
 
     public static final int COSTIDENTIFICATIONID = AttributesEnum.CostIdentificationId.index();
     public static final int ICLINENO = AttributesEnum.IcLineNo.index();
@@ -111,6 +113,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
     public static final int ATTRIBUTE13 = AttributesEnum.Attribute13.index();
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
+    public static final int CUSTOMERCATEGORY = AttributesEnum.CUSTOMERCATEGORY.index();
     public static final int SGSCOSTIDENTIFICATIONRULEEO = AttributesEnum.SgsCostIdentificationRuleEO.index();
 
     /**
@@ -125,6 +128,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCostIdentificationCombinationEO");
     }
+
 
     /**
      * Gets the attribute value for CostIdentificationId, using the alias name CostIdentificationId.
@@ -593,6 +597,22 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for CUSTOMERCATEGORY, using the alias name CUSTOMERCATEGORY.
+     * @return the value of CUSTOMERCATEGORY
+     */
+    public String getCUSTOMERCATEGORY() {
+        return (String) getAttributeInternal(CUSTOMERCATEGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CUSTOMERCATEGORY.
+     * @param value value to set the CUSTOMERCATEGORY
+     */
+    public void setCUSTOMERCATEGORY(String value) {
+        setAttributeInternal(CUSTOMERCATEGORY, value);
+    }
+
+    /**
      * @return the associated entity SgsCostIdentificationRuleEOImpl.
      */
     public SgsCostIdentificationRuleEOImpl getSgsCostIdentificationRuleEO() {
@@ -614,6 +634,7 @@ public class SgsCostIdentificationCombinationEOImpl extends EntityImpl {
 //    protected void create(AttributeList attributeList) {
 //        super.create(attributeList);
 //    }
+
 
     /**
      * @param icLineNo key constituent

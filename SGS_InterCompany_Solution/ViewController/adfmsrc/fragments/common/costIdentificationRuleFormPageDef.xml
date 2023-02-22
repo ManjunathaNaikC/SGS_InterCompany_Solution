@@ -263,6 +263,7 @@
           <Item Value="FromGlAccount"/>
           <Item Value="EffectiveFrom"/>
           <Item Value="EffectiveTo"/>
+          <Item Value="CUSTOMERCATEGORY"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

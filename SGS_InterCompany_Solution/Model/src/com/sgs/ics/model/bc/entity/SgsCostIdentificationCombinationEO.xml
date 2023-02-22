@@ -324,6 +324,18 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_COST_IDENTIFICATION_COMBINATION"/>
+  <Attribute
+    Name="CUSTOMERCATEGORY"
+    Precision="80"
+    ColumnName="CUSTOMER_CATEGORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_COST_IDENTIFICATION_COMBINATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsCostIdentificationRuleEO"
     Association="com.sgs.ics.model.bc.entity.assoc.FKSGSCOSTIDENTIFICATIONCOMBINATIONAssoc"

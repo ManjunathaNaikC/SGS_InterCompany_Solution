@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsCostIdentificationCombinationVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupCustCatVO1", name="bLookupType")
+def bLookupType_SgsLookupCustCatVO1_BindVariable_BoundParameter()
+{
+'CUSTOMER_CATEGORY'
+}
+

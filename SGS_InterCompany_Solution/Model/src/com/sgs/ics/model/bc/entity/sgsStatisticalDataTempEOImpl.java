@@ -54,7 +54,8 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         GLACCOUNT,
         INPUTPROVIDER,
         NATUREOFEXPENSE,
-        STATGEOGRAPHY;
+        STATGEOGRAPHY,
+        CONCATEID;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -110,6 +111,7 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     public static final int INPUTPROVIDER = AttributesEnum.INPUTPROVIDER.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
+    public static final int CONCATEID = AttributesEnum.CONCATEID.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -123,6 +125,7 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.sgsStatisticalDataTempEO");
     }
+
 
     /**
      * Gets the attribute value for StatisticalDataId, using the alias name StatisticalDataId.
@@ -604,6 +607,22 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         setAttributeInternal(STATGEOGRAPHY, value);
     }
 
+
+    /**
+     * Gets the attribute value for CONCATEID, using the alias name CONCATEID.
+     * @return the value of CONCATEID
+     */
+    public String getCONCATEID() {
+        return (String) getAttributeInternal(CONCATEID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CONCATEID.
+     * @param value value to set the CONCATEID
+     */
+    public void setCONCATEID(String value) {
+        setAttributeInternal(CONCATEID, value);
+    }
 
     /**
      * @param statisticalDataId key constituent

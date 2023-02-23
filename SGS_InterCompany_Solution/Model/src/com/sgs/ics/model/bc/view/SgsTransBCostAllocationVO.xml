@@ -520,19 +520,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="SourceModule1"
-    PrecisionRule="true"
-    EntityAttrName="SourceModule1"
-    EntityUsage="SgsTransBCostAllocation"
-    AliasName="SOURCE_MODULE1">
-    <Properties>
-      <SchemaBasedProperties>
-        <FIELDORDER
-          Value="34.0"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="SourceSystem"
     PrecisionRule="true"
     EntityAttrName="SourceSystem"

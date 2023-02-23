@@ -538,18 +538,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="SourceModule1"
-    Precision="100"
-    ColumnName="SOURCE_MODULE1"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_TRANS_B_COST_ALLOCATION">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="IgstAmount"
     Precision="100"
     ColumnName="IGST_Amount"

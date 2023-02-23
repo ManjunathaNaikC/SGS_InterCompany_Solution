@@ -43,20 +43,44 @@
                       selectionListener="#{bindings.SgsStandardRateSetupVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsStandardRateSetupVO1.rangeSize}" id="resId1"
                       styleClass="AFStretchWidth" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page">
-                <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
+                <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
                 sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.name}"
                          width="220" sortable="true">
                 <af:outputText value="#{row.StandardRateId}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>
+              </af:column>-->
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
+                         width="220">
+                <!--<af:outputText value="#{row.StandardRateId}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>-->
+                               <af:link text="#{row.StandardRateId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                  <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
+                </af:link>
               </af:column>
-              <af:column sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.name}"
+              <!--<af:column sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.name}"
               headerText="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.label}" id="resId1c2"
                          width="220" sortable="true">
-                <!--<af:outputText value="#{row.ExpenseType}"
-                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="ot2"/>-->
+                --><!--<af:outputText value="#{row.ExpenseType}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="ot2"/>--><!--
                 <af:link text="#{row.ExpenseType}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
                   <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
                 </af:link>
+              </af:column>-->
+              <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.label}" id="resId1c2"
+                         width="220">
+                <!--<af:outputText value="#{row.ExpenseType}"
+                               shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="ot2"/>-->
+                <af:selectOneChoice value="#{row.bindings.ExpenseType.inputValue}"
+                                    label="#{row.bindings.ExpenseType.label}"
+                                    required="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.mandatory}"
+                                    shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.tooltip}" id="soc1"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.ExpenseType.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.ExpenseType.validator}"/>
+                </af:selectOneChoice>
+                <!--<af:link text="#{row.ExpenseType}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                  <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
+                </af:link>-->
               </af:column>
               <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
                          width="220" sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.name}" sortable="true">

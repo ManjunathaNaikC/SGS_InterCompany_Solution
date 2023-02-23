@@ -71,7 +71,6 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         PoNumber,
         VoucherId,
         VoucherNo,
-        SourceModule1,
         IgstAmount,
         CgstAmount,
         SgstAmount,
@@ -86,6 +85,7 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         Releasedon,
         SgsOtrTargetEO;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -156,7 +156,6 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
     public static final int PONUMBER = AttributesEnum.PoNumber.index();
     public static final int VOUCHERID = AttributesEnum.VoucherId.index();
     public static final int VOUCHERNO = AttributesEnum.VoucherNo.index();
-    public static final int SOURCEMODULE1 = AttributesEnum.SourceModule1.index();
     public static final int IGSTAMOUNT = AttributesEnum.IgstAmount.index();
     public static final int CGSTAMOUNT = AttributesEnum.CgstAmount.index();
     public static final int SGSTAMOUNT = AttributesEnum.SgstAmount.index();
@@ -926,21 +925,6 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         setAttributeInternal(VOUCHERNO, value);
     }
 
-    /**
-     * Gets the attribute value for SourceModule1, using the alias name SourceModule1.
-     * @return the value of SourceModule1
-     */
-    public String getSourceModule1() {
-        return (String) getAttributeInternal(SOURCEMODULE1);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for SourceModule1.
-     * @param value value to set the SourceModule1
-     */
-    public void setSourceModule1(String value) {
-        setAttributeInternal(SOURCEMODULE1, value);
-    }
 
     /**
      * Gets the attribute value for IgstAmount, using the alias name IgstAmount.

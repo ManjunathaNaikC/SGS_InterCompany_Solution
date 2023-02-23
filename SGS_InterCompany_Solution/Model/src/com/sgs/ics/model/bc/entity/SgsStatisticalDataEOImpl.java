@@ -932,6 +932,19 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());
             setCREATEDDATE(new java.sql.Date(new java.util.Date().getTime()));
+            String natureOfExpense="";
+            String inputProvider="";
+            String addExpenseQuilfier="";
+            if(getNATUREOFEXPENSE() != null){
+                natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getInputProvider() != null){
+                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         } catch (Exception e) {
             LOG.severe(e);
         }

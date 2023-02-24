@@ -70,7 +70,7 @@
                                 <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}"
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.name}"
                                    filterable="true" id="c50">
                             <af:inputText value="#{row.bindings.ADDTEXPENSECAT.inputValue}"
@@ -82,6 +82,26 @@
                                           id="it41">
                                 <f:validator binding="#{row.bindings.ADDTEXPENSECAT.validator}"/>
                             </af:inputText>
+                        </af:column>-->
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}" id="c50">
+                            <af:selectOneChoice value="#{row.bindings.ADDTEXPENSECAT.inputValue}"
+                                                label="#{row.bindings.ADDTEXPENSECAT.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.tooltip}"
+                                                id="soc6">
+                                <f:selectItems value="#{row.bindings.ADDTEXPENSECAT.items}" id="si6"/>
+                                <f:validator binding="#{row.bindings.ADDTEXPENSECAT.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>-->
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}" id="c50">
+                            <af:selectOneChoice value="#{row.bindings.ADDTEXPENSECAT.inputValue}"
+                                                label="#{row.bindings.ADDTEXPENSECAT.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.tooltip}"
+                                                id="soc6">
+                                <f:selectItems value="#{row.bindings.ADDTEXPENSECAT.items}" id="si6"/>
+                                <f:validator binding="#{row.bindings.ADDTEXPENSECAT.validator}"/>
+                            </af:selectOneChoice>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.name}" id="c17"

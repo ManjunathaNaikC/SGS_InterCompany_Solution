@@ -213,7 +213,7 @@
                 <f:validator binding="#{row.bindings.ADDITIONALEXPQUALIFIER.validator}"/>
               </af:selectOneChoice>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
+            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
               <af:inputText value="#{row.bindings.NatureOfExpenses.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.mandatory}"
@@ -222,6 +222,16 @@
                             shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.tooltip}" id="it8">
                 <f:validator binding="#{row.bindings.NatureOfExpenses.validator}"/>
               </af:inputText>
+            </af:column>-->
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
+              <af:selectOneChoice value="#{row.bindings.NatureOfExpenses.inputValue}"
+                                  label="#{row.bindings.NatureOfExpenses.label}"
+                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.mandatory}"
+                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.tooltip}"
+                                  id="soc2">
+                <f:selectItems value="#{row.bindings.NatureOfExpenses.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.NatureOfExpenses.validator}"/>
+              </af:selectOneChoice>
             </af:column>
             <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}" id="c9">
               <af:inputText value="#{row.bindings.MarkUpRate.inputValue}"

@@ -521,6 +521,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="EMAILATTACHMENT"
+    Precision="200"
+    ColumnName="EMAIL_ATTACHMENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTATISTICALDATATBL"
     PrimaryKey="true">

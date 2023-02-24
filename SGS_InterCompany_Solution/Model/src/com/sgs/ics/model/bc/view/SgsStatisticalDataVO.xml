@@ -94,6 +94,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsAddExpQuFVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsAddExpQuFVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_CostGroup"
     ListVOName="CostGroupLOV1"
@@ -142,6 +146,21 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ADDTEXPENSECAT"
+    ListVOName="SgsAddExpQuFVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ADDTEXPENSECAT"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -783,11 +802,15 @@
     PrecisionRule="true"
     EntityAttrName="ADDTEXPENSECAT"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ADDT_EXPENSE_CAT">
+    AliasName="ADDT_EXPENSE_CAT"
+    LOVName="LOV_ADDTEXPENSECAT">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ADDTEXPENSECAT_LABEL"/>
+
+        <CONTROLTYPE
+          Value="choice"/>
         <FIELDORDER
           Value="42.0"/>
       </SchemaBasedProperties>

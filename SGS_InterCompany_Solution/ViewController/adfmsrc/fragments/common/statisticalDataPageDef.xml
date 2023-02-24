@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="SgsStatisticalDataVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+    <iterator Binds="SgsStatisticalDataVO1" RangeSize="1000" DataControl="SGSAppModuleDataControl"
               id="SgsStatisticalDataVO1Iterator"/>
     <searchRegion Binds="SgsStatisticalDataVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStatisticalDataVO1Query"/>
@@ -50,6 +50,8 @@
           <Item Value="STATGEOGRAPHY"/>
           <Item Value="APPROVESTATUS"/>
           <Item Value="TRANSACTIONPERIOD"/>
+          <Item Value="EMAILATTACHMENT"/>
+          <Item Value="StatSelectedRecord" Binds="StatSelectedRecord"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -160,5 +162,14 @@
     <action IterBinding="SgsStatisticalDataVO1Iterator" id="ExecuteStatisticalData"
             InstanceName="SGSAppModuleDataControl.SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <button IterBinding="SgsStatisticalDataVO1Iterator" id="StatSelectedRecord" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="StatSelectedRecord"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

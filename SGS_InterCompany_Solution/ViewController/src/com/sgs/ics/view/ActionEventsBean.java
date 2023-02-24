@@ -22,6 +22,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.faces.application.FacesMessage;
@@ -37,6 +38,8 @@ import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichColumn;
+import oracle.adf.view.rich.component.rich.input.RichInputFile;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
 import oracle.adf.view.rich.component.rich.input.RichSelectManyChoice;
 import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
@@ -57,6 +60,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.jbo.RowSetIterator;
@@ -83,6 +87,13 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox bindSelectAllGeo2;
     private RichSelectBooleanCheckbox bindSelectAllGeo1;
     private RichColumn bindGeo1SelectCol;
+    private RichSelectBooleanCheckbox bindStatCheckboxSelect;
+    private RichColumn onStatSelectAllColumn;
+    private RichPopup approvepoopupbind;
+    private RichPopup rejectpopupbind;
+    private RichInputText rejectionReasonBind;
+    private RichInputText rejectionCommentsBind;
+    private RichInputFile inputFileBind;
 
     public ActionEventsBean() {
     }
@@ -1095,6 +1106,196 @@ public class ActionEventsBean {
 
     public RichColumn getBindGeo1SelectCol() {
         return bindGeo1SelectCol;
+    }
+
+    public void onStatisticalApprove(ActionEvent actionEvent) {
+
+       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getApplicationScope().get("pageList");
+       System.out.println("Page List ::"+pageList.toString());
+        if(null != pageList && !(pageList.isEmpty()) && pageList.contains("ALL_PAGE")){
+            System.out.println("Admin"+pageList.toString());
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            this.approvepoopupbind.show(hints);
+        }else{
+            DCIteratorBinding statData = null;
+            statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+            oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+            for (int i = 0; i < statDataDatarows.length; i++) {
+                System.out.println(" StatSelectedRecord At Approve:: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
+                System.out.println(" InputProvider At Approve:: " + statDataDatarows[i].getAttribute("InputProvider"));
+                if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                    statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                    
+                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
+                    }
+                
+            } 
+            
+            executeBinding(SAVE_DATA);
+            approvepoopupbind.hide();
+        }
+        
+     
+        
+      
+        
+        
+ 
+        
+     
+        
+    }
+
+    public void onStatisticalReject(ActionEvent actionEvent) {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.rejectpopupbind.show(hints);
+    }
+
+    public void onStatisticalSelectAll(ValueChangeEvent valueChangeEvent) {
+        //SgsStatisticalDataVO1Iterator
+        System.out.println("Checkbox At Statistical :: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding statData = null;
+        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("statDataDatarows Datarows:: " + statDataDatarows.length);
+            for (int i = 0; i < statDataDatarows.length; i++) {
+                System.out.println(" StatSelectedRecord :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
+                 statDataDatarows[i].setAttribute("StatSelectedRecord", "Yes");
+                System.out.println(" geo1Datarows SELECTRECORDS :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
+            }               
+        }else {
+            System.out.println("geo1Datarows Datarows else:: " + statDataDatarows.length);
+            for (int i = 0; i < statDataDatarows.length; i++) {
+                System.out.println("StatSelectedRecord  :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
+                statDataDatarows[i].setAttribute("StatSelectedRecord", "No");
+                System.out.println(" StatSelectedRecord rows :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
+               
+            }
+            
+         
+        }
+        
+                AdfFacesContext.getCurrentInstance().addPartialTarget(bindStatCheckboxSelect);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(onStatSelectAllColumn);
+    }
+
+    public void setBindStatCheckboxSelect(RichSelectBooleanCheckbox bindStatCheckboxSelect) {
+        this.bindStatCheckboxSelect = bindStatCheckboxSelect;
+    }
+
+    public RichSelectBooleanCheckbox getBindStatCheckboxSelect() {
+        return bindStatCheckboxSelect;
+    }
+
+    public void setOnStatSelectAllColumn(RichColumn onStatSelectAllColumn) {
+        this.onStatSelectAllColumn = onStatSelectAllColumn;
+    }
+
+    public RichColumn getOnStatSelectAllColumn() {
+        return onStatSelectAllColumn;
+    }
+
+    public void setApprovepoopupbind(RichPopup approvepoopupbind) {
+        this.approvepoopupbind = approvepoopupbind;
+    }
+
+    public RichPopup getApprovepoopupbind() {
+        return approvepoopupbind;
+    }
+
+    public void setRejectpopupbind(RichPopup rejectpopupbind) {
+        this.rejectpopupbind = rejectpopupbind;
+    }
+
+    public RichPopup getRejectpopupbind() {
+        return rejectpopupbind;
+    }
+
+    public void setRejectionReasonBind(RichInputText rejectionReasonBind) {
+        this.rejectionReasonBind = rejectionReasonBind;
+    }
+
+    public RichInputText getRejectionReasonBind() {
+        return rejectionReasonBind;
+    }
+
+    public void setRejectionCommentsBind(RichInputText rejectionCommentsBind) {
+        this.rejectionCommentsBind = rejectionCommentsBind;
+    }
+
+    public RichInputText getRejectionCommentsBind() {
+        return rejectionCommentsBind;
+    }
+
+    public void onRejectionReasonSave(ActionEvent actionEvent) {
+        DCIteratorBinding statData = null;
+        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+        for (int i = 0; i < statDataDatarows.length; i++) {
+            System.out.println(" StatSelectedRecord At Reject:: " +
+                               statDataDatarows[i].getAttribute("StatSelectedRecord"));
+            System.out.println(" InputProvider At Reject:: " + statDataDatarows[i].getAttribute("InputProvider"));
+            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                if (null != rejectionReasonBind.getValue()) {
+                    String reason = (String) rejectionReasonBind.getValue();
+                    System.out.println("reason" + reason);
+                    statDataDatarows[i].setAttribute("RejectedReason", reason);
+                }
+                if (null != rejectionCommentsBind.getValue()) {
+                    String comments = (String) rejectionCommentsBind.getValue();
+                    System.out.println("comments" + comments);
+                    statDataDatarows[i].setAttribute("RejectionComments", comments);
+                }
+                
+                statDataDatarows[i].setAttribute("APPROVESTATUS", "Rejected");
+            }
+        }
+        executeBinding(SAVE_DATA);
+        rejectionReasonBind.setValue(null);
+        rejectionCommentsBind.setValue(null);
+        rejectpopupbind.hide();
+    }
+
+    public void setInputFileBind(RichInputFile inputFileBind) {
+        this.inputFileBind = inputFileBind;
+    }
+
+    public RichInputFile getInputFileBind() {
+        return inputFileBind;
+    }
+
+    public void onAdminEmilFileAttachment(ActionEvent actionEvent) {
+        DCIteratorBinding statData = null;
+        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+        for (int i = 0; i < statDataDatarows.length; i++) {
+            System.out.println(" StatSelectedRecord At File Attachment:: " +
+                               statDataDatarows[i].getAttribute("StatSelectedRecord"));
+            System.out.println(" InputProvider At File Attachment:: " +
+                               statDataDatarows[i].getAttribute("InputProvider"));
+            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                if (null != inputFileBind.getValue()) {
+                    UploadedFile uploadedFile = (UploadedFile) inputFileBind.getValue();
+                    if (null != uploadedFile.getFilename()) {
+                        String fileName = (String) uploadedFile.getFilename();
+                        System.out.println("fileName" + fileName);
+                        statDataDatarows[i].setAttribute("EMAILATTACHMENT", fileName);
+                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
+                    }
+
+                }
+
+
+            }
+        }
+        executeBinding(SAVE_DATA);
+        inputFileBind.setValue(null);
+        inputFileBind.resetValue();
+        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
+        approvepoopupbind.hide();
     }
 }
 

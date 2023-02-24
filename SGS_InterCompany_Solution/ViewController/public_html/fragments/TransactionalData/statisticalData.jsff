@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core"> 
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"> 
     <af:panelStretchLayout id="psl1">
         <f:facet name="start"/>
         <f:facet name="end"/>
@@ -36,9 +36,15 @@
                             <af:button actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save"
                                        id="b4"/>
                             <af:button text="Approve" id="b10"
-                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_APPROVE')}"/>
+                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_APPROVE')}"
+                                       actionListener="#{viewScope.ActionEventsBean.onStatisticalApprove}">
+                               
+                            </af:button>
                             <af:button text="Reject" id="b11"
-                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_REJECT')}"/>
+                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_REJECT')}"
+                                       actionListener="#{viewScope.ActionEventsBean.onStatisticalReject}">
+                                <af:showPopupBehavior popupId="p1reject"/>
+                            </af:button>
                             <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
                                        actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
                             <af:button id="b1" action="ADD" icon="/resources/icons/plus.png"
@@ -58,6 +64,21 @@
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
                               styleClass="AFStretchWidth" inlineStyle="height:250px" autoHeightRows="10"
                               scrollPolicy="page">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
+                                   binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
+                                   >
+                            <af:selectBooleanCheckbox value="#{row.bindings.StatSelectedRecord.inputValue}"
+                                                      label="#{row.bindings.StatSelectedRecord.label}"
+                                                      shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.tooltip}"
+                                                      id="sbc1"
+                                                      binding="#{viewScope.ActionEventsBean.bindStatCheckboxSelect}"
+                                                      autoSubmit="true"/>
+                            <f:facet name="header">
+                              <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
+                                    autoSubmit="true" valueChangeListener="#{viewScope.ActionEventsBean.onStatisticalSelectAll}"
+                                                        partialTriggers="::t1 c55 sbc1"/>
+                            </f:facet>
+                        </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.label}" id="c39"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.name}"
                                    filterable="true">
@@ -309,15 +330,22 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}" id="c52"  sortProperty="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.name}"
                                    filterable="true">
-                            <af:inputText value="#{row.bindings.APPROVESTATUS.inputValue}"
-                                          label="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}"
-                                          required="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.mandatory}"
-                                          columns="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.displayWidth}"
-                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.precision}"
-                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.tooltip}"
-                                          id="it42">
-                                <f:validator binding="#{row.bindings.APPROVESTATUS.validator}"/>
-                            </af:inputText>
+                            <af:outputText value="#{row.bindings.APPROVESTATUS.inputValue}"
+                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.tooltip}"
+                                           id="it42"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.label}" id="c54"
+                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.name}">
+                            <af:link text="#{row.bindings.EMAILATTACHMENT.inputValue}" id="l1"/>
+                            <!--<af:inputText value="#{row.bindings.EMAILATTACHMENT.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.tooltip}"
+                                          id="it44">
+                                <f:validator binding="#{row.bindings.EMAILATTACHMENT.validator}"/>
+                            </af:inputText>-->
                         </af:column>
                         <!--<af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalData.name}"
                                    filterable="true"
@@ -452,6 +480,39 @@
                             </af:inputDate>
                         </af:column>
                     </af:table>
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1reject"
+                              binding="#{viewScope.ActionEventsBean.rejectpopupbind}">
+                        <af:dialog id="d3" title="Rejection Reasons" styleClass="AFStretchWidth" type="none">
+                            <f:facet name="buttonBar">
+                                <af:button text="Save" id="b12"
+                                           actionListener="#{viewScope.ActionEventsBean.onRejectionReasonSave}"/>
+                            </f:facet>
+                            <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStretchWidth">
+                                <af:inputText label="Rejection Reason" id="it45"
+                                              binding="#{viewScope.ActionEventsBean.rejectionReasonBind}"
+                                              autoSubmit="true"/>
+                                <af:spacer id="s1" height="10"/>
+                                
+                                <af:inputText label="Rejection Comments" 
+                                        contentStyle="width:300px" wrap="soft"
+                                                                          rows="4"
+                                id="it46"  binding="#{viewScope.ActionEventsBean.rejectionCommentsBind}"
+                                              autoSubmit="true"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1approve"
+                    binding="#{viewScope.ActionEventsBean.approvepoopupbind}">
+                        <af:dialog id="d4" title="Upload Attachment" type="none">
+                            <f:facet name="buttonBar">
+                                <af:button text="Upload" id="b13"
+                                           actionListener="#{viewScope.ActionEventsBean.onAdminEmilFileAttachment}"/>
+                            </f:facet>
+                            <af:inputFile label="Select File" id="if2"
+                                          binding="#{viewScope.ActionEventsBean.inputFileBind}" autoSubmit="true"
+                                          />
+                        </af:dialog>
+                    </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1Upload" contentDelivery="immediate">
                         <af:dialog id="d1" type="ok" contentWidth="30" contentHeight="30"
                                    dialogListener="#{viewScope.UploadExcelBean.okButtonDialogListner}">

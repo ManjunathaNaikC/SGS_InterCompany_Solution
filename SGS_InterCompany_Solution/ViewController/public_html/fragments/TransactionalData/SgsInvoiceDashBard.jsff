@@ -57,8 +57,12 @@
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.label}" id="c3"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.name}" filterable="true">
-              <af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.tooltip}"
-                             id="ot3"/>
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:icon name="warning" id="i1" visible="#{row.TpaId =='Unavailable'}"/>
+                <af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.tooltip}"
+                               id="ot3"/>
+                
+              </af:panelGroupLayout>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.label}" id="c4"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.name}"

@@ -28,7 +28,7 @@ public class AllocationRun {
         try {
             
             conn = getDBConnection();
-            String SPsql = "EXEC PKG_Call_Procedure ?,?"; // for stored proc taking 2 parameters
+            String SPsql = "EXEC UPKG_INITIAL_PRC ?,?"; // for stored proc taking 2 parameters
             //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
             PreparedStatement ps = conn.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);

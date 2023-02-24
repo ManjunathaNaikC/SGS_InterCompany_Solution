@@ -47,6 +47,17 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <Variable
+    Name="bTransactionPeriod"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.bTransactionPeriod_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <ViewAccessor
     Name="CostGroupLOV1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostGroupLOV"
@@ -182,10 +193,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.StatisticalDataCategory_LABEL"/>
-        <FIELDORDER
-          Value="1.0"/>
         <CONTROLTYPE
           Value="choice"/>
+        <FIELDORDER
+          Value="1.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -260,7 +271,7 @@
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UnitOfMeasure_LABEL"/>
         <FIELDORDER
-          Value="8.0"/>
+          Value="7.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -278,7 +289,7 @@
         <CONTROLTYPE
           Value="choice"/>
         <FIELDORDER
-          Value="9.0"/>
+          Value="8.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -367,12 +378,12 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityFrom_LABEL"/>
-        <FIELDORDER
-          Value="15.0"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityFrom_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityFrom_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="15.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -386,12 +397,12 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityTill_LABEL"/>
-        <FIELDORDER
-          Value="16.0"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityTill_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ValidityTill_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="16.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -403,10 +414,10 @@
     AliasName="CREATED_BY">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="17.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CreatedBy_LABEL"/>
+        <FIELDORDER
+          Value="17.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -418,14 +429,14 @@
     AliasName="UPDATED_DATE">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="18.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UpdatedDate_LABEL"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UpdatedDate_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UpdatedDate_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="18.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -437,10 +448,10 @@
     AliasName="UPDATED_BY">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="19.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.UpdatedBy_LABEL"/>
+        <FIELDORDER
+          Value="19.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -517,12 +528,12 @@
     AliasName="ATTRIBUTE6">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="25.0"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute6_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute6_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="25.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -534,12 +545,12 @@
     AliasName="ATTRIBUTE7">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="26.0"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute7_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute7_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="26.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -551,12 +562,12 @@
     AliasName="ATTRIBUTE8">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="27.0"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute8_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute8_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="27.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -568,12 +579,12 @@
     AliasName="ATTRIBUTE9">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="28.0"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute9_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute9_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="28.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -585,12 +596,12 @@
     AliasName="ATTRIBUTE10">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="29.0"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute10_FMT_FORMATTER"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.Attribute10_FMT_FORMAT"/>
+        <FIELDORDER
+          Value="29.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -667,14 +678,14 @@
     AliasName="CREATED_DATE">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="35.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CREATEDDATE_LABEL"/>
         <FMT_FORMAT
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CREATEDDATE_FMT_FORMAT"/>
         <FMT_FORMATTER
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.CREATEDDATE_FMT_FORMATTER"/>
+        <FIELDORDER
+          Value="35.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -698,13 +709,13 @@
     PrecisionRule="true"
     EntityAttrName="InputProvider"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="Input_Provider">
+    AliasName="INPUT_PROVIDER">
     <Properties>
       <SchemaBasedProperties>
-        <FIELDORDER
-          Value="4.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.InputProvider_LABEL"/>
+        <FIELDORDER
+          Value="4.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -721,6 +732,8 @@
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.NATUREOFEXPENSE_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <FIELDORDER
+          Value="37.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -734,6 +747,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMBU_LABEL"/>
+        <FIELDORDER
+          Value="38.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -747,6 +762,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMDEPTID_LABEL"/>
+        <FIELDORDER
+          Value="39.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -760,6 +777,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMJOBCODE_LABEL"/>
+        <FIELDORDER
+          Value="40.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -773,6 +792,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.FROMOU_LABEL"/>
+        <FIELDORDER
+          Value="41.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -787,8 +808,11 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ADDTEXPENSECAT_LABEL"/>
+
         <CONTROLTYPE
           Value="choice"/>
+        <FIELDORDER
+          Value="42.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -802,6 +826,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.STATISTICALDATA_LABEL"/>
+        <FIELDORDER
+          Value="43.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -815,6 +841,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.EMPGRADE_LABEL"/>
+        <FIELDORDER
+          Value="44.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -828,6 +856,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.STATGEOGRAPHY_LABEL"/>
+        <FIELDORDER
+          Value="45.0"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -841,6 +871,23 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.APPROVESTATUS_LABEL"/>
+        <FIELDORDER
+          Value="46.0"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TRANSACTIONPERIOD"
+    PrecisionRule="true"
+    EntityAttrName="TRANSACTIONPERIOD"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="TRANSACTION_PERIOD">
+    <Properties>
+      <SchemaBasedProperties>
+        <FIELDORDER
+          Value="9.0"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.TRANSACTIONPERIOD_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -908,6 +955,14 @@
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bInputProvider"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TRANSACTIONPERIOD"
+        ViewAttribute="TRANSACTIONPERIOD"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bTransactionPeriod"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

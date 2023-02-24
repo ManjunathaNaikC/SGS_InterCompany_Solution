@@ -72,8 +72,10 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         CONCATEID,
         EMPGRADE,
         STATGEOGRAPHY,
-        APPROVESTATUS;
+        APPROVESTATUS,
+        TRANSACTIONPERIOD;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -144,6 +146,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int EMPGRADE = AttributesEnum.EMPGRADE.index();
     public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
     public static final int APPROVESTATUS = AttributesEnum.APPROVESTATUS.index();
+    public static final int TRANSACTIONPERIOD = AttributesEnum.TRANSACTIONPERIOD.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -911,6 +914,23 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      */
     public void setAPPROVESTATUS(String value) {
         setAttributeInternal(APPROVESTATUS, value);
+    }
+
+
+    /**
+     * Gets the attribute value for TRANSACTIONPERIOD, using the alias name TRANSACTIONPERIOD.
+     * @return the value of TRANSACTIONPERIOD
+     */
+    public String getTRANSACTIONPERIOD() {
+        return (String) getAttributeInternal(TRANSACTIONPERIOD);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TRANSACTIONPERIOD.
+     * @param value value to set the TRANSACTIONPERIOD
+     */
+    public void setTRANSACTIONPERIOD(String value) {
+        setAttributeInternal(TRANSACTIONPERIOD, value);
     }
 
 

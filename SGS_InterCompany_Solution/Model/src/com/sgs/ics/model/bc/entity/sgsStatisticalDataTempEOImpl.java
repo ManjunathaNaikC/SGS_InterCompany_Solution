@@ -55,7 +55,8 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         INPUTPROVIDER,
         NATUREOFEXPENSE,
         STATGEOGRAPHY,
-        CONCATEID;
+        CONCATEID,
+        TRANSACTIONPERIOD;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -112,6 +113,7 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
     public static final int CONCATEID = AttributesEnum.CONCATEID.index();
+    public static final int TRANSACTIONPERIOD = AttributesEnum.TRANSACTIONPERIOD.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -622,6 +624,22 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
      */
     public void setCONCATEID(String value) {
         setAttributeInternal(CONCATEID, value);
+    }
+
+    /**
+     * Gets the attribute value for TRANSACTIONPERIOD, using the alias name TRANSACTIONPERIOD.
+     * @return the value of TRANSACTIONPERIOD
+     */
+    public String getTRANSACTIONPERIOD() {
+        return (String) getAttributeInternal(TRANSACTIONPERIOD);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TRANSACTIONPERIOD.
+     * @param value value to set the TRANSACTIONPERIOD
+     */
+    public void setTRANSACTIONPERIOD(String value) {
+        setAttributeInternal(TRANSACTIONPERIOD, value);
     }
 
     /**

@@ -241,6 +241,12 @@
     EntityAttrName="ADDTEXPENSECAT"
     EntityUsage="sgsStatisticalDataTempEO"
     AliasName="ADDT_EXPENSE_CAT"/>
+  <ViewAttribute
+    Name="TRANSACTIONPERIOD"
+    PrecisionRule="true"
+    EntityAttrName="TRANSACTIONPERIOD"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="TRANSACTION_PERIOD"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

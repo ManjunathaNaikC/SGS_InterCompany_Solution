@@ -35,27 +35,11 @@
     </Properties>
   </Variable>
   <Variable
-    Name="bSpgeography"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bSPLegalEntity"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
-    Name="bSPBusinessUnit"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bSRGeography"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bSRLegalEntity"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bSRBusinessUnit"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <ViewAccessor
@@ -396,43 +380,11 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="SpBusinessUnit"
-        ViewAttribute="SpBusinessUnit"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSPBusinessUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SpGeography"
-        ViewAttribute="SpGeography"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSpgeography"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="SpLegalEntity"
         ViewAttribute="SpLegalEntity"
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSPLegalEntity"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SrBusinessUnit"
-        ViewAttribute="SrBusinessUnit"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSRBusinessUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SrGeography"
-        ViewAttribute="SrGeography"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSRGeography"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

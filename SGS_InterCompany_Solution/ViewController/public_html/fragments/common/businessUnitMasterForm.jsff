@@ -155,14 +155,14 @@
                         shortDesc="#{bindings.AlternateBu.hints.tooltip}" id="it16">
             <f:validator binding="#{bindings.AlternateBu.validator}"/>
           </af:inputText>
-          <af:inputText value="#{bindings.BusinessControllers.inputValue}"
+          <!--<af:inputText value="#{bindings.BusinessControllers.inputValue}"
                         label="#{bindings.BusinessControllers.hints.label}"
                         required="#{bindings.BusinessControllers.hints.mandatory}"
                         columns="#{bindings.BusinessControllers.hints.displayWidth}"
                         maximumLength="#{bindings.BusinessControllers.hints.precision}"
                         shortDesc="#{bindings.BusinessControllers.hints.tooltip}" id="it17">
             <f:validator binding="#{bindings.BusinessControllers.validator}"/>
-          </af:inputText>
+          </af:inputText>-->
           <af:inputDate value="#{bindings.EFFECTIVESTARTDATE.inputValue}"
                         label="#{bindings.EFFECTIVESTARTDATE.hints.label}"
                         required="#{bindings.EFFECTIVESTARTDATE.hints.mandatory}"

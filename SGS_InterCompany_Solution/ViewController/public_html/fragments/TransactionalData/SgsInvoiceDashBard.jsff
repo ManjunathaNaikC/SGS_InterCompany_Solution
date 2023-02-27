@@ -42,7 +42,7 @@
                     styleClass="AFStretchWidth"
                     filterModel="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.processQuery}" varStatus="vs"
-                    scrollPolicy="page">
+                    scrollPolicy="page" autoHeightRows="15">
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.label}" id="c1"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.name}" filterable="true">
               <af:link  id="l1" action="toChildLines">

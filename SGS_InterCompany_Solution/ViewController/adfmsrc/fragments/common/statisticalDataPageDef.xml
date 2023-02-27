@@ -171,5 +171,7 @@
         <Item Value="No"/>
       </ValueList>
     </button>
+    <list IterBinding="SgsStatisticalDataVO1Iterator" StaticList="false" Uses="LOV_RejectedReason" id="RejectedReason"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

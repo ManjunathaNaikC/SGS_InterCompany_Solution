@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.lookupVo.RejectionReasonLOVVO
+
+package com.sgs.ics.model.bc.view.lookupVo
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupRejectionLOVVO1", name="bLookupType")
+def bLookupType_SgsLookupRejectionLOVVO1_BindVariable_BoundParameter()
+{
+'STAT_REJECTION_REASON'
+}
+

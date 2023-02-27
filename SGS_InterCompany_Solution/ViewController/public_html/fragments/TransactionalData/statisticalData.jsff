@@ -415,7 +415,15 @@
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.label}" id="c12">
-                            <af:inputText value="#{row.bindings.RejectedReason.inputValue}"
+                            <af:selectOneChoice value="#{row.bindings.RejectedReason.inputValue}"
+                                                label="#{row.bindings.RejectedReason.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.tooltip}"
+                                                id="soc8" readOnly="true">
+                                <f:selectItems value="#{row.bindings.RejectedReason.items}" id="si8"/>
+                                <f:validator binding="#{row.bindings.RejectedReason.validator}"/>
+                            </af:selectOneChoice>
+                            <!--<af:inputText value="#{row.bindings.RejectedReason.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.displayWidth}"
@@ -423,7 +431,7 @@
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.tooltip}"
                                           id="it12">
                                 <f:validator binding="#{row.bindings.RejectedReason.validator}"/>
-                            </af:inputText>
+                            </af:inputText>-->
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.name}"
                                    filterable="true"
@@ -435,7 +443,7 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.tooltip}"
-                                          id="it13">
+                                          id="it13" readOnly="true">
                                 <f:validator binding="#{row.bindings.RejectionComments.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -513,19 +521,27 @@
                                 <af:button text="Save" id="b12"
                                            actionListener="#{viewScope.ActionEventsBean.onRejectionReasonSave}"/>
                             </f:facet>
-                            <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStretchWidth">
+                            <!--<af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStretchWidth">
                                 <af:inputText label="Rejection Reason" id="it45"
                                               binding="#{viewScope.ActionEventsBean.rejectionReasonBind}"
                                               autoSubmit="true"/>
-                               
+                            </af:panelGroupLayout>-->
+                            <af:panelFormLayout id="pfl1" maxColumns="1" rows="3" styleClass="AFStretchWidth">
+                                <f:facet name="footer"/>
+                                <af:selectOneChoice value="#{bindings.REJECTEDREASON.inputValue}"
+                                                    label="#{bindings.REJECTEDREASON.label}"
+                                                    required="#{bindings.REJECTEDREASON.hints.mandatory}"
+                                                    shortDesc="#{bindings.REJECTEDREASON.hints.tooltip}" id="soc7"
+                                                    binding="#{viewScope.ActionEventsBean.rejectionReasonLOVBind}"
+                                                    autoSubmit="true">
+                                    <f:selectItems value="#{bindings.REJECTEDREASON.items}" id="si7"/>
+                                    <f:validator binding="#{bindings.REJECTEDREASON.validator}"/>
+                                </af:selectOneChoice>
                                 <af:spacer id="s1" height="10"/>
-                                
-                                <af:inputText label="Rejection Comments" 
-                                        contentStyle="width:300px" wrap="soft"
-                                                                          rows="4"
-                                id="it46"  binding="#{viewScope.ActionEventsBean.rejectionCommentsBind}"
+                                <af:inputText label="Rejection Comments" contentStyle="width:300px" wrap="soft" rows="4"
+                                              id="it46" binding="#{viewScope.ActionEventsBean.rejectionCommentsBind}"
                                               autoSubmit="true"/>
-                            </af:panelGroupLayout>
+                            </af:panelFormLayout>
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1approve"

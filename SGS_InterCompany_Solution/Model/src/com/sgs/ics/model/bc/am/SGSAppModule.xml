@@ -176,6 +176,9 @@
   <ViewUsage
     Name="SgsGeo2SumValuesVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsGeo2SumValuesVO"/>
+  <ViewUsage
+    Name="RejectionReasonLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.RejectionReasonLOVVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

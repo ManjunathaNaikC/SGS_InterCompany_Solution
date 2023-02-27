@@ -92,10 +92,10 @@ public class ActionEventsBean {
     private RichColumn onStatSelectAllColumn;
     private RichPopup approvepoopupbind;
     private RichPopup rejectpopupbind;
-    private RichInputText rejectionReasonBind;
+    
     private RichInputText rejectionCommentsBind;
     private RichInputFile inputFileBind;
-    private RichSelectOneChoice rejectionReasonBindLov;
+    private RichSelectOneChoice rejectionReasonLOVBind;
 
     public ActionEventsBean() {
     }
@@ -1214,13 +1214,7 @@ public class ActionEventsBean {
         return rejectpopupbind;
     }
 
-    public void setRejectionReasonBind(RichInputText rejectionReasonBind) {
-        this.rejectionReasonBind = rejectionReasonBind;
-    }
 
-    public RichInputText getRejectionReasonBind() {
-        return rejectionReasonBind;
-    }
 
     public void setRejectionCommentsBind(RichInputText rejectionCommentsBind) {
         this.rejectionCommentsBind = rejectionCommentsBind;
@@ -1240,8 +1234,8 @@ public class ActionEventsBean {
             System.out.println(" InputProvider At Reject:: " + statDataDatarows[i].getAttribute("InputProvider"));
             if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
                 statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
-                if (null != rejectionReasonBind.getValue()) {
-                    String reason = (String) rejectionReasonBind.getValue();
+                if (null != rejectionReasonLOVBind.getValue()) {
+                    String reason = (String) rejectionReasonLOVBind.getValue();
                     System.out.println("reason" + reason);
                     statDataDatarows[i].setAttribute("RejectedReason", reason);
                 }
@@ -1255,7 +1249,7 @@ public class ActionEventsBean {
             }
         }
         executeBinding(SAVE_DATA);
-        rejectionReasonBind.setValue(null);
+        rejectionReasonLOVBind.setValue(null);
         rejectionCommentsBind.setValue(null);
         rejectpopupbind.hide();
     }
@@ -1298,6 +1292,14 @@ public class ActionEventsBean {
         inputFileBind.resetValue();
         AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
         approvepoopupbind.hide();
+    }
+
+    public void setRejectionReasonLOVBind(RichSelectOneChoice rejectionReasonLOVBind) {
+        this.rejectionReasonLOVBind = rejectionReasonLOVBind;
+    }
+
+    public RichSelectOneChoice getRejectionReasonLOVBind() {
+        return rejectionReasonLOVBind;
     }
 }
 

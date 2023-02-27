@@ -61,6 +61,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import oracle.adf.share.ADFContext;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.jbo.RowSetIterator;
@@ -94,6 +95,7 @@ public class ActionEventsBean {
     private RichInputText rejectionReasonBind;
     private RichInputText rejectionCommentsBind;
     private RichInputFile inputFileBind;
+    private RichSelectOneChoice rejectionReasonBindLov;
 
     public ActionEventsBean() {
     }

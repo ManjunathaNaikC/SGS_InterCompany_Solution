@@ -27,21 +27,27 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t2">
                             <af:button text="Copy From Previous Month" id="b3"
+                            rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_COPY')}"
                                        actionListener="#{viewScope.ActionEventsBean.onCopyFromPreviousMonthActionEvent}"/>
-                            <af:button text="Upload Data" id="b5" partialSubmit="true">
+                            <af:button text="Upload Data" id="b5" 
+                            rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_UPLOAD')}" 
+                            partialSubmit="true">
                                 <af:showPopupBehavior popupId="p1Upload" triggerType="action"/>
                             </af:button>
                             <!--<af:button text="Delete Data" id="b6"/>-->
-                            <af:button text="Submit For Approval" id="b7"/>
+                            <af:button text="Submit For Approval" 
+                            rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_SUMBIT')}"
+                            id="b7"/>
                             <af:button actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save"
+                            rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_SAVE')}"
                                        id="b4"/>
                             <af:button text="Approve" id="b10"
-                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_APPROVE')}"
+                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_APPROVE')}"
                                        actionListener="#{viewScope.ActionEventsBean.onStatisticalApprove}">
                                
                             </af:button>
                             <af:button text="Reject" id="b11"
-                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('BF_REJECT')}"
+                                       rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_REJECT')}"
                                        actionListener="#{viewScope.ActionEventsBean.onStatisticalReject}">
                                 <af:showPopupBehavior popupId="p1reject"/>
                             </af:button>
@@ -54,7 +60,6 @@
                     </f:facet>
                     <f:facet name="statusbar"/>
                     <af:table value="#{bindings.SgsStatisticalDataVO1.collectionModel}" var="row"
-                              rows="#{bindings.SgsStatisticalDataVO1.rangeSize}"
                               emptyText="#{bindings.SgsStatisticalDataVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                               rowBandingInterval="0"
                               selectedRowKeys="#{bindings.SgsStatisticalDataVO1.collectionModel.selectedRow}"
@@ -63,7 +68,8 @@
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
                               styleClass="AFStretchWidth" inlineStyle="height:250px" autoHeightRows="10"
-                              scrollPolicy="page">
+                              scrollPolicy="page" 
+                              editingMode="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_WRITE') ? 'editAll' : 'readOnly'}" >
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
                                    binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
                                    >
@@ -511,6 +517,7 @@
                                 <af:inputText label="Rejection Reason" id="it45"
                                               binding="#{viewScope.ActionEventsBean.rejectionReasonBind}"
                                               autoSubmit="true"/>
+                               
                                 <af:spacer id="s1" height="10"/>
                                 
                                 <af:inputText label="Rejection Comments" 

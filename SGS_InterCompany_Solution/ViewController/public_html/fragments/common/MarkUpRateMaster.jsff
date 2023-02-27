@@ -139,8 +139,28 @@
                                   pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.format}"/>
               </af:inputText>
             </af:column>-->
-            <af:column id="c14" headerText="Service Provider (SP)		" align="center">
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}" id="c2">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c3">
+              <af:inputText value="#{row.bindings.SpLegalEntity.inputValue}"
+                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}"
+                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
+                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.displayWidth}"
+                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.precision}"
+                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c6">
+              <af:inputText value="#{row.bindings.SrLegalEntity.inputValue}"
+                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}"
+                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
+                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.displayWidth}"
+                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.precision}"
+                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.tooltip}" id="it6">
+                <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
+              </af:inputText>
+            </af:column>
+            <!--<af:column id="c14" headerText="Service Provider (SP)		" align="center">
+              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}" id="c2">
                 <af:inputText value="#{row.bindings.SpGeography.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.mandatory}"
@@ -149,18 +169,8 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.tooltip}" id="it2">
                   <f:validator binding="#{row.bindings.SpGeography.validator}"/>
                 </af:inputText>
-              </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c3">
-                <af:inputText value="#{row.bindings.SpLegalEntity.inputValue}"
-                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}"
-                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
-                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.displayWidth}"
-                              maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.precision}"
-                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.tooltip}" id="it3">
-                  <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
-                </af:inputText>
-              </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}" id="c4">
+              </af:column>--><!--
+              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}" id="c4">
                 <af:inputText value="#{row.bindings.SpBusinessUnit.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.mandatory}"
@@ -169,10 +179,10 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.tooltip}" id="it4">
                   <f:validator binding="#{row.bindings.SpBusinessUnit.validator}"/>
                 </af:inputText>
-              </af:column>
-            </af:column>
-            <af:column id="c15" headerText="Service Receiver (SR)" align="center">
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}" id="c5">
+              </af:column>--><!--
+            </af:column>-->
+            <!--<af:column id="c15" headerText="Service Receiver (SR)" align="center">
+              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}" id="c5">
                 <af:inputText value="#{row.bindings.SrGeography.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.mandatory}"
@@ -181,18 +191,8 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.tooltip}" id="it5">
                   <f:validator binding="#{row.bindings.SrGeography.validator}"/>
                 </af:inputText>
-              </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c6">
-                <af:inputText value="#{row.bindings.SrLegalEntity.inputValue}"
-                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}"
-                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
-                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.displayWidth}"
-                              maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.precision}"
-                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.tooltip}" id="it6">
-                  <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
-                </af:inputText>
-              </af:column>
-              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}" id="c7">
+              </af:column>--><!--
+              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}" id="c7">
                 <af:inputText value="#{row.bindings.SrBusinessUnit.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.mandatory}"
@@ -201,8 +201,8 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.tooltip}" id="it7">
                   <f:validator binding="#{row.bindings.SrBusinessUnit.validator}"/>
                 </af:inputText>
-              </af:column>
-            </af:column>
+              </af:column>--><!--
+            </af:column>-->
             <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.label}" id="c19">
               <af:selectOneChoice value="#{row.bindings.ADDITIONALEXPQUALIFIER.inputValue}"
                                   label="#{row.bindings.ADDITIONALEXPQUALIFIER.label}"

@@ -509,18 +509,13 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
-  <Attribute
+    <Attribute
     Name="TRANSACTIONPERIOD"
-    Precision="80"
     ColumnName="TRANSACTION_PERIOD"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STATISTICAL_DATA_TBL">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_STATISTICAL_DATA_TBL"/>
   <Attribute
     Name="EMAILATTACHMENT"
     Precision="200"

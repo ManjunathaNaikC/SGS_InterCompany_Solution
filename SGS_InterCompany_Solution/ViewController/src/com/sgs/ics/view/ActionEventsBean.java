@@ -447,7 +447,7 @@ public class ActionEventsBean {
         ViewObjectImpl viewImpl = null;
         viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator").getViewObject();
         viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
-        viewImpl.setWhereClause("MONTH(VALIDITY_TILL) = '"+ month[gcal.get(Calendar.MONTH)]+"'  and YEAR(VALIDITY_TILL) ='"+gcal.get(Calendar.YEAR) +"'");
+        viewImpl.setWhereClause("MONTH(TRANSACTION_PERIOD) = '"+ month[gcal.get(Calendar.MONTH)]+"'  and YEAR(TRANSACTION_PERIOD) ='"+gcal.get(Calendar.YEAR) +"'");
         System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
         viewImpl.executeQuery();
         

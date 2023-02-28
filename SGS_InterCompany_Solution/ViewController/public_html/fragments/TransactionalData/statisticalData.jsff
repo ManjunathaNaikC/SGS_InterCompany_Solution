@@ -220,6 +220,18 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
                                    id="c53">
+                            <af:inputDate value="#{row.bindings.TRANSACTIONPERIOD.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.displayWidth}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.tooltip}"
+                                          id="id13">
+                                <f:validator binding="#{row.bindings.TRANSACTIONPERIOD.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.format}"/>
+                            </af:inputDate>
+                        </af:column>
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
+                                   id="c53">
                             <af:inputText value="#{row.bindings.TRANSACTIONPERIOD.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.mandatory}"
@@ -230,7 +242,7 @@
                                           readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.TRANSACTIONPERIOD.validator}"/>
                             </af:inputText>
-                        </af:column>
+                        </af:column>-->
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.name}"
                                    filterable="true" id="c400">

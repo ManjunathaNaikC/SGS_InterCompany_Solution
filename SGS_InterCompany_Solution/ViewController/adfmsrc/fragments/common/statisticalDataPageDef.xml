@@ -51,9 +51,9 @@
           <Item Value="EMPGRADE"/>
           <Item Value="STATGEOGRAPHY"/>
           <Item Value="APPROVESTATUS"/>
-          <Item Value="TRANSACTIONPERIOD"/>
           <Item Value="EMAILATTACHMENT"/>
-          <Item Value="StatSelectedRecord" Binds="StatSelectedRecord"/>
+          <Item Value="StatSelectedRecord"/>
+          <Item Value="TRANSACTIONPERIOD"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

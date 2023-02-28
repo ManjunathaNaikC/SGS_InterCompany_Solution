@@ -766,20 +766,7 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());
-            System.out.println("ConcateID**** "+getNatureOfExpense()+getInputProvider()+getADDTEXPENSECAT());
-            String natureOfExpense="";
-            String inputProvider="";
-            String addExpenseQuilfier="";
-            if(getNatureOfExpense() != null){
-                natureOfExpense = getNatureOfExpense().toUpperCase().replaceAll("\\s", "");
-            }
-            if(getInputProvider() != null){
-                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
-            }
-            if(getADDTEXPENSECAT() != null){
-                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
-            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
+            
         } catch (Exception e) {
             LOG.severe(e);
         }
@@ -795,6 +782,21 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
+            System.out.println("ConcateID**** "+getNatureOfExpense()+getInputProvider()+getADDTEXPENSECAT());
+            String natureOfExpense="";
+            String inputProvider="";
+            String addExpenseQuilfier="";
+            if(getNatureOfExpense() != null){
+                natureOfExpense = getNatureOfExpense().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getInputProvider() != null){
+                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
+        }else if (operation == DML_INSERT) {
             System.out.println("ConcateID**** "+getNatureOfExpense()+getInputProvider()+getADDTEXPENSECAT());
             String natureOfExpense="";
             String inputProvider="";

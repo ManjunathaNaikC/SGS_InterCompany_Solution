@@ -126,7 +126,8 @@
        SgsStatisticalDataEO.FROM_DEPTID,   
        SgsStatisticalDataEO.FROM_JOB_CODE,   
        SgsStatisticalDataEO.FROM_OU,   
-       SgsStatisticalDataEO.NATURE_OF_EXPENSE  
+       SgsStatisticalDataEO.NATURE_OF_EXPENSE,
+       SgsStatisticalDataEO.TRANSACTION_PERIOD
 FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
   <ViewAttribute
     Name="ATTRIBUTE1"
@@ -888,6 +889,26 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.NATUREOFEXPENSE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+   <ViewAttribute
+    Name="TRANSACTIONPERIOD"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="TRANSACTION_PERIOD"
+    Expression="TRANSACTION_PERIOD"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TRANSACTION_PERIOD_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TRANSACTIONPERIOD_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TRANSACTIONPERIOD_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

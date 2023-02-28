@@ -1000,14 +1000,27 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        String natureOfExpense="";
+        String inputProvider="";
+        String addExpenseQuilfier="";
         if (operation == DML_UPDATE) {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
             setUpdatedDate(new java.sql.Date(new java.util.Date().getTime()));
-            String natureOfExpense="";
-            String inputProvider="";
-            String addExpenseQuilfier="";
+            
+            if(getNATUREOFEXPENSE() != null){
+                natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getInputProvider() != null){
+                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
+        }else if (operation == DML_INSERT) {
+         
             if(getNATUREOFEXPENSE() != null){
                 natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
             }

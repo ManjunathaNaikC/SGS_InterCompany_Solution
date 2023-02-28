@@ -41,7 +41,8 @@
                                           required="#{bindings.CostIdentificationName.hints.mandatory}"
                                           columns="#{bindings.CostIdentificationName.hints.displayWidth}"
                                           maximumLength="#{bindings.CostIdentificationName.hints.precision}"
-                                          shortDesc="#{bindings.CostIdentificationName.hints.tooltip}" id="it9">
+                                          shortDesc="#{bindings.CostIdentificationName.hints.tooltip}" id="it9"
+                                          showRequired="true" placeholder="Required">
                                 <f:validator binding="#{bindings.CostIdentificationName.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.ADDTEXPENSECAT.inputValue}"
@@ -49,7 +50,8 @@
                                           required="#{bindings.ADDTEXPENSECAT.hints.mandatory}"
                                           columns="#{bindings.ADDTEXPENSECAT.hints.displayWidth}"
                                           maximumLength="#{bindings.ADDTEXPENSECAT.hints.precision}"
-                                          shortDesc="#{bindings.ADDTEXPENSECAT.hints.tooltip}" id="it37">
+                                          shortDesc="#{bindings.ADDTEXPENSECAT.hints.tooltip}" id="it37"
+                                          showRequired="true">
                                 <f:validator binding="#{bindings.ADDTEXPENSECAT.validator}"/>
                             </af:inputText>
                             <af:selectOneChoice value="#{bindings.AccountingTreatment.inputValue}"

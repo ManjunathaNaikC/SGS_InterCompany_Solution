@@ -68,8 +68,7 @@
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
                               styleClass="AFStretchWidth" inlineStyle="height:250px" autoHeightRows="10"
-                              scrollPolicy="page" 
-                              editingMode="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_WRITE') ? 'editAll' : 'readOnly'}" >
+                              scrollPolicy="page">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
                                    binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
                                    >
@@ -92,7 +91,8 @@
                                                 label="#{row.bindings.NATUREOFEXPENSE.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.mandatory}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.tooltip}"
-                                                id="soc2">
+                                                id="soc2"
+                                                readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si2"/>
                                 <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
                             </af:selectOneChoice>
@@ -122,6 +122,7 @@
                         </af:column>-->
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}" id="c50">
                             <af:selectOneChoice value="#{row.bindings.ADDTEXPENSECAT.inputValue}"
+                             readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}"
                                                 label="#{row.bindings.ADDTEXPENSECAT.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.mandatory}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.tooltip}"
@@ -134,6 +135,7 @@
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.name}" id="c17"
                                    filterable="true">
                             <af:inputText value="#{row.bindings.InputProvider.inputValue}"
+                             readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.displayWidth}"
@@ -157,6 +159,7 @@
                                 <f:validator binding="#{row.bindings.CostGroup.validator}"/>
                             </af:inputText>-->
                             <af:selectOneChoice value="#{row.bindings.CostGroup.inputValue}"
+                             readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}"
                                                 label="#{row.bindings.CostGroup.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}"
@@ -167,6 +170,7 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}" id="c51">
                             <af:inputText value="#{row.bindings.EMPGRADE.inputValue}"
+                             readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.displayWidth}"
@@ -180,6 +184,7 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
                             <af:inputText value="#{row.bindings.STATGEOGRAPHY.inputValue}"
+                             readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.displayWidth}"
@@ -198,7 +203,8 @@
                                                 label="#{row.bindings.StatisticalDataCategory.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.mandatory}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.tooltip}"
-                                                id="soc4">
+                                                id="soc4"
+                                                readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:selectItems value="#{row.bindings.StatisticalDataCategory.items}" id="si4"/>
                                 <f:validator binding="#{row.bindings.StatisticalDataCategory.validator}"/>
                             </af:selectOneChoice>
@@ -220,7 +226,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.tooltip}"
-                                          id="it43">
+                                          id="it43"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.TRANSACTIONPERIOD.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -232,7 +239,8 @@
                                           required="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.precision}"
-                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.tooltip}" id="it30">
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.tooltip}" id="it30"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.FROMBU.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -244,7 +252,8 @@
                                           required="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.precision}"
-                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.tooltip}" id="it31">
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.tooltip}" id="it31"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.FROMOU.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -257,7 +266,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.tooltip}"
-                                          id="it32">
+                                          id="it32"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -270,7 +280,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.tooltip}"
-                                          id="it33">
+                                          id="it33"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.FROMDEPTID.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -283,7 +294,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.tooltip}"
-                                          id="it2">
+                                          id="it2"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.ToBusinessUnit.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -296,7 +308,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.tooltip}"
-                                          id="it4">
+                                          id="it4"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.ToOperatingUnit.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -309,7 +322,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.tooltip}"
-                                          id="it3">
+                                          id="it3"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.ToJobCode.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -322,7 +336,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.tooltip}"
-                                          id="it5">
+                                          id="it5"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.ToDepartmentId.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -335,7 +350,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.tooltip}"
-                                          id="it8">
+                                          id="it8"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.GLACCOUNT.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -348,7 +364,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.tooltip}"
-                                          id="it6">
+                                          id="it6"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.STATISTICALDATA.validator}"/>
                                 <!--<af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>-->
@@ -395,7 +412,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.tooltip}"
-                                          id="it7">
+                                          id="it7"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -408,7 +426,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.tooltip}"
-                                          id="it10">
+                                          id="it10"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -455,7 +474,8 @@
                                           required="#{bindings.SgsStatisticalDataVO1.hints.Currency.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.Currency.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.Currency.precision}"
-                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.Currency.tooltip}" id="it9">
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.Currency.tooltip}" id="it9"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.Currency.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -469,7 +489,8 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.tooltip}"
-                                          id="it11">
+                                          id="it11"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.TargetAmount.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.format}"/>
@@ -480,7 +501,8 @@
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.label}" id="c14">
                             <f:facet name="filter">
                                 <af:inputDate value="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ValidityFrom.value}"
-                                              id="id1">
+                                              id="id1"
+                                              readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                     <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.format}"/>
                                 </af:inputDate>
                             </f:facet>
@@ -489,7 +511,8 @@
                                           required="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.displayWidth}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.tooltip}"
-                                          id="id2">
+                                          id="id2"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.ValidityFrom.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.format}"/>
                             </af:inputDate>
@@ -499,7 +522,8 @@
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.label}" id="c15">
                             <f:facet name="filter">
                                 <af:inputDate value="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ValidityTill.value}"
-                                              id="id3">
+                                              id="id3"
+                                              readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                     <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.format}"/>
                                 </af:inputDate>
                             </f:facet>
@@ -508,7 +532,8 @@
                                           required="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.displayWidth}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.tooltip}"
-                                          id="id4">
+                                          id="id4"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.ValidityTill.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.ValidityTill.format}"/>
                             </af:inputDate>

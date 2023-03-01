@@ -120,6 +120,38 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupGeogVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsBusinessUnitMasterVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupLegEntVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsBusinessUnitMasterVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_BussinessUnitStatus"
     ListVOName="SgsLookupBUStatusVO1"
@@ -144,6 +176,40 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="BussinessUnitZone"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BussinessUnitGeography"
+    ListVOName="SgsLookupGeogVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BussinessUnitGeography"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_LegalEntity"
+    ListVOName="SgsLookupLegEntVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LegalEntity"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -420,13 +486,16 @@
     PrecisionRule="true"
     EntityAttrName="BussinessUnitGeography"
     EntityUsage="SgsBusinessUnitMasterEO"
-    AliasName="BUSSINESS_UNIT_GEOGRAPHY">
+    AliasName="BUSSINESS_UNIT_GEOGRAPHY"
+    LOVName="LOV_BussinessUnitGeography">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="4.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.BussinessUnitGeography_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -665,13 +734,16 @@
     PrecisionRule="true"
     EntityAttrName="LegalEntity"
     EntityUsage="SgsBusinessUnitMasterEO"
-    AliasName="LEGAL_ENTITY">
+    AliasName="LEGAL_ENTITY"
+    LOVName="LOV_LegalEntity">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="3.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsBusinessUnitMasterVO.LegalEntity_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

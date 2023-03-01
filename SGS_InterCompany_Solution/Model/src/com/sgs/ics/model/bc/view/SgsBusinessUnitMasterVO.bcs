@@ -17,3 +17,17 @@ def bLookupType_SgsLookupBUZoneVO1_BindVariable_BoundParameter()
 'BUSSINESS_UNIT_ZONE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupGeogVO1", name="bLookupType")
+def bLookupType_SgsLookupGeogVO1_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupLegEntVO1", name="bLookupType")
+def bLookupType_SgsLookupLegEntVO1_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+

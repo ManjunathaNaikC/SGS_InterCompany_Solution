@@ -133,5 +133,9 @@
           id="BussinessUnitStatus1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="SgsBusinessUnitMasterVO1Iterator" StaticList="false" Uses="LOV_BussinessUnitZone"
           id="BussinessUnitZone1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsBusinessUnitMasterVO1Iterator" StaticList="false" Uses="LOV_LegalEntity" id="LegalEntity1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsBusinessUnitMasterVO1Iterator" StaticList="false" Uses="LOV_BussinessUnitGeography"
+          id="BussinessUnitGeography1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

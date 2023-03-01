@@ -76,14 +76,30 @@
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.label}" id="resId1c5"
               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.name}">
-                <af:outputText value="#{row.LegalEntity}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}" id="ot5"/>
+                <!--<af:outputText value="#{row.LegalEntity}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}" id="ot5"/>-->
+                <af:selectOneChoice value="#{row.bindings.LegalEntity.inputValue}"
+                                    label="#{row.bindings.LegalEntity.label}"
+                                    required="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.mandatory}"
+                                    shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}"
+                                    id="soc3" readOnly="true">
+                  <f:selectItems value="#{row.bindings.LegalEntity.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.LegalEntity.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.label}"
                          id="resId1c6"  sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.name}">
-                <af:outputText value="#{row.BussinessUnitGeography}"
+                <!--<af:outputText value="#{row.BussinessUnitGeography}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.tooltip}"
-                               id="ot6"/>
+                               id="ot6"/>-->
+                <af:selectOneChoice value="#{row.bindings.BussinessUnitGeography.inputValue}"
+                                    label="#{row.bindings.BussinessUnitGeography.label}"
+                                    required="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.mandatory}"
+                                    shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.tooltip}"
+                                    id="soc4" readOnly="true">
+                  <f:selectItems value="#{row.bindings.BussinessUnitGeography.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.BussinessUnitGeography.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.label}"
                          id="resId1c7"  sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.name}">

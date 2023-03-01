@@ -22,6 +22,22 @@
     Name="NatureOfExpenseLookupVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.NatureOfExpenseLookupVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsLookupGEOVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsStdRateLineTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_NatureofExpense"
     ListVOName="NatureOfExpenseLookupVO1"
@@ -36,6 +52,23 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="MEANING"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SrGeography"
+    ListVOName="SgsLookupGEOVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SrGeography"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -74,11 +107,14 @@
     PrecisionRule="true"
     EntityAttrName="SrGeography"
     EntityUsage="SgsStdRateLineTblEO"
-    AliasName="SR_GEOGRAPHY">
+    AliasName="SR_GEOGRAPHY"
+    LOVName="LOV_SrGeography">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.SrGeography_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

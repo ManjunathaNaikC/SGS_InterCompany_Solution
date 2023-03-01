@@ -280,7 +280,7 @@
                                         <f:validator binding="#{row.bindings.SrGeography.validator}"/>
                                     </af:inputText>
                                 </af:column>-->
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.label}"
+                                <!--<af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.label}"
                                            id="c2" sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.name}"
                                            filterable="true" >
                                     <af:inputText value="#{row.bindings.STDRATEGEOGRAPHY.inputValue}"
@@ -292,6 +292,17 @@
                                                   id="it4">
                                         <f:validator binding="#{row.bindings.STDRATEGEOGRAPHY.validator}"/>
                                     </af:inputText>
+                                </af:column>-->
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
+                                           id="c2">
+                                    <af:selectOneChoice value="#{row.bindings.SrGeography.inputValue}"
+                                                        label="#{row.bindings.SrGeography.label}"
+                                                        required="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.mandatory}"
+                                                        shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.tooltip}"
+                                                        id="soc5">
+                                        <f:selectItems value="#{row.bindings.SrGeography.items}" id="si5"/>
+                                        <f:validator binding="#{row.bindings.SrGeography.validator}"/>
+                                    </af:selectOneChoice>
                                 </af:column>
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.name}"
                                            filterable="true"

@@ -182,7 +182,7 @@
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.format}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
                             <af:inputText value="#{row.bindings.STATGEOGRAPHY.inputValue}"
                              readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}"
@@ -193,8 +193,17 @@
                                           id="it24">
                                 <f:validator binding="#{row.bindings.STATGEOGRAPHY.validator}"/>
                             </af:inputText>
+                        </af:column>-->
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
+                            <af:selectOneChoice value="#{row.bindings.STATGEOGRAPHY.inputValue}"
+                                                label="#{row.bindings.STATGEOGRAPHY.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.tooltip}"
+                                                id="soc9">
+                                <f:selectItems value="#{row.bindings.STATGEOGRAPHY.items}" id="si9"/>
+                                <f:validator binding="#{row.bindings.STATGEOGRAPHY.validator}"/>
+                            </af:selectOneChoice>
                         </af:column>
-                        
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"

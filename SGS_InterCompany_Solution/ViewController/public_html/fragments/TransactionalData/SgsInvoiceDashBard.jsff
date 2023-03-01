@@ -91,14 +91,14 @@
               <af:outputText value="#{row.SourceCurrency}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceCurrency.tooltip}" id="ot8"/>
             </af:column>
-            <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.label}" id="c9"
+            <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.label}" id="c9"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.name}" filterable="true">
               <af:outputText value="#{row.SourceAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.tooltip}" id="ot9">
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.format}"/>
               </af:outputText>
-            </af:column>
+            </af:column>-->
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.label}" id="c10"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.name}" filterable="true" visible="false">
               <af:outputText value="#{row.IuCustomer}"

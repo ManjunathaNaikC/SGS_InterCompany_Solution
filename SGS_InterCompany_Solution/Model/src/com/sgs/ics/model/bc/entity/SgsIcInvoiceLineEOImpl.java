@@ -79,6 +79,12 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
         Attribute15,
         NATUREOFEXPENSE,
         WHTAMOUNT,
+        CGSTAMNT,
+        GSTRATE,
+        IGSTAMNT,
+        SGSTAMNT,
+        VATAMNT,
+        VATRATE,
         SgsIcInvoiceHeaderEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -157,6 +163,12 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int WHTAMOUNT = AttributesEnum.WHTAMOUNT.index();
+    public static final int CGSTAMNT = AttributesEnum.CGSTAMNT.index();
+    public static final int GSTRATE = AttributesEnum.GSTRATE.index();
+    public static final int IGSTAMNT = AttributesEnum.IGSTAMNT.index();
+    public static final int SGSTAMNT = AttributesEnum.SGSTAMNT.index();
+    public static final int VATAMNT = AttributesEnum.VATAMNT.index();
+    public static final int VATRATE = AttributesEnum.VATRATE.index();
     public static final int SGSICINVOICEHEADEREO = AttributesEnum.SgsIcInvoiceHeaderEO.index();
 
     /**
@@ -1019,6 +1031,102 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
      */
     public void setWHTAMOUNT(BigDecimal value) {
         setAttributeInternal(WHTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for CGSTAMNT, using the alias name CGSTAMNT.
+     * @return the value of CGSTAMNT
+     */
+    public BigDecimal getCGSTAMNT() {
+        return (BigDecimal) getAttributeInternal(CGSTAMNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CGSTAMNT.
+     * @param value value to set the CGSTAMNT
+     */
+    public void setCGSTAMNT(BigDecimal value) {
+        setAttributeInternal(CGSTAMNT, value);
+    }
+
+    /**
+     * Gets the attribute value for GSTRATE, using the alias name GSTRATE.
+     * @return the value of GSTRATE
+     */
+    public BigDecimal getGSTRATE() {
+        return (BigDecimal) getAttributeInternal(GSTRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GSTRATE.
+     * @param value value to set the GSTRATE
+     */
+    public void setGSTRATE(BigDecimal value) {
+        setAttributeInternal(GSTRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for IGSTAMNT, using the alias name IGSTAMNT.
+     * @return the value of IGSTAMNT
+     */
+    public BigDecimal getIGSTAMNT() {
+        return (BigDecimal) getAttributeInternal(IGSTAMNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IGSTAMNT.
+     * @param value value to set the IGSTAMNT
+     */
+    public void setIGSTAMNT(BigDecimal value) {
+        setAttributeInternal(IGSTAMNT, value);
+    }
+
+    /**
+     * Gets the attribute value for SGSTAMNT, using the alias name SGSTAMNT.
+     * @return the value of SGSTAMNT
+     */
+    public BigDecimal getSGSTAMNT() {
+        return (BigDecimal) getAttributeInternal(SGSTAMNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SGSTAMNT.
+     * @param value value to set the SGSTAMNT
+     */
+    public void setSGSTAMNT(BigDecimal value) {
+        setAttributeInternal(SGSTAMNT, value);
+    }
+
+    /**
+     * Gets the attribute value for VATAMNT, using the alias name VATAMNT.
+     * @return the value of VATAMNT
+     */
+    public BigDecimal getVATAMNT() {
+        return (BigDecimal) getAttributeInternal(VATAMNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for VATAMNT.
+     * @param value value to set the VATAMNT
+     */
+    public void setVATAMNT(BigDecimal value) {
+        setAttributeInternal(VATAMNT, value);
+    }
+
+    /**
+     * Gets the attribute value for VATRATE, using the alias name VATRATE.
+     * @return the value of VATRATE
+     */
+    public BigDecimal getVATRATE() {
+        return (BigDecimal) getAttributeInternal(VATRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for VATRATE.
+     * @param value value to set the VATRATE
+     */
+    public void setVATRATE(BigDecimal value) {
+        setAttributeInternal(VATRATE, value);
     }
 
     /**

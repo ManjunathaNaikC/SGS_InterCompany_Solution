@@ -695,6 +695,42 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="GSTRATE"
+    PrecisionRule="true"
+    EntityAttrName="GSTRATE"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="GST_RATE"/>
+  <ViewAttribute
+    Name="IGSTAMNT"
+    PrecisionRule="true"
+    EntityAttrName="IGSTAMNT"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="IGST_AMNT"/>
+  <ViewAttribute
+    Name="SGSTAMNT"
+    PrecisionRule="true"
+    EntityAttrName="SGSTAMNT"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="SGST_AMNT"/>
+  <ViewAttribute
+    Name="CGSTAMNT"
+    PrecisionRule="true"
+    EntityAttrName="CGSTAMNT"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="CGST_AMNT"/>
+  <ViewAttribute
+    Name="VATAMNT"
+    PrecisionRule="true"
+    EntityAttrName="VATAMNT"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="VAT_AMNT"/>
+  <ViewAttribute
+    Name="VATRATE"
+    PrecisionRule="true"
+    EntityAttrName="VATRATE"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="VAT_RATE"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

@@ -225,7 +225,8 @@
                                           required="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.displayWidth}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.tooltip}"
-                                          id="id13">
+                                          id="id13"
+                                          readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">  
                                 <f:validator binding="#{row.bindings.TRANSACTIONPERIOD.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.format}"/>
                             </af:inputDate>

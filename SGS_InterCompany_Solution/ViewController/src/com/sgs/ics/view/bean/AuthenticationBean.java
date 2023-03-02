@@ -165,6 +165,7 @@ public class AuthenticationBean {
         setSessionScopeValue("USER_EMAIL",useremail);
         ArrayList<String> pageList = pageList(_username);
         ADFContext.getCurrent().getApplicationScope().put("pageList",pageList); 
+        filterTenants(_username);
         try {
             if (ob.getResult() != null) {
                 String userId = ob.getResult().toString();
@@ -218,6 +219,58 @@ public class AuthenticationBean {
         }
         
         return userEmail;
+    }
+    
+    
+    
+    public void filterTenants(String user){
+        
+        String buList = null;
+        String natureOfExpenseList = null;
+        String queryString =
+            "SELECT BU_ID,NATURE_OF_EXPENSE FROM USER_DATA_TENANT WHERE USER_ID ='" + user + "'";
+        Connection conn = null;
+        PreparedStatement pst = null;
+        System.out.println("Query :: " + queryString);
+        try {
+            SGSAppModuleImpl am = new SGSAppModuleImpl();
+            conn = am.getDBConnection();
+            String sqlIdentifier = queryString;
+            pst = conn.prepareStatement(sqlIdentifier);
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                buList= (String) rs.getString(1);
+                natureOfExpenseList= (String) rs.getString(2);
+            }
+            
+            if(null != buList){
+                System.out.println("buList :: "+buList); 
+                ADFContext.getCurrent().getSessionScope().put("buList",buList);
+            }else{
+                ADFContext.getCurrent().getSessionScope().put("buList","none");
+            }
+            
+            if(null != natureOfExpenseList){
+                System.out.println("natureOfExpenseList :: "+natureOfExpenseList); 
+                ADFContext.getCurrent().getSessionScope().put("natureOfExpenseList",natureOfExpenseList);
+            }else{
+                ADFContext.getCurrent().getSessionScope().put("natureOfExpenseList","none");
+            }
+            
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+    
     }
     
     private ArrayList<String>  pageList(String userId){

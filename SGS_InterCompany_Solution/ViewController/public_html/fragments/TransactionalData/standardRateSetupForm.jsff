@@ -239,7 +239,7 @@
                                       filterVisible="true"
                                       queryListener="#{bindings.SgsStdRateLineTblVO4Query.processQuery}" varStatus="vs"
                                       id="t2" columnStretching="last" partialTriggers="::b7 ::b9"
-                                      styleClass="AFStretchWidth">
+                                      styleClass="setup">
                                 <!--<af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.label}"

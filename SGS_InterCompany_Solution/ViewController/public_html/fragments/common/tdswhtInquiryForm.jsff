@@ -202,7 +202,7 @@
                         selectedRowKeys="#{bindings.SgsTdsWhtIdentificationVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.SgsTdsWhtIdentificationVO1.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.SgsTdsWhtIdentificationVO1.rangeSize}" id="t1"
-                        partialTriggers="::b3 ::b4 :::b5 :::pc2:b6 :::pc2:b7" styleClass="AFStertchWidth"
+                        partialTriggers="::b3 ::b4 :::b5 :::pc2:b6 :::pc2:b7" styleClass="setup"
                         columnStretching="column:c4">
                 <!--<af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.TdsWhtIdenSeq.label}" id="c1">
                   <af:inputText value="#{row.bindings.TdsWhtIdenSeq.inputValue}"
@@ -350,7 +350,7 @@
                         selectedRowKeys="#{bindings.SgsTdsWhtRateApplicabilityVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.SgsTdsWhtRateApplicabilityVO1.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.SgsTdsWhtRateApplicabilityVO1.rangeSize}" id="t4"
-                        partialTriggers="::b6 ::b7" styleClass="AFStretchWidth" columnStretching="column:c14">
+                        partialTriggers="::b6 ::b7" styleClass="setup" columnStretching="column:c14">
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.CostIdenId.label}" id="c10"
                            visible="false">
                   <af:inputText value="#{row.bindings.CostIdenId.inputValue}"

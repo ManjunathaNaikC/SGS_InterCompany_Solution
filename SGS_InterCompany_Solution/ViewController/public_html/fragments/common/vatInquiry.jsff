@@ -16,7 +16,8 @@
                       model="#{bindings.SgsVatTblVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsVatTblVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsVatTblVOCriteriaQuery.processQueryOperation}"
-                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"
+                      styleClass="setupHeader"/>
           </af:panelHeader>
           <af:panelCollection id="pc1" styleClass="AFStretchWidth">
             <f:facet name="menus"/>
@@ -41,7 +42,7 @@
                       emptyText="#{bindings.SgsVatTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsVatTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsVatTblVO1.collectionModel.makeCurrent}" rowSelection="single"
-                      fetchSize="#{bindings.SgsVatTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
+                      fetchSize="#{bindings.SgsVatTblVO1.rangeSize}" id="resId1" styleClass="setup"
                       partialTriggers="::b1 ::b2" scrollPolicy="page">
               <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatNum.label}" id="resId1c1">
                 <af:link text="#{row.VatNum}" id="l1" action="EDIT"/>

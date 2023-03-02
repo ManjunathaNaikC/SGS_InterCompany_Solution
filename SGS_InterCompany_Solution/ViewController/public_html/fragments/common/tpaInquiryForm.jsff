@@ -318,7 +318,7 @@
                       selectedRowKeys="#{bindings.SgsTpaDocAttachment1VO2.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTpaDocAttachment1VO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsTpaDocAttachment1VO2.rangeSize}" id="t2"
-                      styleClass="AFStretchWidth" partialTriggers="::b5 ::b4">
+                      styleClass="setup" partialTriggers="::b5 ::b4">
               <!--<af:column headerText="#{bindings.SgsTpaDocAttachment1VO2.hints.DocumentTypeValue.label}" id="c1">
                 <af:inputText value="#{row.bindings.DocumentTypeValue.inputValue}"
                               label="#{bindings.SgsTpaDocAttachment1VO2.hints.DocumentTypeValue.label}"

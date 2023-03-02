@@ -530,6 +530,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CONCATEID"
+    PrecisionRule="true"
+    EntityAttrName="CONCATEID"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="CONCATE_ID"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

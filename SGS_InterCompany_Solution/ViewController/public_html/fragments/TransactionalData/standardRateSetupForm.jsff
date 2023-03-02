@@ -11,8 +11,9 @@
             <af:panelBox text="Standard Rate Setup" id="pb1">
                 <f:facet name="toolbar">
                     <af:toolbar id="t1">
-                        <af:button id="b1" action="back" actionListener="#{bindings.Commit.execute}"
-                                   text="Save and Close" accessKey="S"/>
+                        <af:button id="b1" action="back" 
+                                   text="Save and Close" accessKey="S"
+                                   actionListener="#{viewScope.ActionEventsBean.onStdRateFormSave}"/>
                         <af:button id="b2" action="back" immediate="true" actionListener="#{bindings.Rollback.execute}"
                                    rendered="#{pageFlowScope.pSRAddEdit == 'EDIT'}" text="Cancel" accessKey="C"/>
                         <af:button actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}"

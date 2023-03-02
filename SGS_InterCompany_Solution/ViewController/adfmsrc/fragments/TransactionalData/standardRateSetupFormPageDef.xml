@@ -135,6 +135,7 @@
           <Item Value="OPERATINGUNIT"/>
           <Item Value="NatureofExpense"/>
           <Item Value="STDRATEGEOGRAPHY"/>
+          <Item Value="ADDTEXPENSECAT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

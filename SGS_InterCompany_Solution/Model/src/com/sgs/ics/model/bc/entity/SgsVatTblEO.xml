@@ -323,6 +323,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="VATAPPLICATIBILITY"
+    Precision="30"
+    ColumnName="VAT_APPLICATIBILITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_VAT_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsVatTaxApplicabilityEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsVatTaxApplicabilityAssoc"

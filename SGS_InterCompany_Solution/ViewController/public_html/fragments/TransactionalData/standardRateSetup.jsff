@@ -54,8 +54,10 @@
                          width="220">
                 <!--<af:outputText value="#{row.StandardRateId}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>-->
-                               <af:link text="#{row.StandardRateId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                               <af:link text="#{row.StandardRateId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"
+                                        actionListener="#{viewScope.ActionEventsBean.onStdRateRowSelection}">
                   <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
+                  <af:setPropertyListener from="#{row.INPUTPROVIDER}" to="#{pageFlowScope.INPUTPROVIDER}" type="action"/>
                 </af:link>
               </af:column>
               <!--<af:column sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.name}"

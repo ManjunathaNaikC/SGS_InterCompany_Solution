@@ -148,6 +148,7 @@ public class NavigateBean implements Serializable {
         System.out.println("Page List ::"+pageList.toString());
          if(null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))){
              //No Filter For Admin
+             
          }else{
        String buList= (String) ADFContext.getCurrent().getSessionScope().get("buList");
         String natureOfExpenseList= (String)ADFContext.getCurrent().getSessionScope().get("natureOfExpenseList");

@@ -164,7 +164,7 @@
                       selectedRowKeys="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsVatTaxApplicabilityVO1.rangeSize}" id="t2"
-                      partialTriggers="::b4 ::b5" styleClass="AFStretchWidth" columnStretching="column:c3">
+                      partialTriggers="::b4 ::b5" styleClass="setup" columnStretching="column:c3">
              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c3"
                         width="150">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"

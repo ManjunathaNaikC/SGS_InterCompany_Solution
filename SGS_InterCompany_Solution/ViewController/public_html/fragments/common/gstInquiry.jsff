@@ -16,7 +16,8 @@
                       model="#{bindings.SgsGstTblVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsGstTblVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsGstTblVOCriteriaQuery.processQueryOperation}"
-                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"
+                      styleClass="setupHeader"/>
           </af:panelHeader>
           <af:panelCollection id="pc1" styleClass="AFStretchWidth">
             <f:facet name="menus"/>
@@ -44,7 +45,7 @@
                       emptyText="#{bindings.SgsGstTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsGstTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsGstTblVO1.collectionModel.makeCurrent}" rowSelection="single"
-                      fetchSize="#{bindings.SgsGstTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
+                      fetchSize="#{bindings.SgsGstTblVO1.rangeSize}" id="resId1" styleClass="setup"
                       partialTriggers="::b1 ::b2" scrollPolicy="page" columnStretching="column:resId1c1">
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.GstNum.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.GstNum}" shortDesc="#{bindings.SgsGstTblVO1.hints.GstNum.tooltip}" id="ot1"/>-->

@@ -16,7 +16,7 @@
                       model="#{bindings.SgsTpaMaster1VOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsTpaMaster1VOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsTpaMaster1VOCriteriaQuery.processQueryOperation}"
-                      resultComponentId="::pc1:resId1" styleClass="AFStretchWidth" saveQueryMode="hidden" rows="3"
+                      resultComponentId="::pc1:resId1" styleClass="setupHeader" saveQueryMode="hidden" rows="3"
                       maxColumns="2"/>
           </af:panelHeader>
           <af:panelCollection id="pc1" styleClass="AFStretchWidth">
@@ -35,7 +35,7 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTpaMaster1VO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTpaMaster1VO1.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.SgsTpaMaster1VO1.rangeSize}" id="resId1" partialTriggers="::b1 ::b2"
-                      styleClass="AFStretchWidth" scrollPolicy="page" columnStretching="last">
+                      styleClass="setup" scrollPolicy="page" columnStretching="last">
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.TpaId.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.TpaId.tooltip}"
                              id="ot1"/>-->

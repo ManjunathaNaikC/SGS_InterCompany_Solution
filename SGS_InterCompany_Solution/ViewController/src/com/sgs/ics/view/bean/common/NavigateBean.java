@@ -6,6 +6,8 @@ import com.sgs.ics.ui.utils.ADFUtils;
 
 import java.io.Serializable;
 
+import java.util.ArrayList;
+
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.controller.TaskFlowId;
@@ -95,7 +97,11 @@ public class NavigateBean implements Serializable {
 
     public String sgscostIdentificationRuleflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-costIdentificationRule-flow.xml#sgs-costIdentificationRule-flow");
-        //NATURE_OF_EXPENSE
+        ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getApplicationScope().get("pageList");
+        System.out.println("Page List ::"+pageList.toString());
+         if(null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))){
+             //No Filter For Admin
+         }else{
         String buList= (String) ADFContext.getCurrent().getSessionScope().get("buList");
          String natureOfExpenseList= (String)ADFContext.getCurrent().getSessionScope().get("natureOfExpenseList");
          System.out.println("buList on Page "+buList);
@@ -121,6 +127,8 @@ public class NavigateBean implements Serializable {
          viewImpl.setWhereClause(" NATURE_OF_EXPENSE IN ( " + buString.toString() + ")");
          System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
          viewImpl.executeQuery();
+         }
+         
         return null;
     }
 
@@ -136,6 +144,12 @@ public class NavigateBean implements Serializable {
     }
     public String sgsbusinessUnitMasterflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-businessUnitMaster-flow.xml#sgs-businessUnitMaster-flow");
+        ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getApplicationScope().get("pageList");
+        System.out.println("Page List ::"+pageList.toString());
+         if(null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))){
+             //No Filter For Admin
+             
+         }else{
        String buList= (String) ADFContext.getCurrent().getSessionScope().get("buList");
         String natureOfExpenseList= (String)ADFContext.getCurrent().getSessionScope().get("natureOfExpenseList");
         System.out.println("buList on Page "+buList);
@@ -160,6 +174,7 @@ public class NavigateBean implements Serializable {
         viewImpl.setWhereClause(" BUSSINESS_UNIT_NAME IN ( " + buString.toString() + ")");
         System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
         viewImpl.executeQuery();
+         }
         return null;
     }
 

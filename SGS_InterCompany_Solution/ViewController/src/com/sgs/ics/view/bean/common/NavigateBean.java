@@ -22,6 +22,8 @@ import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
 
+import oracle.jbo.server.ViewObjectImpl;
+
 import org.apache.myfaces.trinidad.event.DisclosureEvent;
 
 public class NavigateBean implements Serializable {
@@ -93,6 +95,32 @@ public class NavigateBean implements Serializable {
 
     public String sgscostIdentificationRuleflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-costIdentificationRule-flow.xml#sgs-costIdentificationRule-flow");
+        //NATURE_OF_EXPENSE
+        String buList= (String) ADFContext.getCurrent().getSessionScope().get("buList");
+         String natureOfExpenseList= (String)ADFContext.getCurrent().getSessionScope().get("natureOfExpenseList");
+         System.out.println("buList on Page "+buList);
+         System.out.println("natureOfExpenseList on Page "+natureOfExpenseList);
+        // String[] resBuList = buList.split("[,]", 0);
+        String[] resnatureOfExpenseList = natureOfExpenseList.split("[,]", 0);
+         StringBuffer buString= new StringBuffer();
+         for (int i = 0; i < resnatureOfExpenseList.length; i++) {
+             System.out.println(resnatureOfExpenseList[i]);
+             buString.append("'" + resnatureOfExpenseList[i] + "'");
+             System.out.println("Value i ::" + i);
+             System.out.println("length  ::" + resnatureOfExpenseList.length);
+             if (i + 1 == resnatureOfExpenseList.length) {
+                 //Don't append comma at the end of the String
+             } else {
+                 buString.append(",");
+             }
+         }
+         System.out.println(buString.toString());
+         ViewObjectImpl viewImpl = null;
+         viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsCostIdentificationRuleVOIterator").getViewObject();
+         viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+         viewImpl.setWhereClause(" NATURE_OF_EXPENSE IN ( " + buString.toString() + ")");
+         System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
+         viewImpl.executeQuery();
         return null;
     }
 
@@ -108,6 +136,30 @@ public class NavigateBean implements Serializable {
     }
     public String sgsbusinessUnitMasterflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-businessUnitMaster-flow.xml#sgs-businessUnitMaster-flow");
+       String buList= (String) ADFContext.getCurrent().getSessionScope().get("buList");
+        String natureOfExpenseList= (String)ADFContext.getCurrent().getSessionScope().get("natureOfExpenseList");
+        System.out.println("buList on Page "+buList);
+        System.out.println("natureOfExpenseList on Page "+natureOfExpenseList);
+        String[] resBuList = buList.split("[,]", 0);
+        StringBuffer buString= new StringBuffer();
+        for (int i = 0; i < resBuList.length; i++) {
+            System.out.println(resBuList[i]);
+            buString.append("'" + resBuList[i] + "'");
+            System.out.println("Value i ::" + i);
+            System.out.println("length  ::" + resBuList.length);
+            if (i + 1 == resBuList.length) {
+                //Don't append comma at the end of the String
+            } else {
+                buString.append(",");
+            }
+        }
+        System.out.println(buString.toString());
+        ViewObjectImpl viewImpl = null;
+        viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsBusinessUnitMasterVO1Iterator").getViewObject();
+        viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+        viewImpl.setWhereClause(" BUSSINESS_UNIT_NAME IN ( " + buString.toString() + ")");
+        System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
+        viewImpl.executeQuery();
         return null;
     }
 

@@ -75,9 +75,14 @@
                             <af:selectBooleanCheckbox value="#{row.bindings.StatSelectedRecord.inputValue}"
                                                       label="#{row.bindings.StatSelectedRecord.label}"
                                                       shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.tooltip}"
+                                                      id="sbc1" binding="#{viewScope.ActionEventsBean.bindStatCheckboxSelect}"
+                                                      autoSubmit="true"/>
+                            <!--<af:selectBooleanCheckbox value="#{row.bindings.StatSelectedRecord.inputValue}"
+                                                      label="#{row.bindings.StatSelectedRecord.label}"
+                                                      shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.tooltip}"
                                                       id="sbc1"
                                                       binding="#{viewScope.ActionEventsBean.bindStatCheckboxSelect}"
-                                                      autoSubmit="true"/>
+                                                      autoSubmit="true"/>-->
                             <f:facet name="header">
                               <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
                                     autoSubmit="true" valueChangeListener="#{viewScope.ActionEventsBean.onStatisticalSelectAll}"

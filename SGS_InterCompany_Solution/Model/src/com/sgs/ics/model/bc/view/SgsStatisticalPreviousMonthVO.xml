@@ -106,7 +106,7 @@
        SgsStatisticalDataEO.CURRENCY,   
        SgsStatisticalDataEO.EMPLOYEE_ID,   
        SgsStatisticalDataEO.GL_ACCOUNT,   
-       SgsStatisticalDataEO.Input_Provider,   
+       SgsStatisticalDataEO.INPUT_PROVIDER,   
        SgsStatisticalDataEO.REJECTED_REASON,   
        SgsStatisticalDataEO.REJECTION_COMMENTS,   
        SgsStatisticalDataEO.STATISTICAL_DATA,   
@@ -486,16 +486,17 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     Precision="80"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    AliasName="Input_Provider"
-    Expression="Input_Provider"
-    SQLType="VARCHAR">
+    AliasName="INPUT_PROVIDER"
+    Expression="INPUT_PROVIDER"
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.InputProvider_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.INPUT_PROVIDER_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

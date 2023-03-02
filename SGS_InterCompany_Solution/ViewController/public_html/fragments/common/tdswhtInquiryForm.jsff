@@ -92,6 +92,13 @@
                           shortDesc="#{bindings.WhtLibilityAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.WhtLibilityAcc.validator}"/>
             </af:inputText>
+            <af:selectOneChoice value="#{bindings.WHTAPPLICATIBILITY.inputValue}"
+                                label="#{bindings.WHTAPPLICATIBILITY.label}"
+                                required="#{bindings.WHTAPPLICATIBILITY.hints.mandatory}"
+                                shortDesc="#{bindings.WHTAPPLICATIBILITY.hints.tooltip}" id="soc2">
+              <f:selectItems value="#{bindings.WHTAPPLICATIBILITY.items}" id="si2"/>
+              <f:validator binding="#{bindings.WHTAPPLICATIBILITY.validator}"/>
+            </af:selectOneChoice>
             <af:inputText value="#{bindings.WhtCreditAcc.inputValue}" label="#{bindings.WhtCreditAcc.hints.label}"
                           required="#{bindings.WhtCreditAcc.hints.mandatory}"
                           columns="#{bindings.WhtCreditAcc.hints.displayWidth}"

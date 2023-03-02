@@ -57,6 +57,7 @@ public class SgsVatTblEOImpl extends EntityImpl {
         Attribute15,
         SERVICEPROVIDERLEGALENTITY,
         SERVICERECEIVERLEGALENTITY,
+        VATAPPLICATIBILITY,
         SgsVatTaxApplicabilityEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -113,6 +114,7 @@ public class SgsVatTblEOImpl extends EntityImpl {
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int SERVICEPROVIDERLEGALENTITY = AttributesEnum.SERVICEPROVIDERLEGALENTITY.index();
     public static final int SERVICERECEIVERLEGALENTITY = AttributesEnum.SERVICERECEIVERLEGALENTITY.index();
+    public static final int VATAPPLICATIBILITY = AttributesEnum.VATAPPLICATIBILITY.index();
     public static final int SGSVATTAXAPPLICABILITYEO = AttributesEnum.SgsVatTaxApplicabilityEO.index();
 
     /**
@@ -127,6 +129,7 @@ public class SgsVatTblEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsVatTblEO");
     }
+
 
     /**
      * Gets the attribute value for VatNum, using the alias name VatNum.
@@ -592,6 +595,22 @@ public class SgsVatTblEOImpl extends EntityImpl {
      */
     public void setSERVICERECEIVERLEGALENTITY(String value) {
         setAttributeInternal(SERVICERECEIVERLEGALENTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for VATAPPLICATIBILITY, using the alias name VATAPPLICATIBILITY.
+     * @return the value of VATAPPLICATIBILITY
+     */
+    public String getVATAPPLICATIBILITY() {
+        return (String) getAttributeInternal(VATAPPLICATIBILITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for VATAPPLICATIBILITY.
+     * @param value value to set the VATAPPLICATIBILITY
+     */
+    public void setVATAPPLICATIBILITY(String value) {
+        setAttributeInternal(VATAPPLICATIBILITY, value);
     }
 
     /**

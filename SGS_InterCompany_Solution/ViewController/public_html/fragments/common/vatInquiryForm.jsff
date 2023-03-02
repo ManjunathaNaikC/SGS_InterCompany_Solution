@@ -82,6 +82,13 @@
                           shortDesc="#{bindings.VatOutputGlAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.VatOutputGlAcc.validator}"/>
             </af:inputText>
+            <af:selectOneChoice value="#{bindings.VATAPPLICATIBILITY.inputValue}"
+                                label="#{bindings.VATAPPLICATIBILITY.label}"
+                                required="#{bindings.VATAPPLICATIBILITY.hints.mandatory}"
+                                shortDesc="#{bindings.VATAPPLICATIBILITY.hints.tooltip}" id="soc4">
+              <f:selectItems value="#{bindings.VATAPPLICATIBILITY.items}" id="si4"/>
+              <f:validator binding="#{bindings.VATAPPLICATIBILITY.validator}"/>
+            </af:selectOneChoice>
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
                           columns="#{bindings.EffectiveFrom.hints.displayWidth}"

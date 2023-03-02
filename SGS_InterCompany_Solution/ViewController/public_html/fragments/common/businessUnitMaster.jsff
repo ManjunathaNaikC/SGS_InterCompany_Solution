@@ -50,7 +50,7 @@
                       selectedRowKeys="#{bindings.SgsBusinessUnitMasterVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsBusinessUnitMasterVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsBusinessUnitMasterVO1.rangeSize}" id="resId1"
-                      partialTriggers="::b2" styleClass="AFStretchWidth" scrollPolicy="page">
+                      partialTriggers="::b2" styleClass="setup" scrollPolicy="page">
               <!--<af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitId.label}" id="resId1c1">
                 <af:outputText value="#{row.BussinessUnitId}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitId.tooltip}" id="ot1"/>

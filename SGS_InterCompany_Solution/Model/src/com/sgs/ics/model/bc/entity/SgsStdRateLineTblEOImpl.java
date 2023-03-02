@@ -65,6 +65,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         OPERATINGUNIT,
         NatureofExpense,
         STDRATEGEOGRAPHY,
+        ADDTEXPENSECAT,
         SgsStandardRateSetupEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -128,6 +129,7 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static final int OPERATINGUNIT = AttributesEnum.OPERATINGUNIT.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NatureofExpense.index();
     public static final int STDRATEGEOGRAPHY = AttributesEnum.STDRATEGEOGRAPHY.index();
+    public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
     public static final int SGSSTANDARDRATESETUPEO = AttributesEnum.SgsStandardRateSetupEO.index();
 
     /**
@@ -736,6 +738,22 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
      */
     public void setSTDRATEGEOGRAPHY(String value) {
         setAttributeInternal(STDRATEGEOGRAPHY, value);
+    }
+
+    /**
+     * Gets the attribute value for ADDTEXPENSECAT, using the alias name ADDTEXPENSECAT.
+     * @return the value of ADDTEXPENSECAT
+     */
+    public String getADDTEXPENSECAT() {
+        return (String) getAttributeInternal(ADDTEXPENSECAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ADDTEXPENSECAT.
+     * @param value value to set the ADDTEXPENSECAT
+     */
+    public void setADDTEXPENSECAT(String value) {
+        setAttributeInternal(ADDTEXPENSECAT, value);
     }
 
     /**

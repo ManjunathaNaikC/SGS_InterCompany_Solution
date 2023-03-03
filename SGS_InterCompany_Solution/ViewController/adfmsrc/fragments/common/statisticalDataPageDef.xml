@@ -52,7 +52,7 @@
           <Item Value="STATGEOGRAPHY"/>
           <Item Value="APPROVESTATUS"/>
           <Item Value="EMAILATTACHMENT"/>
-          <Item Value="StatSelectedRecord"/>
+          <Item Value="StatSelectedRecord" Binds="StatSelectedRecord"/>
           <Item Value="TRANSACTIONPERIOD"/>
         </AttrNames>
       </nodeDefinition>
@@ -164,6 +164,8 @@
     <action IterBinding="SgsStatisticalDataVO1Iterator" id="ExecuteStatisticalData"
             InstanceName="SGSAppModuleDataControl.SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <list IterBinding="RejectionReasonLOVVO1Iterator" StaticList="false" Uses="LOV_REJECTEDREASON" id="REJECTEDREASON"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <button IterBinding="SgsStatisticalDataVO1Iterator" id="StatSelectedRecord" DTSupportsMRU="false" StaticList="true">
       <AttrNames>
         <Item Value="StatSelectedRecord"/>
@@ -173,7 +175,5 @@
         <Item Value="No"/>
       </ValueList>
     </button>
-    <list IterBinding="RejectionReasonLOVVO1Iterator" StaticList="false" Uses="LOV_REJECTEDREASON" id="REJECTEDREASON"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

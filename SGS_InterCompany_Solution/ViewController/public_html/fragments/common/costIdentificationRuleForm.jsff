@@ -297,7 +297,7 @@
                                   filterModel="#{bindings.SgsCostIdentificationCombinationVO1Query.queryDescriptor}"
                                   filterVisible="false"
                                   queryListener="#{bindings.SgsCostIdentificationCombinationVO1Query.processQuery}"
-                                  varStatus="vs" id="t2" columnStretching="column:c10">
+                                  varStatus="vs" id="t2" columnStretching="column:c10" styleClass="setup">
                             <af:column sortProperty="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostIdentificationCombinationVO1.hints.IcLineNo.label}"
@@ -656,7 +656,7 @@
                                   filterModel="#{bindings.SgsCostOffsetCombinationVO3Query.queryDescriptor}"
                                   filterVisible="false"
                                   queryListener="#{bindings.SgsCostOffsetCombinationVO3Query.processQuery}"
-                                  varStatus="vs" id="t5" columnStretching="column:c15">
+                                  varStatus="vs" id="t5" columnStretching="column:c15" styleClass="setup">
                             <af:column sortProperty="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostOffsetCombinationVO3.hints.OcLineNo.label}"
@@ -1097,7 +1097,7 @@
                                   filterModel="#{bindings.SgsCostTargetCombinationVO1Query.queryDescriptor}"
                                   filterVisible="false"
                                   queryListener="#{bindings.SgsCostTargetCombinationVO1Query.processQuery}"
-                                  varStatus="vs" id="t6" columnStretching="column:c27">
+                                  varStatus="vs" id="t6" columnStretching="column:c27" styleClass="setup">
                             <af:column sortProperty="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsCostTargetCombinationVO1.hints.TcLineNo.label}"

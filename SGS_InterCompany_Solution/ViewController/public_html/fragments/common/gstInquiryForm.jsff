@@ -232,7 +232,7 @@
                       selectedRowKeys="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsGstTaxRateApplicabilityVO2.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsGstTaxRateApplicabilityVO2.rangeSize}" id="t2"
-                      partialTriggers="::b4 ::b5" styleClass="AFStretchWidth" columnStretching="column:c3">
+                      partialTriggers="::b4 ::b5" styleClass="setup" columnStretching="column:c3">
               <af:column headerText="#{bindings.SgsGstTaxRateApplicabilityVO2.hints.NATUREOFEXPENSE.label}" id="c6"
                          width="140">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"

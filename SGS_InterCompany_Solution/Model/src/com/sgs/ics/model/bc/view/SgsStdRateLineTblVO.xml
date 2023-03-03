@@ -38,6 +38,18 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupAddExpVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsAddExpQuFVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsAddExpQuFVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsAddExpQuaVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsAddExpQuFVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_NatureofExpense"
     ListVOName="NatureOfExpenseLookupVO1"
@@ -56,12 +68,28 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_SrGeography"
-    ListVOName="SgsLookupGEOVO1"
-    NullValueFlag="none"
+    Name="LOV_ADDTEXPENSECAT"
+    ListVOName="SgsAddExpQuaVO2"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="SrGeography"/>
+      <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_STDRATEGEOGRAPHY"
+    ListVOName="SgsLookupGEOVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="STDRATEGEOGRAPHY"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -107,14 +135,11 @@
     PrecisionRule="true"
     EntityAttrName="SrGeography"
     EntityUsage="SgsStdRateLineTblEO"
-    AliasName="SR_GEOGRAPHY"
-    LOVName="LOV_SrGeography">
+    AliasName="SR_GEOGRAPHY">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStdRateLineTblVO.SrGeography_LABEL"/>
-        <CONTROLTYPE
-          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -488,7 +513,35 @@
     PrecisionRule="true"
     EntityAttrName="STDRATEGEOGRAPHY"
     EntityUsage="SgsStdRateLineTblEO"
-    AliasName="STDRATE_GEOGRAPHY"/>
+    AliasName="STDRATE_GEOGRAPHY"
+    LOVName="LOV_STDRATEGEOGRAPHY">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ADDTEXPENSECAT"
+    PrecisionRule="true"
+    EntityAttrName="ADDTEXPENSECAT"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="ADDT_EXPENSE_CAT"
+    LOVName="LOV_ADDTEXPENSECAT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CONCATEID"
+    PrecisionRule="true"
+    EntityAttrName="CONCATEID"
+    EntityUsage="SgsStdRateLineTblEO"
+    AliasName="CONCATE_ID"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

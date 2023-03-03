@@ -48,6 +48,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="VATYesOrNoLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.link.YesOrNoLookupVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Rcm"
     ListVOName="SgsLookupRCMVO1"
@@ -62,6 +66,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_VATAPPLICATIBILITY"
+    ListVOName="VATYesOrNoLookupVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="VATAPPLICATIBILITY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LOOKUPCODE"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MEANING"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -416,6 +438,22 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsVatTblVO.SERVICERECEIVERLEGALENTITY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VATAPPLICATIBILITY"
+    PrecisionRule="true"
+    EntityAttrName="VATAPPLICATIBILITY"
+    EntityUsage="SgsVatTblEO"
+    AliasName="VAT_APPLICATIBILITY"
+    LOVName="LOV_VATAPPLICATIBILITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsVatTblVO.VATAPPLICATIBILITY_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

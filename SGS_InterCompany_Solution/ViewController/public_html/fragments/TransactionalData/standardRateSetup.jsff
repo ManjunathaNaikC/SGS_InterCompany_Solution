@@ -16,7 +16,8 @@
                       model="#{bindings.SgsStandardRateSetupVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsStandardRateSetupVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsStandardRateSetupVOCriteriaQuery.processQueryOperation}"
-                      resultComponentId="::pc1:resId1" rows="2" maxColumns="2" saveQueryMode="hidden"/>
+                      resultComponentId="::pc1:resId1" rows="2" maxColumns="2" saveQueryMode="hidden"
+                      styleClass="setupHeader"/>
           </af:panelHeader>
           <af:panelCollection id="pc1" styleClass="AFStretchWidth">
             <f:facet name="menus"/>
@@ -42,7 +43,7 @@
                       selectedRowKeys="#{bindings.SgsStandardRateSetupVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsStandardRateSetupVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsStandardRateSetupVO1.rangeSize}" id="resId1"
-                      styleClass="AFStretchWidth" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page">
+                      styleClass="setup" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page">
                 <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
                 sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.name}"
                          width="220" sortable="true">
@@ -53,8 +54,10 @@
                          width="220">
                 <!--<af:outputText value="#{row.StandardRateId}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>-->
-                               <af:link text="#{row.StandardRateId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                               <af:link text="#{row.StandardRateId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"
+                                        actionListener="#{viewScope.ActionEventsBean.onStdRateRowSelection}">
                   <af:setPropertyListener from="#{row.StandardRateSeq}" to="#{pageFlowScope.ID}" type="action"/>
+                  <af:setPropertyListener from="#{row.INPUTPROVIDER}" to="#{pageFlowScope.INPUTPROVIDER}" type="action"/>
                 </af:link>
               </af:column>
               <!--<af:column sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.ExpenseType.name}"

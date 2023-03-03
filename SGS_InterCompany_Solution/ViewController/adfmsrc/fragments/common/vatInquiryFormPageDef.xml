@@ -104,5 +104,7 @@
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_Rcm" id="Rcm1" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_VATAPPLICATIBILITY" id="VATAPPLICATIBILITY"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

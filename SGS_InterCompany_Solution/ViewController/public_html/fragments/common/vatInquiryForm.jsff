@@ -82,6 +82,13 @@
                           shortDesc="#{bindings.VatOutputGlAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.VatOutputGlAcc.validator}"/>
             </af:inputText>
+            <af:selectOneChoice value="#{bindings.VATAPPLICATIBILITY.inputValue}"
+                                label="#{bindings.VATAPPLICATIBILITY.label}"
+                                required="#{bindings.VATAPPLICATIBILITY.hints.mandatory}"
+                                shortDesc="#{bindings.VATAPPLICATIBILITY.hints.tooltip}" id="soc4">
+              <f:selectItems value="#{bindings.VATAPPLICATIBILITY.items}" id="si4"/>
+              <f:validator binding="#{bindings.VATAPPLICATIBILITY.validator}"/>
+            </af:selectOneChoice>
             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
                           required="#{bindings.EffectiveFrom.hints.mandatory}"
                           columns="#{bindings.EffectiveFrom.hints.displayWidth}"
@@ -157,7 +164,7 @@
                       selectedRowKeys="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsVatTaxApplicabilityVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsVatTaxApplicabilityVO1.rangeSize}" id="t2"
-                      partialTriggers="::b4 ::b5" styleClass="AFStretchWidth" columnStretching="column:c3">
+                      partialTriggers="::b4 ::b5" styleClass="setup" columnStretching="column:c3">
              <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c3"
                         width="150">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"

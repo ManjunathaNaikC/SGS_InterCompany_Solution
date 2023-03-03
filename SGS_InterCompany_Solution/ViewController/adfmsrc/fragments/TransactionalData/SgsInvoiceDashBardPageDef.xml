@@ -9,6 +9,12 @@
     <searchRegion Criteria="SgsIcInvoiceHeaderVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SgsIcInvoiceHeaderVO1Iterator"
                   id="SgsIcInvoiceHeaderVOCriteriaQuery"/>
+    <iterator Binds="SgsIcInvoiceLineVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsIcInvoiceLineVO1Iterator"/>
+    <iterator id="SgsDrtCrossChargeVO1Iterator" Binds="SgsDrtCrossChargeVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>
+    <iterator Binds="NatureOfExpenseLookupVO2" RangeSize="10" DataControl="SGSAppModuleDataControl"
+              id="NatureOfExpenseLookupVO2Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="SgsIcInvoiceHeaderVO1">
@@ -51,5 +57,16 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="SgsDrtCrossChargeVO1Iterator" id="CreateInsertDirectCharge"
+            InstanceName="SGSAppModuleDataControl.SgsDrtCrossChargeVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <list ListOperMode="navigation" IterBinding="NatureOfExpenseLookupVO2Iterator"
+          ListIter="NatureOfExpenseLookupVO2Iterator" id="MEANING" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="LOOKUPCODE"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>

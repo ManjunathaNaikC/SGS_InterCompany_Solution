@@ -43,13 +43,29 @@
               </af:column>
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.label}" id="resId1c2"
                          width="190">
-                <af:outputText value="#{row.LeServiceProvider}"
-                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.tooltip}" id="ot2"/>
+                <!--<af:outputText value="#{row.LeServiceProvider}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.tooltip}" id="ot2"/>-->
+                <af:selectOneChoice value="#{row.bindings.LeServiceProvider.inputValue}"
+                                    label="#{row.bindings.LeServiceProvider.label}"
+                                    required="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.mandatory}"
+                                    shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.tooltip}" id="soc2"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.LeServiceProvider.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.LeServiceProvider.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.label}" id="resId1c3"
                          width="190">
-                <af:outputText value="#{row.LeServiceReceiver}"
-                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.tooltip}" id="ot3"/>
+                <!--<af:outputText value="#{row.LeServiceReceiver}"
+                               shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.tooltip}" id="ot3"/>-->
+                <af:selectOneChoice value="#{row.bindings.LeServiceReceiver.inputValue}"
+                                    label="#{row.bindings.LeServiceReceiver.label}"
+                                    required="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.mandatory}"
+                                    shortDesc="#{bindings.SgsTpaMaster1VO1.hints.LeServiceReceiver.tooltip}" id="soc3"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.LeServiceReceiver.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.LeServiceReceiver.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.NettingApplicatibility.label}" id="c1"
                          width="130">

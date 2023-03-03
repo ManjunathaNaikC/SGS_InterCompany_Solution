@@ -139,5 +139,9 @@
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <list IterBinding="SgsTpaMaster1VO1Iterator" StaticList="false" Uses="LOV_NettingApplicatibility"
           id="NettingApplicatibility1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsTpaMaster1VO1Iterator" StaticList="false" Uses="LOV_LeServiceProvider"
+          id="LeServiceProvider1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsTpaMaster1VO1Iterator" StaticList="false" Uses="LOV_LeServiceReceiver"
+          id="LeServiceReceiver1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

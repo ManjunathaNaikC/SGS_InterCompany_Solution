@@ -107,6 +107,70 @@
     Name="WHTYesOrNoLookupVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.link.YesOrNoLookupVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsLookupSerRecGeoVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupSerProGeoVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupSerProLEVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupSerRecLEVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_DeductionPoint"
     ListVOName="SgsLookupPntDdcnVO1"
@@ -159,6 +223,74 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_ServReceiver"
+    ListVOName="SgsLookupSerRecGeoVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ServReceiver"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ServProvider"
+    ListVOName="SgsLookupSerProGeoVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ServProvider"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SERVICEPROVIDERLEGALENTITY"
+    ListVOName="SgsLookupSerProLEVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SERVICEPROVIDERLEGALENTITY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SERVICERECEIVERLEGALENTITY"
+    ListVOName="SgsLookupSerRecLEVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SERVICERECEIVERLEGALENTITY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsTdsWhtTblEO"
     Entity="com.sgs.ics.model.bc.entity.SgsTdsWhtTblEO"/>
@@ -197,13 +329,16 @@
     PrecisionRule="true"
     EntityAttrName="ServReceiver"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="SERV_RECEIVER">
+    AliasName="SERV_RECEIVER"
+    LOVName="LOV_ServReceiver">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.ServReceiver_LABEL"/>
         <FIELDORDER
           Value="3.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -212,13 +347,16 @@
     PrecisionRule="true"
     EntityAttrName="ServProvider"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="SERV_PROVIDER">
+    AliasName="SERV_PROVIDER"
+    LOVName="LOV_ServProvider">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.ServProvider_LABEL"/>
         <FIELDORDER
           Value="2.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -433,11 +571,14 @@
     PrecisionRule="true"
     EntityAttrName="SERVICEPROVIDERLEGALENTITY"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="SERVICE_PROVIDER_LEGAL_ENTITY">
+    AliasName="SERVICE_PROVIDER_LEGAL_ENTITY"
+    LOVName="LOV_SERVICEPROVIDERLEGALENTITY">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.SERVICEPROVIDERLEGALENTITY_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -446,11 +587,14 @@
     PrecisionRule="true"
     EntityAttrName="SERVICERECEIVERLEGALENTITY"
     EntityUsage="SgsTdsWhtTblEO"
-    AliasName="SERVICE_RECEIVER_LEGAL_ENTITY">
+    AliasName="SERVICE_RECEIVER_LEGAL_ENTITY"
+    LOVName="LOV_SERVICERECEIVERLEGALENTITY">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtTblVO.SERVICERECEIVERLEGALENTITY_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

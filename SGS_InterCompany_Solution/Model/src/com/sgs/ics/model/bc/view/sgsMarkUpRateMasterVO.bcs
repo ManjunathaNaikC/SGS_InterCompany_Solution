@@ -10,3 +10,17 @@ def bLookupType_SgsLookupNtrExpVO1_BindVariable_BoundParameter()
 'NATURE_OF_EXPENSE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupSPGeoVO1", name="bLookupType")
+def bLookupType_SgsLookupSPGeoVO1_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupSRGeoVO1", name="bLookupType")
+def bLookupType_SgsLookupSRGeoVO1_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+

@@ -17,3 +17,31 @@ def bLookupType_SgsLookupTaxBasesVO1_BindVariable_BoundParameter()
 'TAX_BASE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupSerProGeoVO1", name="bLookupType")
+def bLookupType_SgsLookupSerProGeoVO1_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupSerRecGeoVO1", name="bLookupType")
+def bLookupType_SgsLookupSerRecGeoVO1_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupSerProLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSerProLEVO1_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupSerRecLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSerRecLEVO1_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+

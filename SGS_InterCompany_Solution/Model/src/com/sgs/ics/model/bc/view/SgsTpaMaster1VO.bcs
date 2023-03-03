@@ -24,3 +24,17 @@ def bLookupType_SgsLookupNetApplicabilityVO1_BindVariable_BoundParameter()
 'YESORNO'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupSerPLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSerPLEVO1_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupSerRecLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSerRecLEVO1_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+

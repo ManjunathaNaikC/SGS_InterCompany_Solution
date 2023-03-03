@@ -316,7 +316,18 @@
                                         <f:validator binding="#{row.bindings.STDRATEGEOGRAPHY.validator}"/>
                                     </af:inputText>
                                 </af:column>-->
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.SrGeography.label}"
+                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.label}"
+                                           id="c14">
+                                    <af:selectOneChoice value="#{row.bindings.STDRATEGEOGRAPHY.inputValue}"
+                                                        label="#{row.bindings.STDRATEGEOGRAPHY.label}"
+                                                        required="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.mandatory}"
+                                                        shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.STDRATEGEOGRAPHY.tooltip}"
+                                                        id="soc5">
+                                        <f:selectItems value="#{row.bindings.STDRATEGEOGRAPHY.items}" id="si5"/>
+                                        <f:validator binding="#{row.bindings.STDRATEGEOGRAPHY.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <!--<af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.stdg.label}"
                                            id="c2">
                                     <af:selectOneChoice value="#{row.bindings.SrGeography.inputValue}"
                                                         label="#{row.bindings.SrGeography.label}"
@@ -326,7 +337,7 @@
                                         <f:selectItems value="#{row.bindings.SrGeography.items}" id="si5"/>
                                         <f:validator binding="#{row.bindings.SrGeography.validator}"/>
                                     </af:selectOneChoice>
-                                </af:column>
+                                </af:column>-->
                                 <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.BuUnit.label}" id="c7"
@@ -454,7 +465,7 @@
                                         <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
                                     </af:inputText>
                                 </af:column>
-                                <af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
+                                <!--<af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.label}"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEGRADELEVEL.name}"
                                            filterable="true" id="c121" sortable="true">
                                     <af:inputText value="#{row.bindings.EMPLOYEEGRADELEVEL.inputValue}"
@@ -466,7 +477,7 @@
                                                   id="it231">
                                         <f:validator binding="#{row.bindings.EMPLOYEEGRADELEVEL.validator}"/>
                                     </af:inputText>
-                                </af:column>
+                                </af:column>-->
 
                                 <!--<af:column headerText="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.label}"
                                            sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.EMPLOYEEID.name}"

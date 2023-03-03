@@ -11,16 +11,16 @@ def bLookupType_SgsLookupNtrExpVO1_BindVariable_BoundParameter()
 }
 
 
-@AccessorParameterExpression(accessorName="SgsLookupSPGeoVO1", name="bLookupType")
-def bLookupType_SgsLookupSPGeoVO1_BindVariable_BoundParameter()
+@AccessorParameterExpression(accessorName="SgsLookupSPLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSPLEVO1_BindVariable_BoundParameter()
 {
-'GEOGRAPHY_LOOKUP'
+'LEGAL_ENTITY'
 }
 
 
-@AccessorParameterExpression(accessorName="SgsLookupSRGeoVO1", name="bLookupType")
-def bLookupType_SgsLookupSRGeoVO1_BindVariable_BoundParameter()
+@AccessorParameterExpression(accessorName="SgsLookupSRLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSRLEVO1_BindVariable_BoundParameter()
 {
-'GEOGRAPHY_LOOKUP'
+'LEGAL_ENTITY'
 }
 

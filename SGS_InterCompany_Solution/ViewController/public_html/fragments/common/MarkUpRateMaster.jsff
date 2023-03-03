@@ -150,6 +150,15 @@
                 <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
               </af:inputText>
             </af:column>-->
+            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c2">
+              <af:selectOneChoice value="#{row.bindings.SpLegalEntity.inputValue}"
+                                  label="#{row.bindings.SpLegalEntity.label}"
+                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
+                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.tooltip}" id="soc3">
+                <f:selectItems value="#{row.bindings.SpLegalEntity.items}" id="si3"/>
+                <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
+              </af:selectOneChoice>
+            </af:column>-->
             <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c2">
               <af:selectOneChoice value="#{row.bindings.SpLegalEntity.inputValue}"
                                   label="#{row.bindings.SpLegalEntity.label}"
@@ -168,6 +177,15 @@
                             shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.tooltip}" id="it6">
                 <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
               </af:inputText>
+            </af:column>-->
+            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c3">
+              <af:selectOneChoice value="#{row.bindings.SrLegalEntity.inputValue}"
+                                  label="#{row.bindings.SrLegalEntity.label}"
+                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
+                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.tooltip}" id="soc4">
+                <f:selectItems value="#{row.bindings.SrLegalEntity.items}" id="si4"/>
+                <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
+              </af:selectOneChoice>
             </af:column>-->
             <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c3">
               <af:selectOneChoice value="#{row.bindings.SrLegalEntity.inputValue}"

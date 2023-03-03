@@ -63,7 +63,7 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="SgsLookupSPGeoVO1"
+    Name="SgsLookupSPLEVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
@@ -79,7 +79,7 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="SgsLookupSRGeoVO1"
+    Name="SgsLookupSRLEVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
@@ -130,7 +130,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_SpLegalEntity"
-    ListVOName="SgsLookupSPGeoVO1"
+    ListVOName="SgsLookupSPLEVO1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -147,7 +147,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_SrLegalEntity"
-    ListVOName="SgsLookupSRGeoVO1"
+    ListVOName="SgsLookupSRLEVO1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">

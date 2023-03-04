@@ -179,6 +179,12 @@
   <ViewUsage
     Name="RejectionReasonLOVVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.RejectionReasonLOVVO"/>
+  <ViewUsage
+    Name="SgsDrtCrossChargeVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsDrtCrossChargeVO"/>
+  <ViewUsage
+    Name="DirectChargeUploadLOV1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.DirectChargeUploadLOV"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

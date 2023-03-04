@@ -67,7 +67,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             Connection conn = null;
         try {
 
+
           String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+
           conn = DriverManager.getConnection(connectionUrl);
        
 
@@ -701,6 +703,22 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getRejectionReasonLOVVO1() {
         return (ViewObjectImpl) findViewObject("RejectionReasonLOVVO1");
+    }
+
+    /**
+     * Container's getter for SgsDrtCrossChargeVO1.
+     * @return SgsDrtCrossChargeVO1
+     */
+    public ViewObjectImpl getSgsDrtCrossChargeVO1() {
+        return (ViewObjectImpl) findViewObject("SgsDrtCrossChargeVO1");
+    }
+
+    /**
+     * Container's getter for DirectChargeUploadLOV1.
+     * @return DirectChargeUploadLOV1
+     */
+    public ViewObjectImpl getDirectChargeUploadLOV1() {
+        return (ViewObjectImpl) findViewObject("DirectChargeUploadLOV1");
     }
 }
 

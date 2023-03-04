@@ -715,23 +715,22 @@ public class TransBCostAllocationBean {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(new Date());
 
-        if (r.getAttribute("TransactionStatus") == null || r.getAttribute("TransactionStatus") == "") {
+        if (r.getAttribute("TransactionStatus") == null || r.getAttribute("TransactionStatus") == "New") {
 
             r.setAttribute("Holdby", user);
             r.setAttribute("Holdon", date);
-            r.setAttribute("TransactionStatus", "Hold Transaction");
-        } else if (r.getAttribute("TransactionStatus").equals("Hold Transaction") &&
-                   (r.getAttribute("TransactionStatus") != null || r.getAttribute("TransactionStatus") != "")) {
+            r.setAttribute("TransactionStatus", "Transaction On Hold");
+        } else if (r.getAttribute("TransactionStatus").equals("Transaction On Hold") &&
+                   (r.getAttribute("TransactionStatus") != null)) {
             r.setAttribute("Releasedby", user);
             r.setAttribute("Releasedon", date);
-
-        } else {
-
+            r.setAttribute("TransactionStatus", "Transaction Released from Hold"); 
+        } 
+        else {
             r.setAttribute("Holdby", user);
             r.setAttribute("Holdon", date);
-            r.setAttribute("TransactionStatus", "Hold Transaction");
+            r.setAttribute("TransactionStatus", "Transaction On Hold");
         }
-
 
     }
 

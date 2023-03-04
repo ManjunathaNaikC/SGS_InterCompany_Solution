@@ -63,7 +63,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Period"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Period"
     EntityUsage="SgsIcInvoiceHeaderEO"
@@ -213,7 +212,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="TargetCurrency"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="TargetCurrency"
     EntityUsage="SgsIcInvoiceHeaderEO"
@@ -227,7 +225,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="InvoiceHeaderAmount"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="InvoiceHeaderAmount"
     EntityUsage="SgsIcInvoiceHeaderEO"

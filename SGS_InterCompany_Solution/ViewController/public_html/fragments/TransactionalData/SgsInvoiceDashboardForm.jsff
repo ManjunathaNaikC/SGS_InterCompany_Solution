@@ -292,7 +292,7 @@
               <af:outputText value="#{row.CreatedBy}"
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.CreatedBy.tooltip}" id="ot34"/>
             </af:column>
-            <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedDate.name}" filterable="true"
+            <!--<af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedDate.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedDate.label}" id="c35">
               <f:facet name="filter">
                 <af:inputDate value="#{bindings.SgsIcInvoiceLineVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.UpdatedDate.value}"
@@ -304,12 +304,12 @@
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedDate.tooltip}" id="ot35">
                 <af:convertDateTime pattern="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedDate.format}"/>
               </af:outputText>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedBy.name}" filterable="true"
+            </af:column>-->
+            <!--<af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedBy.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedBy.label}" id="c36">
               <af:outputText value="#{row.UpdatedBy}"
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.UpdatedBy.tooltip}" id="ot36"/>
-            </af:column>
+            </af:column>-->
           </af:table>
         </af:panelCollection>
       </af:panelBox>

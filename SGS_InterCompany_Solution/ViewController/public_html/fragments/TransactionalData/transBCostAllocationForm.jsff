@@ -1219,8 +1219,7 @@
                 </af:popup>-->
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
                           binding="#{pageFlowScope.TransBCostAllocationBean.holdReleasePopup}"
-                          popupFetchListener="#{pageFlowScope.TransBCostAllocationBean.holdReleasePopupBeginListener}"
-                          popupCanceledListener="#{pageFlowScope.TransBCostAllocationBean.HoldReleaseCancelButton}">
+                          popupFetchListener="#{pageFlowScope.TransBCostAllocationBean.holdReleasePopupBeginListener}">
                     <af:dialog id="d2" contentWidth="500" contentHeight="300" type="none">
                         <f:facet name="buttonBar">
                             <af:button text="Save" id="b8"
@@ -1233,9 +1232,9 @@
                                        inlineStyle="font-weight:bold;font-size:15px;"/>
                         <!--<af:region value="#{bindings.holdReleaseDetailBTF1.regionModel}" id="r2"/>-->
                         <af:region value="#{bindings.sgsholdDetailsFormflow1.regionModel}" id="r1"
-                               rendered="#{pageFlowScope.pStatus != 'Hold Transaction' ||(pageFlowScope.pStatus eq '' ||pageFlowScope.pStatus eq null)}"/>
+                               rendered="#{pageFlowScope.pStatus != 'Transaction On Hold' ||(pageFlowScope.pStatus eq 'New' ||pageFlowScope.pStatus eq null)}"/>
                         <af:region value="#{bindings.sgsReleaseDetailsFormflow1.regionModel}" id="r2"
-                                   rendered="#{pageFlowScope.pStatus eq 'Hold Transaction'}"/>
+                                   rendered="#{pageFlowScope.pStatus eq 'Transaction On Hold'}"/>
                     </af:dialog>
                 </af:popup>
                 <!--<af:popup childCreation="deferred" autoCancel="disabled" id="p3"

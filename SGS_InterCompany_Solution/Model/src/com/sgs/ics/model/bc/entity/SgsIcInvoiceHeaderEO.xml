@@ -32,7 +32,6 @@
   </Attribute>
   <Attribute
     Name="Period"
-    IsNotNull="true"
     Precision="30"
     ColumnName="PERIOD"
     SQLType="VARCHAR"
@@ -171,7 +170,6 @@
     TableName="IC_INVOICE_HEADER"/>
   <Attribute
     Name="TargetCurrency"
-    IsNotNull="true"
     Precision="30"
     ColumnName="TARGET_CURRENCY"
     SQLType="VARCHAR"
@@ -184,7 +182,6 @@
   </Attribute>
   <Attribute
     Name="InvoiceHeaderAmount"
-    IsNotNull="true"
     Precision="20"
     Scale="5"
     ColumnName="INVOICE_HEADER_AMOUNT"

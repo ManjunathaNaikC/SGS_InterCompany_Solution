@@ -75,12 +75,6 @@
     EntityUsage="sgsStatisticalDataTempEO"
     AliasName="REJECTION_COMMENTS"/>
   <ViewAttribute
-    Name="StatisticalData"
-    PrecisionRule="true"
-    EntityAttrName="StatisticalData"
-    EntityUsage="sgsStatisticalDataTempEO"
-    AliasName="STATISTICAL_DATA"/>
-  <ViewAttribute
     Name="StatisticalDataCategory"
     IsNotNull="true"
     PrecisionRule="true"
@@ -247,6 +241,12 @@
     EntityAttrName="TRANSACTIONPERIOD"
     EntityUsage="sgsStatisticalDataTempEO"
     AliasName="TRANSACTION_PERIOD"/>
+  <ViewAttribute
+    Name="STATISTICALDATA"
+    PrecisionRule="true"
+    EntityAttrName="STATISTICALDATA"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="STATISTICAL_DATA"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

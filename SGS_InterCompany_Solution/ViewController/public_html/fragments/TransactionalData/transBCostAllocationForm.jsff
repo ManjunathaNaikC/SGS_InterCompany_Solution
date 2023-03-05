@@ -49,17 +49,15 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t3">
                             <af:spacer id="s37" width="10"/>
-                               <af:button text="Hold/Release" id="b14">
+                            <af:button text="Hold/Release" id="b14">
                                 <af:showPopupBehavior popupId="p2"/>
                             </af:button>
-                                <af:spacer id="s1" width="10"/>
-                                <af:button id="b3" immediate="true" text="Submit for Allocation" accessKey="C"/>
-                                <af:spacer id="s4" width="10"/>
-                                <af:button id="b2" action="back" immediate="true" text="Cancel" accessKey="C"/>
-                                <af:spacer id="s10" width="10"/>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b10"/>
-                           
-                            
+                            <af:spacer id="s1" width="10"/>
+                            <af:button id="b3" immediate="true" text="Submit for Allocation" accessKey="C"/>
+                            <af:spacer id="s4" width="10"/>
+                            <af:button id="b2" action="back" immediate="true" text="Cancel" accessKey="C"/>
+                            <af:spacer id="s10" width="10"/>
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b10"/>
                         </af:toolbar>
                     </f:facet>
                     <af:panelBox text="Transaction Entries" id="pb1">
@@ -624,6 +622,104 @@
                             </af:column>
                         </af:table>
                     </af:panelCollection>-->
+                    <af:panelCollection id="pc2"  styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t5">
+                                <af:button id="b4" actionListener="#{bindings.CreateInsert.execute}"
+                                           disabled="#{!bindings.CreateInsert.enabled}"
+                                           icon="/resources/icons/plus.png"/>
+                                <af:button id="b5" disabled="#{!bindings.DeleteDocs.enabled}"
+                                           icon="/resources/icons/delete.png"
+                                           actionListener="#{pageFlowScope.TransBCostAllocationBean.onDocumentsDelete}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.SgsPstTxnDocAttachVO1.collectionModel}" var="row"
+                                  rows="#{bindings.SgsPstTxnDocAttachVO1.rangeSize}"
+                                  emptyText="#{bindings.SgsPstTxnDocAttachVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.SgsPstTxnDocAttachVO1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.SgsPstTxnDocAttachVO1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.SgsPstTxnDocAttachVO1.rangeSize}" id="t4" styleClass="AFStretchWidth">
+                            <af:column headerText="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.label}" id="c11">
+                                <af:inputText value="#{row.bindings.DocTypeValue.inputValue}"
+                                              label="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.label}"
+                                              required="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.mandatory}"
+                                              columns="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.displayWidth}"
+                                              maximumLength="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.precision}"
+                                              shortDesc="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.tooltip}"
+                                              id="it2">
+                                    <f:validator binding="#{row.bindings.DocTypeValue.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsPstTxnDocAttachVO1.hints.Attachment.label}" id="c12">
+                                <!--<af:inputText value="#{row.bindings.Attachment.inputValue}"
+                                              label="#{bindings.SgsPstTxnDocAttachVO1.hints.Attachment.label}"
+                                              required="#{bindings.SgsPstTxnDocAttachVO1.hints.Attachment.mandatory}"
+                                              columns="#{bindings.SgsPstTxnDocAttachVO1.hints.Attachment.displayWidth}"
+                                              maximumLength="#{bindings.SgsPstTxnDocAttachVO1.hints.Attachment.precision}"
+                                              shortDesc="#{bindings.SgsPstTxnDocAttachVO1.hints.Attachment.tooltip}"
+                                              id="it3">
+                                    <f:validator binding="#{row.bindings.Attachment.validator}"/>
+                                </af:inputText>-->
+                                <af:link text="#{row.bindings.Attachment.inputValue}" id="l1">
+                                    <af:fileDownloadActionListener filename="#{row.Attachment}"
+                                                                   method="#{pageFlowScope.TransBCostAllocationBean.onPstTxnDocsDownload}"/>
+                                </af:link>
+                            </af:column>
+                            <af:column id="c17" headerText="Uploaded Document">
+                                <af:inputFile id="if1"
+                                              valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.onPstTxnDocsUpload}"
+                                              autoSubmit="true" uploadType="submit"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveFrom.label}"
+                                       id="c13">
+                                <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                              label="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveFrom.label}"
+                                              required="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveFrom.mandatory}"
+                                              columns="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveFrom.displayWidth}"
+                                              shortDesc="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveFrom.tooltip}"
+                                              id="id3">
+                                    <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveFrom.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveTo.label}" id="c14">
+                                <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                              label="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveTo.label}"
+                                              required="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveTo.mandatory}"
+                                              columns="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveTo.displayWidth}"
+                                              shortDesc="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveTo.tooltip}"
+                                              id="id4">
+                                    <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsPstTxnDocAttachVO1.hints.EffectiveTo.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedBy.label}" id="c15">
+                                <af:inputText value="#{row.bindings.UpdatedBy.inputValue}"
+                                              label="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedBy.label}"
+                                              required="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedBy.mandatory}"
+                                              columns="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedBy.displayWidth}"
+                                              maximumLength="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedBy.precision}"
+                                              shortDesc="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedBy.tooltip}"
+                                              id="it4">
+                                    <f:validator binding="#{row.bindings.UpdatedBy.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedDate.label}" id="c16">
+                                <af:inputDate value="#{row.bindings.UpdatedDate.inputValue}"
+                                              label="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedDate.label}"
+                                              required="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedDate.mandatory}"
+                                              columns="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedDate.displayWidth}"
+                                              shortDesc="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedDate.tooltip}"
+                                              id="id5">
+                                    <f:validator binding="#{row.bindings.UpdatedDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsPstTxnDocAttachVO1.hints.UpdatedDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
                 </af:panelBox>
                 <af:panelBox id="pb15" text="Rectification Entry Details" disclosed="false" rendered="true">
                     <f:facet name="toolbar"/>
@@ -1233,7 +1329,7 @@
                                        inlineStyle="font-weight:bold;font-size:15px;"/>
                         <!--<af:region value="#{bindings.holdReleaseDetailBTF1.regionModel}" id="r2"/>-->
                         <af:region value="#{bindings.sgsholdDetailsFormflow1.regionModel}" id="r1"
-                               rendered="#{pageFlowScope.pStatus != 'Hold Transaction' ||(pageFlowScope.pStatus eq '' ||pageFlowScope.pStatus eq null)}"/>
+                                   rendered="#{pageFlowScope.pStatus != 'Hold Transaction' ||(pageFlowScope.pStatus eq '' ||pageFlowScope.pStatus eq null)}"/>
                         <af:region value="#{bindings.sgsReleaseDetailsFormflow1.regionModel}" id="r2"
                                    rendered="#{pageFlowScope.pStatus eq 'Hold Transaction'}"/>
                     </af:dialog>

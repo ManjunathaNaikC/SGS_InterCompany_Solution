@@ -673,6 +673,13 @@
     AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc.SgsTransBCostAllocation"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SgsPstTxnDocAttachmentEO"
+    Association="com.sgs.ics.model.bc.entity.assoc.FKSGSPSTTXNDOCATTACHMENTAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSPSTTXNDOCATTACHMENTAssoc.SgsPstTxnDocAttachmentEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSPSTTXNDOCATTACHMENTAssoc.SgsTransBCostAllocation"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PKSGSTRANSBCOSTALLOCATION"
     PrimaryKey="true">

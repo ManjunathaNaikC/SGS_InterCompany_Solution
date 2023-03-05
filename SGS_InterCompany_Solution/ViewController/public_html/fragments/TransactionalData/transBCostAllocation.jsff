@@ -67,9 +67,9 @@
                                     <af:exportCollectionActionListener type="excelHTML" exportedId="t2"
                                                                        filename="TransactionBeforeCostAllocation.xls"/>
                                 </af:button>
-                                <af:button actionListener="#{bindings.CreateInsertTransBAlloc.execute}" id="b1"
+                                <!--<af:button actionListener="#{bindings.CreateInsertTransBAlloc.execute}" id="b1"
                                            action="ADD" icon="/resources/icons/plus.png"
-                                           shortDesc="Create/Add TransBCostAllocation" disabled="true"/>
+                                           shortDesc="Create/Add TransBCostAllocation" disabled="true"/>-->
                                 <af:button id="b2" shortDesc="Delete TransBCostAllocation"
                                            icon="/resources/icons/delete.png"
                                            action="#{pageFlowScope.TransBCostAllocationBean.deleteTransBCostAllocation}"

@@ -28,7 +28,7 @@
                                 <af:exportCollectionActionListener type="excelHTML" exportedId="ivd1"
                                                                    filename="InvoiceDashBoard.xls"/>
                             </af:button>
-                            <af:button text="Upload Direct Cross Charge" id="b2">
+                            <af:button text="Upload Direct Cross Charges" id="b2">
                                 <af:showPopupBehavior popupId="DirectChargePopup"/>
                             </af:button>
                         </af:toolbar>

@@ -14,6 +14,8 @@
     <taskFlow id="sgsReleaseDetailsFormflow1"
               taskFlowId="/taskflows/TransactionalData/sgs-ReleaseDetailsForm-flow.xml#sgs-ReleaseDetailsForm-flow"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="SgsPstTxnDocAttachVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsPstTxnDocAttachVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExtractId">
@@ -298,5 +300,23 @@
     </attributeValues>
     <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
+    <tree IterBinding="SgsPstTxnDocAttachVO1Iterator" id="SgsPstTxnDocAttachVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsPstTxnDocAttachVO" Name="SgsPstTxnDocAttachVO10">
+        <AttrNames>
+          <Item Value="DocTypeValue"/>
+          <Item Value="Attachment"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="UpdatedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsPstTxnDocAttachVO1Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsPstTxnDocAttachVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsPstTxnDocAttachVO1Iterator" id="DeleteDocs"
+            InstanceName="SGSAppModuleDataControl.SgsPstTxnDocAttachVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

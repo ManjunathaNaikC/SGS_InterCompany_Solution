@@ -5,9 +5,16 @@ import com.sgs.ics.ui.utils.ADFUtils;
 import java.io.IOException;
 import java.io.InputStream;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
+import java.util.GregorianCalendar;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -311,7 +318,48 @@ public class UploadInInvoice {
         natureOfExpenseLovBind.setValue(null);
         directChargePopupBind.hide();
         ADFUtils.saveNotifier();
+        directChargeRun();
+        
     }
+    
+    public void directChargeRun() {
+        // Add event code here...
+        System.out.println("inside DRTCROSS CHARGE**********************");
+        Connection conn = null;
+        PreparedStatement pst = null;
+        
+        try {
+            
+            conn = getDBConnection();
+            String SPsql = "EXEC USP_SCN_DRTCROSS_CHARGE "; // for stored proc
+            //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
+            PreparedStatement ps = conn.prepareStatement(SPsql);
+            
+            ps.execute();
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+
+        }
+    }
+    
+    public Connection getDBConnection() {
+            Connection conn = null;
+        try {
+               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+                conn = DriverManager.getConnection(connectionUrl);
+//            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+
+        }
+               
+         return conn;   
+        }
 
     public void setNatureOfExpenseLovBind(RichSelectOneChoice natureOfExpenseLovBind) {
         this.natureOfExpenseLovBind = natureOfExpenseLovBind;

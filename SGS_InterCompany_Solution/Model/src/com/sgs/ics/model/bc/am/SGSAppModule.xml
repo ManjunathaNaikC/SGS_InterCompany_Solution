@@ -185,6 +185,9 @@
   <ViewUsage
     Name="DirectChargeUploadLOV1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.DirectChargeUploadLOV"/>
+  <ViewUsage
+    Name="SgsPstTxnDocAttachVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsPstTxnDocAttachVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -287,6 +290,12 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsTpa1VL"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaMaster1VO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTpaDocAttachment1VO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKSGSPSTTXNDOCATTACHMENTVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.FKSGSPSTTXNDOCATTACHMENTVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTransBCostAllocationVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsPstTxnDocAttachVO1"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

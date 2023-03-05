@@ -26,9 +26,13 @@ import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.BindingContext;
 
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichInputDate;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.adf.view.rich.event.PopupCanceledEvent;
@@ -52,7 +56,29 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class TransBCostAllocationBean {
-    private RichPopup holdReleasePopup;
+    private RichPopup holdPopup;
+    private RichPopup releasePopup;
+    private RichInputText holdReasonBind;
+    private RichInputDate dueDateBind;
+    private RichInputText holdRemarkBind;
+    private RichInputText releaseActionBind;
+    private RichInputText releaseRemarksBind;
+    private RichPopup holdPopup1;
+    private RichPopup releasePopup1;
+    private RichInputText holdReasonBind1;
+    private RichInputDate dueDateBind1;
+    private RichInputText holdRemarkBind1;
+    private RichInputText releaseActionBind1;
+    private RichInputText releaseRemarksBind1;
+
+    public void setHoldPopup(RichPopup holdPopup) {
+        this.holdPopup = holdPopup;
+    }
+
+    public RichPopup getHoldPopup() {
+        return holdPopup;
+    }
+
 
     public TransBCostAllocationBean() {
     }
@@ -126,17 +152,134 @@ public class TransBCostAllocationBean {
 
     }
 
-    public void saveHoldReleaseDetails(ActionEvent actionEvent) {
+    public void saveHoldDetails(ActionEvent actionEvent) {
         BindingContainer bindings = getBindingsCont();
-        OperationBinding saveOB = bindings.getOperationBinding("Commit");
-        saveOB.execute();
-        getHoldReleasePopup().hide();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+        RowSetIterator rsIter = holditer.getRowSetIterator();
+        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
+
+        String _holdReason = getHoldReasonBind().getValue().toString();
+        String _dueDate = getDueDateBind().getValue().toString();
+        String _holdRemark = getHoldRemarkBind().getValue().toString();
+        System.out.println("hold reason : " + _holdReason);
+        System.out.println("Hold due date : " + _dueDate);
+        System.out.println("hold remarks : " + _holdRemark);
+
+        r.setAttribute("HoldReason", _holdReason);
+        r.setAttribute("Duedate", _dueDate);
+        r.setAttribute("HoldRemarks", _holdRemark);
+        r.setAttribute("TransactionStatus", "Transaction on Hold");
+        executeOperation("Commit").execute();
+        
+        getHoldPopup().hide();
     }
 
-    public void closeHoldReleaseDetails(ActionEvent actionEvent) {
-        getHoldReleasePopup().hide();
+
+    public void multiSaveHoldDetails(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+
+
+        String _holdReason1 = getHoldReasonBind1().getValue().toString();
+        String _dueDate1 = getDueDateBind1().getValue().toString();
+        String _holdRemark1 = getHoldRemarkBind1().getValue().toString();
+        System.out.println("hold reason : " + _holdReason1);
+        System.out.println("Hold due date : " + _dueDate1);
+        System.out.println("hold remarks : " + _holdRemark1);
+
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("Selected", true);
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+         if(rw.getAttribute("TransactionStatus").equals("New")||rw.getAttribute("TransactionStatus").equals("Transaction Released from Hold")){
+           
+            rw.setAttribute("Holdby", user);
+            rw.setAttribute("Holdon", date);
+            rw.setAttribute("HoldReason", _holdReason1);
+            rw.setAttribute("Duedate", _dueDate1);
+            rw.setAttribute("HoldRemarks", _holdRemark1);
+            rw.setAttribute("TransactionStatus", "Transaction on Hold");
+            }
+        }
+
+        executeOperation("Commit").execute();
+        
+
+        getHoldPopup1().hide();
     }
 
+    public void saveReleaseDetails(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding releaseIter = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject releaseVO = releaseIter.getViewObject();
+        RowSetIterator rsIter = releaseIter.getRowSetIterator();
+        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
+
+        String _releaseAction = getReleaseActionBind().getValue().toString();
+        String _releaseRemark = getReleaseRemarksBind().getValue().toString();
+
+        r.setAttribute("ReleaseAction", _releaseAction);
+        r.setAttribute("ReleaseRemarks", _releaseRemark);
+        r.setAttribute("TransactionStatus", "Transaction Released from Hold");
+        executeOperation("Commit").execute();
+        
+        getReleasePopup().hide();
+    }
+
+
+    public void multiSaveReleaseDetails(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding releaseIter = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject releaseVO = releaseIter.getViewObject();
+
+
+        String _releaseAction1 = getReleaseActionBind1().getValue().toString();
+        String _releaseRemark1 = getReleaseRemarksBind1().getValue().toString();
+
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+
+        oracle.jbo.Row[] selectedRows = releaseVO.getFilteredRows("Selected", true);
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("TransactionStatus").equals("Transaction on Hold")) {
+
+            rw.setAttribute("Releasedby", user);
+            rw.setAttribute("Releasedon", date);
+            rw.setAttribute("ReleaseAction", _releaseAction1);
+            rw.setAttribute("ReleaseRemarks", _releaseRemark1);
+            rw.setAttribute("TransactionStatus", "Transaction Released from Hold");
+            }
+        }
+        executeOperation("Commit").execute();
+        
+        getReleasePopup1().hide();
+    }
+
+
+    public void closeHoldDetails(ActionEvent actionEvent) {
+        getHoldPopup().hide();
+    }
+
+    public void closeReleaseDetails(ActionEvent actionEvent) {
+        getReleasePopup().hide();
+    }
+
+    public void multicloseHoldDetails(ActionEvent actionEvent) {
+        getHoldPopup1().hide();
+    }
+
+    public void multicloseReleaseDetails(ActionEvent actionEvent) {
+        getReleasePopup1().hide();
+    }
 
     /**Method to read xls file and upload to table.
      * @param xls
@@ -694,47 +837,256 @@ public class TransBCostAllocationBean {
         }
     }
 
-    public void setHoldReleasePopup(RichPopup holdReleasePopup) {
-        this.holdReleasePopup = holdReleasePopup;
-    }
 
-    public RichPopup getHoldReleasePopup() {
-        return holdReleasePopup;
-    }
-
-    public void holdReleasePopupBeginListener(PopupFetchEvent popupFetchEvent) {
+    public void holdPopupBeginListener(PopupFetchEvent popupFetchEvent) {
         BindingContainer bindings = getBindingsCont();
-        DCIteratorBinding transBiter = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
-        ViewObject transBVO = transBiter.getViewObject();
-        RowSetIterator rsIter = transBiter.getRowSetIterator();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+        RowSetIterator rsIter = holditer.getRowSetIterator();
         oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
-        String ExtractId = (String) r.getAttribute("ExtractId");
+
 
         CommonUtils util = new CommonUtils();
         Object user = (Object) util.getSessionScopeValue("_username").toString();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(new Date());
 
-        if (r.getAttribute("TransactionStatus") == null || r.getAttribute("TransactionStatus") == "New") {
+        r.setAttribute("Holdby", user);
+        r.setAttribute("Holdon", date);
+        
+        
+        holdReasonBind.setValue(null);
+        dueDateBind.setValue(null);
+        holdRemarkBind.setValue(null);
 
-            r.setAttribute("Holdby", user);
-            r.setAttribute("Holdon", date);
-            r.setAttribute("TransactionStatus", "Transaction On Hold");
-        } else if (r.getAttribute("TransactionStatus").equals("Transaction On Hold") &&
-                   (r.getAttribute("TransactionStatus") != null)) {
-            r.setAttribute("Releasedby", user);
-            r.setAttribute("Releasedon", date);
-            r.setAttribute("TransactionStatus", "Transaction Released from Hold"); 
-        } 
-        else {
-            r.setAttribute("Holdby", user);
-            r.setAttribute("Holdon", date);
-            r.setAttribute("TransactionStatus", "Transaction On Hold");
+
+    }
+  
+  
+    public void multiHoldPopupBeginListener(PopupFetchEvent popupFetchEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+        RowSetIterator rsIter = holditer.getRowSetIterator();
+        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
+
+
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+
+        r.setAttribute("Holdby", user);
+        r.setAttribute("Holdon", date);
+        
+        
+        holdReasonBind1.setValue(null);
+        dueDateBind1.setValue(null);
+        holdRemarkBind1.setValue(null);
+
+
+    }
+
+    public void releasePopupBeginListener(PopupFetchEvent popupFetchEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+        RowSetIterator rsIter = holditer.getRowSetIterator();
+        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
+
+
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+
+        r.setAttribute("Releasedby", user);
+        r.setAttribute("Releasedon", date);
+        
+        releaseActionBind.setValue(null);
+        releaseRemarksBind.setValue(null);
+
+
+    }
+    
+    public void multiReleasePopupBeginListener(PopupFetchEvent popupFetchEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+        RowSetIterator rsIter = holditer.getRowSetIterator();
+        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
+
+
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+
+        r.setAttribute("Releasedby", user);
+        r.setAttribute("Releasedon", date);
+        
+        releaseActionBind1.setValue(null);
+        releaseRemarksBind1.setValue(null);
+
+
+    }
+    
+
+    public void selectAllCheckboxValueChange(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        boolean isSelected = ((Boolean) valueChangeEvent.getNewValue()).booleanValue();
+        System.out.println("*****is Selected***" + isSelected);
+        //           String voName = (String)AdfFacesContext.getCurrentInstance().getPageFlowScope().get("voName");
+        //           String iteratorName = voName + "Iterator";
+        //           System.out.println("******"+iteratorName);
+        String SelectedAttribute = "Selected";
+        DCBindingContainer bindingContainer =
+            (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding dciter = bindingContainer.findIteratorBinding("SgsTransBCostAllocationVO1Iterator");
+        ViewObject vo = dciter.getViewObject();
+        oracle.jbo.Row row = null;
+        vo.reset();
+        RowSetIterator rs = vo.createRowSetIterator(null);
+        rs.reset();
+        while (rs.hasNext()) {
+            row = rs.next();
+            if (isSelected) {
+                row.setAttribute(SelectedAttribute, "true");
+                System.out.println("****selected***" + row.getAttribute(SelectedAttribute));
+            } else {
+                row.setAttribute(SelectedAttribute, "false");
+                System.out.println("****Unselected***" + row.getAttribute(SelectedAttribute));
+            }
         }
+        rs.closeRowSetIterator();
+        //Refresh the table
+        AdfFacesContext.getCurrentInstance().addPartialTarget(valueChangeEvent.getComponent()
+                                                                              .getParent()
+                                                                              .getParent());
 
     }
 
     public void HoldReleaseCancelButton(PopupCanceledEvent popupCanceledEvent) {
         executeOperation("Rollback").execute();
     }
+
+    public void setReleasePopup(RichPopup releasePopup) {
+        this.releasePopup = releasePopup;
+    }
+
+    public RichPopup getReleasePopup() {
+        return releasePopup;
+    }
+
+    public void setHoldReasonBind(RichInputText holdReasonBind) {
+        this.holdReasonBind = holdReasonBind;
+    }
+
+    public RichInputText getHoldReasonBind() {
+        return holdReasonBind;
+    }
+
+    public void setDueDateBind(RichInputDate dueDateBind) {
+        this.dueDateBind = dueDateBind;
+    }
+
+    public RichInputDate getDueDateBind() {
+        return dueDateBind;
+    }
+
+    public void setHoldRemarkBind(RichInputText holdRemarkBind) {
+        this.holdRemarkBind = holdRemarkBind;
+    }
+
+    public RichInputText getHoldRemarkBind() {
+        return holdRemarkBind;
+    }
+
+    public void setReleaseActionBind(RichInputText releaseActionBind) {
+        this.releaseActionBind = releaseActionBind;
+    }
+
+    public RichInputText getReleaseActionBind() {
+        return releaseActionBind;
+    }
+
+    public void setReleaseRemarksBind(RichInputText releaseRemarksBind) {
+        this.releaseRemarksBind = releaseRemarksBind;
+    }
+
+    public RichInputText getReleaseRemarksBind() {
+        return releaseRemarksBind;
+    }
+
+    public void setHoldPopup1(RichPopup holdPopup1) {
+        this.holdPopup1 = holdPopup1;
+    }
+
+    public RichPopup getHoldPopup1() {
+        return holdPopup1;
+    }
+
+    public void setReleasePopup1(RichPopup releasePopup1) {
+        this.releasePopup1 = releasePopup1;
+    }
+
+    public RichPopup getReleasePopup1() {
+        return releasePopup1;
+    }
+
+    public void setHoldReasonBind1(RichInputText holdReasonBind1) {
+        this.holdReasonBind1 = holdReasonBind1;
+    }
+
+    public RichInputText getHoldReasonBind1() {
+        return holdReasonBind1;
+    }
+
+    public void setDueDateBind1(RichInputDate dueDateBind1) {
+        this.dueDateBind1 = dueDateBind1;
+    }
+
+    public RichInputDate getDueDateBind1() {
+        return dueDateBind1;
+    }
+
+    public void setHoldRemarkBind1(RichInputText holdRemarkBind1) {
+        this.holdRemarkBind1 = holdRemarkBind1;
+    }
+
+    public RichInputText getHoldRemarkBind1() {
+        return holdRemarkBind1;
+    }
+
+    public void setReleaseActionBind1(RichInputText releaseActionBind1) {
+        this.releaseActionBind1 = releaseActionBind1;
+    }
+
+    public RichInputText getReleaseActionBind1() {
+        return releaseActionBind1;
+    }
+
+    public void setReleaseRemarksBind1(RichInputText releaseRemarksBind1) {
+        this.releaseRemarksBind1 = releaseRemarksBind1;
+    }
+
+    public RichInputText getReleaseRemarksBind1() {
+        return releaseRemarksBind1;
+    }
+
+    public void confirmProcessingBtn(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding confIter = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject confVO = confIter.getViewObject();
+
+       
+        oracle.jbo.Row[] selectedRows = confVO.getFilteredRows("Selected", true);
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+                if(rw.getAttribute("TransactionStatus").equals("New")||rw.getAttribute("TransactionStatus").equals("Transaction Released from Hold")){
+                    rw.setAttribute("TransactionStatus", "Confirmed for Processing");
+         }
+   }
+        executeOperation("Commit").execute();
+  }
 }

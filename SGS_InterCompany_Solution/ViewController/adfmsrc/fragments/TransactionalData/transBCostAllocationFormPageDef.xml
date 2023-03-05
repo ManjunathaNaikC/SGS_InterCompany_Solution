@@ -8,12 +8,6 @@
               id="SgsTransBCostAllocationVO1Iterator"/>
     <iterator Binds="SgsOtrTargetVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsOtrTargetVO1Iterator"/>
-    <taskFlow id="sgsholdDetailsFormflow1"
-              taskFlowId="/taskflows/TransactionalData/sgs-holdDetailsForm-flow.xml#sgs-holdDetailsForm-flow"
-              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="sgsReleaseDetailsFormflow1"
-              taskFlowId="/taskflows/TransactionalData/sgs-ReleaseDetailsForm-flow.xml#sgs-ReleaseDetailsForm-flow"
-              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExtractId">
@@ -298,5 +292,8 @@
     </attributeValues>
     <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
+    <action IterBinding="SgsTransBCostAllocationVO1Iterator" id="Execute"
+            InstanceName="SGSAppModuleDataControl.SgsTransBCostAllocationVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

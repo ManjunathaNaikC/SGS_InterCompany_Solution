@@ -87,18 +87,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="StatisticalData"
-    Precision="80"
-    ColumnName="STATISTICAL_DATA"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
-    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="80"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="UnitOfMeasure"
     Precision="80"
     ColumnName="UNIT_OF_MEASURE"
@@ -360,16 +348,24 @@
   </Attribute>
   <Attribute
     Name="TRANSACTIONPERIOD"
-    Precision="80"
     ColumnName="TRANSACTION_PERIOD"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
     TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="STATISTICALDATA"
+    Precision="20"
+    Scale="5"
+    ColumnName="STATISTICAL_DATA"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL"/>
   <Key
     Name="PKSGSSTATISTICALDATATEMPTBL"
     PrimaryKey="true">
@@ -380,4 +376,8 @@
       <Item Value="com.sgs.ics.model.bc.entity.sgsStatisticalDataTempEO.StatisticalDataId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

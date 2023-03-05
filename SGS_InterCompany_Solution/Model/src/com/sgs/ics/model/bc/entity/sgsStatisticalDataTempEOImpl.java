@@ -32,7 +32,6 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         ToJobCode,
         ToOperatingUnit,
         ToDepartmentId,
-        StatisticalData,
         UnitOfMeasure,
         CostGroup,
         Currency,
@@ -57,7 +56,8 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         NATUREOFEXPENSE,
         STATGEOGRAPHY,
         CONCATEID,
-        TRANSACTIONPERIOD;
+        TRANSACTIONPERIOD,
+        STATISTICALDATA;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -89,7 +89,6 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     public static final int TOJOBCODE = AttributesEnum.ToJobCode.index();
     public static final int TOOPERATINGUNIT = AttributesEnum.ToOperatingUnit.index();
     public static final int TODEPARTMENTID = AttributesEnum.ToDepartmentId.index();
-    public static final int STATISTICALDATA = AttributesEnum.StatisticalData.index();
     public static final int UNITOFMEASURE = AttributesEnum.UnitOfMeasure.index();
     public static final int COSTGROUP = AttributesEnum.CostGroup.index();
     public static final int CURRENCY = AttributesEnum.Currency.index();
@@ -115,6 +114,7 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
     public static final int CONCATEID = AttributesEnum.CONCATEID.index();
     public static final int TRANSACTIONPERIOD = AttributesEnum.TRANSACTIONPERIOD.index();
+    public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -226,21 +226,6 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         setAttributeInternal(TODEPARTMENTID, value);
     }
 
-    /**
-     * Gets the attribute value for StatisticalData, using the alias name StatisticalData.
-     * @return the value of StatisticalData
-     */
-    public String getStatisticalData() {
-        return (String) getAttributeInternal(STATISTICALDATA);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for StatisticalData.
-     * @param value value to set the StatisticalData
-     */
-    public void setStatisticalData(String value) {
-        setAttributeInternal(STATISTICALDATA, value);
-    }
 
     /**
      * Gets the attribute value for UnitOfMeasure, using the alias name UnitOfMeasure.
@@ -631,16 +616,33 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
      * Gets the attribute value for TRANSACTIONPERIOD, using the alias name TRANSACTIONPERIOD.
      * @return the value of TRANSACTIONPERIOD
      */
-    public String getTRANSACTIONPERIOD() {
-        return (String) getAttributeInternal(TRANSACTIONPERIOD);
+    public Date getTRANSACTIONPERIOD() {
+        return (Date) getAttributeInternal(TRANSACTIONPERIOD);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for TRANSACTIONPERIOD.
      * @param value value to set the TRANSACTIONPERIOD
      */
-    public void setTRANSACTIONPERIOD(String value) {
+    public void setTRANSACTIONPERIOD(Date value) {
         setAttributeInternal(TRANSACTIONPERIOD, value);
+    }
+
+
+    /**
+     * Gets the attribute value for STATISTICALDATA, using the alias name STATISTICALDATA.
+     * @return the value of STATISTICALDATA
+     */
+    public BigDecimal getSTATISTICALDATA() {
+        return (BigDecimal) getAttributeInternal(STATISTICALDATA);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STATISTICALDATA.
+     * @param value value to set the STATISTICALDATA
+     */
+    public void setSTATISTICALDATA(BigDecimal value) {
+        setAttributeInternal(STATISTICALDATA, value);
     }
 
     /**
@@ -660,7 +662,7 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         super.create(attributeList);
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
-            setStatisticalDataId(am.getDBSequence1("SEQ_SGS_STATISTICAL_DATA_TEMP_TBL"));
+            setStatisticalDataId(am.getDBSequence1("SEQ_SGS_STATISTICAL_DATA_TBL"));
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());

@@ -68,13 +68,13 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         FROMJOBCODE,
         FROMOU,
         ADDTEXPENSECAT,
-        STATISTICALDATA,
         CONCATEID,
         EMPGRADE,
         STATGEOGRAPHY,
         APPROVESTATUS,
         TRANSACTIONPERIOD,
-        EMAILATTACHMENT;
+        EMAILATTACHMENT,
+        STATISTICALDATA;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -141,13 +141,13 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int FROMJOBCODE = AttributesEnum.FROMJOBCODE.index();
     public static final int FROMOU = AttributesEnum.FROMOU.index();
     public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
-    public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
     public static final int CONCATEID = AttributesEnum.CONCATEID.index();
     public static final int EMPGRADE = AttributesEnum.EMPGRADE.index();
     public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
     public static final int APPROVESTATUS = AttributesEnum.APPROVESTATUS.index();
     public static final int TRANSACTIONPERIOD = AttributesEnum.TRANSACTIONPERIOD.index();
     public static final int EMAILATTACHMENT = AttributesEnum.EMAILATTACHMENT.index();
+    public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -837,23 +837,6 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
 
 
     /**
-     * Gets the attribute value for STATISTICALDATA, using the alias name STATISTICALDATA.
-     * @return the value of STATISTICALDATA
-     */
-    public String getSTATISTICALDATA() {
-        return (String) getAttributeInternal(STATISTICALDATA);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for STATISTICALDATA.
-     * @param value value to set the STATISTICALDATA
-     */
-    public void setSTATISTICALDATA(String value) {
-        setAttributeInternal(STATISTICALDATA, value);
-    }
-
-
-    /**
      * Gets the attribute value for CONCATEID, using the alias name CONCATEID.
      * @return the value of CONCATEID
      */
@@ -951,6 +934,22 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         setAttributeInternal(EMAILATTACHMENT, value);
     }
 
+
+    /**
+     * Gets the attribute value for STATISTICALDATA, using the alias name STATISTICALDATA.
+     * @return the value of STATISTICALDATA
+     */
+    public BigDecimal getSTATISTICALDATA() {
+        return (BigDecimal) getAttributeInternal(STATISTICALDATA);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STATISTICALDATA.
+     * @param value value to set the STATISTICALDATA
+     */
+    public void setSTATISTICALDATA(BigDecimal value) {
+        setAttributeInternal(STATISTICALDATA, value);
+    }
 
     /**
      * @param statisticalDataId key constituent

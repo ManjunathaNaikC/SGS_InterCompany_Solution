@@ -50,14 +50,7 @@
   <Variable
     Name="bTransactionPeriod"
     Kind="viewcriteria"
-    Type="java.lang.String">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.bTransactionPeriod_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Variable>
+    Type="java.sql.Date"/>
   <ViewAccessor
     Name="CostGroupLOV1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostGroupLOV"
@@ -886,21 +879,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="STATISTICALDATA"
-    PrecisionRule="true"
-    EntityAttrName="STATISTICALDATA"
-    EntityUsage="SgsStatisticalDataEO"
-    AliasName="STATISTICAL_DATA">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.STATISTICALDATA_LABEL"/>
-        <FIELDORDER
-          Value="43.0"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="EMPGRADE"
     PrecisionRule="true"
     EntityAttrName="EMPGRADE"
@@ -985,6 +963,12 @@
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="STATISTICALDATA"
+    PrecisionRule="true"
+    EntityAttrName="STATISTICALDATA"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="STATISTICAL_DATA"/>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"
@@ -1054,7 +1038,7 @@
       <ViewCriteriaItem
         Name="TRANSACTIONPERIOD"
         ViewAttribute="TRANSACTIONPERIOD"
-        Operator="CONTAINS"
+        Operator="="
         Conjunction="AND"
         Value=":bTransactionPeriod"
         IsBindVarValue="true"

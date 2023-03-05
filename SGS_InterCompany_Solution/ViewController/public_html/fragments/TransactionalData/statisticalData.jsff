@@ -385,7 +385,7 @@
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.label}" id="c6"
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.name}"
                                    filterable="true">
-                            <af:inputText value="#{row.bindings.STATISTICALDATA.inputValue}"
+                            <!--<af:inputText value="#{row.bindings.STATISTICALDATA.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.displayWidth}"
@@ -394,8 +394,19 @@
                                           id="it6"
                                           readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.STATISTICALDATA.validator}"/>
-                                <!--<af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>-->
+                                --><!--<af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>--><!--
+                            </af:inputText>-->
+                            <af:inputText value="#{row.bindings.STATISTICALDATA.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.tooltip}"
+                                          id="it6">
+                                <f:validator binding="#{row.bindings.STATISTICALDATA.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}" id="c52"  sortProperty="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.name}"

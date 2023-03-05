@@ -365,7 +365,7 @@ public class UploadExcelBean {
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
                                 System.out.println("DATE-TransactionPeriod    :" + date);
-                                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                                DateFormat dateFormat = new SimpleDateFormat("MMM-yy");
 
                                 String date1 = dateFormat.format(date);
                                 System.out.println("date1" + date1);
@@ -376,7 +376,9 @@ public class UploadExcelBean {
                                 }
                                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                                 oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
+                                System.out.println("jboDate "+ sqlDate);
                                 row.setAttribute("TRANSACTIONPERIOD", jboDate);
+                                System.out.println("transaction  "+ row.getAttribute("TRANSACTIONPERIOD"));
                             } else {
                                 row.setAttribute("TRANSACTIONPERIOD", null);
                             }

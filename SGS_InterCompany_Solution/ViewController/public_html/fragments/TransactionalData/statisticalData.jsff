@@ -168,13 +168,14 @@
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
                                    id="c53">
                             <af:inputText value="#{row.bindings.TRANSACTIONPERIOD.inputValue}"
-                                          label="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.tooltip}"
                                           id="it43">
                                 <f:validator binding="#{row.bindings.TRANSACTIONPERIOD.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.format}"/>
+                                <!--<f:converter converterId="PeriodConverter1"/>-->
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMBU.label}" 

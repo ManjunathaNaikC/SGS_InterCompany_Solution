@@ -50,7 +50,7 @@
   <Variable
     Name="bTransactionPeriod"
     Kind="viewcriteria"
-    Type="java.lang.String">
+    Type="java.sql.Date">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -937,7 +937,7 @@
       <ViewCriteriaItem
         Name="TRANSACTIONPERIOD"
         ViewAttribute="TRANSACTIONPERIOD"
-        Operator="CONTAINS"
+        Operator="ONORBEFORE"
         Conjunction="AND"
         Value=":bTransactionPeriod"
         IsBindVarValue="true"

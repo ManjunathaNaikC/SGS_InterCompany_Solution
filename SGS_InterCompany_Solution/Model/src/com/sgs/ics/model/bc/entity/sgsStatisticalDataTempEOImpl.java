@@ -627,19 +627,20 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         setAttributeInternal(CONCATEID, value);
     }
 
+
     /**
      * Gets the attribute value for TRANSACTIONPERIOD, using the alias name TRANSACTIONPERIOD.
      * @return the value of TRANSACTIONPERIOD
      */
-    public String getTRANSACTIONPERIOD() {
-        return (String) getAttributeInternal(TRANSACTIONPERIOD);
+    public Date getTRANSACTIONPERIOD() {
+        return (Date) getAttributeInternal(TRANSACTIONPERIOD);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for TRANSACTIONPERIOD.
      * @param value value to set the TRANSACTIONPERIOD
      */
-    public void setTRANSACTIONPERIOD(String value) {
+    public void setTRANSACTIONPERIOD(Date value) {
         setAttributeInternal(TRANSACTIONPERIOD, value);
     }
 

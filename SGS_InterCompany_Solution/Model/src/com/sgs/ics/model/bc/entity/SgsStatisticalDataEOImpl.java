@@ -75,7 +75,6 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         APPROVESTATUS,
         TRANSACTIONPERIOD;
         private static AttributesEnum[] vals = null;
-        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -921,15 +920,15 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      * Gets the attribute value for TRANSACTIONPERIOD, using the alias name TRANSACTIONPERIOD.
      * @return the value of TRANSACTIONPERIOD
      */
-    public String getTRANSACTIONPERIOD() {
-        return (String) getAttributeInternal(TRANSACTIONPERIOD);
+    public Date getTRANSACTIONPERIOD() {
+        return (Date) getAttributeInternal(TRANSACTIONPERIOD);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for TRANSACTIONPERIOD.
      * @param value value to set the TRANSACTIONPERIOD
      */
-    public void setTRANSACTIONPERIOD(String value) {
+    public void setTRANSACTIONPERIOD(Date value) {
         setAttributeInternal(TRANSACTIONPERIOD, value);
     }
 

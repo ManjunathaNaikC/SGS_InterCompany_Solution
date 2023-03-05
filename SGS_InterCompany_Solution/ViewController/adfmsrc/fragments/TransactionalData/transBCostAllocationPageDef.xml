@@ -45,6 +45,16 @@
           <Item Value="TransactionCategory"/>
           <Item Value="SourceSystem"/>
           <Item Value="SourceModule"/>
+          <Item Value="Selected"/>
+          <Item Value="Duedate"/>
+          <Item Value="Holdby"/>
+          <Item Value="Holdon"/>
+          <Item Value="HoldReason"/>
+          <Item Value="HoldRemarks"/>
+          <Item Value="ReleaseAction"/>
+          <Item Value="Releasedby"/>
+          <Item Value="Releasedon"/>
+          <Item Value="ReleaseRemarks"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -63,5 +73,50 @@
             RequiresUpdateModel="true" Action="iteratorExecute"/>
     <action IterBinding="SgsOtrTargetVO1Iterator" id="ExecuteOtrTarget" InstanceName="SGSAppModuleDataControl.SgsOtrTargetVO1"
             DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Holdon">
+      <AttrNames>
+        <Item Value="Holdon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Holdby">
+      <AttrNames>
+        <Item Value="Holdby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="HoldReason">
+      <AttrNames>
+        <Item Value="HoldReason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Duedate">
+      <AttrNames>
+        <Item Value="Duedate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="HoldRemarks">
+      <AttrNames>
+        <Item Value="HoldRemarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Releasedon">
+      <AttrNames>
+        <Item Value="Releasedon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="Releasedby">
+      <AttrNames>
+        <Item Value="Releasedby"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ReleaseAction">
+      <AttrNames>
+        <Item Value="ReleaseAction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ReleaseRemarks">
+      <AttrNames>
+        <Item Value="ReleaseRemarks"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

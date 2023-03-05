@@ -7,27 +7,152 @@
         <f:facet name="top"/>
         <f:facet name="bottom">
             <af:panelGroupLayout id="pgl2">
-                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-                          binding="#{pageFlowScope.TransBCostAllocationBean.holdReleasePopup}"
-                          popupCanceledListener="#{pageFlowScope.TransBCostAllocationBean.HoldReleaseCancelButton}">
-                    <af:dialog id="d1" contentWidth="500" contentHeight="300" type="none">
+            
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p20H"
+                          binding="#{pageFlowScope.TransBCostAllocationBean.holdPopup1}"
+                          popupFetchListener="#{pageFlowScope.TransBCostAllocationBean.multiHoldPopupBeginListener}">
+                    <af:dialog id="d2" contentWidth="500" contentHeight="300" type="none">
                         <f:facet name="buttonBar">
                             <af:button text="Save" id="b8"
-                                       actionListener="#{pageFlowScope.TransBCostAllocationBean.saveHoldReleaseDetails}"/>
+                                       actionListener="#{pageFlowScope.TransBCostAllocationBean.multiSaveHoldDetails}"
+                                       partialSubmit="true"/>
                             <af:button text="Close" id="b9"
-                                       actionListener="#{pageFlowScope.TransBCostAllocationBean.closeHoldReleaseDetails}"/>
+                                       actionListener="#{pageFlowScope.TransBCostAllocationBean.multicloseHoldDetails}"/>
                         </f:facet>
                         <af:spacer id="s2" width="170"/>
-                        <af:outputText value="Hold / Release Details" id="ot1"
+                        <af:outputText value="Hold Details" id="othr2"
                                        inlineStyle="font-weight:bold;font-size:15px;"/>
-                        <!--<af:region value="#{bindings.holdReleaseDetailBTF1.regionModel}" id="r1"/>-->
-                        <af:region value="#{bindings.sgsholdDetailsFormflow1.regionModel}" id="r1"/>
-                        <af:region value="#{bindings.sgsReleaseDetailsFormflow1.regionModel}" id="r2"/>
+                      
+                        <af:panelBox text="" id="pbHold" showDisclosure="false">
+                            <!--<f:facet name="toolbar">
+                                <af:toolbar id="t1"></af:toolbar>
+                            </f:facet>-->
+                            <af:spacer id="s3" width="50"/>
+                            <af:outputText value="Particulars" id="ot1part"
+                                           inlineStyle="font-weight:bold;font-size:14px;"/>
+                            <af:spacer id="s22" width="80"/>
+                            <af:outputText value="Details" id="ot1Details"
+                                           inlineStyle="font-weight:bold;font-size:14px;"/>
+                            <af:separator id="s1sep"/>
+                            <af:panelFormLayout id="pfl1">
+                                <af:inputText value="#{bindings.Holdby.inputValue}"
+                                              label="#{bindings.Holdby.hints.label}"
+                                              required="#{bindings.Holdby.hints.mandatory}"
+                                              columns="#{bindings.Holdby.hints.displayWidth}"
+                                              maximumLength="#{bindings.Holdby.hints.precision}"
+                                              shortDesc="#{bindings.Holdby.hints.tooltip}" id="it1Holdby"
+                                              readOnly="true">
+                                    <f:validator binding="#{bindings.Holdby.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Holdon.inputValue}"
+                                              label="#{bindings.Holdon.hints.label}"
+                                              required="#{bindings.Holdon.hints.mandatory}"
+                                              columns="#{bindings.Holdon.hints.displayWidth}"
+                                              maximumLength="#{bindings.Holdon.hints.precision}"
+                                              shortDesc="#{bindings.Holdon.hints.tooltip}" id="it2" readOnly="true">
+                                    <f:validator binding="#{bindings.Holdon.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.Holdon.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.HoldReason.inputValue}"
+                                              label="#{bindings.HoldReason.hints.label}"
+                                              required="#{bindings.HoldReason.hints.mandatory}"
+                                              columns="#{bindings.HoldReason.hints.displayWidth}"
+                                              maximumLength="#{bindings.HoldReason.hints.precision}"
+                                              shortDesc="#{bindings.HoldReason.hints.tooltip}" id="it3"
+                                              binding="#{pageFlowScope.TransBCostAllocationBean.holdReasonBind1}">
+                                    <f:validator binding="#{bindings.HoldReason.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.Duedate.inputValue}"
+                                              label="#{bindings.Duedate.hints.label}"
+                                              required="#{bindings.Duedate.hints.mandatory}"
+                                              columns="#{bindings.Duedate.hints.displayWidth}"
+                                              shortDesc="#{bindings.Duedate.hints.tooltip}" id="id1DueDate"
+                                              binding="#{pageFlowScope.TransBCostAllocationBean.dueDateBind1}">
+                                    <f:validator binding="#{bindings.Duedate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.Duedate.format}"/>
+                                </af:inputDate>
+                                <af:inputText value="#{bindings.HoldRemarks.inputValue}"
+                                              label="#{bindings.HoldRemarks.hints.label}"
+                                              required="#{bindings.HoldRemarks.hints.mandatory}"
+                                              columns="#{bindings.HoldRemarks.hints.displayWidth}"
+                                              maximumLength="#{bindings.HoldRemarks.hints.precision}"
+                                              shortDesc="#{bindings.HoldRemarks.hints.tooltip}" id="it4" rows="4"
+                                              binding="#{pageFlowScope.TransBCostAllocationBean.holdRemarkBind1}">
+                                    <f:validator binding="#{bindings.HoldRemarks.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </af:panelBox>
+                   
+                    </af:dialog>
+                </af:popup>
+                
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p30R"
+                          popupFetchListener="#{pageFlowScope.TransBCostAllocationBean.multiReleasePopupBeginListener}"
+                          binding="#{pageFlowScope.TransBCostAllocationBean.releasePopup1}">
+                   <af:dialog id="d2dia" contentWidth="500" contentHeight="300" type="none">
+                        <f:facet name="buttonBar">
+                            <af:button text="Save" id="b8save"
+                                       actionListener="#{pageFlowScope.TransBCostAllocationBean.multiSaveReleaseDetails}"
+                                       partialSubmit="true"/>
+                            <af:button text="Close" id="b9close"
+                                       actionListener="#{pageFlowScope.TransBCostAllocationBean.multicloseReleaseDetails}"/>
+                        </f:facet>
+                        <af:spacer id="spacer2" width="170"/>
+                        <af:outputText value="Release Details" id="rel2"
+                                       inlineStyle="font-weight:bold;font-size:15px;"/>
+                      
+                  
+                        <af:panelBox text="" id="pbRelease" showDisclosure="false">
+                            <!--<f:facet name="toolbar">
+                                <af:toolbar id="t1"></af:toolbar>
+                            </f:facet>-->
+                            <af:spacer id="s2spacer" width="50"/>
+                            <af:outputText value="Particulars" id="ot2Parti" inlineStyle="font-weight:bold;font-size:14px;"/>
+                            <af:spacer id="s22spacer" width="80"/>
+                            <af:outputText value="Details" id="ot13Detail" inlineStyle="font-weight:bold;font-size:14px;"/>
+                            <af:separator id="s3sep"/>
+                            <af:panelFormLayout id="pfl1Release">
+                                <af:inputText value="#{bindings.Releasedby.inputValue}"
+                                              label="#{bindings.Releasedby.hints.label}"
+                                              required="#{bindings.Releasedby.hints.mandatory}"
+                                              columns="#{bindings.Releasedby.hints.displayWidth}"
+                                              maximumLength="#{bindings.Releasedby.hints.precision}"
+                                              shortDesc="#{bindings.Releasedby.hints.tooltip}" id="it1rb" readOnly="true">
+                                    <f:validator binding="#{bindings.Releasedby.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Releasedon.inputValue}"
+                                              label="#{bindings.Releasedon.hints.label}"
+                                              required="#{bindings.Releasedon.hints.mandatory}"
+                                              columns="#{bindings.Releasedon.hints.displayWidth}"
+                                              maximumLength="#{bindings.Releasedon.hints.precision}"
+                                              shortDesc="#{bindings.Releasedon.hints.tooltip}" id="it2ro" readOnly="true">
+                                    <f:validator binding="#{bindings.Releasedon.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.Releasedon.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ReleaseAction.inputValue}"
+                                              label="#{bindings.ReleaseAction.hints.label}"
+                                              required="#{bindings.ReleaseAction.hints.mandatory}"
+                                              columns="#{bindings.ReleaseAction.hints.displayWidth}"
+                                              maximumLength="#{bindings.ReleaseAction.hints.precision}"
+                                              shortDesc="#{bindings.ReleaseAction.hints.tooltip}" id="it3ra"
+                                              binding="#{pageFlowScope.TransBCostAllocationBean.releaseActionBind1}">
+                                    <f:validator binding="#{bindings.ReleaseAction.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ReleaseRemarks.inputValue}"
+                                              label="#{bindings.ReleaseRemarks.hints.label}"
+                                              required="#{bindings.ReleaseRemarks.hints.mandatory}"
+                                              columns="#{bindings.ReleaseRemarks.hints.displayWidth}"
+                                              maximumLength="#{bindings.ReleaseRemarks.hints.precision}"
+                                              shortDesc="#{bindings.ReleaseRemarks.hints.tooltip}" id="it4rr" rows="4"
+                                              binding="#{pageFlowScope.TransBCostAllocationBean.releaseRemarksBind1}">
+                                    <f:validator binding="#{bindings.ReleaseRemarks.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </af:panelBox>
                     </af:dialog>
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
-                    <af:dialog id="d3" contentWidth="400" contentHeight="80" type="ok"
-                               title="Upload Other Receivables"
+                    <af:dialog id="d3" contentWidth="400" contentHeight="80" type="ok" title="Upload Other Receivables"
                                dialogListener="#{pageFlowScope.TransBCostAllocationBean.okButtonDialogListner}">
                         <!--<f:facet name="buttonBar">
                             <af:button text="Submit" id="b5"
@@ -35,7 +160,6 @@
                             <af:button text="Close" id="b7"
                                        actionListener="#{pageFlowScope.TransBCostAllocationBean.closeOtherReceivableDetails}"/>
                         </f:facet>-->
-                        
                         <af:panelGroupLayout id="pgl01" layout="horizontal" valign="middle">
                             <af:inputFile label="Select your file" id="if1" autoSubmit="true"
                                           valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.uploadFileVCE}"/>
@@ -74,13 +198,17 @@
                                            icon="/resources/icons/delete.png"
                                            action="#{pageFlowScope.TransBCostAllocationBean.deleteTransBCostAllocation}"
                                            disabled="true"/>
-                                <af:button text="Hold/Release" id="b4">
-                                    <af:showPopupBehavior popupId="::p1"/>
+                                <af:button text="Hold" id="b14">
+                                    <af:showPopupBehavior popupId="::p20H"/>
+                                </af:button>
+                                <af:button text="Release" id="b1R">
+                                    <af:showPopupBehavior popupId="::p30R"/>
                                 </af:button>
                                 <af:button text="Upload Other Receivables" id="b3">
                                     <af:showPopupBehavior popupId="::p2"/>
                                 </af:button>
-                                <af:button text="Confirm for Processing" id="b6"/>
+                                <af:button text="Confirm for Processing" id="b6"
+                                           actionListener="#{pageFlowScope.TransBCostAllocationBean.confirmProcessingBtn}"/>
                                 <af:button text="Approval" id="b11" disabled="true"/>
                             </af:toolbar>
                         </f:facet>
@@ -91,11 +219,27 @@
                                   rowBandingInterval="0"
                                   selectedRowKeys="#{bindings.SgsTransBCostAllocationVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsTransBCostAllocationVO1.collectionModel.makeCurrent}"
-                                  rowSelection="single" fetchSize="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
-                                  id="t2" styleClass="AFStretchWidth" allDetailsEnabled="true" partialTriggers="::b1"
-                                  inlineStyle="height:250px; " autoHeightRows="10">
-                            <af:column id="c2" align="center" headerText="Select" >
-                                <af:selectBooleanCheckbox id="sbc1"/>
+                                  rowSelection="multiple" fetchSize="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
+                                  id="t2" styleClass="AFStretchWidth" allDetailsEnabled="true"
+                                  partialTriggers="::b1 sbc1" inlineStyle="height:250px; " autoHeightRows="10">
+                            <af:column id="c2"  headerText="#{bindings.SgsTransBCostAllocationVO1.hints.Selected.label}" 
+                                       align="center" >
+                                <!--<af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                                          label="#{row.bindings.Selected.label}"
+                                                          shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.Selected.tooltip}"
+                                                          id="sbc1" autoSubmit="true"/>-->
+                                <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                                          label="#{row.bindings.Selected.label}"
+                                                          shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.Selected.tooltip}"
+                                                          id="sbc1" autoSubmit="true"/>
+                                <f:facet name="header">
+                                    <af:selectBooleanCheckbox valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.selectAllCheckboxValueChange}"
+                                                              label="Select All" id="sbc2" labelStyle="color:#336699"
+                                                              autoSubmit="true" partialTriggers="::t2 c2 sbc1">
+                                        <af:setPropertyListener from="#{row.TransactionStatus}"
+                                                                to="#{pageFlowScope.Status}" type="valueChange"/>
+                                    </af:selectBooleanCheckbox>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionPeriod.label}"
                                        id="c9">
@@ -116,10 +260,10 @@
                                 <!--<af:outputText value="#{row.ExtractId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractId.tooltip}"
                                                id="ot11"/>-->
-                                <af:link text="#{row.ExtractId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
-                                    <af:setPropertyListener from="#{row.TransactionStatus}" to="#{pageFlowScope.status}"
+                                <af:link text="#{row.ExtractId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"/>
+                                    <!--<af:setPropertyListener from="#{row.TransactionStatus}" to="#{pageFlowScope.status}"
                                                             type="action"/>
-                                </af:link>
+                                </af:link>-->
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.PeoplesoftTransactionId.label}"
                                        id="c11">

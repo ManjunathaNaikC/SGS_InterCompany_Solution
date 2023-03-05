@@ -26,6 +26,12 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
     <iterator Binds="CreateStlmtRVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
               id="CreateStlmtRVO1Iterator"/>
+    <iterator id="SgsIcInvoiceHeaderVO1Iterator" Binds="SgsIcInvoiceHeaderVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="SgsTransBCostAllocationVO1Iterator" Binds="SgsTransBCostAllocationVO1"
+              DataControl="SGSAppModuleDataControl" RangeSize="25"/>
+    <iterator id="SgsStatisticalDataVO1Iterator" Binds="SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <action IterBinding="CreateStlmtRVO1Iterator" id="CreateSettlement" InstanceName="SGSAppModuleDataControl.CreateStlmtRVO1"

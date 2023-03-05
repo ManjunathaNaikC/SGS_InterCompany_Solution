@@ -358,7 +358,7 @@
                                               readOnly="true">
                                     <f:validator binding="#{bindings.VoucherId.validator}"/>
                                 </af:inputText>
-                                <af:inputText value="#{bindings.VoucherNo.inputValue}" label="Voucher No"
+                                <af:inputText value="#{bindings.VoucherNo.inputValue}" label="Invoice No"
                                               required="#{bindings.VoucherNo.hints.mandatory}"
                                               columns="#{bindings.VoucherNo.hints.displayWidth}"
                                               maximumLength="#{bindings.VoucherNo.hints.precision}"
@@ -374,14 +374,14 @@
                                               readOnly="true">
                                     <f:validator binding="#{bindings.SourceModule.validator}"/>
                                 </af:inputText>
-                                <af:inputText value="#{bindings.TransactionType.inputValue}" label="Transaction Type"
+                                <!--<af:inputText value="#{bindings.TransactionType.inputValue}" label="Transaction Type"
                                               required="#{bindings.TransactionType.hints.mandatory}"
                                               columns="#{bindings.TransactionType.hints.displayWidth}"
                                               maximumLength="#{bindings.TransactionType.hints.precision}"
                                               shortDesc="#{bindings.TransactionType.hints.tooltip}" id="it56"
                                               readOnly="true">
                                     <f:validator binding="#{bindings.TransactionType.validator}"/>
-                                </af:inputText>
+                                </af:inputText>-->
                                 <af:inputText value="#{bindings.TransactionCategory.inputValue}"
                                               label="Transaction Category"
                                               required="#{bindings.TransactionCategory.hints.mandatory}"
@@ -447,7 +447,7 @@
                                               readOnly="true">
                                     <f:validator binding="#{bindings.FunctionalCurrency.validator}"/>
                                 </af:inputText>
-                                <af:inputText value="#{bindings.ForeignExchangeRate.inputValue}"
+                                <!--<af:inputText value="#{bindings.ForeignExchangeRate.inputValue}"
                                               label="Foreign Exchange Rate"
                                               required="#{bindings.ForeignExchangeRate.hints.mandatory}"
                                               columns="#{bindings.ForeignExchangeRate.hints.displayWidth}"
@@ -455,7 +455,7 @@
                                               shortDesc="#{bindings.ForeignExchangeRate.hints.tooltip}" id="it21"
                                               readOnly="true">
                                     <f:validator binding="#{bindings.ForeignExchangeRate.validator}"/>
-                                </af:inputText>
+                                </af:inputText>-->
                                 <af:inputText value="#{bindings.JournalId.inputValue}" label="Journal ID"
                                               required="#{bindings.JournalId.hints.mandatory}"
                                               columns="#{bindings.JournalId.hints.displayWidth}"

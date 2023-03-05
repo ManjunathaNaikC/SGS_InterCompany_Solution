@@ -227,8 +227,9 @@ public class AuthenticationBean {
         
         String buList = null;
         String natureOfExpenseList = null;
+        String inputProvider = null;
         String queryString =
-            "SELECT BU_ID,NATURE_OF_EXPENSE FROM USER_DATA_TENANT WHERE USER_ID ='" + user + "'";
+            "SELECT BU_ID,NATURE_OF_EXPENSE,INPUT_PROVIDER FROM USER_DATA_TENANT WHERE USER_ID ='" + user + "'";
         Connection conn = null;
         PreparedStatement pst = null;
         System.out.println("Query :: " + queryString);
@@ -242,6 +243,7 @@ public class AuthenticationBean {
             while (rs.next()) {
                 buList= (String) rs.getString(1);
                 natureOfExpenseList= (String) rs.getString(2);
+                inputProvider=(String) rs.getString(3);
             }
             
             if(null != buList){
@@ -257,6 +259,14 @@ public class AuthenticationBean {
             }else{
                 ADFContext.getCurrent().getSessionScope().put("natureOfExpenseList","none");
             }
+            
+            if(null != inputProvider){
+                System.out.println("natureOfExpenseList :: "+natureOfExpenseList); 
+                ADFContext.getCurrent().getSessionScope().put("inputProvider",inputProvider);
+            }else{
+                ADFContext.getCurrent().getSessionScope().put("inputProvider","none");
+            }
+            
             
 
         } catch (SQLException sqle) {

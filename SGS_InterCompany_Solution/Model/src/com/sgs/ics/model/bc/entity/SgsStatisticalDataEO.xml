@@ -515,7 +515,19 @@
     SQLType="DATE"
     Type="java.sql.Date"
     ColumnType="DATE"
-    TableName="SGS_STATISTICAL_DATA_TBL"/>
+    TableName="SGS_STATISTICAL_DATA_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.entity.SgsStatisticalDataEO.TRANSACTIONPERIOD_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.entity.SgsStatisticalDataEO.TRANSACTIONPERIOD_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="EMAILATTACHMENT"
     Precision="200"
@@ -523,11 +535,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_STATISTICAL_DATA_TBL">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="200"/>
-    </DesignTime>
-  </Attribute>
+    TableName="SGS_STATISTICAL_DATA_TBL"/>
   <Key
     Name="PKSGSSTATISTICALDATATBL"
     PrimaryKey="true">
@@ -538,4 +546,8 @@
       <Item Value="com.sgs.ics.model.bc.entity.SgsStatisticalDataEO.StatisticalDataId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

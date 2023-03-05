@@ -4,6 +4,18 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+        <iterator Binds="SgsBusinessUnitMasterVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsBusinessUnitMasterVO1Iterator"/>
+    <searchRegion Criteria="SgsBusinessUnitMasterVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsBusinessUnitMasterVO1Iterator" id="SgsBusinessUnitMasterVOCriteriaQuery"/>
+    <iterator Binds="SgsCostIdentificationRuleVO" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsCostIdentificationRuleVOIterator"/>
+    <searchRegion Binds="SgsCostIdentificationRuleVOIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsCostIdentificationRuleVOQuery"/>
+    <searchRegion Criteria="SgsCostIdentificationRuleVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsCostIdentificationRuleVOIterator" id="SgsCostIdentificationRuleVOCriteriaQuery"/>
     <taskFlow id="maintaskflow1" taskFlowId="/taskflows/main-task-flow.xml#main-task-flow" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>

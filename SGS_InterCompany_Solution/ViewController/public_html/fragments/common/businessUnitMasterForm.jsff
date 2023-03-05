@@ -52,21 +52,34 @@
                         shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it4" visible="false">
             <f:validator binding="#{bindings.DepartmentId.validator}"/>
           </af:inputText>
-          <af:inputText value="#{bindings.LegalEntity.inputValue}" label="#{bindings.LegalEntity.hints.label}"
+          <!--<af:inputText value="#{bindings.LegalEntity.inputValue}" label="#{bindings.LegalEntity.hints.label}"
                         required="#{bindings.LegalEntity.hints.mandatory}"
                         columns="#{bindings.LegalEntity.hints.displayWidth}"
                         maximumLength="#{bindings.LegalEntity.hints.precision}"
                         shortDesc="#{bindings.LegalEntity.hints.tooltip}" id="it5">
             <f:validator binding="#{bindings.LegalEntity.validator}"/>
-          </af:inputText>
-          <af:inputText value="#{bindings.BussinessUnitGeography.inputValue}"
+          </af:inputText>-->
+          <af:selectOneChoice value="#{bindings.LegalEntity1.inputValue}" label="#{bindings.LegalEntity1.label}"
+                              required="#{bindings.LegalEntity1.hints.mandatory}"
+                              shortDesc="#{bindings.LegalEntity1.hints.tooltip}" id="soc3">
+            <f:selectItems value="#{bindings.LegalEntity1.items}" id="si3"/>
+            <f:validator binding="#{bindings.LegalEntity1.validator}"/>
+          </af:selectOneChoice>
+          <!--<af:inputText value="#{bindings.BussinessUnitGeography.inputValue}"
                         label="#{bindings.BussinessUnitGeography.hints.label}"
                         required="#{bindings.BussinessUnitGeography.hints.mandatory}"
                         columns="#{bindings.BussinessUnitGeography.hints.displayWidth}"
                         maximumLength="#{bindings.BussinessUnitGeography.hints.precision}"
                         shortDesc="#{bindings.BussinessUnitGeography.hints.tooltip}" id="it6">
             <f:validator binding="#{bindings.BussinessUnitGeography.validator}"/>
-          </af:inputText>
+          </af:inputText>-->
+          <af:selectOneChoice value="#{bindings.BussinessUnitGeography1.inputValue}"
+                              label="#{bindings.BussinessUnitGeography1.label}"
+                              required="#{bindings.BussinessUnitGeography1.hints.mandatory}"
+                              shortDesc="#{bindings.BussinessUnitGeography1.hints.tooltip}" id="soc4">
+            <f:selectItems value="#{bindings.BussinessUnitGeography1.items}" id="si4"/>
+            <f:validator binding="#{bindings.BussinessUnitGeography1.validator}"/>
+          </af:selectOneChoice>
           <!--<af:inputText value="#{bindings.BussinessUnitZone.inputValue}"
                         label="#{bindings.BussinessUnitZone.hints.label}"
                         required="#{bindings.BussinessUnitZone.hints.mandatory}"
@@ -155,14 +168,14 @@
                         shortDesc="#{bindings.AlternateBu.hints.tooltip}" id="it16">
             <f:validator binding="#{bindings.AlternateBu.validator}"/>
           </af:inputText>
-          <af:inputText value="#{bindings.BusinessControllers.inputValue}"
+          <!--<af:inputText value="#{bindings.BusinessControllers.inputValue}"
                         label="#{bindings.BusinessControllers.hints.label}"
                         required="#{bindings.BusinessControllers.hints.mandatory}"
                         columns="#{bindings.BusinessControllers.hints.displayWidth}"
                         maximumLength="#{bindings.BusinessControllers.hints.precision}"
                         shortDesc="#{bindings.BusinessControllers.hints.tooltip}" id="it17">
             <f:validator binding="#{bindings.BusinessControllers.validator}"/>
-          </af:inputText>
+          </af:inputText>-->
           <af:inputDate value="#{bindings.EFFECTIVESTARTDATE.inputValue}"
                         label="#{bindings.EFFECTIVESTARTDATE.hints.label}"
                         required="#{bindings.EFFECTIVESTARTDATE.hints.mandatory}"

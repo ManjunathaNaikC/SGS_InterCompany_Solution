@@ -1,0 +1,26 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupNtrExpVO1", name="bLookupType")
+def bLookupType_SgsLookupNtrExpVO1_BindVariable_BoundParameter()
+{
+'NATURE_OF_EXPENSE'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupSPLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSPLEVO1_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupSRLEVO1", name="bLookupType")
+def bLookupType_SgsLookupSRLEVO1_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+

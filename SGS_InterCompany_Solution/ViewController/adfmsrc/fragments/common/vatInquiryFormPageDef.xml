@@ -104,5 +104,15 @@
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_Rcm" id="Rcm1" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_VATAPPLICATIBILITY" id="VATAPPLICATIBILITY"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_ServProvider" id="ServProvider1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_ServReceiver" id="ServReceiver1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_SERVICEPROVIDERLEGALENTITY"
+          id="SERVICEPROVIDERLEGALENTITY1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsVatTblVO1Iterator" StaticList="false" Uses="LOV_SERVICERECEIVERLEGALENTITY"
+          id="SERVICERECEIVERLEGALENTITY1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

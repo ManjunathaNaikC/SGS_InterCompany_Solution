@@ -60,6 +60,7 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         UPDATEDBY,
         SERVICEPROVIDERLEGALENTITY,
         SERVICERECEIVERLEGALENTITY,
+        WHTAPPLICATIBILITY,
         SgsTdsWhtIdentificationEO,
         SgsTdsWhtRateApplicabilityEO;
         private static AttributesEnum[] vals = null;
@@ -120,6 +121,7 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
     public static final int UPDATEDBY = AttributesEnum.UPDATEDBY.index();
     public static final int SERVICEPROVIDERLEGALENTITY = AttributesEnum.SERVICEPROVIDERLEGALENTITY.index();
     public static final int SERVICERECEIVERLEGALENTITY = AttributesEnum.SERVICERECEIVERLEGALENTITY.index();
+    public static final int WHTAPPLICATIBILITY = AttributesEnum.WHTAPPLICATIBILITY.index();
     public static final int SGSTDSWHTIDENTIFICATIONEO = AttributesEnum.SgsTdsWhtIdentificationEO.index();
     public static final int SGSTDSWHTRATEAPPLICABILITYEO = AttributesEnum.SgsTdsWhtRateApplicabilityEO.index();
 
@@ -666,6 +668,22 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
      */
     public void setSERVICERECEIVERLEGALENTITY(String value) {
         setAttributeInternal(SERVICERECEIVERLEGALENTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for WHTAPPLICATIBILITY, using the alias name WHTAPPLICATIBILITY.
+     * @return the value of WHTAPPLICATIBILITY
+     */
+    public String getWHTAPPLICATIBILITY() {
+        return (String) getAttributeInternal(WHTAPPLICATIBILITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for WHTAPPLICATIBILITY.
+     * @param value value to set the WHTAPPLICATIBILITY
+     */
+    public void setWHTAPPLICATIBILITY(String value) {
+        setAttributeInternal(WHTAPPLICATIBILITY, value);
     }
 
     /**

@@ -694,5 +694,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getSgsGeo2SumValuesVO1() {
         return (ViewObjectImpl) findViewObject("SgsGeo2SumValuesVO1");
     }
+
+    /**
+     * Container's getter for RejectionReasonLOVVO1.
+     * @return RejectionReasonLOVVO1
+     */
+    public ViewObjectImpl getRejectionReasonLOVVO1() {
+        return (ViewObjectImpl) findViewObject("RejectionReasonLOVVO1");
+    }
 }
 

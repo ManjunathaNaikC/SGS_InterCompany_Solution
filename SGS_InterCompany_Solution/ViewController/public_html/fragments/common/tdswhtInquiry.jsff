@@ -16,7 +16,8 @@
                       model="#{bindings.SgsTdsWhtTblVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsTdsWhtTblVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsTdsWhtTblVOCriteriaQuery.processQueryOperation}"
-                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="2" maxColumns="2"
+                      styleClass="setupHeader"/>
           </af:panelHeader>
           <af:panelCollection id="pc1" styleClass="AFStretchWidth">
             <f:facet name="menus"/>
@@ -45,7 +46,7 @@
                       emptyText="#{bindings.SgsTdsWhtTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTdsWhtTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTdsWhtTblVO1.collectionModel.makeCurrent}" rowSelection="single"
-                      fetchSize="#{bindings.SgsTdsWhtTblVO1.rangeSize}" id="resId1" styleClass="AFStretchWidth"
+                      fetchSize="#{bindings.SgsTdsWhtTblVO1.rangeSize}" id="resId1" styleClass="setup"
                       partialTriggers="::b2 ::b3" scrollPolicy="page">
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.TdsWhtId}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.tooltip}"
@@ -53,12 +54,28 @@
                 <af:link text="#{row.TdsWhtId}" id="l1" action="EDIT"/>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.label}" id="resId1c2">
-                <af:outputText value="#{row.ServReceiver}"
-                               shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.tooltip}" id="ot2"/>
+                <!--<af:outputText value="#{row.ServReceiver}"
+                               shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.tooltip}" id="ot2"/>-->
+                <af:selectOneChoice value="#{row.bindings.ServReceiver.inputValue}"
+                                    label="#{row.bindings.ServReceiver.label}"
+                                    required="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.tooltip}" id="soc3"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.ServReceiver.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.ServReceiver.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.label}" id="resId1c3">
-                <af:outputText value="#{row.ServProvider}"
-                               shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.tooltip}" id="ot3"/>
+                <!--<af:outputText value="#{row.ServProvider}"
+                               shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.tooltip}" id="ot3"/>-->
+                <af:selectOneChoice value="#{row.bindings.ServProvider.inputValue}"
+                                    label="#{row.bindings.ServProvider.label}"
+                                    required="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.tooltip}" id="soc4"
+                                    readOnly="true">
+                  <f:selectItems value="#{row.bindings.ServProvider.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.ServProvider.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.label}" id="resId1c4">
                 <!--<af:outputText value="#{row.DeductionPoint}"
@@ -111,14 +128,30 @@
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.WhtExpenseAcc.tooltip}" id="ot9"/>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c2">
-                <af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
+                <!--<af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}"
-                               id="ot15"/>
+                               id="ot15"/>-->
+                <af:selectOneChoice value="#{row.bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
+                                    label="#{row.bindings.SERVICEPROVIDERLEGALENTITY.label}"
+                                    required="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}"
+                                    id="soc5" readOnly="true">
+                  <f:selectItems value="#{row.bindings.SERVICEPROVIDERLEGALENTITY.items}" id="si5"/>
+                  <f:validator binding="#{row.bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c3">
-                <af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
+                <!--<af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}"
-                               id="ot16"/>
+                               id="ot16"/>-->
+                <af:selectOneChoice value="#{row.bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
+                                    label="#{row.bindings.SERVICERECEIVERLEGALENTITY.label}"
+                                    required="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}"
+                                    id="soc6" readOnly="true">
+                  <f:selectItems value="#{row.bindings.SERVICERECEIVERLEGALENTITY.items}" id="si6"/>
+                  <f:validator binding="#{row.bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.label}" id="resId1c10">
                 <af:outputText value="#{row.EffectiveFrom}"

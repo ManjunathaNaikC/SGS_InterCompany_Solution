@@ -94,6 +94,42 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsAddExpQuFVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsAddExpQuFVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsLookupRejectedVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsStatisticalDataVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupGeoVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsStatisticalDataVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_CostGroup"
     ListVOName="CostGroupLOV1"
@@ -135,6 +171,55 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="StatisticalDataCategory"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ADDTEXPENSECAT"
+    ListVOName="SgsAddExpQuFVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RejectedReason"
+    ListVOName="SgsLookupRejectedVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RejectedReason"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_STATGEOGRAPHY"
+    ListVOName="SgsLookupGeoVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="STATGEOGRAPHY"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -324,13 +409,16 @@
     PrecisionRule="true"
     EntityAttrName="RejectedReason"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="REJECTED_REASON">
+    AliasName="REJECTED_REASON"
+    LOVName="LOV_RejectedReason">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.RejectedReason_LABEL"/>
         <FIELDORDER
           Value="13.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -783,11 +871,15 @@
     PrecisionRule="true"
     EntityAttrName="ADDTEXPENSECAT"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="ADDT_EXPENSE_CAT">
+    AliasName="ADDT_EXPENSE_CAT"
+    LOVName="LOV_ADDTEXPENSECAT">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.ADDTEXPENSECAT_LABEL"/>
+
+        <CONTROLTYPE
+          Value="choice"/>
         <FIELDORDER
           Value="42.0"/>
       </SchemaBasedProperties>
@@ -828,13 +920,16 @@
     PrecisionRule="true"
     EntityAttrName="STATGEOGRAPHY"
     EntityUsage="SgsStatisticalDataEO"
-    AliasName="STAT_GEOGRAPHY">
+    AliasName="STAT_GEOGRAPHY"
+    LOVName="LOV_STATGEOGRAPHY">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.STATGEOGRAPHY_LABEL"/>
         <FIELDORDER
           Value="45.0"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -868,6 +963,28 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="EMAILATTACHMENT"
+    PrecisionRule="true"
+    EntityAttrName="EMAILATTACHMENT"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="EMAIL_ATTACHMENT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.EMAILATTACHMENT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StatSelectedRecord"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

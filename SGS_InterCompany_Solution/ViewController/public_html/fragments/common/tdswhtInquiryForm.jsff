@@ -17,36 +17,88 @@
                           shortDesc="#{bindings.TdsWhtId.hints.tooltip}" id="it1">
               <f:validator binding="#{bindings.TdsWhtId.validator}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.ServReceiver.inputValue}" label="#{bindings.ServReceiver.hints.label}"
+            <!--<af:inputText value="#{bindings.ServReceiver.inputValue}" label="#{bindings.ServReceiver.hints.label}"
                           required="#{bindings.ServReceiver.hints.mandatory}"
                           columns="#{bindings.ServReceiver.hints.displayWidth}"
                           maximumLength="#{bindings.ServReceiver.hints.precision}"
                           shortDesc="#{bindings.ServReceiver.hints.tooltip}" id="it2" showRequired="true">
               <f:validator binding="#{bindings.ServReceiver.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
+            </af:inputText>-->
+            <!--<af:selectOneChoice value="#{bindings.ServReceiver1.inputValue}" label="#{bindings.ServReceiver1.label}"
+                                required="#{bindings.ServReceiver1.hints.mandatory}"
+                                shortDesc="#{bindings.ServReceiver1.hints.tooltip}" id="soc8">
+              <f:selectItems value="#{bindings.ServReceiver1.items}" id="si8"/>
+              <f:validator binding="#{bindings.ServReceiver1.validator}"/>
+            </af:selectOneChoice>-->
+            <af:selectOneChoice value="#{bindings.ServReceiver1.inputValue}" label="#{bindings.ServReceiver1.label}"
+                                required="#{bindings.ServReceiver1.hints.mandatory}"
+                                shortDesc="#{bindings.ServReceiver1.hints.tooltip}" id="soc8">
+              <f:selectItems value="#{bindings.ServReceiver1.items}" id="si8"/>
+              <f:validator binding="#{bindings.ServReceiver1.validator}"/>
+            </af:selectOneChoice>
+            <!--<af:inputText value="#{bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
                           label="#{bindings.SERVICERECEIVERLEGALENTITY.hints.label}"
                           required="#{bindings.SERVICERECEIVERLEGALENTITY.hints.mandatory}"
                           columns="#{bindings.SERVICERECEIVERLEGALENTITY.hints.displayWidth}"
                           maximumLength="#{bindings.SERVICERECEIVERLEGALENTITY.hints.precision}"
                           shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it25">
               <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
+            </af:inputText>-->
+            <!--<af:selectOneChoice value="#{bindings.SERVICERECEIVERLEGALENTITY1.inputValue}"
+                                label="#{bindings.SERVICERECEIVERLEGALENTITY1.label}"
+                                required="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.mandatory}"
+                                shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.tooltip}" id="soc9">
+              <f:selectItems value="#{bindings.SERVICERECEIVERLEGALENTITY1.items}" id="si9"/>
+              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY1.validator}"/>
+            </af:selectOneChoice>-->
+            <af:selectOneChoice value="#{bindings.SERVICERECEIVERLEGALENTITY1.inputValue}"
+                                label="#{bindings.SERVICERECEIVERLEGALENTITY1.label}"
+                                required="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.mandatory}"
+                                shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.tooltip}" id="soc9">
+              <f:selectItems value="#{bindings.SERVICERECEIVERLEGALENTITY1.items}" id="si9"/>
+              <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY1.validator}"/>
+            </af:selectOneChoice>
+            <!--<af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
                           required="#{bindings.ServProvider.hints.mandatory}"
                           columns="#{bindings.ServProvider.hints.displayWidth}"
                           maximumLength="#{bindings.ServProvider.hints.precision}"
                           shortDesc="#{bindings.ServProvider.hints.tooltip}" id="it3" showRequired="true">
               <f:validator binding="#{bindings.ServProvider.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
+            </af:inputText>-->
+            <!--<af:selectOneChoice value="#{bindings.ServProvider1.inputValue}" label="#{bindings.ServProvider1.label}"
+                                required="#{bindings.ServProvider1.hints.mandatory}"
+                                shortDesc="#{bindings.ServProvider1.hints.tooltip}" id="soc10">
+              <f:selectItems value="#{bindings.ServProvider1.items}" id="si10"/>
+              <f:validator binding="#{bindings.ServProvider1.validator}"/>
+            </af:selectOneChoice>-->
+            <af:selectOneChoice value="#{bindings.ServProvider1.inputValue}" label="#{bindings.ServProvider1.label}"
+                                required="#{bindings.ServProvider1.hints.mandatory}"
+                                shortDesc="#{bindings.ServProvider1.hints.tooltip}" id="soc10">
+              <f:selectItems value="#{bindings.ServProvider1.items}" id="si10"/>
+              <f:validator binding="#{bindings.ServProvider1.validator}"/>
+            </af:selectOneChoice>
+            <!--<af:inputText value="#{bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
                           label="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.label}"
                           required="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.mandatory}"
                           columns="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.displayWidth}"
                           maximumLength="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.precision}"
                           shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it12">
               <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
-            </af:inputText>
+            </af:inputText>-->
+            <!--<af:selectOneChoice value="#{bindings.SERVICEPROVIDERLEGALENTITY1.inputValue}"
+                                label="#{bindings.SERVICEPROVIDERLEGALENTITY1.label}"
+                                required="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.mandatory}"
+                                shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.tooltip}" id="soc11">
+              <f:selectItems value="#{bindings.SERVICEPROVIDERLEGALENTITY1.items}" id="si11"/>
+              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY1.validator}"/>
+            </af:selectOneChoice>-->
+            <af:selectOneChoice value="#{bindings.SERVICEPROVIDERLEGALENTITY1.inputValue}"
+                                label="#{bindings.SERVICEPROVIDERLEGALENTITY1.label}"
+                                required="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.mandatory}"
+                                shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.tooltip}" id="soc11">
+              <f:selectItems value="#{bindings.SERVICEPROVIDERLEGALENTITY1.items}" id="si11"/>
+              <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY1.validator}"/>
+            </af:selectOneChoice>
             <!--<af:inputText value="#{bindings.DeductionPoint.inputValue}" label="#{bindings.DeductionPoint.hints.label}"
                           required="#{bindings.DeductionPoint.hints.mandatory}"
                           columns="#{bindings.DeductionPoint.hints.displayWidth}"
@@ -92,6 +144,13 @@
                           shortDesc="#{bindings.WhtLibilityAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.WhtLibilityAcc.validator}"/>
             </af:inputText>
+            <af:selectOneChoice value="#{bindings.WHTAPPLICATIBILITY.inputValue}"
+                                label="#{bindings.WHTAPPLICATIBILITY.label}"
+                                required="#{bindings.WHTAPPLICATIBILITY.hints.mandatory}"
+                                shortDesc="#{bindings.WHTAPPLICATIBILITY.hints.tooltip}" id="soc2">
+              <f:selectItems value="#{bindings.WHTAPPLICATIBILITY.items}" id="si2"/>
+              <f:validator binding="#{bindings.WHTAPPLICATIBILITY.validator}"/>
+            </af:selectOneChoice>
             <af:inputText value="#{bindings.WhtCreditAcc.inputValue}" label="#{bindings.WhtCreditAcc.hints.label}"
                           required="#{bindings.WhtCreditAcc.hints.mandatory}"
                           columns="#{bindings.WhtCreditAcc.hints.displayWidth}"
@@ -202,7 +261,7 @@
                         selectedRowKeys="#{bindings.SgsTdsWhtIdentificationVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.SgsTdsWhtIdentificationVO1.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.SgsTdsWhtIdentificationVO1.rangeSize}" id="t1"
-                        partialTriggers="::b3 ::b4 :::b5 :::pc2:b6 :::pc2:b7" styleClass="AFStertchWidth"
+                        partialTriggers="::b3 ::b4 :::b5 :::pc2:b6 :::pc2:b7" styleClass="setup"
                         columnStretching="column:c4">
                 <!--<af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.TdsWhtIdenSeq.label}" id="c1">
                   <af:inputText value="#{row.bindings.TdsWhtIdenSeq.inputValue}"
@@ -350,7 +409,7 @@
                         selectedRowKeys="#{bindings.SgsTdsWhtRateApplicabilityVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.SgsTdsWhtRateApplicabilityVO1.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.SgsTdsWhtRateApplicabilityVO1.rangeSize}" id="t4"
-                        partialTriggers="::b6 ::b7" styleClass="AFStretchWidth" columnStretching="column:c14">
+                        partialTriggers="::b6 ::b7" styleClass="setup" columnStretching="column:c14">
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.CostIdenId.label}" id="c10"
                            visible="false">
                   <af:inputText value="#{row.bindings.CostIdenId.inputValue}"

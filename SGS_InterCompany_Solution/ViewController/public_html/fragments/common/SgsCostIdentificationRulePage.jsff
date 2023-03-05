@@ -63,7 +63,7 @@
                                               queryListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery1.processQuery}"
                                               queryOperationListener="#{bindings.SgsCostIdentificationRuleVOCriteriaQuery1.processQueryOperation}"
                                                resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="3"
-                                          maxColumns="4"/>
+                                          maxColumns="4" styleClass="setupHeader"/>
 
                         </af:panelHeader>
                         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
@@ -219,7 +219,7 @@
                                       queryListener="#{bindings.SgsCostIdentificationRuleVOQuery.processQuery}"
                                       varStatus="vs" id="resId1" partialTriggers="::b1" 
                                       columnStretching="last" inlineStyle="height:250px;" autoHeightRows="10"
-                                      scrollPolicy="page">
+                                      scrollPolicy="page" styleClass="setup">
                                 <!--<af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.label}"

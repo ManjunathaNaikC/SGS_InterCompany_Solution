@@ -17,3 +17,17 @@ def bLookupType_SgsLookupAlllocBasisVO1_BindVariable_BoundParameter()
 'ALLOCATION_BASIS'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupRejectedVO1", name="bLookupType")
+def bLookupType_SgsLookupRejectedVO1_BindVariable_BoundParameter()
+{
+'STAT_REJECTION_REASON'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupGeoVO1", name="bLookupType")
+def bLookupType_SgsLookupGeoVO1_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+

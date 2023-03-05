@@ -271,5 +271,38 @@ af|button:text-only{
   text-decoration: none;
 }*/
 
+.setup af|column::column-header-cell {
+    /*Table Header for Setup Screens*/
+
+    height: 35px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: none;
+    background-color: #2980b9;
+    vertical-align: middle;
+    border-left: 1px solid #BF691E;
+}
+
+/*.setupHeader af|button.p_AFTextOnly.p_AFActionDisabled {*/
+     /*styles for the af:query search and reset buttons*/ 
+
+    /*background-color: #007bff;
+    color: #ffffff;
+    font-size: 14px;
+    background-image: -webkit-linear-gradient(bottom, #73a9fa 0%, #73a9fa 50%, #73a9fa 96.36%, #73a9fa 100%);
+    text-shadow: none;
+    border-radius: 15px 15px 15px 15px;
+    vertical-align: middle;
+    width: 85px;
+    height: 30px;
+    text-align: center;
+    padding: 2px;
+}*/
+
+span.AFRequiredIconStyle {
+margin-left: -10px;
+}
 
 

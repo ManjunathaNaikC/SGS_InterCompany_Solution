@@ -575,6 +575,60 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="CGSTAMNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="CGST_AMNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="GSTRATE"
+    Precision="10"
+    Scale="2"
+    ColumnName="GST_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="IGSTAMNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="IGST_AMNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="SGSTAMNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="SGST_AMNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="VATAMNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="VAT_AMNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="VATRATE"
+    Precision="10"
+    Scale="2"
+    ColumnName="VAT_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_LINE"/>
   <AccessorAttribute
     Name="SgsIcInvoiceHeaderEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

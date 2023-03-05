@@ -51,6 +51,12 @@
           <Item Value="UpdatedBy"/>
           <Item Value="NATUREOFEXPENSE"/>
           <Item Value="WHTAMOUNT"/>
+          <Item Value="GSTRATE"/>
+          <Item Value="IGSTAMNT"/>
+          <Item Value="SGSTAMNT"/>
+          <Item Value="VATAMNT"/>
+          <Item Value="VATRATE"/>
+          <Item Value="CGSTAMNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

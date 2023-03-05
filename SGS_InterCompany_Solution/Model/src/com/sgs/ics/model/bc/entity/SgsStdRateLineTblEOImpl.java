@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 import java.sql.Date;
 
+import oracle.adf.share.ADFContext;
 import oracle.adf.share.logging.ADFLogger;
 
 import oracle.jbo.AttributeList;
@@ -65,6 +66,8 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
         OPERATINGUNIT,
         NatureofExpense,
         STDRATEGEOGRAPHY,
+        ADDTEXPENSECAT,
+        CONCATEID,
         SgsStandardRateSetupEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -128,6 +131,8 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     public static final int OPERATINGUNIT = AttributesEnum.OPERATINGUNIT.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NatureofExpense.index();
     public static final int STDRATEGEOGRAPHY = AttributesEnum.STDRATEGEOGRAPHY.index();
+    public static final int ADDTEXPENSECAT = AttributesEnum.ADDTEXPENSECAT.index();
+    public static final int CONCATEID = AttributesEnum.CONCATEID.index();
     public static final int SGSSTANDARDRATESETUPEO = AttributesEnum.SgsStandardRateSetupEO.index();
 
     /**
@@ -739,6 +744,38 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for ADDTEXPENSECAT, using the alias name ADDTEXPENSECAT.
+     * @return the value of ADDTEXPENSECAT
+     */
+    public String getADDTEXPENSECAT() {
+        return (String) getAttributeInternal(ADDTEXPENSECAT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ADDTEXPENSECAT.
+     * @param value value to set the ADDTEXPENSECAT
+     */
+    public void setADDTEXPENSECAT(String value) {
+        setAttributeInternal(ADDTEXPENSECAT, value);
+    }
+
+    /**
+     * Gets the attribute value for CONCATEID, using the alias name CONCATEID.
+     * @return the value of CONCATEID
+     */
+    public String getCONCATEID() {
+        return (String) getAttributeInternal(CONCATEID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CONCATEID.
+     * @param value value to set the CONCATEID
+     */
+    public void setCONCATEID(String value) {
+        setAttributeInternal(CONCATEID, value);
+    }
+
+    /**
      * @return the associated entity SgsStandardRateSetupEOImpl.
      */
     public SgsStandardRateSetupEOImpl getSgsStandardRateSetupEO() {
@@ -792,7 +829,51 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
+            String natureOfExpense="";
+            String inputProvider="";
+            String addExpenseQuilfier="";
+            if(getNatureofExpense() != null){ 
+                natureOfExpense = getNatureofExpense().toUpperCase().replaceAll("\\s", "");
+            }
+            String inputProviderValue= (String)ADFContext.getCurrent().getSessionScope().get("INPUTPROVIDER");
+            if(null != inputProviderValue){
+                inputProvider=inputProviderValue.toUpperCase().replaceAll("\\s", "");
+            }
+            System.out.println("inputProvider At Update"+inputProvider);
+//            if(getInputProvider() != null){ - Need to get input provider from parent VO line -> SgsStandardRateSetupEO
+//                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+//            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
+        }else if (operation == DML_INSERT) {
+           
+            String natureOfExpense="";
+            String inputProvider="";
+            String addExpenseQuilfier="";
+            if(getNatureofExpense() != null){
+                natureOfExpense = getNatureofExpense().toUpperCase().replaceAll("\\s", "");
+            }
+            
+           // ADFContext.getCurrent().getPageFlowScope().get("INPUTPROVIDER");
+            
+            //System.out.println("Input Provide value in EOIMPL"+(String)ADFContext.getCurrent().getSessionScope().get("INPUTPROVIDER"));
+            String inputProviderValue= (String)ADFContext.getCurrent().getSessionScope().get("INPUTPROVIDER");
+            if(null != inputProviderValue){
+                inputProvider=inputProviderValue.toUpperCase().replaceAll("\\s", "");
+            }
+            System.out.println("inputProvider At INSERT"+inputProvider);
+//            if(getInputProvider() != null){
+//                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+//            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         }
+        
+    
 
         super.doDML(operation, e);
     }

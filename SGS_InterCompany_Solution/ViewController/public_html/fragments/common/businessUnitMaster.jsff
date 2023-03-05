@@ -16,7 +16,8 @@
                       model="#{bindings.SgsBusinessUnitMasterVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsBusinessUnitMasterVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsBusinessUnitMasterVOCriteriaQuery.processQueryOperation}"
-                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="3" maxColumns="2"/>
+                      resultComponentId="::pc1:resId1" saveQueryMode="hidden" rows="3" maxColumns="2"
+                      styleClass="setupHeader"/>
           </af:panelHeader>
           <af:panelCollection id="pc1" styleClass="AFStretchWidth">
             <f:facet name="menus"/>
@@ -50,7 +51,7 @@
                       selectedRowKeys="#{bindings.SgsBusinessUnitMasterVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsBusinessUnitMasterVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsBusinessUnitMasterVO1.rangeSize}" id="resId1"
-                      partialTriggers="::b2" styleClass="AFStretchWidth" scrollPolicy="page">
+                      partialTriggers="::b2" styleClass="setup" scrollPolicy="page">
               <!--<af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitId.label}" id="resId1c1">
                 <af:outputText value="#{row.BussinessUnitId}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitId.tooltip}" id="ot1"/>
@@ -76,14 +77,30 @@
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.label}" id="resId1c5"
               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.name}">
-                <af:outputText value="#{row.LegalEntity}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}" id="ot5"/>
+                <!--<af:outputText value="#{row.LegalEntity}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}" id="ot5"/>-->
+                <af:selectOneChoice value="#{row.bindings.LegalEntity.inputValue}"
+                                    label="#{row.bindings.LegalEntity.label}"
+                                    required="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.mandatory}"
+                                    shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.LegalEntity.tooltip}"
+                                    id="soc3" readOnly="true">
+                  <f:selectItems value="#{row.bindings.LegalEntity.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.LegalEntity.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.label}"
                          id="resId1c6"  sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.name}">
-                <af:outputText value="#{row.BussinessUnitGeography}"
+                <!--<af:outputText value="#{row.BussinessUnitGeography}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.tooltip}"
-                               id="ot6"/>
+                               id="ot6"/>-->
+                <af:selectOneChoice value="#{row.bindings.BussinessUnitGeography.inputValue}"
+                                    label="#{row.bindings.BussinessUnitGeography.label}"
+                                    required="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.mandatory}"
+                                    shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitGeography.tooltip}"
+                                    id="soc4" readOnly="true">
+                  <f:selectItems value="#{row.bindings.BussinessUnitGeography.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.BussinessUnitGeography.validator}"/>
+                </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.label}"
                          id="resId1c7"  sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitStatus.name}">
@@ -111,52 +128,13 @@
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.SubLedgerApplicability.tooltip}"
                                id="ot9"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.label}"
-                         id="resId1c10" sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.name}">
-                <af:outputText value="#{row.EFFECTIVESTARTDATE}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.tooltip}"
-                               id="ot10">
-                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.label}" id="resId1c11"
-              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.name}">
-                <af:outputText value="#{row.EFFECTIVEENDDATE}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.tooltip}"
-                               id="ot11">
-                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.label}" id="resId1c12"
-              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.name}">
-                <af:outputText value="#{row.CreatedBy}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.tooltip}" id="ot12"/>
-              </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.label}" id="resId1c13"
-              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.name}">
-                <af:outputText value="#{row.CreatedDate}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.tooltip}" id="ot13">
-                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.label}" id="resId1c14"
-               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.name}">
-                <af:outputText value="#{row.UpdatedDate}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.tooltip}" id="ot14">
-                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.label}" id="resId1c15"
-              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.name}">
-                <af:outputText value="#{row.UpdatedBy}"
-                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.tooltip}" id="ot15"/>
-              </af:column>
-              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.label}"
+             
+              <!--<af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.label}"
                          id="resId1c16" sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.name}">
                 <af:outputText value="#{row.BusinessControllers}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BusinessControllers.tooltip}"
                                id="ot16"/>
-              </af:column>
+              </af:column>-->
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.label}" id="resId1c17"
               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitZone.name}">
                 <!--<af:outputText value="#{row.BussinessUnitZone}"
@@ -197,6 +175,46 @@
               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.name}">
                 <af:outputText value="#{row.PayingBu}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.PayingBu.tooltip}" id="ot22"/>
+              </af:column>
+               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.label}"
+                         id="resId1c10" sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.name}">
+                <af:outputText value="#{row.EFFECTIVESTARTDATE}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.tooltip}"
+                               id="ot10">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVESTARTDATE.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.label}" id="resId1c11"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.name}">
+                <af:outputText value="#{row.EFFECTIVEENDDATE}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.tooltip}"
+                               id="ot11">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.EFFECTIVEENDDATE.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.label}" id="resId1c12"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.name}">
+                <af:outputText value="#{row.CreatedBy}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedBy.tooltip}" id="ot12"/>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.label}" id="resId1c13"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.name}">
+                <af:outputText value="#{row.CreatedDate}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.tooltip}" id="ot13">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.CreatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.label}" id="resId1c14"
+               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.name}">
+                <af:outputText value="#{row.UpdatedDate}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.tooltip}" id="ot14">
+                  <af:convertDateTime pattern="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.label}" id="resId1c15"
+              sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.name}">
+                <af:outputText value="#{row.UpdatedBy}"
+                               shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.UpdatedBy.tooltip}" id="ot15"/>
               </af:column>
             </af:table>
           </af:panelCollection>

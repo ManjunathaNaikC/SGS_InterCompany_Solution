@@ -35,33 +35,65 @@
     </Properties>
   </Variable>
   <Variable
-    Name="bSpgeography"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bSPLegalEntity"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bSPBusinessUnit"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bSRGeography"
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <Variable
     Name="bSRLegalEntity"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <Variable
-    Name="bSRBusinessUnit"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
   <ViewAccessor
     Name="SgsAddExpQuFVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsAddExpQuFVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsLookupNtrExpVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="sgsMarkUpRateMasterVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupSPLEVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="sgsMarkUpRateMasterVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupSRLEVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="sgsMarkUpRateMasterVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_ADDITIONALEXPQUALIFIER"
     ListVOName="SgsAddExpQuFVO1"
@@ -76,6 +108,57 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NatureOfExpenses"
+    ListVOName="SgsLookupNtrExpVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NatureOfExpenses"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SpLegalEntity"
+    ListVOName="SgsLookupSPLEVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SpLegalEntity"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SrLegalEntity"
+    ListVOName="SgsLookupSRLEVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SrLegalEntity"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -178,13 +261,16 @@
     PrecisionRule="true"
     EntityAttrName="NatureOfExpenses"
     EntityUsage="sgsMarkUpRateMasterEO"
-    AliasName="NATURE_OF_EXPENSES">
+    AliasName="NATURE_OF_EXPENSES"
+    LOVName="LOV_NatureOfExpenses">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="0.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.NatureOfExpenses_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -223,13 +309,16 @@
     PrecisionRule="true"
     EntityAttrName="SpLegalEntity"
     EntityUsage="sgsMarkUpRateMasterEO"
-    AliasName="SP_LEGAL_ENTITY">
+    AliasName="SP_LEGAL_ENTITY"
+    LOVName="LOV_SpLegalEntity">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="2.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.SpLegalEntity_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -268,13 +357,16 @@
     PrecisionRule="true"
     EntityAttrName="SrLegalEntity"
     EntityUsage="sgsMarkUpRateMasterEO"
-    AliasName="SR_LEGAL_ENTITY">
+    AliasName="SR_LEGAL_ENTITY"
+    LOVName="LOV_SrLegalEntity">
     <Properties>
       <SchemaBasedProperties>
         <FIELDORDER
           Value="5.0"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.sgsMarkUpRateMasterVO.SrLegalEntity_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -360,43 +452,11 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="SpBusinessUnit"
-        ViewAttribute="SpBusinessUnit"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSPBusinessUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SpGeography"
-        ViewAttribute="SpGeography"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSpgeography"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="SpLegalEntity"
         ViewAttribute="SpLegalEntity"
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSPLegalEntity"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SrBusinessUnit"
-        ViewAttribute="SrBusinessUnit"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSRBusinessUnit"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SrGeography"
-        ViewAttribute="SrGeography"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bSRGeography"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

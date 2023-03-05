@@ -73,7 +73,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         EMPGRADE,
         STATGEOGRAPHY,
         APPROVESTATUS,
-        TRANSACTIONPERIOD;
+        TRANSACTIONPERIOD,
+        EMAILATTACHMENT;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -146,6 +147,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int STATGEOGRAPHY = AttributesEnum.STATGEOGRAPHY.index();
     public static final int APPROVESTATUS = AttributesEnum.APPROVESTATUS.index();
     public static final int TRANSACTIONPERIOD = AttributesEnum.TRANSACTIONPERIOD.index();
+    public static final int EMAILATTACHMENT = AttributesEnum.EMAILATTACHMENT.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -934,6 +936,23 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
 
 
     /**
+     * Gets the attribute value for EMAILATTACHMENT, using the alias name EMAILATTACHMENT.
+     * @return the value of EMAILATTACHMENT
+     */
+    public String getEMAILATTACHMENT() {
+        return (String) getAttributeInternal(EMAILATTACHMENT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for EMAILATTACHMENT.
+     * @param value value to set the EMAILATTACHMENT
+     */
+    public void setEMAILATTACHMENT(String value) {
+        setAttributeInternal(EMAILATTACHMENT, value);
+    }
+
+
+    /**
      * @param statisticalDataId key constituent
 
      * @return a Key object based on given key constituents.
@@ -982,14 +1001,27 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        String natureOfExpense="";
+        String inputProvider="";
+        String addExpenseQuilfier="";
         if (operation == DML_UPDATE) {
             CommonUtils util= new CommonUtils();
             Object user= (Object)util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
             setUpdatedDate(new java.sql.Date(new java.util.Date().getTime()));
-            String natureOfExpense="";
-            String inputProvider="";
-            String addExpenseQuilfier="";
+            
+            if(getNATUREOFEXPENSE() != null){
+                natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getInputProvider() != null){
+                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
+            }
+            if(getADDTEXPENSECAT() != null){
+                addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
+            }    
+            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
+        }else if (operation == DML_INSERT) {
+         
             if(getNATUREOFEXPENSE() != null){
                 natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
             }

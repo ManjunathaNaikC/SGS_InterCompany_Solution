@@ -106,7 +106,7 @@
        SgsStatisticalDataEO.CURRENCY,   
        SgsStatisticalDataEO.EMPLOYEE_ID,   
        SgsStatisticalDataEO.GL_ACCOUNT,   
-       SgsStatisticalDataEO.Input_Provider,   
+       SgsStatisticalDataEO.INPUT_PROVIDER,   
        SgsStatisticalDataEO.REJECTED_REASON,   
        SgsStatisticalDataEO.REJECTION_COMMENTS,   
        SgsStatisticalDataEO.STATISTICAL_DATA,   
@@ -126,7 +126,8 @@
        SgsStatisticalDataEO.FROM_DEPTID,   
        SgsStatisticalDataEO.FROM_JOB_CODE,   
        SgsStatisticalDataEO.FROM_OU,   
-       SgsStatisticalDataEO.NATURE_OF_EXPENSE  
+       SgsStatisticalDataEO.NATURE_OF_EXPENSE,
+       SgsStatisticalDataEO.TRANSACTION_PERIOD
 FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
   <ViewAttribute
     Name="ATTRIBUTE1"
@@ -485,16 +486,17 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
     Precision="80"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    AliasName="Input_Provider"
-    Expression="Input_Provider"
-    SQLType="VARCHAR">
+    AliasName="INPUT_PROVIDER"
+    Expression="INPUT_PROVIDER"
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.InputProvider_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.INPUT_PROVIDER_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -888,6 +890,26 @@ FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.NATUREOFEXPENSE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+   <ViewAttribute
+    Name="TRANSACTIONPERIOD"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="TRANSACTION_PERIOD"
+    Expression="TRANSACTION_PERIOD"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TRANSACTION_PERIOD_LABEL"/>
+        <FMT_FORMAT
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TRANSACTIONPERIOD_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalPreviousMonthVO.TRANSACTIONPERIOD_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -151,5 +151,7 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="SgsTdsWhtTblVO1Iterator" StaticList="false" Uses="LOV_TaxBase" id="TaxBase1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsTdsWhtTblVO1Iterator" StaticList="false" Uses="LOV_WHTAPPLICATIBILITY"
+          id="WHTAPPLICATIBILITY" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

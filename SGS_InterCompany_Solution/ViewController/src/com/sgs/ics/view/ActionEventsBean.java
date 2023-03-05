@@ -1301,5 +1301,23 @@ public class ActionEventsBean {
     public RichSelectOneChoice getRejectionReasonLOVBind() {
         return rejectionReasonLOVBind;
     }
+
+    public void onStdRateFormSave(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding(SAVE_DATA);
+        String inputProvider=null;
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsStandardRateSetupVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
+        ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
+    }
+
+    public void onStdRateRowSelection(ActionEvent actionEvent) {
+        // Add event code here...
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsStandardRateSetupVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
+        ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
+    }
 }
 

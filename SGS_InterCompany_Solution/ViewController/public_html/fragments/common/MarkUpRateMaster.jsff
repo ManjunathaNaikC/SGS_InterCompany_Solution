@@ -14,7 +14,8 @@
                     model="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.queryModel}"
                     queryListener="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.processQuery}"
                     queryOperationListener="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.processQueryOperation}"
-                    resultComponentId="::pc1:t2" rows="2" maxColumns="2" saveQueryMode="hidden"/>
+                    resultComponentId="::pc1:t2" rows="2" maxColumns="2" saveQueryMode="hidden"
+                    styleClass="setupHeader"/>
         </af:panelHeader>
         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
@@ -114,7 +115,7 @@
                     selectedRowKeys="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.selectedRow}"
                     selectionListener="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.makeCurrent}"
                     rowSelection="single" fetchSize="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}" id="t2"
-                    partialTriggers="::b1" styleClass="AFStretchWidth" inlineStyle="height:250px;" autoHeightRows="10"
+                    partialTriggers="::b1" styleClass="setup" inlineStyle="height:250px;" autoHeightRows="10"
                     scrollPolicy="page">
             <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}" id="c1" width="150">
               <af:inputText value="#{row.bindings.MARKUPNAME.inputValue}"

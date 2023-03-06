@@ -24,7 +24,8 @@
     ColumnType="varchar"
     TableName="SGS_TRANS_B_COST_ALLOCATION"
     PrimaryKey="true"
-    Precision="80"/>
+    Precision="80"
+    ChangeIndicator="true"/>
   <Attribute
     Name="CirId"
     Precision="80"
@@ -666,11 +667,34 @@
     Type="java.sql.Date"
     ColumnType="DATE"
     TableName="SGS_TRANS_B_COST_ALLOCATION"/>
+  <Attribute
+    Name="Selected"
+    ColumnName="Selected"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="BIT"
+    TableName="SGS_TRANS_B_COST_ALLOCATION"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SgsOtrTargetEO"
     Association="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc"
     AssociationEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc.SgsOtrTargetEO"
     AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSOTRTARGETAssoc.SgsTransBCostAllocation"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SgsPstTxnDocAttachmentEO"
+    Association="com.sgs.ics.model.bc.entity.assoc.FKSGSPSTTXNDOCATTACHMENTAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSPSTTXNDOCATTACHMENTAssoc.SgsPstTxnDocAttachmentEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSPSTTXNDOCATTACHMENTAssoc.SgsTransBCostAllocation"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

@@ -83,9 +83,10 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         ReleaseRemarks,
         Releasedby,
         Releasedon,
-        SgsOtrTargetEO;
+        Selected,
+        SgsOtrTargetEO,
+        SgsPstTxnDocAttachmentEO;
         private static AttributesEnum[] vals = null;
-        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -168,7 +169,9 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
     public static final int RELEASEREMARKS = AttributesEnum.ReleaseRemarks.index();
     public static final int RELEASEDBY = AttributesEnum.Releasedby.index();
     public static final int RELEASEDON = AttributesEnum.Releasedon.index();
+    public static final int SELECTED = AttributesEnum.Selected.index();
     public static final int SGSOTRTARGETEO = AttributesEnum.SgsOtrTargetEO.index();
+    public static final int SGSPSTTXNDOCATTACHMENTEO = AttributesEnum.SgsPstTxnDocAttachmentEO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1120,10 +1123,34 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for Selected, using the alias name Selected.
+     * @return the value of Selected
+     */
+    public Boolean getSelected() {
+        return (Boolean) getAttributeInternal(SELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Selected.
+     * @param value value to set the Selected
+     */
+    public void setSelected(Boolean value) {
+        setAttributeInternal(SELECTED, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSgsOtrTargetEO() {
         return (RowIterator) getAttributeInternal(SGSOTRTARGETEO);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSgsPstTxnDocAttachmentEO() {
+        return (RowIterator) getAttributeInternal(SGSPSTTXNDOCATTACHMENTEO);
     }
 
 

@@ -876,6 +876,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Selected"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="Selected"
+    EntityUsage="SgsTransBCostAllocation"
+    AliasName="Selected"/>
   <ViewCriteria
     Name="SgsTransBCostAllocationVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO"
@@ -948,6 +956,11 @@
     Name="SgsOtrTargetVO"
     ViewLink="com.sgs.ics.model.bc.view.link.FKOTRTARGETViewLink"
     Type="oracle.jbo.Row"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SgsPstTxnDocAttachVO"
+    ViewLink="com.sgs.ics.model.bc.view.link.FKSGSPSTTXNDOCATTACHMENTVL"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle

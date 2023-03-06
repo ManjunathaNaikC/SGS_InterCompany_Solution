@@ -260,10 +260,10 @@
                                 <!--<af:outputText value="#{row.ExtractId}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.ExtractId.tooltip}"
                                                id="ot11"/>-->
-                                <af:link text="#{row.ExtractId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"/>
-                                    <!--<af:setPropertyListener from="#{row.TransactionStatus}" to="#{pageFlowScope.status}"
+                                <af:link text="#{row.ExtractId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                                    <af:setPropertyListener from="#{row.TransactionStatus}" to="#{pageFlowScope.status}"
                                                             type="action"/>
-                                </af:link>-->
+                                </af:link>
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.PeoplesoftTransactionId.label}"
                                        id="c11">

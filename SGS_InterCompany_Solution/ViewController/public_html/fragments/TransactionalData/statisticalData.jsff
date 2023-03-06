@@ -37,7 +37,9 @@
                             <!--<af:button text="Delete Data" id="b6"/>-->
                             <af:button text="Submit For Approval" 
                             rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_SUMBIT')}"
-                            id="b7"/>
+                            id="b7">
+                                <af:showPopupBehavior popupId="p1submit"/>
+                            </af:button>
                             <af:button actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save"
                             rendered="#{applicationScope.get('pageList').contains('ALL_PAGE') or applicationScope.get('pageList').contains('STAT_SAVE')}"
                                        id="b4"/>
@@ -618,6 +620,32 @@
                                           />
                         </af:dialog>
                     </af:popup>
+                            <!--<af:popup childCreation="deferred" autoCancel="disabled" id="p1submit"
+                    binding="#{viewScope.ActionEventsBean.submitstatpopupbind}">
+                        <af:dialog id="d4submit" title="Upload Attachment" type="none">
+                            <f:facet name="buttonBar">
+                                <af:button text="Upload" id="b13submit"
+                                           actionListener="#{viewScope.ActionEventsBean.onAdminEmilFileAttachment}"/>
+                            </f:facet>
+                            <af:inputFile label="Select File" id="if2submit"
+                                          binding="#{viewScope.ActionEventsBean.inputFileBind}" autoSubmit="true"
+                                          />
+                        </af:dialog>
+                    </af:popup>-->
+                    		<af:popup childCreation="deferred" autoCancel="disabled" id="p1submit"
+            binding="#{viewScope.ActionEventsBean.submitstatpopupbind}">
+              <af:dialog id="d1submit" type="none">
+                <f:facet name="buttonBar">
+                  <af:group id="g3submit">
+                    <af:button text="Yes" id="b8submit"
+                               actionListener="#{viewScope.ActionEventsBean.onStatisticalSubmitAproval}"/>
+                    <af:spacer id="s3"/>
+                    <af:button text="No" id="b9submit" actionListener="#{viewScope.ActionEventsBean.onStatSubmitNo}"/>
+                  </af:group>
+                </f:facet>
+                <af:message id="m1submit" messageType="confirmation" message="Do You Really Want To Submit For Approval?"/>
+              </af:dialog>
+            </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1Upload" contentDelivery="immediate">
                         <af:dialog id="d1" type="ok" contentWidth="30" contentHeight="30"
                                    dialogListener="#{viewScope.UploadExcelBean.okButtonDialogListner}">

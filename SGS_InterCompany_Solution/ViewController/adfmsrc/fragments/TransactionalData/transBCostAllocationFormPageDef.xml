@@ -8,6 +8,8 @@
               id="SgsTransBCostAllocationVO1Iterator"/>
     <iterator Binds="SgsOtrTargetVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsOtrTargetVO1Iterator"/>
+    <iterator Binds="SgsPstTxnDocAttachVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
+              id="SgsPstTxnDocAttachVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsTransBCostAllocationVO1Iterator" id="ExtractId">
@@ -295,5 +297,24 @@
     <action IterBinding="SgsTransBCostAllocationVO1Iterator" id="Execute"
             InstanceName="SGSAppModuleDataControl.SgsTransBCostAllocationVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="SgsPstTxnDocAttachVO1Iterator" id="CreateInsert"
+            InstanceName="SGSAppModuleDataControl.SgsPstTxnDocAttachVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsPstTxnDocAttachVO1Iterator" id="DeleteDocs"
+            InstanceName="SGSAppModuleDataControl.SgsPstTxnDocAttachVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="SgsPstTxnDocAttachVO1Iterator" id="SgsPstTxnDocAttachVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsPstTxnDocAttachVO" Name="SgsPstTxnDocAttachVO10">
+        <AttrNames>
+          <Item Value="Attachment"/>
+          <Item Value="DocTypeValue"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="Attribute1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

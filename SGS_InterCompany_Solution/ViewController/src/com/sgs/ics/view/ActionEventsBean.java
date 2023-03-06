@@ -1387,7 +1387,5 @@ public class ActionEventsBean {
     public RichPopup getInvoiceConfirmBind() {
         return invoiceConfirmBind;
     }
-    
-   
 }
 

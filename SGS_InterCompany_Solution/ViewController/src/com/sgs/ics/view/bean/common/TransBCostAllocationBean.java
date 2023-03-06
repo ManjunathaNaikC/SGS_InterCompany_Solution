@@ -70,6 +70,7 @@ public class TransBCostAllocationBean {
     private RichInputText holdRemarkBind1;
     private RichInputText releaseActionBind1;
     private RichInputText releaseRemarksBind1;
+    private RichPopup confirmpopupbind;
 
     public void setHoldPopup(RichPopup holdPopup) {
         this.holdPopup = holdPopup;
@@ -1074,6 +1075,8 @@ public class TransBCostAllocationBean {
         return releaseRemarksBind1;
     }
 
+
+
     public void confirmProcessingBtn(ActionEvent actionEvent) {
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding confIter = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
@@ -1089,4 +1092,37 @@ public class TransBCostAllocationBean {
    }
         executeOperation("Commit").execute();
   }
+
+    public void setConfirmpopupbind(RichPopup confirmpopupbind) {
+        this.confirmpopupbind = confirmpopupbind;
+    }
+
+    public RichPopup getConfirmpopupbind() {
+        return confirmpopupbind;
+    }
+
+    public void onPSConfirmation(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding confIter = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject confVO = confIter.getViewObject();
+
+        
+        oracle.jbo.Row[] selectedRows = confVO.getFilteredRows("Selected", true);
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+                if(rw.getAttribute("TransactionStatus").equals("New")||rw.getAttribute("TransactionStatus").equals("Transaction Released from Hold")){
+                    rw.setAttribute("TransactionStatus", "Confirmed for Processing");
+         }
+        }
+        executeOperation("Commit").execute();
+        
+        confirmpopupbind.hide();
+    }
+
+    public void onPSConfirmationNo(ActionEvent actionEvent) {
+        // Add event code here...
+        
+        confirmpopupbind.hide();
+    }
 }

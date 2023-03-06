@@ -29,6 +29,15 @@
                                            disabled="#{bindings.SgsIcInvoiceHeaderVO1.estimatedRowCount &lt;=0}">
                    <af:exportCollectionActionListener type="excelHTML" exportedId="ivd1" filename="InvoiceDashBoard.xls"/>
                 </af:button>
+                        <af:button text="Approve" id="b3">
+                  <af:showPopupBehavior popupId="p1approve"/>
+                </af:button>
+                <af:button text="Reject" id="b4">
+                  <af:showPopupBehavior popupId="p2reject"/>
+                </af:button>
+                <af:button text="Confirm For Invoice" id="b5">
+                  <af:showPopupBehavior popupId="p3confirming"/>
+                </af:button>
             </af:toolbar>
           </f:facet>
           <f:facet name="statusbar"/>
@@ -283,6 +292,45 @@
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.tooltip}" id="ot33"/>
             </af:column>-->
           </af:table>
+           <af:popup childCreation="deferred" autoCancel="disabled" id="p1approve"
+                      binding="#{viewScope.ActionEventsBean.invoiceApprovBind}">
+              <af:dialog id="d1approve" type="none">
+                <f:facet name="buttonBar">
+                  <af:group id="g2">
+                    <af:button text="Yes" id="b10" actionListener="#{viewScope.ActionEventsBean.onInvoiceApprove}"/>
+                    <af:spacer id="s2"/>
+                    <af:button text="No" id="b11" actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveNo}"/>
+                  </af:group>
+                </f:facet>
+                <af:message id="m1approve" messageType="confirmation" message="Do You Really Want To Approve?"/>
+              </af:dialog>
+            </af:popup>
+	<af:popup childCreation="deferred" autoCancel="disabled" id="p2reject"
+            binding="#{viewScope.ActionEventsBean.invoiceRejectBind}">
+              <af:dialog id="d1reject" type="none">
+                <f:facet name="buttonBar">
+                  <af:group id="g1">
+                    <af:button text="Yes" id="b6" actionListener="#{viewScope.ActionEventsBean.onInvoiceReject}"/>
+                    <af:spacer id="s1"/>
+                    <af:button text="No" id="b7" actionListener="#{viewScope.ActionEventsBean.onInvoiceRejectNo}"/>
+                  </af:group>
+                </f:facet>
+                <af:message id="m1reject" messageType="confirmation" message="Do You Really Want To Reject?"/>
+              </af:dialog>
+            </af:popup>
+	<af:popup childCreation="deferred" autoCancel="disabled" id="p3confirming"
+            binding="#{viewScope.ActionEventsBean.invoiceConfirmBind}">
+              <af:dialog id="d1confirm" type="none">
+                <f:facet name="buttonBar">
+                  <af:group id="g3">
+                    <af:button text="Yes" id="b8" actionListener="#{viewScope.ActionEventsBean.onInvoiceConfirm}"/>
+                    <af:spacer id="s3"/>
+                    <af:button text="No" id="b9" actionListener="#{viewScope.ActionEventsBean.onInvoiceConfirmNo}"/>
+                  </af:group>
+                </f:facet>
+                <af:message id="m1confirm" messageType="confirmation" message="Do You Really Want To Confirm?"/>
+              </af:dialog>
+            </af:popup>
         </af:panelCollection>
       </af:panelBox>
     </f:facet>

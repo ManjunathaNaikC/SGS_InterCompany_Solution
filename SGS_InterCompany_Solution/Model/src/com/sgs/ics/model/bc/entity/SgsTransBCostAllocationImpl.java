@@ -83,9 +83,9 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         ReleaseRemarks,
         Releasedby,
         Releasedon,
+        Selected,
         SgsOtrTargetEO;
         private static AttributesEnum[] vals = null;
-        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -168,6 +168,7 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
     public static final int RELEASEREMARKS = AttributesEnum.ReleaseRemarks.index();
     public static final int RELEASEDBY = AttributesEnum.Releasedby.index();
     public static final int RELEASEDON = AttributesEnum.Releasedon.index();
+    public static final int SELECTED = AttributesEnum.Selected.index();
     public static final int SGSOTRTARGETEO = AttributesEnum.SgsOtrTargetEO.index();
 
     /**
@@ -1117,6 +1118,22 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
      */
     public void setReleasedon(Date value) {
         setAttributeInternal(RELEASEDON, value);
+    }
+
+    /**
+     * Gets the attribute value for Selected, using the alias name Selected.
+     * @return the value of Selected
+     */
+    public Boolean getSelected() {
+        return (Boolean) getAttributeInternal(SELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Selected.
+     * @param value value to set the Selected
+     */
+    public void setSelected(Boolean value) {
+        setAttributeInternal(SELECTED, value);
     }
 
     /**

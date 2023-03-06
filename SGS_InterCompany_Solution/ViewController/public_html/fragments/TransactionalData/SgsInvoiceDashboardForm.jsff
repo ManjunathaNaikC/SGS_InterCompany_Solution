@@ -221,14 +221,17 @@
             <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.IGSTAMNT.label}" id="c40">
               <af:outputText value="#{row.IGSTAMNT}" shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.IGSTAMNT.tooltip}"
                              id="ot39">
+                             
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsIcInvoiceLineVO1.hints.IGSTAMNT.format}"/>
               </af:outputText>
+              
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.GSTRATE.label}" id="c39">
               <af:outputText value="#{row.GSTRATE}" shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.GSTRATE.tooltip}"
                              id="ot38">
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsIcInvoiceLineVO1.hints.GSTRATE.format}"/>
               </af:outputText>
+             
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.SGSTAMNT.label}" id="c41">
               <af:outputText value="#{row.SGSTAMNT}" shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.SGSTAMNT.tooltip}"
@@ -247,6 +250,7 @@
                              id="ot42">
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsIcInvoiceLineVO1.hints.VATRATE.format}"/>
               </af:outputText>
+                <af:outputText value="NA"  visible="#{row.VATRATE ='-1'}" id="ot25"/>
             </af:column>
             <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.CGSTAMNT.label}" id="c44">
               <af:outputText value="#{row.CGSTAMNT}" shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.CGSTAMNT.tooltip}"

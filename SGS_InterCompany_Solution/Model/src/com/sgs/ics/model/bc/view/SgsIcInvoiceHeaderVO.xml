@@ -626,6 +626,30 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="GSTAMNT"
+    PrecisionRule="true"
+    EntityAttrName="GSTAMNT"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="GST_AMNT"/>
+  <ViewAttribute
+    Name="GSTRATE"
+    PrecisionRule="true"
+    EntityAttrName="GSTRATE"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="GST_RATE"/>
+  <ViewAttribute
+    Name="VATAMNT"
+    PrecisionRule="true"
+    EntityAttrName="VATAMNT"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="VAT_AMNT"/>
+  <ViewAttribute
+    Name="VATRATE"
+    PrecisionRule="true"
+    EntityAttrName="VATRATE"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="VAT_RATE"/>
   <ViewCriteria
     Name="SgsIcInvoiceHeaderVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO"

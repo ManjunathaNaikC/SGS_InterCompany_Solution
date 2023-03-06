@@ -29,7 +29,8 @@
                                            disabled="#{bindings.SgsIcInvoiceHeaderVO1.estimatedRowCount &lt;=0}">
                    <af:exportCollectionActionListener type="excelHTML" exportedId="ivd1" filename="InvoiceDashBoard.xls"/>
                 </af:button>
-            </af:toolbar>
+              <af:button text="Approve" id="b2"/>
+            </af:toolbar>   
           </f:facet>
           <f:facet name="statusbar"/>
           <af:table value="#{bindings.SgsIcInvoiceHeaderVO1.collectionModel}" var="row"

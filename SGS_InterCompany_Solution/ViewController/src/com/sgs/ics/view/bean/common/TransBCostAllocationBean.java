@@ -80,6 +80,7 @@ public class TransBCostAllocationBean {
     private RichInputText releaseActionBind1;
     private RichInputText releaseRemarksBind1;
     protected String SAVE_DATA="Commit";
+    private RichPopup confirmpopupbind;
 
     public void setHoldPopup(RichPopup holdPopup) {
         this.holdPopup = holdPopup;
@@ -864,7 +865,6 @@ public class TransBCostAllocationBean {
         }
     }
 
-
     public void holdPopupBeginListener(PopupFetchEvent popupFetchEvent) {
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
@@ -1239,4 +1239,39 @@ public class TransBCostAllocationBean {
             }
 
         }
+    
+
+    public void setConfirmpopupbind(RichPopup confirmpopupbind) {
+        this.confirmpopupbind = confirmpopupbind;
+    }
+
+    public RichPopup getConfirmpopupbind() {
+        return confirmpopupbind;
+    }
+
+    public void onPSConfirmation(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding confIter = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject confVO = confIter.getViewObject();
+
+        
+        oracle.jbo.Row[] selectedRows = confVO.getFilteredRows("Selected", true);
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+                if(rw.getAttribute("TransactionStatus").equals("New")||rw.getAttribute("TransactionStatus").equals("Transaction Released from Hold")){
+                    rw.setAttribute("TransactionStatus", "Confirmed for Processing");
+         }
+        }
+        executeOperation("Commit").execute();
+        
+        confirmpopupbind.hide();
+    }
+
+    public void onPSConfirmationNo(ActionEvent actionEvent) {
+        // Add event code here...
+        
+        confirmpopupbind.hide();
+    }
+    
 }

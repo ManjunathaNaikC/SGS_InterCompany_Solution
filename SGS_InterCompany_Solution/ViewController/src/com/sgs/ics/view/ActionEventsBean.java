@@ -96,6 +96,10 @@ public class ActionEventsBean {
     private RichInputText rejectionCommentsBind;
     private RichInputFile inputFileBind;
     private RichSelectOneChoice rejectionReasonLOVBind;
+    
+    private RichPopup invoiceApprovBind;
+    private RichPopup invoiceConfirmBind;
+    private RichPopup invoiceRejectBind;
 
     public ActionEventsBean() {
     }
@@ -1352,5 +1356,71 @@ public class ActionEventsBean {
 //        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
 //        approvepoopupbind.hide();
     }
+    
+    public void onInvoiceApprove(ActionEvent actionEvent) {
+        // Add event code here...
+        //
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+       row.setAttribute("TransactionStatus", "Approved");
+        executeBinding(SAVE_DATA);
+        invoiceApprovBind.hide();
+    }
+    
+    public void onInvoiceReject(ActionEvent actionEvent) {
+        // Add event code here...
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        row.setAttribute("TransactionStatus", "Rejected");
+        executeBinding(SAVE_DATA);
+        invoiceRejectBind.hide();
+    }
+    
+    public void onInvoiceConfirm(ActionEvent actionEvent) {
+        // Add event code here...
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        row.setAttribute("TransactionStatus", "Confirmed for Invoicing");
+        executeBinding(SAVE_DATA);
+        invoiceConfirmBind.hide();
+    }
+    public void onInvoiceApproveNo(ActionEvent actionEvent) {
+        // Add event code here...
+        invoiceApprovBind.hide();
+    }
+    public void onInvoiceRejectNo(ActionEvent actionEvent) {
+        // Add event code here...
+        invoiceRejectBind.hide();
+    }
+    public void onInvoiceConfirmNo(ActionEvent actionEvent) {
+        // Add event code here...
+        invoiceConfirmBind.hide();
+    }
+
+    public void setInvoiceApprovBind(RichPopup invoiceApprovBind) {
+        this.invoiceApprovBind = invoiceApprovBind;
+    }
+
+    public RichPopup getInvoiceApprovBind() {
+        return invoiceApprovBind;
+    }
+    
+    
+    public void setInvoiceRejectBind(RichPopup invoiceRejectBind) {
+        this.invoiceRejectBind = invoiceRejectBind;
+    }
+
+    public RichPopup getInvoiceRejectBind() {
+        return invoiceRejectBind;
+    }
+    
+    public void setInvoiceConfirmBind(RichPopup invoiceConfirmBind) {
+        this.invoiceConfirmBind = invoiceConfirmBind;
+    }
+
+    public RichPopup getInvoiceConfirmBind() {
+        return invoiceConfirmBind;
+    }
+    
 }
 

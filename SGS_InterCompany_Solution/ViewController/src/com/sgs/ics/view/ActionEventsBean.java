@@ -100,6 +100,7 @@ public class ActionEventsBean {
     private RichPopup invoiceApprovBind;
     private RichPopup invoiceConfirmBind;
     private RichPopup invoiceRejectBind;
+    private RichPopup submitstatpopupbind;
 
     public ActionEventsBean() {
     }
@@ -1113,6 +1114,36 @@ public class ActionEventsBean {
     public RichColumn getBindGeo1SelectCol() {
         return bindGeo1SelectCol;
     }
+    
+    
+    public void onStatisticalSubmitAproval(ActionEvent actionEvent) {
+
+//       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getApplicationScope().get("pageList");
+//       System.out.println("Page List ::"+pageList.toString());
+//        if(null != pageList && !(pageList.isEmpty()) && pageList.contains("ALL_PAGE")){
+//            System.out.println("Admin"+pageList.toString());
+//            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+//           this.submitstatpopupbind.show(hints);
+//        }else{
+//            
+            
+            DCIteratorBinding statData = null;
+            statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+            oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+            for (int i = 0; i < statDataDatarows.length; i++) {
+                System.out.println(" StatSelectedRecord At Approve:: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
+                System.out.println(" InputProvider At Approve:: " + statDataDatarows[i].getAttribute("InputProvider"));
+                if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                    statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                    
+                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Submitted For Approval");
+                    }
+            } 
+            
+            executeBinding(SAVE_DATA);
+            submitstatpopupbind.hide();
+     //  }
+    }
 
     public void onStatisticalApprove(ActionEvent actionEvent) {
 
@@ -1140,16 +1171,6 @@ public class ActionEventsBean {
             executeBinding(SAVE_DATA);
             approvepoopupbind.hide();
         }
-        
-     
-        
-      
-        
-        
- 
-        
-     
-        
     }
 
     public void onStatisticalReject(ActionEvent actionEvent) {
@@ -1421,6 +1442,18 @@ public class ActionEventsBean {
     public RichPopup getInvoiceConfirmBind() {
         return invoiceConfirmBind;
     }
-    
+
+    public void setSubmitstatpopupbind(RichPopup submitstatpopupbind) {
+        this.submitstatpopupbind = submitstatpopupbind;
+    }
+
+    public RichPopup getSubmitstatpopupbind() {
+        return submitstatpopupbind;
+    }
+
+    public void onStatSubmitNo(ActionEvent actionEvent) {
+        // Add event code here...
+        submitstatpopupbind.hide();
+    }
 }
 

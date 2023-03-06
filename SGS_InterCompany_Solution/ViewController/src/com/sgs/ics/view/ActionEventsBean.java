@@ -96,6 +96,9 @@ public class ActionEventsBean {
     private RichInputText rejectionCommentsBind;
     private RichInputFile inputFileBind;
     private RichSelectOneChoice rejectionReasonLOVBind;
+    private RichPopup invoiceApprovBind;
+    private RichPopup invoiceConfirmBind;
+    private RichPopup invoiceRejectBind;
 
     public ActionEventsBean() {
     }
@@ -1319,38 +1322,70 @@ public class ActionEventsBean {
         System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
         ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
     }
+
+    public void onInvoiceApprove(ActionEvent actionEvent) {
+        // Add event code here...
+        //
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+       row.setAttribute("TransactionStatus", "Approved");
+        executeBinding(SAVE_DATA);
+        invoiceApprovBind.hide();
+    }
     
-    public void onInvoiceSave(ActionEvent actionEvent) {
-        System.out.println("inside onInvoiceSave");
-//        DCIteratorBinding statData = null;
-//        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
-//        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
-//        for (int i = 0; i < statDataDatarows.length; i++) {
-//            System.out.println(" StatSelectedRecord At File Attachment:: " +
-//                               statDataDatarows[i].getAttribute("StatSelectedRecord"));
-//            System.out.println(" InputProvider At File Attachment:: " +
-//                               statDataDatarows[i].getAttribute("InputProvider"));
-//            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
-//                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
-//                if (null != inputFileBind.getValue()) {
-//                    UploadedFile uploadedFile = (UploadedFile) inputFileBind.getValue();
-//                    if (null != uploadedFile.getFilename()) {
-//                        String fileName = (String) uploadedFile.getFilename();
-//                        System.out.println("fileName" + fileName);
-//                        statDataDatarows[i].setAttribute("EMAILATTACHMENT", fileName);
-//                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
-//                    }
-//
-//                }
-//
-//
-//            }
-//        }
-//        executeBinding(SAVE_DATA);
-//        inputFileBind.setValue(null);
-//        inputFileBind.resetValue();
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
-//        approvepoopupbind.hide();
+    public void onInvoiceReject(ActionEvent actionEvent) {
+        // Add event code here...
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        row.setAttribute("TransactionStatus", "Rejected");
+        executeBinding(SAVE_DATA);
+        invoiceRejectBind.hide();
+    }
+    
+    public void onInvoiceConfirm(ActionEvent actionEvent) {
+        // Add event code here...
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        row.setAttribute("TransactionStatus", "Confirmed for Invoicing");
+        executeBinding(SAVE_DATA);
+        invoiceConfirmBind.hide();
+    }
+    public void onInvoiceApproveNo(ActionEvent actionEvent) {
+        // Add event code here...
+        invoiceApprovBind.hide();
+    }
+    public void onInvoiceRejectNo(ActionEvent actionEvent) {
+        // Add event code here...
+        invoiceRejectBind.hide();
+    }
+    public void onInvoiceConfirmNo(ActionEvent actionEvent) {
+        // Add event code here...
+        invoiceConfirmBind.hide();
+    }
+
+    public void setInvoiceApprovBind(RichPopup invoiceApprovBind) {
+        this.invoiceApprovBind = invoiceApprovBind;
+    }
+
+    public RichPopup getInvoiceApprovBind() {
+        return invoiceApprovBind;
+    }
+    
+    
+    public void setInvoiceRejectBind(RichPopup invoiceRejectBind) {
+        this.invoiceRejectBind = invoiceRejectBind;
+    }
+
+    public RichPopup getInvoiceRejectBind() {
+        return invoiceRejectBind;
+    }
+    
+    public void setInvoiceConfirmBind(RichPopup invoiceConfirmBind) {
+        this.invoiceConfirmBind = invoiceConfirmBind;
+    }
+
+    public RichPopup getInvoiceConfirmBind() {
+        return invoiceConfirmBind;
     }
 }
 

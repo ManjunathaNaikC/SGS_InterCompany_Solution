@@ -276,6 +276,25 @@ public class NavigateBean implements Serializable {
 
 
         } else {
+                       String inputProviderList = (String) ADFContext.getCurrent()
+                                                           .getSessionScope()
+                                                           .get("inputProvider");
+                        System.out.println("inputProvider on Page " + inputProviderList);
+                        String[] resIPList = inputProviderList.split("[,]", 0);
+                        StringBuffer iPString = new StringBuffer();
+                        for (int i = 0; i < resIPList.length; i++) {
+                            System.out.println(resIPList[i]);
+                            iPString.append("'" + resIPList[i] + "'");
+                            System.out.println("Value i ::" + i);
+                            System.out.println("length  ::" + resIPList.length);
+                            if (i + 1 == resIPList.length) {
+                                //Don't append comma at the end of the String
+
+                            } else {
+                                iPString.append(",");
+                            }
+                        }
+            
             String buList = (String) ADFContext.getCurrent()
                                                .getSessionScope()
                                                .get("buList");
@@ -299,7 +318,8 @@ public class NavigateBean implements Serializable {
             viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator").getViewObject();
             System.out.println("viewImpl   ********"+viewImpl);
             viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
-            viewImpl.setWhereClause(" SOURCE_BU IN ( " + buString.toString() + ")");
+            System.out.println("TEsting ****************** Invoice fileter");
+            viewImpl.setWhereClause("SOURCE_BU IN ( " + buString.toString() + ")"+"AND INPUT_PROVIDER IN( " + iPString.toString() + ")");
             System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
             viewImpl.executeQuery();
         }
@@ -317,6 +337,25 @@ public class NavigateBean implements Serializable {
 
 
         } else {
+            String inputProviderList = (String) ADFContext.getCurrent()
+                                                .getSessionScope()
+                                                .get("inputProvider");
+             System.out.println("inputProvider on Page " + inputProviderList);
+             String[] resIPList = inputProviderList.split("[,]", 0);
+             StringBuffer iPString = new StringBuffer();
+             for (int i = 0; i < resIPList.length; i++) {
+                 System.out.println(resIPList[i]);
+                 iPString.append("'" + resIPList[i] + "'");
+                 System.out.println("Value i ::" + i);
+                 System.out.println("length  ::" + resIPList.length);
+                 if (i + 1 == resIPList.length) {
+                     //Don't append comma at the end of the String
+
+                 } else {
+                     iPString.append(",");
+                 }
+             }
+            
             String buList = (String) ADFContext.getCurrent()
                                                .getSessionScope()
                                                .get("buList");
@@ -340,7 +379,7 @@ public class NavigateBean implements Serializable {
             viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsTransBCostAllocationVO1Iterator").getViewObject();
             System.out.println("viewImpl   ********"+viewImpl);
             viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
-            viewImpl.setWhereClause(" BU_ID IN ( " + buString.toString() + ")");
+            viewImpl.setWhereClause(" BU_ID IN ( " + buString.toString() + ")"+"AND INPUT_PROVIDER IN( " + iPString.toString() + ")");
             System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
             viewImpl.executeQuery();
         }

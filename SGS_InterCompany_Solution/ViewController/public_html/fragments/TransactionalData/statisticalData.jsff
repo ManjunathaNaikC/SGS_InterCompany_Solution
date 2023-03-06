@@ -178,7 +178,6 @@
                             <af:selectOneChoice value="#{row.bindings.CostGroup.inputValue}"
                              readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}"
                                                 label="#{row.bindings.CostGroup.label}"
-                                                required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.tooltip}"
                                                 id="soc1">
                                 <f:selectItems value="#{row.bindings.CostGroup.items}" id="si1"/>
@@ -227,7 +226,6 @@
                                    id="c1">
                             <af:selectOneChoice value="#{row.bindings.StatisticalDataCategory.inputValue}"
                                                 label="#{row.bindings.StatisticalDataCategory.label}"
-                                                required="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.mandatory}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.tooltip}"
                                                 id="soc4"
                                                 readOnly="#{(!applicationScope.get('pageList').contains('ALL_PAGE')) and (!applicationScope.get('pageList').contains('STAT_WRITE'))}">
@@ -382,7 +380,7 @@
                                 <f:validator binding="#{row.bindings.GLACCOUNT.validator}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.label}" id="c6"
+                        <af:column headerText="Monthly Cost Basis" id="c6"
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.name}"
                                    filterable="true">
                             <!--<af:inputText value="#{row.bindings.STATISTICALDATA.inputValue}"

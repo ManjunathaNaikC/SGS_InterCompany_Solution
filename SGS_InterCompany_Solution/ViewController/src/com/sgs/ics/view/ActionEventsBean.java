@@ -1319,5 +1319,38 @@ public class ActionEventsBean {
         System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
         ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
     }
+    
+    public void onInvoiceSave(ActionEvent actionEvent) {
+        System.out.println("inside onInvoiceSave");
+//        DCIteratorBinding statData = null;
+//        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+//        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+//        for (int i = 0; i < statDataDatarows.length; i++) {
+//            System.out.println(" StatSelectedRecord At File Attachment:: " +
+//                               statDataDatarows[i].getAttribute("StatSelectedRecord"));
+//            System.out.println(" InputProvider At File Attachment:: " +
+//                               statDataDatarows[i].getAttribute("InputProvider"));
+//            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+//                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+//                if (null != inputFileBind.getValue()) {
+//                    UploadedFile uploadedFile = (UploadedFile) inputFileBind.getValue();
+//                    if (null != uploadedFile.getFilename()) {
+//                        String fileName = (String) uploadedFile.getFilename();
+//                        System.out.println("fileName" + fileName);
+//                        statDataDatarows[i].setAttribute("EMAILATTACHMENT", fileName);
+//                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
+//                    }
+//
+//                }
+//
+//
+//            }
+//        }
+//        executeBinding(SAVE_DATA);
+//        inputFileBind.setValue(null);
+//        inputFileBind.resetValue();
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
+//        approvepoopupbind.hide();
+    }
 }
 

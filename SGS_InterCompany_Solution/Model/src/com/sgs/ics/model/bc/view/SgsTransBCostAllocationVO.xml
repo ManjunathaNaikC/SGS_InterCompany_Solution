@@ -876,6 +876,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Selected"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="Selected"
+    EntityUsage="SgsTransBCostAllocation"
+    AliasName="Selected"/>
   <ViewCriteria
     Name="SgsTransBCostAllocationVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsTransBCostAllocationVO"

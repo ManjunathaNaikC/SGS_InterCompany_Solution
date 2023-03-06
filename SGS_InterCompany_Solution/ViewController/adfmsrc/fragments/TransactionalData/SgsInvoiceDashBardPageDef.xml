@@ -48,6 +48,10 @@
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
           <Item Value="ALLOCATEDHEADERAMOUNT"/>
+          <Item Value="GSTRATE"/>
+          <Item Value="GSTAMNT"/>
+          <Item Value="VATRATE"/>
+          <Item Value="VATAMNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

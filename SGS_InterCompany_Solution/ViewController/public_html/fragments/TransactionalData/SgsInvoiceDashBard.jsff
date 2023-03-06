@@ -175,20 +175,48 @@
                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.format}"/>
               </af:outputText>
             </af:column>
-            <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.label}" id="c18"
+            <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.label}" id="c18"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.name}" filterable="true">
               <af:outputText value="#{row.GstVatRate}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.tooltip}" id="ot18">
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.format}"/>
               </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.label}" id="c19"
+            </af:column>-->
+            <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.label}" id="c19"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.name}" filterable="true">
               <af:outputText value="#{row.GstVatAmount}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.tooltip}" id="ot19">
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.format}"/>
+              </af:outputText>
+            </af:column>-->
+            <af:column headerText="GST Rate" id="c9">
+              <af:outputText value="#{row.GSTRATE}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTRATE.tooltip}"
+                             id="ot9">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTRATE.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="GST Amount" id="c18">
+              <af:outputText value="#{row.GSTAMNT}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTAMNT.tooltip}"
+                             id="ot18">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTAMNT.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="VAT Rate" id="c19">
+              <af:outputText value="#{row.VATRATE}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.tooltip}"
+                             id="ot19">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="VAT Amount" id="c20">
+              <af:outputText value="#{row.VATAMNT}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATAMNT.tooltip}"
+                             id="ot20">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATAMNT.format}"/>
               </af:outputText>
             </af:column>
             <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TotalAmountAfterTax.label}" id="c20"

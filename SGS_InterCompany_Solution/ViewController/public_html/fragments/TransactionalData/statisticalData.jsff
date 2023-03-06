@@ -70,7 +70,8 @@
                               styleClass="AFStretchWidth" inlineStyle="height:250px" autoHeightRows="10"
                               scrollPolicy="page">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
-                                   binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}">
+                                   binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
+                                   inlineStyle="color:White;">
                             <af:selectBooleanCheckbox value="#{row.bindings.StatSelectedRecord.inputValue}"
                                                       label="#{row.bindings.StatSelectedRecord.label}"
                                                       shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.tooltip}"
@@ -727,7 +728,7 @@
                                             <f:validator binding="#{row.bindings.STATISTICALDATACATEGORY.validator}"/>
                                         </af:inputText>-->
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.name}"
+                                    <!--<af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.name}"
                                                filterable="true"
                                                headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMBU.label}"
                                                id="c45">
@@ -740,8 +741,8 @@
                                                       id="it37">
                                             <f:validator binding="#{row.bindings.FROMBU.validator}"/>
                                         </af:inputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.name}"
+                                    </af:column>-->
+                                    <!--<af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.name}"
                                                filterable="true"
                                                headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMOU.label}"
                                                id="c48">
@@ -754,8 +755,8 @@
                                                       id="it40">
                                             <f:validator binding="#{row.bindings.FROMOU.validator}"/>
                                         </af:inputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.name}"
+                                    </af:column>-->
+                                    <!--<af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.name}"
                                                filterable="true"
                                                headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMJOBCODE.label}"
                                                id="c47">
@@ -768,8 +769,8 @@
                                                       id="it39">
                                             <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
                                         </af:inputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.name}"
+                                    </af:column>-->
+                                    <!--<af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.name}"
                                                filterable="true"
                                                headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.FROMDEPTID.label}"
                                                id="c46">
@@ -782,7 +783,7 @@
                                                       id="it38">
                                             <f:validator binding="#{row.bindings.FROMDEPTID.validator}"/>
                                         </af:inputText>
-                                    </af:column>
+                                    </af:column>-->
                                     <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.name}"
                                                filterable="true"
                                                headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TOBUSINESSUNIT.label}"

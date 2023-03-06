@@ -520,6 +520,42 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="GSTAMNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="GST_AMNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="GSTRATE"
+    Precision="5"
+    Scale="2"
+    ColumnName="GST_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="VATAMNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="VAT_AMNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="VATRATE"
+    Precision="5"
+    Scale="2"
+    ColumnName="VAT_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
   <AccessorAttribute
     Name="SgsIcInvoiceLineEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

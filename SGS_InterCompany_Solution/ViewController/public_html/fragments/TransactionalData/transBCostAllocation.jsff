@@ -191,13 +191,13 @@
                                     <af:exportCollectionActionListener type="excelHTML" exportedId="t2"
                                                                        filename="TransactionBeforeCostAllocation.xls"/>
                                 </af:button>
-                                <af:button actionListener="#{bindings.CreateInsertTransBAlloc.execute}" id="b1"
+                                <!--<af:button actionListener="#{bindings.CreateInsertTransBAlloc.execute}" id="b1"
                                            action="ADD" icon="/resources/icons/plus.png"
                                            shortDesc="Create/Add TransBCostAllocation" disabled="true"/>
                                 <af:button id="b2" shortDesc="Delete TransBCostAllocation"
                                            icon="/resources/icons/delete.png"
                                            action="#{pageFlowScope.TransBCostAllocationBean.deleteTransBCostAllocation}"
-                                           disabled="true"/>
+                                           disabled="true"/>-->
                                 <af:button text="Hold" id="b14">
                                     <af:showPopupBehavior popupId="::p20H"/>
                                 </af:button>
@@ -222,7 +222,7 @@
                                   selectionListener="#{bindings.SgsTransBCostAllocationVO1.collectionModel.makeCurrent}"
                                   rowSelection="multiple" fetchSize="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
                                   id="t2" styleClass="AFStretchWidth" allDetailsEnabled="true"
-                                  partialTriggers="::b1 sbc1" inlineStyle="height:250px; " autoHeightRows="10"
+                                  partialTriggers="sbc1" inlineStyle="height:250px; " autoHeightRows="10"
                                   filterModel="#{bindings.SgsTransBCostAllocationVOCriteriaQuery.queryDescriptor}" filterVisible="false"
                                   queryListener="#{bindings.SgsTransBCostAllocationVOCriteriaQuery.processQuery}">
                             <af:column id="c2"  headerText="#{bindings.SgsTransBCostAllocationVO1.hints.Selected.label}" 
@@ -352,13 +352,13 @@
                                                       pattern="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.format}"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.label}"
+                            <!--<af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.label}"
                             sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.name}" filterable="true"
                                        id="c23">
                                 <af:outputText value="#{row.ServiceCategory}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.tooltip}"
                                                id="ot24"/>
-                            </af:column>
+                            </af:column>-->
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.AccountTreatment.label}"
                             sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.AccountTreatment.name}" filterable="true"
                                        id="c24">

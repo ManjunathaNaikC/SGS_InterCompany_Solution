@@ -84,7 +84,8 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
         Releasedby,
         Releasedon,
         Selected,
-        SgsOtrTargetEO;
+        SgsOtrTargetEO,
+        SgsPstTxnDocAttachmentEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -170,6 +171,7 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
     public static final int RELEASEDON = AttributesEnum.Releasedon.index();
     public static final int SELECTED = AttributesEnum.Selected.index();
     public static final int SGSOTRTARGETEO = AttributesEnum.SgsOtrTargetEO.index();
+    public static final int SGSPSTTXNDOCATTACHMENTEO = AttributesEnum.SgsPstTxnDocAttachmentEO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1141,6 +1143,14 @@ public class SgsTransBCostAllocationImpl extends EntityImpl {
      */
     public RowIterator getSgsOtrTargetEO() {
         return (RowIterator) getAttributeInternal(SGSOTRTARGETEO);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSgsPstTxnDocAttachmentEO() {
+        return (RowIterator) getAttributeInternal(SGSPSTTXNDOCATTACHMENTEO);
     }
 
 

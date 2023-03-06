@@ -3,9 +3,18 @@ package com.sgs.ics.view.bean.common;
 import com.sgs.ics.model.bc.commonutils.CommonUtils;
 import com.sgs.ics.ui.utils.ADFUtils;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.io.InputStream;
+
+import java.io.OutputStream;
+
+import java.net.MalformedURLException;
 
 import java.text.SimpleDateFormat;
 
@@ -70,6 +79,7 @@ public class TransBCostAllocationBean {
     private RichInputText holdRemarkBind1;
     private RichInputText releaseActionBind1;
     private RichInputText releaseRemarksBind1;
+    protected String SAVE_DATA="Commit";
 
     public void setHoldPopup(RichPopup holdPopup) {
         this.holdPopup = holdPopup;
@@ -142,7 +152,17 @@ public class TransBCostAllocationBean {
     public BindingContainer getBindingsCont() {
         return BindingContext.getCurrent().getCurrentBindingsEntry();
     }
+   
+    /**
+     * Generic Method to DCIteratorBinding operation
+     * */
+    private DCIteratorBinding getDCIteratorBindings(String iterName) {
+        DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        return bindings.findIteratorBinding(iterName);
 
+    } 
+    
+    
     /**
      * Generic Method to execute operation
      * */
@@ -862,37 +882,31 @@ public class TransBCostAllocationBean {
         r.setAttribute("Holdon", date);
         
         
-//        holdReasonBind.setValue(null);
-//        dueDateBind.setValue(null);
-//        holdRemarkBind.setValue(null);
-
-
+        
     }
   
   
-//    public void multiHoldPopupBeginListener(PopupFetchEvent popupFetchEvent) {
-//        BindingContainer bindings = getBindingsCont();
-//        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
-//        ViewObject holdVO = holditer.getViewObject();
-//        RowSetIterator rsIter = holditer.getRowSetIterator();
-//        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
-//
-//
-//        CommonUtils util = new CommonUtils();
-//        Object user = (Object) util.getSessionScopeValue("_username").toString();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String date = sdf.format(new Date());
-//
-//        r.setAttribute("Holdby", user);
-//        r.setAttribute("Holdon", date);
-//        
-//        
-////        holdReasonBind1.setValue(null);
-////        dueDateBind1.setValue(null);
-////        holdRemarkBind1.setValue(null);
-//
-//
-//    }
+    public void multiHoldPopupBeginListener(PopupFetchEvent popupFetchEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+        RowSetIterator rsIter = holditer.getRowSetIterator();
+        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
+
+
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+
+        r.setAttribute("Holdby", user);
+        r.setAttribute("Holdon", date);
+        
+        
+        
+    }
+
+
 
     public void releasePopupBeginListener(PopupFetchEvent popupFetchEvent) {
         BindingContainer bindings = getBindingsCont();
@@ -910,33 +924,33 @@ public class TransBCostAllocationBean {
         r.setAttribute("Releasedby", user);
         r.setAttribute("Releasedon", date);
         
-//        releaseActionBind.setValue(null);
-//        releaseRemarksBind.setValue(null);
+
+
 
 
     }
     
-//    public void multiReleasePopupBeginListener(PopupFetchEvent popupFetchEvent) {
-//        BindingContainer bindings = getBindingsCont();
-//        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
-//        ViewObject holdVO = holditer.getViewObject();
-//        RowSetIterator rsIter = holditer.getRowSetIterator();
-//        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
-//
-//
-//        CommonUtils util = new CommonUtils();
-//        Object user = (Object) util.getSessionScopeValue("_username").toString();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String date = sdf.format(new Date());
-//
-//        r.setAttribute("Releasedby", user);
-//        r.setAttribute("Releasedon", date);
-//        
-////        releaseActionBind1.setValue(null);
-////        releaseRemarksBind1.setValue(null);
-//
-//
-//    }
+
+    public void multiReleasePopupBeginListener(PopupFetchEvent popupFetchEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsTransBCostAllocationVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+        RowSetIterator rsIter = holditer.getRowSetIterator();
+        oracle.jbo.Row r = (oracle.jbo.Row) rsIter.getCurrentRow();
+
+
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+
+        r.setAttribute("Releasedby", user);
+        r.setAttribute("Releasedon", date);
+        
+      
+
+    }
+
     
 
     public void selectAllCheckboxValueChange(ValueChangeEvent valueChangeEvent) {
@@ -1096,4 +1110,133 @@ public class TransBCostAllocationBean {
    }
         executeOperation("Commit").execute();
   }
+    
+    
+    public void onDocumentsDelete(ActionEvent actionEvent) {
+        executeOperation("DeleteDocs").execute();
+        executeOperation(SAVE_DATA).execute();      
+        ADFUtils.deleteNotifier();
+    }
+    
+    public void saveFile(String filePath, String fileName, BufferedInputStream in) throws MalformedURLException,
+                                                                                          IOException {
+        FileOutputStream fout = null;
+        try {
+            File files = new File(filePath);
+            if (!files.exists()) {
+                if (files.mkdirs()) {
+                    System.out.println("Multiple directories are created!");
+                } else {
+                    System.out.println("Failed to create multiple directories!");
+                }
+            }
+            fout = new FileOutputStream(filePath + fileName);
+            byte data[] = new byte[8192];
+            int count;
+            while ((count = in.read(data, 0, 8192)) != -1) {
+                fout.write(data, 0, count);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (in != null)
+                in.close();
+            if (fout != null)
+                fout.close();
+        }
+    }
+
+    
+    public void onPstTxnDocsUpload(ValueChangeEvent valueChangeEvent) {
+            // Add event code here...
+            if (valueChangeEvent.getNewValue() != null) {
+                
+                String filePath1 = ADFUtils.getPath();
+                if(filePath1.equalsIgnoreCase("NOPATH")){
+                    FacesContext context = FacesContext.getCurrentInstance();
+                    String messageText = "Please setup the system path to upload the file.";
+                    FacesMessage fm = new FacesMessage(messageText);
+                    fm.setSeverity(FacesMessage.SEVERITY_INFO);
+                    context.addMessage(null, fm);
+                }else{
+                try {
+                    UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
+                    if (null != uploadedFile) {
+                        InputStream inputStream = null;
+                        inputStream = uploadedFile.getInputStream();
+                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
+                        String fileName = uploadedFile.getFilename();
+                        String path = null;
+                        // String filePath1 = "D:\\FilesStoragePath\\";
+
+                       
+                        System.out.println("filePath1" + filePath1);
+                        
+                        String tokens = uploadedFile.getFilename();
+                        String fileNames = uploadedFile.getFilename();
+                        String contentType = uploadedFile.getContentType();
+                        //                                        String fileNameWithOutExt = FilenameUtils.removeExtension(tokens);
+                        //                                        String fileNameWithExt = FilenameUtils.getExtension(tokens);
+                        //                                        DateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
+                        //                                        Date date = new Date();
+                        //                                        String fileNames = fileNameWithOutExt + "_" + dateFormat.format(date) + "." + fileNameWithExt;
+                        path = filePath1 + fileNames;
+                        saveFile(path, fileName, bfi);
+
+                        DCIteratorBinding docs = getDCIteratorBindings("SgsPstTxnDocAttachVO1Iterator");
+                        oracle.jbo.Row row = docs.getCurrentRow();
+                        // row.setAttribute("FileContent",sbyte);
+                        //row.setAttribute("EffectiveFrom",new java.sql.Date(new java.util.Date().getTime()));
+                        row.setAttribute("Attachment", fileName);
+                        row.setAttribute("Attribute1", path);
+                        row.setAttribute("Attribute2", contentType);
+
+                        System.out.println("File path and file Name in downlaod" + path + fileName);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        }
+    
+    
+    public void onPstTxnDocsDownload(FacesContext facesContext, OutputStream outputStream) {
+            DCBindingContainer bindingContainer =
+                (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsPstTxnDocAttachVO1Iterator");
+            ViewObject vo = imageIter.getViewObject();
+            oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
+
+            String filePath = (String) currentRow.getAttribute("Attribute1");
+            String fileName = (String) currentRow.getAttribute("Attachment");
+            System.out.println("filePath :: " + filePath);
+            System.out.println("fileName :: " + fileName);
+
+
+            try {
+                if (null != filePath && null != fileName) {
+                    File f = new File(filePath + fileName);
+                    FileInputStream fis;
+                    byte[] b;
+
+                    fis = new FileInputStream(f);
+                    int n;
+                    while ((n = fis.available()) > 0) {
+                        b = new byte[n];
+                        int result = fis.read(b);
+
+                        outputStream.write(b, 0, b.length);
+                        if (result == -1)
+                            break;
+                    }
+                    outputStream.flush();
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
 }

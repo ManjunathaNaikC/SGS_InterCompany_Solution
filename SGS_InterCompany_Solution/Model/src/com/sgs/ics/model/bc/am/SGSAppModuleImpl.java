@@ -702,5 +702,21 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getRejectionReasonLOVVO1() {
         return (ViewObjectImpl) findViewObject("RejectionReasonLOVVO1");
     }
+
+    /**
+     * Container's getter for SgsPstTxnDocAttachVO1.
+     * @return SgsPstTxnDocAttachVO1
+     */
+    public ViewObjectImpl getSgsPstTxnDocAttachVO1() {
+        return (ViewObjectImpl) findViewObject("SgsPstTxnDocAttachVO1");
+    }
+
+    /**
+     * Container's getter for FKSGSPSTTXNDOCATTACHMENTVL1.
+     * @return FKSGSPSTTXNDOCATTACHMENTVL1
+     */
+    public ViewLinkImpl getFKSGSPSTTXNDOCATTACHMENTVL1() {
+        return (ViewLinkImpl) findViewLink("FKSGSPSTTXNDOCATTACHMENTVL1");
+    }
 }
 

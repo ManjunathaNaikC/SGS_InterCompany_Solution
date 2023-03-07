@@ -55,16 +55,24 @@
        SgsIcInvoiceHeaderEO.IU_CUSTOMER,  
        SgsIcInvoiceHeaderEO.TARGET_BU,  
        SgsIcInvoiceHeaderEO.ACCOUNTING_TREATMENT,  
-       SgsIcInvoiceHeaderEO.MARKUP_RATE,  
+(CASE  WHEN SgsIcInvoiceHeaderEO.MARKUP_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.MARKUP_RATE
+	   END) AS MARKUP_RATE,	   
        SgsIcInvoiceHeaderEO.TARGET_CURRENCY,  
        SgsIcInvoiceHeaderEO.INVOICE_HEADER_AMOUNT,  
-       SgsIcInvoiceHeaderEO.MARKUP_AMOUNT,  
+(CASE  WHEN SgsIcInvoiceHeaderEO.MARKUP_AMOUNT =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.MARKUP_AMOUNT
+	   END) AS MARKUP_AMOUNT,	   
        SgsIcInvoiceHeaderEO.BASE_AMOUNT_BEFORE_TAX,  
        SgsIcInvoiceHeaderEO.GST_VAT_RATE,  
        SgsIcInvoiceHeaderEO.GST_VAT_AMOUNT,  
        SgsIcInvoiceHeaderEO.TOTAL_AMOUNT_AFTER_TAX,  
-       SgsIcInvoiceHeaderEO.WHT_RATE,  
-       SgsIcInvoiceHeaderEO.WHT_AMOUNT,  
+(CASE  WHEN SgsIcInvoiceHeaderEO.WHT_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.WHT_RATE
+	   END) AS WHT_RATE,	   
+(CASE  WHEN SgsIcInvoiceHeaderEO.WHT_AMOUNT =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.WHT_AMOUNT
+	   END) AS WHT_AMOUNT,	   
        SgsIcInvoiceHeaderEO.TRANSACTION_STATUS,  
        SgsIcInvoiceHeaderEO.PAYMENT_STATUS,  
        SgsIcInvoiceHeaderEO.PAID_AMOUNT,  
@@ -92,9 +100,15 @@
        SgsIcInvoiceHeaderEO.ATTRIBUTE14,  
        SgsIcInvoiceHeaderEO.ATTRIBUTE15,  
        SgsIcInvoiceHeaderEO.ALLOCATED_HEADER_AMOUNT,  
-       SgsIcInvoiceHeaderEO.GST_AMNT,  
-       SgsIcInvoiceHeaderEO.GST_RATE,  
-       SgsIcInvoiceHeaderEO.VAT_AMNT,  
+(CASE  WHEN SgsIcInvoiceHeaderEO.GST_AMNT =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.GST_AMNT
+	   END) AS GST_AMNT,	   
+(CASE  WHEN SgsIcInvoiceHeaderEO.GST_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.GST_RATE
+	   END) AS GST_RATE,	   
+(CASE  WHEN SgsIcInvoiceHeaderEO.VAT_AMNT =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.VAT_AMNT
+	   END) AS VAT_AMNT,	   
        (CASE  WHEN SgsIcInvoiceHeaderEO.VAT_RATE =0.00 THEN null
 	   ELSE SgsIcInvoiceHeaderEO.VAT_RATE
 	   END) AS VAT_RATE 

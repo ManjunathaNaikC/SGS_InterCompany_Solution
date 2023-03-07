@@ -6,14 +6,13 @@
   Name="SgsIcInvoiceLineVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="JDBC"
-  CustomQuery="false"
-  SelectAllAttributes="false"
+  CustomQuery="true"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="SgsLookupNatureExpVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
@@ -47,6 +46,86 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <SQLQuery><![CDATA[SELECT SgsIcInvoiceLineEO.IC_LINE_SEQ_NO,  
+       SgsIcInvoiceLineEO.IC_LINE_NO,  
+       SgsIcInvoiceLineEO.INVOICE_SEQ_NO,  
+       SgsIcInvoiceLineEO.COST_IDENTIFICATION_ID,  
+       SgsIcInvoiceLineEO.ALLOCATION_BASIS,  
+       SgsIcInvoiceLineEO.FROM_BU,  
+       SgsIcInvoiceLineEO.FROM_OU,  
+       SgsIcInvoiceLineEO.FROM_JOB_CODE,  
+       SgsIcInvoiceLineEO.FROM_DEPARTMENT_ID,  
+       SgsIcInvoiceLineEO.SOURCE_CURRENCY,  
+       SgsIcInvoiceLineEO.SOURCE_AMOUNT,  
+       SgsIcInvoiceLineEO.TO_BU,  
+       SgsIcInvoiceLineEO.TO_OU,  
+       SgsIcInvoiceLineEO.TO_JOB_CODE,  
+       SgsIcInvoiceLineEO.TO_DEPARTMENT_ID,  
+       SgsIcInvoiceLineEO.TARGET_GL_ACCOUNT_DR,  
+       SgsIcInvoiceLineEO.OFFSET_GL_ACCOUNT_CR,  
+       SgsIcInvoiceLineEO.ALLOCATED_AMOUNT,  
+       SgsIcInvoiceLineEO.ACCOUNTING_TREATMENT,   
+(CASE  WHEN SgsIcInvoiceLineEO.MARKUP_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.MARKUP_RATE
+	   END) AS MARKUP_RATE,	   
+(CASE  WHEN SgsIcInvoiceLineEO.MARKUP_AMOUNT =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.MARKUP_AMOUNT
+	   END) AS MARKUP_AMOUNT,	   
+       SgsIcInvoiceLineEO.INVOICE_CURRENCY,  
+       SgsIcInvoiceLineEO.INVOICE_LINE_AMOUNT,  
+       SgsIcInvoiceLineEO.BASE_AMOUNT_BEFORE_TAX,  
+       SgsIcInvoiceLineEO.GST_VAT_RATE,  
+       SgsIcInvoiceLineEO.GST_VAT_AMOUNT,  
+       SgsIcInvoiceLineEO.TOTAL_AMOUNT_AFTER_TAX,  
+(CASE  WHEN SgsIcInvoiceLineEO.WHT_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.WHT_RATE
+	   END) AS WHT_RATE,	   
+       SgsIcInvoiceLineEO.TRANSACTION_STATUS,  
+       SgsIcInvoiceLineEO.SOURCE_PSFT_ID,  
+       SgsIcInvoiceLineEO.SOURCE_STD_RATE_ID,  
+       SgsIcInvoiceLineEO.SOURCE_STAT_ID,  
+       SgsIcInvoiceLineEO.CREATED_DATE,  
+       SgsIcInvoiceLineEO.CREATED_BY,  
+       SgsIcInvoiceLineEO.UPDATED_DATE,  
+       SgsIcInvoiceLineEO.UPDATED_BY,  
+       SgsIcInvoiceLineEO.ATTRIBUTE1,  
+       SgsIcInvoiceLineEO.ATTRIBUTE2,  
+       SgsIcInvoiceLineEO.ATTRIBUTE3,  
+       SgsIcInvoiceLineEO.ATTRIBUTE4,  
+       SgsIcInvoiceLineEO.ATTRIBUTE5,  
+       SgsIcInvoiceLineEO.ATTRIBUTE6,  
+       SgsIcInvoiceLineEO.ATTRIBUTE7,  
+       SgsIcInvoiceLineEO.ATTRIBUTE8,  
+       SgsIcInvoiceLineEO.ATTRIBUTE9,  
+       SgsIcInvoiceLineEO.ATTRIBUTE10,  
+       SgsIcInvoiceLineEO.ATTRIBUTE11,  
+       SgsIcInvoiceLineEO.ATTRIBUTE12,  
+       SgsIcInvoiceLineEO.ATTRIBUTE13,  
+       SgsIcInvoiceLineEO.ATTRIBUTE14,  
+       SgsIcInvoiceLineEO.ATTRIBUTE15,  
+       SgsIcInvoiceLineEO.NATURE_OF_EXPENSE,  
+(CASE  WHEN SgsIcInvoiceLineEO.WHT_AMOUNT =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.WHT_AMOUNT
+	   END) AS WHT_AMOUNT,	   
+(CASE  WHEN SgsIcInvoiceLineEO.GST_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.GST_RATE
+	   END) AS GST_RATE,	   
+(CASE  WHEN SgsIcInvoiceLineEO.IGST_AMNT =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.IGST_AMNT
+	   END) AS IGST_AMNT,	   
+(CASE  WHEN SgsIcInvoiceLineEO.SGST_AMNT =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.SGST_AMNT
+	   END) AS SGST_AMNT,	   
+(CASE  WHEN SgsIcInvoiceLineEO.CGST_AMNT =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.CGST_AMNT
+	   END) AS CGST_AMNT,	   
+(CASE  WHEN SgsIcInvoiceLineEO.VAT_AMNT =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.VAT_AMNT
+	   END) AS VAT_AMNT,	   
+(CASE  WHEN SgsIcInvoiceLineEO.VAT_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceLineEO.VAT_RATE
+	   END) AS VAT_RATE	   
+FROM  IC_INVOICE_LINE SgsIcInvoiceLineEO]]></SQLQuery>
   <EntityUsage
     Name="SgsIcInvoiceLineEO"
     Entity="com.sgs.ics.model.bc.entity.SgsIcInvoiceLineEO"/>

@@ -98,7 +98,7 @@ public class NavigateBean implements Serializable {
     public String sgscostIdentificationRuleflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-costIdentificationRule-flow.xml#sgs-costIdentificationRule-flow");
         ArrayList<String> pageList = (ArrayList<String>) ADFContext.getCurrent()
-                                                                   .getApplicationScope()
+                                                                   .getSessionScope()
                                                                    .get("pageList");
         System.out.println("Page List ::" + pageList.toString());
         if (null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))) {
@@ -154,7 +154,7 @@ public class NavigateBean implements Serializable {
     public String sgsbusinessUnitMasterflow() {
         setDynamicTaskFlowId("/taskflows/commom/sgs-businessUnitMaster-flow.xml#sgs-businessUnitMaster-flow");
         ArrayList<String> pageList = (ArrayList<String>) ADFContext.getCurrent()
-                                                                   .getApplicationScope()
+                                                                   .getSessionScope()
                                                                    .get("pageList");
         System.out.println("Page List ::" + pageList.toString());
         if (null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))) {
@@ -211,7 +211,7 @@ public class NavigateBean implements Serializable {
     public String sgsstatisticalDateflow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-statisticalDate-flow.xml#sgs-statisticalDate-flow");
         ArrayList<String> pageList = (ArrayList<String>) ADFContext.getCurrent()
-                                                                   .getApplicationScope()
+                                                                   .getSessionScope()
                                                                    .get("pageList");
         System.out.println("Page List ::" + pageList.toString());
         if (null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))) {
@@ -268,7 +268,7 @@ public class NavigateBean implements Serializable {
     public String sgsinvoiceDashboardflow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-invoiceDashboard-flow.xml#sgs-invoiceDashboard-flow");
         ArrayList<String> pageList = (ArrayList<String>) ADFContext.getCurrent()
-                                                                   .getApplicationScope()
+                                                                   .getSessionScope()
                                                                    .get("pageList");
         System.out.println("Page List ::" + pageList.toString());
         if (null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))) {
@@ -329,7 +329,7 @@ public class NavigateBean implements Serializable {
     public String sgstransBCostAllocationMainflow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-transBCostAllocationMain-flow.xml#sgs-transBCostAllocationMain-flow");
         ArrayList<String> pageList = (ArrayList<String>) ADFContext.getCurrent()
-                                                                   .getApplicationScope()
+                                                                   .getSessionScope()
                                                                    .get("pageList");
         System.out.println("Page List ::" + pageList.toString());
         if (null != pageList && !(pageList.isEmpty()) && (pageList.contains("ALL_PAGE"))) {

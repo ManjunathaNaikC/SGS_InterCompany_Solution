@@ -11,7 +11,7 @@ public class CommonUtils {
     
     public Object getSessionScopeValue(String name) {
         ADFContext adfCtx = ADFContext.getCurrent();
-        Map sessionScope = adfCtx.getApplicationScope();
+        Map sessionScope = adfCtx.getSessionScope();
         Object val = sessionScope.get(name);
 
         if (val == null)

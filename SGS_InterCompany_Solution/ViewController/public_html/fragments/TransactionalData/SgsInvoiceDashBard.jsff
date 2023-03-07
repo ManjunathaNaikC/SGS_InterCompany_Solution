@@ -206,7 +206,8 @@
               </af:outputText>
             </af:column>
             <af:column headerText="VAT Rate" id="c19">
-              <af:outputText value="#{row.VATRATE}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.tooltip}"
+              <af:outputText value="N/A" rendered="#{row.VATRATE eq null}"  id="ot24"/>
+              <af:outputText value="#{row.VATRATE}" rendered="#{row.VATRATE ne null}" shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.tooltip}"
                              id="ot19">
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.format}"/>

@@ -157,9 +157,11 @@ public class AuthenticationBean {
         BindingContainer bc = this.getContainer();
         OperationBinding ob = bc.getOperationBinding("loginValidationMethod");
         Map m = ob.getParamsMap();
+        
         m.put("user", _username);
         m.put("pass", _password);
         ob.execute();
+        
         setSessionScopeValue("_username",_username);      
         String useremail = getUserEmailId(_username);
         setSessionScopeValue("USER_EMAIL",useremail);
@@ -167,19 +169,28 @@ public class AuthenticationBean {
         ADFContext.getCurrent().getApplicationScope().put("pageList",pageList); 
         filterTenants(_username);
         try {
-            if (ob.getResult() != null) {
-                String userId = ob.getResult().toString();
-                if (userId != null || userId.length() != 0) {
-                    //            status = "success";
-                    ectx.redirect(ectx.getRequestContextPath() + "/faces/pages/MainPage.jsf");
+            if (null !=_username && null !=_password){
+                
+                    if (ob.getResult() != null) {
+                        
+                        String userId = ob.getResult().toString();
+                        if (userId != null || userId.length() != 0 ) {
+                            //            status = "success";
+                            ectx.redirect(ectx.getRequestContextPath() + "/faces/pages/MainPage.jsf");
 
-                } else {
+                        } else {
+                            showError("Invalid credentials", "An incorrect username or password was specified.", null);
+                            //            status = "";
+                        }
+                    } else {
+                        showError("Invalid credentials", "An incorrect username or password was specified.", null);
+                    }
+                
+            }else{
+                
                     showError("Invalid credentials", "An incorrect username or password was specified.", null);
-                    //            status = "";
                 }
-            } else {
-                showError("Invalid credentials", "An incorrect username or password was specified.", null);
-            }
+            
 
         } catch (IOException ie) {
             showError("IOException", "An error occurred during redirecting. Please consult logs for more information.",

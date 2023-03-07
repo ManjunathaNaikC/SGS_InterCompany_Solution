@@ -67,9 +67,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             Connection conn = null;
         try {
 
-//          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
-//          conn = DriverManager.getConnection(connectionUrl);
-            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+          conn = DriverManager.getConnection(connectionUrl);
+ //           conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
        
 
         } catch (SQLException sqle) {
@@ -271,17 +271,25 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
          vo.setNamedWhereClauseParam("bPassword", pass);
          vo.applyViewCriteria(vc);
          vo.executeQuery();
-             if(vo.getEstimatedRowCount()>0){   
-                 if(vo.hasNext()){
-                      
-                     Row row = vo.next();   
-                     System.out.println("UserId "+ row.getAttribute("UserId"));
-                 
-                     userId = (String)row.getAttribute("UserId");
-                     }    
-             }
+         
+         Row userVORow = vo.first();
+         
+
+            //Returns null if the username doesn't exists in the database
+         return (userVORow !=null) ? userVORow.getAttribute("UserId").toString(): null;
              
-             return userId;
+             
+//             if(vo.getEstimatedRowCount()>0){   
+//                 if(vo.hasNext()){
+//                      
+//                     Row row = vo.next();   
+//                     System.out.println("UserId "+ row.getAttribute("UserId"));
+//                 
+//                     userId = (String)row.getAttribute("UserId");
+//                     }    
+//             }
+//             
+           
 
          }
 

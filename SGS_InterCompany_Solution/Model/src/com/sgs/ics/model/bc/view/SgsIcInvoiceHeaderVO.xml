@@ -6,16 +6,15 @@
   Name="SgsIcInvoiceHeaderVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="JDBC"
-  CustomQuery="false"
-  SelectAllAttributes="false"
+  CustomQuery="true"
   PageIterMode="Full"
   FetchSize="25"
   FetchMode="FETCH_AS_NEEDED"
   AccessMode="RANGE_PAGING">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
   <Variable
     Name="bPeriod"
     Kind="viewcriteria"
@@ -44,6 +43,62 @@
     Name="bInputProvider"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT SgsIcInvoiceHeaderEO.INVOICE_SEQ_NO,  
+       SgsIcInvoiceHeaderEO.PERIOD,  
+       SgsIcInvoiceHeaderEO.TPA_ID,  
+       SgsIcInvoiceHeaderEO.TRANSACTION_CATEGORY,  
+       SgsIcInvoiceHeaderEO.TRANSACTION_TYPE,  
+       SgsIcInvoiceHeaderEO.IU_VENDOR,  
+       SgsIcInvoiceHeaderEO.SOURCE_BU,  
+       SgsIcInvoiceHeaderEO.SOURCE_CURRENCY,  
+       SgsIcInvoiceHeaderEO.SOURCE_AMOUNT,  
+       SgsIcInvoiceHeaderEO.IU_CUSTOMER,  
+       SgsIcInvoiceHeaderEO.TARGET_BU,  
+       SgsIcInvoiceHeaderEO.ACCOUNTING_TREATMENT,  
+       SgsIcInvoiceHeaderEO.MARKUP_RATE,  
+       SgsIcInvoiceHeaderEO.TARGET_CURRENCY,  
+       SgsIcInvoiceHeaderEO.INVOICE_HEADER_AMOUNT,  
+       SgsIcInvoiceHeaderEO.MARKUP_AMOUNT,  
+       SgsIcInvoiceHeaderEO.BASE_AMOUNT_BEFORE_TAX,  
+       SgsIcInvoiceHeaderEO.GST_VAT_RATE,  
+       SgsIcInvoiceHeaderEO.GST_VAT_AMOUNT,  
+       SgsIcInvoiceHeaderEO.TOTAL_AMOUNT_AFTER_TAX,  
+       SgsIcInvoiceHeaderEO.WHT_RATE,  
+       SgsIcInvoiceHeaderEO.WHT_AMOUNT,  
+       SgsIcInvoiceHeaderEO.TRANSACTION_STATUS,  
+       SgsIcInvoiceHeaderEO.PAYMENT_STATUS,  
+       SgsIcInvoiceHeaderEO.PAID_AMOUNT,  
+       SgsIcInvoiceHeaderEO.REFERENCE_VOUCHER_NUM,  
+       SgsIcInvoiceHeaderEO.REFERENCE_INVOICE_NUM,  
+       SgsIcInvoiceHeaderEO.REVIEW_ACC_ENTRIES,  
+       SgsIcInvoiceHeaderEO.INPUT_PROVIDER,  
+       SgsIcInvoiceHeaderEO.CREATED_DATE,  
+       SgsIcInvoiceHeaderEO.CREATED_BY,  
+       SgsIcInvoiceHeaderEO.UPDATED_DATE,  
+       SgsIcInvoiceHeaderEO.UPDATED_BY,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE1,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE2,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE3,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE4,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE5,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE6,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE7,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE8,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE9,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE10,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE11,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE12,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE13,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE14,  
+       SgsIcInvoiceHeaderEO.ATTRIBUTE15,  
+       SgsIcInvoiceHeaderEO.ALLOCATED_HEADER_AMOUNT,  
+       SgsIcInvoiceHeaderEO.GST_AMNT,  
+       SgsIcInvoiceHeaderEO.GST_RATE,  
+       SgsIcInvoiceHeaderEO.VAT_AMNT,  
+       (CASE  WHEN SgsIcInvoiceHeaderEO.VAT_RATE =0.00 THEN null
+	   ELSE SgsIcInvoiceHeaderEO.VAT_RATE
+	   END) AS VAT_RATE 
+FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
   <EntityUsage
     Name="SgsIcInvoiceHeaderEO"
     Entity="com.sgs.ics.model.bc.entity.SgsIcInvoiceHeaderEO"/>

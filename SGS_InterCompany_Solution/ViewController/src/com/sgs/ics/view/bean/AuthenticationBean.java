@@ -133,13 +133,13 @@ public class AuthenticationBean {
     
     public void setSessionScopeValue(String name, String value) {
         ADFContext adfCtx = ADFContext.getCurrent();
-        Map sessionScope = adfCtx.getApplicationScope();
+        Map sessionScope = adfCtx.getSessionScope();
         sessionScope.put(name, value);
     }
     
-    public void setapplicationScopePageList(ArrayList<String> pageList) {
+    public void setSessionScopePageList(ArrayList<String> pageList) {
         ADFContext adfCtx = ADFContext.getCurrent();
-        ArrayList<String> appScope = (ArrayList<String>) adfCtx.getApplicationScope();
+        ArrayList<String> appScope = (ArrayList<String>) adfCtx.getSessionScope();
         if(null != pageList && !(pageList.isEmpty())){
             for (int i = 0; i < pageList.size(); i++){
             appScope.add(pageList.get(i));
@@ -166,7 +166,7 @@ public class AuthenticationBean {
         String useremail = getUserEmailId(_username);
         setSessionScopeValue("USER_EMAIL",useremail);
         ArrayList<String> pageList = pageList(_username);
-        ADFContext.getCurrent().getApplicationScope().put("pageList",pageList); 
+        ADFContext.getCurrent().getSessionScope().put("pageList",pageList); 
         filterTenants(_username);
         try {
             if (null !=_username && null !=_password){

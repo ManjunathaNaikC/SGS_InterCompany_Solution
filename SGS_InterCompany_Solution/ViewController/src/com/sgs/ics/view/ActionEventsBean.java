@@ -1118,7 +1118,7 @@ public class ActionEventsBean {
     
     public void onStatisticalSubmitAproval(ActionEvent actionEvent) {
 
-//       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getApplicationScope().get("pageList");
+//       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getSessionScope().get("pageList");
 //       System.out.println("Page List ::"+pageList.toString());
 //        if(null != pageList && !(pageList.isEmpty()) && pageList.contains("ALL_PAGE")){
 //            System.out.println("Admin"+pageList.toString());
@@ -1147,7 +1147,7 @@ public class ActionEventsBean {
 
     public void onStatisticalApprove(ActionEvent actionEvent) {
 
-       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getApplicationScope().get("pageList");
+       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getSessionScope().get("pageList");
        System.out.println("Page List ::"+pageList.toString());
         if(null != pageList && !(pageList.isEmpty()) && pageList.contains("ALL_PAGE")){
             System.out.println("Admin"+pageList.toString());

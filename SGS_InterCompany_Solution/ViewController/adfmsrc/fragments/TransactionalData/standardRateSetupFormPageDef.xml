@@ -10,6 +10,8 @@
               id="SgsStdRateLineTblVO4Iterator"/>
     <searchRegion Binds="SgsStdRateLineTblVO4Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStdRateLineTblVO4Query"/>
+    <iterator Binds="SgsStdRateDocVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsStdRateDocVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SgsStandardRateSetupVO1Iterator" id="StandardRateId">
@@ -153,5 +155,20 @@
     </attributeValues>
     <list IterBinding="SgsStandardRateSetupVO1Iterator" StaticList="false" Uses="LOV_ExpenseType" id="ExpenseType1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SgsStdRateDocVO1Iterator" id="SgsStdRateDocVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStdRateDocVO" Name="SgsStdRateDocVO10">
+        <AttrNames>
+          <Item Value="DocTypeValue"/>
+          <Item Value="Attachment"/>
+          <Item Value="EffectiveFrom"/>
+          <Item Value="EffectiveTo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SgsStdRateDocVO1Iterator" id="CreateInsertDoc"
+            InstanceName="SGSAppModuleDataControl.SgsStdRateDocVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SgsStdRateDocVO1Iterator" id="DeleteDoc" InstanceName="SGSAppModuleDataControl.SgsStdRateDocVO1"
+            DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

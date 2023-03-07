@@ -63,7 +63,8 @@ public class SgsStandardRateSetupEOImpl extends EntityImpl {
         Attribute15,
         CreatedDate,
         INPUTPROVIDER,
-        SgsStdRateLineTblEO;
+        SgsStdRateLineTblEO,
+        SgsStdRateDocEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -126,6 +127,7 @@ public class SgsStandardRateSetupEOImpl extends EntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int INPUTPROVIDER = AttributesEnum.INPUTPROVIDER.index();
     public static final int SGSSTDRATELINETBLEO = AttributesEnum.SgsStdRateLineTblEO.index();
+    public static final int SGSSTDRATEDOCEO = AttributesEnum.SgsStdRateDocEO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -698,6 +700,14 @@ public class SgsStandardRateSetupEOImpl extends EntityImpl {
      */
     public RowIterator getSgsStdRateLineTblEO() {
         return (RowIterator) getAttributeInternal(SGSSTDRATELINETBLEO);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSgsStdRateDocEO() {
+        return (RowIterator) getAttributeInternal(SGSSTDRATEDOCEO);
     }
 
 

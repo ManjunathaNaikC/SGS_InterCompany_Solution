@@ -727,5 +727,21 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewLinkImpl getFKSGSPSTTXNDOCATTACHMENTVL1() {
         return (ViewLinkImpl) findViewLink("FKSGSPSTTXNDOCATTACHMENTVL1");
     }
+
+    /**
+     * Container's getter for SgsStdRateDocVO1.
+     * @return SgsStdRateDocVO1
+     */
+    public ViewObjectImpl getSgsStdRateDocVO1() {
+        return (ViewObjectImpl) findViewObject("SgsStdRateDocVO1");
+    }
+
+    /**
+     * Container's getter for SgsStdRateDocVL1.
+     * @return SgsStdRateDocVL1
+     */
+    public ViewLinkImpl getSgsStdRateDocVL1() {
+        return (ViewLinkImpl) findViewLink("SgsStdRateDocVL1");
+    }
 }
 

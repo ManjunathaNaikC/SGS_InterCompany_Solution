@@ -182,6 +182,9 @@
   <ViewUsage
     Name="SgsPstTxnDocAttachVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsPstTxnDocAttachVO"/>
+  <ViewUsage
+    Name="SgsStdRateDocVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsStdRateDocVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -290,6 +293,12 @@
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.FKSGSPSTTXNDOCATTACHMENTVL"
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTransBCostAllocationVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsPstTxnDocAttachVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SgsStdRateDocVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.SgsStdRateDocVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStandardRateSetupVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStdRateDocVO1"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">

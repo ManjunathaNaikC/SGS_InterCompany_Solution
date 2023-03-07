@@ -529,6 +529,11 @@
     ViewLink="com.sgs.ics.model.bc.view.link.StdRateViewLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SgsStdRateDocVO"
+    ViewLink="com.sgs.ics.model.bc.view.link.SgsStdRateDocVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

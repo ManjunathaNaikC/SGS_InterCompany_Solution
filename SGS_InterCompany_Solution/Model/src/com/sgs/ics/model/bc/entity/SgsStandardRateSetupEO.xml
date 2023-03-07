@@ -390,6 +390,13 @@
     AssociationOtherEnd="com.sgs.ics.model.bc.entity.FKSGSSTDRATELINETBLAssoc.SgsStandardRateSetupEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SgsStdRateDocEO"
+    Association="com.sgs.ics.model.bc.entity.assoc.FKSGSSTDRATEDOCTBLAssoc"
+    AssociationEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSSTDRATEDOCTBLAssoc.SgsStdRateDocEO"
+    AssociationOtherEnd="com.sgs.ics.model.bc.entity.assoc.FKSGSSTDRATEDOCTBLAssoc.SgsStandardRateSetupEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PKSGSSTANDARDRATESETUP"
     PrimaryKey="true">

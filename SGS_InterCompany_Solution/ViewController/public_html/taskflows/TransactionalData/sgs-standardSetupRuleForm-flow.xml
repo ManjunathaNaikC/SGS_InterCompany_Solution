@@ -15,6 +15,11 @@
       <managed-bean-class>com.sgs.ics.view.ActionEventsBean</managed-bean-class>
       <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__5">
+      <managed-bean-name>StandardRateSetupBean</managed-bean-name>
+      <managed-bean-class>com.sgs.ics.view.bean.common.StandardRateSetupBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <view id="standardRateSetupForm">
       <page>/fragments/TransactionalData/standardRateSetupForm.jsff</page>
     </view>

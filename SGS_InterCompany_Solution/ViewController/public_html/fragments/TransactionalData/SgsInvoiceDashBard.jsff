@@ -80,11 +80,11 @@
               <af:outputText value="#{row.TransactionCategory}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.tooltip}" id="ot4"/>
             </af:column>
-            <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.label}" id="c5"
+            <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.label}" id="c5"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.name}" filterable="true">
               <af:outputText value="#{row.TransactionType}"
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.tooltip}" id="ot5"/>
-            </af:column>
+            </af:column>-->
             <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.label}" id="c6"
                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.name}" filterable="true"
                        visible="false">

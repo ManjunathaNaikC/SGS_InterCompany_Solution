@@ -185,6 +185,12 @@
   <ViewUsage
     Name="SgsStdRateDocVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStdRateDocVO"/>
+  <ViewUsage
+    Name="SgsInvoiceCreditMemoVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsInvoiceCreditMemoVO"/>
+  <ViewUsage
+    Name="CreditMemoLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.CreditMemoLOVVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -302,6 +308,26 @@
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
+    <Method
+      Name="loginValidationMethod"
+      MethodName="loginValidationMethod">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="user"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pass"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getDBConnection"
+      MethodName="getDBConnection">
+      <Return
+        Name="_return_type_"
+        Type="java.sql.Connection"/>
+    </Method>
     <Method
       Name="loginValidationMethod"
       MethodName="loginValidationMethod">

@@ -54,8 +54,10 @@
                                 <af:showPopupBehavior popupId="p1reject"/>
                             </af:button>
                             <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
+                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_DELETE')}"
                                        actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
                             <af:button id="b1" action="ADD" icon="/resources/icons/plus.png"
+                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_ADD')}"
                                        shortDesc="Create/Add Statistical Data"
                                        actionListener="#{bindings.CreateStatisticalData.execute}"/>
                         </af:toolbar>

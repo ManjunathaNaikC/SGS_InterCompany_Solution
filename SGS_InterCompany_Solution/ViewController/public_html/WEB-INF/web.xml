@@ -149,6 +149,9 @@
         <param-name>org.apache.myfaces.trinidad.CHECK_FILE_MODIFICATION</param-name>
         <param-value>true</param-value>
     </context-param>
+    <session-config>
+        <session-timeout>90</session-timeout>
+    </session-config>
     <mime-mapping>
         <extension>swf</extension>
         <mime-type>application/x-shockwave-flash</mime-type>

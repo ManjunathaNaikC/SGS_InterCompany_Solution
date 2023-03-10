@@ -110,6 +110,7 @@ public class ActionEventsBean {
     private RichInputDate creditDateBindVal;
     private RichSelectBooleanCheckbox selectCreditRecordBind;
     private RichColumn selectRecordColBind;
+    private RichPopup invoicecreditmemobindpopup;
 
     public ActionEventsBean() {
     }
@@ -1632,6 +1633,19 @@ public class ActionEventsBean {
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.creditMemoPopupBind.show(hints);
         
+    }
+
+    public void onCreditMemosClose(ActionEvent actionEvent) {
+        // Add event code here...
+        invoicecreditmemobindpopup.hide();
+    }
+
+    public void setInvoicecreditmemobindpopup(RichPopup invoicecreditmemobindpopup) {
+        this.invoicecreditmemobindpopup = invoicecreditmemobindpopup;
+    }
+
+    public RichPopup getInvoicecreditmemobindpopup() {
+        return invoicecreditmemobindpopup;
     }
 }
 

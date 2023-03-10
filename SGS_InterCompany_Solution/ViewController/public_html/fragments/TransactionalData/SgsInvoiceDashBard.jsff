@@ -39,6 +39,9 @@
                 <af:button text="Confirm For Invoice" id="b5">
                   <af:showPopupBehavior popupId="p3confirming"/>
                 </af:button>
+              <af:button text="Create Credit Memo" id="b2">
+                <af:showPopupBehavior popupId="p1creditMemo"/>
+              </af:button>
             </af:toolbar>   
           </f:facet>
           <f:facet name="statusbar"/>
@@ -369,6 +372,18 @@
                 <af:message id="m1confirm" messageType="confirmation" message="Do You Really Want To Confirm?"/>
               </af:dialog>
             </af:popup>
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p1creditMemo"
+                    binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}">
+            <af:dialog id="d1" type="cancel">
+              <f:facet name="buttonBar"/>
+              <af:panelGroupLayout id="pgl3" layout="vertical" styleClass="AFStretchWidth">
+                <af:button text="Close" id="b12"
+                           actionListener="#{viewScope.ActionEventsBean.onCreditMemosClose}"
+                           inlineStyle="margin-left:11px;"/>
+                <af:region value="#{bindings.sgs_creditmemo_flow1.regionModel}" id="r1" styleClass="AFStretchWidth"/>
+              </af:panelGroupLayout>
+            </af:dialog>
+          </af:popup>
         </af:panelCollection>
       </af:panelBox>
     </f:facet>

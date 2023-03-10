@@ -9,6 +9,9 @@
     <searchRegion Criteria="SgsIcInvoiceHeaderVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SgsIcInvoiceHeaderVO1Iterator"
                   id="SgsIcInvoiceHeaderVOCriteriaQuery"/>
+    <taskFlow id="sgs_creditmemo_flow1"
+              taskFlowId="/taskflows/TransactionalData/sgs_creditmemo_flow.xml#sgs_creditmemo_flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="SgsIcInvoiceHeaderVO1">

@@ -743,5 +743,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewLinkImpl getSgsStdRateDocVL1() {
         return (ViewLinkImpl) findViewLink("SgsStdRateDocVL1");
     }
+
+    /**
+     * Container's getter for SgsDrtCrossChargeVO1.
+     * @return SgsDrtCrossChargeVO1
+     */
+    public ViewObjectImpl getSgsDrtCrossChargeVO1() {
+        return (ViewObjectImpl) findViewObject("SgsDrtCrossChargeVO1");
+    }
 }
 

@@ -38,6 +38,7 @@ import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichColumn;
+import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
@@ -101,6 +102,14 @@ public class ActionEventsBean {
     private RichPopup invoiceConfirmBind;
     private RichPopup invoiceRejectBind;
     private RichPopup submitstatpopupbind;
+    private RichPopup creditMemoPopupBind;
+    private RichInputDate creditDateBind;
+    private RichInputText percentageReversalBind;
+    private RichInputText completeReversalBind;
+    private RichSelectOneChoice reversalReasonLovBind;
+    private RichInputDate creditDateBindVal;
+    private RichSelectBooleanCheckbox selectCreditRecordBind;
+    private RichColumn selectRecordColBind;
 
     public ActionEventsBean() {
     }
@@ -1454,6 +1463,175 @@ public class ActionEventsBean {
     public void onStatSubmitNo(ActionEvent actionEvent) {
         // Add event code here...
         submitstatpopupbind.hide();
+    }
+
+    public void setCreditMemoPopupBind(RichPopup creditMemoPopupBind) {
+        this.creditMemoPopupBind = creditMemoPopupBind;
+    }
+
+    public RichPopup getCreditMemoPopupBind() {
+        return creditMemoPopupBind;
+    }
+
+    public void creditMemoSubmitApprovals(ActionEvent actionEvent) {
+        // Add event code here...
+        
+       // SgsInvoiceCreditMemoVO1Iterator
+//       DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+//       Row row = dcIteratorbinding.getCurrentRow();
+       
+    
+       DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+        oracle.jbo.Row[] row = creditData.getAllRowsInRange();
+        for (int i = 0; i < row.length; i++) {
+            System.out.println(" SelectCreditRecord At Approve:: " + row[i].getAttribute("SelectCreditRecord"));
+            if (null != row[i].getAttribute("SelectCreditRecord") &&
+                row[i].getAttribute("SelectCreditRecord").equals("Yes")) {                    
+                    System.out.println("Credit Date :: "+creditDateBindVal.getValue());
+                    if(null != creditDateBindVal.getValue()){
+                        row[i].setAttribute("Period", creditDateBindVal.getValue());
+                        System.out.println("Period ::"+row[i].getAttribute("Period"));
+                    }
+                    
+                     if(null != completeReversalBind.getValue()){
+                         row[i].setAttribute("InvoiceAmount", completeReversalBind.getValue());
+                         System.out.println("InvoiceAmount ::"+row[i].getAttribute("InvoiceAmount"));
+                     }
+                    
+                     if(null != percentageReversalBind.getValue()){
+                         if(null != completeReversalBind.getValue()){
+                             String  str= (String)percentageReversalBind.getValue();
+                             double reversalPerc = Double.parseDouble(str);
+                             System.out.println("reversalPerc ::"+reversalPerc);
+                             String  str1= (String)completeReversalBind.getValue();
+                             double invoiceAmount = Double.parseDouble(str1);
+                             System.out.println("invoiceAmount ::"+invoiceAmount);
+                             double reversalAmt = (Double)((reversalPerc / 100)*(invoiceAmount));
+                             System.out.println("reversalAmt ::"+reversalAmt);
+                             row[i].setAttribute("ReversalAmount",reversalAmt);
+                             System.out.println("ReversalAmount ::"+row[i].getAttribute("ReversalAmount"));
+                         }
+                        
+                     }
+                        
+                     
+                     if(null != reversalReasonLovBind.getValue()){
+                         row[i].setAttribute("REVERSALREASON", reversalReasonLovBind.getValue());
+                         System.out.println("REVERSALREASON ::"+row[i].getAttribute("REVERSALREASON"));
+                     }
+                     
+                }
+        }
+       
+      
+        this.creditDateBindVal.setValue(null);
+        this.percentageReversalBind.setValue(null);
+        this.completeReversalBind.setValue(null);
+        this.reversalReasonLovBind.setValue(null);
+        
+        AdfFacesContext.getCurrentInstance().addPartialTarget(creditDateBindVal);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(completeReversalBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(reversalReasonLovBind);
+       executeBinding(SAVE_DATA);
+       creditMemoPopupBind.hide();
+    }
+
+    public void onCreditMemoClose(ActionEvent actionEvent) {
+        // Add event code here...
+        creditMemoPopupBind.hide();
+    }
+
+    public void setCreditDateBind(RichInputDate creditDateBind) {
+        this.creditDateBind = creditDateBind;
+    }
+
+    public RichInputDate getCreditDateBind() {
+        return creditDateBind;
+    }
+
+    public void setPercentageReversalBind(RichInputText percentageReversalBind) {
+        this.percentageReversalBind = percentageReversalBind;
+    }
+
+    public RichInputText getPercentageReversalBind() {
+        return percentageReversalBind;
+    }
+
+    public void setCompleteReversalBind(RichInputText completeReversalBind) {
+        this.completeReversalBind = completeReversalBind;
+    }
+
+    public RichInputText getCompleteReversalBind() {
+        return completeReversalBind;
+    }
+
+    public void setReversalReasonLovBind(RichSelectOneChoice reversalReasonLovBind) {
+        this.reversalReasonLovBind = reversalReasonLovBind;
+    }
+
+    public RichSelectOneChoice getReversalReasonLovBind() {
+        return reversalReasonLovBind;
+    }
+
+    public void setCreditDateBindVal(RichInputDate creditDateBindVal) {
+        this.creditDateBindVal = creditDateBindVal;
+    }
+
+    public RichInputDate getCreditDateBindVal() {
+        return creditDateBindVal;
+    }
+
+    public void onCreditMemoSelectAll(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At Credit Memo :: " + valueChangeEvent.getNewValue());
+       DCIteratorBinding  invoiceCreditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+        oracle.jbo.Row[] invoiceCreditDatarows = invoiceCreditData.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("invoiceCreditDatarows:: " + invoiceCreditDatarows.length);
+            for (int i = 0; i < invoiceCreditDatarows.length; i++) {
+                System.out.println("invoice  :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
+                 invoiceCreditDatarows[i].setAttribute("SelectCreditRecord", "Yes");
+                System.out.println(" SelectCreditRecord :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
+            }               
+        }else {
+            System.out.println("invoices Datarows else:: " + invoiceCreditDatarows.length);
+            for (int i = 0; i < invoiceCreditDatarows.length; i++) {
+                System.out.println("invoice  :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
+                invoiceCreditDatarows[i].setAttribute("SelectCreditRecord", "No");
+                System.out.println("  SelectCreditRecord :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
+            }
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(selectCreditRecordBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(selectRecordColBind);
+    }
+
+    public void setSelectCreditRecordBind(RichSelectBooleanCheckbox selectCreditRecordBind) {
+        this.selectCreditRecordBind = selectCreditRecordBind;
+    }
+
+    public RichSelectBooleanCheckbox getSelectCreditRecordBind() {
+        return selectCreditRecordBind;
+    }
+
+    public void setSelectRecordColBind(RichColumn selectRecordColBind) {
+        this.selectRecordColBind = selectRecordColBind;
+    }
+
+    public RichColumn getSelectRecordColBind() {
+        return selectRecordColBind;
+    }
+
+    public void onCreditMemoSave(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
+
+    public void onCreduitMemoInvoke(ActionEvent actionEvent) {
+        executeBinding("CreateInsertCredit");
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.creditMemoPopupBind.show(hints);
+        
     }
 }
 

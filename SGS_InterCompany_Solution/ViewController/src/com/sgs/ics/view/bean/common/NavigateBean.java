@@ -128,11 +128,30 @@ public class NavigateBean implements Serializable {
                     buString.append(",");
                 }
             }
+            String inputProviderList = (String) ADFContext.getCurrent()
+                                               .getSessionScope()
+                                               .get("inputProvider");
+            System.out.println("inputProvider on Page " + inputProviderList);
+            String[] resIPList = inputProviderList.split("[,]", 0);
+            StringBuffer iPString = new StringBuffer();
+            for (int i = 0; i < resIPList.length; i++) {
+                System.out.println(resIPList[i]);
+                iPString.append("'" + resIPList[i] + "'");
+                System.out.println("Value i ::" + i);
+                System.out.println("length  ::" + resIPList.length);
+                if (i + 1 == resIPList.length) {
+                    //Don't append comma at the end of the String
+
+                } else {
+                    iPString.append(",");
+                }
+            }
+            
             System.out.println(buString.toString());
             ViewObjectImpl viewImpl = null;
             viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsCostIdentificationRuleVOIterator").getViewObject();
             viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
-            viewImpl.setWhereClause(" NATURE_OF_EXPENSE IN ( " + buString.toString() + ")");
+            viewImpl.setWhereClause(" NATURE_OF_EXPENSE IN ( " + buString.toString() + ")"+"AND INPUT_PROVIDER IN( " + iPString.toString() + ")");
             System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
             viewImpl.executeQuery();
         }
@@ -427,6 +446,11 @@ public class NavigateBean implements Serializable {
 
     public String sgsnettingflow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs-netting-flow.xml#sgs-netting-flow");
+        return null;
+    }
+
+    public String sgs_creditmemo_flow() {
+        setDynamicTaskFlowId("/taskflows/TransactionalData/sgs_creditmemo_flow.xml#sgs_creditmemo_flow");
         return null;
     }
 }

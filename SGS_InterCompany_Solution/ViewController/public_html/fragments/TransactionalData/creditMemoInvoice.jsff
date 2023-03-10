@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelBox text="Invoice Credit Memo Dash Board" id="pb1">
+        <f:facet name="toolbar"/>
+        <af:panelHeader  id="ph1">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.processQueryOperation}"
+                    saveResultsLayout="never" saveQueryMode="hidden" rows="2" maxColumns="2"/>
+        </af:panelHeader>
+        <!--<af:panelGroupLayout layout="vertical" id="pgl1"/>-->
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:group id="g1">
+                <af:button text="Create Credit Memos" id="b1"
+                           actionListener="#{viewScope.ActionEventsBean.onCreduitMemoInvoke}">
+               
+                </af:button>
+                <af:button text="Cancel" id="b2"/>
+                <af:button text="Save" id="b5" actionListener="#{viewScope.ActionEventsBean.onCreditMemoSave}"/>
+              </af:group>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.SgsInvoiceCreditMemoVO1.collectionModel}" var="row"
+                    rows="#{bindings.SgsInvoiceCreditMemoVO1.rangeSize}"
+                    emptyText="#{bindings.SgsInvoiceCreditMemoVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.SgsInvoiceCreditMemoVO1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.SgsInvoiceCreditMemoVO1.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.SgsInvoiceCreditMemoVO1.rangeSize}"
+                    filterModel="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor}" filterVisible="false"
+                    queryListener="#{bindings.SgsInvoiceCreditMemoVO1Query.processQuery}" varStatus="vs" id="t1">
+            <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.SelectCreditRecord.label}" id="c16"
+                       binding="#{viewScope.ActionEventsBean.selectRecordColBind}">
+              <af:selectBooleanCheckbox value="#{row.bindings.SelectCreditRecord.inputValue}"
+                                       
+                                        shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.SelectCreditRecord.tooltip}"
+                                        id="sbc1" binding="#{viewScope.ActionEventsBean.selectCreditRecordBind}">
+
+              </af:selectBooleanCheckbox>
+              <f:facet name="header">
+                      <af:selectBooleanCheckbox text="Select All" id="sbc2" autoSubmit="true"
+                                            valueChangeListener="#{viewScope.ActionEventsBean.onCreditMemoSelectAll}"
+                                            partialTriggers="::t1 c16 sbc1"/>
+              </f:facet>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.label}"
+                       id="c1">
+              <af:outputText value="#{row.InvoiceSeqNo}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.label}" id="c2">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                              id="id1">
+                  <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.Period}" shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.tooltip}"
+                             id="ot2">
+                <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.label}"
+                       id="c3">
+              <af:outputText value="#{row.PsftVoucherRef}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.tooltip}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.label}"
+                       id="c4">
+              <af:outputText value="#{row.PsftInvoiceRef}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.tooltip}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.TransactionCategory.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.TransactionCategory.label}" id="c5">
+              <af:outputText value="#{row.TransactionCategory}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.TransactionCategory.tooltip}"
+                             id="ot5"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.NatureOfExpense.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.NatureOfExpense.label}"
+                       id="c6">
+              <af:outputText value="#{row.NatureOfExpense}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.NatureOfExpense.tooltip}" id="ot6"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.label}" id="c7">
+              <af:outputText value="#{row.FromBu}" shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.tooltip}"
+                             id="ot7"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ToBu.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.ToBu.label}" id="c8">
+              <af:outputText value="#{row.ToBu}" shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ToBu.tooltip}"
+                             id="ot8"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
+                       id="c9">
+              <af:outputText value="#{row.InvoiceAmount}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.tooltip}" id="ot9">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.label}"
+                       id="c10">
+              <af:inputText value="#{row.bindings.ReversalAmount.inputValue}"
+                            required="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.mandatory}"
+                            columns="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.displayWidth}"
+                            maximumLength="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.precision}"
+                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.ReversalAmount.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.format}"/>
+              </af:inputText>
+              <!--<af:outputText value="#{row.ReversalAmount}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}" id="ot10">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.format}"/>
+              </af:outputText>-->
+            </af:column>
+            <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.label}" id="c15">
+              <af:selectOneChoice value="#{row.bindings.REVERSALREASON.inputValue}"
+                                  label="#{row.bindings.REVERSALREASON.label}"
+                                  required="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.mandatory}"
+                                  shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.tooltip}" id="soc1"
+                                  readOnly="true">
+                <f:selectItems value="#{row.bindings.REVERSALREASON.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.REVERSALREASON.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedDate.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedDate.label}"
+                       id="c11">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CreatedDate.value}"
+                              id="id2">
+                  <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedDate.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.CreatedDate}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedDate.tooltip}" id="ot11">
+                <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedBy.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedBy.label}" id="c12">
+              <af:outputText value="#{row.CreatedBy}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedBy.tooltip}" id="ot12"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.label}"
+                       id="c13">
+              <f:facet name="filter">
+                <af:inputDate value="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.UpdatedDate.value}"
+                              id="id3">
+                  <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.format}"/>
+                </af:inputDate>
+              </f:facet>
+              <af:outputText value="#{row.UpdatedDate}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.tooltip}" id="ot13">
+                <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedBy.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedBy.label}" id="c14">
+              <af:outputText value="#{row.UpdatedBy}"
+                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedBy.tooltip}" id="ot14"/>
+            </af:column>
+          </af:table>
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p1credit"
+                    binding="#{viewScope.ActionEventsBean.creditMemoPopupBind}">
+            <af:dialog id="d1" title="Create Credit Memos" type="none">
+              <f:facet name="buttonBar">
+                <af:button text="Submit For Approval" id="b3"
+                           actionListener="#{viewScope.ActionEventsBean.creditMemoSubmitApprovals}"/>
+                <af:spacer id="s1" width="10"/>
+                <af:button text="Close" id="b4" actionListener="#{viewScope.ActionEventsBean.onCreditMemoClose}"/>
+              </f:facet>
+              <af:panelFormLayout id="pfl1">
+                <af:inputDate value="#{bindings.PERIOD.inputValue}" label="Credit Date"
+                              required="#{bindings.PERIOD.hints.mandatory}"
+                              columns="#{bindings.PERIOD.hints.displayWidth}"
+                              shortDesc="#{bindings.PERIOD.hints.tooltip}" id="id4" autoSubmit="true"
+                              binding="#{viewScope.ActionEventsBean.creditDateBindVal}">
+                  <f:validator binding="#{bindings.PERIOD.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.PERIOD.format}"/>
+                </af:inputDate>
+                <!--<af:inputDate value="#{bindings.CreditPeriod.inputValue}" label="#{bindings.CreditPeriod.hints.label}"
+                              required="#{bindings.CreditPeriod.hints.mandatory}"
+                              columns="#{bindings.CreditPeriod.hints.displayWidth}"
+                              shortDesc="#{bindings.CreditPeriod.hints.tooltip}" id="id5">
+                  <f:validator binding="#{bindings.CreditPeriod.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.CreditPeriod.format}"/>
+                </af:inputDate>
+                <af:selectOneChoice value="#{bindings.ReversalReasonLov.inputValue}"
+                                    label="#{bindings.ReversalReasonLov.label}"
+                                    required="#{bindings.ReversalReasonLov.hints.mandatory}"
+                                    shortDesc="#{bindings.ReversalReasonLov.hints.tooltip}" id="soc3">
+                  <f:selectItems value="#{bindings.ReversalReasonLov.items}" id="si3"/>
+                  <f:validator binding="#{bindings.ReversalReasonLov.validator}"/>
+                </af:selectOneChoice>-->
+                <!--<af:inputDate label="Credit Date" id="id5" binding="#{viewScope.ActionEventsBean.creditDateBind}"
+                              autoSubmit="true"/>-->
+                <af:inputText label="Percentage Reversal" id="it2"
+                              binding="#{viewScope.ActionEventsBean.percentageReversalBind}" autoSubmit="true"/>
+                <af:inputText label="Complete Reversal" id="it3"
+                              binding="#{viewScope.ActionEventsBean.completeReversalBind}" autoSubmit="true"/>
+                <af:selectOneChoice value="#{bindings.REVERSALREASON.inputValue}"
+                                    label="#{bindings.REVERSALREASON.label}"
+                                    required="#{bindings.REVERSALREASON.hints.mandatory}"
+                                    shortDesc="#{bindings.REVERSALREASON.hints.tooltip}" id="soc2"
+                                    binding="#{viewScope.ActionEventsBean.reversalReasonLovBind}" autoSubmit="true">
+                  <f:selectItems value="#{bindings.REVERSALREASON.items}" id="si2"/>
+                  <f:validator binding="#{bindings.REVERSALREASON.validator}"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </af:dialog>
+          </af:popup>
+        </af:panelCollection>
+      </af:panelBox>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

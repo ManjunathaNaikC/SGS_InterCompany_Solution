@@ -67,7 +67,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             Connection conn = null;
         try {
 
-          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;";
           conn = DriverManager.getConnection(connectionUrl);
  //           conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
        
@@ -620,7 +620,6 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsStlmtInvVO1() {
         return (ViewObjectImpl) findViewObject("SgsStlmtInvVO1");
-
     }
 
 
@@ -750,6 +749,22 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsDrtCrossChargeVO1() {
         return (ViewObjectImpl) findViewObject("SgsDrtCrossChargeVO1");
+      }
+      
+    /**
+     * Container's getter for SgsInvoiceCreditMemoVO1.
+     * @return SgsInvoiceCreditMemoVO1
+     */
+    public ViewObjectImpl getSgsInvoiceCreditMemoVO1() {
+        return (ViewObjectImpl) findViewObject("SgsInvoiceCreditMemoVO1");
+    }
+
+    /**
+     * Container's getter for CreditMemoLOVVO1.
+     * @return CreditMemoLOVVO1
+     */
+    public ViewObjectImpl getCreditMemoLOVVO1() {
+        return (ViewObjectImpl) findViewObject("CreditMemoLOVVO1");
     }
 }
 

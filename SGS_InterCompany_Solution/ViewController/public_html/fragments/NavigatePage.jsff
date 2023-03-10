@@ -83,8 +83,8 @@
                                              action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"/>
                                     <af:link text="Netting Settlement"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('NETTING')}"
                                              action="#{pageFlowScope.navigateBean.sgsnettingflow}" id="l2"/>
-                                    <af:link text="Credit Memo"
-                                             action="#{pageFlowScope.navigateBean.sgs_creditmemo_flow}" id="l14"/>
+                                    <!--<af:link text="Credit Memo"
+                                             action="#{pageFlowScope.navigateBean.sgs_creditmemo_flow}" id="l14"/>-->
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Process" text="Process" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}">

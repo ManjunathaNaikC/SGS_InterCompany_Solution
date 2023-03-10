@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelStretchLayout id="psl1">
+  <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth">
     <f:facet name="start"/>
     <f:facet name="end"/>
     <f:facet name="top"/>
@@ -9,14 +9,14 @@
     <f:facet name="center">
       <af:panelBox text="Invoice Credit Memo Dash Board" id="pb1">
         <f:facet name="toolbar"/>
-        <af:panelHeader  id="ph1">
+        <!--<af:panelHeader  id="ph1">
           <af:query id="qryId1" headerText="Search" disclosed="true"
                     value="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.queryDescriptor}"
                     model="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.queryModel}"
                     queryListener="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.processQuery}"
                     queryOperationListener="#{bindings.SgsInvoiceCreditMemoVOCriteriaQuery.processQueryOperation}"
                     saveResultsLayout="never" saveQueryMode="hidden" rows="2" maxColumns="2"/>
-        </af:panelHeader>
+        </af:panelHeader>-->
         <!--<af:panelGroupLayout layout="vertical" id="pgl1"/>-->
         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
@@ -27,7 +27,7 @@
                            actionListener="#{viewScope.ActionEventsBean.onCreduitMemoInvoke}">
                
                 </af:button>
-                <af:button text="Cancel" id="b2"/>
+                <!--<af:button text="Cancel" id="b2"/>-->
                 <af:button text="Save" id="b5" actionListener="#{viewScope.ActionEventsBean.onCreditMemoSave}"/>
               </af:group>
             </af:toolbar>
@@ -41,7 +41,8 @@
                     selectionListener="#{bindings.SgsInvoiceCreditMemoVO1.collectionModel.makeCurrent}"
                     rowSelection="single" fetchSize="#{bindings.SgsInvoiceCreditMemoVO1.rangeSize}"
                     filterModel="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor}" filterVisible="false"
-                    queryListener="#{bindings.SgsInvoiceCreditMemoVO1Query.processQuery}" varStatus="vs" id="t1">
+                    queryListener="#{bindings.SgsInvoiceCreditMemoVO1Query.processQuery}" varStatus="vs" id="t1"
+                    styleClass="AFStretchWidth">
             <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.SelectCreditRecord.label}" id="c16"
                        binding="#{viewScope.ActionEventsBean.selectRecordColBind}">
               <af:selectBooleanCheckbox value="#{row.bindings.SelectCreditRecord.inputValue}"

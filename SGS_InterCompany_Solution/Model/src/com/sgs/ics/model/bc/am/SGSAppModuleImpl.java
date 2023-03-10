@@ -620,7 +620,6 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsStlmtInvVO1() {
         return (ViewObjectImpl) findViewObject("SgsStlmtInvVO1");
-
     }
 
 
@@ -744,6 +743,14 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         return (ViewLinkImpl) findViewLink("SgsStdRateDocVL1");
     }
 
+    /**
+     * Container's getter for SgsDrtCrossChargeVO1.
+     * @return SgsDrtCrossChargeVO1
+     */
+    public ViewObjectImpl getSgsDrtCrossChargeVO1() {
+        return (ViewObjectImpl) findViewObject("SgsDrtCrossChargeVO1");
+      }
+      
     /**
      * Container's getter for SgsInvoiceCreditMemoVO1.
      * @return SgsInvoiceCreditMemoVO1

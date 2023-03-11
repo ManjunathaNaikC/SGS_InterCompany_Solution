@@ -12,6 +12,10 @@
     <taskFlow id="sgs_creditmemo_flow1"
               taskFlowId="/taskflows/TransactionalData/sgs_creditmemo_flow.xml#sgs_creditmemo_flow"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="NatureOfExpenseLookupVO2" RangeSize="10" DataControl="SGSAppModuleDataControl"
+              id="NatureOfExpenseLookupVO2Iterator"/>
+    <iterator Binds="SgsDrtCrossChargeVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
+              id="SgsDrtCrossChargeVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="SgsIcInvoiceHeaderVO1">
@@ -59,5 +63,15 @@
       </nodeDefinition>
     </tree>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action IterBinding="SgsDrtCrossChargeVO1Iterator" id="CreateInsertDirectCharge"
+            InstanceName="SGSAppModuleDataControl.SgsDrtCrossChargeVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <list ListOperMode="navigation" IterBinding="NatureOfExpenseLookupVO2Iterator"
+          ListIter="NatureOfExpenseLookupVO2Iterator" id="MEANING" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="LOOKUPCODE"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>

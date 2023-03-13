@@ -226,7 +226,7 @@
               <f:validator binding="#{bindings.Status.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
-          <!--<af:panelBox text="BD Commision Details" id="pb4" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}"
+          <af:panelBox text="BD Commision Details" id="pb4" visible="#{bindings.BdCommissionApplicability1.inputValue eq 'Yes' ? true : false}"
           partialTriggers="sor2">
                     <f:facet name="toolbar"/>
                     <af:panelGroupLayout id="pgl3" layout="vertical"
@@ -249,7 +249,7 @@
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="BD Commission Charging Unit" id="plam2">
-                                <af:inputText value="#{bindings.BdCommChargingUnit}"
+                                <af:inputText value="#{bindings.BdCommChargingUnit.inputValue}"
                                               required="#{bindings.BdCommChargingUnit.hints.mandatory}"
                                               columns="#{bindings.BdCommChargingUnit.hints.displayWidth}"
                                               maximumLength="#{bindings.BdCommChargingUnit.hints.precision}"
@@ -259,7 +259,7 @@
                             </af:panelLabelAndMessage>
                         </af:panelFormLayout>
                     </af:panelGroupLayout>
-                </af:panelBox>-->
+                </af:panelBox>
                 <af:panelBox text="Pass Through Details" id="pb5"
                              visible="#{bindings.PassThroughFlag1.inputValue eq 'Yes' ? true : false}"
                              partialTriggers="sor1">

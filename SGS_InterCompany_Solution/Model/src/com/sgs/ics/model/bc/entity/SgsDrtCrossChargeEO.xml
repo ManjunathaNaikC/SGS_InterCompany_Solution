@@ -99,12 +99,11 @@
   </Attribute>
   <Attribute
     Name="SourceCurrency"
-    Precision="20"
-    Scale="5"
+    Precision="80"
     ColumnName="SOURCE_CURRENCY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
     TableName="SGS_DRTCROSS_CHARGE_TBL"/>
   <Attribute
     Name="ToBu"

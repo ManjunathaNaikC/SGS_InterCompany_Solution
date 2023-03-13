@@ -83,7 +83,8 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsDrtCrossChargeEOImpl.class);
-    
+
+
     public static final int DRTCROSSCHARGEID = AttributesEnum.DrtcrossChargeId.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NatureOfExpense.index();
     public static final int ALLOCATIONBASIS = AttributesEnum.AllocationBasis.index();
@@ -125,6 +126,13 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public SgsDrtCrossChargeEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO");
     }
 
     /**
@@ -243,15 +251,15 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
      * Gets the attribute value for SourceCurrency, using the alias name SourceCurrency.
      * @return the value of SourceCurrency
      */
-    public BigDecimal getSourceCurrency() {
-        return (BigDecimal) getAttributeInternal(SOURCECURRENCY);
+    public String getSourceCurrency() {
+        return (String) getAttributeInternal(SOURCECURRENCY);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SourceCurrency.
      * @param value value to set the SourceCurrency
      */
-    public void setSourceCurrency(BigDecimal value) {
+    public void setSourceCurrency(String value) {
         setAttributeInternal(SOURCECURRENCY, value);
     }
 
@@ -703,6 +711,7 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
         setAttributeInternal(ALLOCATIONSTATUS, value);
     }
 
+
     /**
      * @param drtcrossChargeId key constituent
 
@@ -710,13 +719,6 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer drtcrossChargeId) {
         return new Key(new Object[] { drtcrossChargeId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO");
     }
 
     /**

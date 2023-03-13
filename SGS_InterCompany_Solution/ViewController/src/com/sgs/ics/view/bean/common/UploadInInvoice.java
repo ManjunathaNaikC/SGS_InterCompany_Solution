@@ -191,20 +191,11 @@ public class UploadInInvoice {
                             row.setAttribute("FromDeptId", MytempCell.getStringCellValue());
 
                         } else if (Index == 5) {
+                            System.out.println("SourceCurrency------>" + MytempCell.getCellType());
+                            System.out.println("SourceCurrency------>" + MytempCell.getStringCellValue());
 
-                            System.out.println("Source Currency Type*****------>" + MytempCell.getCellType());
-
-                            if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("Source Currency Value*****------>" + str);
-                                row.setAttribute("SourceCurrency", str);
-                            } else {
-
-                                row.setAttribute("SourceCurrency", MytempCell.getNumericCellValue());
-
-                            }
-
-
+                            row.setAttribute("SourceCurrency", MytempCell.getStringCellValue());
+                    
                         } else if (Index == 6) {
                             System.out.println("To BU------>" + MytempCell.getCellType());
                             System.out.println("To BU------>" + MytempCell.getStringCellValue());

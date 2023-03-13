@@ -1647,5 +1647,24 @@ public class ActionEventsBean {
     public RichPopup getInvoicecreditmemobindpopup() {
         return invoicecreditmemobindpopup;
     }
+    
+    
+    public void downloadFileListener(FacesContext facesContext, OutputStream outputStream) throws IOException 
+        {
+        String filePath1 = ADFUtils.getPath();
+System.out.println("File Path :: "+filePath1);
+        if(filePath1.equalsIgnoreCase("NOPATH")){}else{
+            //"C://Users//raja//template//TPA_Master.xlsx"
+        File filed = new File(filePath1+"TPA_Master.xlsx"); 
+        FileInputStream fis; byte[] b; 
+        try 
+        { 
+        fis = new FileInputStream(filed); int n; while ((n = fis.available()) > 0) 
+        { b = new byte[n]; int result = fis.read(b); outputStream.write(b, 0, b.length); 
+        if (result == -1) break; } } catch (IOException e) { e.printStackTrace(); } outputStream.flush(); 
+            
+        }
+    }
+    
 }
 

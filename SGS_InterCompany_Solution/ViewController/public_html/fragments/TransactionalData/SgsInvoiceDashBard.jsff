@@ -28,21 +28,25 @@
                                 <af:exportCollectionActionListener type="excelHTML" exportedId="ivd1"
                                                                    filename="InvoiceDashBoard.xls"/>
                             </af:button>
-                            <af:button text="Upload Direct Cross Charges" id="b2upload">
+                            <af:button text="Upload Direct Cross Charges" id="b2upload" 
+                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_DC')}" 
+                            >
+                             
                                 <af:showPopupBehavior popupId="DirectChargePopup"/>
                             </af:button>
-                            <af:button text="Approve" id="b3">
+                            <af:button text="Approve" id="b3" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}" >
+                            
                                 <af:showPopupBehavior popupId="p1approve"/>
                             </af:button>
-                            <af:button text="Reject" id="b4">
+                            <af:button text="Reject" id="b4" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
                                 <af:showPopupBehavior popupId="p2reject"/>
                             </af:button>
-                            <af:button text="Confirm For Invoice" id="b5">
+                            <!--<af:button text="Confirm For Invoice" id="b5">
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
                             <af:button text="Create Credit Memo" id="b2">
                                 <af:showPopupBehavior popupId="p1creditMemo"/>
-                            </af:button>
+                            </af:button>-->
                         </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
@@ -424,7 +428,7 @@
                                 </af:group>
                             </f:facet>
                             <af:message id="m1approve" messageType="confirmation"
-                                        message="Do You Really Want To Approve?"/>
+                                        message="Please Confirm, Do You Want To Approve?"/>
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p2reject"
@@ -461,7 +465,7 @@
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1creditMemo"
                               binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}">
-                        <af:dialog id="d1" type="cancel">
+                        <af:dialog id="d2" type="cancel">
                             <f:facet name="buttonBar"/>
                             <af:panelGroupLayout id="pgl3" layout="vertical" styleClass="AFStretchWidth">
                                 <af:button text="Close" id="b12"

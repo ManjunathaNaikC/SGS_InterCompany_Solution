@@ -12,7 +12,7 @@
     <taskFlow id="sgs_creditmemo_flow1"
               taskFlowId="/taskflows/TransactionalData/sgs_creditmemo_flow.xml#sgs_creditmemo_flow"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <iterator Binds="NatureOfExpenseLookupVO2" RangeSize="10" DataControl="SGSAppModuleDataControl"
+    <iterator Binds="NatureOfExpenseLookupVO2" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="NatureOfExpenseLookupVO2Iterator"/>
     <iterator Binds="SgsDrtCrossChargeVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
               id="SgsDrtCrossChargeVO1Iterator"/>

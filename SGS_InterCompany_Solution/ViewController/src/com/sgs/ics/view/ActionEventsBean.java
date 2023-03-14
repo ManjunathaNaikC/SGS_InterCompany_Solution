@@ -663,7 +663,7 @@ public class ActionEventsBean {
     public void onTpaDocsDownload(FacesContext facesContext, OutputStream outputStream) {
         DCBindingContainer bindingContainer =
             (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
-        DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsTpaDocTypeVOIterator");
+        DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsTpaDocAttachment1VO2Iterator");
         ViewObject vo = imageIter.getViewObject();
         oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
 

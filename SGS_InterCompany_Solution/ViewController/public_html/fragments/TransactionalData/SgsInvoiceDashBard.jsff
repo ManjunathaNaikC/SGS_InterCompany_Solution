@@ -41,12 +41,12 @@
                             <af:button text="Reject" id="b4" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
                                 <af:showPopupBehavior popupId="p2reject"/>
                             </af:button>
-                            <!--<af:button text="Confirm For Invoice" id="b5">
+                            <af:button text="Confirm For Invoice" id="b5">
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
-                            <af:button text="Create Credit Memo" id="b2">
+                            <af:button text="Credit Transaction" id="b2">
                                 <af:showPopupBehavior popupId="p1creditMemo"/>
-                            </af:button>-->
+                            </af:button>
                         </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
@@ -62,6 +62,19 @@
                               filterVisible="false"
                               queryListener="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.processQuery}" varStatus="vs"
                               scrollPolicy="page" autoHeightRows="15">
+                        <af:column id="c5" binding="#{viewScope.ActionEventsBean.selectcolInvoiceDBBind}">
+                            <af:selectBooleanCheckbox value="#{row.bindings.selectInvoiceRecord.inputValue}"
+                                                      label="#{row.bindings.selectInvoiceRecord.label}"
+                                                      shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.selectInvoiceRecord.tooltip}"
+                                                      id="sbc1"
+                                                      binding="#{viewScope.ActionEventsBean.selectcheckInvoiceBind}"
+                                                      autoSubmit="true"/>
+                            <f:facet name="header">
+                                 <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
+                                    autoSubmit="true" valueChangeListener="#{viewScope.ActionEventsBean.onInvoiceSelectAll}"
+                                                        partialTriggers="c5 ::ivd1 sbc1"/>
+                            </f:facet>
+                        </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.label}" id="c1"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.name}"
                                    filterable="true">

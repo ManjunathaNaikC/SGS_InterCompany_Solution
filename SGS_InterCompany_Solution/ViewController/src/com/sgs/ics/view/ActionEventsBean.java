@@ -111,6 +111,8 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox selectCreditRecordBind;
     private RichColumn selectRecordColBind;
     private RichPopup invoicecreditmemobindpopup;
+    private RichColumn selectcolInvoiceDBBind;
+    private RichSelectBooleanCheckbox selectcheckInvoiceBind;
 
     public ActionEventsBean() {
     }
@@ -1391,27 +1393,58 @@ public class ActionEventsBean {
     public void onInvoiceApprove(ActionEvent actionEvent) {
         // Add event code here...
         //
-        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-        Row row = dcIteratorbinding.getCurrentRow();
-       row.setAttribute("TransactionStatus", "Approved");
+//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+//        Row row = dcIteratorbinding.getCurrentRow();
+//        row.setAttribute("TransactionStatus", "Approved");
+        
+
+       DCIteratorBinding statData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        oracle.jbo.Row[] rows = statData.getAllRowsInRange();
+        for (int i = 0; i < rows.length; i++) {
+            System.out.println(" selectInvoiceRecord " + rows[i].getAttribute("selectInvoiceRecord"));
+            if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                rows[i].setAttribute("TransactionStatus", "Approved");
+            }
+        }
         executeBinding(SAVE_DATA);
         invoiceApprovBind.hide();
     }
     
     public void onInvoiceReject(ActionEvent actionEvent) {
         // Add event code here...
-        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-        Row row = dcIteratorbinding.getCurrentRow();
-        row.setAttribute("TransactionStatus", "Rejected");
+//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+//        Row row = dcIteratorbinding.getCurrentRow();
+//        row.setAttribute("TransactionStatus", "Rejected");
+        
+       DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
+        for (int i = 0; i < rows.length; i++) {
+            System.out.println(" selectInvoiceRecord  " +rows[i].getAttribute("selectInvoiceRecord"));
+            if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                rows[i].setAttribute("TransactionStatus", "Rejected");
+            }
+        }
         executeBinding(SAVE_DATA);
         invoiceRejectBind.hide();
     }
     
     public void onInvoiceConfirm(ActionEvent actionEvent) {
         // Add event code here...
-        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-        Row row = dcIteratorbinding.getCurrentRow();
-        row.setAttribute("TransactionStatus", "Confirmed for Invoicing");
+//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+//        Row row = dcIteratorbinding.getCurrentRow();
+//        row.setAttribute("TransactionStatus", "Confirmed for Invoicing");
+        DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+         oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
+         for (int i = 0; i < rows.length; i++) {
+             System.out.println(" selectInvoiceRecord  " +rows[i].getAttribute("selectInvoiceRecord"));
+             if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                 rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                 rows[i].setAttribute("TransactionStatus", "Confirmed for Invoicing");
+             }
+         }
+        
         executeBinding(SAVE_DATA);
         invoiceConfirmBind.hide();
     }
@@ -1665,6 +1698,44 @@ System.out.println("File Path :: "+filePath1);
             
         }
     }
-    
+
+    public void onInvoiceSelectAll(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Checkbox At Invoice DB :: " + valueChangeEvent.getNewValue());
+        DCIteratorBinding  invoiceDBData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        oracle.jbo.Row[] invoiceDBDatarows = invoiceDBData.getAllRowsInRange();
+        if ((Boolean)valueChangeEvent.getNewValue()) {
+            System.out.println("invoiceDBDatarows:: " + invoiceDBDatarows.length);
+            for (int i = 0; i < invoiceDBDatarows.length; i++) {
+                System.out.println("invoiceDBDatarows  :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
+                 invoiceDBDatarows[i].setAttribute("selectInvoiceRecord", "Yes");
+                System.out.println(" selectInvoiceRecord :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
+            }               
+        }else {
+            System.out.println("invoices Datarows else:: " + invoiceDBDatarows.length);
+            for (int i = 0; i < invoiceDBDatarows.length; i++) {
+                System.out.println("invoiceDBDatarows  :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
+                invoiceDBDatarows[i].setAttribute("selectInvoiceRecord", "No");
+                System.out.println("  selectInvoiceRecord :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
+            }
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(selectcolInvoiceDBBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(selectcheckInvoiceBind);
+    }
+
+    public void setSelectcolInvoiceDBBind(RichColumn selectcolInvoiceDBBind) {
+        this.selectcolInvoiceDBBind = selectcolInvoiceDBBind;
+    }
+
+    public RichColumn getSelectcolInvoiceDBBind() {
+        return selectcolInvoiceDBBind;
+    }
+
+    public void setSelectcheckInvoiceBind(RichSelectBooleanCheckbox selectcheckInvoiceBind) {
+        this.selectcheckInvoiceBind = selectcheckInvoiceBind;
+    }
+
+    public RichSelectBooleanCheckbox getSelectcheckInvoiceBind() {
+        return selectcheckInvoiceBind;
+    }
 }
 

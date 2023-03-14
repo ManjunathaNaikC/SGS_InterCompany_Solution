@@ -719,6 +719,15 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     EntityAttrName="VATRATE"
     EntityUsage="SgsIcInvoiceHeaderEO"
     AliasName="VAT_RATE"/>
+  <ViewAttribute
+    Name="selectInvoiceRecord"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ViewCriteria
     Name="SgsIcInvoiceHeaderVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO"

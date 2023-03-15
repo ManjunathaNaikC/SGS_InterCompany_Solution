@@ -44,6 +44,14 @@
                             <af:button text="Confirm For Invoice" id="b5">
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
+                           <!-- <af:button text="Create Credit Memo" id="b2">
+                                <af:showPopupBehavior popupId="p1creditMemo"/>
+                            </af:button>-->
+                            <af:button text="Upload Adjustment Entries" id="b1adj" 
+                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_DC')}">
+                             
+                                <af:showPopupBehavior popupId="AdjEntryPopup"/>
+                            </af:button>
                             <af:button text="Credit Transaction" id="b2"
                                        actionListener="#{viewScope.ActionEventsBean.onCreditTransactionActionButton}">
                                 <!--<af:showPopupBehavior popupId="p1creditMemo"/>-->
@@ -395,6 +403,58 @@
                              shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.tooltip}" id="ot33"/>
             </af:column>-->
                     </af:table>
+                    
+                     <af:popup childCreation="deferred" autoCancel="disabled" id="AdjEntryPopup"
+                              binding="#{pageFlowScope.UploadInInvoice.adjEntryPopupBind}">
+                        <af:dialog id="d10" title="Adjustment Entries Upload" styleClass="AFStretchWidth" type="none">
+                            <f:facet name="buttonBar">
+                                <af:button text="Save" id="b31"
+                                           actionListener="#{pageFlowScope.UploadInInvoice.adjEntrySave}"/>
+                            </f:facet>
+                            <af:panelFormLayout id="pfl2" maxColumns="1" rows="3" styleClass="AFStretchWidth">
+                                <f:facet name="footer"/>
+                                
+                                <!--<af:selectOneChoice value="#{bindings.MEANING.inputValue}"
+                                                    label="Nature of Expense"
+                                                    required="#{bindings.MEANING.hints.mandatory}"
+                                                    shortDesc="#{bindings.MEANING.hints.tooltip}" id="soc1"
+                                                    binding="#{pageFlowScope.UploadInInvoice.natureOfExpenseLovBind}">
+                                    <f:selectItems value="#{bindings.MEANING.items}" id="si2"/>
+                                    <f:validator binding="#{bindings.MEANING.validator}"/>
+                                </af:selectOneChoice>-->
+                                <af:selectOneChoice value="#{bindings.MEANING.inputValue}"
+                                                    label="Nature of Expense"
+                                                    required="#{bindings.MEANING.hints.mandatory}"
+                                                    shortDesc="#{bindings.MEANING.hints.tooltip}" id="soc2"
+                                                    binding="#{pageFlowScope.UploadInInvoice.adjNatureofExpBind}">
+                                    <f:selectItems value="#{bindings.MEANING.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.MEANING.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.YesOrNoLookupVO1.inputValue}"
+                                                    label="Reversable Entry"
+                                                    required="#{bindings.YesOrNoLookupVO1.hints.mandatory}"
+                                                    shortDesc="#{bindings.YesOrNoLookupVO1.hints.tooltip}" id="soc3"
+                                                    binding="#{pageFlowScope.UploadInInvoice.adjReverseEntryBind}">
+                                    <f:selectItems value="#{bindings.YesOrNoLookupVO1.items}" id="si3"/>
+                                    <f:validator binding="#{bindings.YesOrNoLookupVO1.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.TxnCategoryLOVVO1.inputValue}"
+                                                    label="Transaction Category"
+                                                    required="#{bindings.TxnCategoryLOVVO1.hints.mandatory}"
+                                                    shortDesc="#{bindings.TxnCategoryLOVVO1.hints.tooltip}" id="soc4"
+                                                    binding="#{pageFlowScope.UploadInInvoice.adjTxnCategoryBind}">
+                                    <f:selectItems value="#{bindings.TxnCategoryLOVVO1.items}" id="si4"/>
+                                    <f:validator binding="#{bindings.TxnCategoryLOVVO1.validator}"/>
+                                </af:selectOneChoice>
+                            </af:panelFormLayout>
+                            <af:spacer id="s2upload" height="10px"/>
+                            <af:inputFile label="Select File" id="if2" labelStyle="font-weight:bold;color:navy;"
+                                          valueChangeListener="#{pageFlowScope.UploadInInvoice.uploadFileVCE}"
+                                          uploadType="submit" autoSubmit="true"/>
+                        </af:dialog>
+                    </af:popup>
+                    
+                    
                       <af:popup childCreation="deferred" autoCancel="disabled" id="DirectChargePopup"
                               binding="#{pageFlowScope.UploadInInvoice.directChargePopupBind}">
                         <af:dialog id="d1" title="Direct Charge Upload" styleClass="AFStretchWidth" type="none">

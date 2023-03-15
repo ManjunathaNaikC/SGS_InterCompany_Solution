@@ -44,6 +44,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class UploadInInvoice {
     private RichSelectOneChoice natureOfExpenseLovBind;
     private RichPopup directChargePopupBind;
+    private RichSelectOneChoice adjNatureofExpBind;
+    private RichSelectOneChoice adjReverseEntryBind;
+    private RichSelectOneChoice adjTxnCategoryBind;
+    private RichPopup adjEntryPopupBind;
 
 
     public UploadInInvoice() {
@@ -288,7 +292,20 @@ public class UploadInInvoice {
     */                                                 
     public void directChargeSave(ActionEvent actionEvent) {
         // Add event code here...
+        String naturevalue = natureOfExpenseLovBind.getValue().toString();
+        String lookup = null;
+        
         BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding natureIter = (DCIteratorBinding) bindings.get("NatureOfExpenseLookupVO2Iterator");
+        ViewObject natureVO = natureIter.getViewObject();
+       oracle.jbo.Row natRow= natureVO.getCurrentRow();
+       if(natRow.getAttribute("MEANING") == naturevalue){
+             lookup = natRow.getAttribute("LOOKUPCODE").toString();
+             System.out.println("lookup code  : "+ lookup);
+           }
+        
+        
+//        BindingContainer bindings = getBindingsCont();
         DCIteratorBinding directIter = (DCIteratorBinding) bindings.get("SgsDrtCrossChargeVO1Iterator");
         ViewObject directCVO = directIter.getViewObject();
         
@@ -298,9 +315,9 @@ public class UploadInInvoice {
         
         for(oracle.jbo.Row rw:selectedRows){
         if (null != natureOfExpenseLovBind.getValue()) {
-            String naturevalue = natureOfExpenseLovBind.getValue().toString();
-            System.out.println("Nature of Expense : " + naturevalue);
-            rw.setAttribute("NatureOfExpense", naturevalue);
+//            String naturevalue = natureOfExpenseLovBind.getValue().toString();
+            System.out.println("Nature of Expense : " + lookup);
+            rw.setAttribute("NatureOfExpense", lookup);
             rw.setAttribute("AllocationStatus", status);
             
             }
@@ -312,6 +329,59 @@ public class UploadInInvoice {
         directChargeRun();
         
     }
+    
+    
+    /**    
+     *Save button on the popup for Upload Adjustment Entries button
+    */                                                 
+    public void adjEntrySave(ActionEvent actionEvent) {
+        // Add event code here...
+        String nature_value = adjNatureofExpBind.getValue().toString();
+        String reversEntry = adjReverseEntryBind.getValue().toString();
+        String txnCategory = adjTxnCategoryBind.getValue().toString();
+        
+        String lookup = null;
+        
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding natureIter = (DCIteratorBinding) bindings.get("NatureOfExpenseLookupVO2Iterator");
+        ViewObject natureVO = natureIter.getViewObject();
+       oracle.jbo.Row natRow= natureVO.getCurrentRow();
+       if(natRow.getAttribute("MEANING") == nature_value){
+             lookup = natRow.getAttribute("LOOKUPCODE").toString();
+             System.out.println("lookup code  : "+ lookup);
+           }
+        
+        
+    //        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding directIter = (DCIteratorBinding) bindings.get("SgsDrtCrossChargeVO1Iterator");
+        ViewObject directCVO = directIter.getViewObject();
+        
+        oracle.jbo.Row[] selectedRows =directCVO.getFilteredRows("NatureOfExpense", null);
+        System.out.println("*****Selected rows****"+selectedRows.length);
+        String status = "New";
+        String alloc_basis = "Adjustment Entry";
+        
+        for(oracle.jbo.Row rw:selectedRows){
+        if (null != adjNatureofExpBind.getValue() && null != adjReverseEntryBind.getValue() && null != adjTxnCategoryBind.getValue()) {
+    //            String naturevalue = natureOfExpenseLovBind.getValue().toString();
+            System.out.println("Nature of Expense : " + lookup);
+            rw.setAttribute("NatureOfExpense", lookup);
+            rw.setAttribute("REVERSABLEENTRY", reversEntry);
+            rw.setAttribute("TRANSACTIONCATEGORY", txnCategory);
+            rw.setAttribute("AllocationBasis", alloc_basis);  
+            rw.setAttribute("AllocationStatus", status);
+            
+            }
+        }
+        executeOperation("Commit").execute();
+        adjNatureofExpBind.setValue(null);
+        adjEntryPopupBind.hide();
+        ADFUtils.saveNotifier();
+        
+        
+    }
+    
+    
     
     public void directChargeRun() {
         // Add event code here...
@@ -338,9 +408,9 @@ public class UploadInInvoice {
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-//               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
-//                conn = DriverManager.getConnection(connectionUrl);
-            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+                conn = DriverManager.getConnection(connectionUrl);
+//            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -366,5 +436,37 @@ public class UploadInInvoice {
 
     public RichPopup getDirectChargePopupBind() {
         return directChargePopupBind;
+    }
+
+    public void setAdjNatureofExpBind(RichSelectOneChoice adjNatureofExpBind) {
+        this.adjNatureofExpBind = adjNatureofExpBind;
+    }
+
+    public RichSelectOneChoice getAdjNatureofExpBind() {
+        return adjNatureofExpBind;
+    }
+
+    public void setAdjReverseEntryBind(RichSelectOneChoice adjReverseEntryBind) {
+        this.adjReverseEntryBind = adjReverseEntryBind;
+    }
+
+    public RichSelectOneChoice getAdjReverseEntryBind() {
+        return adjReverseEntryBind;
+    }
+
+    public void setAdjTxnCategoryBind(RichSelectOneChoice adjTxnCategoryBind) {
+        this.adjTxnCategoryBind = adjTxnCategoryBind;
+    }
+
+    public RichSelectOneChoice getAdjTxnCategoryBind() {
+        return adjTxnCategoryBind;
+    }
+
+    public void setAdjEntryPopupBind(RichPopup adjEntryPopupBind) {
+        this.adjEntryPopupBind = adjEntryPopupBind;
+    }
+
+    public RichPopup getAdjEntryPopupBind() {
+        return adjEntryPopupBind;
     }
 }

@@ -15,6 +15,10 @@
                   Binds="SgsStlmtVoucherVO1Iterator" id="SgsStlmtVoucherVOCriteriaQuery"/>
     <searchRegion Criteria="SgsStlmtInvVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsStlmtInvVO1Iterator" id="SgsStlmtInvVOCriteriaQuery"/>
+    <iterator Binds="SgsContraCashTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsContraCashTblVO1Iterator"/>
+    <searchRegion Criteria="SgsContraCashTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsContraCashTblVO1Iterator" id="SgsContraCashTblVOCriteriaQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsStlmtInvVO1Iterator" id="SgsStlmtInvVO1">
@@ -103,5 +107,25 @@
         <Item Value="No"/>
       </ValueList>
     </button>
+    <tree IterBinding="SgsContraCashTblVO1Iterator" id="SgsContraCashTblVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsContraCashTblVO" Name="SgsContraCashTblVO10">
+        <AttrNames>
+          <Item Value="ContraCashId"/>
+          <Item Value="SourceModule"/>
+          <Item Value="TransactionType"/>
+          <Item Value="Geo"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="GlAccount"/>
+          <Item Value="InvoiceRef"/>
+          <Item Value="CustomerRef"/>
+          <Item Value="AffiliateGeo"/>
+          <Item Value="AffiliateBu"/>
+          <Item Value="Amount"/>
+          <Item Value="CcSettlementAmt"/>
+          <Item Value="Balance"/>
+          <Item Value="SettlementStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

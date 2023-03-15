@@ -12,6 +12,12 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsCreateSettlementVO1Query"/>
     <iterator id="SgsStlmtVoucherVO1Iterator" Binds="SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
               RangeSize="25"/>
+    <iterator Binds="SgsContraCashTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsContraCashTblVO1Iterator"/>
+    <searchRegion Binds="SgsContraCashTblVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsContraCashTblVO1Query"/>
+    <iterator Binds="SettlementTypeLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SettlementTypeLOVVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="PAYMENTID">
@@ -85,5 +91,21 @@
             InstanceName="SGSAppModuleDataControl.SgsCreateSettlementVO1" DataControl="SGSAppModuleDataControl"
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <tree IterBinding="SgsContraCashTblVO1Iterator" id="SgsContraCashTblVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsContraCashTblVO" Name="SgsContraCashTblVO10">
+        <AttrNames>
+          <Item Value="ContraCashId"/>
+          <Item Value="BusinessUnit"/>
+          <Item Value="InvoiceRef"/>
+          <Item Value="AffiliateBu"/>
+          <Item Value="Amount"/>
+          <Item Value="CcSettlementAmt"/>
+          <Item Value="Balance"/>
+          <Item Value="SettlementStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="SettlementTypeLOVVO1Iterator" StaticList="false" Uses="LOV_MEANING" id="MEANING"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

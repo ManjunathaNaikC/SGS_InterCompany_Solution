@@ -500,7 +500,7 @@
                                 <af:inputText label="Complete Reversal" id="it3"
                               binding="#{viewScope.ActionEventsBean.completeReversalBind}" autoSubmit="true"/>
                                     <af:selectOneChoice value="#{bindings.ReversalReasonLOVVO1.inputValue}"
-                                                        label="#{bindings.ReversalReasonLOVVO1.label}"
+                                                        label="Reversal Reason"
                                                         required="#{bindings.ReversalReasonLOVVO1.hints.mandatory}"
                                                         shortDesc="#{bindings.ReversalReasonLOVVO1.hints.tooltip}"
                                                         id="soc4" autoSubmit="true">

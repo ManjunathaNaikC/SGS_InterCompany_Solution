@@ -3,25 +3,61 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="ReversalReasonLOVVO"
+  Name="SettlementTypeLOVVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   BindingStyle="JDBC"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="com.sgs.ics.model.bc.view.lookupVo.ReversalReasonLOVVO_LABEL"/>
+        ResId="com.sgs.ics.model.bc.view.lookupVo.SettlementTypeLOVVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select LOOKUP_ID,LOOKUP_CODE,LOOKUP_TYPE,MEANING,DISPLAY_SEQUENCE from SGS_LOOKUP_TABLE      
-where LOOKUP_TYPE='REVERSAL_REASON' AND ENABLED='Y']]></SQLQuery>
+  <ViewAccessor
+    Name="SgsLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SettlementTypeLOVVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_MEANING"
+    ListVOName="SgsLookupVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MEANING"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[select LOOKUP_ID,LOOKUP_CODE,LOOKUP_TYPE,MEANING,DISPLAY_SEQUENCE FROM SGS_LOOKUP_TABLE       
+where LOOKUP_TYPE='SETTLEMENT_TYPE' AND ENABLED='Y']]></SQLQuery>
   <ViewAttribute
     Name="LOOKUPID"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.Integer"
@@ -66,14 +102,17 @@ where LOOKUP_TYPE='REVERSAL_REASON' AND ENABLED='Y']]></SQLQuery>
     ColumnType="VARCHAR"
     AliasName="MEANING"
     Expression="MEANING"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_MEANING">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
         <LABEL
-          ResId="com.sgs.ics.model.bc.view.lookupVo.ReversalReasonLOVVO.MEANING_LABEL"/>
+          ResId="com.sgs.ics.model.bc.view.lookupVo.SettlementTypeLOVVO.MEANING_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

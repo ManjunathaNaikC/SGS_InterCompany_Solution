@@ -467,6 +467,115 @@
           </af:table>
         </af:panelCollection>
       </af:showDetailItem>
+      <af:showDetailItem text="Contra Cash" id="sdi1" styleClass="AFStretchWidth">
+        <af:panelGroupLayout layout="horizontal" id="pgl3">
+          <!--<af:panelHeader text="SgsContraCashTblEO" id="ph1"/>-->
+          <af:query id="qryId3" headerText="Search" disclosed="true"
+                    value="#{bindings.SgsContraCashTblVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.SgsContraCashTblVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.SgsContraCashTblVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.SgsContraCashTblVOCriteriaQuery.processQueryOperation}"
+                    rows="3" maxColumns="2" saveQueryMode="hidden"/>
+        </af:panelGroupLayout>
+        <af:panelCollection id="pc3" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.SgsContraCashTblVO1.collectionModel}" var="row"
+                    rows="#{bindings.SgsContraCashTblVO1.rangeSize}"
+                    emptyText="#{bindings.SgsContraCashTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.SgsContraCashTblVO1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.SgsContraCashTblVO1.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.SgsContraCashTblVO1.rangeSize}"
+                    filterModel="#{bindings.SgsContraCashTblVOCriteriaQuery.queryDescriptor}" filterVisible="false"
+                    queryListener="#{bindings.SgsContraCashTblVOCriteriaQuery.processQuery}" varStatus="vs" id="t3"
+                    styleClass="AFStretchWidth">
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.label}" id="c57">
+              <af:outputText value="#{row.ContraCashId}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.tooltip}" id="ot55">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.SourceModule.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.SourceModule.label}" id="c58">
+              <af:outputText value="#{row.SourceModule}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.SourceModule.tooltip}" id="ot56"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.TransactionType.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.TransactionType.label}"
+                       id="c59">
+              <af:outputText value="#{row.TransactionType}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.TransactionType.tooltip}" id="ot57"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.Geo.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.SgsContraCashTblVO1.hints.Geo.label}" id="c60">
+              <af:outputText value="#{row.Geo}" shortDesc="#{bindings.SgsContraCashTblVO1.hints.Geo.tooltip}"
+                             id="ot58"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.BusinessUnit.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.BusinessUnit.label}" id="c61">
+              <af:outputText value="#{row.BusinessUnit}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.BusinessUnit.tooltip}" id="ot59"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.GlAccount.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.GlAccount.label}" id="c62">
+              <af:outputText value="#{row.GlAccount}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.GlAccount.tooltip}" id="ot60"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.InvoiceRef.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.InvoiceRef.label}" id="c63">
+              <af:outputText value="#{row.InvoiceRef}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.InvoiceRef.tooltip}" id="ot61"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.CustomerRef.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.CustomerRef.label}" id="c64">
+              <af:outputText value="#{row.CustomerRef}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.CustomerRef.tooltip}" id="ot62"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.AffiliateGeo.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.AffiliateGeo.label}" id="c65">
+              <af:outputText value="#{row.AffiliateGeo}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.AffiliateGeo.tooltip}" id="ot63"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.AffiliateBu.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.AffiliateBu.label}" id="c66">
+              <af:outputText value="#{row.AffiliateBu}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.AffiliateBu.tooltip}" id="ot64"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.Amount.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.Amount.label}" id="c67">
+              <af:outputText value="#{row.Amount}" shortDesc="#{bindings.SgsContraCashTblVO1.hints.Amount.tooltip}"
+                             id="ot65">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsContraCashTblVO1.hints.Amount.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.label}"
+                       id="c68">
+              <af:outputText value="#{row.CcSettlementAmt}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.tooltip}" id="ot66">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.Balance.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.Balance.label}" id="c69">
+              <af:outputText value="#{row.Balance}" shortDesc="#{bindings.SgsContraCashTblVO1.hints.Balance.tooltip}"
+                             id="ot67">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsContraCashTblVO1.hints.Balance.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.SettlementStatus.name}" filterable="true"
+                       sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.SettlementStatus.label}"
+                       id="c70">
+              <af:outputText value="#{row.SettlementStatus}"
+                             shortDesc="#{bindings.SgsContraCashTblVO1.hints.SettlementStatus.tooltip}" id="ot68"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:showDetailItem>
     </af:panelTabbed>
   </af:panelBox>
 </ui:composition>

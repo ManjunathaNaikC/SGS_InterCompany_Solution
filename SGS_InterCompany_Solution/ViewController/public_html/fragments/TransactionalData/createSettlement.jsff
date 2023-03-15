@@ -127,6 +127,17 @@
         </af:gridCell>
       </af:gridRow>
     </af:panelGridLayout>
+    <af:spacer id="s5" height="15"/>
+    <af:panelGroupLayout id="pgl6" layout="horizontal">
+      <af:selectOneChoice value="#{bindings.MEANING.inputValue}" label="#{bindings.MEANING.label}"
+                          required="#{bindings.MEANING.hints.mandatory}" shortDesc="#{bindings.MEANING.hints.tooltip}"
+                          id="soc7" autoSubmit="true"
+                          valueChangeListener="#{viewScope.ActionEventsBean.onSettlementTypeVL}"
+                          partialTriggers="t1 pc1">
+        <f:selectItems value="#{bindings.MEANING.items}" id="si7"/>
+        <f:validator binding="#{bindings.MEANING.validator}"/>
+      </af:selectOneChoice>
+    </af:panelGroupLayout>
     <af:spacer id="s2" height="10"/>
     <af:table value="#{bindings.SgsCreateSettlementVO1.collectionModel}" var="row"
               rows="#{bindings.SgsCreateSettlementVO1.rangeSize}"
@@ -135,7 +146,7 @@
               rowSelection="multiple" fetchSize="#{bindings.SgsCreateSettlementVO1.rangeSize}"
               filterModel="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor}" filterVisible="false"
               queryListener="#{bindings.SgsCreateSettlementVO1Query.processQuery}" varStatus="vs" id="t1"
-              styleClass="AFStretchWidth">
+              styleClass="AFStretchWidth" rendered="#{bindings.MEANING.inputValue eq 'CONTRACT_CASH'}">
         <af:column headerText="#{bindings.SgsCreateSettlementVO1.hints.SELECTRECORDS.label}"
                   id="c1" binding="#{viewScope.ActionEventsBean.bindSettlementSelectColumn}">
         <af:selectBooleanCheckbox value="#{row.bindings.SELECTRECORDS.inputValue}"
@@ -215,6 +226,70 @@
                        shortDesc="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTSTATUS.tooltip}" id="ot4"/>
       </af:column>
     </af:table>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                        rendered="#{bindings.MEANING.inputValue eq 'INTER_COMPANY_SETTLEMENT'}">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.SgsContraCashTblVO1.collectionModel}" var="row"
+                rows="#{bindings.SgsContraCashTblVO1.rangeSize}"
+                emptyText="#{bindings.SgsContraCashTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.SgsContraCashTblVO1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.SgsContraCashTblVO1.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.SgsContraCashTblVO1.rangeSize}"
+                filterModel="#{bindings.SgsContraCashTblVO1Query.queryDescriptor}" filterVisible="false"
+                queryListener="#{bindings.SgsContraCashTblVO1Query.processQuery}" varStatus="vs" id="t2">
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.label}" id="c11">
+          <af:outputText value="#{row.ContraCashId}"
+                         shortDesc="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.tooltip}" id="ot8">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.BusinessUnit.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.BusinessUnit.label}" id="c12">
+          <af:outputText value="#{row.BusinessUnit}"
+                         shortDesc="#{bindings.SgsContraCashTblVO1.hints.BusinessUnit.tooltip}" id="ot12"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.InvoiceRef.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.InvoiceRef.label}" id="c13">
+          <af:outputText value="#{row.InvoiceRef}" shortDesc="#{bindings.SgsContraCashTblVO1.hints.InvoiceRef.tooltip}"
+                         id="ot13"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.AffiliateBu.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.AffiliateBu.label}" id="c14">
+          <af:outputText value="#{row.AffiliateBu}"
+                         shortDesc="#{bindings.SgsContraCashTblVO1.hints.AffiliateBu.tooltip}" id="ot14"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.Amount.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SgsContraCashTblVO1.hints.Amount.label}" id="c15">
+          <af:outputText value="#{row.Amount}" shortDesc="#{bindings.SgsContraCashTblVO1.hints.Amount.tooltip}"
+                         id="ot15">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsContraCashTblVO1.hints.Amount.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.label}" id="c16">
+          <af:outputText value="#{row.CcSettlementAmt}"
+                         shortDesc="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.tooltip}" id="ot16">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.SgsContraCashTblVO1.hints.CcSettlementAmt.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.Balance.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SgsContraCashTblVO1.hints.Balance.label}" id="c17">
+          <af:outputText value="#{row.Balance}" shortDesc="#{bindings.SgsContraCashTblVO1.hints.Balance.tooltip}"
+                         id="ot17">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsContraCashTblVO1.hints.Balance.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.SettlementStatus.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.SettlementStatus.label}" id="c18">
+          <af:outputText value="#{row.SettlementStatus}"
+                         shortDesc="#{bindings.SgsContraCashTblVO1.hints.SettlementStatus.tooltip}" id="ot18"/>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
     <!--<af:panelCollection id="pc1" styleClass="AFStretchWidth">
       <f:facet name="menus"/>
       <f:facet name="toolbar"/>

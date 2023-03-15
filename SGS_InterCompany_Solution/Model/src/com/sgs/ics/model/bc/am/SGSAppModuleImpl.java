@@ -781,6 +781,30 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getYesOrNoLookupVO1() {
         return (ViewObjectImpl) findViewObject("YesOrNoLookupVO1");
+     }
+     
+    /**
+     * Container's getter for ReversalReasonLOVVO1.
+     * @return ReversalReasonLOVVO1
+     */
+    public ViewObjectImpl getReversalReasonLOVVO1() {
+        return (ViewObjectImpl) findViewObject("ReversalReasonLOVVO1");
+    }
+
+    /**
+     * Container's getter for SgsContraCashTblVO1.
+     * @return SgsContraCashTblVO1
+     */
+    public ViewObjectImpl getSgsContraCashTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsContraCashTblVO1");
+    }
+
+    /**
+     * Container's getter for SettlementTypeLOVVO1.
+     * @return SettlementTypeLOVVO1
+     */
+    public ViewObjectImpl getSettlementTypeLOVVO1() {
+        return (ViewObjectImpl) findViewObject("SettlementTypeLOVVO1");
     }
 }
 

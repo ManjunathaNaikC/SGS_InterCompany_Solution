@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.lookupVo.SettlementTypeLOVVO
+
+package com.sgs.ics.model.bc.view.lookupVo
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupVO1", name="bLookupType")
+def bLookupType_SgsLookupVO1_BindVariable_BoundParameter()
+{
+'SETTLEMENT_TYPE'
+}
+

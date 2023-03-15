@@ -200,6 +200,15 @@
   <ViewUsage
     Name="YesOrNoLookupVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.link.YesOrNoLookupVO"/>
+<ViewUsage
+    Name="ReversalReasonLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.ReversalReasonLOVVO"/>
+  <ViewUsage
+    Name="SgsContraCashTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsContraCashTblVO"/>
+  <ViewUsage
+    Name="SettlementTypeLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.SettlementTypeLOVVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -255,7 +264,6 @@
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtTblVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtRateApplicabilityVO1"
     Reversed="false"/>
-
 <ViewLinkUsage
     Name="sgsVatTaxApplicabilityVL1"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsVatTaxApplicabilityVL"
@@ -317,6 +325,26 @@
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
+    <Method
+      Name="loginValidationMethod"
+      MethodName="loginValidationMethod">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="user"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pass"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getDBConnection"
+      MethodName="getDBConnection">
+      <Return
+        Name="_return_type_"
+        Type="java.sql.Connection"/>
+    </Method>
     <Method
       Name="loginValidationMethod"
       MethodName="loginValidationMethod">

@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="SgsIcInvoiceHeaderVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+    <iterator Binds="SgsIcInvoiceHeaderVO1" RangeSize="1000" DataControl="SGSAppModuleDataControl"
               id="SgsIcInvoiceHeaderVO1Iterator"/>
     <searchRegion Criteria="SgsIcInvoiceHeaderVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="SgsIcInvoiceHeaderVO1Iterator"
@@ -20,6 +20,14 @@
               id="YesOrNoLookupVO1Iterator"/>
     <iterator Binds="TxnCategoryLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="TxnCategoryLOVVO1Iterator"/>
+    <iterator Binds="SgsInvoiceCreditMemoVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsInvoiceCreditMemoVO1Iterator"/>
+    <searchRegion Binds="SgsInvoiceCreditMemoVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsInvoiceCreditMemoVO1Query"/>
+    <iterator Binds="CreditMemoLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="CreditMemoLOVVO1Iterator"/>
+    <iterator Binds="ReversalReasonLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="ReversalReasonLOVVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="SgsIcInvoiceHeaderVO1">
@@ -63,6 +71,7 @@
           <Item Value="GSTAMNT"/>
           <Item Value="VATRATE"/>
           <Item Value="VATAMNT"/>
+          <Item Value="selectInvoiceRecord" Binds="selectInvoiceRecord"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -89,5 +98,68 @@
         <Item Value="MEANING"/>
       </AttrNames>
     </list>
+    <button IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="selectInvoiceRecord" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="selectInvoiceRecord"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
+    <tree IterBinding="SgsInvoiceCreditMemoVO1Iterator" id="SgsInvoiceCreditMemoVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsInvoiceCreditMemoVO" Name="SgsInvoiceCreditMemoVO10">
+        <AttrNames>
+          <Item Value="InvoiceSeqNo"/>
+          <Item Value="Period"/>
+          <Item Value="TransactionCategory"/>
+          <Item Value="PsftVoucherRef"/>
+          <Item Value="PsftInvoiceRef"/>
+          <Item Value="NatureOfExpense"/>
+          <Item Value="FromBu"/>
+          <Item Value="ToBu"/>
+          <Item Value="InvoiceAmount"/>
+          <Item Value="ReversalAmount"/>
+          <Item Value="REVERSALREASON"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="SelectCreditRecord" Binds="SelectCreditRecord"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="SgsInvoiceCreditMemoVO1Iterator" id="SelectCreditRecord" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="SelectCreditRecord"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
+    <action IterBinding="SgsInvoiceCreditMemoVO1Iterator" id="CreateInsertCredit"
+            InstanceName="SGSAppModuleDataControl.SgsInvoiceCreditMemoVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="CreditMemoLOVVO1Iterator" id="CreditPeriod">
+      <AttrNames>
+        <Item Value="CreditPeriod"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CreditMemoLOVVO1Iterator" StaticList="false" Uses="LOV_ReversalReasonLov"
+          id="ReversalReasonLov" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ReversalReasonLOVVO1Iterator" ListOperMode="navigation" ListIter="ReversalReasonLOVVO1Iterator"
+          id="ReversalReasonLOVVO1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="MEANING"/>
+      </AttrNames>
+    </list>
+    <attributeValues IterBinding="CreditMemoLOVVO1Iterator" id="PERIOD">
+      <AttrNames>
+        <Item Value="PERIOD"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

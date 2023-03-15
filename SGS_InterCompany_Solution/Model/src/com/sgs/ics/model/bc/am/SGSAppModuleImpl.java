@@ -766,5 +766,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getCreditMemoLOVVO1() {
         return (ViewObjectImpl) findViewObject("CreditMemoLOVVO1");
     }
+
+    /**
+     * Container's getter for ReversalReasonLOVVO1.
+     * @return ReversalReasonLOVVO1
+     */
+    public ViewObjectImpl getReversalReasonLOVVO1() {
+        return (ViewObjectImpl) findViewObject("ReversalReasonLOVVO1");
+    }
 }
 

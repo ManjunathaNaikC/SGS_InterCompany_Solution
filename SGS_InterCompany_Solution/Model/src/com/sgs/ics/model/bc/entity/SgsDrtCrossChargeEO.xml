@@ -388,6 +388,30 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="REVERSABLEENTRY"
+    Precision="30"
+    ColumnName="REVERSABLE_ENTRY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_DRTCROSS_CHARGE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TRANSACTIONCATEGORY"
+    Precision="30"
+    ColumnName="TRANSACTION_CATEGORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_DRTCROSS_CHARGE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSDRTCROSSCHARGETBL"
     PrimaryKey="true">

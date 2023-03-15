@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -149,6 +150,18 @@
     EntityAttrName="UpdatedDate"
     EntityUsage="SgsDrtCrossChargeEO"
     AliasName="UPDATED_DATE"/>
+  <ViewAttribute
+    Name="REVERSABLEENTRY"
+    PrecisionRule="true"
+    EntityAttrName="REVERSABLEENTRY"
+    EntityUsage="SgsDrtCrossChargeEO"
+    AliasName="REVERSABLE_ENTRY"/>
+  <ViewAttribute
+    Name="TRANSACTIONCATEGORY"
+    PrecisionRule="true"
+    EntityAttrName="TRANSACTIONCATEGORY"
+    EntityUsage="SgsDrtCrossChargeEO"
+    AliasName="TRANSACTION_CATEGORY"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

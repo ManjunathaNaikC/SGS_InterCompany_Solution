@@ -194,6 +194,12 @@
   <ViewUsage
     Name="CreditMemoLOVVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.CreditMemoLOVVO"/>
+  <ViewUsage
+    Name="TxnCategoryLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.TxnCategoryLOVVO"/>
+  <ViewUsage
+    Name="YesOrNoLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.link.YesOrNoLookupVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

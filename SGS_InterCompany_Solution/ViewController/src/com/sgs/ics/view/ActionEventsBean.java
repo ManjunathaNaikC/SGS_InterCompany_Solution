@@ -1878,5 +1878,9 @@ public class ActionEventsBean {
         // Add event code here...
         invoicecreditmemobindpopup.hide();
     }
+
+    public void onSettlementTypeVL(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Settlement Type:: "+valueChangeEvent.getNewValue());
+    }
 }
 

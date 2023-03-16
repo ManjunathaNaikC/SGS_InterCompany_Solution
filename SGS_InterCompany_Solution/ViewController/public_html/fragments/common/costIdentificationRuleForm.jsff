@@ -21,7 +21,7 @@
                             </af:button>
                             <af:button actionListener="#{bindings.Rollback.execute}"
                        id="b3" action="back"
-                       rendered="#{pageFlowScope.paddEditCIR == 'ADD'}" immediate="true" text="Cancel"
+                       rendered="#{pageFlowScope.paddEditCIR == 'ADD'}" immediate="true" text="Close"
                        accessKey="C"/>
                             
                         </af:toolbar>

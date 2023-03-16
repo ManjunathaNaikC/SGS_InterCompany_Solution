@@ -11,9 +11,9 @@
                 <af:panelBox text="Cost Identifier Rule" id="pb1">
                     <f:facet name="toolbar"/>
                     <af:panelGroupLayout layout="vertical" id="pgl2" partialTriggers="pb2"  styleClass="AFStretchWidth">
-                        <af:panelBox text="Nature Of Expense" id="pb2">
-                            <f:facet name="toolbar"/>
-                            <!--<af:selectOneChoice value="#{bindings.NatureOfExpense.inputValue}"
+                        <af:panelBox id="pb2" text="Nature Of Expense">
+                            <af:group id="g1">
+                                <!--<af:selectOneChoice value="#{bindings.NatureOfExpense.inputValue}"
                                                 label="#{bindings.NatureOfExpense.label}"
                                                 required="#{bindings.NatureOfExpense.hints.mandatory}"
                                                 shortDesc="#{bindings.NatureOfExpense.hints.tooltip}" id="soc3"
@@ -21,7 +21,7 @@
                                 <f:selectItems value="#{bindings.NatureOfExpense.items}" id="si3"/>
                                 <f:validator binding="#{bindings.NatureOfExpense.validator}"/>
                             </af:selectOneChoice>-->
-                            <!--<af:selectOneChoice value="#{bindings.NatureOfExpenseLookupVO1.inputValue}"
+                                <!--<af:selectOneChoice value="#{bindings.NatureOfExpenseLookupVO1.inputValue}"
                                                 label="Nature Of Expense"
                                                 required="#{bindings.NatureOfExpenseLookupVO1.hints.mandatory}"
                                                 shortDesc="#{bindings.NatureOfExpenseLookupVO1.hints.tooltip}"
@@ -31,21 +31,23 @@
                                 <f:selectItems value="#{bindings.NatureOfExpenseLookupVO1.items}" id="si1"/>
                                 <f:validator binding="#{bindings.NatureOfExpenseLookupVO1.validator}"/>
                             </af:selectOneChoice>-->
-                            <!--<af:selectManyCheckbox value="#{bindings.NatureOfExpenseLookupVO1.inputValue}"
+                                <!--<af:selectManyCheckbox value="#{bindings.NatureOfExpenseLookupVO1.inputValue}"
                                                    label="#{bindings.NatureOfExpenseLookupVO1.label}" id="smc1">
                                 <f:selectItems value="#{bindings.NatureOfExpenseLookupVO1.items}" id="si1"/>
                                 <f:validator binding="#{bindings.NatureOfExpenseLookupVO1.validator}"/>
                             </af:selectManyCheckbox>-->
-                            <af:panelGroupLayout id="pgl3" layout="horizontal">
-                                <af:selectManyChoice value="#{bindings.NatureOfExpenseSearch.inputValue}" id="smc1"
-                                                     autoSubmit="true">
-                                    <f:selectItems value="#{bindings.NatureOfExpenseSearch.items}" id="si1"/>
-                                    <f:validator binding="#{bindings.NatureOfExpenseSearch.validator}"/>
-                                </af:selectManyChoice>
-                                <af:spacer id="s1" width="15"/>
-                                <af:button text="Search" id="b3" partialTriggers="pc1:resId1"
-                                           actionListener="#{viewScope.ActionEventsBean.onNatureOfExpenseSearch}"/>
-                            </af:panelGroupLayout>
+                                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                    <af:selectManyChoice value="#{bindings.NatureOfExpenseSearch.inputValue}" id="smc1"
+                                                         autoSubmit="true">
+                                        <f:selectItems value="#{bindings.NatureOfExpenseSearch.items}" id="si1"/>
+                                        <f:validator binding="#{bindings.NatureOfExpenseSearch.validator}"/>
+                                    </af:selectManyChoice>
+                                    <af:spacer id="s1" width="15"/>
+                                    <af:button text="Search" id="b3" partialTriggers="pc1:resId1"
+                                               actionListener="#{viewScope.ActionEventsBean.onNatureOfExpenseSearch}"/>
+                                </af:panelGroupLayout>
+                            </af:group>
+                            <f:facet name="toolbar"/>
                         </af:panelBox>
                         <af:panelHeader text="" id="ph1">
                   
@@ -209,7 +211,7 @@
                             <af:table value="#{bindings.SgsCostIdentificationRuleVO2.collectionModel}" var="row"
                                       rows="#{bindings.SgsCostIdentificationRuleVO2.rangeSize}"
                                       emptyText="#{bindings.SgsCostIdentificationRuleVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      rowBandingInterval="0"
+                                      rowBandingInterval="1"
                                       selectedRowKeys="#{bindings.SgsCostIdentificationRuleVO2.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.SgsCostIdentificationRuleVO2.collectionModel.makeCurrent}"
                                       rowSelection="single"

@@ -768,6 +768,22 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     }
 
     /**
+     * Container's getter for TxnCategoryLOVVO1.
+     * @return TxnCategoryLOVVO1
+     */
+    public ViewObjectImpl getTxnCategoryLOVVO1() {
+        return (ViewObjectImpl) findViewObject("TxnCategoryLOVVO1");
+    }
+
+    /**
+     * Container's getter for YesOrNoLookupVO1.
+     * @return YesOrNoLookupVO1
+     */
+    public ViewObjectImpl getYesOrNoLookupVO1() {
+        return (ViewObjectImpl) findViewObject("YesOrNoLookupVO1");
+     }
+     
+    /**
      * Container's getter for ReversalReasonLOVVO1.
      * @return ReversalReasonLOVVO1
      */

@@ -59,7 +59,9 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
         Attribute14,
         Attribute15,
         TargetGlAccountDr,
-        AllocationStatus;
+        AllocationStatus,
+        REVERSABLEENTRY,
+        TRANSACTIONCATEGORY;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -121,6 +123,8 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int TARGETGLACCOUNTDR = AttributesEnum.TargetGlAccountDr.index();
     public static final int ALLOCATIONSTATUS = AttributesEnum.AllocationStatus.index();
+    public static final int REVERSABLEENTRY = AttributesEnum.REVERSABLEENTRY.index();
+    public static final int TRANSACTIONCATEGORY = AttributesEnum.TRANSACTIONCATEGORY.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -134,6 +138,7 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO");
     }
+
 
     /**
      * Gets the attribute value for DrtcrossChargeId, using the alias name DrtcrossChargeId.
@@ -711,6 +716,38 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
         setAttributeInternal(ALLOCATIONSTATUS, value);
     }
 
+
+    /**
+     * Gets the attribute value for REVERSABLEENTRY, using the alias name REVERSABLEENTRY.
+     * @return the value of REVERSABLEENTRY
+     */
+    public String getREVERSABLEENTRY() {
+        return (String) getAttributeInternal(REVERSABLEENTRY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for REVERSABLEENTRY.
+     * @param value value to set the REVERSABLEENTRY
+     */
+    public void setREVERSABLEENTRY(String value) {
+        setAttributeInternal(REVERSABLEENTRY, value);
+    }
+
+    /**
+     * Gets the attribute value for TRANSACTIONCATEGORY, using the alias name TRANSACTIONCATEGORY.
+     * @return the value of TRANSACTIONCATEGORY
+     */
+    public String getTRANSACTIONCATEGORY() {
+        return (String) getAttributeInternal(TRANSACTIONCATEGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TRANSACTIONCATEGORY.
+     * @param value value to set the TRANSACTIONCATEGORY
+     */
+    public void setTRANSACTIONCATEGORY(String value) {
+        setAttributeInternal(TRANSACTIONCATEGORY, value);
+    }
 
     /**
      * @param drtcrossChargeId key constituent

@@ -16,6 +16,10 @@
               id="NatureOfExpenseLookupVO2Iterator"/>
     <iterator Binds="SgsDrtCrossChargeVO1" RangeSize="10" DataControl="SGSAppModuleDataControl"
               id="SgsDrtCrossChargeVO1Iterator"/>
+    <iterator Binds="YesOrNoLookupVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="YesOrNoLookupVO1Iterator"/>
+    <iterator Binds="TxnCategoryLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="TxnCategoryLOVVO1Iterator"/>
     <iterator Binds="SgsInvoiceCreditMemoVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsInvoiceCreditMemoVO1Iterator"/>
     <searchRegion Binds="SgsInvoiceCreditMemoVO1Iterator" Criteria=""
@@ -79,7 +83,19 @@
           ListIter="NatureOfExpenseLookupVO2Iterator" id="MEANING" DTSupportsMRU="true"
           SelectItemValueMode="ListObject">
       <AttrNames>
-        <Item Value="LOOKUPCODE"/>
+        <Item Value="MEANING"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="YesOrNoLookupVO1Iterator" ListOperMode="navigation" ListIter="YesOrNoLookupVO1Iterator"
+          id="YesOrNoLookupVO1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="MEANING"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="TxnCategoryLOVVO1Iterator" ListOperMode="navigation" ListIter="TxnCategoryLOVVO1Iterator"
+          id="TxnCategoryLOVVO1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="MEANING"/>
       </AttrNames>
     </list>
     <button IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="selectInvoiceRecord" DTSupportsMRU="false"

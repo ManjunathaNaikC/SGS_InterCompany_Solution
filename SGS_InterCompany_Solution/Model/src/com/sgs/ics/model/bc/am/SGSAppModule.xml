@@ -195,6 +195,12 @@
     Name="CreditMemoLOVVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.CreditMemoLOVVO"/>
   <ViewUsage
+    Name="TxnCategoryLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.TxnCategoryLOVVO"/>
+  <ViewUsage
+    Name="YesOrNoLookupVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.link.YesOrNoLookupVO"/>
+<ViewUsage
     Name="ReversalReasonLOVVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.ReversalReasonLOVVO"/>
   <ViewUsage
@@ -258,7 +264,6 @@
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtTblVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsTdsWhtRateApplicabilityVO1"
     Reversed="false"/>
-
 <ViewLinkUsage
     Name="sgsVatTaxApplicabilityVL1"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.sgsVatTaxApplicabilityVL"

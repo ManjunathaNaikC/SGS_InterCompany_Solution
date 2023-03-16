@@ -914,6 +914,7 @@ public class ActionEventsBean {
        // SgsStlmtInvVO1Iterator
         
     }
+    
 
     public void onCreateSettlementSearch(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
@@ -1796,28 +1797,38 @@ public class ActionEventsBean {
                               executeBinding("CreateInsertCredit");
                               Row row = creditData.getCurrentRow();
                               row.setAttribute("InvoiceSeqNo" ,invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
-                              String sDate1=(String)invoiceDatarows[i].getAttribute("Period");
-                              System.out.println("sDate1:: "+sDate1);
-                             // Date parsedDate = sdf.parse(date);
-//                              SimpleDateFormat print = new SimpleDateFormat("MMM d, yyyy HH:mm:ss");
-//                              System.out.println(print.format(parsedDate));
                               
-                        
-                try {
-                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
-                    System.out.println("sdf1:: "+sdf1);
-                    java.util.Date date = sdf1.parse(sDate1);
-                    System.out.println("date:: "+date);
-                    java.sql.Date date1 = new java.sql.Date(date.getTime()); 
-                    //java.sql.Date date1 = new java.sql.Date((new SimpleDateFormat("dd-MMM-yyyy").parse(sDate1));
-                    System.out.println(sDate1 + "\t" + date1);
-                    row.setAttribute("Period",date1);
-                    System.out.println("Period :: "+row.getAttribute("Period"));
-                } catch (ParseException pe) {
-                    // TODO: Add catch code
-                    pe.printStackTrace();
-                } 
-                              //row.setAttribute("Period",invoiceDatarows[i].getAttribute("Period"));
+                              
+//                              String sDate1=(String)invoiceDatarows[i].getAttribute("Period");
+//                              System.out.println("sDate1:: "+sDate1);
+//                              SimpleDateFormat sdf2 = new SimpleDateFormat("Mmm dd yyyy hh:mmss");
+//                              System.out.println("sdf2:: "+sdf2);
+//                try {
+//                    System.out.println("date2:: "+sDate1);
+//                    java.util.Date date2 = sdf2.parse(sDate1);
+//                    System.out.println("date2:: "+date2);
+//                } catch (ParseException e) {
+//                }
+//                //                              Date parsedDate = sdf.parse(date);
+////                              SimpleDateFormat print = new SimpleDateFormat("Mmm dd yyyy hh:mmss");
+////                              System.out.println(print.format(parsedDate));
+//                              
+//                        
+//                try {
+//                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+//                    System.out.println("sdf1:: "+sdf1);
+//                    java.util.Date date = sdf1.parse(sDate1);
+//                    System.out.println("date:: "+date);
+//                    java.sql.Date date1 = new java.sql.Date(date.getTime()); 
+//                    //java.sql.Date date1 = new java.sql.Date((new SimpleDateFormat("dd-MMM-yyyy").parse(sDate1));
+//                    System.out.println(sDate1 + "\t" + date1);
+//                    row.setAttribute("Period",date1);
+//                    System.out.println("Period :: "+row.getAttribute("Period"));
+//                } catch (ParseException pe) {
+//                    // TODO: Add catch code
+//                    pe.printStackTrace();
+//                } 
+                              row.setAttribute("Period",invoiceDatarows[i].getAttribute("Period"));
                               row.setAttribute("TransactionCategory", invoiceDatarows[i].getAttribute("TransactionCategory"));
                               row.setAttribute("PsftVoucherRef",invoiceDatarows[i].getAttribute("ReferenceVoucherNum"));
                               row.setAttribute("PsftInvoiceRef",invoiceDatarows[i].getAttribute("ReferenceInvoiceNum"));      

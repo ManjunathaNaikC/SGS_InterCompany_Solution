@@ -194,15 +194,15 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      * Gets the attribute value for Period, using the alias name Period.
      * @return the value of Period
      */
-    public String getPeriod() {
-        return (String) getAttributeInternal(PERIOD);
+    public Date getPeriod() {
+        return (Date) getAttributeInternal(PERIOD);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Period.
      * @param value value to set the Period
      */
-    public void setPeriod(String value) {
+    public void setPeriod(Date value) {
         setAttributeInternal(PERIOD, value);
     }
 

@@ -141,12 +141,13 @@
     <af:spacer id="s2" height="10"/>
     <af:table value="#{bindings.SgsCreateSettlementVO1.collectionModel}" var="row"
               rows="#{bindings.SgsCreateSettlementVO1.rangeSize}"
+              rendered="#{bindings.MEANING.inputValue eq 'INTER_COMPANY_SETTLEMENT'}"
               emptyText="#{bindings.SgsCreateSettlementVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
               rowBandingInterval="0" selectedRowKeys="#{bindings.SgsCreateSettlementVO1.collectionModel.selectedRow}"
               rowSelection="multiple" fetchSize="#{bindings.SgsCreateSettlementVO1.rangeSize}"
               filterModel="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor}" filterVisible="false"
               queryListener="#{bindings.SgsCreateSettlementVO1Query.processQuery}" varStatus="vs" id="t1"
-              styleClass="AFStretchWidth" rendered="#{bindings.MEANING.inputValue eq 'CONTRACT_CASH'}">
+              styleClass="AFStretchWidth" >
         <af:column headerText="#{bindings.SgsCreateSettlementVO1.hints.SELECTRECORDS.label}"
                   id="c1" binding="#{viewScope.ActionEventsBean.bindSettlementSelectColumn}">
         <af:selectBooleanCheckbox value="#{row.bindings.SELECTRECORDS.inputValue}"
@@ -227,7 +228,7 @@
       </af:column>
     </af:table>
     <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                        rendered="#{bindings.MEANING.inputValue eq 'INTER_COMPANY_SETTLEMENT'}">
+    rendered="#{bindings.MEANING.inputValue eq 'CONTRACT_CASH'}">
       <f:facet name="menus"/>
       <f:facet name="toolbar"/>
       <f:facet name="statusbar"/>

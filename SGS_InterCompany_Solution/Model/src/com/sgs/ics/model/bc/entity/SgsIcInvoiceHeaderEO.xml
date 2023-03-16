@@ -34,8 +34,7 @@
     Name="Period"
     Precision="30"
     ColumnName="PERIOD"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
+    Type="java.sql.Date"
     ColumnType="VARCHAR"
     TableName="IC_INVOICE_HEADER">
     <DesignTime>

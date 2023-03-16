@@ -87,8 +87,16 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.label}" id="c2"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.name}" filterable="true">
-                            <af:outputText value="#{row.Period}"
-                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.tooltip}" id="ot2"/>
+                            <af:inputDate value="#{row.bindings.Period.inputValue}"
+                                          required="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.mandatory}"
+                                          columns="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.displayWidth}"
+                                          shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.tooltip}" id="id6"
+                                          readOnly="true">
+                                <f:validator binding="#{row.bindings.Period.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.format}"/>
+                            </af:inputDate>
+                            <!--<af:outputText value="#{row.Period}"
+                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.tooltip}" id="ot2"/>-->
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.label}" id="c3"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.name}" filterable="true">

@@ -350,6 +350,11 @@ public class UploadExcelBean {
                             }
 
                          
+                        } else if (Index == 26) {
+                            System.out.println("SLOC------>"+MytempCell.getStringCellValue());
+                            
+                            row.setAttribute("SLOC", MytempCell.getStringCellValue());
+
                         } else {
                             System.out.println("-----> cell Is empty Please fill the cell with data"+tempRow.getRowNum()+"+"+tempRow.getCell(column));
                             System.out.println("-----> cell Is empty Please fill the cell with data at Index"+Index);

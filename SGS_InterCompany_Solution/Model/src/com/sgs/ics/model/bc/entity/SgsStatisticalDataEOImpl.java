@@ -74,7 +74,9 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         APPROVESTATUS,
         TRANSACTIONPERIOD,
         EMAILATTACHMENT,
-        STATISTICALDATA;
+        STATISTICALDATA,
+        DOCATTM,
+        SLOC;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -148,6 +150,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int TRANSACTIONPERIOD = AttributesEnum.TRANSACTIONPERIOD.index();
     public static final int EMAILATTACHMENT = AttributesEnum.EMAILATTACHMENT.index();
     public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
+    public static final int DOCATTM = AttributesEnum.DOCATTM.index();
+    public static final int SLOC = AttributesEnum.SLOC.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -949,6 +953,38 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      */
     public void setSTATISTICALDATA(BigDecimal value) {
         setAttributeInternal(STATISTICALDATA, value);
+    }
+
+    /**
+     * Gets the attribute value for DOCATTM, using the alias name DOCATTM.
+     * @return the value of DOCATTM
+     */
+    public String getDOCATTM() {
+        return (String) getAttributeInternal(DOCATTM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DOCATTM.
+     * @param value value to set the DOCATTM
+     */
+    public void setDOCATTM(String value) {
+        setAttributeInternal(DOCATTM, value);
+    }
+
+    /**
+     * Gets the attribute value for SLOC, using the alias name SLOC.
+     * @return the value of SLOC
+     */
+    public String getSLOC() {
+        return (String) getAttributeInternal(SLOC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SLOC.
+     * @param value value to set the SLOC
+     */
+    public void setSLOC(String value) {
+        setAttributeInternal(SLOC, value);
     }
 
     /**

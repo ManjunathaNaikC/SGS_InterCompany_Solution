@@ -537,6 +537,26 @@
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.format}"/>
                             </af:inputText>
                         </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                            <af:inputText value="#{row.bindings.SLOC.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.SLOC.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.SLOC.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}" id="it12">
+                                <f:validator binding="#{row.bindings.SLOC.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}" id="c15">
+                            <af:inputText value="#{row.bindings.DOCATTM.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.tooltip}" id="it18">
+                                <f:validator binding="#{row.bindings.DOCATTM.validator}"/>
+                            </af:inputText>
+                        </af:column>
                         <!--<af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.label}" id="c14">

@@ -57,7 +57,8 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
         STATGEOGRAPHY,
         CONCATEID,
         TRANSACTIONPERIOD,
-        STATISTICALDATA;
+        STATISTICALDATA,
+        SLOC;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -115,6 +116,7 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
     public static final int CONCATEID = AttributesEnum.CONCATEID.index();
     public static final int TRANSACTIONPERIOD = AttributesEnum.TRANSACTIONPERIOD.index();
     public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
+    public static final int SLOC = AttributesEnum.SLOC.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -643,6 +645,22 @@ public class sgsStatisticalDataTempEOImpl extends EntityImpl {
      */
     public void setSTATISTICALDATA(BigDecimal value) {
         setAttributeInternal(STATISTICALDATA, value);
+    }
+
+    /**
+     * Gets the attribute value for SLOC, using the alias name SLOC.
+     * @return the value of SLOC
+     */
+    public String getSLOC() {
+        return (String) getAttributeInternal(SLOC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SLOC.
+     * @param value value to set the SLOC
+     */
+    public void setSLOC(String value) {
+        setAttributeInternal(SLOC, value);
     }
 
     /**

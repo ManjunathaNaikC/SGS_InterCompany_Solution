@@ -969,6 +969,18 @@
     EntityAttrName="STATISTICALDATA"
     EntityUsage="SgsStatisticalDataEO"
     AliasName="STATISTICAL_DATA"/>
+  <ViewAttribute
+    Name="DOCATTM"
+    PrecisionRule="true"
+    EntityAttrName="DOCATTM"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="DOC_ATTM"/>
+  <ViewAttribute
+    Name="SLOC"
+    PrecisionRule="true"
+    EntityAttrName="SLOC"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="SLOC"/>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

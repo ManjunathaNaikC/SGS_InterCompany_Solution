@@ -22,6 +22,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
 public class SgsStatisticalDataEOImpl extends EntityImpl {
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsStatisticalDataEOImpl.class);
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -391,11 +392,11 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public void setValidityFrom(Date value) {
         setAttributeInternal(VALIDITYFROM, value);
     }
-    
+
     public void setCREATEDDATE(Date value) {
         setAttributeInternal(CREATEDDATE, value);
     }
-    
+
     public void setUpdatedDate(Date value) {
         setAttributeInternal(UPDATEDDATE, value);
     }
@@ -439,7 +440,6 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public Date getUpdatedDate() {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
-    
 
 
     /**
@@ -705,10 +705,10 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public Date getCREATEDDATE() {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
-    
-//    public void setCREATEDDATE(Date value) {
-//        setAttributeInternal(CREATEDDATE, value);
-//    }
+
+    //    public void setCREATEDDATE(Date value) {
+    //        setAttributeInternal(CREATEDDATE, value);
+    //    }
 
 
     /**
@@ -997,27 +997,27 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     }
 
     protected void create(AttributeList attributeList) {
-        super.create(attributeList);        
+        super.create(attributeList);
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             setStatisticalDataId(am.getDBSequence1("SEQ_SGS_STATISTICAL_DATA_TBL"));
-            CommonUtils util= new CommonUtils();
-            Object user= (Object)util.getSessionScopeValue("_username").toString();
+            CommonUtils util = new CommonUtils();
+            Object user = (Object) util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());
             setCREATEDDATE(new java.sql.Date(new java.util.Date().getTime()));
-            String natureOfExpense="";
-            String inputProvider="";
-            String addExpenseQuilfier="";
-            if(getNATUREOFEXPENSE() != null){
+            String natureOfExpense = "";
+            String inputProvider = "";
+            String addExpenseQuilfier = "";
+            if (getNATUREOFEXPENSE() != null) {
                 natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
             }
-            if(getInputProvider() != null){
+            if (getInputProvider() != null) {
                 inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
             }
-            if(getADDTEXPENSECAT() != null){
+            if (getADDTEXPENSECAT() != null) {
                 addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
-            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
+            }
+            setCONCATEID(natureOfExpense + inputProvider + addExpenseQuilfier);
         } catch (Exception e) {
             LOG.severe(e);
         }
@@ -1036,39 +1036,43 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
-        String natureOfExpense="";
-        String inputProvider="";
-        String addExpenseQuilfier="";
+        String natureOfExpense = "";
+        String inputProvider = "";
+        String addExpenseQuilfier = "";
         if (operation == DML_UPDATE) {
-            CommonUtils util= new CommonUtils();
-            Object user= (Object)util.getSessionScopeValue("_username").toString();
+            CommonUtils util = new CommonUtils();
+            Object user = (Object) util.getSessionScopeValue("_username").toString();
             setUpdatedBy(user.toString());
             setUpdatedDate(new java.sql.Date(new java.util.Date().getTime()));
-            
-            if(getNATUREOFEXPENSE() != null){
+
+            if (getNATUREOFEXPENSE() != null) {
                 natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
             }
-            if(getInputProvider() != null){
+            if (getInputProvider() != null) {
                 inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
             }
-            if(getADDTEXPENSECAT() != null){
+            if (getADDTEXPENSECAT() != null) {
                 addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
-            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
-        }else if (operation == DML_INSERT) {
-         
-            if(getNATUREOFEXPENSE() != null){
+            } else {
+                addExpenseQuilfier = natureOfExpense;
+            }
+            setCONCATEID(natureOfExpense + inputProvider + addExpenseQuilfier);
+        } else if (operation == DML_INSERT) {
+
+            if (getNATUREOFEXPENSE() != null) {
                 natureOfExpense = getNATUREOFEXPENSE().toUpperCase().replaceAll("\\s", "");
             }
-            if(getInputProvider() != null){
+            if (getInputProvider() != null) {
                 inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
             }
-            if(getADDTEXPENSECAT() != null){
+            if (getADDTEXPENSECAT() != null) {
                 addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
-            setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
+            } else {
+                addExpenseQuilfier = natureOfExpense;
+            }
+            setCONCATEID(natureOfExpense + inputProvider + addExpenseQuilfier);
         }
-        
+
         super.doDML(operation, e);
     }
 

@@ -794,7 +794,9 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
             }
             if(getADDTEXPENSECAT() != null){
                 addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
+            }else{
+                addExpenseQuilfier = natureOfExpense;
+            }
             setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         }else if (operation == DML_INSERT) {
             System.out.println("ConcateID**** "+getNatureOfExpense()+getInputProvider()+getADDTEXPENSECAT());
@@ -809,11 +811,17 @@ public class SgsCostIdentificationRuleEOImpl extends EntityImpl {
             }
             if(getADDTEXPENSECAT() != null){
                 addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
+            }else{
+                addExpenseQuilfier = natureOfExpense;
+            }   
             setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         }
 
         super.doDML(operation, e);
+    }
+    
+    public void updateConcateData() {
+        
     }
 }
 

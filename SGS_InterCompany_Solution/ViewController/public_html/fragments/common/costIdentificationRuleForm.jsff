@@ -42,7 +42,7 @@
                                           columns="#{bindings.CostIdentificationName.hints.displayWidth}"
                                           maximumLength="#{bindings.CostIdentificationName.hints.precision}"
                                           shortDesc="#{bindings.CostIdentificationName.hints.tooltip}" id="it9"
-                                          showRequired="true" placeholder="Required">
+                                          showRequired="true">
                                 <f:validator binding="#{bindings.CostIdentificationName.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.ADDTEXPENSECAT.inputValue}"

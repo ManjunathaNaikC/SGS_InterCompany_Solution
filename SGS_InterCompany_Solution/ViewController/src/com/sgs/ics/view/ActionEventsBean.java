@@ -347,6 +347,11 @@ public class ActionEventsBean {
     }
 
     public void onStdRateChildSave(ActionEvent actionEvent) {
+        String inputProvider=null;
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsStandardRateSetupVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
+        ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }

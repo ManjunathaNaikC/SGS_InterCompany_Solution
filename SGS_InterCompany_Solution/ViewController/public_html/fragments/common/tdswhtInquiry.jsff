@@ -127,10 +127,10 @@
                 <af:outputText value="#{row.WhtExpenseAcc}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.WhtExpenseAcc.tooltip}" id="ot9"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c2">
-                <!--<af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
+              <!--<af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c2">
+                --><!--<af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}"
-                               id="ot15"/>-->
+                               id="ot15"/>--><!--
                 <af:selectOneChoice value="#{row.bindings.SERVICEPROVIDERLEGALENTITY.inputValue}"
                                     label="#{row.bindings.SERVICEPROVIDERLEGALENTITY.label}"
                                     required="#{bindings.SgsTdsWhtTblVO1.hints.SERVICEPROVIDERLEGALENTITY.mandatory}"
@@ -139,11 +139,11 @@
                   <f:selectItems value="#{row.bindings.SERVICEPROVIDERLEGALENTITY.items}" id="si5"/>
                   <f:validator binding="#{row.bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
                 </af:selectOneChoice>
-              </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c3">
-                <!--<af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
+              </af:column>-->
+              <!--<af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.label}" id="c3">
+                --><!--<af:outputText value="#{row.SERVICERECEIVERLEGALENTITY}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.tooltip}"
-                               id="ot16"/>-->
+                               id="ot16"/>--><!--
                 <af:selectOneChoice value="#{row.bindings.SERVICERECEIVERLEGALENTITY.inputValue}"
                                     label="#{row.bindings.SERVICERECEIVERLEGALENTITY.label}"
                                     required="#{bindings.SgsTdsWhtTblVO1.hints.SERVICERECEIVERLEGALENTITY.mandatory}"
@@ -152,7 +152,7 @@
                   <f:selectItems value="#{row.bindings.SERVICERECEIVERLEGALENTITY.items}" id="si6"/>
                   <f:validator binding="#{row.bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
                 </af:selectOneChoice>
-              </af:column>
+              </af:column>-->
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.label}" id="resId1c10">
                 <af:outputText value="#{row.EffectiveFrom}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.tooltip}" id="ot10">

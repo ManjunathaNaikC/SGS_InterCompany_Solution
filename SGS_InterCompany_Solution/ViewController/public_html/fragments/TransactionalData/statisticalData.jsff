@@ -552,20 +552,29 @@
                                                 label="#{row.bindings.SLOC.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}"
-                                                id="soc9">
-                                <f:selectItems value="#{row.bindings.SLOC.items}" id="si9"/>
+                                                id="soc10">
+                                <f:selectItems value="#{row.bindings.SLOC.items}" id="si10"/>
                                 <f:validator binding="#{row.bindings.SLOC.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}" id="c15">
-                            <af:inputText value="#{row.bindings.DOCATTM.inputValue}"
+                            <!--<af:inputText value="#{row.bindings.DOCATTM.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.tooltip}" id="it18">
                                 <f:validator binding="#{row.bindings.DOCATTM.validator}"/>
-                            </af:inputText>
+                            </af:inputText>-->
+                            <af:link text="#{row.bindings.DOCATTM.inputValue}" id="l2">
+                                <af:fileDownloadActionListener filename="#{row.DOCATTM}"
+                                                               method="#{viewScope.UploadExcelBean.onStatDocsDownload}"/>
+                            </af:link>
+                        </af:column>
+                        <af:column id="c22" headerText="Upload File">
+                            <af:inputFile id="if3"
+                                          valueChangeListener="#{viewScope.UploadExcelBean.onStatDocsUpload}"
+                                          autoSubmit="true" uploadType="submit"/>
                         </af:column>
                         <!--<af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.name}"
                                    filterable="true"

@@ -54,6 +54,8 @@
           <Item Value="EMAILATTACHMENT"/>
           <Item Value="StatSelectedRecord" Binds="StatSelectedRecord"/>
           <Item Value="TRANSACTIONPERIOD"/>
+          <Item Value="SLOC"/>
+          <Item Value="DOCATTM"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

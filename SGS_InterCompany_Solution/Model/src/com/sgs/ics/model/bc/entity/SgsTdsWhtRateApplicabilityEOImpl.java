@@ -56,6 +56,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
         CREATEDDATE,
         CREATEDBY,
         NATUREOFEXPENSE,
+        SLOC,
         SgsTdsWhtTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -112,6 +113,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
     public static final int CREATEDBY = AttributesEnum.CREATEDBY.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
+    public static final int SLOC = AttributesEnum.SLOC.index();
     public static final int SGSTDSWHTTBLEO = AttributesEnum.SgsTdsWhtTblEO.index();
 
     /**
@@ -559,6 +561,22 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
      */
     public void setNATUREOFEXPENSE(String value) {
         setAttributeInternal(NATUREOFEXPENSE, value);
+    }
+
+    /**
+     * Gets the attribute value for SLOC, using the alias name SLOC.
+     * @return the value of SLOC
+     */
+    public String getSLOC() {
+        return (String) getAttributeInternal(SLOC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SLOC.
+     * @param value value to set the SLOC
+     */
+    public void setSLOC(String value) {
+        setAttributeInternal(SLOC, value);
     }
 
     /**

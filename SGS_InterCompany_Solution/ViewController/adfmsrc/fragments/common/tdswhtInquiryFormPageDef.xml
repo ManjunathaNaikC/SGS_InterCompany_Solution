@@ -116,6 +116,7 @@
           <Item Value="ChargeabilityToTax"/>
           <Item Value="TdsWhtApplSeq"/>
           <Item Value="NATUREOFEXPENSE"/>
+          <Item Value="SLOC"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -161,5 +162,7 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="SgsTdsWhtTblVO1Iterator" StaticList="false" Uses="LOV_SERVICEPROVIDERLEGALENTITY"
           id="SERVICEPROVIDERLEGALENTITY1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsTdsWhtTblVO1Iterator" StaticList="false" Uses="LOV_DOCAPPL" id="DOCAPPL"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

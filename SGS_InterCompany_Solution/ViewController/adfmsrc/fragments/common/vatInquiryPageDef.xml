@@ -26,6 +26,7 @@
           <Item Value="UpdatedBy"/>
           <Item Value="SERVICEPROVIDERLEGALENTITY"/>
           <Item Value="SERVICERECEIVERLEGALENTITY"/>
+          <Item Value="VATAPPLICATIBILITY"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

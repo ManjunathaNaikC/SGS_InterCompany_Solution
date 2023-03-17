@@ -142,10 +142,16 @@
             </af:inputDate>
           </af:panelFormLayout>
         </af:panelBox>
-        <af:panelBox id="pb3" rendered="#{bindings.VATAPPLICATIBILITY.inputValue eq 'Yes'}">
+        <af:panelBox id="pb3" rendered="#{bindings.VATAPPLICATIBILITY.inputValue eq 'Yes'}" text="Tax Details">
           <f:facet name="toolbar"/>
           <af:panelFormLayout id="pfl2" rows="5" maxColumns="2">
             <f:facet name="footer"/>
+            <af:selectOneChoice value="#{bindings.Rcm1.inputValue}" label="#{bindings.Rcm1.label}"
+                                required="#{bindings.Rcm1.hints.mandatory}" shortDesc="#{bindings.Rcm1.hints.tooltip}"
+                                id="soc3">
+              <f:selectItems value="#{bindings.Rcm1.items}" id="si3"/>
+              <f:validator binding="#{bindings.Rcm1.validator}"/>
+            </af:selectOneChoice>
             <af:inputText value="#{bindings.VatOutputGlAcc.inputValue}" label="#{bindings.VatOutputGlAcc.hints.label}"
                           required="#{bindings.VatOutputGlAcc.hints.mandatory}"
                           columns="#{bindings.VatOutputGlAcc.hints.displayWidth}"
@@ -160,12 +166,6 @@
                           shortDesc="#{bindings.VatInputGlAcc.hints.tooltip}" id="it5">
               <f:validator binding="#{bindings.VatInputGlAcc.validator}"/>
             </af:inputText>
-            <af:selectOneChoice value="#{bindings.Rcm1.inputValue}" label="#{bindings.Rcm1.label}"
-                                required="#{bindings.Rcm1.hints.mandatory}" shortDesc="#{bindings.Rcm1.hints.tooltip}"
-                                id="soc3">
-              <f:selectItems value="#{bindings.Rcm1.items}" id="si3"/>
-              <f:validator binding="#{bindings.Rcm1.validator}"/>
-            </af:selectOneChoice>
           </af:panelFormLayout>
         </af:panelBox>
         <af:panelBox text="TAX Rates Applicability" rendered="#{bindings.VATAPPLICATIBILITY.inputValue eq 'Yes'}" id="pb2">
@@ -211,7 +211,7 @@
                   <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.label}" id="c4"
+               <!--<af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.ChargeabilityToTax.label}" id="c4"
                           width="150">
                 <af:selectOneChoice value="#{row.bindings.ChargeabilityToTax.inputValue}"
                                     label="#{row.bindings.ChargeabilityToTax.label}"
@@ -221,7 +221,7 @@
                   <f:selectItems value="#{row.bindings.ChargeabilityToTax.items}" id="si2"/>
                   <f:validator binding="#{row.bindings.ChargeabilityToTax.validator}"/>
                 </af:selectOneChoice>
-              </af:column>
+              </af:column>-->
               <af:column headerText="#{bindings.SgsVatTaxApplicabilityVO1.hints.CostGroupingCode.label}" id="c1"
                          visible="false">
                 <af:inputText value="#{row.bindings.CostGroupingCode.inputValue}"

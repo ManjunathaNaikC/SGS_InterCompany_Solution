@@ -151,6 +151,12 @@
               <f:selectItems value="#{bindings.WHTAPPLICATIBILITY.items}" id="si2"/>
               <f:validator binding="#{bindings.WHTAPPLICATIBILITY.validator}"/>
             </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.DOCAPPL.inputValue}" label="#{bindings.DOCAPPL.label}"
+                                required="#{bindings.DOCAPPL.hints.mandatory}"
+                                shortDesc="#{bindings.DOCAPPL.hints.tooltip}" id="soc12">
+              <f:selectItems value="#{bindings.DOCAPPL.items}" id="si12"/>
+              <f:validator binding="#{bindings.DOCAPPL.validator}"/>
+            </af:selectOneChoice>
             <af:inputText value="#{bindings.WhtCreditAcc.inputValue}" label="#{bindings.WhtCreditAcc.hints.label}"
                           required="#{bindings.WhtCreditAcc.hints.mandatory}"
                           columns="#{bindings.WhtCreditAcc.hints.displayWidth}"
@@ -541,6 +547,15 @@
                                       id="soc6">
                     <f:selectItems value="#{row.bindings.Documentation.items}" id="si6"/>
                     <f:validator binding="#{row.bindings.Documentation.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SLOC.label}" id="c19">
+                  <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}" label="#{row.bindings.SLOC.label}"
+                                      required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SLOC.mandatory}"
+                                      shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SLOC.tooltip}"
+                                      id="soc13">
+                    <f:selectItems value="#{row.bindings.SLOC.items}" id="si13"/>
+                    <f:validator binding="#{row.bindings.SLOC.validator}"/>
                   </af:selectOneChoice>
                 </af:column>
                 <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TdsWhtApplSeq.label}" id="c18"

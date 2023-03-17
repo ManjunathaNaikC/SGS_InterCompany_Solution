@@ -61,6 +61,7 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
         SERVICEPROVIDERLEGALENTITY,
         SERVICERECEIVERLEGALENTITY,
         WHTAPPLICATIBILITY,
+        DOCAPPL,
         SgsTdsWhtIdentificationEO,
         SgsTdsWhtRateApplicabilityEO;
         private static AttributesEnum[] vals = null;
@@ -122,6 +123,7 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
     public static final int SERVICEPROVIDERLEGALENTITY = AttributesEnum.SERVICEPROVIDERLEGALENTITY.index();
     public static final int SERVICERECEIVERLEGALENTITY = AttributesEnum.SERVICERECEIVERLEGALENTITY.index();
     public static final int WHTAPPLICATIBILITY = AttributesEnum.WHTAPPLICATIBILITY.index();
+    public static final int DOCAPPL = AttributesEnum.DOCAPPL.index();
     public static final int SGSTDSWHTIDENTIFICATIONEO = AttributesEnum.SgsTdsWhtIdentificationEO.index();
     public static final int SGSTDSWHTRATEAPPLICABILITYEO = AttributesEnum.SgsTdsWhtRateApplicabilityEO.index();
 
@@ -684,6 +686,22 @@ public class SgsTdsWhtTblEOImpl extends EntityImpl {
      */
     public void setWHTAPPLICATIBILITY(String value) {
         setAttributeInternal(WHTAPPLICATIBILITY, value);
+    }
+
+    /**
+     * Gets the attribute value for DOCAPPL, using the alias name DOCAPPL.
+     * @return the value of DOCAPPL
+     */
+    public String getDOCAPPL() {
+        return (String) getAttributeInternal(DOCAPPL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DOCAPPL.
+     * @param value value to set the DOCAPPL
+     */
+    public void setDOCAPPL(String value) {
+        setAttributeInternal(DOCAPPL, value);
     }
 
     /**

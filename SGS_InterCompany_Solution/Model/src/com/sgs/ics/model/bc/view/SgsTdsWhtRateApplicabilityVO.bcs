@@ -24,3 +24,10 @@ def bLookupType_SgsLookupChrgTaxVO2_BindVariable_BoundParameter()
 'CHARGEABILITY_TO_TAX'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupSLOCVO2", name="bLookupType")
+def bLookupType_SgsLookupSLOCVO2_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+

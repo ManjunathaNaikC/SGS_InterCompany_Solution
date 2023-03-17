@@ -54,7 +54,8 @@
             <af:selectOneChoice value="#{bindings.SERVICERECEIVERLEGALENTITY1.inputValue}"
                                 label="#{bindings.SERVICERECEIVERLEGALENTITY1.label}"
                                 required="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.mandatory}"
-                                shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.tooltip}" id="soc9">
+                                shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.tooltip}" id="soc9"
+                                rendered="false">
               <f:selectItems value="#{bindings.SERVICERECEIVERLEGALENTITY1.items}" id="si9"/>
               <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY1.validator}"/>
             </af:selectOneChoice>
@@ -95,7 +96,8 @@
             <af:selectOneChoice value="#{bindings.SERVICEPROVIDERLEGALENTITY1.inputValue}"
                                 label="#{bindings.SERVICEPROVIDERLEGALENTITY1.label}"
                                 required="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.mandatory}"
-                                shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.tooltip}" id="soc11">
+                                shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.tooltip}" id="soc11"
+                                rendered="false">
               <f:selectItems value="#{bindings.SERVICEPROVIDERLEGALENTITY1.items}" id="si11"/>
               <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY1.validator}"/>
             </af:selectOneChoice>
@@ -118,11 +120,13 @@
               <f:selectItems value="#{bindings.DeductionPoint1.items}" id="si2"/>
               <f:validator binding="#{bindings.DeductionPoint1.validator}"/>
             </af:selectOneChoice>-->
-            <af:selectOneChoice value="#{bindings.DeductionPoint1.inputValue}" label="#{bindings.DeductionPoint1.label}"
-                                required="#{bindings.DeductionPoint1.hints.mandatory}"
-                                shortDesc="#{bindings.DeductionPoint1.hints.tooltip}" id="soc7">
-              <f:selectItems value="#{bindings.DeductionPoint1.items}" id="si7"/>
-              <f:validator binding="#{bindings.DeductionPoint1.validator}"/>
+            <af:selectOneChoice value="#{bindings.WHTAPPLICATIBILITY.inputValue}"
+                                label="#{bindings.WHTAPPLICATIBILITY.label}"
+                                required="#{bindings.WHTAPPLICATIBILITY.hints.mandatory}"
+                                shortDesc="#{bindings.WHTAPPLICATIBILITY.hints.tooltip}" id="soc2" autoSubmit="true"
+                                partialTriggers="pb4 pb2 pb3 pfl2">
+              <f:selectItems value="#{bindings.WHTAPPLICATIBILITY.items}" id="si2"/>
+              <f:validator binding="#{bindings.WHTAPPLICATIBILITY.validator}"/>
             </af:selectOneChoice>
             <!--<af:inputText value="#{bindings.TaxBase.inputValue}" label="#{bindings.TaxBase.hints.label}"
                           required="#{bindings.TaxBase.hints.mandatory}"
@@ -131,104 +135,111 @@
                           shortDesc="#{bindings.TaxBase.hints.tooltip}" id="it5">
               <f:validator binding="#{bindings.TaxBase.validator}"/>
             </af:inputText>-->
-            <af:selectOneChoice value="#{bindings.TaxBase1.inputValue}" label="#{bindings.TaxBase1.label}"
-                                required="#{bindings.TaxBase1.hints.mandatory}"
-                                shortDesc="#{bindings.TaxBase1.hints.tooltip}" id="soc3">
-              <f:selectItems value="#{bindings.TaxBase1.items}" id="si3"/>
-              <f:validator binding="#{bindings.TaxBase1.validator}"/>
-            </af:selectOneChoice>
-            <af:inputText value="#{bindings.WhtLibilityAcc.inputValue}" label="#{bindings.WhtLibilityAcc.hints.label}"
-                          required="#{bindings.WhtLibilityAcc.hints.mandatory}"
-                          columns="#{bindings.WhtLibilityAcc.hints.displayWidth}"
-                          maximumLength="#{bindings.WhtLibilityAcc.hints.precision}"
-                          shortDesc="#{bindings.WhtLibilityAcc.hints.tooltip}" id="it6">
-              <f:validator binding="#{bindings.WhtLibilityAcc.validator}"/>
-            </af:inputText>
-            <af:selectOneChoice value="#{bindings.WHTAPPLICATIBILITY.inputValue}"
-                                label="#{bindings.WHTAPPLICATIBILITY.label}"
-                                required="#{bindings.WHTAPPLICATIBILITY.hints.mandatory}"
-                                shortDesc="#{bindings.WHTAPPLICATIBILITY.hints.tooltip}" id="soc2">
-              <f:selectItems value="#{bindings.WHTAPPLICATIBILITY.items}" id="si2"/>
-              <f:validator binding="#{bindings.WHTAPPLICATIBILITY.validator}"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{bindings.DOCAPPL.inputValue}" label="#{bindings.DOCAPPL.label}"
-                                required="#{bindings.DOCAPPL.hints.mandatory}"
-                                shortDesc="#{bindings.DOCAPPL.hints.tooltip}" id="soc12">
-              <f:selectItems value="#{bindings.DOCAPPL.items}" id="si12"/>
-              <f:validator binding="#{bindings.DOCAPPL.validator}"/>
-            </af:selectOneChoice>
-            <af:inputText value="#{bindings.WhtCreditAcc.inputValue}" label="#{bindings.WhtCreditAcc.hints.label}"
-                          required="#{bindings.WhtCreditAcc.hints.mandatory}"
-                          columns="#{bindings.WhtCreditAcc.hints.displayWidth}"
-                          maximumLength="#{bindings.WhtCreditAcc.hints.precision}"
-                          shortDesc="#{bindings.WhtCreditAcc.hints.tooltip}" id="it7">
-              <f:validator binding="#{bindings.WhtCreditAcc.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.RecoveryRate.inputValue}" label="#{bindings.RecoveryRate.hints.label}"
-                          required="#{bindings.RecoveryRate.hints.mandatory}"
-                          columns="#{bindings.RecoveryRate.hints.displayWidth}"
-                          maximumLength="#{bindings.RecoveryRate.hints.precision}"
-                          shortDesc="#{bindings.RecoveryRate.hints.tooltip}" id="it8">
-              <f:validator binding="#{bindings.RecoveryRate.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.RecoveryRate.format}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.WhtExpenseAcc.inputValue}" label="#{bindings.WhtExpenseAcc.hints.label}"
-                          required="#{bindings.WhtExpenseAcc.hints.mandatory}"
-                          columns="#{bindings.WhtExpenseAcc.hints.displayWidth}"
-                          maximumLength="#{bindings.WhtExpenseAcc.hints.precision}"
-                          shortDesc="#{bindings.WhtExpenseAcc.hints.tooltip}" id="it9">
-              <f:validator binding="#{bindings.WhtExpenseAcc.validator}"/>
-            </af:inputText>
-            <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
-                          required="#{bindings.EffectiveFrom.hints.mandatory}"
-                          columns="#{bindings.EffectiveFrom.hints.displayWidth}"
-                          shortDesc="#{bindings.EffectiveFrom.hints.tooltip}" id="id1">
-              <f:validator binding="#{bindings.EffectiveFrom.validator}"/>
-              <af:convertDateTime pattern="#{bindings.EffectiveFrom.format}"/>
-            </af:inputDate>
-            <af:inputDate value="#{bindings.EffectiveTo.inputValue}" label="#{bindings.EffectiveTo.hints.label}"
-                          required="#{bindings.EffectiveTo.hints.mandatory}"
-                          columns="#{bindings.EffectiveTo.hints.displayWidth}"
-                          shortDesc="#{bindings.EffectiveTo.hints.tooltip}" id="id2">
-              <f:validator binding="#{bindings.EffectiveTo.validator}"/>
-              <af:convertDateTime pattern="#{bindings.EffectiveTo.format}"/>
-            </af:inputDate>
-            <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
-                          required="#{bindings.CreatedDate.hints.mandatory}"
-                          columns="#{bindings.CreatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3">
-              <f:validator binding="#{bindings.CreatedDate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
-            </af:inputDate>
-            <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
-                          required="#{bindings.CreatedBy.hints.mandatory}"
-                          columns="#{bindings.CreatedBy.hints.displayWidth}"
-                          maximumLength="#{bindings.CreatedBy.hints.precision}"
-                          shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it10">
-              <f:validator binding="#{bindings.CreatedBy.validator}"/>
-            </af:inputText>
-            <af:inputDate value="#{bindings.UpdatedDate.inputValue}" label="#{bindings.UpdatedDate.hints.label}"
-                          required="#{bindings.UpdatedDate.hints.mandatory}"
-                          columns="#{bindings.UpdatedDate.hints.displayWidth}"
-                          shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4">
-              <f:validator binding="#{bindings.UpdatedDate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
-            </af:inputDate>
-            <!--<af:inputText value="#{bindings.UpdatedBy.inputValue}" label="#{bindings.UpdatedBy.hints.label}"
+          </af:panelFormLayout>
+          <af:spacer id="s1" height="20"/>
+          <af:panelBox id="pb4" rendered="#{bindings.WHTAPPLICATIBILITY.inputValue eq 'Yes'}">
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl2" rows="7" maxColumns="2">
+              <f:facet name="footer"/>
+              <af:selectOneChoice value="#{bindings.DeductionPoint1.inputValue}"
+                                  label="#{bindings.DeductionPoint1.label}"
+                                  required="#{bindings.DeductionPoint1.hints.mandatory}"
+                                  shortDesc="#{bindings.DeductionPoint1.hints.tooltip}" id="soc7">
+                <f:selectItems value="#{bindings.DeductionPoint1.items}" id="si7"/>
+                <f:validator binding="#{bindings.DeductionPoint1.validator}"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.TaxBase1.inputValue}" label="#{bindings.TaxBase1.label}"
+                                  required="#{bindings.TaxBase1.hints.mandatory}"
+                                  shortDesc="#{bindings.TaxBase1.hints.tooltip}" id="soc3">
+                <f:selectItems value="#{bindings.TaxBase1.items}" id="si3"/>
+                <f:validator binding="#{bindings.TaxBase1.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.WhtLibilityAcc.inputValue}" label="#{bindings.WhtLibilityAcc.hints.label}"
+                            required="#{bindings.WhtLibilityAcc.hints.mandatory}"
+                            columns="#{bindings.WhtLibilityAcc.hints.displayWidth}"
+                            maximumLength="#{bindings.WhtLibilityAcc.hints.precision}"
+                            shortDesc="#{bindings.WhtLibilityAcc.hints.tooltip}" id="it6">
+                <f:validator binding="#{bindings.WhtLibilityAcc.validator}"/>
+              </af:inputText>
+              <af:selectOneChoice value="#{bindings.DOCAPPL.inputValue}" label="#{bindings.DOCAPPL.label}"
+                                  required="#{bindings.DOCAPPL.hints.mandatory}"
+                                  shortDesc="#{bindings.DOCAPPL.hints.tooltip}" id="soc12">
+                <f:selectItems value="#{bindings.DOCAPPL.items}" id="si12"/>
+                <f:validator binding="#{bindings.DOCAPPL.validator}"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.WhtCreditAcc.inputValue}" label="#{bindings.WhtCreditAcc.hints.label}"
+                            required="#{bindings.WhtCreditAcc.hints.mandatory}"
+                            columns="#{bindings.WhtCreditAcc.hints.displayWidth}"
+                            maximumLength="#{bindings.WhtCreditAcc.hints.precision}"
+                            shortDesc="#{bindings.WhtCreditAcc.hints.tooltip}" id="it7">
+                <f:validator binding="#{bindings.WhtCreditAcc.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.RecoveryRate.inputValue}" label="#{bindings.RecoveryRate.hints.label}"
+                            required="#{bindings.RecoveryRate.hints.mandatory}"
+                            columns="#{bindings.RecoveryRate.hints.displayWidth}"
+                            maximumLength="#{bindings.RecoveryRate.hints.precision}"
+                            shortDesc="#{bindings.RecoveryRate.hints.tooltip}" id="it8">
+                <f:validator binding="#{bindings.RecoveryRate.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.RecoveryRate.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.WhtExpenseAcc.inputValue}" label="#{bindings.WhtExpenseAcc.hints.label}"
+                            required="#{bindings.WhtExpenseAcc.hints.mandatory}"
+                            columns="#{bindings.WhtExpenseAcc.hints.displayWidth}"
+                            maximumLength="#{bindings.WhtExpenseAcc.hints.precision}"
+                            shortDesc="#{bindings.WhtExpenseAcc.hints.tooltip}" id="it9">
+                <f:validator binding="#{bindings.WhtExpenseAcc.validator}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
+                            required="#{bindings.EffectiveFrom.hints.mandatory}"
+                            columns="#{bindings.EffectiveFrom.hints.displayWidth}"
+                            shortDesc="#{bindings.EffectiveFrom.hints.tooltip}" id="id1">
+                <f:validator binding="#{bindings.EffectiveFrom.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EffectiveFrom.format}"/>
+              </af:inputDate>
+              <af:inputDate value="#{bindings.EffectiveTo.inputValue}" label="#{bindings.EffectiveTo.hints.label}"
+                            required="#{bindings.EffectiveTo.hints.mandatory}"
+                            columns="#{bindings.EffectiveTo.hints.displayWidth}"
+                            shortDesc="#{bindings.EffectiveTo.hints.tooltip}" id="id2">
+                <f:validator binding="#{bindings.EffectiveTo.validator}"/>
+                <af:convertDateTime pattern="#{bindings.EffectiveTo.format}"/>
+              </af:inputDate>
+              <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
+                            required="#{bindings.CreatedDate.hints.mandatory}"
+                            columns="#{bindings.CreatedDate.hints.displayWidth}"
+                            shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3">
+                <f:validator binding="#{bindings.CreatedDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
+                            required="#{bindings.CreatedBy.hints.mandatory}"
+                            columns="#{bindings.CreatedBy.hints.displayWidth}"
+                            maximumLength="#{bindings.CreatedBy.hints.precision}"
+                            shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it10">
+                <f:validator binding="#{bindings.CreatedBy.validator}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.UpdatedDate.inputValue}" label="#{bindings.UpdatedDate.hints.label}"
+                            required="#{bindings.UpdatedDate.hints.mandatory}"
+                            columns="#{bindings.UpdatedDate.hints.displayWidth}"
+                            shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4">
+                <f:validator binding="#{bindings.UpdatedDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
+              </af:inputDate>
+              <!--<af:inputText value="#{bindings.UpdatedBy.inputValue}" label="#{bindings.UpdatedBy.hints.label}"
                           required="#{bindings.UpdatedBy.hints.mandatory}"
                           columns="#{bindings.UpdatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.UpdatedBy.hints.precision}"
                           shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it12">
               <f:validator binding="#{bindings.UpdatedBy.validator}"/>
             </af:inputText>-->
-            <af:inputText value="#{bindings.UPDATEDBY.inputValue}" label="#{bindings.UPDATEDBY.hints.label}"
-                          required="#{bindings.UPDATEDBY.hints.mandatory}"
-                          columns="#{bindings.UPDATEDBY.hints.displayWidth}"
-                          maximumLength="#{bindings.UPDATEDBY.hints.precision}"
-                          shortDesc="#{bindings.UPDATEDBY.hints.tooltip}" id="it11" readOnly="true">
-              <f:validator binding="#{bindings.UPDATEDBY.validator}"/>
-            </af:inputText>
-          </af:panelFormLayout>
+              <af:inputText value="#{bindings.UPDATEDBY.inputValue}" label="#{bindings.UPDATEDBY.hints.label}"
+                            required="#{bindings.UPDATEDBY.hints.mandatory}"
+                            columns="#{bindings.UPDATEDBY.hints.displayWidth}"
+                            maximumLength="#{bindings.UPDATEDBY.hints.precision}"
+                            shortDesc="#{bindings.UPDATEDBY.hints.tooltip}" id="it11" readOnly="true">
+                <f:validator binding="#{bindings.UPDATEDBY.validator}"/>
+              </af:inputText>
+            </af:panelFormLayout>
+          </af:panelBox>
           <f:facet name="toolbar">
             <af:toolbar id="t2">
               <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.onTdsWhtSave}"/>
@@ -240,7 +251,7 @@
                          action="back" immediate="true"/>
             </af:toolbar>
           </f:facet>
-          <af:panelBox text="Tax Identification Documents" id="pb2" styleClass="AFStretchWidth">
+          <af:panelBox rendered="#{bindings.WHTAPPLICATIBILITY.inputValue eq 'Yes'}" text="Tax Identification Documents" id="pb2" styleClass="AFStretchWidth">
             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
@@ -388,7 +399,7 @@
             </af:panelCollection>
             <f:facet name="toolbar"/>
           </af:panelBox>
-          <af:panelBox text="Tax Rates Applicability" id="pb3" styleClass="AFStretchWidth">
+          <af:panelBox rendered="#{bindings.WHTAPPLICATIBILITY.inputValue eq 'Yes'}" text="Tax Rates Applicability" id="pb3" styleClass="AFStretchWidth">
             <af:panelCollection id="pc2" styleClass="AFStretchWidth">
               <f:facet name="menus"/>
               <f:facet name="toolbar">

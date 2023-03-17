@@ -537,7 +537,7 @@
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.format}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
                             <af:inputText value="#{row.bindings.SLOC.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
@@ -546,6 +546,16 @@
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}" id="it12">
                                 <f:validator binding="#{row.bindings.SLOC.validator}"/>
                             </af:inputText>
+                        </af:column>-->
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                            <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}"
+                                                label="#{row.bindings.SLOC.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}"
+                                                id="soc9">
+                                <f:selectItems value="#{row.bindings.SLOC.items}" id="si9"/>
+                                <f:validator binding="#{row.bindings.SLOC.validator}"/>
+                            </af:selectOneChoice>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}" id="c15">
                             <af:inputText value="#{row.bindings.DOCATTM.inputValue}"

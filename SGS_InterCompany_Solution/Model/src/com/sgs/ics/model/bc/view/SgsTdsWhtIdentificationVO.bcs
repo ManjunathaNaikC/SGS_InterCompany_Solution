@@ -10,3 +10,10 @@ def bLookupType_SgsLookupDocTypVO1_BindVariable_BoundParameter()
 'DOCUMENT_TYPE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupLE", name="bLookupType")
+def bLookupType_SgsLookupLE_BindVariable_BoundParameter()
+{
+'LEGAL_ENTITY'
+}
+

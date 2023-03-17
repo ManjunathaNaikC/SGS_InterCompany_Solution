@@ -72,6 +72,16 @@
                   <f:validator binding="#{row.bindings.ServReceiver.validator}"/>
                 </af:selectOneChoice>
               </af:column>
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VATAPPLICATIBILITY.label}" id="c1">
+                <af:selectOneChoice value="#{row.bindings.VATAPPLICATIBILITY.inputValue}"
+                                    label="#{row.bindings.VATAPPLICATIBILITY.label}"
+                                    required="#{bindings.SgsVatTblVO1.hints.VATAPPLICATIBILITY.mandatory}"
+                                    shortDesc="#{bindings.SgsVatTblVO1.hints.VATAPPLICATIBILITY.tooltip}"
+                                    readOnly="true" id="soc4">
+                  <f:selectItems value="#{row.bindings.VATAPPLICATIBILITY.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.VATAPPLICATIBILITY.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
               <af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="c3">
                 <af:selectOneChoice value="#{row.bindings.Rcm.inputValue}" label="#{row.bindings.Rcm.label}"
                                     required="#{bindings.SgsVatTblVO1.hints.Rcm.mandatory}"
@@ -83,14 +93,14 @@
               <!--<af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="resId1c4">
                 <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsVatTblVO1.hints.Rcm.tooltip}" id="ot4"/>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.label}" id="resId1c5">
+              <!--<af:column headerText="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.label}" id="resId1c5">
                 <af:outputText value="#{row.VatInputGlAcc}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.VatInputGlAcc.tooltip}" id="ot5"/>
               </af:column>
               <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.label}" id="resId1c6">
                 <af:outputText value="#{row.VatOutputGlAcc}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.VatOutputGlAcc.tooltip}" id="ot6"/>
-              </af:column>
+              </af:column>-->
               <!--<af:column headerText="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.label}" id="c1">
                 --><!--<af:outputText value="#{row.SERVICEPROVIDERLEGALENTITY}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.SERVICEPROVIDERLEGALENTITY.tooltip}" id="ot1"/>--><!--

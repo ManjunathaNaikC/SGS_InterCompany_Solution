@@ -31,3 +31,10 @@ def bLookupType_SgsLookupSLOCVO2_BindVariable_BoundParameter()
 'GEOGRAPHY_LOOKUP'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupAcctTreatment", name="bLookupType")
+def bLookupType_SgsLookupAcctTreatment_BindVariable_BoundParameter()
+{
+'ACC_TREATMENT'
+}
+

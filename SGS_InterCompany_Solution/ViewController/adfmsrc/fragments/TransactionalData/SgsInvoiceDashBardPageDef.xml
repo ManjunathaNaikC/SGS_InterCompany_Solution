@@ -72,6 +72,7 @@
           <Item Value="VATRATE"/>
           <Item Value="VATAMNT"/>
           <Item Value="selectInvoiceRecord" Binds="selectInvoiceRecord"/>
+          <Item Value="REVERSALREASON"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -161,5 +162,20 @@
         <Item Value="PERIOD"/>
       </AttrNames>
     </attributeValues>
+    <button IterBinding="CreditMemoLOVVO1Iterator" StaticList="false" Uses="LOV_ReversalReasonLov"
+            id="ReversalReasonLov1" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="ReversalReasonLov"/>
+      </AttrNames>
+    </button>
+    <button IterBinding="CreditMemoLOVVO1Iterator" id="REVERSALREASON" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="REVERSALREASON"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

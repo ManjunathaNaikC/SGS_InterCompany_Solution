@@ -127,7 +127,8 @@
                             required="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.mandatory}"
                             columns="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.displayWidth}"
                             maximumLength="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.precision}"
-                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}" id="it1">
+                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}" id="it1"
+                            readOnly="true">
                 <f:validator binding="#{row.bindings.ReversalAmount.validator}"/>
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.format}"/>

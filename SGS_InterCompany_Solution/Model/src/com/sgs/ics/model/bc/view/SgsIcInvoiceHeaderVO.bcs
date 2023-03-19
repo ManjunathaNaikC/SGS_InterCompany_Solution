@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupReversalReasonVO1", name="bLookupType")
+def bLookupType_SgsLookupReversalReasonVO1_BindVariable_BoundParameter()
+{
+'REVERSAL_REASON'
+}
+

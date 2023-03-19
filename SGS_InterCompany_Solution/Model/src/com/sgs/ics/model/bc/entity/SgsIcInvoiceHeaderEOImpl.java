@@ -80,6 +80,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         GSTRATE,
         VATAMNT,
         VATRATE,
+        REVERSALREASON,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -158,6 +159,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public static final int GSTRATE = AttributesEnum.GSTRATE.index();
     public static final int VATAMNT = AttributesEnum.VATAMNT.index();
     public static final int VATRATE = AttributesEnum.VATRATE.index();
+    public static final int REVERSALREASON = AttributesEnum.REVERSALREASON.index();
     public static final int SGSICINVOICELINEEO = AttributesEnum.SgsIcInvoiceLineEO.index();
 
     /**
@@ -1020,6 +1022,22 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      */
     public void setVATRATE(BigDecimal value) {
         setAttributeInternal(VATRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for REVERSALREASON, using the alias name REVERSALREASON.
+     * @return the value of REVERSALREASON
+     */
+    public String getREVERSALREASON() {
+        return (String) getAttributeInternal(REVERSALREASON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for REVERSALREASON.
+     * @param value value to set the REVERSALREASON
+     */
+    public void setREVERSALREASON(String value) {
+        setAttributeInternal(REVERSALREASON, value);
     }
 
     /**

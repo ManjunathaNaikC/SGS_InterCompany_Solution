@@ -555,6 +555,18 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="REVERSALREASON"
+    Precision="80"
+    ColumnName="REVERSAL_REASON"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="IC_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsIcInvoiceLineEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

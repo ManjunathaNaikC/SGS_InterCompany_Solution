@@ -48,6 +48,7 @@ import oracle.adf.view.rich.component.rich.input.RichInputFile;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
 import oracle.adf.view.rich.component.rich.input.RichSelectManyChoice;
+import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
 import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
 import oracle.adf.view.rich.event.DialogEvent;
@@ -119,6 +120,7 @@ public class ActionEventsBean {
     private RichColumn selectcolInvoiceDBBind;
     private RichSelectBooleanCheckbox selectcheckInvoiceBind;
     private Boolean chechCheckBox = false;
+    private RichPanelGroupLayout percentageGroupBind;
 
     public ActionEventsBean() {
     }
@@ -1557,9 +1559,8 @@ public class ActionEventsBean {
                         java.sql.Date dateCredit = new java.sql.Date(utilDate.getTime());
                         //java.sql.Date dateCredit = (java.sql.Date) formatter.parse(utilDate.toString());
                         System.out.println("dateCredit 11"+dateCredit);
-                        
-                        //row[i].setAttribute("Period", creditDateBindVal.getValue());
-                        row[i].setAttribute("Period",dateCredit);
+
+                      //  row[i].setAttribute("Period",dateCredit);
                         System.out.println("Period ::"+row[i].getAttribute("Period"));
                     }
                     
@@ -1585,8 +1586,14 @@ public class ActionEventsBean {
                           
                              double reversalAmt = (Double)((reversalPerc / 100)*(invoiceAmount));
                              System.out.println("reversalAmt ::"+reversalAmt);
-                             row[i].setAttribute("ReversalAmount",reversalAmt);
+                             double revAmt = Double.valueOf(df.format(reversalAmt));
+                             
+                             row[i].setAttribute("ReversalAmount",revAmt);
                              System.out.println("ReversalAmount ::"+row[i].getAttribute("ReversalAmount"));
+                        
+                             row[i].setAttribute("PERCENTAGEREVERSAL",reversalPerc);
+                            
+                         
                       //   }
                         
                      }
@@ -1598,7 +1605,8 @@ public class ActionEventsBean {
                     System.out.println("selectedRow 00"+selectedRow);
                     
                     if(null != selectedRow){
-                       reversalReason= getReversalReason(selectedRow);
+                        String type="REVERSAL_REASON";
+                       reversalReason= getLookupCode(selectedRow, type);
                     }
                     //        if (null != selectedRow) {
                     //            reversalReason = (String) selectedRow.getAttribute("LOOKUPCODE");
@@ -1610,7 +1618,32 @@ public class ActionEventsBean {
                          row[i].setAttribute("REVERSALREASON", reversalReason);
                          System.out.println("REVERSALREASON ::"+row[i].getAttribute("REVERSALREASON"));
                      }
-                     
+            
+            
+            
+            BindingContainer bc1 = this.getBindingsCont();
+            JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
+            String selectedRow1 = (String) list1.getSelectedValue();
+            
+            System.out.println("selectedRow1 00"+selectedRow1);
+            String reversalType="NONE";
+            if(null != selectedRow1){
+                String type="REVERSAL_TYPE";
+               reversalType= getLookupCode(selectedRow1, type);
+            }
+            //        if (null != selectedRow) {
+            //            reversalReason = (String) selectedRow.getAttribute("LOOKUPCODE");
+            //        }
+            System.out.println("reversalType 11"+reversalType);
+             
+             if(null != reversalType){
+                 //row[i].setAttribute("REVERSALREASON", reversalReasonLovBind.getValue());
+                 row[i].setAttribute("REVERSALTYPE", reversalType);
+                 System.out.println("reversalType ::"+row[i].getAttribute("REVERSALTYPE"));
+             }
+            
+            row[i].setAttribute("STATUS", "New");
+                
               //  }
         }
        
@@ -1812,7 +1845,7 @@ public class ActionEventsBean {
                           invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) { 
                               executeBinding("CreateInsertCredit");
                               Row row = creditData.getCurrentRow();
-                              row.setAttribute("InvoiceSeqNo" ,invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
+                              
                               
                               
 //                              String sDate1=(String)invoiceDatarows[i].getAttribute("Period");
@@ -1844,6 +1877,7 @@ public class ActionEventsBean {
 //                    // TODO: Add catch code
 //                    pe.printStackTrace();
 //                } 
+                              row.setAttribute("InvoiceSeqNo" ,invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
                               row.setAttribute("Period",invoiceDatarows[i].getAttribute("Period"));
                               row.setAttribute("TransactionCategory", invoiceDatarows[i].getAttribute("TransactionCategory"));
                               row.setAttribute("PsftVoucherRef",invoiceDatarows[i].getAttribute("ReferenceVoucherNum"));
@@ -1868,11 +1902,11 @@ public class ActionEventsBean {
     }
     
     
-    public String getReversalReason(String reason){
-        
+    public String getLookupCode(String reason, String lookupType){
+        //REVERSAL_REASON
         String revReason = null;
         String queryString =
-        "SELECT LOOKUP_CODE from SGS_LOOKUP_TABLE WHERE MEANING='" + reason + "' AND LOOKUP_TYPE='REVERSAL_REASON' AND ENABLED='Y'";
+        "SELECT LOOKUP_CODE from SGS_LOOKUP_TABLE WHERE MEANING='" + reason + "' AND LOOKUP_TYPE='" + lookupType + "' AND ENABLED='Y'";
         Connection conn = null;
         PreparedStatement pst = null;
         System.out.println("Query :: " + queryString);
@@ -1917,12 +1951,15 @@ public class ActionEventsBean {
            
            // this.chechCheckBox =true;
             percentageReversalBind.setVisible(true);
+            percentageGroupBind.setVisible(true);
         }else{
            
          //   this.chechCheckBox =false;
             percentageReversalBind.setVisible(false);
+            percentageGroupBind.setVisible(false);
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(percentageGroupBind);
     }
 
     public void setChechCheckBox(Boolean chechCheckBox) {
@@ -1931,6 +1968,39 @@ public class ActionEventsBean {
 
     public Boolean getChechCheckBox() {
         return chechCheckBox;
+    }
+
+    public void setPercentageGroupBind(RichPanelGroupLayout percentageGroupBind) {
+        this.percentageGroupBind = percentageGroupBind;
+    }
+
+    public RichPanelGroupLayout getPercentageGroupBind() {
+        return percentageGroupBind;
+    }
+
+    public void onReversalTypeVL(ValueChangeEvent valueChangeEvent) {
+        System.out.println("Reversal Type :: "+valueChangeEvent.getNewValue());
+        String reverseTypeVal= (String)valueChangeEvent.getNewValue();
+        String type="REVERSAL_TYPE";
+        if(null != reverseTypeVal && !(reverseTypeVal.equalsIgnoreCase(""))){
+            
+      
+        String  reversalType= getLookupCode(reverseTypeVal, type);
+        
+        if(null != valueChangeEvent.getNewValue() && reversalType.equalsIgnoreCase("PERCENTAGE_REVERSAL")){
+           
+           // this.chechCheckBox =true;
+            percentageReversalBind.setVisible(true);
+            percentageGroupBind.setVisible(true);
+        }else{
+           
+         //   this.chechCheckBox =false;
+            percentageReversalBind.setVisible(false);
+            percentageGroupBind.setVisible(false);
+        }
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(percentageGroupBind);
     }
 }
 

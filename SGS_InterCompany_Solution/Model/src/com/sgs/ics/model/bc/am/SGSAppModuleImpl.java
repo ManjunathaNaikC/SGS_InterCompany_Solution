@@ -806,5 +806,13 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getSettlementTypeLOVVO1() {
         return (ViewObjectImpl) findViewObject("SettlementTypeLOVVO1");
     }
+
+    /**
+     * Container's getter for ReversalTypeLOVVO1.
+     * @return ReversalTypeLOVVO1
+     */
+    public ViewObjectImpl getReversalTypeLOVVO1() {
+        return (ViewObjectImpl) findViewObject("ReversalTypeLOVVO1");
+    }
 }
 

@@ -35,6 +35,6 @@ def bLookupType_SgsLookupGeoVO1_BindVariable_BoundParameter()
 @AccessorParameterExpression(accessorName="SgsLookupSLOCVO1", name="bLookupType")
 def bLookupType_SgsLookupSLOCVO1_BindVariable_BoundParameter()
 {
-'GEOGRAPHY_LOOKUP'
+'GEO_LOOKUP'
 }
 

@@ -547,6 +547,16 @@
                                 <f:validator binding="#{row.bindings.SLOC.validator}"/>
                             </af:inputText>
                         </af:column>-->
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                            <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}"
+                                                label="#{row.bindings.SLOC.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}"
+                                                id="soc10">
+                                <f:selectItems value="#{row.bindings.SLOC.items}" id="si10"/>
+                                <f:validator binding="#{row.bindings.SLOC.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>-->
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
                             <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}"
                                                 label="#{row.bindings.SLOC.label}"

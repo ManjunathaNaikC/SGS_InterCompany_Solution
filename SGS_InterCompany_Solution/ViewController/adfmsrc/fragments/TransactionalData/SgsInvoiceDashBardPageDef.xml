@@ -75,6 +75,7 @@
           <Item Value="VATAMNT"/>
           <Item Value="selectInvoiceRecord" Binds="selectInvoiceRecord"/>
           <Item Value="REVERSALREASON"/>
+          <Item Value="NATUREOFEXPENSE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

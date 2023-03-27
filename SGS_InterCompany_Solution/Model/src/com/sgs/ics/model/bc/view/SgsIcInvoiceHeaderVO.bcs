@@ -10,3 +10,10 @@ def bLookupType_SgsLookupReversalReasonVO1_BindVariable_BoundParameter()
 'REVERSAL_REASON'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupNatureOfExpenseVO1", name="bLookupType")
+def bLookupType_SgsLookupNatureOfExpenseVO1_BindVariable_BoundParameter()
+{
+'NATURE_OF_EXPENSE'
+}
+

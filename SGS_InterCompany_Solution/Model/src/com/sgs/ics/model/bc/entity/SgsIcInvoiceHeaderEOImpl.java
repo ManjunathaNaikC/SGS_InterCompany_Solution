@@ -81,6 +81,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         VATAMNT,
         VATRATE,
         REVERSALREASON,
+        NATUREOFEXPENSE,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -160,6 +161,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public static final int VATAMNT = AttributesEnum.VATAMNT.index();
     public static final int VATRATE = AttributesEnum.VATRATE.index();
     public static final int REVERSALREASON = AttributesEnum.REVERSALREASON.index();
+    public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int SGSICINVOICELINEEO = AttributesEnum.SgsIcInvoiceLineEO.index();
 
     /**
@@ -1038,6 +1040,22 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      */
     public void setREVERSALREASON(String value) {
         setAttributeInternal(REVERSALREASON, value);
+    }
+
+    /**
+     * Gets the attribute value for NATUREOFEXPENSE, using the alias name NATUREOFEXPENSE.
+     * @return the value of NATUREOFEXPENSE
+     */
+    public String getNATUREOFEXPENSE() {
+        return (String) getAttributeInternal(NATUREOFEXPENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NATUREOFEXPENSE.
+     * @param value value to set the NATUREOFEXPENSE
+     */
+    public void setNATUREOFEXPENSE(String value) {
+        setAttributeInternal(NATUREOFEXPENSE, value);
     }
 
     /**

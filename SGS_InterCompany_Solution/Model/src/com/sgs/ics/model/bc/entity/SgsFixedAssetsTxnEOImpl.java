@@ -57,7 +57,14 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         CreatedDate,
         CreatedBy,
         UpdatedDate,
-        UpdatedBy;
+        UpdatedBy,
+        SGTAMOUNT,
+        VATAMOUNT,
+        VATRATE,
+        ACCDATE,
+        GSTAMOUNT,
+        GSTRATE,
+        IGSTAMOUNT;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -81,8 +88,8 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         }
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SgsFixedAssetsTxnEOImpl.class);
-    
-    
+
+
     public static final int FSTID = AttributesEnum.FstId.index();
     public static final int TRANSFERDATE = AttributesEnum.TransferDate.index();
     public static final int TRANSACTIONCATEGORY = AttributesEnum.TransactionCategory.index();
@@ -116,11 +123,25 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int UPDATEDDATE = AttributesEnum.UpdatedDate.index();
     public static final int UPDATEDBY = AttributesEnum.UpdatedBy.index();
+    public static final int SGTAMOUNT = AttributesEnum.SGTAMOUNT.index();
+    public static final int VATAMOUNT = AttributesEnum.VATAMOUNT.index();
+    public static final int VATRATE = AttributesEnum.VATRATE.index();
+    public static final int ACCDATE = AttributesEnum.ACCDATE.index();
+    public static final int GSTAMOUNT = AttributesEnum.GSTAMOUNT.index();
+    public static final int GSTRATE = AttributesEnum.GSTRATE.index();
+    public static final int IGSTAMOUNT = AttributesEnum.IGSTAMOUNT.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SgsFixedAssetsTxnEOImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsFixedAssetsTxnEO");
     }
 
     /**
@@ -595,13 +616,6 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(CREATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for CreatedDate.
-     * @param value value to set the CreatedDate
-     */
-    public void setCreatedDate(Date value) {
-        setAttributeInternal(CREATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
@@ -627,13 +641,6 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         return (Date) getAttributeInternal(UPDATEDDATE);
     }
 
-    /**
-     * Sets <code>value</code> as the attribute value for UpdatedDate.
-     * @param value value to set the UpdatedDate
-     */
-    public void setUpdatedDate(Date value) {
-        setAttributeInternal(UPDATEDDATE, value);
-    }
 
     /**
      * Gets the attribute value for UpdatedBy, using the alias name UpdatedBy.
@@ -652,19 +659,125 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for SGTAMOUNT, using the alias name SGTAMOUNT.
+     * @return the value of SGTAMOUNT
+     */
+    public BigDecimal getSGTAMOUNT() {
+        return (BigDecimal) getAttributeInternal(SGTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SGTAMOUNT.
+     * @param value value to set the SGTAMOUNT
+     */
+    public void setSGTAMOUNT(BigDecimal value) {
+        setAttributeInternal(SGTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for VATAMOUNT, using the alias name VATAMOUNT.
+     * @return the value of VATAMOUNT
+     */
+    public BigDecimal getVATAMOUNT() {
+        return (BigDecimal) getAttributeInternal(VATAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for VATAMOUNT.
+     * @param value value to set the VATAMOUNT
+     */
+    public void setVATAMOUNT(BigDecimal value) {
+        setAttributeInternal(VATAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for VATRATE, using the alias name VATRATE.
+     * @return the value of VATRATE
+     */
+    public BigDecimal getVATRATE() {
+        return (BigDecimal) getAttributeInternal(VATRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for VATRATE.
+     * @param value value to set the VATRATE
+     */
+    public void setVATRATE(BigDecimal value) {
+        setAttributeInternal(VATRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for ACCDATE, using the alias name ACCDATE.
+     * @return the value of ACCDATE
+     */
+    public Date getACCDATE() {
+        return (Date) getAttributeInternal(ACCDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ACCDATE.
+     * @param value value to set the ACCDATE
+     */
+    public void setACCDATE(Date value) {
+        setAttributeInternal(ACCDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for GSTAMOUNT, using the alias name GSTAMOUNT.
+     * @return the value of GSTAMOUNT
+     */
+    public BigDecimal getGSTAMOUNT() {
+        return (BigDecimal) getAttributeInternal(GSTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GSTAMOUNT.
+     * @param value value to set the GSTAMOUNT
+     */
+    public void setGSTAMOUNT(BigDecimal value) {
+        setAttributeInternal(GSTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for GSTRATE, using the alias name GSTRATE.
+     * @return the value of GSTRATE
+     */
+    public BigDecimal getGSTRATE() {
+        return (BigDecimal) getAttributeInternal(GSTRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GSTRATE.
+     * @param value value to set the GSTRATE
+     */
+    public void setGSTRATE(BigDecimal value) {
+        setAttributeInternal(GSTRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for IGSTAMOUNT, using the alias name IGSTAMOUNT.
+     * @return the value of IGSTAMOUNT
+     */
+    public BigDecimal getIGSTAMOUNT() {
+        return (BigDecimal) getAttributeInternal(IGSTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IGSTAMOUNT.
+     * @param value value to set the IGSTAMOUNT
+     */
+    public void setIGSTAMOUNT(BigDecimal value) {
+        setAttributeInternal(IGSTAMOUNT, value);
+    }
+
+
+    /**
      * @param fstId key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer fstId) {
         return new Key(new Object[] { fstId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsFixedAssetsTxnEO");
     }
 
     /**

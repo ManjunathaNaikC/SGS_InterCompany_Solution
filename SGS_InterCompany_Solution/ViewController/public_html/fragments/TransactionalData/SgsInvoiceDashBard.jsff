@@ -106,6 +106,17 @@
                             <!--<af:outputText value="#{row.Period}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.tooltip}" id="ot2"/>-->
                         </af:column>
+                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.label}" id="c46"
+                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.name}" filterable="true">
+                            <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
+                                                label="#{row.bindings.NATUREOFEXPENSE.label}"
+                                                required="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.mandatory}"
+                                                shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.tooltip}"
+                                                id="soc5" readOnly="true">
+                                <f:selectItems value="#{row.bindings.NATUREOFEXPENSE.items}" id="si5"/>
+                                <f:validator binding="#{row.bindings.NATUREOFEXPENSE.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.label}" id="c3"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.name}" filterable="true">
                             <af:panelGroupLayout id="pgl2" layout="horizontal">
@@ -114,7 +125,7 @@
                                                shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.tooltip}"
                                                id="ot3"/>
                             </af:panelGroupLayout>
-                        </af:column>
+                        </af:column>                        
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.label}"
                                    id="c4"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionCategory.name}"

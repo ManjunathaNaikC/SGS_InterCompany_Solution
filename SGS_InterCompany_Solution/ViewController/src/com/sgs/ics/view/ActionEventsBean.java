@@ -1456,6 +1456,11 @@ public class ActionEventsBean {
              if (null != rows[i].getAttribute("selectInvoiceRecord") &&
                  rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
                  rows[i].setAttribute("TransactionStatus", "Confirmed for Invoicing");
+                 SGSAppModuleImpl am = new SGSAppModuleImpl();
+                 String voucherNumber = "PS_Voucher_"+am.getDBSequence1("SEQ_IC_INVOICE_HEADER_VOUCHER");
+                 String invoiceNumber = "PS_Invoice_"+am.getDBSequence1("SEQ_IC_INVOICE_HEADER_INVOICE");
+                 rows[i].setAttribute("ReferenceVoucherNum", voucherNumber);
+                 rows[i].setAttribute("ReferenceInvoiceNum", invoiceNumber);
              }
          }
         
@@ -2001,6 +2006,16 @@ public class ActionEventsBean {
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageGroupBind);
+    }
+    
+    public void onConfirmingInvoiceEvent(ActionEvent actionEvent) {
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsFixedAssetsTxnVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        row.setAttribute("Status","Confirmed for Invoicing");
+    }
+
+    public void onAddFAButton(ActionEvent actionEvent) {
+        // Add event code here...
     }
 }
 

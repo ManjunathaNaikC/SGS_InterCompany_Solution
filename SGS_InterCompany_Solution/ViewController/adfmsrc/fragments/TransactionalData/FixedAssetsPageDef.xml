@@ -46,6 +46,13 @@
           <Item Value="CreatedDate"/>
           <Item Value="UpdatedBy"/>
           <Item Value="UpdatedDate"/>
+          <Item Value="ACCDATE"/>
+          <Item Value="GSTAMOUNT"/>
+          <Item Value="GSTRATE"/>
+          <Item Value="IGSTAMOUNT"/>
+          <Item Value="VATAMOUNT"/>
+          <Item Value="VATRATE"/>
+          <Item Value="SGTAMOUNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

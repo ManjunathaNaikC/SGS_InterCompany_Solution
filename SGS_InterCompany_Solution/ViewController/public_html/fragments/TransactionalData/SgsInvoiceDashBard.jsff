@@ -48,7 +48,7 @@
                                 <af:showPopupBehavior popupId="p1creditMemo"/>
                             </af:button>-->
                             <af:button text="Upload Adjustment Entries" id="b1adj" 
-                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_DC')}">
+                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}">
                              
                                 <af:showPopupBehavior popupId="AdjEntryPopup"/>
                             </af:button>

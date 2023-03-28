@@ -579,6 +579,27 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Selected"
+    PrecisionRule="true"
+    EntityAttrName="Selected"
+    EntityUsage="SgsFixedAssetsTxnEO"
+    AliasName="Selected"
+    IsQueriable="false"
+    IsPersistent="false"/>
+  <ViewAttribute
+    Name="ATTACHMENT"
+    PrecisionRule="true"
+    EntityAttrName="ATTACHMENT"
+    EntityUsage="SgsFixedAssetsTxnEO"
+    AliasName="ATTACHMENT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO.ATTACHMENT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsFixedAssetsTxnVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO"

@@ -64,7 +64,9 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         IGSTAMOUNT,
         SGTAMOUNT,
         VATAMOUNT,
-        VATRATE;
+        VATRATE,
+        Selected,
+        ATTACHMENT;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -130,6 +132,8 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
     public static final int SGTAMOUNT = AttributesEnum.SGTAMOUNT.index();
     public static final int VATAMOUNT = AttributesEnum.VATAMOUNT.index();
     public static final int VATRATE = AttributesEnum.VATRATE.index();
+    public static final int SELECTED = AttributesEnum.Selected.index();
+    public static final int ATTACHMENT = AttributesEnum.ATTACHMENT.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -143,6 +147,7 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsFixedAssetsTxnEO");
     }
+
 
     /**
      * Gets the attribute value for FstId, using the alias name FstId.
@@ -770,6 +775,38 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         setAttributeInternal(VATRATE, value);
     }
 
+
+    /**
+     * Gets the attribute value for Selected, using the alias name Selected.
+     * @return the value of Selected
+     */
+    public Boolean getSelected() {
+        return (Boolean) getAttributeInternal(SELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Selected.
+     * @param value value to set the Selected
+     */
+    public void setSelected(Boolean value) {
+        setAttributeInternal(SELECTED, value);
+    }
+
+    /**
+     * Gets the attribute value for ATTACHMENT, using the alias name ATTACHMENT.
+     * @return the value of ATTACHMENT
+     */
+    public String getATTACHMENT() {
+        return (String) getAttributeInternal(ATTACHMENT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ATTACHMENT.
+     * @param value value to set the ATTACHMENT
+     */
+    public void setATTACHMENT(String value) {
+        setAttributeInternal(ATTACHMENT, value);
+    }
 
     /**
      * @param fstId key constituent

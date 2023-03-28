@@ -122,6 +122,8 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox selectcheckInvoiceBind;
     private Boolean chechCheckBox = false;
     private RichPanelGroupLayout percentageGroupBind;
+    private RichInputFile inputFileBindFA;
+    private RichPopup approvePopupFABind;
 
     public ActionEventsBean() {
     }
@@ -1346,6 +1348,35 @@ public class ActionEventsBean {
         approvepoopupbind.hide();
     }
 
+
+    public void onFAFileAttachment(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding faiter = (DCIteratorBinding) bindings.get("SgsFixedAssetsTxnVO1Iterator");
+        ViewObject faVO = faiter.getViewObject();
+
+        oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("Selected", true);
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (null != inputFileBindFA.getValue()) {
+                UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
+                if (null != uploadedFile.getFilename()) {
+                    String fileName = (String) uploadedFile.getFilename();
+                    System.out.println("fileName" + fileName);
+                    rw.setAttribute("ATTACHMENT", fileName);
+                    rw.setAttribute("Status", "Approved");
+                }
+            }
+
+
+        }
+        executeBinding(SAVE_DATA);
+        inputFileBindFA.setValue(null);
+        inputFileBindFA.resetValue();
+        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBindFA);
+        approvePopupFABind.hide();
+
+    }
+
     public void setRejectionReasonLOVBind(RichSelectOneChoice rejectionReasonLOVBind) {
         this.rejectionReasonLOVBind = rejectionReasonLOVBind;
     }
@@ -2050,9 +2081,102 @@ public class ActionEventsBean {
         Row row = dcIteratorbinding.getCurrentRow();
         row.setAttribute("Status","Confirmed for Invoicing");
     }
+    
+    
+    public void importFromTxn(ActionEvent actionEvent) {
+            // Add event code here...
+            System.out.println("inside Import from Transaction**********************");
+            Connection conn = null;
+            PreparedStatement pst = null;
+            
+            try {
+                
+                conn = getDBConnection();
+                String SPsql = "EXEC USP_SCN_FA_IMPORT"; // for stored proc
+                //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
+                PreparedStatement ps = conn.prepareStatement(SPsql);
+                
+                ps.execute();
+            } catch (SQLException sqle) {
+                // TODO: Add catch code
+                sqle.printStackTrace();
+            } finally {
+
+            }
+        }
+        
+        public Connection getDBConnection() {
+                Connection conn = null;
+            try {
+                   String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+                    conn = DriverManager.getConnection(connectionUrl);
+    //            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
+            } catch (SQLException sqle) {
+                // TODO: Add catch code
+                sqle.printStackTrace();
+            } finally {
+
+            }
+                   
+             return conn;   
+            }
+        
+        
+    public void selectAllCheckboxValueChange(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        boolean isSelected = ((Boolean) valueChangeEvent.getNewValue()).booleanValue();
+        System.out.println("*****is Selected***" + isSelected);
+        //           String voName = (String)AdfFacesContext.getCurrentInstance().getPageFlowScope().get("voName");
+        //           String iteratorName = voName + "Iterator";
+        //           System.out.println("******"+iteratorName);
+        String SelectedAttribute = "Selected";
+        DCBindingContainer bindingContainer =
+            (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding dciter = bindingContainer.findIteratorBinding("SgsFixedAssetsTxnVO1Iterator");
+        ViewObject vo = dciter.getViewObject();
+        oracle.jbo.Row row = null;
+        vo.reset();
+        RowSetIterator rs = vo.createRowSetIterator(null);
+        rs.reset();
+        while (rs.hasNext()) {
+            row = rs.next();
+            if (isSelected) {
+                row.setAttribute(SelectedAttribute, "true");
+                System.out.println("****selected***" + row.getAttribute(SelectedAttribute));
+            } else {
+                row.setAttribute(SelectedAttribute, "false");
+                System.out.println("****Unselected***" + row.getAttribute(SelectedAttribute));
+            }
+        }
+        rs.closeRowSetIterator();
+        //Refresh the table
+        AdfFacesContext.getCurrentInstance().addPartialTarget(valueChangeEvent.getComponent()
+                                                                              .getParent()
+                                                                              .getParent());
+
+    }
+
+
 
     public void onAddFAButton(ActionEvent actionEvent) {
         // Add event code here...
+    }
+
+    public void setInputFileBindFA(RichInputFile inputFileBindFA) {
+        this.inputFileBindFA = inputFileBindFA;
+    }
+
+    public RichInputFile getInputFileBindFA() {
+        return inputFileBindFA;
+    }
+
+    public void setApprovePopupFABind(RichPopup approvePopupFABind) {
+        this.approvePopupFABind = approvePopupFABind;
+    }
+
+    public RichPopup getApprovePopupFABind() {
+        return approvePopupFABind;
     }
 }
 

@@ -53,6 +53,7 @@
           <Item Value="VATAMOUNT"/>
           <Item Value="VATRATE"/>
           <Item Value="SGTAMOUNT"/>
+          <Item Value="ATTACHMENT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

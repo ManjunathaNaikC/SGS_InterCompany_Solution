@@ -436,6 +436,26 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="Selected"
+    ColumnName="Selected"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="BIT"
+    IsPersistent="false"
+    IsQueriable="false"/>
+  <Attribute
+    Name="ATTACHMENT"
+    Precision="80"
+    ColumnName="ATTACHMENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_FIXED_ASSETS_TXN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSGSFIXEDASSETSTXN"
     PrimaryKey="true">

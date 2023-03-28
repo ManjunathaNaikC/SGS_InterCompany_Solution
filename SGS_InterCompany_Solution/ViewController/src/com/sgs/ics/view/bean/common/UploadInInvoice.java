@@ -359,7 +359,7 @@ public class UploadInInvoice {
         oracle.jbo.Row[] selectedRows =directCVO.getFilteredRows("NatureOfExpense", null);
         System.out.println("*****Selected rows****"+selectedRows.length);
         String status = "New";
-        String alloc_basis = "Adjustment Entry";
+        String alloc_basis = "ADJUSTMENT_ENTRY";
         
         for(oracle.jbo.Row rw:selectedRows){
         if (null != adjNatureofExpBind.getValue() && null != adjReverseEntryBind.getValue() && null != adjTxnCategoryBind.getValue()) {

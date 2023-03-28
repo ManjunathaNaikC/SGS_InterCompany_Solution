@@ -179,7 +179,8 @@
 	   ELSE SgsIcInvoiceHeaderEO.VAT_RATE
 	   END) AS VAT_RATE,
            SgsIcInvoiceHeaderEO.REVERSAL_REASON,
-           SgsIcInvoiceHeaderEO.NATURE_OF_EXPENSE
+           SgsIcInvoiceHeaderEO.NATURE_OF_EXPENSE,
+           SgsIcInvoiceHeaderEO.REV_INV_NUM
 FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
   <EntityUsage
     Name="SgsIcInvoiceHeaderEO"
@@ -820,6 +821,19 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="REVINVNUM"
+    PrecisionRule="true"
+    EntityAttrName="REVINVNUM"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="REV_INV_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.REVINVNUM_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="selectInvoiceRecord"
     IsSelected="false"
     IsPersistent="false"
@@ -921,4 +935,9 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="CreatedDate"
+      Ascending="false"/>
+  </SortCriteria>
 </ViewObject>

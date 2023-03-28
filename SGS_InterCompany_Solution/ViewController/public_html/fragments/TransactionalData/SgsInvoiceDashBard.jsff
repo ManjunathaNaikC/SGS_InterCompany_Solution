@@ -48,7 +48,7 @@
                                 <af:showPopupBehavior popupId="p1creditMemo"/>
                             </af:button>-->
                             <af:button text="Upload Adjustment Entries" id="b1adj" 
-                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_DC')}">
+                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}">
                              
                                 <af:showPopupBehavior popupId="AdjEntryPopup"/>
                             </af:button>
@@ -252,6 +252,16 @@
                                 <f:selectItems value="#{row.bindings.REVERSALREASON.items}" id="si6"/>
                                 <f:validator binding="#{row.bindings.REVERSALREASON.validator}"/>
                             </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVINVNUM.label}" id="c51"
+                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVINVNUM.name}"
+                                   filterable="true">
+                            <af:outputText value="#{row.REVINVNUM}"
+                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVINVNUM.tooltip}"
+                                           id="ot50">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVINVNUM.format}"/>
+                            </af:outputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.label}"
                                    id="c17"

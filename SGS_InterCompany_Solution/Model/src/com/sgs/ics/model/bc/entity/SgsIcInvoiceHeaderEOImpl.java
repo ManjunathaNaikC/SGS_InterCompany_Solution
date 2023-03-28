@@ -82,6 +82,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         VATRATE,
         REVERSALREASON,
         NATUREOFEXPENSE,
+        REVINVNUM,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -162,6 +163,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public static final int VATRATE = AttributesEnum.VATRATE.index();
     public static final int REVERSALREASON = AttributesEnum.REVERSALREASON.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
+    public static final int REVINVNUM = AttributesEnum.REVINVNUM.index();
     public static final int SGSICINVOICELINEEO = AttributesEnum.SgsIcInvoiceLineEO.index();
 
     /**
@@ -1056,6 +1058,22 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      */
     public void setNATUREOFEXPENSE(String value) {
         setAttributeInternal(NATUREOFEXPENSE, value);
+    }
+
+    /**
+     * Gets the attribute value for REVINVNUM, using the alias name REVINVNUM.
+     * @return the value of REVINVNUM
+     */
+    public BigDecimal getREVINVNUM() {
+        return (BigDecimal) getAttributeInternal(REVINVNUM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for REVINVNUM.
+     * @param value value to set the REVINVNUM
+     */
+    public void setREVINVNUM(BigDecimal value) {
+        setAttributeInternal(REVINVNUM, value);
     }
 
     /**

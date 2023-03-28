@@ -1487,7 +1487,7 @@ public class ActionEventsBean {
              System.out.println(" selectInvoiceRecord  " +rows[i].getAttribute("selectInvoiceRecord"));
              if (null != rows[i].getAttribute("selectInvoiceRecord") &&
                  rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
-                 rows[i].setAttribute("TransactionStatus", "Confirmed for Invoicing");
+                 rows[i].setAttribute("TransactionStatus", "Invoiced In PeopleSoft");
                  SGSAppModuleImpl am = new SGSAppModuleImpl();
                  String voucherNumber = "PS_Voucher_"+am.getDBSequence1("SEQ_IC_INVOICE_HEADER_VOUCHER");
                  String invoiceNumber = "PS_Invoice_"+am.getDBSequence1("SEQ_IC_INVOICE_HEADER_INVOICE");
@@ -1696,12 +1696,48 @@ public class ActionEventsBean {
        // AdfFacesContext.getCurrentInstance().addPartialTarget(reversalReasonLovBind);
        executeBinding(SAVE_DATA);
       // invoicecreditmemobindpopup.hide();
+       
+      System.out.println("inside DRTCROSS CHARGE**********************");
+      Connection conn = null;
+      PreparedStatement pst = null;
+      
+      try {
+          
+          conn = getDBConnection();
+          String SPsql = "EXEC USP_SCN_CREDIT_TXN "; // for stored proc
+          //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
+          PreparedStatement ps = conn.prepareStatement(SPsql);
+          
+          ps.execute();
+      } catch (SQLException sqle) {
+          // TODO: Add catch code
+          sqle.printStackTrace();
+      } finally {
+
+      }
+       
     }
 
     public void onCreditMemoClose(ActionEvent actionEvent) {
         // Add event code here...
         creditMemoPopupBind.hide();
     }
+    public Connection getDBConnection() {
+            Connection conn = null;
+        try {
+    //               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+    //                conn = DriverManager.getConnection(connectionUrl);
+            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+
+        }
+               
+         return conn;   
+        }
 
     public void setCreditDateBind(RichInputDate creditDateBind) {
         this.creditDateBind = creditDateBind;

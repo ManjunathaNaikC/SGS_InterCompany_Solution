@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="AllocationRunPageDef"
+                Package="fragments.Process">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsIcInvoiceHeaderVO1" RangeSize="2000" DataControl="SGSAppModuleDataControl"
+              id="SgsIcInvoiceHeaderVO1Iterator"/>
+    <iterator id="SgsIcInvoiceLineVO2Iterator" Binds="SgsIcInvoiceLineVO2" DataControl="SGSAppModuleDataControl"
+              RangeSize="2000"/>
+  </executables>
+</pageDefinition>

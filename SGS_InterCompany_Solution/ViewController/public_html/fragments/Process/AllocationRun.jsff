@@ -4,5 +4,7 @@
   <af:panelBox text="Allocation Run" id="pb1">
     <f:facet name="toolbar"/>
     <af:button text="Allocation Calculation" id="b1" actionListener="#{AllocationRunBean.allocationRun}"/>
+    <af:spacer id="s1" width="10"/>
+    <af:button text="SOAP API CALL" id="b2" actionListener="#{AllocationRunBean.onSOAPAPICALL}" rendered="false"/>
   </af:panelBox>
 </ui:composition>

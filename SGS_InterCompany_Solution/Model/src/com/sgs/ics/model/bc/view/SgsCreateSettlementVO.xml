@@ -6,14 +6,55 @@
   Name="SgsCreateSettlementVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="JDBC"
   CustomQuery="false"
-  SelectAllAttributes="false"
   PageIterMode="Full"
-  AccessMode="DEFAULT">
+  AccessMode="DEFAULT"
+  SelectList="SgsCreateSettlementEO.SETTLEMENT_ID, 
+       SgsCreateSettlementEO.PAYMENT_ID, 
+       SgsCreateSettlementEO.IC_CUSTOMER_GEO, 
+       SgsCreateSettlementEO.IC_CUSTOMER_BU, 
+       SgsCreateSettlementEO.IC_SUPPLIER_GEO, 
+       SgsCreateSettlementEO.IC_SUPPLIER_BU, 
+       SgsCreateSettlementEO.PAYMENT_DATE, 
+       SgsCreateSettlementEO.RECEIPT_DATE, 
+       SgsCreateSettlementEO.DISBUSEMENT_BANK_ACCOUNT, 
+       SgsCreateSettlementEO.RECEIVER_BANK_ACCOUNT, 
+       SgsCreateSettlementEO.PAYMENT_METHOD, 
+       SgsCreateSettlementEO.TRANSACTION_REFERENCE_NO, 
+       SgsCreateSettlementEO.PAYMENT_CURRENCY, 
+       SgsCreateSettlementEO.TRX_AMOUNT, 
+       SgsCreateSettlementEO.BANK_CHARGES, 
+       SgsCreateSettlementEO.PURPOSE_CODE, 
+       SgsCreateSettlementEO.CREATED_DATE, 
+       SgsCreateSettlementEO.CREATED_BY, 
+       SgsCreateSettlementEO.UPDATED_DATE, 
+       SgsCreateSettlementEO.UPDATED_BY, 
+       SgsCreateSettlementEO.ATTRIBUTE1, 
+       SgsCreateSettlementEO.ATTRIBUTE2, 
+       SgsCreateSettlementEO.ATTRIBUTE3, 
+       SgsCreateSettlementEO.ATTRIBUTE4, 
+       SgsCreateSettlementEO.ATTRIBUTE5, 
+       SgsCreateSettlementEO.ATTRIBUTE6, 
+       SgsCreateSettlementEO.ATTRIBUTE7, 
+       SgsCreateSettlementEO.ATTRIBUTE8, 
+       SgsCreateSettlementEO.ATTRIBUTE9, 
+       SgsCreateSettlementEO.ATTRIBUTE10, 
+       SgsCreateSettlementEO.ATTRIBUTE11, 
+       SgsCreateSettlementEO.ATTRIBUTE12, 
+       SgsCreateSettlementEO.ATTRIBUTE13, 
+       SgsCreateSettlementEO.ATTRIBUTE14, 
+       SgsCreateSettlementEO.ATTRIBUTE15, 
+       SgsCreateSettlementEO.DATE, 
+       SgsCreateSettlementEO.NET_AMOUNT_PAYABLE, 
+       SgsCreateSettlementEO.OUTSTANDING_AMOUNT, 
+       SgsCreateSettlementEO.PAYMENT_STATUS, 
+       SgsCreateSettlementEO.PS_INVOICE_NUMBER, 
+       SgsCreateSettlementEO.PS_VOUCHER_NUMBER, 
+       SgsCreateSettlementEO.SETTLEMENT_AMOUNT, 
+       SgsCreateSettlementEO.SETTLEMENT_STATUS, 
+       SgsCreateSettlementEO.TRANSACTION_CURRENCY"
+  FromList="SGS_CREATE_SETTLEMENT SgsCreateSettlementEO">
   <EntityUsage
     Name="SgsCreateSettlementEO"
     Entity="com.sgs.ics.model.bc.entity.SgsCreateSettlementEO"/>

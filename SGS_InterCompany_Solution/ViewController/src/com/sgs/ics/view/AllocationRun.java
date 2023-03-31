@@ -127,9 +127,16 @@ public class AllocationRun {
         String sourceCurrency = null;
         String iuCustomer = null;
         BigDecimal invoiceHdrAmt = null;
+   
+        StringBuilder sb=new StringBuilder();
+      String  soapBuild="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:m83=\"http://asbcolps02:1111/Enterprise/Tools/schemas/M835922.V1\">\n" + 
+        "   <soapenv:Header/>\n" + 
+        "   <soapenv:Body>\n" + 
+        "      <m83:Create__CompIntfc__CI_HM_BI_INTFC>";
+        sb.append(soapBuild);
         String queryString =
         "SELECT  INVOICE_SEQ_NO,TRANSACTION_CATEGORY,SOURCE_CURRENCY,IU_CUSTOMER,INVOICE_HEADER_AMOUNT FROM IC_INVOICE_HEADER WHERE TRANSACTION_STATUS = 'Approved'";
-        System.out.println("lineQuery :: "+queryString);
+        System.out.println("queryString :: "+queryString);
         Connection conn = null;
         PreparedStatement pst = null;
         System.out.println("Query :: " + queryString);
@@ -151,11 +158,21 @@ public class AllocationRun {
                 System.out.println("SourceCurrency :: "+sourceCurrency);
                 System.out.println("IuCustomer :: "+iuCustomer);
                 System.out.println("InvoiceHeaderAmount :: "+invoiceHdrAmt);
+                String headerXml="      <m83:INTFC_ID_ADJ>"+seqNumber+"</m83:INTFC_ID_ADJ>\n" + 
+                "      <m83:TYPE_RTB>"+transactionCategory+"</m83:TYPE_RTB>\n" + 
+                "      <!--Optional:-->\n" + 
+                "      <m83:BASE_CURRENCY>"+sourceCurrency+"</m83:BASE_CURRENCY>\n" + 
+                "      <!--Optional:-->\n" + 
+                "      <m83:BILL_TO_CUST_ID>"+iuCustomer+"</m83:BILL_TO_CUST_ID>\n" + 
+                "      <!--Optional:-->\n" + 
+                "      <m83:UNIT_AMT>"+invoiceHdrAmt+"</m83:UNIT_AMT>\n" + 
+                "      <!--Optional:-->";
                 
+                sb.append(headerXml);
                 
                 Connection lineConn = null;
                 PreparedStatement linePst = null;
-              String IcLineNo =null;
+                String IcLineNo =null;
                 String FromOu =null;
                 String FromJobCode =null;
                 String FromDepartmentId =null;
@@ -184,6 +201,13 @@ public class AllocationRun {
                             System.out.println("FromDepartmentId :: "+FromDepartmentId);
                             System.out.println("ToDepartmentId :: "+ToDepartmentId);
                         
+                        String lineBuild="      <m83:INTFC_LINE_NUM_ADJ>"+IcLineNo+"</m83:INTFC_LINE_NUM_ADJ>\n" + 
+                        "      <m83:OPERATING_UNIT>"+FromOu+"</m83:OPERATING_UNIT>\n" + 
+                        "      <m83:JOBCODE>"+FromJobCode+"</m83:JOBCODE>\n" + 
+                        "      <m83:DEPTID>"+FromDepartmentId+"</m83:DEPTID>\n" + 
+                        "      <m83:DEPTID2>"+ToDepartmentId+"</m83:DEPTID2>";
+                        sb.append(lineBuild);
+                        
                         }
                     
                 } catch (SQLException sqle) {
@@ -201,6 +225,13 @@ public class AllocationRun {
                 }
                 
             }
+            
+            String xmlEnd="  </m83:Create__CompIntfc__CI_HM_BI_INTFC>\n" + 
+            "   </soapenv:Body>\n" + 
+            "</soapenv:Envelope>";
+            sb.append(xmlEnd);
+            
+            System.out.println("XMLBUILDER==>"+sb.toString());
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();

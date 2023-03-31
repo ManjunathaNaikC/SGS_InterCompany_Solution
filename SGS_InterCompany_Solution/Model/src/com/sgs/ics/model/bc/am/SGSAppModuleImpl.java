@@ -67,9 +67,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             Connection conn = null;
         try {
 
-          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
+          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;";
           conn = DriverManager.getConnection(connectionUrl);
- //           conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+ //          conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
        
 
         } catch (SQLException sqle) {
@@ -805,6 +805,23 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSettlementTypeLOVVO1() {
         return (ViewObjectImpl) findViewObject("SettlementTypeLOVVO1");
+    }
+
+    /**
+     * Container's getter for ReversalTypeLOVVO1.
+     * @return ReversalTypeLOVVO1
+     */
+    public ViewObjectImpl getReversalTypeLOVVO1() {
+        return (ViewObjectImpl) findViewObject("ReversalTypeLOVVO1");
+    }
+
+
+    /**
+     * Container's getter for SgsIcInvoiceLineVO2.
+     * @return SgsIcInvoiceLineVO2
+     */
+    public ViewObjectImpl getSgsIcInvoiceLineVO2() {
+        return (ViewObjectImpl) findViewObject("SgsIcInvoiceLineVO2");
     }
 }
 

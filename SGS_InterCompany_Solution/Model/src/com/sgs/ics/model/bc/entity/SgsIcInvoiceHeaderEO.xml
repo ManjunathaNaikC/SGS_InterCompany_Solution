@@ -34,8 +34,7 @@
     Name="Period"
     Precision="30"
     ColumnName="PERIOD"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
+    Type="java.sql.Date"
     ColumnType="VARCHAR"
     TableName="IC_INVOICE_HEADER">
     <DesignTime>
@@ -552,6 +551,39 @@
     Precision="5"
     Scale="2"
     ColumnName="VAT_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="REVERSALREASON"
+    Precision="80"
+    ColumnName="REVERSAL_REASON"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="IC_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NATUREOFEXPENSE"
+    Precision="80"
+    ColumnName="NATURE_OF_EXPENSE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="IC_INVOICE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="REVINVNUM"
+    Precision="10"
+    Scale="2"
+    ColumnName="REV_INV_NUM"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"

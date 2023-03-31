@@ -40,23 +40,6 @@
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
     RowLevelBinds="true"/>
   <ListBinding
-    Name="LOV_REVERSALREASON"
-    ListVOName="SgsLookupReversalReasonVO1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="REVERSALREASON"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="LookupCode"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Meaning"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_ReversalReasonLov"
     ListVOName="SgsLookupCreditReversalReasonVO1"
     NullValueFlag="none"
@@ -95,15 +78,12 @@ WHERE 1=2]]></SQLQuery>
     ColumnType="VARCHAR"
     AliasName="REVERSAL_REASON"
     Expression="REVERSAL_REASON"
-    SQLType="VARCHAR"
-    LOVName="LOV_REVERSALREASON">
+    SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreditMemoLOVVO.REVERSALREASON_LABEL"/>
       </SchemaBasedProperties>

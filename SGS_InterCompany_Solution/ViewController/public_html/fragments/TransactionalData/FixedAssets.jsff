@@ -20,7 +20,17 @@
                     </af:panelHeader>
                     <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                         <f:facet name="menus"/>
-                        <f:facet name="toolbar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:button text="Confirm for Invoicing" id="b1"
+                                           actionListener="#{viewScope.ActionEventsBean.onConfirmingInvoiceEvent}"/>
+                                <af:button text="Import from Transaction" id="b2"
+                                           actionListener="#{viewScope.ActionEventsBean.importFromTxn}"/>
+                                <af:button text="Approve" id="b3">
+                                    <af:showPopupBehavior popupId="p1approve"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
                         <f:facet name="statusbar"/>
                         <af:table value="#{bindings.SgsFixedAssetsTxnVO1.collectionModel}" var="row"
                                   rows="#{bindings.SgsFixedAssetsTxnVO1.rangeSize}"
@@ -30,12 +40,17 @@
                                   selectionListener="#{bindings.SgsFixedAssetsTxnVO1.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SgsFixedAssetsTxnVO1.rangeSize}"
                                   id="resId1" styleClass="AFStretchWidth" allDetailsEnabled="true" autoHeightRows="5">
-                            <af:column headerText="" id="c13" width="80" align="center">
-                                <af:selectBooleanCheckbox labelStyle="color:#336699" label="" id="sbc2"/>
+                            <af:column id="cs2"
+                                       headerText="#{bindings.SgsFixedAssetsTxnVO1Iterator.hints.Selected.label}"
+                                       align="center">
+                                <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                                          label="#{row.bindings.Selected.label}"
+                                                          shortDesc="#{bindings.SgsFixedAssetsTxnVO1Iterator.hints.Selected.tooltip}"
+                                                          id="sbc1" autoSubmit="true"/>
                                 <f:facet name="header">
-                                    <af:outputText value="Select All" id="ot42"/>
-                                    <af:selectBooleanCheckbox label="" id="sbc1" labelStyle="color:#336699"
-                                                              autoSubmit="true"/>
+                                    <af:selectBooleanCheckbox valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.selectAllCheckboxValueChange}"
+                                                              label="Select All" id="sbc2" labelStyle="color:#336699"
+                                                              autoSubmit="true" partialTriggers="cs2 sbc1 ::resId1"></af:selectBooleanCheckbox>
                                 </f:facet>
                             </af:column>
                             <!--<af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FstId.label}" id="resId1c1">
@@ -236,6 +251,66 @@
                                                       pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferValue.format}"/>
                                 </af:outputText>
                             </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.label}" id="c1">
+                                <af:outputText value="#{row.ACCDATE}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.tooltip}"
+                                               id="ot1">
+                                    <af:convertDateTime pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTAMOUNT.label}" id="c2">
+                                <af:outputText value="#{row.GSTAMOUNT}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTAMOUNT.tooltip}"
+                                               id="ot34">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTAMOUNT.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTRATE.label}" id="c3">
+                                <af:outputText value="#{row.GSTRATE}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTRATE.tooltip}"
+                                               id="ot35">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTRATE.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.SGTAMOUNT.label}" id="c7">
+                                <af:outputText value="#{row.SGTAMOUNT}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.SGTAMOUNT.tooltip}"
+                                               id="ot39">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.SGTAMOUNT.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.IGSTAMOUNT.label}" id="c4">
+                                <af:outputText value="#{row.IGSTAMOUNT}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.IGSTAMOUNT.tooltip}"
+                                               id="ot36">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.IGSTAMOUNT.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.VATAMOUNT.label}" id="c5">
+                                <af:outputText value="#{row.VATAMOUNT}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.VATAMOUNT.tooltip}"
+                                               id="ot37">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.VATAMOUNT.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.VATRATE.label}" id="c6">
+                                <af:outputText value="#{row.VATRATE}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.VATRATE.tooltip}"
+                                               id="ot38">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.VATRATE.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTACHMENT.label}" id="c8">
+                                <af:outputText value="#{row.ATTACHMENT}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTACHMENT.tooltip}"
+                                               id="ot40"/>
+                            </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedBy.label}"
                                        id="resId1c30">
                                 <af:outputText value="#{row.CreatedBy}"
@@ -265,6 +340,17 @@
                                 </af:outputText>
                             </af:column>
                         </af:table>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="p1approve"
+                                  binding="#{viewScope.ActionEventsBean.approvePopupFABind}">
+                            <af:dialog id="d4" title="Upload Attachment" type="none">
+                                <f:facet name="buttonBar">
+                                    <af:button text="Upload" id="b13"
+                                               actionListener="#{viewScope.ActionEventsBean.onAdminEmilFileAttachment}"/>
+                                </f:facet>
+                                <af:inputFile label="Select File" id="if2"
+                                              binding="#{viewScope.ActionEventsBean.inputFileBindFA}" autoSubmit="true"/>
+                            </af:dialog>
+                        </af:popup>
                     </af:panelCollection>
                 </af:panelGroupLayout>
             </af:panelBox>

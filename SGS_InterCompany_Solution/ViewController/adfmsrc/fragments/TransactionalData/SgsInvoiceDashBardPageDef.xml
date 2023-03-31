@@ -28,6 +28,8 @@
               id="CreditMemoLOVVO1Iterator"/>
     <iterator Binds="ReversalReasonLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="ReversalReasonLOVVO1Iterator"/>
+    <iterator Binds="ReversalTypeLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="ReversalTypeLOVVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsIcInvoiceHeaderVO1Iterator" id="SgsIcInvoiceHeaderVO1">
@@ -72,6 +74,9 @@
           <Item Value="VATRATE"/>
           <Item Value="VATAMNT"/>
           <Item Value="selectInvoiceRecord" Binds="selectInvoiceRecord"/>
+          <Item Value="REVERSALREASON"/>
+          <Item Value="NATUREOFEXPENSE"/>
+          <Item Value="REVINVNUM"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -127,6 +132,9 @@
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
           <Item Value="SelectCreditRecord" Binds="SelectCreditRecord"/>
+          <Item Value="REVERSALTYPE"/>
+          <Item Value="PERCENTAGEREVERSAL"/>
+          <Item Value="STATUS"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -161,5 +169,17 @@
         <Item Value="PERIOD"/>
       </AttrNames>
     </attributeValues>
+    <button IterBinding="CreditMemoLOVVO1Iterator" StaticList="false" Uses="LOV_ReversalReasonLov"
+            id="ReversalReasonLov1" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="ReversalReasonLov"/>
+      </AttrNames>
+    </button>
+    <list IterBinding="ReversalTypeLOVVO1Iterator" ListOperMode="navigation" ListIter="ReversalTypeLOVVO1Iterator"
+          id="ReversalTypeLOVVO1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="MEANING"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>

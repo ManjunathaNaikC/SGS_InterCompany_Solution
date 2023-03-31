@@ -375,6 +375,87 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ACCDATE"
+    ColumnName="ACC_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="GSTAMOUNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="GST_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="GSTRATE"
+    Precision="10"
+    Scale="2"
+    ColumnName="GST_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="IGSTAMOUNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="IGST_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="SGTAMOUNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="SGT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="VATAMOUNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="VAT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="VATRATE"
+    Precision="20"
+    Scale="2"
+    ColumnName="VAT_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_FIXED_ASSETS_TXN"/>
+  <Attribute
+    Name="Selected"
+    ColumnName="Selected"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="BIT"
+    IsPersistent="false"
+    IsQueriable="false"/>
+  <Attribute
+    Name="ATTACHMENT"
+    Precision="80"
+    ColumnName="ATTACHMENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_FIXED_ASSETS_TXN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSGSFIXEDASSETSTXN"
     PrimaryKey="true">

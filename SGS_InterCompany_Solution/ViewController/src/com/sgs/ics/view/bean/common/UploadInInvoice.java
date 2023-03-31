@@ -359,7 +359,7 @@ public class UploadInInvoice {
         oracle.jbo.Row[] selectedRows =directCVO.getFilteredRows("NatureOfExpense", null);
         System.out.println("*****Selected rows****"+selectedRows.length);
         String status = "New";
-        String alloc_basis = "Adjustment Entry";
+        String alloc_basis = "ADJUSTMENT_ENTRY";
         
         for(oracle.jbo.Row rw:selectedRows){
         if (null != adjNatureofExpBind.getValue() && null != adjReverseEntryBind.getValue() && null != adjTxnCategoryBind.getValue()) {
@@ -408,9 +408,9 @@ public class UploadInInvoice {
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
-                conn = DriverManager.getConnection(connectionUrl);
-//            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+//               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+//                conn = DriverManager.getConnection(connectionUrl);
+            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
         } catch (SQLException sqle) {
             // TODO: Add catch code

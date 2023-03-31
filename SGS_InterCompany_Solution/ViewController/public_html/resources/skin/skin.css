@@ -305,4 +305,31 @@ span.AFRequiredIconStyle {
 margin-left: -10px;
 }
 
+/*.setupCost af|column::column-header-cell {*/
+    /*Table Header for Setup Screens*/
+
+    /*height: 35px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: none;
+    background-color: #A9A9A9;
+    vertical-align: middle;
+    border-left: 1px solid #BF691E;
+}*/
+
+
+
+/*af|table::data-row af|column::data-cell{
+background-color:#e4f0fa;
+}*/
+
+/*af|table::data-row af|column::banded-data-cell{
+background-color:#ebebeb;
+}*/
+
+
+
+
 

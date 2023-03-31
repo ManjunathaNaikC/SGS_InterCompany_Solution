@@ -21,7 +21,7 @@
                             </af:button>
                             <af:button actionListener="#{bindings.Rollback.execute}"
                        id="b3" action="back"
-                       rendered="#{pageFlowScope.paddEditCIR == 'ADD'}" immediate="true" text="Cancel"
+                       rendered="#{pageFlowScope.paddEditCIR == 'ADD'}" immediate="true" text="Close"
                        accessKey="C"/>
                             
                         </af:toolbar>
@@ -42,7 +42,7 @@
                                           columns="#{bindings.CostIdentificationName.hints.displayWidth}"
                                           maximumLength="#{bindings.CostIdentificationName.hints.precision}"
                                           shortDesc="#{bindings.CostIdentificationName.hints.tooltip}" id="it9"
-                                          showRequired="true" placeholder="Required">
+                                          showRequired="true">
                                 <f:validator binding="#{bindings.CostIdentificationName.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.ADDTEXPENSECAT.inputValue}"

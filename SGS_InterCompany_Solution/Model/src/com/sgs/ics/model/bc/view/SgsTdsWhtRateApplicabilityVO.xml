@@ -62,6 +62,38 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupSLOCVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtRateApplicabilityVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupAcctTreatment"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsTdsWhtRateApplicabilityVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_NATUREOFEXPENSE"
     ListVOName="SgsLookupVO1"
@@ -113,6 +145,41 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_SLOC"
+    ListVOName="SgsLookupSLOCVO2"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SLOC"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AccountingTreatment"
+    ListVOName="SgsLookupAcctTreatment"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AccountingTreatment"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsTdsWhtRateApplicabilityEO"
     Entity="com.sgs.ics.model.bc.entity.SgsTdsWhtRateApplicabilityEO"/>
@@ -148,11 +215,14 @@
     PrecisionRule="true"
     EntityAttrName="AccountingTreatment"
     EntityUsage="SgsTdsWhtRateApplicabilityEO"
-    AliasName="ACCOUNTING_TREATMENT">
+    AliasName="ACCOUNTING_TREATMENT"
+    LOVName="LOV_AccountingTreatment">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.AccountingTreatment_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -295,6 +365,22 @@
           Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.NATUREOFEXPENSE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SLOC"
+    PrecisionRule="true"
+    EntityAttrName="SLOC"
+    EntityUsage="SgsTdsWhtRateApplicabilityEO"
+    AliasName="SLOC"
+    LOVName="LOV_SLOC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.SLOC_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

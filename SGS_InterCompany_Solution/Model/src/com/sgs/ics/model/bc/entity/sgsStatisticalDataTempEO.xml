@@ -366,6 +366,18 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="SGS_STATISTICAL_DATA_TEMP_TBL"/>
+  <Attribute
+    Name="SLOC"
+    Precision="80"
+    ColumnName="SLOC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STATISTICAL_DATA_TEMP_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTATISTICALDATATEMPTBL"
     PrimaryKey="true">

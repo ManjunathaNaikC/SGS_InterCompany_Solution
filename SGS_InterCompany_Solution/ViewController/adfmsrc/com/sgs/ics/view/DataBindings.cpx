@@ -54,6 +54,7 @@
     <page path="/fragments/TransactionalData/NettingLines.jsff" usageId="com_sgs_ics_view_NettingLinesPageDef"/>
     <page path="/fragments/TransactionalData/creditMemoInvoice.jsff"
           usageId="com_sgs_ics_view_creditMemoInvoicePageDef"/>
+    <page path="/fragments/Process/AllocationRun.jsff" usageId="com_sgs_ics_view_AllocationRunPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -99,6 +100,7 @@
     <page id="com_sgs_ics_view_NettingHeaderPageDef" path="fragments.TransactionalData.NettingHeaderPageDef"/>
     <page id="com_sgs_ics_view_NettingLinesPageDef" path="fragments.TransactionalData.NettingLinesPageDef"/>
     <page id="com_sgs_ics_view_creditMemoInvoicePageDef" path="fragments.TransactionalData.creditMemoInvoicePageDef"/>
+    <page id="com_sgs_ics_view_AllocationRunPageDef" path="fragments.Process.AllocationRunPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

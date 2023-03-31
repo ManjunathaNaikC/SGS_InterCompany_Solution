@@ -45,3 +45,10 @@ def bLookupType_SgsLookupSerRecLEVO1_BindVariable_BoundParameter()
 'LEGAL_ENTITY'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupYESNOVO1", name="bLookupType")
+def bLookupType_SgsLookupYESNOVO1_BindVariable_BoundParameter()
+{
+'YESORNO'
+}
+

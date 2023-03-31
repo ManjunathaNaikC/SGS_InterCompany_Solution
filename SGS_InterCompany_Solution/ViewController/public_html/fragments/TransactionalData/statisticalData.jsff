@@ -189,7 +189,7 @@
                                 <f:validator binding="#{row.bindings.CostGroup.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
-                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}" id="c51">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}" id="c51">
                             <af:inputText value="#{row.bindings.EMPGRADE.inputValue}"
                              readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}"
@@ -202,7 +202,7 @@
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.format}"/>
                             </af:inputText>
-                        </af:column>-->
+                        </af:column>
                         <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
                             <af:inputText value="#{row.bindings.STATGEOGRAPHY.inputValue}"
                              readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}"
@@ -215,7 +215,7 @@
                                 <f:validator binding="#{row.bindings.STATGEOGRAPHY.validator}"/>
                             </af:inputText>
                         </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
                             <af:selectOneChoice value="#{row.bindings.STATGEOGRAPHY.inputValue}"
                                                 label="#{row.bindings.STATGEOGRAPHY.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.mandatory}"
@@ -224,7 +224,7 @@
                                 <f:selectItems value="#{row.bindings.STATGEOGRAPHY.items}" id="si9"/>
                                 <f:validator binding="#{row.bindings.STATGEOGRAPHY.validator}"/>
                             </af:selectOneChoice>
-                        </af:column>-->
+                        </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"
@@ -273,8 +273,8 @@
                                           readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.FROMBU.validator}"/>
                             </af:inputText>
-                        </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.label}" 
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMOU.name}"
                                    filterable="true" id="c41">
                             <af:inputText value="#{row.bindings.FROMOU.inputValue}"
@@ -286,8 +286,8 @@
                                           readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.FROMOU.validator}"/>
                             </af:inputText>
-                        </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.label}" 
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMJOBCODE.name}"
                                    filterable="true" id="c42">
                             <af:inputText value="#{row.bindings.FROMJOBCODE.inputValue}"
@@ -301,7 +301,7 @@
                                 <f:validator binding="#{row.bindings.FROMJOBCODE.validator}"/>
                             </af:inputText>
                         </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}" 
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}" 
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.name}"
                                    filterable="true" id="c43">
                             <af:inputText value="#{row.bindings.FROMDEPTID.inputValue}"
@@ -314,7 +314,7 @@
                                           readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.FROMDEPTID.validator}"/>
                             </af:inputText>
-                        </af:column>-->
+                        </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.label}" id="c2">
@@ -536,6 +536,55 @@
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.format}"/>
                             </af:inputText>
+                        </af:column>
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                            <af:inputText value="#{row.bindings.SLOC.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.SLOC.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.SLOC.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}" id="it12">
+                                <f:validator binding="#{row.bindings.SLOC.validator}"/>
+                            </af:inputText>
+                        </af:column>-->
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                            <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}"
+                                                label="#{row.bindings.SLOC.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}"
+                                                id="soc10">
+                                <f:selectItems value="#{row.bindings.SLOC.items}" id="si10"/>
+                                <f:validator binding="#{row.bindings.SLOC.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>-->
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                            <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}"
+                                                label="#{row.bindings.SLOC.label}"
+                                                required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
+                                                shortDesc="#{bindings.SgsStatisticalDataVO1.hints.SLOC.tooltip}"
+                                                id="soc10">
+                                <f:selectItems value="#{row.bindings.SLOC.items}" id="si10"/>
+                                <f:validator binding="#{row.bindings.SLOC.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}" id="c15">
+                            <!--<af:inputText value="#{row.bindings.DOCATTM.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.tooltip}" id="it18">
+                                <f:validator binding="#{row.bindings.DOCATTM.validator}"/>
+                            </af:inputText>-->
+                            <af:link text="#{row.bindings.DOCATTM.inputValue}" id="l2">
+                                <af:fileDownloadActionListener filename="#{row.DOCATTM}"
+                                                               method="#{viewScope.UploadExcelBean.onStatDocsDownload}"/>
+                            </af:link>
+                        </af:column>
+                        <af:column id="c22" headerText="Upload File">
+                            <af:inputFile id="if3"
+                                          valueChangeListener="#{viewScope.UploadExcelBean.onStatDocsUpload}"
+                                          autoSubmit="true" uploadType="submit"/>
                         </af:column>
                         <!--<af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ValidityFrom.name}"
                                    filterable="true"

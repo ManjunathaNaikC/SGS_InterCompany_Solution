@@ -80,6 +80,9 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         GSTRATE,
         VATAMNT,
         VATRATE,
+        REVERSALREASON,
+        NATUREOFEXPENSE,
+        REVINVNUM,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -158,6 +161,9 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public static final int GSTRATE = AttributesEnum.GSTRATE.index();
     public static final int VATAMNT = AttributesEnum.VATAMNT.index();
     public static final int VATRATE = AttributesEnum.VATRATE.index();
+    public static final int REVERSALREASON = AttributesEnum.REVERSALREASON.index();
+    public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
+    public static final int REVINVNUM = AttributesEnum.REVINVNUM.index();
     public static final int SGSICINVOICELINEEO = AttributesEnum.SgsIcInvoiceLineEO.index();
 
     /**
@@ -194,15 +200,15 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      * Gets the attribute value for Period, using the alias name Period.
      * @return the value of Period
      */
-    public String getPeriod() {
-        return (String) getAttributeInternal(PERIOD);
+    public Date getPeriod() {
+        return (Date) getAttributeInternal(PERIOD);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Period.
      * @param value value to set the Period
      */
-    public void setPeriod(String value) {
+    public void setPeriod(Date value) {
         setAttributeInternal(PERIOD, value);
     }
 
@@ -1020,6 +1026,54 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      */
     public void setVATRATE(BigDecimal value) {
         setAttributeInternal(VATRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for REVERSALREASON, using the alias name REVERSALREASON.
+     * @return the value of REVERSALREASON
+     */
+    public String getREVERSALREASON() {
+        return (String) getAttributeInternal(REVERSALREASON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for REVERSALREASON.
+     * @param value value to set the REVERSALREASON
+     */
+    public void setREVERSALREASON(String value) {
+        setAttributeInternal(REVERSALREASON, value);
+    }
+
+    /**
+     * Gets the attribute value for NATUREOFEXPENSE, using the alias name NATUREOFEXPENSE.
+     * @return the value of NATUREOFEXPENSE
+     */
+    public String getNATUREOFEXPENSE() {
+        return (String) getAttributeInternal(NATUREOFEXPENSE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NATUREOFEXPENSE.
+     * @param value value to set the NATUREOFEXPENSE
+     */
+    public void setNATUREOFEXPENSE(String value) {
+        setAttributeInternal(NATUREOFEXPENSE, value);
+    }
+
+    /**
+     * Gets the attribute value for REVINVNUM, using the alias name REVINVNUM.
+     * @return the value of REVINVNUM
+     */
+    public BigDecimal getREVINVNUM() {
+        return (BigDecimal) getAttributeInternal(REVINVNUM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for REVINVNUM.
+     * @param value value to set the REVINVNUM
+     */
+    public void setREVINVNUM(BigDecimal value) {
+        setAttributeInternal(REVINVNUM, value);
     }
 
     /**

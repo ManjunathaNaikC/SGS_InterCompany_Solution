@@ -328,6 +328,39 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="PERCENTAGEREVERSAL"
+    Precision="10"
+    Scale="5"
+    ColumnName="PERCENTAGE_REVERSAL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_INVOICE_CREDIT_MEMO"/>
+  <Attribute
+    Name="REVERSALTYPE"
+    Precision="80"
+    ColumnName="REVERSAL_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_INVOICE_CREDIT_MEMO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="STATUS"
+    Precision="80"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_INVOICE_CREDIT_MEMO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSINVOICECREDITMEMO"
     PrimaryKey="true">

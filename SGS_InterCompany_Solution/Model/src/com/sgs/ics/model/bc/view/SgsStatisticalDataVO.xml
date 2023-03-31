@@ -123,6 +123,22 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupSLOCVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsStatisticalDataVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_CostGroup"
     ListVOName="CostGroupLOV1"
@@ -213,6 +229,23 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="STATGEOGRAPHY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SLOC"
+    ListVOName="SgsLookupSLOCVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SLOC"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -969,6 +1002,35 @@
     EntityAttrName="STATISTICALDATA"
     EntityUsage="SgsStatisticalDataEO"
     AliasName="STATISTICAL_DATA"/>
+  <ViewAttribute
+    Name="DOCATTM"
+    PrecisionRule="true"
+    EntityAttrName="DOCATTM"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="DOC_ATTM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.DOCATTM_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SLOC"
+    PrecisionRule="true"
+    EntityAttrName="SLOC"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="SLOC"
+    LOVName="LOV_SLOC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.SLOC_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

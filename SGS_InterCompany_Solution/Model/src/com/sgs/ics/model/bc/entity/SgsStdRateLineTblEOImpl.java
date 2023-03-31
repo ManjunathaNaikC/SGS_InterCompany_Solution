@@ -840,12 +840,12 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
                 inputProvider=inputProviderValue.toUpperCase().replaceAll("\\s", "");
             }
             System.out.println("inputProvider At Update"+inputProvider);
-//            if(getInputProvider() != null){ - Need to get input provider from parent VO line -> SgsStandardRateSetupEO
-//                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
-//            }
+
             if(getADDTEXPENSECAT() != null){
                 addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
+            } else{
+                addExpenseQuilfier = natureOfExpense;
+            }
             setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         }else if (operation == DML_INSERT) {
            
@@ -856,24 +856,20 @@ public class SgsStdRateLineTblEOImpl extends EntityImpl {
                 natureOfExpense = getNatureofExpense().toUpperCase().replaceAll("\\s", "");
             }
             
-           // ADFContext.getCurrent().getPageFlowScope().get("INPUTPROVIDER");
-            
-            //System.out.println("Input Provide value in EOIMPL"+(String)ADFContext.getCurrent().getSessionScope().get("INPUTPROVIDER"));
+
             String inputProviderValue= (String)ADFContext.getCurrent().getSessionScope().get("INPUTPROVIDER");
             if(null != inputProviderValue){
                 inputProvider=inputProviderValue.toUpperCase().replaceAll("\\s", "");
             }
             System.out.println("inputProvider At INSERT"+inputProvider);
-//            if(getInputProvider() != null){
-//                inputProvider = getInputProvider().toUpperCase().replaceAll("\\s", "");
-//            }
+
             if(getADDTEXPENSECAT() != null){
                 addExpenseQuilfier = getADDTEXPENSECAT().toUpperCase().replaceAll("\\s", "");
-            }    
+            }  else{
+                addExpenseQuilfier = natureOfExpense;
+            }  
             setCONCATEID(natureOfExpense+inputProvider+addExpenseQuilfier);
         }
-        
-    
 
         super.doDML(operation, e);
     }

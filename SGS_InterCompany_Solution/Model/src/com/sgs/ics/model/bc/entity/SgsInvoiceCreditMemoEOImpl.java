@@ -49,7 +49,10 @@ public class SgsInvoiceCreditMemoEOImpl extends EntityImpl {
         Attribute13,
         Attribute14,
         Attribute15,
-        REVERSALREASON;
+        REVERSALREASON,
+        PERCENTAGEREVERSAL,
+        REVERSALTYPE,
+        STATUS;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -72,6 +75,7 @@ public class SgsInvoiceCreditMemoEOImpl extends EntityImpl {
             return vals;
         }
     }
+
 
     public static final int INVOICESEQNO = AttributesEnum.InvoiceSeqNo.index();
     public static final int PERIOD = AttributesEnum.Period.index();
@@ -104,6 +108,9 @@ public class SgsInvoiceCreditMemoEOImpl extends EntityImpl {
     public static final int ATTRIBUTE14 = AttributesEnum.Attribute14.index();
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int REVERSALREASON = AttributesEnum.REVERSALREASON.index();
+    public static final int PERCENTAGEREVERSAL = AttributesEnum.PERCENTAGEREVERSAL.index();
+    public static final int REVERSALTYPE = AttributesEnum.REVERSALTYPE.index();
+    public static final int STATUS = AttributesEnum.STATUS.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -117,6 +124,7 @@ public class SgsInvoiceCreditMemoEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsInvoiceCreditMemoEO");
     }
+
 
     /**
      * Gets the attribute value for InvoiceSeqNo, using the alias name InvoiceSeqNo.
@@ -614,6 +622,54 @@ public class SgsInvoiceCreditMemoEOImpl extends EntityImpl {
         setAttributeInternal(REVERSALREASON, value);
     }
 
+
+    /**
+     * Gets the attribute value for PERCENTAGEREVERSAL, using the alias name PERCENTAGEREVERSAL.
+     * @return the value of PERCENTAGEREVERSAL
+     */
+    public BigDecimal getPERCENTAGEREVERSAL() {
+        return (BigDecimal) getAttributeInternal(PERCENTAGEREVERSAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PERCENTAGEREVERSAL.
+     * @param value value to set the PERCENTAGEREVERSAL
+     */
+    public void setPERCENTAGEREVERSAL(BigDecimal value) {
+        setAttributeInternal(PERCENTAGEREVERSAL, value);
+    }
+
+    /**
+     * Gets the attribute value for REVERSALTYPE, using the alias name REVERSALTYPE.
+     * @return the value of REVERSALTYPE
+     */
+    public String getREVERSALTYPE() {
+        return (String) getAttributeInternal(REVERSALTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for REVERSALTYPE.
+     * @param value value to set the REVERSALTYPE
+     */
+    public void setREVERSALTYPE(String value) {
+        setAttributeInternal(REVERSALTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for STATUS, using the alias name STATUS.
+     * @return the value of STATUS
+     */
+    public String getSTATUS() {
+        return (String) getAttributeInternal(STATUS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for STATUS.
+     * @param value value to set the STATUS
+     */
+    public void setSTATUS(String value) {
+        setAttributeInternal(STATUS, value);
+    }
 
     /**
      * @param invoiceSeqNo key constituent

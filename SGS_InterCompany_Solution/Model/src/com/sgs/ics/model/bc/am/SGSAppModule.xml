@@ -209,6 +209,12 @@
   <ViewUsage
     Name="SettlementTypeLOVVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.SettlementTypeLOVVO"/>
+  <ViewUsage
+    Name="ReversalTypeLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.ReversalTypeLOVVO"/>
+  <ViewUsage
+    Name="SgsIcInvoiceLineVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

@@ -247,6 +247,12 @@
     EntityAttrName="STATISTICALDATA"
     EntityUsage="sgsStatisticalDataTempEO"
     AliasName="STATISTICAL_DATA"/>
+  <ViewAttribute
+    Name="SLOC"
+    PrecisionRule="true"
+    EntityAttrName="SLOC"
+    EntityUsage="sgsStatisticalDataTempEO"
+    AliasName="SLOC"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

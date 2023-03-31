@@ -21,7 +21,7 @@
                                    immediate="true" text="Cancel" accessKey="C"/>
                     </af:toolbar>
                 </f:facet>
-                    <af:panelFormLayout id="pfl1" rows="10">
+                    <af:panelFormLayout id="pfl1" rows="5" maxColumns="3">
                         <af:inputText value="#{bindings.StandardRateId.inputValue}"
                                       label="#{bindings.StandardRateId.hints.label}"
                                       required="#{bindings.StandardRateId.hints.mandatory}"
@@ -207,82 +207,6 @@
                         </af:inputText>
                     </af:panelFormLayout>
                 </af:panelBox>
-                <af:panelBox text="Standard Rate Supporting Document" id="pb3">
-                    <f:facet name="toolbar"/>
-                    <af:panelCollection id="pc2">
-                        <f:facet name="menus"/>
-                        <f:facet name="toolbar">
-                            <af:toolbar id="t4">
-                                <af:button id="b4" actionListener="#{bindings.CreateInsertDoc.execute}"
-                                           disabled="#{!bindings.CreateInsertDoc.enabled}"
-                                           icon="/resources/icons/plus.png"/>
-                                <af:button id="b5" disabled="#{!bindings.DeleteDoc.enabled}"
-                                           icon="/resources/icons/delete.png"
-                                           actionListener="#{pageFlowScope.StandardRateSetupBean.onDocumentsDelete}"/>
-                            </af:toolbar>
-                        </f:facet>
-                        <f:facet name="statusbar"/>
-                        <af:table value="#{bindings.SgsStdRateDocVO1.collectionModel}" var="row"
-                                  rows="#{bindings.SgsStdRateDocVO1.rangeSize}"
-                                  emptyText="#{bindings.SgsStdRateDocVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  rowBandingInterval="0" fetchSize="#{bindings.SgsStdRateDocVO1.rangeSize}" id="t5"
-                                  rowSelection="single">
-                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}" id="c2">
-                                <af:inputText value="#{row.bindings.DocTypeValue.inputValue}"
-                                              label="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}"
-                                              required="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.mandatory}"
-                                              columns="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.displayWidth}"
-                                              maximumLength="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.precision}"
-                                              shortDesc="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.tooltip}"
-                                              id="it2">
-                                    <f:validator binding="#{row.bindings.DocTypeValue.validator}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.Attachment.label}" id="c16">
-                                <!--<af:inputText value="#{row.bindings.Attachment.inputValue}"
-                                                  label="#{bindings.SgsStdRateDocVO1.hints.Attachment.label}"
-                                                  required="#{bindings.SgsStdRateDocVO1.hints.Attachment.mandatory}"
-                                                  columns="#{bindings.SgsStdRateDocVO1.hints.Attachment.displayWidth}"
-                                                  maximumLength="#{bindings.SgsStdRateDocVO1.hints.Attachment.precision}"
-                                                  shortDesc="#{bindings.SgsStdRateDocVO1.hints.Attachment.tooltip}"
-                                                  id="it4">
-                                        <f:validator binding="#{row.bindings.Attachment.validator}"/>
-                                    </af:inputText>-->
-                                <af:link text="#{row.bindings.Attachment.inputValue}" id="l1">
-                                    <af:fileDownloadActionListener filename="#{row.Attachment}"
-                                                                   method="#{pageFlowScope.StandardRateSetupBean.onStdRateDocsDownload}"/>
-                                </af:link>
-                            </af:column>
-                            <af:column id="c19" headerText="Uploaded Document">
-                                <af:inputFile id="if2"
-                                              valueChangeListener="#{pageFlowScope.StandardRateSetupBean.onStdRateDocsUpload}"
-                                              autoSubmit="true" uploadType="submit"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.label}" id="c17">
-                                <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
-                                              label="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.label}"
-                                              required="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.mandatory}"
-                                              columns="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.displayWidth}"
-                                              shortDesc="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.tooltip}"
-                                              id="id9">
-                                    <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.format}"/>
-                                </af:inputDate>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.label}" id="c18">
-                                <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
-                                              label="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.label}"
-                                              required="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.mandatory}"
-                                              columns="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.displayWidth}"
-                                              shortDesc="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.tooltip}"
-                                              id="id10">
-                                    <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.format}"/>
-                                </af:inputDate>
-                            </af:column>
-                        </af:table>
-                    </af:panelCollection>
-                </af:panelBox>
                 <af:panelBox text="Standard Rate Lines Setup " id="pb2">
                     <f:facet name="toolbar"/>
                     <af:panelCollection id="pc1" styleClass="AFStretchWidth">
@@ -314,7 +238,8 @@
                                   filterModel="#{bindings.SgsStdRateLineTblVO4Query.queryDescriptor}"
                                   filterVisible="true"
                                   queryListener="#{bindings.SgsStdRateLineTblVO4Query.processQuery}" varStatus="vs"
-                                  id="t2" columnStretching="last" partialTriggers="::b7 ::b9" styleClass="setup">
+                                  id="t2" columnStretching="last" partialTriggers="::b7 ::b9" styleClass="setup"
+                                  autoHeightRows="10" scrollPolicy="scroll">
                             <!--<af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.label}"
@@ -616,6 +541,82 @@
                                               id="id8">
                                     <f:validator binding="#{row.bindings.EffectiveStartDate.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.SgsStdRateLineTblVO4.hints.EffectiveStartDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelBox>
+                <af:panelBox text="Standard Rate Supporting Document" id="pb3">
+                    <f:facet name="toolbar"/>
+                    <af:panelCollection id="pc2">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t4">
+                                <af:button id="b4" actionListener="#{bindings.CreateInsertDoc.execute}"
+                                           disabled="#{!bindings.CreateInsertDoc.enabled}"
+                                           icon="/resources/icons/plus.png"/>
+                                <af:button id="b5" disabled="#{!bindings.DeleteDoc.enabled}"
+                                           icon="/resources/icons/delete.png"
+                                           actionListener="#{pageFlowScope.StandardRateSetupBean.onDocumentsDelete}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.SgsStdRateDocVO1.collectionModel}" var="row"
+                                  rows="#{bindings.SgsStdRateDocVO1.rangeSize}"
+                                  emptyText="#{bindings.SgsStdRateDocVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.SgsStdRateDocVO1.rangeSize}" id="t5"
+                                  rowSelection="single">
+                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}" id="c2">
+                                <af:inputText value="#{row.bindings.DocTypeValue.inputValue}"
+                                              label="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}"
+                                              required="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.mandatory}"
+                                              columns="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.displayWidth}"
+                                              maximumLength="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.precision}"
+                                              shortDesc="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.tooltip}"
+                                              id="it2">
+                                    <f:validator binding="#{row.bindings.DocTypeValue.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.Attachment.label}" id="c16">
+                                <!--<af:inputText value="#{row.bindings.Attachment.inputValue}"
+                                                  label="#{bindings.SgsStdRateDocVO1.hints.Attachment.label}"
+                                                  required="#{bindings.SgsStdRateDocVO1.hints.Attachment.mandatory}"
+                                                  columns="#{bindings.SgsStdRateDocVO1.hints.Attachment.displayWidth}"
+                                                  maximumLength="#{bindings.SgsStdRateDocVO1.hints.Attachment.precision}"
+                                                  shortDesc="#{bindings.SgsStdRateDocVO1.hints.Attachment.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.Attachment.validator}"/>
+                                    </af:inputText>-->
+                                <af:link text="#{row.bindings.Attachment.inputValue}" id="l1">
+                                    <af:fileDownloadActionListener filename="#{row.Attachment}"
+                                                                   method="#{pageFlowScope.StandardRateSetupBean.onStdRateDocsDownload}"/>
+                                </af:link>
+                            </af:column>
+                            <af:column id="c19" headerText="Uploaded Document">
+                                <af:inputFile id="if2"
+                                              valueChangeListener="#{pageFlowScope.StandardRateSetupBean.onStdRateDocsUpload}"
+                                              autoSubmit="true" uploadType="submit"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.label}" id="c17">
+                                <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                              label="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.label}"
+                                              required="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.mandatory}"
+                                              columns="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.displayWidth}"
+                                              shortDesc="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.tooltip}"
+                                              id="id9">
+                                    <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsStdRateDocVO1.hints.EffectiveFrom.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.label}" id="c18">
+                                <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                              label="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.label}"
+                                              required="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.mandatory}"
+                                              columns="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.displayWidth}"
+                                              shortDesc="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.tooltip}"
+                                              id="id10">
+                                    <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.SgsStdRateDocVO1.hints.EffectiveTo.format}"/>
                                 </af:inputDate>
                             </af:column>
                         </af:table>

@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import java.net.MalformedURLException;
 
@@ -23,6 +24,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -42,6 +44,7 @@ import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichColumn;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
@@ -117,6 +120,9 @@ public class ActionEventsBean {
     private RichPopup invoicecreditmemobindpopup;
     private RichColumn selectcolInvoiceDBBind;
     private RichSelectBooleanCheckbox selectcheckInvoiceBind;
+    private RichInputText inputTransactionAmount;
+    private RichInputText inputBankCharge;
+    private RichTable tablePaymentRecords;
 
     public ActionEventsBean() {
     }
@@ -887,33 +893,173 @@ public class ActionEventsBean {
     public void onSelectAllForSettlement(ValueChangeEvent valueChangeEvent) {
         System.out.println("Checkbox At create settlement 11 :: " + valueChangeEvent.getNewValue());
     }
+    
+    
+//    public void settlePayments() {
+//       // Payment settlement logic goes here
+//    double transactionAmount = ((Number) AdfFacesContext.getCurrentInstance().getELContext().getELResolver().getValue(AdfFacesContext.getCurrentInstance().getELContext(), null, "inputTransactionAmount.getValue()")).doubleValue();
+//    double bankCharge = ((Number) AdfFacesContext.getCurrentInstance().getELContext().getELResolver().getValue(AdfFacesContext.getCurrentInstance().getELContext(), null, "inputBankCharge.getValue()")).doubleValue();
+//
+//
+//    DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+//    DCIteratorBinding paymentIterator = bindings.findIteratorBinding("tablePaymentRecordsIterator");
+//
+//
+//    paymentIterator.executeQuery();
+//    while (paymentIterator.hasNext()) {
+//       Row paymentRow = paymentIterator.next();
+//       String settlementStatus = (String)paymentRow.getAttribute("SettlementStatus");
+//       double outstandingAmount = ((Number)paymentRow.getAttribute("OutstandingAmount")).doubleValue();
+//       double netPayableAmount = ((Number)paymentRow.getAttribute("NetPayableAmount")).doubleValue();
+//       double settlementAmount = 0;
+//       double bankChargeAmount = 0;
+//       if ("unpaid".equals(settlementStatus)) {
+//          if (transactionAmount >= outstandingAmount) {
+//             settlementAmount = outstandingAmount;
+//             settlementStatus = "Settled";
+//             transactionAmount -= outstandingAmount;
+//             bankChargeAmount = bankCharge;
+//          } else {
+//             settlementAmount = transactionAmount;
+//             settlementStatus = "Partially settled";
+//             transactionAmount = 0;
+//          }
+//          paymentRow.setAttribute("SettlementStatus", settlementStatus);
+//          paymentRow.setAttribute("SettlementAmount", settlementAmount);
+//          paymentRow.setAttribute("BankCharge", bankChargeAmount);
+//          paymentRow.setAttribute("OutstandingAmount", netPayableAmount - settlementAmount);
+//       }
+//       if (transactionAmount <= 0) {
+//          break;
+//       }
+//    }
+//    AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords);
+//
+//
+//
+//
+//
+//    }
 
     public void onGenerateSettlementEvent(ActionEvent actionEvent) {
+        
+        
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        String PAYMENTID = (String) row.getAttribute("PAYMENTID");
-        Date PAYMENTDATE = (Date) row.getAttribute("PAYMENTDATE");
-        String DISBUSEMENTBANKACCOUNT = (String) row.getAttribute("DISBUSEMENTBANKACCOUNT");
-        String RECEIVERBANKACCOUNT = (String) row.getAttribute("RECEIVERBANKACCOUNT");
-        String PAYMENTMETHOD = (String) row.getAttribute("PAYMENTMETHOD");
-        String TRANSACTIONREFERENCENO = (String) row.getAttribute("TRANSACTIONREFERENCENO");
-        String PAYMENTCURRENCY = (String) row.getAttribute("PAYMENTCURRENCY");
-        BigDecimal TRXAMOUNT = (BigDecimal) row.getAttribute("TRXAMOUNT");
+       
+        double transactionAmount = ((Number)row.getAttribute("TRXAMOUNT")).doubleValue();
+        double bankCharge = ((Number)row.getAttribute("BANKCHARGES")).doubleValue();
         
-        System.out.println("PAYMENTID 11 :: " + PAYMENTID);
 
-        System.out.println("PAYMENTDATE 11 :: " + PAYMENTDATE);
-        System.out.println("DISBUSEMENTBANKACCOUNT 11 :: " + DISBUSEMENTBANKACCOUNT);
-        System.out.println("RECEIVERBANKACCOUNT 11 :: " + RECEIVERBANKACCOUNT);
-        System.out.println("PAYMENTMETHOD 11 :: " + PAYMENTMETHOD);
-        System.out.println("TRANSACTIONREFERENCENO 11 :: " + TRANSACTIONREFERENCENO);
-        System.out.println("PAYMENTCURRENCY 11 :: " + PAYMENTCURRENCY);
-        System.out.println("TRXAMOUNT 11 :: " + TRXAMOUNT);
+        System.out.println("TRX AMOUNT  :: " + transactionAmount);
+        System.out.println("BankCharge  :: " + bankCharge);
+
+//        ViewObject paymentIterator = ADFUtils.findIterator("SgsCreateSettlementVO1Iterator").getViewObject();
+
+//        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+//        DCIteratorBinding paymentIterator = bindings.findIteratorBinding("SgsCreateSettlementVO1Iterator");
+        ViewObject paymentIterator = ADFUtils.findIterator("SgsCreateSettlementVO1Iterator").getViewObject();
+        Row[] rows = paymentIterator.getAllRowsInRange();
+        boolean isFirstRow = true;
         
-        //SgsStlmtVoucherVO1Iterator
-       // SgsStlmtInvVO1Iterator
+       for(Row paymentRow:getUnpaidAndPartiallySettledRows()) {
+           
+            
+           String settlementStatus = (String)paymentRow.getAttribute("SETTLEMENTSTATUS");
+           String paymentStatus = (String)paymentRow.getAttribute("PAYMENTSTATUS");
+           double outstandingAmount = ((Number)paymentRow.getAttribute("OUTSTANDINGAMOUNT")).doubleValue();
+           double netPayableAmount = ((Number)paymentRow.getAttribute("NETAMOUNTPAYABLE")).doubleValue();
+           double settlementAmount = 0;
+//           double bankChargeAmount = 0;
+           
+
+           if ("Unpaid".equals(settlementStatus)) {
+              if (transactionAmount >= outstandingAmount) {
+                 settlementAmount = outstandingAmount;
+                 settlementStatus = "Settled";
+                 paymentStatus ="Fully Paid";
+      
+              } else {
+                  
+                  DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                  decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                  settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
+                 
+                
+                 settlementStatus = "Partially settled";
+                 paymentStatus ="Partially Paid";
+                 transactionAmount = 0;
+              }
+               if (isFirstRow) {
+                   paymentRow.setAttribute("BankCharges", bankCharge);
+                   isFirstRow = false;
+               }
+              
+              transactionAmount -= outstandingAmount;
+              paymentRow.setAttribute("SETTLEMENTSTATUS", settlementStatus);
+              paymentRow.setAttribute("PAYMENTSTATUS", paymentStatus);
+              paymentRow.setAttribute("SETTLEMENTAMOUNT", settlementAmount);
+               DecimalFormat decimalFormat = new DecimalFormat("#.##");
+               decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+              paymentRow.setAttribute("OUTSTANDINGAMOUNT", Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+           } else{
+                if (transactionAmount >= outstandingAmount) {
+                    settlementAmount = netPayableAmount;
+                    settlementStatus = "Settled";
+                    paymentStatus = "Fully Paid";
+
+
+                }else {
+                  
+                  DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                  decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                  settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
+                 
+                
+                 settlementStatus = "Partially settled";
+                 paymentStatus ="Partially Paid";
+                 transactionAmount = 0;
+              }
+               if (isFirstRow) {
+                   paymentRow.setAttribute("BankCharges", bankCharge);
+                   isFirstRow = false;
+               }
+              
+              transactionAmount -= outstandingAmount;
+              paymentRow.setAttribute("SETTLEMENTSTATUS", settlementStatus);
+              paymentRow.setAttribute("PAYMENTSTATUS", paymentStatus);
+              paymentRow.setAttribute("SETTLEMENTAMOUNT", settlementAmount);
+               DecimalFormat decimalFormat = new DecimalFormat("#.##");
+               decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+              paymentRow.setAttribute("OUTSTANDINGAMOUNT", Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+
+
+           }
+           if (transactionAmount <= 0) {
+              break;
+           }
+        }
+        executeBinding(SAVE_DATA);
+       
+        AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords);
+
+
         
     }
+    
+    private Row[] getUnpaidAndPartiallySettledRows() {
+            ViewObject vo = getPaymentSettlementVO();
+            vo.setWhereClause("SETTLEMENT_STATUS IN ('Unpaid', 'Partially Settled')");
+            vo.executeQuery();
+            return vo.getAllRowsInRange();
+        }
+
+        private ViewObject getPaymentSettlementVO() {
+            DCBindingContainer binding = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+            DCIteratorBinding iterator = binding.findIteratorBinding("SgsCreateSettlementVO1Iterator");
+            return iterator.getViewObject();
+        }
+            
 
     public void onCreateSettlementSearch(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
@@ -1881,6 +2027,30 @@ public class ActionEventsBean {
 
     public void onSettlementTypeVL(ValueChangeEvent valueChangeEvent) {
         System.out.println("Settlement Type:: "+valueChangeEvent.getNewValue());
+    }
+
+    public void setInputTransactionAmount(RichInputText inputTransactionAmount) {
+        this.inputTransactionAmount = inputTransactionAmount;
+    }
+
+    public RichInputText getInputTransactionAmount() {
+        return inputTransactionAmount;
+    }
+
+    public void setInputBankCharge(RichInputText inputBankCharge) {
+        this.inputBankCharge = inputBankCharge;
+    }
+
+    public RichInputText getInputBankCharge() {
+        return inputBankCharge;
+    }
+
+    public void setTablePaymentRecords(RichTable tablePaymentRecords) {
+        this.tablePaymentRecords = tablePaymentRecords;
+    }
+
+    public RichTable getTablePaymentRecords() {
+        return tablePaymentRecords;
     }
 }
 

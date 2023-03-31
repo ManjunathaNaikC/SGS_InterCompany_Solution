@@ -2,6 +2,18 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelBox text="Create Settlement" id="pb1">
+    <af:spacer id="s7" height="20"/>
+    <af:panelGroupLayout id="pgl6" layout="horizontal">
+      <af:selectOneChoice value="#{bindings.MEANING.inputValue}" label="#{bindings.MEANING.label}"
+                          required="#{bindings.MEANING.hints.mandatory}" shortDesc="#{bindings.MEANING.hints.tooltip}"
+                          id="soc7" autoSubmit="true"
+                          valueChangeListener="#{viewScope.ActionEventsBean.onSettlementTypeVL}"
+                          partialTriggers="t1 pc1">
+        <f:selectItems value="#{bindings.MEANING.items}" id="si7"/>
+        <f:validator binding="#{bindings.MEANING.validator}"/>
+      </af:selectOneChoice>
+    </af:panelGroupLayout>
+    <af:spacer id="s6" height="20"/>
     <f:facet name="toolbar"/>
     <af:panelBox text="Search" id="pb2">
       <f:facet name="toolbar"/>
@@ -97,14 +109,25 @@
                       required="#{bindings.TRXAMOUNT.hints.mandatory}"
                       columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
                       maximumLength="#{bindings.TRXAMOUNT.hints.precision}"
-                      shortDesc="#{bindings.TRXAMOUNT.hints.tooltip}" id="it11" autoSubmit="true">
+                      shortDesc="#{bindings.TRXAMOUNT.hints.tooltip}" id="it11" autoSubmit="true"
+                      binding="#{viewScope.ActionEventsBean.inputTransactionAmount}">
           <f:validator binding="#{bindings.TRXAMOUNT.validator}"/>
           <af:convertNumber groupingUsed="false" pattern="#{bindings.TRXAMOUNT.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.BANKCHARGES.inputValue}" label="#{bindings.BANKCHARGES.hints.label}"
+                      required="#{bindings.BANKCHARGES.hints.mandatory}"
+                      columns="#{bindings.BANKCHARGES.hints.displayWidth}"
+                      maximumLength="#{bindings.BANKCHARGES.hints.precision}"
+                      shortDesc="#{bindings.BANKCHARGES.hints.tooltip}" id="it2"
+                      binding="#{viewScope.ActionEventsBean.inputBankCharge}">
+          <f:validator binding="#{bindings.BANKCHARGES.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.BANKCHARGES.format}"/>
         </af:inputText>
         <f:facet name="footer">
           <af:panelGroupLayout id="pgl5" layout="horizontal" halign="right">
             <af:button text="Generate Settlement" id="b1"
                        actionListener="#{viewScope.ActionEventsBean.onGenerateSettlementEvent}"/>
+                       
           </af:panelGroupLayout>
         </f:facet>
       </af:panelFormLayout>
@@ -128,16 +151,6 @@
       </af:gridRow>
     </af:panelGridLayout>
     <af:spacer id="s5" height="15"/>
-    <af:panelGroupLayout id="pgl6" layout="horizontal">
-      <af:selectOneChoice value="#{bindings.MEANING.inputValue}" label="#{bindings.MEANING.label}"
-                          required="#{bindings.MEANING.hints.mandatory}" shortDesc="#{bindings.MEANING.hints.tooltip}"
-                          id="soc7" autoSubmit="true"
-                          valueChangeListener="#{viewScope.ActionEventsBean.onSettlementTypeVL}"
-                          partialTriggers="t1 pc1">
-        <f:selectItems value="#{bindings.MEANING.items}" id="si7"/>
-        <f:validator binding="#{bindings.MEANING.validator}"/>
-      </af:selectOneChoice>
-    </af:panelGroupLayout>
     <af:spacer id="s2" height="10"/>
     <af:table value="#{bindings.SgsCreateSettlementVO1.collectionModel}" var="row"
               rows="#{bindings.SgsCreateSettlementVO1.rangeSize}"
@@ -146,7 +159,8 @@
               rowSelection="multiple" fetchSize="#{bindings.SgsCreateSettlementVO1.rangeSize}"
               filterModel="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor}" filterVisible="false"
               queryListener="#{bindings.SgsCreateSettlementVO1Query.processQuery}" varStatus="vs" id="t1"
-              styleClass="AFStretchWidth" rendered="#{bindings.MEANING.inputValue eq 'CONTRACT_CASH'}">
+              styleClass="AFStretchWidth" rendered="#{bindings.MEANING.inputValue eq 'INTER_COMPANY_SETTLEMENT'}"
+              binding="#{viewScope.ActionEventsBean.tablePaymentRecords}">
         <af:column headerText="#{bindings.SgsCreateSettlementVO1.hints.SELECTRECORDS.label}"
                   id="c1" binding="#{viewScope.ActionEventsBean.bindSettlementSelectColumn}">
         <af:selectBooleanCheckbox value="#{row.bindings.SELECTRECORDS.inputValue}"
@@ -199,6 +213,14 @@
                             pattern="#{bindings.SgsCreateSettlementVO1.hints.NETAMOUNTPAYABLE.format}"/>
         </af:outputText>
       </af:column>
+      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.label}" id="c8">
+        <af:outputText value="#{row.SETTLEMENTAMOUNT}"
+                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.tooltip}" id="ot5">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.format}"/>
+        </af:outputText>
+      </af:column>
       <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.OUTSTANDINGAMOUNT.name}" filterable="true"
                  sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.OUTSTANDINGAMOUNT.label}" id="c7">
         <af:outputText value="#{row.OUTSTANDINGAMOUNT}"
@@ -207,12 +229,10 @@
                             pattern="#{bindings.SgsCreateSettlementVO1.hints.OUTSTANDINGAMOUNT.format}"/>
         </af:outputText>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.label}" id="c8">
-        <af:outputText value="#{row.SETTLEMENTAMOUNT}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.tooltip}" id="ot5">
-          <af:convertNumber groupingUsed="false"
-                            pattern="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.format}"/>
+      <af:column headerText="#{bindings.SgsCreateSettlementVO1.hints.BankCharges.label}" id="c19">
+        <af:outputText value="#{row.BankCharges}"
+                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.BankCharges.tooltip}" id="ot19">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsCreateSettlementVO1.hints.BankCharges.format}"/>
         </af:outputText>
       </af:column>
       <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.PAYMENTSTATUS.name}" filterable="true"
@@ -227,7 +247,7 @@
       </af:column>
     </af:table>
     <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                        rendered="#{bindings.MEANING.inputValue eq 'INTER_COMPANY_SETTLEMENT'}">
+                        rendered="#{bindings.MEANING.inputValue eq 'CONTRACT_CASH'}">
       <f:facet name="menus"/>
       <f:facet name="toolbar"/>
       <f:facet name="statusbar"/>

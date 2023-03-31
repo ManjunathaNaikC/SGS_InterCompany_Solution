@@ -71,6 +71,7 @@
           <Item Value="SETTLEMENTAMOUNT"/>
           <Item Value="PAYMENTSTATUS"/>
           <Item Value="SETTLEMENTSTATUS"/>
+          <Item Value="BankCharges"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -107,5 +108,10 @@
     </tree>
     <list IterBinding="SettlementTypeLOVVO1Iterator" StaticList="false" Uses="LOV_MEANING" id="MEANING"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="BANKCHARGES">
+      <AttrNames>
+        <Item Value="BANKCHARGES"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

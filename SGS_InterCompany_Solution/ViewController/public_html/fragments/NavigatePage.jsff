@@ -94,7 +94,12 @@
                                              action="#{pageFlowScope.navigateBean.sgsAllocationRunflow}" id="arp01"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Reports" text="Reports" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('REPORTS')}"/>
+                            <af:showDetailItem id="Reports" text="Reports" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('REPORTS')}">
+                                <af:panelList id="pl4">
+                                    <af:link text="Reports"
+                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l14"/>
+                                </af:panelList>
+                            </af:showDetailItem>
                             <af:showDetailItem id="Security" text="Security" disclosed="true" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}">
                                 <f:facet name="toolbar"/>
                             </af:showDetailItem>

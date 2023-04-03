@@ -453,4 +453,9 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs_creditmemo_flow.xml#sgs_creditmemo_flow");
         return null;
     }
+
+    public String sgsreportsflow() {
+        setDynamicTaskFlowId("/taskflows/Reports/sgs-reports-flow.xml#sgs-reports-flow");
+        return null;
+    }
 }

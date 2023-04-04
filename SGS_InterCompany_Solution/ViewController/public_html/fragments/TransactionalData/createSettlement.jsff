@@ -152,22 +152,22 @@
     </af:panelGridLayout>
     <af:spacer id="s5" height="15"/>
     <af:spacer id="s2" height="10"/>
-    <af:table value="#{bindings.SgsCreateSettlementVO1.collectionModel}" var="row"
-              rows="#{bindings.SgsCreateSettlementVO1.rangeSize}"
+    <af:table value="#{bindings.SgsStlmtVoucherVO1.collectionModel}" var="row"
+              rows="#{bindings.SgsStlmtVoucherVO1.rangeSize}"
               rendered="#{bindings.MEANING.inputValue eq 'INTER_COMPANY_SETTLEMENT'}"
-              emptyText="#{bindings.SgsCreateSettlementVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-              rowBandingInterval="0" selectedRowKeys="#{bindings.SgsCreateSettlementVO1.collectionModel.selectedRow}"
-              rowSelection="multiple" fetchSize="#{bindings.SgsCreateSettlementVO1.rangeSize}"
+              emptyText="#{bindings.SgsStlmtVoucherVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.SgsStlmtVoucherVO1.collectionModel.selectedRow}"
+              rowSelection="multiple" fetchSize="#{bindings.SgsStlmtVoucherVO1.rangeSize}"
               filterModel="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor}" filterVisible="false"
               queryListener="#{bindings.SgsCreateSettlementVO1Query.processQuery}" varStatus="vs" id="t1"
-              styleClass="AFStretchWidth" rendered="#{bindings.MEANING.inputValue eq 'INTER_COMPANY_SETTLEMENT'}"
+              styleClass="AFStretchWidth"
               binding="#{viewScope.ActionEventsBean.tablePaymentRecords}">
-              styleClass="AFStretchWidth" >
-        <af:column headerText="#{bindings.SgsCreateSettlementVO1.hints.SELECTRECORDS.label}"
+             
+        <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.label}"
                   id="c1" binding="#{viewScope.ActionEventsBean.bindSettlementSelectColumn}">
-        <af:selectBooleanCheckbox value="#{row.bindings.SELECTRECORDS.inputValue}"
-                                  label="#{row.bindings.SELECTRECORDS.label}"
-                                  shortDesc="#{bindings.SgsCreateSettlementVO1.hints.SELECTRECORDS.tooltip}" id="sbc1"
+        <af:selectBooleanCheckbox value="#{row.bindings.SelectRecord.inputValue}"
+                                  label="#{row.bindings.SelectRecord.label}"
+                                  shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.tooltip}" id="sbc1"
                                   binding="#{viewScope.ActionEventsBean.bindSettlementRowCheckBox}"/>
         <!--<af:selectBooleanCheckbox value="#{row.bindings.SELECTRECORDS.inputValue}"
                                   label="#{row.bindings.SELECTRECORDS.label}"
@@ -179,73 +179,73 @@
                                     partialTriggers="::t1 c1 sbc1" autoSubmit="true"/>
         </f:facet>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.DATE.name}" filterable="true" sortable="true"
-                 headerText="#{bindings.SgsCreateSettlementVO1.hints.DATE.label}" id="c2">
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.label}" id="c2">
         <f:facet name="filter">
-          <af:inputDate value="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DATE.value}"
+          <af:inputDate value="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AcctDate.value}"
                         id="id2">
-            <af:convertDateTime pattern="#{bindings.SgsCreateSettlementVO1.hints.DATE.format}"/>
+            <af:convertDateTime pattern="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.format}"/>
           </af:inputDate>
         </f:facet>
-        <af:outputText value="#{row.DATE}" shortDesc="#{bindings.SgsCreateSettlementVO1.hints.DATE.tooltip}" id="ot3">
-          <af:convertDateTime pattern="#{bindings.SgsCreateSettlementVO1.hints.DATE.format}"/>
+        <af:outputText value="#{row.DATE}" shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.tooltip}" id="ot3">
+          <af:convertDateTime pattern="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.format}"/>
         </af:outputText>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.PSVOUCHERNUMBER.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.PSVOUCHERNUMBER.label}" id="c3">
-        <af:outputText value="#{row.PSVOUCHERNUMBER}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.PSVOUCHERNUMBER.tooltip}" id="ot2"/>
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.label}" id="c3">
+        <af:outputText value="#{row.PsVoucherNo}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.tooltip}" id="ot2"/>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.PSINVOICENUMBER.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.PSINVOICENUMBER.label}" id="c4">
-        <af:outputText value="#{row.PSINVOICENUMBER}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.PSINVOICENUMBER.tooltip}" id="ot9"/>
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.label}" id="c4">
+        <af:outputText value="#{row.RefToArInvoice}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.tooltip}" id="ot9"/>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.TRANSACTIONCURRENCY.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.TRANSACTIONCURRENCY.label}"
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.NetAmountPayable.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.NetAmountPayable.label}" id="c6">
+        <af:outputText value="#{row.NetAmountPayable}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.NetAmountPayable.tooltip}" id="ot7">
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.SgsStlmtVoucherVO1.hints.NetAmountPayable.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.label}"
                  id="c5">
-        <af:outputText value="#{row.TRANSACTIONCURRENCY}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.TRANSACTIONCURRENCY.tooltip}" id="ot11"/>
+        <af:outputText value="#{row.TxnCurrency}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.tooltip}" id="ot11"/>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.NETAMOUNTPAYABLE.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.NETAMOUNTPAYABLE.label}" id="c6">
-        <af:outputText value="#{row.NETAMOUNTPAYABLE}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.NETAMOUNTPAYABLE.tooltip}" id="ot7">
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.StlmtAmount.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.StlmtAmount.label}" id="c8">
+        <af:outputText value="#{row.StlmtAmount}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.StlmtAmount.tooltip}" id="ot5">
           <af:convertNumber groupingUsed="false"
-                            pattern="#{bindings.SgsCreateSettlementVO1.hints.NETAMOUNTPAYABLE.format}"/>
+                            pattern="#{bindings.SgsStlmtVoucherVO1.hints.StlmtAmount.format}"/>
         </af:outputText>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.label}" id="c8">
-        <af:outputText value="#{row.SETTLEMENTAMOUNT}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.tooltip}" id="ot5">
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.OsAmountPayable.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.OsAmountPayable.label}" id="c7">
+        <af:outputText value="#{row.OsAmountPayable}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.OsAmountPayable.tooltip}" id="ot10">
           <af:convertNumber groupingUsed="false"
-                            pattern="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTAMOUNT.format}"/>
+                            pattern="#{bindings.SgsStlmtVoucherVO1.hints.OsAmountPayable.format}"/>
         </af:outputText>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.OUTSTANDINGAMOUNT.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.OUTSTANDINGAMOUNT.label}" id="c7">
-        <af:outputText value="#{row.OUTSTANDINGAMOUNT}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.OUTSTANDINGAMOUNT.tooltip}" id="ot10">
-          <af:convertNumber groupingUsed="false"
-                            pattern="#{bindings.SgsCreateSettlementVO1.hints.OUTSTANDINGAMOUNT.format}"/>
+      <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.BANKCHARGES.label}" id="c19">
+        <af:outputText value="#{row.BANKCHARGES}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.BANKCHARGES.tooltip}" id="ot19">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsStlmtVoucherVO1.hints.BANKCHARGES.format}"/>
         </af:outputText>
       </af:column>
-      <af:column headerText="#{bindings.SgsCreateSettlementVO1.hints.BankCharges.label}" id="c19">
-        <af:outputText value="#{row.BankCharges}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.BankCharges.tooltip}" id="ot19">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsCreateSettlementVO1.hints.BankCharges.format}"/>
-        </af:outputText>
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.PaymentStatus.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.PaymentStatus.label}" id="c9">
+        <af:outputText value="#{row.PaymentStatus}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.PaymentStatus.tooltip}" id="ot6"/>
       </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.PAYMENTSTATUS.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.PAYMENTSTATUS.label}" id="c9">
-        <af:outputText value="#{row.PAYMENTSTATUS}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.PAYMENTSTATUS.tooltip}" id="ot6"/>
-      </af:column>
-      <af:column sortProperty="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTSTATUS.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTSTATUS.label}" id="c10">
-        <af:outputText value="#{row.SETTLEMENTSTATUS}"
-                       shortDesc="#{bindings.SgsCreateSettlementVO1.hints.SETTLEMENTSTATUS.tooltip}" id="ot4"/>
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.StlmtStatus.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.StlmtStatus.label}" id="c10">
+        <af:outputText value="#{row.StlmtStatus}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.StlmtStatus.tooltip}" id="ot4"/>
       </af:column>
     </af:table>
     <af:panelCollection id="pc1" styleClass="AFStretchWidth"

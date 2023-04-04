@@ -18,6 +18,10 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsContraCashTblVO1Query"/>
     <iterator Binds="SettlementTypeLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SettlementTypeLOVVO1Iterator"/>
+    <!--<iterator id="SgsStlmtVoucherVO1Iterator1" Binds="SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="SgsStlmtVoucherVO1Iterator2" Binds="SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>-->
   </executables>
   <bindings>
     <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="PAYMENTID">
@@ -58,20 +62,20 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICCUSTOMERBU" id="ICCUSTOMERBU"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <tree IterBinding="SgsCreateSettlementVO1Iterator" id="SgsCreateSettlementVO1">
-      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsCreateSettlementVO" Name="SgsCreateSettlementVO10">
+    <tree IterBinding="SgsStlmtVoucherVO1Iterator" id="SgsStlmtVoucherVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO" Name="SgsStlmtVoucherVO10">
         <AttrNames>
-          <Item Value="SELECTRECORDS" Binds="SELECTRECORDS"/>
-          <Item Value="DATE"/>
-          <Item Value="PSVOUCHERNUMBER"/>
-          <Item Value="PSINVOICENUMBER"/>
-          <Item Value="TRANSACTIONCURRENCY"/>
-          <Item Value="NETAMOUNTPAYABLE"/>
-          <Item Value="OUTSTANDINGAMOUNT"/>
-          <Item Value="SETTLEMENTAMOUNT"/>
-          <Item Value="PAYMENTSTATUS"/>
-          <Item Value="SETTLEMENTSTATUS"/>
-          <Item Value="BankCharges"/>
+          <Item Value="SelectRecord"/>
+          <Item Value="AcctDate"/>
+          <Item Value="PsVoucherNo"/>
+          <Item Value="RefToArInvoice"/>
+          <Item Value="TxnCurrency"/>
+          <Item Value="NetAmountPayable"/>
+          <Item Value="OsAmountPayable"/>
+          <Item Value="StlmtAmount"/>
+          <Item Value="PaymentStatus"/>
+          <Item Value="StlmtStatus"/>
+          <Item Value="BANKCHARGES"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -79,9 +83,9 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYMENTMETHOD" id="PAYMENTMETHOD"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <button IterBinding="SgsCreateSettlementVO1Iterator" id="SELECTRECORDS" DTSupportsMRU="false" StaticList="true">
+    <button IterBinding="SgsStlmtVoucherVO1Iterator" id="SelectRecord" DTSupportsMRU="false" StaticList="true">
       <AttrNames>
-        <Item Value="SELECTRECORDS"/>
+        <Item Value="SelectRecord"/>
       </AttrNames>
       <ValueList>
         <Item Value="Yes"/>

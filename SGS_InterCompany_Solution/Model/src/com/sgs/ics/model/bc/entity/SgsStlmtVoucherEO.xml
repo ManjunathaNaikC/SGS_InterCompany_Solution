@@ -492,6 +492,39 @@
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="BANKCHARGES"
+    Precision="20"
+    Scale="2"
+    ColumnName="BANK_CHARGES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="SGS_STLMT_VOUCHER"/>
+  <Attribute
+    Name="PAYMENTCURRENCY"
+    Precision="100"
+    ColumnName="PAYMENT_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PURPOSECODE"
+    Precision="100"
+    ColumnName="PURPOSE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTLMTVOUCHER"
     PrimaryKey="true">

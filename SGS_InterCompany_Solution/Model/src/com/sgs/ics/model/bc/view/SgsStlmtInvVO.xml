@@ -588,6 +588,18 @@
     EntityAttrName="RECEIVERBANKACCOUNT"
     EntityUsage="SgsStlmtInvEO"
     AliasName="RECEIVER_BANK_ACCOUNT"/>
+  <ViewAttribute
+    Name="PURPOSECODE"
+    PrecisionRule="true"
+    EntityAttrName="PURPOSECODE"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="PURPOSE_CODE"/>
+  <ViewAttribute
+    Name="PAYMENTCURRENCY"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTCURRENCY"
+    EntityUsage="SgsStlmtInvEO"
+    AliasName="PAYMENT_CURRENCY"/>
   <ViewCriteria
     Name="SgsStlmtInvVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtInvVO"

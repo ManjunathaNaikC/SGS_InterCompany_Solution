@@ -864,21 +864,21 @@ public class ActionEventsBean {
     public void onCreateSettlementSelectAll(ValueChangeEvent valueChangeEvent) {
         System.out.println("Checkbox At create settlement :: " + valueChangeEvent.getNewValue());
         DCIteratorBinding settlementData = null;
-        settlementData = getDCIteratorBindings("SgsCreateSettlementVO1Iterator");
+        settlementData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         oracle.jbo.Row[] settlementDataDatarows = settlementData.getAllRowsInRange();
         if ((Boolean)valueChangeEvent.getNewValue()) {
             System.out.println("settlementDataDatarows Datarows:: " + settlementDataDatarows.length);
             for (int i = 0; i < settlementDataDatarows.length; i++) {
-                System.out.println(" SELECTRECORDS :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
-                 settlementDataDatarows[i].setAttribute("SELECTRECORDS", "Yes");
-                System.out.println(" settlementDataDatarows SELECTRECORDS :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
+                System.out.println(" SelectRecord :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
+                 settlementDataDatarows[i].setAttribute("SelectRecord", "Yes");
+                System.out.println(" settlementDataDatarows SelectRecord :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
             }               
         }else {
             System.out.println("settlementDataDatarows Datarows else:: " + settlementDataDatarows.length);
             for (int i = 0; i < settlementDataDatarows.length; i++) {
-                System.out.println("SELECTRECORDS  :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
-                settlementDataDatarows[i].setAttribute("SELECTRECORDS", "No");
-                System.out.println(" SELECTRECORDS rows :: " + settlementDataDatarows[i].getAttribute("SELECTRECORDS"));
+                System.out.println("SelectRecord  :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
+                settlementDataDatarows[i].setAttribute("SelectRecord", "No");
+                System.out.println(" SelectRecord rows :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
             }
         }
 //        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementRowCheckBox);
@@ -1093,27 +1093,27 @@ public class ActionEventsBean {
         voucherView.executeQuery();
 
 
-        oracle.jbo.Row[] voucherDatarows = voucherView.getAllRowsInRange();
-        System.out.println(" voucherDatarows length :: " + voucherDatarows.length);
-        DCIteratorBinding createSettlementData = getDCIteratorBindings("SgsCreateSettlementVO1Iterator");
-        for (int i = 0; i < voucherDatarows.length; i++) {
-            System.out.println(" PsVoucherNo :: " + voucherDatarows[i].getAttribute("PsVoucherNo"));
-            executeBinding("CreateSettlement");
-            Row row1 = createSettlementData.getCurrentRow();
-            row1.setAttribute("DATE", voucherDatarows[i].getAttribute("AcctDate"));
-            row1.setAttribute("NETAMOUNTPAYABLE", voucherDatarows[i].getAttribute("NetAmountPayable"));
-            row1.setAttribute("OUTSTANDINGAMOUNT", voucherDatarows[i].getAttribute("OsAmountPayable"));
-            row1.setAttribute("PAYMENTSTATUS", voucherDatarows[i].getAttribute("PaymentStatus"));
-            row1.setAttribute("PSINVOICENUMBER", voucherDatarows[i].getAttribute("RefToArInvoice"));
-            row1.setAttribute("PSVOUCHERNUMBER", voucherDatarows[i].getAttribute("PsVoucherNo"));
-            row1.setAttribute("SETTLEMENTAMOUNT", voucherDatarows[i].getAttribute("StlmtAmount"));
-            row1.setAttribute("SETTLEMENTSTATUS", voucherDatarows[i].getAttribute("StlmtStatus"));
-            row1.setAttribute("TRANSACTIONCURRENCY", voucherDatarows[i].getAttribute("TxnCurrency"));
-
-        }
-        executeBinding(SAVE_DATA);
-        ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
-        data.executeQuery();
+//        oracle.jbo.Row[] voucherDatarows = voucherView.getAllRowsInRange();
+//        System.out.println(" voucherDatarows length :: " + voucherDatarows.length);
+//        DCIteratorBinding createSettlementData = getDCIteratorBindings("SgsCreateSettlementVO1Iterator");
+//        for (int i = 0; i < voucherDatarows.length; i++) {
+//            System.out.println(" PsVoucherNo :: " + voucherDatarows[i].getAttribute("PsVoucherNo"));
+//            executeBinding("CreateSettlement");
+//            Row row1 = createSettlementData.getCurrentRow();
+//            row1.setAttribute("DATE", voucherDatarows[i].getAttribute("AcctDate"));
+//            row1.setAttribute("NETAMOUNTPAYABLE", voucherDatarows[i].getAttribute("NetAmountPayable"));
+//            row1.setAttribute("OUTSTANDINGAMOUNT", voucherDatarows[i].getAttribute("OsAmountPayable"));
+//            row1.setAttribute("PAYMENTSTATUS", voucherDatarows[i].getAttribute("PaymentStatus"));
+//            row1.setAttribute("PSINVOICENUMBER", voucherDatarows[i].getAttribute("RefToArInvoice"));
+//            row1.setAttribute("PSVOUCHERNUMBER", voucherDatarows[i].getAttribute("PsVoucherNo"));
+//            row1.setAttribute("SETTLEMENTAMOUNT", voucherDatarows[i].getAttribute("StlmtAmount"));
+//            row1.setAttribute("SETTLEMENTSTATUS", voucherDatarows[i].getAttribute("StlmtStatus"));
+//            row1.setAttribute("TRANSACTIONCURRENCY", voucherDatarows[i].getAttribute("TxnCurrency"));
+//
+//        }
+//        executeBinding(SAVE_DATA);
+   //     ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
+   //     data.executeQuery();
 
 
     }

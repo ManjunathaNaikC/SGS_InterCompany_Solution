@@ -585,6 +585,24 @@
     EntityAttrName="RECEIVERBANKACCOUNT"
     EntityUsage="SgsStlmtVoucherEO"
     AliasName="RECEIVER_BANK_ACCOUNT"/>
+  <ViewAttribute
+    Name="BANKCHARGES"
+    PrecisionRule="true"
+    EntityAttrName="BANKCHARGES"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="BANK_CHARGES"/>
+  <ViewAttribute
+    Name="PAYMENTCURRENCY"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTCURRENCY"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="PAYMENT_CURRENCY"/>
+  <ViewAttribute
+    Name="PURPOSECODE"
+    PrecisionRule="true"
+    EntityAttrName="PURPOSECODE"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="PURPOSE_CODE"/>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"

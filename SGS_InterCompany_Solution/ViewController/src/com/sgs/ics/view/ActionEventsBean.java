@@ -881,8 +881,8 @@ public class ActionEventsBean {
                 System.out.println(" SelectRecord rows :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
             }
         }
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementRowCheckBox);
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementSelectColumn);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementRowCheckBox);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementSelectColumn);
     }
 
     public void setBindSettlementRowCheckBox(RichSelectBooleanCheckbox bindSettlementRowCheckBox) {

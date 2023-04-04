@@ -158,8 +158,8 @@
               emptyText="#{bindings.SgsStlmtVoucherVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
               rowBandingInterval="0" selectedRowKeys="#{bindings.SgsStlmtVoucherVO1.collectionModel.selectedRow}"
               rowSelection="multiple" fetchSize="#{bindings.SgsStlmtVoucherVO1.rangeSize}"
-              filterModel="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor}" filterVisible="false"
-              queryListener="#{bindings.SgsCreateSettlementVO1Query.processQuery}" varStatus="vs" id="t1"
+              filterModel="#{bindings.SgsStlmtVoucherVO1Query.queryDescriptor}" filterVisible="false"
+              queryListener="#{bindings.SgsStlmtVoucherVO1Query.processQuery}" varStatus="vs" id="t1"
               styleClass="AFStretchWidth"
               binding="#{viewScope.ActionEventsBean.tablePaymentRecords}">
              
@@ -167,8 +167,12 @@
                   id="c1" binding="#{viewScope.ActionEventsBean.bindSettlementSelectColumn}">
         <af:selectBooleanCheckbox value="#{row.bindings.SelectRecord.inputValue}"
                                   label="#{row.bindings.SelectRecord.label}"
+                                  binding="#{viewScope.ActionEventsBean.bindSettlementRowCheckBox}"
+                                  shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.tooltip}" id="sbc1"/>
+        <!--<af:selectBooleanCheckbox value="#{row.bindings.SelectRecord.inputValue}"
+                                  label="#{row.bindings.SelectRecord.label}"
                                   shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.tooltip}" id="sbc1"
-                                  binding="#{viewScope.ActionEventsBean.bindSettlementRowCheckBox}"/>
+                                  binding="#{viewScope.ActionEventsBean.bindSettlementRowCheckBox}"/>-->
         <!--<af:selectBooleanCheckbox value="#{row.bindings.SELECTRECORDS.inputValue}"
                                   label="#{row.bindings.SELECTRECORDS.label}"
                                   shortDesc="#{bindings.SgsCreateSettlementVO1.hints.SELECTRECORDS.tooltip}" id="sbc1"
@@ -182,7 +186,7 @@
       <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.name}" filterable="true" sortable="true"
                  headerText="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.label}" id="c2">
         <f:facet name="filter">
-          <af:inputDate value="#{bindings.SgsCreateSettlementVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AcctDate.value}"
+          <af:inputDate value="#{bindings.SgsStlmtVoucherVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AcctDate.value}"
                         id="id2">
             <af:convertDateTime pattern="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.format}"/>
           </af:inputDate>

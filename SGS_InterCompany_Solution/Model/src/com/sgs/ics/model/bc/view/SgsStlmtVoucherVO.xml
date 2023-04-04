@@ -590,7 +590,14 @@
     PrecisionRule="true"
     EntityAttrName="BANKCHARGES"
     EntityUsage="SgsStlmtVoucherEO"
-    AliasName="BANK_CHARGES"/>
+    AliasName="BANK_CHARGES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.BANKCHARGES_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PAYMENTCURRENCY"
     PrecisionRule="true"

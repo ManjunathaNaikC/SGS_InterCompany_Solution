@@ -50,6 +50,8 @@ import oracle.adf.model.binding.DCBindingContainer;
 
 import oracle.jbo.ViewObject;
 
+import org.apache.poi.ss.util.NumberToTextConverter;
+
 
 public class UploadExcelBean {
     public UploadExcelBean() {
@@ -221,10 +223,18 @@ public class UploadExcelBean {
                             row.setAttribute("FROMBU", MytempCell.getStringCellValue());
 
                         } else if (Index == 4) {
-                            
-                            System.out.println("FROMJOBCODE------>"+MytempCell.getStringCellValue());
-                            
-                            row.setAttribute("FROMJOBCODE", MytempCell.getStringCellValue());
+
+                            System.out.println("FROMJOBCODE------>" + MytempCell.getStringCellValue());
+
+                            if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("FROMJOBCODE Value*****------>" + str);
+                                row.setAttribute("FROMJOBCODE", str);
+                            } else {
+
+                                row.setAttribute("FROMJOBCODE", MytempCell.getStringCellValue());
+
+                            }
 
                         } else if (Index == 5) {
                             
@@ -233,31 +243,55 @@ public class UploadExcelBean {
                             row.setAttribute("FROMOU", MytempCell.getStringCellValue());
 
                         } else if (Index == 6) {
-                            
-                            System.out.println("FROMDEPTID------>"+MytempCell.getStringCellValue());
-                            
-                            row.setAttribute("FROMDEPTID", MytempCell.getStringCellValue());
+
+                            System.out.println("FROMDEPTID------>" + MytempCell.getStringCellValue());
+
+                            if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("FROMDEPTID Value*****------>" + str);
+                                row.setAttribute("FROMDEPTID", str);
+                            } else {
+
+                                row.setAttribute("FROMDEPTID", MytempCell.getStringCellValue());
+
+                            }
 
                         } else if (Index == 7) {
-                            
+
                             System.out.println("ToBusinessUnit------>"+MytempCell.getStringCellValue());
                             
                             row.setAttribute("ToBusinessUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 8) {
-                            System.out.println("ToJobCode------>"+MytempCell.getStringCellValue());
-                            
-                            row.setAttribute("ToJobCode", MytempCell.getStringCellValue());
+                            System.out.println("ToJobCode------>" + MytempCell.getStringCellValue());
+
+                            if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("ToJobCode Value*****------>" + str);
+                                row.setAttribute("ToJobCode", str);
+                            } else {
+
+                                row.setAttribute("ToJobCode", MytempCell.getStringCellValue());
+
+                            }
 
                         } else if (Index == 9) {
-                            System.out.println("ToOperatingUnit------>"+MytempCell.getStringCellValue());
-                            
+                            System.out.println("ToOperatingUnit------>" + MytempCell.getStringCellValue());
+
                             row.setAttribute("ToOperatingUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 10) {
                             System.out.println("ToDepartmentId------>"+MytempCell.getStringCellValue());
                             
-                            row.setAttribute("ToDepartmentId", MytempCell.getStringCellValue());
+                            if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                                String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
+                                System.out.println("ToDepartmentId Value*****------>" + str);
+                                row.setAttribute("ToDepartmentId", str);
+                            } else {
+
+                                row.setAttribute("ToDepartmentId", MytempCell.getStringCellValue());
+
+                            }
 
                         } else if (Index == 11) {
                             System.out.println("STATISTICALDATA------>"+MytempCell.getNumericCellValue());

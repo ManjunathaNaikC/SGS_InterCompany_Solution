@@ -2,7 +2,20 @@ package com.sgs.ics.view;
 
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import java.io.StringReader;
+
 import java.math.BigDecimal;
+
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,6 +27,10 @@ import java.util.GregorianCalendar;
 
 import javax.faces.event.ActionEvent;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
@@ -24,6 +41,12 @@ import oracle.binding.BindingContainer;
 import oracle.jbo.Row;
 import oracle.jbo.ViewCriteria;
 import oracle.jbo.server.ViewObjectImpl;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 public class AllocationRun {
     public AllocationRun() {
@@ -58,9 +81,9 @@ public class AllocationRun {
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVR;databasename=DEVINTER;integratedSecurity=true;";
-                conn = DriverManager.getConnection(connectionUrl);
-         //   conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+//               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVR;databasename=DEVINTER;integratedSecurity=true;";
+//                conn = DriverManager.getConnection(connectionUrl);
+            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -119,6 +142,21 @@ public class AllocationRun {
         
     }
     
+    private Document parseXmlFile(String in) {
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            InputSource is = new InputSource(new StringReader(in));
+            return db.parse(is);
+        } catch (ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
     
     
     public void onSOAPAPICALL(ActionEvent actionEvent) {
@@ -128,11 +166,20 @@ public class AllocationRun {
         String iuCustomer = null;
         BigDecimal invoiceHdrAmt = null;
         String headerBu = null;
+        String wsURL ="http://asbcolps02:1111/PSIGW/PeopleSoftServiceListeningConnector/PSFT_EP/CI_CI_HM_BI_INTFC.1.wsdl";
+        URL url = null;
+        URLConnection connection = null;
+        HttpURLConnection httpConn = null;
+        String responseString = null;
+        String outputString = "";
+        OutputStream out = null;
+        InputStreamReader isr = null;
+        BufferedReader in = null;
    
         
      
         String queryString =
-        "SELECT  INVOICE_SEQ_NO,TRANSACTION_CATEGORY,SOURCE_CURRENCY,IU_CUSTOMER,INVOICE_HEADER_AMOUNT,SOURCE_BU FROM IC_INVOICE_HEADER WHERE TRANSACTION_STATUS = 'Approved'";
+        "SELECT TOP 5 INVOICE_SEQ_NO,TRANSACTION_CATEGORY,SOURCE_CURRENCY,IU_CUSTOMER,INVOICE_HEADER_AMOUNT,SOURCE_BU FROM IC_INVOICE_HEADER WHERE TRANSACTION_STATUS = 'Invoiced In PeopleSoft' AND  ATTRIBUTE5 <> 'Y'";
         System.out.println("queryString :: "+queryString);
         Connection conn = null;
         PreparedStatement pst = null;
@@ -250,7 +297,7 @@ public class AllocationRun {
                         "         <!--Optional:-->\n" + 
                         "         <m83:ACCOUNT>1490000</m83:ACCOUNT>\n" + 
                         "         <!--Optional:-->\n" + 
-                        "         <m83:DEPTID>"+FromDepartmentId+"</m83:DEPTID>\n" + 
+                        "         <m83:DEPTID>2100100</m83:DEPTID>\n" + 
                         "         <!--Optional:-->\n" + 
                         "         <m83:OPERATING_UNIT>"+FromOu+"</m83:OPERATING_UNIT>\n" + 
                         "         <!--Optional:-->\n" + 
@@ -286,7 +333,7 @@ public class AllocationRun {
                         "         <!--Optional:-->\n" + 
                         "         <m83:OPERATING_UNIT_TO>"+FromOu+"</m83:OPERATING_UNIT_TO>\n" + 
                         "         <!--Optional:-->\n" + 
-                        "         <m83:PV_JOBCODE_TO>"+toJobCode+"</m83:PV_JOBCODE_TO>\n" + 
+                        "         <m83:PV_JOBCODE_TO>35124</m83:PV_JOBCODE_TO>\n" + 
                         "      </m83:Create__CompIntfc__CI_HM_BI_INTFC>\n" + 
                         "   </soapenv:Body>\n" + 
                         "</soapenv:Envelope>";
@@ -295,6 +342,72 @@ public class AllocationRun {
                 System.out.println("XMLBUILDER==>"+sb.toString());   
                             System.out.println("<================================END===================================>");       
                            // sb=null;
+                        
+                           try {
+                            url = new URL(wsURL);
+                            connection = url.openConnection();  // Need to check the standard
+                            System.out.println("connection" + connection);
+                            httpConn = (HttpURLConnection) connection;
+                            System.out.println("xmlInput" + xmlString);
+                            byte[] buffer = new byte[xmlString.length()];
+                            buffer = xmlString.getBytes();
+
+                            String SOAPAction = "CI_HM_INTFC_BI_CI_C.V1";
+                            // Set the appropriate HTTP parameters.
+
+                            httpConn.setRequestProperty("Content-Length", String.valueOf(buffer.length));
+
+                            httpConn.setRequestProperty("Content-Type", "text/xml; charset=UTF-8");
+
+
+                            httpConn.setRequestProperty("SOAPAction", SOAPAction);
+                            httpConn.setRequestMethod("POST");
+                            httpConn.setDoOutput(true);
+                            httpConn.setDoInput(true);
+                            out = httpConn.getOutputStream();
+                            System.out.println("Just before write");
+                            out.write(buffer);
+                            out.close();
+                            System.out.println("out " + out);
+                            // Read the response and write it to standard out.
+                            System.out.println("Error Stream"+httpConn.getErrorStream());
+                                                isr = new InputStreamReader(httpConn.getInputStream());
+                                            
+                            
+                                                in = new BufferedReader(isr);
+                            
+                                                while ((responseString = in.readLine()) != null)
+                                                {
+                                                    outputString = outputString + responseString;
+                                                }
+                                                System.out.println(outputString);
+                                          
+                            
+                                                // Get the response from the web service call
+                                                Document document = parseXmlFile(outputString);
+                            
+                                                NodeList nodeLst = document.getElementsByTagName("m83:Create__CompIntfc__CI_HM_BI_INTFCResponse");
+                            System.out.println("nodeLst.getLength()"+nodeLst.getLength());
+                            if(nodeLst.getLength()>0){
+                             
+                                                String webServiceResponse = nodeLst.item(0).getTextContent();
+                                                System.out.println("The response from the web service call is : " + webServiceResponse);
+                                                
+                                                
+                            }
+                        
+                               
+                        } catch (MalformedURLException murle) {
+                            // TODO: Add catch code
+                            murle.printStackTrace();
+                        } catch (ProtocolException pe) {
+                            // TODO: Add catch code
+                            pe.printStackTrace();
+                        } catch (IOException ioe) {
+                            // TODO: Add catch code
+                            ioe.printStackTrace();
+                        }
+                        
                         }
                     
                 } catch (SQLException sqle) {

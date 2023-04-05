@@ -143,6 +143,8 @@
         </af:gridCell>
         <af:gridCell marginStart="0px" width="50%" marginEnd="0px" id="gc2" halign="end">
           <af:panelGroupLayout id="pgl3" layout="horizontal">
+            <af:button text="Submit" id="b6" actionListener="#{viewScope.ActionEventsBean.saveCreateSettlement}"/>
+            <af:spacer id="s8" width="10"/>
             <af:button text="Hold Settlement" id="b2"/>
             <af:spacer id="s1" width="10"/>
             <af:button text="Release Settlement" id="b3"/>
@@ -205,6 +207,12 @@
         <af:outputText value="#{row.RefToArInvoice}"
                        shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.tooltip}" id="ot9"/>
       </af:column>
+      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.label}"
+                 id="c5">
+        <af:outputText value="#{row.TxnCurrency}"
+                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.tooltip}" id="ot11"/>
+      </af:column>
       <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.NetAmountPayable.name}" filterable="true"
                  sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.NetAmountPayable.label}" id="c6">
         <af:outputText value="#{row.NetAmountPayable}"
@@ -212,12 +220,6 @@
           <af:convertNumber groupingUsed="false"
                             pattern="#{bindings.SgsStlmtVoucherVO1.hints.NetAmountPayable.format}"/>
         </af:outputText>
-      </af:column>
-      <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.label}"
-                 id="c5">
-        <af:outputText value="#{row.TxnCurrency}"
-                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.TxnCurrency.tooltip}" id="ot11"/>
       </af:column>
       <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.StlmtAmount.name}" filterable="true"
                  sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.StlmtAmount.label}" id="c8">

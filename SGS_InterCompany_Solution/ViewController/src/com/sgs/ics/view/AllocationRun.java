@@ -81,9 +81,9 @@ public class AllocationRun {
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-//               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVR;databasename=DEVINTER;integratedSecurity=true;";
-//                conn = DriverManager.getConnection(connectionUrl);
-            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;";
+                conn = DriverManager.getConnection(connectionUrl);
+            //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -441,4 +441,229 @@ public class AllocationRun {
             }
         }
     }
+    
+    public void onUpdateBillingInformation(ActionEvent actionEvent) {
+
+        String wsURL ="http://asbcolps02:1111/PSIGW/PeopleSoftServiceListeningConnector/PSFT_EP/CI_CI_BI_AP_AR_WTH.1.wsdl";
+        URL url = null;
+        URLConnection connection = null;
+        HttpURLConnection httpConn = null;
+        String responseString = null;
+        String outputString = "";
+        OutputStream out = null;
+        InputStreamReader isr = null;
+        BufferedReader in = null;
+
+        StringBuilder sb=new StringBuilder();
+                        
+        String xmlString="<soapenv:Envelope xmlns:soapenv=http://schemas.xmlsoap.org/soap/envelope/ xmlns:m36=http://asbcolps02:1111/Enterprise/Tools/schemas/M367830.V1>\n" + 
+        "   <soapenv:Header/>\n" + 
+        "   <soapenv:Body>\n" + 
+        "      <m36:Get__CompIntfc__CI_BI_AP_AR_WTH>\n" + 
+        "         <m36:WORKBENCH_ID>100</m36:WORKBENCH_ID>\n" + 
+        "      </m36:Get__CompIntfc__CI_BI_AP_AR_WTH>\n" + 
+        "   </soapenv:Body>\n" + 
+        "</soapenv:Envelope>";
+                        
+                            sb.append(xmlString);
+                System.out.println("XMLBUILDER For Update Builling==>"+sb.toString());   
+                            System.out.println("<================================END===================================>");       
+                           // sb=null;
+                        
+                           try {
+                            url = new URL(wsURL);
+                            connection = url.openConnection();  // Need to check the standard
+                            System.out.println("connection" + connection);
+                            httpConn = (HttpURLConnection) connection;
+                            System.out.println("xmlInput" + xmlString);
+                            byte[] buffer = new byte[xmlString.length()];
+                            buffer = xmlString.getBytes();
+
+                            String SOAPAction = "CI_CI_BI_AP_AR_WTH_G.V1";
+                            // Set the appropriate HTTP parameters.
+
+                            httpConn.setRequestProperty("Content-Length", String.valueOf(buffer.length));
+
+                            httpConn.setRequestProperty("Content-Type", "text/xml; charset=UTF-8");
+
+
+                            httpConn.setRequestProperty("SOAPAction", SOAPAction);
+                            httpConn.setRequestMethod("GET");
+                            httpConn.setDoOutput(true);
+                            httpConn.setDoInput(true);
+                            out = httpConn.getOutputStream();
+                            
+                            out.write(buffer);
+                            out.close();
+                            System.out.println("out " + out);
+                            // Read the response and write it to standard out.
+                            System.out.println("Error Stream"+httpConn.getErrorStream());
+                                                isr = new InputStreamReader(httpConn.getInputStream());
+                                            
+                            
+                                                in = new BufferedReader(isr);
+                            
+                                                while ((responseString = in.readLine()) != null)
+                                                {
+                                                    outputString = outputString + responseString;
+                                                }
+                                                System.out.println(outputString);
+                                          
+                            
+                                                // Get the response from the web service call
+                                                Document document = parseXmlFile(outputString);
+                            
+                                                NodeList nodeLst = document.getElementsByTagName("m36:Get__CompIntfc__CI_BI_AP_AR_WTHResponse");
+                            System.out.println("nodeLst.getLength()"+nodeLst.getLength());
+                            if(nodeLst.getLength()>0){
+                             
+                                                String webServiceResponse0 = nodeLst.item(0).getTextContent();
+                                String webServiceResponse1 = nodeLst.item(1).getTextContent();
+                                String webServiceResponse2 = nodeLst.item(2).getTextContent();
+                                String webServiceResponse3 = nodeLst.item(3).getTextContent();
+                                System.out.println("webServiceResponse0 : " + webServiceResponse0);
+                                System.out.println("webServiceResponse1 : " + webServiceResponse1);
+                                System.out.println("webServiceResponse2 : " + webServiceResponse2);
+                                System.out.println("webServiceResponse3 : " + webServiceResponse3);
+                                                
+                                                
+                            }                      
+                               
+                        } catch (MalformedURLException murle) {
+                            // TODO: Add catch code
+                            murle.printStackTrace();
+                        } catch (ProtocolException pe) {
+                            // TODO: Add catch code
+                            pe.printStackTrace();
+                        } catch (IOException ioe) {
+                            // TODO: Add catch code
+                            ioe.printStackTrace();
+                        }
+
+            }
+    public void onDEPOSITAPI(ActionEvent actionEvent) {
+            String wsURL ="http://asbcolps02:1111/PSIGW/PeopleSoftServiceListeningConnector/PSFT_EP/CI_IU_AR_DEPOSIT.1.wsdl";
+            URL url = null;
+            URLConnection connection = null;
+            HttpURLConnection httpConn = null;
+            String responseString = null;
+            String outputString = "";
+            OutputStream out = null;
+            InputStreamReader isr = null;
+            BufferedReader in = null;
+                    StringBuilder sb=new StringBuilder(); 
+                    String xmlString="<soapenv:Envelope xmlns:soapenv=http://schemas.xmlsoap.org/soap/envelope/ xmlns:m10=http://asbcolps02:1111/Enterprise/Tools/schemas/M1048758.V1>\n" + 
+                                                            "       <soapenv:Header/>\n" +
+                                                            "               <soapenv:Body>\n" +
+                                                            "                       <m10:Create__CompIntfc__IU_AR_DEPOSIT>\n" +
+                                                            "                               <m10:IU_WB_ID>VI_125</m10:IU_WB_ID>\n" +
+                                                            "                               <m10:LOCKBOX_ID>125</m10:LOCKBOX_ID>\n" +
+                                                            "                               <m10:LOCKBOX_BATCH_ID>?</m10:LOCKBOX_BATCH_ID>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:DEPOSIT_BU>IND02</m10:DEPOSIT_BU>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:BUSINESS_UNIT>IND02</m10:BUSINESS_UNIT>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:REF_VALUE>AR_1234</m10:REF_VALUE>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:PAYMENT_CURRENCY>USD</m10:PAYMENT_CURRENCY>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:PAYMENT_AMT>5000</m10:PAYMENT_AMT>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:CUST_SETID></m10:CUST_SETID>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:CUST_ID>SGS_CRP01</m10:CUST_ID>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:BAL_CURRENCY></m10:BAL_CURRENCY>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:PAYMENT_ID>PI_12345</m10:PAYMENT_ID>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:PAYMENT_METHOD>CHK</m10:PAYMENT_METHOD>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:RECEIVED_DT>2023-03-03</m10:RECEIVED_DT>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:ACCOUNTING_DT>2023-03-03</m10:ACCOUNTING_DT>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:BNK_ID_NBR>CHK1</m10:BNK_ID_NBR>\n" +
+                                                            "                               <!--Optional:-->\n" +
+                                                            "                               <m10:BANK_ACCOUNT_NUM>101335046</m10:BANK_ACCOUNT_NUM>\n" +
+                                                            "                       </m10:Create__CompIntfc__IU_AR_DEPOSIT>\n" +
+                                                            "               </soapenv:Body>\n" +
+                                                            "       </soapenv:Envelope>;\n" ;
+                            
+                                sb.append(xmlString);
+                    System.out.println("XMLBUILDER==>"+sb.toString());   
+                                System.out.println("<================================END===================================>");       
+                               // sb=null;
+                            
+                               try {
+                                url = new URL(wsURL);
+                                connection = url.openConnection();  // Need to check the standard
+                                System.out.println("connection" + connection);
+                                httpConn = (HttpURLConnection) connection;
+                                System.out.println("xmlInput" + xmlString);
+                                byte[] buffer = new byte[xmlString.length()];
+                                buffer = xmlString.getBytes();
+
+                                String SOAPAction = "CI_IU_AR_DEPOSIT_C.V1";
+                                // Set the appropriate HTTP parameters.
+
+                                httpConn.setRequestProperty("Content-Length", String.valueOf(buffer.length));
+
+                                httpConn.setRequestProperty("Content-Type", "text/xml; charset=UTF-8");
+
+
+                                httpConn.setRequestProperty("SOAPAction", SOAPAction);
+                                httpConn.setRequestMethod("POST");
+                                httpConn.setDoOutput(true);
+                                httpConn.setDoInput(true);
+                                out = httpConn.getOutputStream();
+                                System.out.println("Just before write");
+                                out.write(buffer);
+                                out.close();
+                                System.out.println("out " + out);
+                                // Read the response and write it to standard out.
+                                System.out.println("Error Stream"+httpConn.getErrorStream());
+                                                    isr = new InputStreamReader(httpConn.getInputStream());
+                                                
+                                
+                                                    in = new BufferedReader(isr);
+                                
+                                                    while ((responseString = in.readLine()) != null)
+                                                    {
+                                                        outputString = outputString + responseString;
+                                                    }
+                                                    System.out.println(outputString);
+                                              
+                                
+                                                    // Get the response from the web service call
+                                                    Document document = parseXmlFile(outputString);
+                                
+                                                    NodeList nodeLst = document.getElementsByTagName("m10:Create__CompIntfc__IU_AR_DEPOSITResponse");
+                                System.out.println("nodeLst.getLength()"+nodeLst.getLength());
+                                if(nodeLst.getLength()>0){
+                                 
+                                                    String webServiceResponse = nodeLst.item(0).getTextContent();
+                                                    System.out.println("The response from the web service call is : " + webServiceResponse);
+                                                    
+                                                    
+                                }
+                            
+                                   
+                            } catch (MalformedURLException murle) {
+                                // TODO: Add catch code
+                                murle.printStackTrace();
+                            } catch (ProtocolException pe) {
+                                // TODO: Add catch code
+                                pe.printStackTrace();
+                            } catch (IOException ioe) {
+                                // TODO: Add catch code
+                                ioe.printStackTrace();
+                            }
+                            
+                }
+                        
+                    
+                    
+    
 }

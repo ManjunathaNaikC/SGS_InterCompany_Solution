@@ -7,7 +7,7 @@
     <iterator Binds="SgsStlmtInvVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsStlmtInvVO1Iterator"/>
     <searchRegion Binds="SgsStlmtInvVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStlmtInvVO1Query"/>
-    <iterator Binds="SgsStlmtVoucherVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+    <iterator Binds="SgsStlmtVoucherVO2" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsStlmtVoucherVO1Iterator"/>
     <searchRegion Binds="SgsStlmtVoucherVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStlmtVoucherVO1Query"/>

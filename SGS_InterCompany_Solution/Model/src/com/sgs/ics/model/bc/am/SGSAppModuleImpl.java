@@ -67,7 +67,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             Connection conn = null;
         try {
 
-          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;";
+          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
           conn = DriverManager.getConnection(connectionUrl);
  //          conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
        
@@ -822,6 +822,14 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsIcInvoiceLineVO2() {
         return (ViewObjectImpl) findViewObject("SgsIcInvoiceLineVO2");
+    }
+
+    /**
+     * Container's getter for SgsStlmtVoucherVO2.
+     * @return SgsStlmtVoucherVO2
+     */
+    public ViewObjectImpl getSgsStlmtVoucherVO2() {
+        return (ViewObjectImpl) findViewObject("SgsStlmtVoucherVO2");
     }
 }
 

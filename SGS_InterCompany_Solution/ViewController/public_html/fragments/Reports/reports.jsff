@@ -1,2 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"></ui:composition>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelTabbed position="above" id="pt1">
+    <af:showDetailItem id="Report1" text="GST Dump Report" disclosed="true">
+    <af:inlineFrame id="if4" 
+                                                    source="/pages/GSTReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+                                                     </af:showDetailItem>
+    <af:showDetailItem id="Report2" text="TPA Dump Reports">
+      <af:inlineFrame id="if5" 
+                                                    source="/pages/launch report.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+
+    </af:showDetailItem>
+    <af:showDetailItem id="Report3" text="WHT Dump Reports">
+      <af:inlineFrame id="if6" 
+                                                    source="/pages/WTHReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+
+    </af:showDetailItem>
+    <af:showDetailItem id="Report4" text="VAT Dump Reports">
+      <af:inlineFrame id="if7" 
+                                                    source="/pages/WTHReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+
+    </af:showDetailItem>
+  </af:panelTabbed>
+</ui:composition>

@@ -65,12 +65,14 @@ import oracle.jbo.uicli.binding.JUCtrlListBinding;
 
 import oracle.jbo.server.ViewDefImpl;
 import oracle.jbo.server.ViewObjectImpl;
+
 import java.util.TimeZone;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import oracle.adf.share.ADFContext;
+import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
@@ -81,7 +83,9 @@ import oracle.jbo.ViewObject;
 import org.apache.myfaces.trinidad.model.UploadedFile;
 
 public class ActionEventsBean {
-    protected String SAVE_DATA="Commit";
+
+    private static final ADFLogger LOG = ADFLogger.createADFLogger(ActionEventsBean.class);
+    protected String SAVE_DATA = "Commit";
     private RichPopup statisticspopupbind;
     private RichColumn invoiceColSelectBind;
     private RichSelectBooleanCheckbox invoiceCheckBoxSelectBind;
@@ -102,11 +106,9 @@ public class ActionEventsBean {
     private RichColumn onStatSelectAllColumn;
     private RichPopup approvepoopupbind;
     private RichPopup rejectpopupbind;
-    
     private RichInputText rejectionCommentsBind;
     private RichInputFile inputFileBind;
     private RichSelectOneChoice rejectionReasonLOVBind;
-    
     private RichPopup invoiceApprovBind;
     private RichPopup invoiceConfirmBind;
     private RichPopup invoiceRejectBind;
@@ -114,7 +116,6 @@ public class ActionEventsBean {
     private RichPopup creditMemoPopupBind;
     private RichInputDate creditDateBind;
     private RichInputText percentageReversalBind;
-   // private RichInputText completeReversalBind;
     private RichSelectOneChoice reversalReasonLovBind;
     private RichInputDate creditDateBindVal;
     private RichSelectBooleanCheckbox selectCreditRecordBind;
@@ -132,101 +133,97 @@ public class ActionEventsBean {
 
     public ActionEventsBean() {
     }
-    
-    
+
 
     public void onStatisticalDataSave(ActionEvent actionEvent) {
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }
-    
+
     public void onMarkUpRateDataSave(ActionEvent actionEvent) {
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }
-    
+
     public Object executeBinding(String binding) {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding(binding);
         Object result = operationBinding.execute();
         return result;
     }
-    public BindingContainer getBindings(){
-        
+
+    public BindingContainer getBindings() {
         return (BindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
-        }
-    
+    }
+
     private DCIteratorBinding getDCIteratorBindings(String iterName) {
         DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
         return bindings.findIteratorBinding(iterName);
 
-    } 
+    }
 
     public void onDeleteStatisticalData(ActionEvent actionEvent) {
         executeBinding("DeleteStatisticalData");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
-    
+
     public void onDeleteMarkUpData(ActionEvent actionEvent) {
         executeBinding("DeleteMarkUpData");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
     public void onDocumentsDelete(ActionEvent actionEvent) {
         executeBinding("DeleteDocs");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
     public void onMarkupDelete(ActionEvent actionEvent) {
         executeBinding("DeleteMarkUp");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
-        
+
     }
 
     public void onIdenComboDelete(ActionEvent actionEvent) {
-        // Add event code here...
         executeBinding("DeleteIdenCombo");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
     public void onTargetComboDelete(ActionEvent actionEvent) {
-        // Add event code here...
         executeBinding("DeleteTargetCombo");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
     public void onCrossChargeComboDelete(ActionEvent actionEvent) {
-        // Add event code here...
         executeBinding("DeleteCrossCharge");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
     public void onIdenComboCreate(ActionEvent actionEvent) {
-      DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsCostIdentificationRuleVOIterator");
-      Row row = dcIteratorbinding.getCurrentRow();
-      String costIdentificationId = (String) row.getAttribute("CostIdentificationId");
-      System.out.println("costIdentificationId :: "+costIdentificationId);
-      String costIdentificationName = (String) row.getAttribute("CostIdentificationName");
-        System.out.println("costIdentificationName :: "+costIdentificationName);
-        if(null != costIdentificationName && !(costIdentificationName.isEmpty())){    
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsCostIdentificationRuleVOIterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        String costIdentificationId = (String) row.getAttribute("CostIdentificationId");
+
+        String costIdentificationName = (String) row.getAttribute("CostIdentificationName");
+
+        if (null != costIdentificationName && !(costIdentificationName.isEmpty())) {
             executeBinding("CreateInsertIdenCombo");
-        }else{
+        } else {
             createNotifier("Please Create Cost Identification Header Record.");
         }
     }
-    
 
-    public  void createNotifier( String message) {
+
+    public void createNotifier(String message) {
         FacesContext context = FacesContext.getCurrentInstance();
-        if(null == message){
-            message="Before creating child record, Please create header record.";
+        if (null == message) {
+            message = "Before creating child record, Please create header record.";
         }
         String messageText = message;
         FacesMessage fm = new FacesMessage(messageText);
@@ -238,39 +235,35 @@ public class ActionEventsBean {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsCostIdentificationRuleVOIterator");
         Row row = dcIteratorbinding.getCurrentRow();
         String costIdentificationId = (String) row.getAttribute("CostIdentificationId");
-        System.out.println("costIdentificationId :: "+costIdentificationId);
         String costIdentificationName = (String) row.getAttribute("CostIdentificationName");
-          System.out.println("costIdentificationName :: "+costIdentificationName);
-          if(null != costIdentificationName && !(costIdentificationName.isEmpty())){    
-              executeBinding("CreateInsertTargetCombo");
-          } else {
-              createNotifier("Please Create Cost Identification Header Record.");
-          }
+        if (null != costIdentificationName && !(costIdentificationName.isEmpty())) {
+            executeBinding("CreateInsertTargetCombo");
+        } else {
+            createNotifier("Please Create Cost Identification Header Record.");
+        }
     }
 
     public void onCrossChargeCreate(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsCostIdentificationRuleVOIterator");
         Row row = dcIteratorbinding.getCurrentRow();
         String costIdentificationId = (String) row.getAttribute("CostIdentificationId");
-        System.out.println("costIdentificationId :: "+costIdentificationId);
         String costIdentificationName = (String) row.getAttribute("CostIdentificationName");
-          System.out.println("costIdentificationName :: "+costIdentificationName);
-          if(null != costIdentificationName && !(costIdentificationName.isEmpty())){    
-              executeBinding("CreateInsertCrossCombo");
-          } else {
-              createNotifier("Please Create Cost Identification Header Record.");
-          }
+        if (null != costIdentificationName && !(costIdentificationName.isEmpty())) {
+            executeBinding("CreateInsertCrossCombo");
+        } else {
+            createNotifier("Please Create Cost Identification Header Record.");
+        }
     }
 
     public void onCostIdentifierDelete(ActionEvent actionEvent) {
         executeBinding("DeleteCostIdentifier");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
     public void onCostIdentifierDelete(DialogEvent dialogEvent) {
         executeBinding("DeleteCostIdentifier");
-        executeBinding(SAVE_DATA);      
+        executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
@@ -281,26 +274,26 @@ public class ActionEventsBean {
         BindingContainer bc = this.getBindingsCont();
         JUCtrlListBinding listBindings = (JUCtrlListBinding) bc.get("NatureOfExpenseSearch");
         Object str[] = listBindings.getSelectedValues();
-        System.out.println("str :: " + Arrays.toString(str));
+
 
         for (Object o : str) {
             natureOfExpense += "," + o;
         }
-        System.out.println("natureOfExpense :: " + natureOfExpense);
+
         String natureOfExpenseString = natureOfExpense.toString();
-        System.out.println("natureOfExpenseString :: " + natureOfExpenseString);
+
         ViewObjectImpl viewImpl = null;
         viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsCostIdentificationRuleVOIterator").getViewObject();
         viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
         viewImpl.setWhereClause(" NATURE_OF_EXPENSE IN ( " + natureOfExpenseString + ")");
-        System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
+
         viewImpl.executeQuery();
 
     }
 
     public BindingContainer getBindingsCont() {
-         return BindingContext.getCurrent().getCurrentBindingsEntry();
-     }
+        return BindingContext.getCurrent().getCurrentBindingsEntry();
+    }
 
     public void onNatureOfExpenseSearch(ActionEvent actionEvent) {
 
@@ -308,12 +301,11 @@ public class ActionEventsBean {
         String natureOfExpense = "0";
         JUCtrlListBinding listBindings = (JUCtrlListBinding) bc.get("NatureOfExpenseSearch");
         Object str[] = listBindings.getSelectedValues();
-        System.out.println("str :: " + Arrays.toString(str));
         for (Object o : str) {
             natureOfExpense += "," + o;
         }
         String natureOfExpenseString = natureOfExpense.toString();
-        System.out.println("natureOfExpenseString :: " + natureOfExpenseString);
+
 
         String queryString =
             "select LOOKUP_CODE FROM SGS_LOOKUP_TABLE WHERE LOOKUP_TYPE='NATURE_OF_EXPENSE' AND LOOKUP_ID IN (" +
@@ -321,7 +313,7 @@ public class ActionEventsBean {
         String natureOfExpenseLookupCode = "'" + "none" + "'";
         Connection conn = null;
         PreparedStatement pst = null;
-        System.out.println("Query :: " + queryString);
+
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             conn = am.getDBConnection();
@@ -347,7 +339,6 @@ public class ActionEventsBean {
         viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsCostIdentificationRuleVOIterator").getViewObject();
         viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
         viewImpl.setWhereClause(" NATURE_OF_EXPENSE IN ( " + natureOfExpenseLookupCode + ")");
-        System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
         viewImpl.executeQuery();
 
 
@@ -365,159 +356,101 @@ public class ActionEventsBean {
     }
 
     public void onStdRateChildSave(ActionEvent actionEvent) {
-        String inputProvider=null;
+        String inputProvider = null;
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsStandardRateSetupVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
-        ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
+        ADFContext.getCurrent()
+                  .getSessionScope()
+                  .put("INPUTPROVIDER", row.getAttribute("INPUTPROVIDER"));
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }
 
-    
+
     public void onGSTDelete(DialogEvent dialogEvent) {
-        // Add event code here...
         executeBinding("DeleteGst");
         executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
-    
-    
+
+
     public void genericSave(ActionEvent actionEvent) {
-            executeBinding(SAVE_DATA);
-            ADFUtils.saveNotifier();
-        }
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
+    }
 
     public void onGSTChildDelete(DialogEvent dialogEvent) {
-        // Add event code here...
         executeBinding("DeleteGstChild");
         executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
     public void onBUDelete(DialogEvent dialogEvent) {
-        // Add event code here...
         executeBinding("DeleteBU");
         executeBinding(SAVE_DATA);
         ADFUtils.deleteNotifier();
     }
 
-    
-//    public void genericSave(ActionEvent actionEvent) {
-//        executeBinding(SAVE_DATA);
-//        ADFUtils.saveNotifier();
-//    }
-
 
     public void onTdsWhtDelete(DialogEvent dialogEvent) {
-        // Add event code here...
         executeBinding("DeleteTdsWht");
-                        executeBinding(SAVE_DATA);
-                        ADFUtils.deleteNotifier();
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
     }
 
-//    public void genericSave(ActionEvent actionEvent) {
-//        // Add event code here...
-//        executeBinding(SAVE_DATA);
-//        ADFUtils.saveNotifier();
-////    }
-//        public void genericSave(ActionEvent actionEvent) {
-//        executeBinding(SAVE_DATA);
-//        ADFUtils.saveNotifier();
-//    }
-
     public void onTdsWhtSave(ActionEvent actionEvent) {
-        // Add event code here...
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }
 
     public void onWhtIdenDelete(DialogEvent dialogEvent) {
-        // Add event code here...
         executeBinding("DeleteWhtIden");
-                        executeBinding(SAVE_DATA);
-                        ADFUtils.deleteNotifier();
-        }
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
+    }
 
     public void onWhtRateDelete(DialogEvent dialogEvent) {
-        // Add event code here...
         executeBinding("DeleteWhtRate");
-                        executeBinding(SAVE_DATA);
-                        ADFUtils.deleteNotifier();
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
     }
 
     public void onVatDelete(DialogEvent dialogEvent) {
-          // Add event code here...
-          executeBinding("DeleteVat");
-          executeBinding(SAVE_DATA);
-          ADFUtils.deleteNotifier();
-      }
+        executeBinding("DeleteVat");
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
+    }
+
     public void onVatTaxDelete(DialogEvent dialogEvent) {
-          // Add event code here...
-          executeBinding("DeleteVatTax");
-          executeBinding(SAVE_DATA);
-          ADFUtils.deleteNotifier();
-      }
+        executeBinding("DeleteVatTax");
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
+    }
+
     public void onStandardRateDelete(DialogEvent dialogEvent) {
-          // Add event code here...
-          executeBinding("DeleteStandardRate");
-          executeBinding(SAVE_DATA);
-          ADFUtils.deleteNotifier();
-      }
+        executeBinding("DeleteStandardRate");
+        executeBinding(SAVE_DATA);
+        ADFUtils.deleteNotifier();
+    }
 
     public void onCopyFromPreviousMonthActionEvent(ActionEvent actionEvent) {
         GregorianCalendar gcal = new GregorianCalendar();
-              System.out.println("Current date: " + gcal.getTime());
-              // past month
-              gcal.add((GregorianCalendar.MONTH), -1);
-//               String month[] = { "Jan", "Feb", "Mar", "Apr",
-//                                   "May", "Jun", "Jul", "Aug",
-//                                   "Sep", "Oct", "Nov", "Dec" };
-        String month[] = { "1", "2", "3", "4",
-                            "5", "6", "7", "8",
-                            "9", "10", "11", "12" };
-                                   
-        System.out.println("Modified date (Previous Month) Month: " +   month[gcal.get(Calendar.MONTH)]);
-        System.out.println("Modified date (Previous Month) Month: " +   month[gcal.get(Calendar.MONTH)]); 
-        System.out.println("Modified date (Previous Month)  Year : " + gcal.get(Calendar.YEAR));
-        
-        
+        gcal.add((GregorianCalendar.MONTH), -1);
+        String month[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+
+
         ViewObjectImpl viewImpl = null;
         viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator").getViewObject();
         viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
-        viewImpl.setWhereClause("MONTH(TRANSACTION_PERIOD) = '"+ month[gcal.get(Calendar.MONTH)]+"'  and YEAR(TRANSACTION_PERIOD) ='"+gcal.get(Calendar.YEAR) +"'");
-        System.out.println("viewImpl getQuery :: " + viewImpl.getQuery());
+        viewImpl.setWhereClause("MONTH(TRANSACTION_PERIOD) = '" + month[gcal.get(Calendar.MONTH)] +
+                                "'  and YEAR(TRANSACTION_PERIOD) ='" + gcal.get(Calendar.YEAR) + "'");
         viewImpl.executeQuery();
-        
-        
-        
-        
+
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.statisticspopupbind.show(hints);
-               
+
     }
-    
-//    
-//    public static void main(String []args){
-//        
-//
-//        GregorianCalendar gcal = new GregorianCalendar();
-//              System.out.println("Current date: " + gcal.getTime());
-//              // past month
-//              gcal.add((GregorianCalendar.MONTH), -1);
-//               String month[] = { "1", "2", "3", "4",
-//                                   "5", "6", "7", "8",
-//                                   "9", "10", "11", "12" };
-//                                   
-//            
-//        System.out.println("Modified date (Previous Month) Month: " +   month[gcal.get(Calendar.MONTH)]);
-//              
-//      System.out.println("Modified date (Previous Month) Month: " +   gcal.get(Calendar.MONTH));
-//        System.out.println("Modified date (Previous Month)  Year : " + gcal.get(Calendar.YEAR));
-//        
-//        
-//        
-//    }
+
 
     public void setStatisticspopupbind(RichPopup statisticspopupbind) {
         this.statisticspopupbind = statisticspopupbind;
@@ -528,62 +461,55 @@ public class ActionEventsBean {
     }
 
     public void onStatDataUpdate(ActionEvent actionEvent) {
-        // Add event code here...
-        
-        DCIteratorBinding previousMonthData =  null;
-        DCIteratorBinding    statisticalData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
-              try {
-                   previousMonthData = getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator");
 
-                  oracle.jbo.Row[] previousMonthDatarows = previousMonthData.getAllRowsInRange();
-                  
-                  System.out.println("previousMonthDatarows:: "+previousMonthDatarows.length);
-                  CommonUtils util= new CommonUtils();
-                  Object user= (Object)util.getSessionScopeValue("_username").toString();
+        DCIteratorBinding previousMonthData = null;
+        DCIteratorBinding statisticalData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+        try {
+            previousMonthData = getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator");
+            oracle.jbo.Row[] previousMonthDatarows = previousMonthData.getAllRowsInRange();
+            CommonUtils util = new CommonUtils();
+            Object user = (Object) util.getSessionScopeValue("_username").toString();
 
-                  for (int i = 0; i < previousMonthDatarows.length; i++) {
-                      System.out.println("value :: "+previousMonthDatarows[i].getAttribute("STATISTICALDATACATEGORY"));
-                      executeBinding("CreateStatisticalData");
-                      //previousMonthDatarows[i].getAttribute("StatisticalDataCategory");
-                      Row row = statisticalData.getCurrentRow();
-                      row.setAttribute("StatisticalDataCategory", previousMonthDatarows[i].getAttribute("STATISTICALDATACATEGORY"));                      
-                      row.setAttribute("FROMOU", previousMonthDatarows[i].getAttribute("FROMOU"));
-                      row.setAttribute("FROMJOBCODE", previousMonthDatarows[i].getAttribute("FROMJOBCODE"));
-                      row.setAttribute("FROMDEPTID", previousMonthDatarows[i].getAttribute("FROMDEPTID"));
-                      row.setAttribute("FROMBU", previousMonthDatarows[i].getAttribute("FROMBU"));
-                      row.setAttribute("NATUREOFEXPENSE", previousMonthDatarows[i].getAttribute("NATUREOFEXPENSE"));
-                      row.setAttribute("InputProvider", previousMonthDatarows[i].getAttribute("InputProvider"));
-                      row.setAttribute("GLACCOUNT", previousMonthDatarows[i].getAttribute("GLACCOUNT"));
-                      row.setAttribute("CREATEDDATE", new java.sql.Date(new Date().getTime()));
-                      row.setAttribute("UpdatedBy", user);
-                      row.setAttribute("UpdatedDate", new java.sql.Date(new Date().getTime()));
-                      row.setAttribute("CreatedBy", user);
-                      row.setAttribute("ValidityTill", previousMonthDatarows[i].getAttribute("VALIDITYTILL"));
-                      row.setAttribute("ValidityFrom", previousMonthDatarows[i].getAttribute("VALIDITYFROM"));
-                      row.setAttribute("RejectionComments", previousMonthDatarows[i].getAttribute("REJECTIONCOMMENTS"));
-                      row.setAttribute("RejectedReason", previousMonthDatarows[i].getAttribute("REJECTEDREASON"));
-                      row.setAttribute("TargetAmount", previousMonthDatarows[i].getAttribute("TARGETAMOUNT"));
-                      row.setAttribute("EmployeeId", previousMonthDatarows[i].getAttribute("EMPLOYEEID"));
-                      row.setAttribute("Currency", previousMonthDatarows[i].getAttribute("CURRENCY"));
-                      row.setAttribute("CostGroup", previousMonthDatarows[i].getAttribute("COSTGROUP"));
-                      row.setAttribute("UnitOfMeasure", previousMonthDatarows[i].getAttribute("UNITOFMEASURE"));
-                      row.setAttribute("STATISTICALDATA", previousMonthDatarows[i].getAttribute("STATISTICALDATA"));
-                      row.setAttribute("ToDepartmentId", previousMonthDatarows[i].getAttribute("TODEPARTMENTID"));
-                      row.setAttribute("ToOperatingUnit", previousMonthDatarows[i].getAttribute("TOOPERATINGUNIT"));
-                      row.setAttribute("ToJobCode", previousMonthDatarows[i].getAttribute("TOJOBCODE"));
-                      row.setAttribute("ToBusinessUnit", previousMonthDatarows[i].getAttribute("TOBUSINESSUNIT"));
-                      
-                      
-                      
-                     // previousMonthDatarows[i].getAttribute("StatisticalDataCategory");
-                      System.out.println("value :: "+previousMonthDatarows[i].getAttribute("STATISTICALDATACATEGORY"));
-              
-                  } 
-              } catch (Exception e) {
-                  // TODO: Add catch code
-                  e.printStackTrace(); 
+            for (int i = 0; i < previousMonthDatarows.length; i++) {
 
-              }
+                executeBinding("CreateStatisticalData");
+
+                Row row = statisticalData.getCurrentRow();
+                row.setAttribute("StatisticalDataCategory",
+                                 previousMonthDatarows[i].getAttribute("STATISTICALDATACATEGORY"));
+                row.setAttribute("FROMOU", previousMonthDatarows[i].getAttribute("FROMOU"));
+                row.setAttribute("FROMJOBCODE", previousMonthDatarows[i].getAttribute("FROMJOBCODE"));
+                row.setAttribute("FROMDEPTID", previousMonthDatarows[i].getAttribute("FROMDEPTID"));
+                row.setAttribute("FROMBU", previousMonthDatarows[i].getAttribute("FROMBU"));
+                row.setAttribute("NATUREOFEXPENSE", previousMonthDatarows[i].getAttribute("NATUREOFEXPENSE"));
+                row.setAttribute("InputProvider", previousMonthDatarows[i].getAttribute("InputProvider"));
+                row.setAttribute("GLACCOUNT", previousMonthDatarows[i].getAttribute("GLACCOUNT"));
+                row.setAttribute("CREATEDDATE", new java.sql.Date(new Date().getTime()));
+                row.setAttribute("UpdatedBy", user);
+                row.setAttribute("UpdatedDate", new java.sql.Date(new Date().getTime()));
+                row.setAttribute("CreatedBy", user);
+                row.setAttribute("ValidityTill", previousMonthDatarows[i].getAttribute("VALIDITYTILL"));
+                row.setAttribute("ValidityFrom", previousMonthDatarows[i].getAttribute("VALIDITYFROM"));
+                row.setAttribute("RejectionComments", previousMonthDatarows[i].getAttribute("REJECTIONCOMMENTS"));
+                row.setAttribute("RejectedReason", previousMonthDatarows[i].getAttribute("REJECTEDREASON"));
+                row.setAttribute("TargetAmount", previousMonthDatarows[i].getAttribute("TARGETAMOUNT"));
+                row.setAttribute("EmployeeId", previousMonthDatarows[i].getAttribute("EMPLOYEEID"));
+                row.setAttribute("Currency", previousMonthDatarows[i].getAttribute("CURRENCY"));
+                row.setAttribute("CostGroup", previousMonthDatarows[i].getAttribute("COSTGROUP"));
+                row.setAttribute("UnitOfMeasure", previousMonthDatarows[i].getAttribute("UNITOFMEASURE"));
+                row.setAttribute("STATISTICALDATA", previousMonthDatarows[i].getAttribute("STATISTICALDATA"));
+                row.setAttribute("ToDepartmentId", previousMonthDatarows[i].getAttribute("TODEPARTMENTID"));
+                row.setAttribute("ToOperatingUnit", previousMonthDatarows[i].getAttribute("TOOPERATINGUNIT"));
+                row.setAttribute("ToJobCode", previousMonthDatarows[i].getAttribute("TOJOBCODE"));
+                row.setAttribute("ToBusinessUnit", previousMonthDatarows[i].getAttribute("TOBUSINESSUNIT"));
+
+
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+
+        }
         executeBinding(SAVE_DATA);
         ViewObject object = statisticalData.getViewObject();
         object.executeQuery();
@@ -591,67 +517,55 @@ public class ActionEventsBean {
     }
 
     public void onCloseOfStatDataEvent(ActionEvent actionEvent) {
-        // Add event code here...
         this.statisticspopupbind.hide();
     }
 
     public void onCancelOfStatDataEvent(ActionEvent actionEvent) {
-        // Add event code here...
         executeBinding("Rollback");
     }
-    
-    
+
+
     public void onTPADocsUpload(ValueChangeEvent valueChangeEvent) {
-        // Add event code here...
         if (valueChangeEvent.getNewValue() != null) {
-            
+
             String filePath1 = ADFUtils.getPath();
-            if(filePath1.equalsIgnoreCase("NOPATH")){
+            if (filePath1.equalsIgnoreCase("NOPATH")) {
                 FacesContext context = FacesContext.getCurrentInstance();
                 String messageText = "Please setup the system path to upload the file.";
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_INFO);
                 context.addMessage(null, fm);
-            }else{
-            try {
-                UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
-                if (null != uploadedFile) {
-                    InputStream inputStream = null;
-                    inputStream = uploadedFile.getInputStream();
-                    BufferedInputStream bfi = new BufferedInputStream(inputStream);
-                    String fileName = uploadedFile.getFilename();
-                    String path = null;
-                    // String filePath1 = "D:\\FilesStoragePath\\";
+            } else {
+                try {
+                    UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
+                    if (null != uploadedFile) {
+                        InputStream inputStream = null;
+                        inputStream = uploadedFile.getInputStream();
+                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
+                        String fileName = uploadedFile.getFilename();
+                        String path = null;
 
-                   
-                    System.out.println("filePath1" + filePath1);
-                    
-                    String tokens = uploadedFile.getFilename();
-                    String fileNames = uploadedFile.getFilename();
-                    String contentType = uploadedFile.getContentType();
-                    //                                        String fileNameWithOutExt = FilenameUtils.removeExtension(tokens);
-                    //                                        String fileNameWithExt = FilenameUtils.getExtension(tokens);
-                    //                                        DateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
-                    //                                        Date date = new Date();
-                    //                                        String fileNames = fileNameWithOutExt + "_" + dateFormat.format(date) + "." + fileNameWithExt;
-                    path = filePath1 + fileNames;
-                    saveFile(path, fileName, bfi);
 
-                    DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocAttachment1VO2Iterator");
-                    Row row = docs.getCurrentRow();
-                    // row.setAttribute("FileContent",sbyte);
-                    //row.setAttribute("EffectiveFrom",new java.sql.Date(new java.util.Date().getTime()));
-                    row.setAttribute("Attachment", fileName);
-                    row.setAttribute("Attribute1", path);
-                    row.setAttribute("Attribute2", contentType);
+                        String tokens = uploadedFile.getFilename();
+                        String fileNames = uploadedFile.getFilename();
+                        String contentType = uploadedFile.getContentType();
 
-                    System.out.println("File path and file Name in downlaod" + path + fileName);
+                        path = filePath1 + fileNames;
+                        saveFile(path, fileName, bfi);
+
+                        DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocAttachment1VO2Iterator");
+                        Row row = docs.getCurrentRow();
+                        row.setAttribute("Attachment", fileName);
+                        row.setAttribute("Attribute1", path);
+                        row.setAttribute("Attribute2", contentType);
+
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
-    }
     }
 
 
@@ -662,9 +576,9 @@ public class ActionEventsBean {
             File files = new File(filePath);
             if (!files.exists()) {
                 if (files.mkdirs()) {
-                    System.out.println("Multiple directories are created!");
+                    LOG.info("Multiple directories are created!");
                 } else {
-                    System.out.println("Failed to create multiple directories!");
+                    LOG.info("Failed to create multiple directories!");
                 }
             }
             fout = new FileOutputStream(filePath + fileName);
@@ -689,11 +603,8 @@ public class ActionEventsBean {
         DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsTpaDocAttachment1VO2Iterator");
         ViewObject vo = imageIter.getViewObject();
         oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
-
         String filePath = (String) currentRow.getAttribute("Attribute1");
         String fileName = (String) currentRow.getAttribute("Attachment");
-        System.out.println("filePath :: " + filePath);
-        System.out.println("fileName :: " + fileName);
 
 
         try {
@@ -723,67 +634,40 @@ public class ActionEventsBean {
     }
 
     public void onSelectAllVouchers(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At Vouchers:: " + valueChangeEvent.getNewValue());
+
         DCIteratorBinding voucherData = null;
         voucherData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         oracle.jbo.Row[] voucherDatarows = voucherData.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {   
-            System.out.println("voucherDatarows:: " + voucherDatarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
+
             for (int i = 0; i < voucherDatarows.length; i++) {
-                System.out.println("voucher period  :: " + voucherDatarows[i].getAttribute("Period"));
-                System.out.println("value :: " + voucherDatarows[i].getAttribute("SelectRecord"));
-//                Row row = voucherData.getCurrentRow();
-//                row.setAttribute("SelectRecord", "Yes");
-//                vouchercheckBoxSelectBind.setValue("Yes");
-                 voucherDatarows[i].setAttribute("SelectRecord", "Yes");
-                System.out.println("row :: " + voucherDatarows[i].getAttribute("SelectRecord"));
+                voucherDatarows[i].setAttribute("SelectRecord", "Yes");
             }
 
-        }else {     
-            System.out.println("voucherDatarows else:: " + voucherDatarows.length);
+        } else {
+
             for (int i = 0; i < voucherDatarows.length; i++) {
-                System.out.println("voucher period  :: " + voucherDatarows[i].getAttribute("Period"));
-                System.out.println("value :: " + voucherDatarows[i].getAttribute("SelectRecord"));
-//                Row row = voucherData.getCurrentRow();
-//                row.setAttribute("SelectRecord", "No");
-//                vouchercheckBoxSelectBind.setValue("No");
                 voucherDatarows[i].setAttribute("SelectRecord", "No");
-                System.out.println("row :: " + voucherDatarows[i].getAttribute("SelectRecord"));
             }
-            
+
         }
-        
+
         AdfFacesContext.getCurrentInstance().addPartialTarget(vouchercheckBoxSelectBind);
         AdfFacesContext.getCurrentInstance().addPartialTarget(voucherColSelectBind);
 
     }
 
     public void onSelectAllInvoice(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At Invoices :: " + valueChangeEvent.getNewValue());
         DCIteratorBinding invoiceData = null;
         invoiceData = getDCIteratorBindings("SgsStlmtInvVO1Iterator");
         oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("invoices Datarows:: " + invoiceDatarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < invoiceDatarows.length; i++) {
-                System.out.println("invoice period  :: " + invoiceDatarows[i].getAttribute("Period"));
-                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
-//                Row row = invoiceData.getCurrentRow();
-//                row.setAttribute("SelectRecordInvoice", "Yes");
-                 invoiceDatarows[i].setAttribute("SelectRecordInvoice", "Yes");
-              //  invoiceCheckBoxSelectBind.setValue("Yes");
-                System.out.println(" invoice SelectRecordInvoice :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
-            }               
-        }else {
-            System.out.println("invoices Datarows else:: " + invoiceDatarows.length);
+                invoiceDatarows[i].setAttribute("SelectRecordInvoice", "Yes");
+            }
+        } else {
             for (int i = 0; i < invoiceDatarows.length; i++) {
-                System.out.println("invoice period  :: " + invoiceDatarows[i].getAttribute("Period"));
-                System.out.println("invoice  :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
-//                Row row = invoiceData.getCurrentRow();
-//                row.setAttribute("SelectRecordInvoice", "No");
                 invoiceDatarows[i].setAttribute("SelectRecordInvoice", "No");
-               // invoiceCheckBoxSelectBind.setValue("No");
-                System.out.println(" invoice rows :: " + invoiceDatarows[i].getAttribute("SelectRecordInvoice"));
             }
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(invoiceCheckBoxSelectBind);
@@ -862,23 +746,16 @@ public class ActionEventsBean {
     }
 
     public void onCreateSettlementSelectAll(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At create settlement :: " + valueChangeEvent.getNewValue());
         DCIteratorBinding settlementData = null;
         settlementData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         oracle.jbo.Row[] settlementDataDatarows = settlementData.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("settlementDataDatarows Datarows:: " + settlementDataDatarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < settlementDataDatarows.length; i++) {
-                System.out.println(" SelectRecord :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
-                 settlementDataDatarows[i].setAttribute("SelectRecord", "Yes");
-                System.out.println(" settlementDataDatarows SelectRecord :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
-            }               
-        }else {
-            System.out.println("settlementDataDatarows Datarows else:: " + settlementDataDatarows.length);
+                settlementDataDatarows[i].setAttribute("SelectRecord", "Yes");
+            }
+        } else {
             for (int i = 0; i < settlementDataDatarows.length; i++) {
-                System.out.println("SelectRecord  :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
                 settlementDataDatarows[i].setAttribute("SelectRecord", "No");
-                System.out.println(" SelectRecord rows :: " + settlementDataDatarows[i].getAttribute("SelectRecord"));
             }
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(bindSettlementRowCheckBox);
@@ -902,175 +779,114 @@ public class ActionEventsBean {
     }
 
     public void onSelectAllForSettlement(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At create settlement 11 :: " + valueChangeEvent.getNewValue());
+
     }
-    
-    
-//    public void settlePayments() {
-//       // Payment settlement logic goes here
-//    double transactionAmount = ((Number) AdfFacesContext.getCurrentInstance().getELContext().getELResolver().getValue(AdfFacesContext.getCurrentInstance().getELContext(), null, "inputTransactionAmount.getValue()")).doubleValue();
-//    double bankCharge = ((Number) AdfFacesContext.getCurrentInstance().getELContext().getELResolver().getValue(AdfFacesContext.getCurrentInstance().getELContext(), null, "inputBankCharge.getValue()")).doubleValue();
-//
-//
-//    DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
-//    DCIteratorBinding paymentIterator = bindings.findIteratorBinding("tablePaymentRecordsIterator");
-//
-//
-//    paymentIterator.executeQuery();
-//    while (paymentIterator.hasNext()) {
-//       Row paymentRow = paymentIterator.next();
-//       String settlementStatus = (String)paymentRow.getAttribute("SettlementStatus");
-//       double outstandingAmount = ((Number)paymentRow.getAttribute("OutstandingAmount")).doubleValue();
-//       double netPayableAmount = ((Number)paymentRow.getAttribute("NetPayableAmount")).doubleValue();
-//       double settlementAmount = 0;
-//       double bankChargeAmount = 0;
-//       if ("unpaid".equals(settlementStatus)) {
-//          if (transactionAmount >= outstandingAmount) {
-//             settlementAmount = outstandingAmount;
-//             settlementStatus = "Settled";
-//             transactionAmount -= outstandingAmount;
-//             bankChargeAmount = bankCharge;
-//          } else {
-//             settlementAmount = transactionAmount;
-//             settlementStatus = "Partially settled";
-//             transactionAmount = 0;
-//          }
-//          paymentRow.setAttribute("SettlementStatus", settlementStatus);
-//          paymentRow.setAttribute("SettlementAmount", settlementAmount);
-//          paymentRow.setAttribute("BankCharge", bankChargeAmount);
-//          paymentRow.setAttribute("OutstandingAmount", netPayableAmount - settlementAmount);
-//       }
-//       if (transactionAmount <= 0) {
-//          break;
-//       }
-//    }
-//    AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords);
-//
-//
-//
-//
-//
-//    }
+
 
     public void onGenerateSettlementEvent(ActionEvent actionEvent) {
-        
-        
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-       
-        double transactionAmount = ((Number)row.getAttribute("TRXAMOUNT")).doubleValue();
-        double bankCharge = ((Number)row.getAttribute("BANKCHARGES")).doubleValue();
-        
-
-        System.out.println("TRX AMOUNT  :: " + transactionAmount);
-        System.out.println("BankCharge  :: " + bankCharge);
-
-//        ViewObject paymentIterator = ADFUtils.findIterator("SgsCreateSettlementVO1Iterator").getViewObject();
-
-//        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
-//        DCIteratorBinding paymentIterator = bindings.findIteratorBinding("SgsCreateSettlementVO1Iterator");
+        double transactionAmount = ((Number) row.getAttribute("TRXAMOUNT")).doubleValue();
+        double bankCharge = ((Number) row.getAttribute("BANKCHARGES")).doubleValue();
         ViewObject paymentIterator = ADFUtils.findIterator("SgsStlmtVoucherVO1Iterator").getViewObject();
         Row[] rows = paymentIterator.getAllRowsInRange();
         boolean isFirstRow = true;
-        
-       for(Row paymentRow:getUnpaidAndPartiallySettledRows()) {
-           
-            
-           String settlementStatus = (String)paymentRow.getAttribute("StlmtStatus");
-           String paymentStatus = (String)paymentRow.getAttribute("PaymentStatus");
-           double outstandingAmount = ((Number)paymentRow.getAttribute("OsAmountPayable")).doubleValue();
-           double netPayableAmount = ((Number)paymentRow.getAttribute("NetAmountPayable")).doubleValue();
-           double settlementAmount = 0;
-//           double bankChargeAmount = 0;
-           
+        for (Row paymentRow : getUnpaidAndPartiallySettledRows()) {
 
-           if ("Unpaid".equals(settlementStatus)) {
-              if (transactionAmount >= outstandingAmount) {
-                 settlementAmount = outstandingAmount;
-                 settlementStatus = "Settled";
-                 paymentStatus ="Fully Paid";
-      
-              } else {
-                  
-                  DecimalFormat decimalFormat = new DecimalFormat("#.##");
-                  decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-                  settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
-                 
-                
-                 settlementStatus = "Partially settled";
-                 paymentStatus ="Partially Paid";
-                 transactionAmount = 0;
-              }
-               if (isFirstRow) {
-                   paymentRow.setAttribute("BANKCHARGES", bankCharge);
-                   isFirstRow = false;
-               }
-              
-              transactionAmount -= outstandingAmount;
-              paymentRow.setAttribute("StlmtStatus", settlementStatus);
-              paymentRow.setAttribute("PaymentStatus", paymentStatus);
-              paymentRow.setAttribute("StlmtAmount", settlementAmount);
-               DecimalFormat decimalFormat = new DecimalFormat("#.##");
-               decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-              paymentRow.setAttribute("OsAmountPayable", Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
-           } else{
+
+            String settlementStatus = (String) paymentRow.getAttribute("StlmtStatus");
+            String paymentStatus = (String) paymentRow.getAttribute("PaymentStatus");
+            double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
+            double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
+            double settlementAmount = 0;
+
+
+            if ("Unpaid".equals(settlementStatus)) {
+                if (transactionAmount >= outstandingAmount) {
+                    settlementAmount = outstandingAmount;
+                    settlementStatus = "Settled";
+                    paymentStatus = "Fully Paid";
+
+                } else {
+
+                    DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                    decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                    settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
+
+
+                    settlementStatus = "Partially settled";
+                    paymentStatus = "Partially Paid";
+                    transactionAmount = 0;
+                }
+                if (isFirstRow) {
+                    paymentRow.setAttribute("BANKCHARGES", bankCharge);
+                    isFirstRow = false;
+                }
+
+                transactionAmount -= outstandingAmount;
+                paymentRow.setAttribute("StlmtStatus", settlementStatus);
+                paymentRow.setAttribute("PaymentStatus", paymentStatus);
+                paymentRow.setAttribute("StlmtAmount", settlementAmount);
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                paymentRow.setAttribute("OsAmountPayable",
+                                        Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+            } else {
                 if (transactionAmount >= outstandingAmount) {
                     settlementAmount = netPayableAmount;
                     settlementStatus = "Settled";
                     paymentStatus = "Fully Paid";
 
 
-                }else {
-                  
-                  DecimalFormat decimalFormat = new DecimalFormat("#.##");
-                  decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-                  settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
-                 
-                
-                 settlementStatus = "Partially settled";
-                 paymentStatus ="Partially Paid";
-                 transactionAmount = 0;
-              }
-               if (isFirstRow) {
-                   paymentRow.setAttribute("BANKCHARGES", bankCharge);
-                   isFirstRow = false;
-               }
-              
-              transactionAmount -= outstandingAmount;
-              paymentRow.setAttribute("StlmtStatus", settlementStatus);
-              paymentRow.setAttribute("PaymentStatus", paymentStatus);
-              paymentRow.setAttribute("StlmtAmount", settlementAmount);
-               DecimalFormat decimalFormat = new DecimalFormat("#.##");
-               decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-              paymentRow.setAttribute("OsAmountPayable", Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+                } else {
+
+                    DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                    decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                    settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
+                    settlementStatus = "Partially settled";
+                    paymentStatus = "Partially Paid";
+                    transactionAmount = 0;
+                }
+                if (isFirstRow) {
+                    paymentRow.setAttribute("BANKCHARGES", bankCharge);
+                    isFirstRow = false;
+                }
+
+                transactionAmount -= outstandingAmount;
+                paymentRow.setAttribute("StlmtStatus", settlementStatus);
+                paymentRow.setAttribute("PaymentStatus", paymentStatus);
+                paymentRow.setAttribute("StlmtAmount", settlementAmount);
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                paymentRow.setAttribute("OsAmountPayable",
+                                        Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
 
 
-           }
-           if (transactionAmount <= 0) {
-              break;
-           }
+            }
+            if (transactionAmount <= 0) {
+                break;
+            }
         }
-//        executeBinding(SAVE_DATA);
-       
+        //        executeBinding(SAVE_DATA);
+
         AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords);
 
 
-        
     }
-    
-    private Row[] getUnpaidAndPartiallySettledRows() {
-            ViewObject vo = getPaymentSettlementVO();
-            vo.setWhereClause("STLMT_STATUS IN ('Unpaid', 'Partially Settled')");
-            vo.executeQuery();
-            return vo.getAllRowsInRange();
-        }
 
-        private ViewObject getPaymentSettlementVO() {
-            DCBindingContainer binding = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
-            DCIteratorBinding iterator = binding.findIteratorBinding("SgsStlmtVoucherVO1Iterator");
-            return iterator.getViewObject();
-        }
-            
+    private Row[] getUnpaidAndPartiallySettledRows() {
+        ViewObject vo = getPaymentSettlementVO();
+        vo.setWhereClause("STLMT_STATUS IN ('Unpaid', 'Partially Settled')");
+        vo.executeQuery();
+        return vo.getAllRowsInRange();
+    }
+
+    private ViewObject getPaymentSettlementVO() {
+        DCBindingContainer binding = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iterator = binding.findIteratorBinding("SgsStlmtVoucherVO1Iterator");
+        return iterator.getViewObject();
+    }
+
 
     public void onCreateSettlementSearch(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
@@ -1080,7 +896,6 @@ public class ActionEventsBean {
         String ICCUSTOMERBU = (String) row.getAttribute("ICCUSTOMERBU");
         String ICSUPPLIERGEO = (String) row.getAttribute("ICSUPPLIERGEO");
         String ICSUPPLIERBU = (String) row.getAttribute("ICSUPPLIERBU");
-
         DCIteratorBinding iteratorBinding = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         RowSetIterator rowSetIterator = iteratorBinding.getRowSetIterator();
         ViewObjectImpl voucherView = (ViewObjectImpl) iteratorBinding.getViewObject();
@@ -1091,59 +906,28 @@ public class ActionEventsBean {
         voucherView.setNamedWhereClauseParam("bSupBu", ICSUPPLIERBU);
         voucherView.setNamedWhereClauseParam("bSupGeo", ICSUPPLIERGEO);
         voucherView.executeQuery();
-
-
-//        oracle.jbo.Row[] voucherDatarows = voucherView.getAllRowsInRange();
-//        System.out.println(" voucherDatarows length :: " + voucherDatarows.length);
-//        DCIteratorBinding createSettlementData = getDCIteratorBindings("SgsCreateSettlementVO1Iterator");
-//        for (int i = 0; i < voucherDatarows.length; i++) {
-//            System.out.println(" PsVoucherNo :: " + voucherDatarows[i].getAttribute("PsVoucherNo"));
-//            executeBinding("CreateSettlement");
-//            Row row1 = createSettlementData.getCurrentRow();
-//            row1.setAttribute("DATE", voucherDatarows[i].getAttribute("AcctDate"));
-//            row1.setAttribute("NETAMOUNTPAYABLE", voucherDatarows[i].getAttribute("NetAmountPayable"));
-//            row1.setAttribute("OUTSTANDINGAMOUNT", voucherDatarows[i].getAttribute("OsAmountPayable"));
-//            row1.setAttribute("PAYMENTSTATUS", voucherDatarows[i].getAttribute("PaymentStatus"));
-//            row1.setAttribute("PSINVOICENUMBER", voucherDatarows[i].getAttribute("RefToArInvoice"));
-//            row1.setAttribute("PSVOUCHERNUMBER", voucherDatarows[i].getAttribute("PsVoucherNo"));
-//            row1.setAttribute("SETTLEMENTAMOUNT", voucherDatarows[i].getAttribute("StlmtAmount"));
-//            row1.setAttribute("SETTLEMENTSTATUS", voucherDatarows[i].getAttribute("StlmtStatus"));
-//            row1.setAttribute("TRANSACTIONCURRENCY", voucherDatarows[i].getAttribute("TxnCurrency"));
-//
-//        }
-//        executeBinding(SAVE_DATA);
-   //     ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
-   //     data.executeQuery();
-
-
     }
 
     public void onCreateSettlementSave(ActionEvent actionEvent) {
         executeBinding(SAVE_DATA);
-        
         ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
         data.executeQuery();
         ADFUtils.saveNotifier();
     }
 
     public void onNettingHeaderSelectRecord(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At Netting :: " + valueChangeEvent.getNewValue());
         DCIteratorBinding settlementData = null;
         settlementData = getDCIteratorBindings("SgsNettingInvoiceVoucherVO1Iterator");
         oracle.jbo.Row[] NettingDataDatarows = settlementData.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("NettingDataDatarows Datarows:: " + NettingDataDatarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < NettingDataDatarows.length; i++) {
-                System.out.println(" SELECTRECORDS :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
-                 NettingDataDatarows[i].setAttribute("SelectedNettingRec", "Yes");
-                System.out.println(" NettingDataDatarows SELECTRECORDS :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
-            }               
-        }else {
-            System.out.println("NettingDataDatarows Datarows else:: " + NettingDataDatarows.length);
+                NettingDataDatarows[i].setAttribute("SelectedNettingRec", "Yes");
+            }
+        } else {
             for (int i = 0; i < NettingDataDatarows.length; i++) {
-                System.out.println("SelectedNettingRec  :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
+
                 NettingDataDatarows[i].setAttribute("SelectedNettingRec", "No");
-                System.out.println(" SelectedNettingRec rows :: " + NettingDataDatarows[i].getAttribute("SelectedNettingRec"));
+
             }
         }
     }
@@ -1161,10 +945,8 @@ public class ActionEventsBean {
         DCIteratorBinding nettingData = getDCIteratorBindings("SgsNettingInvoiceVoucherVO1Iterator");
         Row row = nettingData.getCurrentRow();
         String geos = (String) row.getAttribute("NettingId");
-        System.out.println("Geos :: "+geos);
         if (null != geos && !geos.isEmpty()) {
             String[] result = new String[2];
-            // String s = "USA-IND";
             result = geos.split("\\-", 0); // splitting the string at "-"
             String Geo1 = result[0];
             String Geo2 = result[1];
@@ -1173,33 +955,25 @@ public class ActionEventsBean {
                 viewImpl1 = (ViewObjectImpl) getDCIteratorBindings("SgsNettingGeo1VO1Iterator").getViewObject();
                 viewImpl1.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
                 viewImpl1.setWhereClause(" GEOGRAPHY_1 IN ( '" + Geo1 + "')");
-                System.out.println("viewImpl1 getQuery :: " + viewImpl1.getQuery());
                 viewImpl1.executeQuery();
-                
-                
+
                 ViewObjectImpl viewImplsum = null;
                 viewImplsum = (ViewObjectImpl) getDCIteratorBindings("SgsGeo1SumValuesVO1Iterator").getViewObject();
                 viewImplsum.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
                 viewImplsum.setWhereClause(" GEOGRAPHY_1 IN ( '" + Geo1 + "')");
-                System.out.println("viewImplsum getQuery :: " + viewImplsum.getQuery());
                 viewImplsum.executeQuery();
-                
-                
             }
             if (null != Geo2 && !Geo2.isEmpty()) {
                 ViewObjectImpl viewImpl2 = null;
                 viewImpl2 = (ViewObjectImpl) getDCIteratorBindings("SgsNettingGeo2VO1Iterator").getViewObject();
                 viewImpl2.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
                 viewImpl2.setWhereClause(" GEOGRAPHY_2 IN ( '" + Geo2 + "')");
-                System.out.println("viewImpl2 getQuery :: " + viewImpl2.getQuery());
                 viewImpl2.executeQuery();
-                
-                
+
                 ViewObjectImpl viewImplsum = null;
                 viewImplsum = (ViewObjectImpl) getDCIteratorBindings("SgsGeo2SumValuesVO1Iterator").getViewObject();
                 viewImplsum.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
                 viewImplsum.setWhereClause(" GEOGRAPHY_2 IN ( '" + Geo2 + "')");
-                System.out.println("viewImplsum getQuery :: " + viewImplsum.getQuery());
                 viewImplsum.executeQuery();
             }
         }
@@ -1207,53 +981,37 @@ public class ActionEventsBean {
     }
 
     public void onNettingGeo2SelectRec(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At Netting Geo2 :: " + valueChangeEvent.getNewValue());
         DCIteratorBinding geo2Data = null;
         geo2Data = getDCIteratorBindings("SgsNettingGeo2VO1Iterator");
         oracle.jbo.Row[] geo2Datarows = geo2Data.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("geo2Datarows Datarows:: " + geo2Datarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < geo2Datarows.length; i++) {
-                System.out.println(" SelectGeo2Rec :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
-                 geo2Datarows[i].setAttribute("SelectGeo2Rec", "Yes");
-                System.out.println(" geo2Datarows SELECTRECORDS :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
-            }               
-        }else {
-            System.out.println("NettingDataDatarows Datarows else:: " + geo2Datarows.length);
+                geo2Datarows[i].setAttribute("SelectGeo2Rec", "Yes");
+            }
+        } else {
             for (int i = 0; i < geo2Datarows.length; i++) {
-                System.out.println("SelectGeo2Rec  :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
                 geo2Datarows[i].setAttribute("SelectGeo2Rec", "No");
-                System.out.println(" SelectGeo2Rec rows :: " + geo2Datarows[i].getAttribute("SelectGeo2Rec"));
             }
         }
-        
         AdfFacesContext.getCurrentInstance().addPartialTarget(bindGeo2SelectCol);
         AdfFacesContext.getCurrentInstance().addPartialTarget(bindSelectAllGeo2);
     }
 
     public void onNettingGeo1SelectRec(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At Netting Geo1 :: " + valueChangeEvent.getNewValue());
         DCIteratorBinding geo1Data = null;
         geo1Data = getDCIteratorBindings("SgsNettingGeo1VO1Iterator");
         oracle.jbo.Row[] geo1Datarows = geo1Data.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("geo1Datarows Datarows:: " + geo1Datarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < geo1Datarows.length; i++) {
-                System.out.println(" SelectGeo1Rec :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
-                 geo1Datarows[i].setAttribute("SelectGeo1Rec", "Yes");
-                System.out.println(" geo1Datarows SELECTRECORDS :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
-            }               
-        }else {
-            System.out.println("geo1Datarows Datarows else:: " + geo1Datarows.length);
+                geo1Datarows[i].setAttribute("SelectGeo1Rec", "Yes");
+            }
+        } else {
             for (int i = 0; i < geo1Datarows.length; i++) {
-                System.out.println("SelectGeo1Rec  :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
                 geo1Datarows[i].setAttribute("SelectGeo1Rec", "No");
-                System.out.println(" SelectGeo1Rec rows :: " + geo1Datarows[i].getAttribute("SelectGeo1Rec"));
             }
         }
-        
-                AdfFacesContext.getCurrentInstance().addPartialTarget(bindSelectAllGeo1);
-                AdfFacesContext.getCurrentInstance().addPartialTarget(bindGeo1SelectCol);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindSelectAllGeo1);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindGeo1SelectCol);
     }
 
     public void setBindGeo2SelectCol(RichColumn bindGeo2SelectCol) {
@@ -1287,60 +1045,39 @@ public class ActionEventsBean {
     public RichColumn getBindGeo1SelectCol() {
         return bindGeo1SelectCol;
     }
-    
-    
-    public void onStatisticalSubmitAproval(ActionEvent actionEvent) {
 
-//       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getSessionScope().get("pageList");
-//       System.out.println("Page List ::"+pageList.toString());
-//        if(null != pageList && !(pageList.isEmpty()) && pageList.contains("ALL_PAGE")){
-//            System.out.println("Admin"+pageList.toString());
-//            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-//           this.submitstatpopupbind.show(hints);
-//        }else{
-//            
-            
-            DCIteratorBinding statData = null;
-            statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
-            oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
-            for (int i = 0; i < statDataDatarows.length; i++) {
-                System.out.println(" StatSelectedRecord At Approve:: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
-                System.out.println(" InputProvider At Approve:: " + statDataDatarows[i].getAttribute("InputProvider"));
-                if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
-                    statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
-                    
-                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Submitted For Approval");
-                    }
-            } 
-            
-            executeBinding(SAVE_DATA);
-            submitstatpopupbind.hide();
-     //  }
+
+    public void onStatisticalSubmitAproval(ActionEvent actionEvent) {
+        DCIteratorBinding statData = null;
+        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+        for (int i = 0; i < statDataDatarows.length; i++) {
+            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                statDataDatarows[i].setAttribute("APPROVESTATUS", "Submitted For Approval");
+            }
+        }
+        executeBinding(SAVE_DATA);
+        submitstatpopupbind.hide();
     }
 
     public void onStatisticalApprove(ActionEvent actionEvent) {
-
-       ArrayList<String> pageList=  (ArrayList<String>) ADFContext.getCurrent().getSessionScope().get("pageList");
-       System.out.println("Page List ::"+pageList.toString());
-        if(null != pageList && !(pageList.isEmpty()) && pageList.contains("ALL_PAGE")){
-            System.out.println("Admin"+pageList.toString());
+        ArrayList<String> pageList = (ArrayList<String>) ADFContext.getCurrent()
+                                                                   .getSessionScope()
+                                                                   .get("pageList");
+        if (null != pageList && !(pageList.isEmpty()) && pageList.contains("ALL_PAGE")) {
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             this.approvepoopupbind.show(hints);
-        }else{
+        } else {
             DCIteratorBinding statData = null;
             statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
             oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
             for (int i = 0; i < statDataDatarows.length; i++) {
-                System.out.println(" StatSelectedRecord At Approve:: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
-                System.out.println(" InputProvider At Approve:: " + statDataDatarows[i].getAttribute("InputProvider"));
                 if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
                     statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
-                    
-                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
-                    }
-                
-            } 
-            
+                    statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
+                }
+            }
             executeBinding(SAVE_DATA);
             approvepoopupbind.hide();
         }
@@ -1352,32 +1089,20 @@ public class ActionEventsBean {
     }
 
     public void onStatisticalSelectAll(ValueChangeEvent valueChangeEvent) {
-        //SgsStatisticalDataVO1Iterator
-        System.out.println("Checkbox At Statistical :: " + valueChangeEvent.getNewValue());
         DCIteratorBinding statData = null;
         statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
         oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("statDataDatarows Datarows:: " + statDataDatarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < statDataDatarows.length; i++) {
-                System.out.println(" StatSelectedRecord :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
-                 statDataDatarows[i].setAttribute("StatSelectedRecord", "Yes");
-                System.out.println(" geo1Datarows SELECTRECORDS :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
-            }               
-        }else {
-            System.out.println("geo1Datarows Datarows else:: " + statDataDatarows.length);
-            for (int i = 0; i < statDataDatarows.length; i++) {
-                System.out.println("StatSelectedRecord  :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
-                statDataDatarows[i].setAttribute("StatSelectedRecord", "No");
-                System.out.println(" StatSelectedRecord rows :: " + statDataDatarows[i].getAttribute("StatSelectedRecord"));
-               
+                statDataDatarows[i].setAttribute("StatSelectedRecord", "Yes");
             }
-            
-         
+        } else {
+            for (int i = 0; i < statDataDatarows.length; i++) {
+                statDataDatarows[i].setAttribute("StatSelectedRecord", "No");
+            }
         }
-        
-                AdfFacesContext.getCurrentInstance().addPartialTarget(bindStatCheckboxSelect);
-                AdfFacesContext.getCurrentInstance().addPartialTarget(onStatSelectAllColumn);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(bindStatCheckboxSelect);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(onStatSelectAllColumn);
     }
 
     public void setBindStatCheckboxSelect(RichSelectBooleanCheckbox bindStatCheckboxSelect) {
@@ -1413,7 +1138,6 @@ public class ActionEventsBean {
     }
 
 
-
     public void setRejectionCommentsBind(RichInputText rejectionCommentsBind) {
         this.rejectionCommentsBind = rejectionCommentsBind;
     }
@@ -1427,22 +1151,16 @@ public class ActionEventsBean {
         statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
         oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
         for (int i = 0; i < statDataDatarows.length; i++) {
-            System.out.println(" StatSelectedRecord At Reject:: " +
-                               statDataDatarows[i].getAttribute("StatSelectedRecord"));
-            System.out.println(" InputProvider At Reject:: " + statDataDatarows[i].getAttribute("InputProvider"));
             if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
                 statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
                 if (null != rejectionReasonLOVBind.getValue()) {
                     String reason = (String) rejectionReasonLOVBind.getValue();
-                    System.out.println("reason" + reason);
                     statDataDatarows[i].setAttribute("RejectedReason", reason);
                 }
                 if (null != rejectionCommentsBind.getValue()) {
                     String comments = (String) rejectionCommentsBind.getValue();
-                    System.out.println("comments" + comments);
                     statDataDatarows[i].setAttribute("RejectionComments", comments);
                 }
-                
                 statDataDatarows[i].setAttribute("APPROVESTATUS", "Rejected");
             }
         }
@@ -1465,24 +1183,17 @@ public class ActionEventsBean {
         statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
         oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
         for (int i = 0; i < statDataDatarows.length; i++) {
-            System.out.println(" StatSelectedRecord At File Attachment:: " +
-                               statDataDatarows[i].getAttribute("StatSelectedRecord"));
-            System.out.println(" InputProvider At File Attachment:: " +
-                               statDataDatarows[i].getAttribute("InputProvider"));
             if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
                 statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
                 if (null != inputFileBind.getValue()) {
                     UploadedFile uploadedFile = (UploadedFile) inputFileBind.getValue();
                     if (null != uploadedFile.getFilename()) {
                         String fileName = (String) uploadedFile.getFilename();
-                        System.out.println("fileName" + fileName);
                         statDataDatarows[i].setAttribute("EMAILATTACHMENT", fileName);
                         statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
                     }
 
                 }
-
-
             }
         }
         executeBinding(SAVE_DATA);
@@ -1497,21 +1208,16 @@ public class ActionEventsBean {
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding faiter = (DCIteratorBinding) bindings.get("SgsFixedAssetsTxnVO1Iterator");
         ViewObject faVO = faiter.getViewObject();
-
         oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("Selected", true);
-        System.out.println("*****Selected rows****" + selectedRows.length);
         for (oracle.jbo.Row rw : selectedRows) {
             if (null != inputFileBindFA.getValue()) {
                 UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
                 if (null != uploadedFile.getFilename()) {
                     String fileName = (String) uploadedFile.getFilename();
-                    System.out.println("fileName" + fileName);
                     rw.setAttribute("ATTACHMENT", fileName);
                     rw.setAttribute("Status", "Approved");
                 }
             }
-
-
         }
         executeBinding(SAVE_DATA);
         inputFileBindFA.setValue(null);
@@ -1530,68 +1236,30 @@ public class ActionEventsBean {
     }
 
     public void onStdRateFormSave(ActionEvent actionEvent) {
-        // Add event code here...
         executeBinding(SAVE_DATA);
-        String inputProvider=null;
+        String inputProvider = null;
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsStandardRateSetupVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
-        ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
+        LOG.info("Input provider :: " + row.getAttribute("INPUTPROVIDER"));
+        ADFContext.getCurrent()
+                  .getSessionScope()
+                  .put("INPUTPROVIDER", row.getAttribute("INPUTPROVIDER"));
     }
 
     public void onStdRateRowSelection(ActionEvent actionEvent) {
-        // Add event code here...
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsStandardRateSetupVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        System.out.println("Input provider :: "+row.getAttribute("INPUTPROVIDER"));
-        ADFContext.getCurrent().getSessionScope().put("INPUTPROVIDER",row.getAttribute("INPUTPROVIDER"));
+        LOG.info("Input provider :: " + row.getAttribute("INPUTPROVIDER"));
+        ADFContext.getCurrent()
+                  .getSessionScope()
+                  .put("INPUTPROVIDER", row.getAttribute("INPUTPROVIDER"));
     }
-    
-    public void onInvoiceSave(ActionEvent actionEvent) {
-        System.out.println("inside onInvoiceSave");
-//        DCIteratorBinding statData = null;
-//        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
-//        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
-//        for (int i = 0; i < statDataDatarows.length; i++) {
-//            System.out.println(" StatSelectedRecord At File Attachment:: " +
-//                               statDataDatarows[i].getAttribute("StatSelectedRecord"));
-//            System.out.println(" InputProvider At File Attachment:: " +
-//                               statDataDatarows[i].getAttribute("InputProvider"));
-//            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
-//                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
-//                if (null != inputFileBind.getValue()) {
-//                    UploadedFile uploadedFile = (UploadedFile) inputFileBind.getValue();
-//                    if (null != uploadedFile.getFilename()) {
-//                        String fileName = (String) uploadedFile.getFilename();
-//                        System.out.println("fileName" + fileName);
-//                        statDataDatarows[i].setAttribute("EMAILATTACHMENT", fileName);
-//                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
-//                    }
-//
-//                }
-//
-//
-//            }
-//        }
-//        executeBinding(SAVE_DATA);
-//        inputFileBind.setValue(null);
-//        inputFileBind.resetValue();
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
-//        approvepoopupbind.hide();
-    }
-    
-    public void onInvoiceApprove(ActionEvent actionEvent) {
-        // Add event code here...
-        //
-//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-//        Row row = dcIteratorbinding.getCurrentRow();
-//        row.setAttribute("TransactionStatus", "Approved");
-        
 
-       DCIteratorBinding statData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+
+    public void onInvoiceApprove(ActionEvent actionEvent) {
+        DCIteratorBinding statData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
         oracle.jbo.Row[] rows = statData.getAllRowsInRange();
         for (int i = 0; i < rows.length; i++) {
-            System.out.println(" selectInvoiceRecord " + rows[i].getAttribute("selectInvoiceRecord"));
             if (null != rows[i].getAttribute("selectInvoiceRecord") &&
                 rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
                 rows[i].setAttribute("TransactionStatus", "Approved");
@@ -1600,17 +1268,11 @@ public class ActionEventsBean {
         executeBinding(SAVE_DATA);
         invoiceApprovBind.hide();
     }
-    
+
     public void onInvoiceReject(ActionEvent actionEvent) {
-        // Add event code here...
-//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-//        Row row = dcIteratorbinding.getCurrentRow();
-//        row.setAttribute("TransactionStatus", "Rejected");
-        
-       DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
         oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
         for (int i = 0; i < rows.length; i++) {
-            System.out.println(" selectInvoiceRecord  " +rows[i].getAttribute("selectInvoiceRecord"));
             if (null != rows[i].getAttribute("selectInvoiceRecord") &&
                 rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
                 rows[i].setAttribute("TransactionStatus", "Rejected");
@@ -1619,40 +1281,34 @@ public class ActionEventsBean {
         executeBinding(SAVE_DATA);
         invoiceRejectBind.hide();
     }
-    
+
     public void onInvoiceConfirm(ActionEvent actionEvent) {
-        // Add event code here...
-//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-//        Row row = dcIteratorbinding.getCurrentRow();
-//        row.setAttribute("TransactionStatus", "Confirmed for Invoicing");
         DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-         oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
-         for (int i = 0; i < rows.length; i++) {
-             System.out.println(" selectInvoiceRecord  " +rows[i].getAttribute("selectInvoiceRecord"));
-             if (null != rows[i].getAttribute("selectInvoiceRecord") &&
-                 rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
-                 rows[i].setAttribute("TransactionStatus", "Invoiced In PeopleSoft");
-                 SGSAppModuleImpl am = new SGSAppModuleImpl();
-                 String voucherNumber = "PS_Voucher_"+am.getDBSequence1("SEQ_IC_INVOICE_HEADER_VOUCHER");
-                 String invoiceNumber = "PS_Invoice_"+am.getDBSequence1("SEQ_IC_INVOICE_HEADER_INVOICE");
-                 rows[i].setAttribute("ReferenceVoucherNum", voucherNumber);
-                 rows[i].setAttribute("ReferenceInvoiceNum", invoiceNumber);
-             }
-         }
-        
+        oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
+        for (int i = 0; i < rows.length; i++) {
+            if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                rows[i].setAttribute("TransactionStatus", "Invoiced In PeopleSoft");
+                SGSAppModuleImpl am = new SGSAppModuleImpl();
+                String voucherNumber = "PS_Voucher_" + am.getDBSequence1("SEQ_IC_INVOICE_HEADER_VOUCHER");
+                String invoiceNumber = "PS_Invoice_" + am.getDBSequence1("SEQ_IC_INVOICE_HEADER_INVOICE");
+                rows[i].setAttribute("ReferenceVoucherNum", voucherNumber);
+                rows[i].setAttribute("ReferenceInvoiceNum", invoiceNumber);
+            }
+        }
         executeBinding(SAVE_DATA);
         invoiceConfirmBind.hide();
     }
+
     public void onInvoiceApproveNo(ActionEvent actionEvent) {
-        // Add event code here...
         invoiceApprovBind.hide();
     }
+
     public void onInvoiceRejectNo(ActionEvent actionEvent) {
-        // Add event code here...
         invoiceRejectBind.hide();
     }
+
     public void onInvoiceConfirmNo(ActionEvent actionEvent) {
-        // Add event code here...
         invoiceConfirmBind.hide();
     }
 
@@ -1663,8 +1319,8 @@ public class ActionEventsBean {
     public RichPopup getInvoiceApprovBind() {
         return invoiceApprovBind;
     }
-    
-    
+
+
     public void setInvoiceRejectBind(RichPopup invoiceRejectBind) {
         this.invoiceRejectBind = invoiceRejectBind;
     }
@@ -1672,7 +1328,7 @@ public class ActionEventsBean {
     public RichPopup getInvoiceRejectBind() {
         return invoiceRejectBind;
     }
-    
+
     public void setInvoiceConfirmBind(RichPopup invoiceConfirmBind) {
         this.invoiceConfirmBind = invoiceConfirmBind;
     }
@@ -1690,7 +1346,6 @@ public class ActionEventsBean {
     }
 
     public void onStatSubmitNo(ActionEvent actionEvent) {
-        // Add event code here...
         submitstatpopupbind.hide();
     }
 
@@ -1703,185 +1358,106 @@ public class ActionEventsBean {
     }
 
     public void creditMemoSubmitApprovals(ActionEvent actionEvent) {
-        System.out.println("creditDateBindVal "+creditDateBindVal.getValue());
-        System.out.println("percentageReversalBind "+percentageReversalBind.getValue());
-       
-
-        String reversalReason="NONE";
-
-
- 
-//            java.sql.Date creditDate = (java.sql.Date) creditDateBindVal.getValue();
-//            System.out.println("creditDate 11"+creditDate);
-//            DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
-//            System.out.println("formatter 11"+formatter);
-//            java.sql.Date dateCredit = (java.sql.Date) formatter.parse(creditDate.toString());
-//            System.out.println("dateCredit 11"+dateCredit);
-            
-            
-
-   
-       DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+        String reversalReason = "NONE";
+        DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
         oracle.jbo.Row[] row = creditData.getAllRowsInRange();
         for (int i = 0; i < row.length; i++) {
-            System.out.println(" SelectCreditRecord At Approve:: " + row[i].getAttribute("SelectCreditRecord"));
-//            if (null != row[i].getAttribute("SelectCreditRecord") &&
-//                row[i].getAttribute("SelectCreditRecord").equals("Yes")) {   
-                
-                
-                    System.out.println("Credit Date :: "+creditDateBindVal.getValue());
-                    if(null != creditDateBindVal.getValue()){
-                        java.util.Date utilDate = (java.util.Date) creditDateBindVal.getValue();
-                        System.out.println("Util date in Java : " + utilDate); 
-                        // contains only date information without time 
-                        // java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-                        DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
-                        System.out.println("formatter 11"+formatter);
-                        java.sql.Date dateCredit = new java.sql.Date(utilDate.getTime());
-                        //java.sql.Date dateCredit = (java.sql.Date) formatter.parse(utilDate.toString());
-                        System.out.println("dateCredit 11"+dateCredit);
+            if (null != creditDateBindVal.getValue()) {
+                java.util.Date utilDate = (java.util.Date) creditDateBindVal.getValue();
+                DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+                java.sql.Date dateCredit = new java.sql.Date(utilDate.getTime());
+            }
+            if (null != percentageReversalBind.getValue()) {
+                String str = (String) percentageReversalBind.getValue();
+                double reversalPerc = Double.parseDouble(str);
+                Object invAmt = row[i].getAttribute("InvoiceAmount");
+                double invAmt2 = new Double(invAmt.toString());
+                DecimalFormat df = new DecimalFormat("#.##");
+                double invoiceAmount = Double.valueOf(df.format(invAmt2));
+                double reversalAmt = (Double) ((reversalPerc / 100) * (invoiceAmount));
+                double revAmt = Double.valueOf(df.format(reversalAmt));
+                row[i].setAttribute("ReversalAmount", revAmt);
+                row[i].setAttribute("PERCENTAGEREVERSAL", reversalPerc);
+            }
+            BindingContainer bc = this.getBindingsCont();
+            JUCtrlListBinding list = (JUCtrlListBinding) bc.get("ReversalReasonLOVVO1");
+            String selectedRow = (String) list.getSelectedValue();
 
-                      //  row[i].setAttribute("Period",dateCredit);
-                        System.out.println("Period ::"+row[i].getAttribute("Period"));
-                    }
-                    
-//                     if(null != completeReversalBind.getValue()){
-//                         row[i].setAttribute("InvoiceAmount", completeReversalBind.getValue());
-//                         System.out.println("InvoiceAmount ::"+row[i].getAttribute("InvoiceAmount"));
-//                     }
-                    
-                     if(null != percentageReversalBind.getValue()){
-                        // if(null != completeReversalBind.getValue()){
-                             String  str= (String)percentageReversalBind.getValue();
-                             double reversalPerc = Double.parseDouble(str);
-                             System.out.println("reversalPerc ::"+reversalPerc);
-                             //String  str1= (String)completeReversalBind.getValue();
-                           //  double invoiceAmount = Double.parseDouble(str1);
-                          Object invAmt =   row[i].getAttribute("InvoiceAmount");
-                          double invAmt2 = new Double(invAmt.toString());
-                             System.out.println("invoiceAmount ::"+invAmt2);
-                          
-                        // double time = 200.3456;
-                         DecimalFormat df = new DecimalFormat("#.##");      
-                       double invoiceAmount = Double.valueOf(df.format(invAmt2));
-                          
-                             double reversalAmt = (Double)((reversalPerc / 100)*(invoiceAmount));
-                             System.out.println("reversalAmt ::"+reversalAmt);
-                             double revAmt = Double.valueOf(df.format(reversalAmt));
-                             
-                             row[i].setAttribute("ReversalAmount",revAmt);
-                             System.out.println("ReversalAmount ::"+row[i].getAttribute("ReversalAmount"));
-                        
-                             row[i].setAttribute("PERCENTAGEREVERSAL",reversalPerc);
-                            
-                         
-                      //   }
-                        
-                     }
-                        
-                    BindingContainer bc = this.getBindingsCont();
-                    JUCtrlListBinding list = (JUCtrlListBinding) bc.get("ReversalReasonLOVVO1");
-                    String selectedRow = (String) list.getSelectedValue();
-                    
-                    System.out.println("selectedRow 00"+selectedRow);
-                    
-                    if(null != selectedRow){
-                        String type="REVERSAL_REASON";
-                       reversalReason= getLookupCode(selectedRow, type);
-                    }
-                    //        if (null != selectedRow) {
-                    //            reversalReason = (String) selectedRow.getAttribute("LOOKUPCODE");
-                    //        }
-                    System.out.println("reversalReason 11"+reversalReason);
-                     
-                     if(null != reversalReason){
-                         //row[i].setAttribute("REVERSALREASON", reversalReasonLovBind.getValue());
-                         row[i].setAttribute("REVERSALREASON", reversalReason);
-                         System.out.println("REVERSALREASON ::"+row[i].getAttribute("REVERSALREASON"));
-                     }
-            
-            
-            
+            if (null != selectedRow) {
+                String type = "REVERSAL_REASON";
+                reversalReason = getLookupCode(selectedRow, type);
+            }
+
+            if (null != reversalReason) {
+                row[i].setAttribute("REVERSALREASON", reversalReason);
+
+            }
+
             BindingContainer bc1 = this.getBindingsCont();
             JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
             String selectedRow1 = (String) list1.getSelectedValue();
-            
-            System.out.println("selectedRow1 00"+selectedRow1);
-            String reversalType="NONE";
-            if(null != selectedRow1){
-                String type="REVERSAL_TYPE";
-               reversalType= getLookupCode(selectedRow1, type);
+
+            String reversalType = "NONE";
+            if (null != selectedRow1) {
+                String type = "REVERSAL_TYPE";
+                reversalType = getLookupCode(selectedRow1, type);
             }
-            //        if (null != selectedRow) {
-            //            reversalReason = (String) selectedRow.getAttribute("LOOKUPCODE");
-            //        }
-            System.out.println("reversalType 11"+reversalType);
-             
-             if(null != reversalType){
-                 //row[i].setAttribute("REVERSALREASON", reversalReasonLovBind.getValue());
-                 row[i].setAttribute("REVERSALTYPE", reversalType);
-                 System.out.println("reversalType ::"+row[i].getAttribute("REVERSALTYPE"));
-             }
-            
+
+            if (null != reversalType) {
+                row[i].setAttribute("REVERSALTYPE", reversalType);
+            }
+
             row[i].setAttribute("STATUS", "New");
-                
-              //  }
         }
-       
-      
+
+
         this.creditDateBindVal.setValue(null);
         this.percentageReversalBind.setValue(null);
-        //this.completeReversalBind.setValue(null);
-        //this.reversalReasonLovBind.setValue(null);
-        
+
         AdfFacesContext.getCurrentInstance().addPartialTarget(creditDateBindVal);
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
-     //   AdfFacesContext.getCurrentInstance().addPartialTarget(completeReversalBind);
-       // AdfFacesContext.getCurrentInstance().addPartialTarget(reversalReasonLovBind);
-       executeBinding(SAVE_DATA);
-      // invoicecreditmemobindpopup.hide();
-       
-      System.out.println("inside DRTCROSS CHARGE**********************");
-      Connection conn = null;
-      PreparedStatement pst = null;
-      
-      try {
-          
-          conn = getDBConnection();
-          String SPsql = "EXEC USP_SCN_CREDIT_TXN "; // for stored proc
-          //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
-          PreparedStatement ps = conn.prepareStatement(SPsql);
-          
-          ps.execute();
-      } catch (SQLException sqle) {
-          // TODO: Add catch code
-          sqle.printStackTrace();
-      } finally {
+        executeBinding(SAVE_DATA);
+        LOG.info("Inside DRTCROSS CHARGE**********************");
+        Connection conn = null;
+        PreparedStatement pst = null;
 
-      }
-       
-    }
-
-    public void onCreditMemoClose(ActionEvent actionEvent) {
-        // Add event code here...
-        creditMemoPopupBind.hide();
-    }
-    public Connection getDBConnection() {
-            Connection conn = null;
         try {
-//                   String connectionUrl = "jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;";
-//                    conn = DriverManager.getConnection(connectionUrl);
-            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
+            conn = getDBConnection();
+            String SPsql = "EXEC USP_SCN_CREDIT_TXN "; // for stored proc
+            PreparedStatement ps = conn.prepareStatement(SPsql);
+
+            ps.execute();
         } catch (SQLException sqle) {
             // TODO: Add catch code
             sqle.printStackTrace();
         } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+            }
+        }
 
+    }
+
+    public void onCreditMemoClose(ActionEvent actionEvent) {
+        creditMemoPopupBind.hide();
+    }
+
+    public Connection getDBConnection() {
+        Connection conn = null;
+        try {
+            conn =
+                DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
+            //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
         }
-               
-         return conn;   
-        }
+        return conn;
+    }
 
     public void setCreditDateBind(RichInputDate creditDateBind) {
         this.creditDateBind = creditDateBind;
@@ -1898,14 +1474,6 @@ public class ActionEventsBean {
     public RichInputText getPercentageReversalBind() {
         return percentageReversalBind;
     }
-
-//    public void setCompleteReversalBind(RichInputText completeReversalBind) {
-//        this.completeReversalBind = completeReversalBind;
-//    }
-//
-//    public RichInputText getCompleteReversalBind() {
-//        return completeReversalBind;
-//    }
 
     public void setReversalReasonLovBind(RichSelectOneChoice reversalReasonLovBind) {
         this.reversalReasonLovBind = reversalReasonLovBind;
@@ -1924,22 +1492,16 @@ public class ActionEventsBean {
     }
 
     public void onCreditMemoSelectAll(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At Credit Memo :: " + valueChangeEvent.getNewValue());
-       DCIteratorBinding  invoiceCreditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+
+        DCIteratorBinding invoiceCreditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
         oracle.jbo.Row[] invoiceCreditDatarows = invoiceCreditData.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("invoiceCreditDatarows:: " + invoiceCreditDatarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < invoiceCreditDatarows.length; i++) {
-                System.out.println("invoice  :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
-                 invoiceCreditDatarows[i].setAttribute("SelectCreditRecord", "Yes");
-                System.out.println(" SelectCreditRecord :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
-            }               
-        }else {
-            System.out.println("invoices Datarows else:: " + invoiceCreditDatarows.length);
+                invoiceCreditDatarows[i].setAttribute("SelectCreditRecord", "Yes");
+            }
+        } else {
             for (int i = 0; i < invoiceCreditDatarows.length; i++) {
-                System.out.println("invoice  :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
                 invoiceCreditDatarows[i].setAttribute("SelectCreditRecord", "No");
-                System.out.println("  SelectCreditRecord :: " + invoiceCreditDatarows[i].getAttribute("SelectCreditRecord"));
             }
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(selectCreditRecordBind);
@@ -1963,7 +1525,7 @@ public class ActionEventsBean {
     }
 
     public void onCreditMemoSave(ActionEvent actionEvent) {
-        // Add event code here...
+
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }
@@ -1972,11 +1534,11 @@ public class ActionEventsBean {
         executeBinding("CreateInsertCredit");
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.creditMemoPopupBind.show(hints);
-        
+
     }
 
     public void onCreditMemosClose(ActionEvent actionEvent) {
-        // Add event code here...
+
         invoicecreditmemobindpopup.hide();
     }
 
@@ -1987,42 +1549,45 @@ public class ActionEventsBean {
     public RichPopup getInvoicecreditmemobindpopup() {
         return invoicecreditmemobindpopup;
     }
-    
-    
-    public void downloadFileListener(FacesContext facesContext, OutputStream outputStream) throws IOException 
-        {
+
+
+    public void downloadFileListener(FacesContext facesContext, OutputStream outputStream) throws IOException {
         String filePath1 = ADFUtils.getPath();
-        System.out.println("File Path :: "+filePath1);
-        if(filePath1.equalsIgnoreCase("NOPATH")){}else{
-            //"C://Users//raja//template//TPA_Master.xlsx"
-        File filed = new File(filePath1+"TPA_Master.xlsx"); 
-        FileInputStream fis; byte[] b; 
-        try 
-        { 
-        fis = new FileInputStream(filed); int n; while ((n = fis.available()) > 0) 
-        { b = new byte[n]; int result = fis.read(b); outputStream.write(b, 0, b.length); 
-        if (result == -1) break; } } catch (IOException e) { e.printStackTrace(); } outputStream.flush(); 
-            
+        LOG.info("File Path :: " + filePath1);
+        if (filePath1.equalsIgnoreCase("NOPATH")) {
+        } else {
+            File filed = new File(filePath1 + "TPA_Master.xlsx");
+            FileInputStream fis;
+            byte[] b;
+            try {
+                fis = new FileInputStream(filed);
+                int n;
+                while ((n = fis.available()) > 0) {
+                    b = new byte[n];
+                    int result = fis.read(b);
+                    outputStream.write(b, 0, b.length);
+                    if (result == -1)
+                        break;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            outputStream.flush();
+
         }
     }
 
     public void onInvoiceSelectAll(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Checkbox At Invoice DB :: " + valueChangeEvent.getNewValue());
-        DCIteratorBinding  invoiceDBData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+
+        DCIteratorBinding invoiceDBData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
         oracle.jbo.Row[] invoiceDBDatarows = invoiceDBData.getAllRowsInRange();
-        if ((Boolean)valueChangeEvent.getNewValue()) {
-            System.out.println("invoiceDBDatarows:: " + invoiceDBDatarows.length);
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             for (int i = 0; i < invoiceDBDatarows.length; i++) {
-                System.out.println("invoiceDBDatarows  :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
-                 invoiceDBDatarows[i].setAttribute("selectInvoiceRecord", "Yes");
-                System.out.println(" selectInvoiceRecord :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
-            }               
-        }else {
-            System.out.println("invoices Datarows else:: " + invoiceDBDatarows.length);
+                invoiceDBDatarows[i].setAttribute("selectInvoiceRecord", "Yes");
+            }
+        } else {
             for (int i = 0; i < invoiceDBDatarows.length; i++) {
-                System.out.println("invoiceDBDatarows  :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
                 invoiceDBDatarows[i].setAttribute("selectInvoiceRecord", "No");
-                System.out.println("  selectInvoiceRecord :: " + invoiceDBDatarows[i].getAttribute("selectInvoiceRecord"));
             }
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(selectcolInvoiceDBBind);
@@ -2046,98 +1611,56 @@ public class ActionEventsBean {
     }
 
     public void onCreditTransactionActionButton(ActionEvent actionEvent) {
-
         DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
-
-                    DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
-
-                  oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
-                  
-                  System.out.println("invoiceDatarows:: "+invoiceDatarows.length);
-                  CommonUtils util= new CommonUtils();
-                  Object user= (Object)util.getSessionScopeValue("_username").toString();
-
-                  for (int i = 0; i < invoiceDatarows.length; i++) {
-                      if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
-                          invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) { 
-                              executeBinding("CreateInsertCredit");
-                              Row row = creditData.getCurrentRow();
-                              
-                              
-                              
-//                              String sDate1=(String)invoiceDatarows[i].getAttribute("Period");
-//                              System.out.println("sDate1:: "+sDate1);
-//                              SimpleDateFormat sdf2 = new SimpleDateFormat("Mmm dd yyyy hh:mmss");
-//                              System.out.println("sdf2:: "+sdf2);
-//                try {
-//                    System.out.println("date2:: "+sDate1);
-//                    java.util.Date date2 = sdf2.parse(sDate1);
-//                    System.out.println("date2:: "+date2);
-//                } catch (ParseException e) {
-//                }
-//                //                              Date parsedDate = sdf.parse(date);
-////                              SimpleDateFormat print = new SimpleDateFormat("Mmm dd yyyy hh:mmss");
-////                              System.out.println(print.format(parsedDate));
-//                              
-//                        
-//                try {
-//                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
-//                    System.out.println("sdf1:: "+sdf1);
-//                    java.util.Date date = sdf1.parse(sDate1);
-//                    System.out.println("date:: "+date);
-//                    java.sql.Date date1 = new java.sql.Date(date.getTime()); 
-//                    //java.sql.Date date1 = new java.sql.Date((new SimpleDateFormat("dd-MMM-yyyy").parse(sDate1));
-//                    System.out.println(sDate1 + "\t" + date1);
-//                    row.setAttribute("Period",date1);
-//                    System.out.println("Period :: "+row.getAttribute("Period"));
-//                } catch (ParseException pe) {
-//                    // TODO: Add catch code
-//                    pe.printStackTrace();
-//                } 
-                              row.setAttribute("InvoiceSeqNo" ,invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
-                              row.setAttribute("Period",invoiceDatarows[i].getAttribute("Period"));
-                              row.setAttribute("TransactionCategory", invoiceDatarows[i].getAttribute("TransactionCategory"));
-                              row.setAttribute("PsftVoucherRef",invoiceDatarows[i].getAttribute("ReferenceVoucherNum"));
-                              row.setAttribute("PsftInvoiceRef",invoiceDatarows[i].getAttribute("ReferenceInvoiceNum"));      
-                              //row.setAttribute("NatureOfExpense",null);
-                              row.setAttribute("FromBu",      invoiceDatarows[i].getAttribute("SourceBu"));
-                              row.setAttribute("ToBu",invoiceDatarows[i].getAttribute("TargetBu"));
-                              row.setAttribute("InvoiceAmount",invoiceDatarows[i].getAttribute("ALLOCATEDHEADERAMOUNT"));       
-                              //row.setAttribute("ReversalAmount",null);      
-                              row.setAttribute("InputProvider",invoiceDatarows[i].getAttribute("InputProvider"));     
-                              row.setAttribute("CreatedDate",invoiceDatarows[i].getAttribute("CreatedDate"));
-                              row.setAttribute("CreatedBy",invoiceDatarows[i].getAttribute("CreatedBy"));
-                              row.setAttribute("UpdatedDate",invoiceDatarows[i].getAttribute("UpdatedDate"));
-                              row.setAttribute("UpdatedBy",invoiceDatarows[i].getAttribute("UpdatedBy"));
-                              row.setAttribute("REVERSALREASON",invoiceDatarows[i].getAttribute("REVERSALREASON"));
-                          }
-                  }
+        DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+        oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
+        CommonUtils util = new CommonUtils();
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+        for (int i = 0; i < invoiceDatarows.length; i++) {
+            if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
+                invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                executeBinding("CreateInsertCredit");
+                Row row = creditData.getCurrentRow();
+                row.setAttribute("InvoiceSeqNo", invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
+                row.setAttribute("Period", invoiceDatarows[i].getAttribute("Period"));
+                row.setAttribute("TransactionCategory", invoiceDatarows[i].getAttribute("TransactionCategory"));
+                row.setAttribute("PsftVoucherRef", invoiceDatarows[i].getAttribute("ReferenceVoucherNum"));
+                row.setAttribute("PsftInvoiceRef", invoiceDatarows[i].getAttribute("ReferenceInvoiceNum"));
+                //row.setAttribute("NatureOfExpense",null);
+                row.setAttribute("FromBu", invoiceDatarows[i].getAttribute("SourceBu"));
+                row.setAttribute("ToBu", invoiceDatarows[i].getAttribute("TargetBu"));
+                row.setAttribute("InvoiceAmount", invoiceDatarows[i].getAttribute("ALLOCATEDHEADERAMOUNT"));
+                //row.setAttribute("ReversalAmount",null);
+                row.setAttribute("InputProvider", invoiceDatarows[i].getAttribute("InputProvider"));
+                row.setAttribute("CreatedDate", invoiceDatarows[i].getAttribute("CreatedDate"));
+                row.setAttribute("CreatedBy", invoiceDatarows[i].getAttribute("CreatedBy"));
+                row.setAttribute("UpdatedDate", invoiceDatarows[i].getAttribute("UpdatedDate"));
+                row.setAttribute("UpdatedBy", invoiceDatarows[i].getAttribute("UpdatedBy"));
+                row.setAttribute("REVERSALREASON", invoiceDatarows[i].getAttribute("REVERSALREASON"));
+            }
+        }
         executeBinding(SAVE_DATA);
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.invoicecreditmemobindpopup.show(hints);
-        
     }
-    
-    
-    public String getLookupCode(String reason, String lookupType){
-        //REVERSAL_REASON
+
+
+    public String getLookupCode(String reason, String lookupType) {
         String revReason = null;
         String queryString =
-        "SELECT LOOKUP_CODE from SGS_LOOKUP_TABLE WHERE MEANING='" + reason + "' AND LOOKUP_TYPE='" + lookupType + "' AND ENABLED='Y'";
+            "SELECT LOOKUP_CODE from SGS_LOOKUP_TABLE WHERE MEANING='" + reason + "' AND LOOKUP_TYPE='" + lookupType +
+            "' AND ENABLED='Y'";
         Connection conn = null;
         PreparedStatement pst = null;
-        System.out.println("Query :: " + queryString);
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             conn = am.getDBConnection();
             String sqlIdentifier = queryString;
             pst = conn.prepareStatement(sqlIdentifier);
-
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                revReason= (String) rs.getString(1);
+                revReason = (String) rs.getString(1);
             }
-
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         } finally {
@@ -2148,17 +1671,15 @@ public class ActionEventsBean {
                 e.printStackTrace();
             }
         }
-        
         return revReason;
     }
 
     public void onCreditPopupClose(ActionEvent actionEvent) {
-        // Add event code here...
         invoicecreditmemobindpopup.hide();
     }
 
     public void onSettlementTypeVL(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Settlement Type:: "+valueChangeEvent.getNewValue());
+
     }
 
 
@@ -2185,18 +1706,12 @@ public class ActionEventsBean {
     public RichTable getTablePaymentRecords() {
         return tablePaymentRecords;
     }
-    
+
     public void onCompleteReversalChechBox(ValueChangeEvent valueChangeEvent) {
-        // Add event code here...
-        System.out.println(" Check At Complete Reversal :: "+(Boolean)valueChangeEvent.getNewValue());
-        if((Boolean)valueChangeEvent.getNewValue()){
-           
-           // this.chechCheckBox =true;
+        if ((Boolean) valueChangeEvent.getNewValue()) {
             percentageReversalBind.setVisible(true);
             percentageGroupBind.setVisible(true);
-        }else{
-           
-         //   this.chechCheckBox =false;
+        } else {
             percentageReversalBind.setVisible(false);
             percentageGroupBind.setVisible(false);
         }
@@ -2221,84 +1736,55 @@ public class ActionEventsBean {
     }
 
     public void onReversalTypeVL(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Reversal Type :: "+valueChangeEvent.getNewValue());
-        String reverseTypeVal= (String)valueChangeEvent.getNewValue();
-        String type="REVERSAL_TYPE";
-        if(null != reverseTypeVal && !(reverseTypeVal.equalsIgnoreCase(""))){
-            
-      
-        String  reversalType= getLookupCode(reverseTypeVal, type);
-        
-        if(null != valueChangeEvent.getNewValue() && reversalType.equalsIgnoreCase("PERCENTAGE_REVERSAL")){
-           
-           // this.chechCheckBox =true;
-            percentageReversalBind.setVisible(true);
-            percentageGroupBind.setVisible(true);
-        }else{
-           
-         //   this.chechCheckBox =false;
-            percentageReversalBind.setVisible(false);
-            percentageGroupBind.setVisible(false);
-        }
+        String reverseTypeVal = (String) valueChangeEvent.getNewValue();
+        String type = "REVERSAL_TYPE";
+        if (null != reverseTypeVal && !(reverseTypeVal.equalsIgnoreCase(""))) {
+            String reversalType = getLookupCode(reverseTypeVal, type);
+            if (null != valueChangeEvent.getNewValue() && reversalType.equalsIgnoreCase("PERCENTAGE_REVERSAL")) {
+                percentageReversalBind.setVisible(true);
+                percentageGroupBind.setVisible(true);
+            } else {
+                percentageReversalBind.setVisible(false);
+                percentageGroupBind.setVisible(false);
+            }
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageGroupBind);
     }
-    
+
     public void onConfirmingInvoiceEvent(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsFixedAssetsTxnVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        row.setAttribute("Status","Confirmed for Invoicing");
+        row.setAttribute("Status", "Confirmed for Invoicing");
     }
-    
-    
-    public void importFromTxn(ActionEvent actionEvent) {
-            // Add event code here...
-            System.out.println("inside Import from Transaction**********************");
-            Connection conn = null;
-            PreparedStatement pst = null;
-            
-            try {
-                
-                conn = getDBConnection();
-                String SPsql = "EXEC USP_SCN_FA_IMPORT"; // for stored proc
-                //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
-                PreparedStatement ps = conn.prepareStatement(SPsql);
-                
-                ps.execute();
-            } catch (SQLException sqle) {
-                // TODO: Add catch code
-                sqle.printStackTrace();
-            } finally {
 
+
+    public void importFromTxn(ActionEvent actionEvent) {
+        LOG.info("Inside Import from Transaction**********************");
+        Connection conn = null;
+        PreparedStatement pst = null;
+        PreparedStatement ps = null;
+        try {
+            conn = getDBConnection();
+            String SPsql = "EXEC USP_SCN_FA_IMPORT"; // for stored proc
+            ps = conn.prepareStatement(SPsql);
+            ps.execute();
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
             }
+
         }
-        
-//        public Connection getDBConnection() {
-//                Connection conn = null;
-//            try {
-//                   String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
-//                    conn = DriverManager.getConnection(connectionUrl);
-//    //            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
-//
-//            } catch (SQLException sqle) {
-//                // TODO: Add catch code
-//                sqle.printStackTrace();
-//            } finally {
-//
-//            }
-//                   
-//             return conn;   
-//            }
-        
-        
+    }
+
+
     public void selectAllCheckboxValueChange(ValueChangeEvent valueChangeEvent) {
-        // Add event code here...
         boolean isSelected = ((Boolean) valueChangeEvent.getNewValue()).booleanValue();
-        System.out.println("*****is Selected***" + isSelected);
-        //           String voName = (String)AdfFacesContext.getCurrentInstance().getPageFlowScope().get("voName");
-        //           String iteratorName = voName + "Iterator";
-        //           System.out.println("******"+iteratorName);
         String SelectedAttribute = "Selected";
         DCBindingContainer bindingContainer =
             (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
@@ -2312,14 +1798,11 @@ public class ActionEventsBean {
             row = rs.next();
             if (isSelected) {
                 row.setAttribute(SelectedAttribute, "true");
-                System.out.println("****selected***" + row.getAttribute(SelectedAttribute));
             } else {
                 row.setAttribute(SelectedAttribute, "false");
-                System.out.println("****Unselected***" + row.getAttribute(SelectedAttribute));
             }
         }
         rs.closeRowSetIterator();
-        //Refresh the table
         AdfFacesContext.getCurrentInstance().addPartialTarget(valueChangeEvent.getComponent()
                                                                               .getParent()
                                                                               .getParent());
@@ -2327,9 +1810,8 @@ public class ActionEventsBean {
     }
 
 
-
     public void onAddFAButton(ActionEvent actionEvent) {
-        // Add event code here...
+
     }
 
     public void setInputFileBindFA(RichInputFile inputFileBindFA) {
@@ -2350,7 +1832,6 @@ public class ActionEventsBean {
     }
 
     public void saveCreateSettlement(ActionEvent actionEvent) {
-        
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
     }

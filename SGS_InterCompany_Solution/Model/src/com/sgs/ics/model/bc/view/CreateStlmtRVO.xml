@@ -115,6 +115,38 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupCollectionBUVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CreateStlmtRVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupPayerBUVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CreateStlmtRVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_ICCUSTOMERGEO"
     ListVOName="SgsLookupVO1"
@@ -217,42 +249,82 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT SETTLEMENT_ID 
-      ,PAYMENT_ID 
-      ,IC_CUSTOMER_GEO 
-      ,IC_CUSTOMER_BU 
-      ,IC_SUPPLIER_GEO 
-      ,IC_SUPPLIER_BU 
-      ,PAYMENT_DATE 
-      ,RECEIPT_DATE 
-      ,DISBUSEMENT_BANK_ACCOUNT 
-      ,RECEIVER_BANK_ACCOUNT 
-      ,PAYMENT_METHOD 
-      ,TRANSACTION_REFERENCE_NO 
-      ,PAYMENT_CURRENCY 
-      ,TRX_AMOUNT 
-      ,BANK_CHARGES 
-      ,PURPOSE_CODE 
-      ,CREATED_DATE 
-      ,CREATED_BY 
-      ,UPDATED_DATE 
-      ,UPDATED_BY 
-      ,ATTRIBUTE1 
-      ,ATTRIBUTE2 
-      ,ATTRIBUTE3 
-      ,ATTRIBUTE4 
-      ,ATTRIBUTE5 
-      ,ATTRIBUTE6 
-      ,ATTRIBUTE7 
-      ,ATTRIBUTE8 
-      ,ATTRIBUTE9 
-      ,ATTRIBUTE10 
-      ,ATTRIBUTE11 
-      ,ATTRIBUTE12 
-      ,ATTRIBUTE13 
-      ,ATTRIBUTE14 
-      ,ATTRIBUTE15 
-  FROM SGS_CREATE_SETTLEMENT]]></SQLQuery>
+  <ListBinding
+    Name="LOV_COLLECTORBU"
+    ListVOName="SgsLookupCollectionBUVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="COLLECTORBU"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PAYERBU"
+    ListVOName="SgsLookupPayerBUVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PAYERBU"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT  
+    SETTLEMENT_ID,  
+    PAYMENT_ID,  
+    IC_CUSTOMER_GEO,  
+    IC_CUSTOMER_BU,  
+    IC_SUPPLIER_GEO,  
+    IC_SUPPLIER_BU,  
+    PAYMENT_DATE,  
+    RECEIPT_DATE,  
+    DISBUSEMENT_BANK_ACCOUNT,  
+    RECEIVER_BANK_ACCOUNT,  
+    PAYMENT_METHOD,  
+    TRANSACTION_REFERENCE_NO,  
+    PAYMENT_CURRENCY,  
+    TRX_AMOUNT,  
+    BANK_CHARGES,  
+    PURPOSE_CODE,  
+    CREATED_DATE,  
+    CREATED_BY,  
+    UPDATED_DATE,  
+    UPDATED_BY,  
+    ATTRIBUTE1,  
+    ATTRIBUTE2,  
+    ATTRIBUTE3,  
+    ATTRIBUTE4,  
+    ATTRIBUTE5,  
+    ATTRIBUTE6,  
+    ATTRIBUTE7,  
+    ATTRIBUTE8,  
+    ATTRIBUTE9,  
+    ATTRIBUTE10,  
+    ATTRIBUTE11,  
+    ATTRIBUTE12,  
+    ATTRIBUTE13,  
+    ATTRIBUTE14,  
+    ATTRIBUTE15,  
+    COLLECTOR_BU COLLECTOR_BU,  
+    PAYER_BU PAYER_BU  
+FROM  
+    SGS_CREATE_SETTLEMENT]]></SQLQuery>
   <ViewAttribute
     Name="SETTLEMENTID"
     IsPersistent="false"
@@ -292,7 +364,8 @@
     AliasName="IC_CUSTOMER_GEO"
     Expression="IC_CUSTOMER_GEO"
     SQLType="VARCHAR"
-    LOVName="LOV_ICCUSTOMERGEO">
+    LOVName="LOV_ICCUSTOMERGEO"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -338,7 +411,8 @@
     AliasName="IC_SUPPLIER_GEO"
     Expression="IC_SUPPLIER_GEO"
     SQLType="VARCHAR"
-    LOVName="LOV_ICSUPPLIERGEO">
+    LOVName="LOV_ICSUPPLIERGEO"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -533,7 +607,14 @@
     ColumnType="DECIMAL"
     AliasName="BANK_CHARGES"
     Expression="BANK_CHARGES"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.BANKCHARGES_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PURPOSECODE"
     IsPersistent="false"
@@ -783,6 +864,54 @@
     AliasName="ATTRIBUTE15"
     Expression="ATTRIBUTE15"
     SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="COLLECTORBU"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="COLLECTOR_BU"
+    Expression="COLLECTOR_BU"
+    SQLType="VARCHAR"
+    LOVName="LOV_COLLECTORBU">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.COLLECTORBU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PAYERBU"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="PAYER_BU"
+    Expression="PAYER_BU"
+    SQLType="VARCHAR"
+    LOVName="LOV_PAYERBU">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.PAYERBU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="SETTLEMENTID"/>
   </AttrArray>

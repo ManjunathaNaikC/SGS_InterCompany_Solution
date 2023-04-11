@@ -16,8 +16,6 @@
               id="SgsContraCashTblVO1Iterator"/>
     <searchRegion Binds="SgsContraCashTblVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsContraCashTblVO1Query"/>
-    <iterator Binds="SettlementTypeLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
-              id="SettlementTypeLOVVO1Iterator"/>
     <!--<iterator id="SgsStlmtVoucherVO1Iterator1" Binds="SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
               RangeSize="25"/>
     <iterator id="SgsStlmtVoucherVO1Iterator2" Binds="SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
@@ -103,8 +101,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="SettlementTypeLOVVO1Iterator" StaticList="false" Uses="LOV_MEANING" id="MEANING"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="BANKCHARGES">
       <AttrNames>
         <Item Value="BANKCHARGES"/>
@@ -119,5 +115,14 @@
         <Item Value="No"/>
       </ValueList>
     </button>
+    <action IterBinding="SgsStlmtVoucherVO1Iterator" id="ExecuteSettlementVoucher"
+            InstanceName="SGSAppModuleDataControl.SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_COLLECTORBU" id="COLLECTORBU"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYERBU" id="PAYERBU"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

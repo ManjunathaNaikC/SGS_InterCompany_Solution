@@ -45,3 +45,17 @@ def bLookupType_SgsLookupPayMethodVO_BindVariable_BoundParameter()
 'PAYMENT_METHOD'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupCollectionBUVO", name="bLookupType")
+def bLookupType_SgsLookupCollectionBUVO_BindVariable_BoundParameter()
+{
+'GEO'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupPayerBUVO", name="bLookupType")
+def bLookupType_SgsLookupPayerBUVO_BindVariable_BoundParameter()
+{
+'GEO'
+}
+

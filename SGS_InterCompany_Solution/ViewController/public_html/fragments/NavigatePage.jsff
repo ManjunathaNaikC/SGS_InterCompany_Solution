@@ -98,6 +98,8 @@
                                 <af:panelList id="pl4">
                                     <af:link text="Reports"
                                              action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l14"/>
+                                    <af:link text="Dump Report"
+                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l15"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Security" text="Security" disclosed="true" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}">

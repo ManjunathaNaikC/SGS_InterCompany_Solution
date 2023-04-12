@@ -142,6 +142,7 @@ public class ActionEventsBean {
     private RichPopup approvePopupFABind;
     private String balanceOutputText;
     private RichOutputText balanceOutputText1;
+    private RichTable tablePaymentRecords1;
 
 
     public ActionEventsBean() {
@@ -687,6 +688,37 @@ public class ActionEventsBean {
         AdfFacesContext.getCurrentInstance().addPartialTarget(invoiceColSelectBind);
     }
 
+    public void SaveWriteOffDetails(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+
+
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("StlmtStatus").equals("Partially paid") ||
+                rw.getAttribute("StlmtStatus").equals("Unpaid")) {
+
+                double outstandingAmount = ((Number) rw.getAttribute("OsAmountPayable")).doubleValue();
+                rw.setAttribute("AmountWrittenBank", outstandingAmount);
+                rw.setAttribute("OsAmountPayable", 0);
+                rw.setAttribute("StlmtStatus", "Amount Written Off");
+                // PaymentStatus
+                rw.setAttribute("PaymentStatus", "Written Off");
+            } else {
+
+                continue;
+            }
+        }
+
+        executeBinding("Commit");
+
+        AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords1);
+
+
+    }
+
     public void setInvoiceColSelectBind(RichColumn invoiceColSelectBind) {
         this.invoiceColSelectBind = invoiceColSelectBind;
     }
@@ -892,14 +924,17 @@ public class ActionEventsBean {
         System.out.println("Balance : "+transactionAmount);
         
         
+        if (transactionAmount>=0){
+                DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+                decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                String balanceText = "Balance: " + decimalFormat.format(transactionAmount);
+                System.out.println(balanceText);
+                this.setBalanceOutputText(balanceText);
+                System.out.println(balanceOutputText);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(balanceOutputText1);
             
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-            String balanceText = "Balance: " + decimalFormat.format(transactionAmount);
-            System.out.println(balanceText);
-            this.setBalanceOutputText(balanceText);
-            System.out.println(balanceOutputText);
-        AdfFacesContext.getCurrentInstance().addPartialTarget(balanceOutputText1);
+            }
+            
         
 
         //        executeBinding(SAVE_DATA);
@@ -937,6 +972,11 @@ public class ActionEventsBean {
         
         String ICCUSTOMERGEO = (String) AdfFacesContext.getCurrentInstance()
                                 .getPageFlowScope().get("selectedValue1");
+        String collectionBU = (String) AdfFacesContext.getCurrentInstance()
+                                .getPageFlowScope().get("selectedValue2");
+        
+        String payerBU = (String) AdfFacesContext.getCurrentInstance()
+                                .getPageFlowScope().get("selectedValue3");
         
         System.out.println("suppliergeo : "+ICSUPPLIERGEO);
         System.out.println("CUSTOMERGEO : "+ICSUPPLIERGEO);
@@ -957,6 +997,8 @@ public class ActionEventsBean {
         voucherView.setNamedWhereClauseParam("bCusGeo", ICCUSTOMERGEO);
 //        voucherView.setNamedWhereClauseParam("bSupBu", ICSUPPLIERBU);
         voucherView.setNamedWhereClauseParam("bSupGeo", ICSUPPLIERGEO);
+        voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
+        voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
         voucherView.executeQuery();
     }
 
@@ -1966,6 +2008,14 @@ public class ActionEventsBean {
 
     public RichOutputText getBalanceOutputText1() {
         return balanceOutputText1;
+    }
+
+    public void setTablePaymentRecords1(RichTable tablePaymentRecords1) {
+        this.tablePaymentRecords1 = tablePaymentRecords1;
+    }
+
+    public RichTable getTablePaymentRecords1() {
+        return tablePaymentRecords1;
     }
 }
 

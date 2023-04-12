@@ -29,6 +29,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
+import oracle.adf.share.logging.ADFLogger;
+
 import oracle.jbo.ViewObject;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
@@ -37,6 +39,7 @@ import org.apache.myfaces.trinidad.model.UploadedFile;
 public class StandardRateSetupBean {
     
     protected String SAVE_DATA="Commit";
+    private static final ADFLogger LOG = ADFLogger.createADFLogger(StandardRateSetupBean.class);
     
     public StandardRateSetupBean() {
     }
@@ -91,9 +94,9 @@ public class StandardRateSetupBean {
             File files = new File(filePath);
             if (!files.exists()) {
                 if (files.mkdirs()) {
-                    System.out.println("Multiple directories are created!");
+                    LOG.info("Multiple directories are created!");
                 } else {
-                    System.out.println("Failed to create multiple directories!");
+                    LOG.info("Failed to create multiple directories!");
                 }
             }
             fout = new FileOutputStream(filePath + fileName);
@@ -136,7 +139,7 @@ public class StandardRateSetupBean {
                         // String filePath1 = "D:\\FilesStoragePath\\";
 
                        
-                        System.out.println("filePath1" + filePath1);
+                        LOG.info("filePath1" + filePath1);
                         
                         String tokens = uploadedFile.getFilename();
                         String fileNames = uploadedFile.getFilename();
@@ -157,7 +160,7 @@ public class StandardRateSetupBean {
                         row.setAttribute("Attribute1", path);
                         row.setAttribute("Attribute2", contentType);
 
-                        System.out.println("File path and file Name in downlaod" + path + fileName);
+                        LOG.info("File path and file Name in downlaod" + path + fileName);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -176,8 +179,8 @@ public class StandardRateSetupBean {
 
             String filePath = (String) currentRow.getAttribute("Attribute1");
             String fileName = (String) currentRow.getAttribute("Attachment");
-            System.out.println("filePath :: " + filePath);
-            System.out.println("fileName :: " + fileName);
+            LOG.info("filePath :: " + filePath);
+            LOG.info("fileName :: " + fileName);
 
 
             try {

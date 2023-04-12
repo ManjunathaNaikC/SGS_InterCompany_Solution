@@ -4,7 +4,7 @@
     <af:panelBox text="Create Settlement" id="pb1">
         <af:spacer id="s7" height="20"/>
         <af:panelTabbed position="above" id="pt1">
-            <af:showDetailItem id="tab1" text="Settlement of Inter-Company Vouchers">
+            <af:showDetailItem id="tab1" text="Settlement of Inter-Company">
                 <af:spacer id="s4" height="20"/>
                 <af:panelBox text="Payment Details Section" id="pb3">
                     <f:facet name="toolbar"/>
@@ -41,18 +41,25 @@
                             <f:selectItems value="#{bindings.ICCUSTOMERBU.items}" id="si4"/>
                             <f:validator binding="#{bindings.ICCUSTOMERBU.validator}"/>
                         </af:selectOneChoice>-->
-                        <af:selectOneChoice value="#{bindings.COLLECTORBU.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedValue2}"
                                             label="#{bindings.COLLECTORBU.label}"
                                             required="#{bindings.COLLECTORBU.hints.mandatory}"
                                             shortDesc="#{bindings.COLLECTORBU.hints.tooltip}" id="soc3">
                             <f:selectItems value="#{bindings.COLLECTORBU.items}" id="si3"/>
                             <f:validator binding="#{bindings.COLLECTORBU.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.PAYERBU.inputValue}" label="#{bindings.PAYERBU.label}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedValue3}" label="#{bindings.PAYERBU.label}"
                                             required="#{bindings.PAYERBU.hints.mandatory}"
                                             shortDesc="#{bindings.PAYERBU.hints.tooltip}" id="soc4">
                             <f:selectItems value="#{bindings.PAYERBU.items}" id="si4"/>
                             <f:validator binding="#{bindings.PAYERBU.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.PURPOSECODE.inputValue}"
+                                            label="#{bindings.PURPOSECODE.label}"
+                                            required="#{bindings.PURPOSECODE.hints.mandatory}"
+                                            shortDesc="#{bindings.PURPOSECODE.hints.tooltip}" id="soc9">
+                            <f:selectItems value="#{bindings.PURPOSECODE.items}" id="si9"/>
+                            <f:validator binding="#{bindings.PURPOSECODE.validator}"/>
                         </af:selectOneChoice>
                         <af:inputText value="#{bindings.PAYMENTID.inputValue}" label="#{bindings.PAYMENTID.hints.label}"
                                       required="#{bindings.PAYMENTID.hints.mandatory}"
@@ -70,7 +77,7 @@
                             <f:validator binding="#{bindings.PAYMENTDATE.validator}"/>
                             <af:convertDateTime pattern="#{bindings.PAYMENTDATE.format}"/>
                         </af:inputDate>
-                        <af:inputText value="#{bindings.DISBUSEMENTBANKACCOUNT.inputValue}"
+                        <!--<af:inputText value="#{bindings.DISBUSEMENTBANKACCOUNT.inputValue}"
                                       label="#{bindings.DISBUSEMENTBANKACCOUNT.hints.label}"
                                       required="#{bindings.DISBUSEMENTBANKACCOUNT.hints.mandatory}"
                                       columns="#{bindings.DISBUSEMENTBANKACCOUNT.hints.displayWidth}"
@@ -87,7 +94,21 @@
                                       shortDesc="#{bindings.RECEIVERBANKACCOUNT.hints.tooltip}" id="it7"
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.RECEIVERBANKACCOUNT.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
+                        <af:selectOneChoice value="#{bindings.DISBUSEMENTBANKACCOUNT1.inputValue}"
+                                            label="#{bindings.DISBUSEMENTBANKACCOUNT1.label}"
+                                            required="#{bindings.DISBUSEMENTBANKACCOUNT1.hints.mandatory}"
+                                            shortDesc="#{bindings.DISBUSEMENTBANKACCOUNT1.hints.tooltip}" id="soc7">
+                            <f:selectItems value="#{bindings.DISBUSEMENTBANKACCOUNT1.items}" id="si7"/>
+                            <f:validator binding="#{bindings.DISBUSEMENTBANKACCOUNT1.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.RECEIVERBANKACCOUNT1.inputValue}"
+                                            label="#{bindings.RECEIVERBANKACCOUNT1.label}"
+                                            required="#{bindings.RECEIVERBANKACCOUNT1.hints.mandatory}"
+                                            shortDesc="#{bindings.RECEIVERBANKACCOUNT1.hints.tooltip}" id="soc8">
+                            <f:selectItems value="#{bindings.RECEIVERBANKACCOUNT1.items}" id="si8"/>
+                            <f:validator binding="#{bindings.RECEIVERBANKACCOUNT1.validator}"/>
+                        </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.PAYMENTMETHOD.inputValue}"
                                             label="#{bindings.PAYMENTMETHOD.label}"
                                             required="#{bindings.PAYMENTMETHOD.hints.mandatory}"

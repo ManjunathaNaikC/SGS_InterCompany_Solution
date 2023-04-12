@@ -46,16 +46,23 @@ def bLookupType_SgsLookupPayMethodVO_BindVariable_BoundParameter()
 }
 
 
-@AccessorParameterExpression(accessorName="SgsLookupCollectionBUVO", name="bLookupType")
-def bLookupType_SgsLookupCollectionBUVO_BindVariable_BoundParameter()
+@AccessorParameterExpression(accessorName="SgsLookupBankNameVO", name="bLookupType")
+def bLookupType_SgsLookupBankNameVO_BindVariable_BoundParameter()
 {
-'GEO'
+'BANK_NAME'
 }
 
 
-@AccessorParameterExpression(accessorName="SgsLookupPayerBUVO", name="bLookupType")
-def bLookupType_SgsLookupPayerBUVO_BindVariable_BoundParameter()
+@AccessorParameterExpression(accessorName="SgsLookupBankCodeVO", name="bLookupType")
+def bLookupType_SgsLookupBankCodeVO_BindVariable_BoundParameter()
 {
-'GEO'
+'BANK_CODE'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupPurposeCodeVO", name="bLookupType")
+def bLookupType_SgsLookupPurposeCodeVO_BindVariable_BoundParameter()
+{
+'PURPOSE_CODE'
 }
 

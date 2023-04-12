@@ -116,7 +116,7 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="SgsLookupCollectionBUVO"
+    Name="SgsLookupBankNameVO"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
@@ -132,7 +132,31 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="SgsLookupPayerBUVO"
+    Name="SgsLookupBankCodeVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CreateStlmtRVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="CollectionPayerBU1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CollectionPayerBU"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CollectionPayerBU2"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CollectionPayerBU"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsLookupPurposeCodeVO"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
@@ -251,12 +275,48 @@
   </ListBinding>
   <ListBinding
     Name="LOV_COLLECTORBU"
-    ListVOName="SgsLookupCollectionBUVO"
+    ListVOName="CollectionPayerBU1"
     NullValueFlag="start"
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="COLLECTORBU"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BUSSINESSUNITID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BUSSINESSUNITID"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PAYERBU"
+    ListVOName="CollectionPayerBU2"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PAYERBU"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BUSSINESSUNITID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BUSSINESSUNITID"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DISBUSEMENTBANKACCOUNT"
+    ListVOName="SgsLookupBankNameVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DISBUSEMENTBANKACCOUNT"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -268,13 +328,31 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_PAYERBU"
-    ListVOName="SgsLookupPayerBUVO"
+    Name="LOV_RECEIVERBANKACCOUNT"
+    ListVOName="SgsLookupBankCodeVO"
     NullValueFlag="start"
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="PAYERBU"/>
+      <Item Value="RECEIVERBANKACCOUNT"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PURPOSECODE"
+    ListVOName="SgsLookupPurposeCodeVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PURPOSECODE"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -482,7 +560,8 @@ FROM
     ColumnType="VARCHAR"
     AliasName="DISBUSEMENT_BANK_ACCOUNT"
     Expression="DISBUSEMENT_BANK_ACCOUNT"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_DISBUSEMENTBANKACCOUNT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -490,6 +569,8 @@ FROM
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.DISBUSEMENTBANKACCOUNT_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -502,7 +583,8 @@ FROM
     ColumnType="VARCHAR"
     AliasName="RECEIVER_BANK_ACCOUNT"
     Expression="RECEIVER_BANK_ACCOUNT"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_RECEIVERBANKACCOUNT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -510,6 +592,8 @@ FROM
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RECEIVERBANKACCOUNT_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -624,10 +708,19 @@ FROM
     ColumnType="VARCHAR"
     AliasName="PURPOSE_CODE"
     Expression="PURPOSE_CODE"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_PURPOSECODE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.PURPOSECODE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CREATEDDATE"
@@ -881,10 +974,10 @@ FROM
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.COLLECTORBU_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -905,10 +998,10 @@ FROM
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.PAYERBU_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

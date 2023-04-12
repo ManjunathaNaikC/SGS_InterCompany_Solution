@@ -61,7 +61,7 @@
                                         <!--<af:commandMenuItem text="User Id: #{sessionScope._username} " id="cmi1"/>-->
                                          <af:commandMenuItem text="Email Id: #{sessionScope.USER_EMAIL}" id="cmi2"/>
                                             <af:commandMenuItem text="LogOut" id="cmi3"
-                                                                action="#{authenticationBean.logOut}"/>
+                                                                action="#{authenticationBean.logOut}" immediate="true"/>
                                         </af:menu>
                                       
                                      
@@ -69,7 +69,7 @@
                                     <af:link 
                                              inlineStyle="margin-left:20px;margin-top:5px" id="gl1"
                                              icon="/resources/icons/logoutRed.png" shortDesc="Logout"
-                                             action="#{authenticationBean.logOut}"/>
+                                             action="#{authenticationBean.logOut}" immediate="true"/>
                                     <af:outputText value="usersBuId" id="ot2" visible="false"/>
                                 </af:panelGroupLayout>
                             </af:gridCell>

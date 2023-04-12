@@ -124,5 +124,11 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYERBU" id="PAYERBU"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_DISBUSEMENTBANKACCOUNT"
+          id="DISBUSEMENTBANKACCOUNT1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_RECEIVERBANKACCOUNT"
+          id="RECEIVERBANKACCOUNT1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PURPOSECODE" id="PURPOSECODE"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

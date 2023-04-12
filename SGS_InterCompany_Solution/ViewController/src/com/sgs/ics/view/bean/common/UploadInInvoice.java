@@ -2,6 +2,8 @@ package com.sgs.ics.view.bean.common;
 
 import com.sgs.ics.ui.utils.ADFUtils;
 
+import com.sgs.ics.view.bean.AuthenticationBean;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -24,6 +26,7 @@ import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 
@@ -48,6 +51,7 @@ public class UploadInInvoice {
     private RichSelectOneChoice adjReverseEntryBind;
     private RichSelectOneChoice adjTxnCategoryBind;
     private RichPopup adjEntryPopupBind;
+    private static final ADFLogger LOG = ADFLogger.createADFLogger(UploadInInvoice.class);
 
 
     public UploadInInvoice() {
@@ -58,7 +62,7 @@ public class UploadInInvoice {
      * @param valueChangeEvent
      */
     public void uploadFileVCE(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Inside upload file");
+        LOG.info("Inside upload file");
         UploadedFile file = (UploadedFile) valueChangeEvent.getNewValue();
 
         try {
@@ -75,10 +79,9 @@ public class UploadInInvoice {
                 msg.setSeverity(FacesMessage.SEVERITY_WARN);
                 FacesContext.getCurrentInstance().addMessage(null, msg);
             }
-            //            AdfFacesContext.getCurrentInstance().addPartialTarget(empTable);
 
         } catch (IOException e) {
-            System.out.println("Exception : " + e);
+            LOG.info("Exception : " + e);
         }
     }
 
@@ -105,13 +108,7 @@ public class UploadInInvoice {
      * @throws IOException
      */
     public void readNProcessExcelx(InputStream xlsx) throws IOException {
-
-        //        CollectionModel cModel = (CollectionModel) empTable.getValue();
-        //
-        //        JUCtrlHierBinding tableBinding = (JUCtrlHierBinding) cModel.getWrappedData();
-        //        //Acess the ADF iterator binding that is used with ADF table binding
-        //        DCIteratorBinding iter = tableBinding.getDCIteratorBinding();
-        System.out.println("Inside Read xlsx Method");
+        LOG.info("Inside Read xlsx Method");
 
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding iter = (DCIteratorBinding) bindings.get("SgsDrtCrossChargeVO1Iterator");
@@ -124,7 +121,7 @@ public class UploadInInvoice {
         try {
             WorkBook = new XSSFWorkbook(xlsx);
         } catch (IOException e) {
-            System.out.println("Exception : " + e);
+            LOG.info("Exception : " + e);
         }
         XSSFSheet sheet = WorkBook.getSheetAt(sheetIndex);
 
@@ -133,120 +130,120 @@ public class UploadInInvoice {
 
         //Iterate over excel rows
         for (Row tempRow : sheet) {
-            System.out.println("Row------>" + tempRow.getPhysicalNumberOfCells());
-            //            System.out.println("Repeting rows------>"+sheet.getRepeatingRows());
-            System.out.println("FirstRowNum------>" + sheet.getFirstRowNum());
-            System.out.println("getLastRowNum------>" + sheet.getLastRowNum());
-            System.out.println("RowNum------>" + tempRow.getRowNum());
-            System.out.println("RowNumFirst------>" + tempRow.getFirstCellNum());
-            System.out.println("RowNumLast------>" + tempRow.getLastCellNum());
+            LOG.info("Row------>" + tempRow.getPhysicalNumberOfCells());
+            //            LOG.info("Repeting rows------>"+sheet.getRepeatingRows());
+            LOG.info("FirstRowNum------>" + sheet.getFirstRowNum());
+            LOG.info("getLastRowNum------>" + sheet.getLastRowNum());
+            LOG.info("RowNum------>" + tempRow.getRowNum());
+            LOG.info("RowNumFirst------>" + tempRow.getFirstCellNum());
+            LOG.info("RowNumLast------>" + tempRow.getLastCellNum());
 
-            System.out.println("skipcnt------>" + skipcnt);
-            System.out.println("skipRw------>" + skipRw);
+            LOG.info("skipcnt------>" + skipcnt);
+            LOG.info("skipRw------>" + skipRw);
 
             if (skipcnt > skipRw) { //skip first n row for labels.
-                System.out.println("CreateInsert------>");
+                LOG.info("CreateInsert------>");
                 //Create new row in table
                 executeOperation("CreateInsertDirectCharge").execute();
 
-                System.out.println("Get current row from iterator------>");
+                LOG.info("Get current row from iterator------>");
                 //Get current row from iterator
                 oracle.jbo.Row row = iter.getNavigatableRowIterator().getCurrentRow();
                 int Index = 0;
                 //Iterate over row's columns
                 for (int column = 0; column < tempRow.getLastCellNum(); column++) {
-                    System.out.println("Column------>" + column);
+                    LOG.info("Column------>" + column);
 
                     Cell MytempCell = tempRow.getCell(column);
                     if (MytempCell != null) {
-                        System.out.println("MytempCell------>" + MytempCell);
+                        LOG.info("MytempCell------>" + MytempCell);
                         Index = MytempCell.getColumnIndex();
-                        System.out.println("Index------>" + Index);
+                        LOG.info("Index------>" + Index);
 
                         if (Index == 0) {
-                            System.out.println("Allocation Basis------>" + MytempCell.getCellType());
-                            System.out.println("Allocation Basis------>" + MytempCell.getStringCellValue());
+                            LOG.info("Allocation Basis------>" + MytempCell.getCellType());
+                            LOG.info("Allocation Basis------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("AllocationBasis", MytempCell.getStringCellValue());
 
                         } else if (Index == 1) {
-                            System.out.println("From BU------>" + MytempCell.getCellType());
-                            System.out.println("From BU------>" + MytempCell.getStringCellValue());
+                            LOG.info("From BU------>" + MytempCell.getCellType());
+                            LOG.info("From BU------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("FromBu", MytempCell.getStringCellValue());
 
                         } else if (Index == 2) {
-                            System.out.println("From OU Type------>" + MytempCell.getCellType());
-                            System.out.println("From OU Value------>" + MytempCell.getStringCellValue());
+                            LOG.info("From OU Type------>" + MytempCell.getCellType());
+                            LOG.info("From OU Value------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("FromOu", MytempCell.getStringCellValue());
 
                         }  else if (Index == 3) {
-                            System.out.println("From JC------>" + MytempCell.getCellType());
-                            System.out.println("From JC------>" + MytempCell.getStringCellValue());
+                            LOG.info("From JC------>" + MytempCell.getCellType());
+                            LOG.info("From JC------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("FromJobCode", MytempCell.getStringCellValue());
 
                         } else if (Index == 4) {
-                            System.out.println("From Dept------>" + MytempCell.getCellType());
-                            System.out.println("From Dept------>" + MytempCell.getStringCellValue());
+                            LOG.info("From Dept------>" + MytempCell.getCellType());
+                            LOG.info("From Dept------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("FromDeptId", MytempCell.getStringCellValue());
 
                         } else if (Index == 5) {
-                            System.out.println("SourceCurrency------>" + MytempCell.getCellType());
-                            System.out.println("SourceCurrency------>" + MytempCell.getStringCellValue());
+                            LOG.info("SourceCurrency------>" + MytempCell.getCellType());
+                            LOG.info("SourceCurrency------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("SourceCurrency", MytempCell.getStringCellValue());
                     
                         } else if (Index == 6) {
-                            System.out.println("To BU------>" + MytempCell.getCellType());
-                            System.out.println("To BU------>" + MytempCell.getStringCellValue());
+                            LOG.info("To BU------>" + MytempCell.getCellType());
+                            LOG.info("To BU------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToBu", MytempCell.getStringCellValue());
 
                         } else if (Index == 7) {
-                            System.out.println("To OU------>" + MytempCell.getCellType());
-                            System.out.println("To OU------>" + MytempCell.getStringCellValue());
+                            LOG.info("To OU------>" + MytempCell.getCellType());
+                            LOG.info("To OU------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToOu", MytempCell.getStringCellValue());
 
                         } else if (Index == 8) {
-                            System.out.println("To Job Code Type------>" + MytempCell.getCellType());
-                            System.out.println("To Job Code Value------>" + MytempCell.getStringCellValue());
+                            LOG.info("To Job Code Type------>" + MytempCell.getCellType());
+                            LOG.info("To Job Code Value------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToJobCode", MytempCell.getStringCellValue());
 
                         } else if (Index == 9) {
-                            System.out.println("To Dept Type------>" + MytempCell.getCellType());
-                            System.out.println("To Dept Value------>" + MytempCell.getStringCellValue());
+                            LOG.info("To Dept Type------>" + MytempCell.getCellType());
+                            LOG.info("To Dept Value------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToDeptId", MytempCell.getStringCellValue());
 
                         }  else if (Index == 10) {
-                            System.out.println("Offset GL Account------>" + MytempCell.getCellType());
-                            System.out.println("Offset GL Account------>" + MytempCell.getStringCellValue());
+                            LOG.info("Offset GL Account------>" + MytempCell.getCellType());
+                            LOG.info("Offset GL Account------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("OffsetGlAccountCr", MytempCell.getStringCellValue());
 
                         } else if (Index == 11) {
-                            System.out.println("Target GL Account------>" + MytempCell.getCellType());
-                            System.out.println("Target GL Account------>" + MytempCell.getStringCellValue());
+                            LOG.info("Target GL Account------>" + MytempCell.getCellType());
+                            LOG.info("Target GL Account------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("TargetGlAccountDr", MytempCell.getStringCellValue());
 
                         } else if (Index == 12) {
 
-                            System.out.println("Allocated Amount Type*****------>" + MytempCell.getCellType());
+                            LOG.info("Allocated Amount Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("Allocated Amount Value*****------>" + str);
+                                LOG.info("Allocated Amount Value*****------>" + str);
                                 row.setAttribute("AllocatedAmount", str);
                             } else {
 
@@ -256,15 +253,15 @@ public class UploadInInvoice {
 
 
                         }  else if (Index == 13) {
-                            System.out.println("Accounting Treatment------>" + MytempCell.getCellType());
-                            System.out.println("Accounting Treatment------>" + MytempCell.getStringCellValue());
+                            LOG.info("Accounting Treatment------>" + MytempCell.getCellType());
+                            LOG.info("Accounting Treatment------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("AccountingTreatment", MytempCell.getStringCellValue());
 
                         }  else {
-                            System.out.println("-----> cell Is empty Please fill the cell with data" +
+                            LOG.info("-----> cell Is empty Please fill the cell with data" +
                                                tempRow.getRowNum() + "+" + tempRow.getCell(column));
-                            System.out.println("-----> cell Is empty Please fill the cell with data at Index" + Index);
+                            LOG.info("-----> cell Is empty Please fill the cell with data at Index" + Index);
                             Index++;
                         }
 
@@ -273,15 +270,15 @@ public class UploadInInvoice {
 
 
             }
-            System.out.println("skipcntBefore----->" + skipcnt);
+            LOG.info("skipcntBefore----->" + skipcnt);
 
             skipcnt++;
 
-            System.out.println("skipcntAfter----->" + skipcnt);
+            LOG.info("skipcntAfter----->" + skipcnt);
 
 
         }
-        System.out.println("xlsx Commit");
+        LOG.info("xlsx Commit");
         //Execute table viewObject
         executeOperation("Commit").execute();
 
@@ -301,22 +298,19 @@ public class UploadInInvoice {
        oracle.jbo.Row natRow= natureVO.getCurrentRow();
        if(natRow.getAttribute("MEANING") == naturevalue){
              lookup = natRow.getAttribute("LOOKUPCODE").toString();
-             System.out.println("lookup code  : "+ lookup);
+             LOG.info("lookup code  : "+ lookup);
            }
-        
-        
-//        BindingContainer bindings = getBindingsCont();
         DCIteratorBinding directIter = (DCIteratorBinding) bindings.get("SgsDrtCrossChargeVO1Iterator");
         ViewObject directCVO = directIter.getViewObject();
         
         oracle.jbo.Row[] selectedRows =directCVO.getFilteredRows("NatureOfExpense", null);
-        System.out.println("*****Selected rows****"+selectedRows.length);
+        LOG.info("*****Selected rows****"+selectedRows.length);
         String status = "New";
         
         for(oracle.jbo.Row rw:selectedRows){
         if (null != natureOfExpenseLovBind.getValue()) {
 //            String naturevalue = natureOfExpenseLovBind.getValue().toString();
-            System.out.println("Nature of Expense : " + lookup);
+            LOG.info("Nature of Expense : " + lookup);
             rw.setAttribute("NatureOfExpense", lookup);
             rw.setAttribute("AllocationStatus", status);
             
@@ -348,7 +342,7 @@ public class UploadInInvoice {
        oracle.jbo.Row natRow= natureVO.getCurrentRow();
        if(natRow.getAttribute("MEANING") == nature_value){
              lookup = natRow.getAttribute("LOOKUPCODE").toString();
-             System.out.println("lookup code  : "+ lookup);
+             LOG.info("lookup code  : "+ lookup);
            }
         
         
@@ -357,14 +351,13 @@ public class UploadInInvoice {
         ViewObject directCVO = directIter.getViewObject();
         
         oracle.jbo.Row[] selectedRows =directCVO.getFilteredRows("NatureOfExpense", null);
-        System.out.println("*****Selected rows****"+selectedRows.length);
+        LOG.info("*****Selected rows****"+selectedRows.length);
         String status = "New";
         String alloc_basis = "ADJUSTMENT_ENTRY";
         
         for(oracle.jbo.Row rw:selectedRows){
         if (null != adjNatureofExpBind.getValue() && null != adjReverseEntryBind.getValue() && null != adjTxnCategoryBind.getValue()) {
-    //            String naturevalue = natureOfExpenseLovBind.getValue().toString();
-            System.out.println("Nature of Expense : " + lookup);
+            LOG.info("Nature of Expense : " + lookup);
             rw.setAttribute("NatureOfExpense", lookup);
             rw.setAttribute("REVERSABLEENTRY", reversEntry);
             rw.setAttribute("TRANSACTIONCATEGORY", txnCategory);
@@ -385,22 +378,28 @@ public class UploadInInvoice {
     
     public void directChargeRun() {
         // Add event code here...
-        System.out.println("inside DRTCROSS CHARGE**********************");
+        LOG.info("inside DRTCROSS CHARGE**********************");
         Connection conn = null;
-        PreparedStatement pst = null;
+        PreparedStatement ps = null;
         
         try {
             
             conn = getDBConnection();
             String SPsql = "EXEC USP_SCN_DRTCROSS_CHARGE "; // for stored proc
             //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
-            PreparedStatement ps = conn.prepareStatement(SPsql);
+            ps = conn.prepareStatement(SPsql);
             
             ps.execute();
         } catch (SQLException sqle) {
             // TODO: Add catch code
             sqle.printStackTrace();
         } finally {
+
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
 
         }
     }

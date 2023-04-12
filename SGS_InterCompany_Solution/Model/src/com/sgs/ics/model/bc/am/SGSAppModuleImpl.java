@@ -66,9 +66,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public Connection getDBConnection() {
             Connection conn = null;
         try {
-
-          String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_New;integratedSecurity=true;";
-          conn = DriverManager.getConnection(connectionUrl);
+             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
  //          conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
        
 
@@ -273,24 +271,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
          vo.executeQuery();
          
          Row userVORow = vo.first();
-         
-
+        
             //Returns null if the username doesn't exists in the database
          return (userVORow !=null) ? userVORow.getAttribute("UserId").toString(): null;
-             
-             
-//             if(vo.getEstimatedRowCount()>0){   
-//                 if(vo.hasNext()){
-//                      
-//                     Row row = vo.next();   
-//                     System.out.println("UserId "+ row.getAttribute("UserId"));
-//                 
-//                     userId = (String)row.getAttribute("UserId");
-//                     }    
-//             }
-//             
-           
-
          }
 
     /**

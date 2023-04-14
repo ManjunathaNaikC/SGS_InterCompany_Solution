@@ -5,11 +5,16 @@ import com.sgs.ics.model.bc.am.common.SGSAppModule;
 import com.sgs.ics.model.bc.view.SgsStdRateLineTblVOImpl;
 import com.sgs.ics.model.bc.view.SgsTpaMasterVOImpl;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.util.Properties;
 
 import oracle.adf.share.logging.ADFLogger;
 
@@ -31,6 +36,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public SGSAppModuleImpl() {
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(SGSAppModuleImpl.class);
+
     /**
      * @param seqName
      * @return sequence String next value
@@ -39,7 +45,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         Connection conn = null;
         PreparedStatement pst = null;
         try {
-            
+
             conn = getDBConnection();
             String sqlIdentifier = "select next value for " + seqName;
             pst = conn.prepareStatement(sqlIdentifier);
@@ -47,7 +53,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             ResultSet rs = pst.executeQuery();
             if (rs.next())
                 rs.getInt(1);
-            
+
             return rs.getString(1);
         } catch (SQLException sqle) {
             LOG.severe(sqle);
@@ -61,24 +67,42 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         }
         return "0";
     }
-    
-    
+
+
     public Connection getDBConnection() {
-            Connection conn = null;
+        Connection conn = null;
+        Properties prop = new Properties();
+        InputStream input = null;
         try {
-             conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
- //          conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
-       
+
+            input = getClass().getClassLoader().getResourceAsStream("com/sgs/ics/model/bc/am/db_config.properties");
+            prop.load(input);
+
+            String connectionUrl = prop.getProperty("db_url_local");
+
+            conn = DriverManager.getConnection(connectionUrl);
+
+            //          conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;");
+            //          conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
 
         } catch (SQLException sqle) {
             // TODO: Add catch code
             sqle.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-        }
-               
-         return conn;   
-        }
+        return conn;
+    }
 
 
     /**
@@ -97,7 +121,7 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
             ResultSet rs = pst.executeQuery();
             if (rs.next())
                 rs.getInt(1);
-            System.out.println("inside sequence"+ rs.getInt(1));
+            System.out.println("inside sequence" + rs.getInt(1));
             return rs.getInt(1);
         } catch (SQLException sqle) {
             LOG.severe(sqle);
@@ -227,9 +251,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         return (ViewObjectImpl) findViewObject("SgsBusinessUnitMasterVO1");
     }
 
-//     * Container's getter for NatureOfExpenseLookupVO1.
-//     * @return NatureOfExpenseLookupVO1
-//     */
+    //     * Container's getter for NatureOfExpenseLookupVO1.
+    //     * @return NatureOfExpenseLookupVO1
+    //     */
     public ViewObjectImpl getNatureOfExpenseLookupVO1() {
         return (ViewObjectImpl) findViewObject("NatureOfExpenseLookupVO1");
 
@@ -258,23 +282,23 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getSgsUserAuthVO1() {
         return (ViewObjectImpl) findViewObject("SgsUserAuthVO1");
     }
-    
-    public String loginValidationMethod(String user,String pass){
-         
-         String userId =null;
-         
-         ViewObjectImpl vo = this.getSgsUserAuthVO1();
-         ViewCriteria vc =vo.getViewCriteria("SgsUserAuthVOCriteria");
-         vo.setNamedWhereClauseParam("bUserId", user);
-         vo.setNamedWhereClauseParam("bPassword", pass);
-         vo.applyViewCriteria(vc);
-         vo.executeQuery();
-         
-         Row userVORow = vo.first();
-        
-            //Returns null if the username doesn't exists in the database
-         return (userVORow !=null) ? userVORow.getAttribute("UserId").toString(): null;
-         }
+
+    public String loginValidationMethod(String user, String pass) {
+
+        String userId = null;
+
+        ViewObjectImpl vo = this.getSgsUserAuthVO1();
+        ViewCriteria vc = vo.getViewCriteria("SgsUserAuthVOCriteria");
+        vo.setNamedWhereClauseParam("bUserId", user);
+        vo.setNamedWhereClauseParam("bPassword", pass);
+        vo.applyViewCriteria(vc);
+        vo.executeQuery();
+
+        Row userVORow = vo.first();
+
+        //Returns null if the username doesn't exists in the database
+        return (userVORow != null) ? userVORow.getAttribute("UserId").toString() : null;
+    }
 
     /**
      * Container's getter for NatureOfExpenseLookupVO2.
@@ -350,7 +374,6 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     }
 
 
-
     /**
      * Container's getter for SgsTdsWhtTblVO1.
      * @return SgsTdsWhtTblVO1
@@ -389,7 +412,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewLinkImpl getsgsTdsWhtRateApplicabilitVL1() {
         return (ViewLinkImpl) findViewLink("sgsTdsWhtRateApplicabilitVL1");
-}
+    }
+
     /**
      * Container's getter for SgsVatTblVO1.
      * @return SgsVatTblVO1
@@ -412,8 +436,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewLinkImpl getsgsVatTaxApplicabilityVL1() {
         return (ViewLinkImpl) findViewLink("sgsVatTaxApplicabilityVL1");
-}
-     /* Container's getter for SgsGstTblVO1.
+    }
+    /* Container's getter for SgsGstTblVO1.
      * @return SgsGstTblVO1
      */
     public ViewObjectImpl getSgsGstTblVO1() {
@@ -451,8 +475,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getsgsStatisticalDataTempVO1() {
         return (ViewObjectImpl) findViewObject("sgsStatisticalDataTempVO1");
-        }
-     /**
+    }
+
+    /**
      * Container's getter for SgsIcInvoiceHeaderVO1.
      * @return SgsIcInvoiceHeaderVO1
      */
@@ -582,13 +607,15 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public ViewObjectImpl getSgsFixedAssetsTxnVO1() {
         return (ViewObjectImpl) findViewObject("SgsFixedAssetsTxnVO1");
     }
+
     /**
      * Container's getter for SgsTpaMaster1VO1.
      * @return SgsTpaMaster1VO1
      */
     public ViewObjectImpl getSgsTpaMaster1VO1() {
         return (ViewObjectImpl) findViewObject("SgsTpaMaster1VO1");
-        }
+    }
+
     /**
      * Container's getter for SgsStlmtVoucherVO1.
      * @return SgsStlmtVoucherVO1
@@ -732,8 +759,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsDrtCrossChargeVO1() {
         return (ViewObjectImpl) findViewObject("SgsDrtCrossChargeVO1");
-      }
-      
+    }
+
     /**
      * Container's getter for SgsInvoiceCreditMemoVO1.
      * @return SgsInvoiceCreditMemoVO1
@@ -764,8 +791,8 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getYesOrNoLookupVO1() {
         return (ViewObjectImpl) findViewObject("YesOrNoLookupVO1");
-     }
-     
+    }
+
     /**
      * Container's getter for ReversalReasonLOVVO1.
      * @return ReversalReasonLOVVO1

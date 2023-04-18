@@ -126,15 +126,20 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYERBU" id="PAYERBU"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_DISBUSEMENTBANKACCOUNT"
-          id="DISBUSEMENTBANKACCOUNT1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_RECEIVERBANKACCOUNT"
-          id="RECEIVERBANKACCOUNT1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PURPOSECODE" id="PURPOSECODE"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ATTRIBUTE1" id="ATTRIBUTE1"
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="RECEIPTDATE">
+      <AttrNames>
+        <Item Value="RECEIPTDATE"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_RECEIPTBANKCD" id="RECEIPTBANKCD"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ATTRIBUTE2" id="ATTRIBUTE2"
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_RECEIPTBANKACCTKEY"
+          id="RECEIPTBANKACCTKEY" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYMENTBANKCD" id="PAYMENTBANKCD"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYMENTBANKACCTKEY"
+          id="PAYMENTBANKACCTKEY" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

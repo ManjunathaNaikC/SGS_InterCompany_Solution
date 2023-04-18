@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelTabbed position="above" id="pt1">
+   <af:showDetailItem id="Report1" text="Statistical Data Reports">
+      <af:inlineFrame id="if10" 
+                                                    source="/pages/Transaction Reports/StatisticalDataReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+    </af:showDetailItem>
+    
+     <af:showDetailItem id="Report2" text="Invoice Dashboard Reports">
+      <af:inlineFrame id="if12" 
+                                                    source="/pages/Transaction Reports/InvoiceDashboardReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+
+    </af:showDetailItem>
+     <af:showDetailItem id="Report3" text="Accounting Entries Reports">
+      <af:inlineFrame id="if13" 
+                                                    source="/pages/Transaction Reports/AccountingEntries.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+
+    </af:showDetailItem>
+    
+  </af:panelTabbed>
+</ui:composition>

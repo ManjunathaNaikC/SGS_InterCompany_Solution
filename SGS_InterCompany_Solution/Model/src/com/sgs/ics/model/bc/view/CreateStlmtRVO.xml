@@ -171,6 +171,38 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupPayerBankNameVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CreateStlmtRVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupPayerBankCodeVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CreateStlmtRVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_ICCUSTOMERGEO"
     ListVOName="SgsLookupVO1"
@@ -310,42 +342,6 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_DISBUSEMENTBANKACCOUNT"
-    ListVOName="SgsLookupBankNameVO"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="DISBUSEMENTBANKACCOUNT"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="LookupCode"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Meaning"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_RECEIVERBANKACCOUNT"
-    ListVOName="SgsLookupBankCodeVO"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="RECEIVERBANKACCOUNT"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="LookupCode"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Meaning"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_PURPOSECODE"
     ListVOName="SgsLookupPurposeCodeVO"
     NullValueFlag="start"
@@ -399,6 +395,78 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_RECEIPTBANKCD"
+    ListVOName="SgsLookupBankNameVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RECEIPTBANKCD"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RECEIPTBANKACCTKEY"
+    ListVOName="SgsLookupBankCodeVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RECEIPTBANKACCTKEY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PAYMENTBANKCD"
+    ListVOName="SgsLookupPayerBankNameVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PAYMENTBANKCD"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PAYMENTBANKACCTKEY"
+    ListVOName="SgsLookupPayerBankCodeVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PAYMENTBANKACCTKEY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT  
     SETTLEMENT_ID,  
     PAYMENT_ID,  
@@ -436,7 +504,11 @@
     ATTRIBUTE14,  
     ATTRIBUTE15,  
     COLLECTOR_BU COLLECTOR_BU,  
-    PAYER_BU PAYER_BU  
+    PAYER_BU PAYER_BU,  
+    RECEIPT_BANK_CD,  
+    RECEIPT_BANK_ACCT_KEY,  
+    PAYMENT_BANK_CD,  
+    PAYMENT_BANK_ACCT_KEY  
 FROM  
     SGS_CREATE_SETTLEMENT]]></SQLQuery>
   <ViewAttribute
@@ -586,7 +658,14 @@ FROM
     ColumnType="DATE"
     AliasName="RECEIPT_DATE"
     Expression="RECEIPT_DATE"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RECEIPTDATE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DISBUSEMENTBANKACCOUNT"
     IsPersistent="false"
@@ -596,15 +675,12 @@ FROM
     ColumnType="VARCHAR"
     AliasName="DISBUSEMENT_BANK_ACCOUNT"
     Expression="DISBUSEMENT_BANK_ACCOUNT"
-    SQLType="VARCHAR"
-    LOVName="LOV_DISBUSEMENTBANKACCOUNT">
+    SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.DISBUSEMENTBANKACCOUNT_LABEL"/>
       </SchemaBasedProperties>
@@ -619,15 +695,12 @@ FROM
     ColumnType="VARCHAR"
     AliasName="RECEIVER_BANK_ACCOUNT"
     Expression="RECEIVER_BANK_ACCOUNT"
-    SQLType="VARCHAR"
-    LOVName="LOV_RECEIVERBANKACCOUNT">
+    SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RECEIVERBANKACCOUNT_LABEL"/>
       </SchemaBasedProperties>
@@ -1054,6 +1127,102 @@ FROM
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.PAYERBU_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RECEIPTBANKCD"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="RECEIPT_BANK_CD"
+    Expression="RECEIPT_BANK_CD"
+    SQLType="VARCHAR"
+    LOVName="LOV_RECEIPTBANKCD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RECEIPTBANKCD_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RECEIPTBANKACCTKEY"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="RECEIPT_BANK_ACCT_KEY"
+    Expression="RECEIPT_BANK_ACCT_KEY"
+    SQLType="VARCHAR"
+    LOVName="LOV_RECEIPTBANKACCTKEY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RECEIPTBANKACCTKEY_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PAYMENTBANKCD"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="PAYMENT_BANK_CD"
+    Expression="PAYMENT_BANK_CD"
+    SQLType="VARCHAR"
+    LOVName="LOV_PAYMENTBANKCD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.PAYMENTBANKCD_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PAYMENTBANKACCTKEY"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="PAYMENT_BANK_ACCT_KEY"
+    Expression="PAYMENT_BANK_ACCT_KEY"
+    SQLType="VARCHAR"
+    LOVName="LOV_PAYMENTBANKACCTKEY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.PAYMENTBANKACCTKEY_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
       </SchemaBasedProperties>

@@ -1429,7 +1429,7 @@ public class ActionEventsBean {
         for (int i = 0; i < rows.length; i++) {
             if (null != rows[i].getAttribute("selectInvoiceRecord") &&
                 rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
-                rows[i].setAttribute("TransactionStatus", "Invoiced In PeopleSoft");
+                rows[i].setAttribute("TransactionStatus", "Confirm for Invoicing");
                 SGSAppModuleImpl am = new SGSAppModuleImpl();
                 String voucherNumber = "PS_Voucher_" + am.getDBSequence1("SEQ_IC_INVOICE_HEADER_VOUCHER");
                 String invoiceNumber = "PS_Invoice_" + am.getDBSequence1("SEQ_IC_INVOICE_HEADER_INVOICE");

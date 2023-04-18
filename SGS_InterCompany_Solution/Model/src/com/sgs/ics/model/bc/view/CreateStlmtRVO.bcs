@@ -66,3 +66,17 @@ def bLookupType_SgsLookupPurposeCodeVO_BindVariable_BoundParameter()
 'PURPOSE_CODE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupPayerBankNameVO", name="bLookupType")
+def bLookupType_SgsLookupPayerBankNameVO_BindVariable_BoundParameter()
+{
+'BANK_NAME'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupPayerBankCodeVO", name="bLookupType")
+def bLookupType_SgsLookupPayerBankCodeVO_BindVariable_BoundParameter()
+{
+'BANK_CODE'
+}
+

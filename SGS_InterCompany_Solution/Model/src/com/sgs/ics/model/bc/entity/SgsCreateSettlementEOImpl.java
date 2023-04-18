@@ -71,6 +71,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
         SETTLEMENTSTATUS,
         TRANSACTIONCURRENCY;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -92,6 +93,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
             return vals;
         }
     }
+
 
     public static final int SETTLEMENTID = AttributesEnum.SettlementId.index();
     public static final int PAYMENTID = AttributesEnum.PaymentId.index();
@@ -150,6 +152,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.sgs.ics.model.bc.entity.SgsCreateSettlementEO");
     }
+
 
     /**
      * Gets the attribute value for SettlementId, using the alias name SettlementId.

@@ -458,4 +458,8 @@ public class NavigateBean implements Serializable {
         setDynamicTaskFlowId("/taskflows/Reports/sgs-reports-flow.xml#sgs-reports-flow");
         return null;
     }
+    public String sgstransactionreportsflow() {
+        setDynamicTaskFlowId("/taskflows/Reports/sgs-tansactional-reports-flow-definition.xml#sgs-tansactional-reports-flow-definition");
+        return null;
+    }
 }

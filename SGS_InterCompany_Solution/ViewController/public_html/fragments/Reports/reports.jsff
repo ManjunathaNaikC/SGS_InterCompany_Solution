@@ -3,30 +3,54 @@
   <af:panelTabbed position="above" id="pt1">
     <af:showDetailItem id="Report1" text="GST Dump Report" disclosed="true">
     <af:inlineFrame id="if4" 
-                                                    source="/pages/GSTReport.html"
+                                                    source="/pages/Setup Reports/GSTReport.html"
                                                     styleClass="AFStretchWidth" sizing="preferred"
                                                     inlineStyle="height:1200px"/>
                                                      </af:showDetailItem>
     <af:showDetailItem id="Report2" text="TPA Dump Reports">
       <af:inlineFrame id="if5" 
-                                                    source="/pages/launch report.html"
+                                                    source="/pages/Setup Reports/TPAReport.html"
                                                     styleClass="AFStretchWidth" sizing="preferred"
                                                     inlineStyle="height:1200px"/>
 
     </af:showDetailItem>
     <af:showDetailItem id="Report3" text="WHT Dump Reports">
       <af:inlineFrame id="if6" 
-                                                    source="/pages/WTHReport.html"
+                                                    source="/pages/Setup Reports/WTHReport.html"
                                                     styleClass="AFStretchWidth" sizing="preferred"
                                                     inlineStyle="height:1200px"/>
 
     </af:showDetailItem>
     <af:showDetailItem id="Report4" text="VAT Dump Reports">
       <af:inlineFrame id="if7" 
-                                                    source="/pages/WTHReport.html"
+                                                    source="/pages/Setup Reports/VATReport.html"
                                                     styleClass="AFStretchWidth" sizing="preferred"
                                                     inlineStyle="height:1200px"/>
 
     </af:showDetailItem>
+    <af:showDetailItem text=" Cost Allocation Report" id="Report5">
+      <af:inlineFrame id="if8" source="/pages/Setup Reports/CostAllocationReport.html" styleClass="AFStretchWidth"
+                      sizing="preferred" inlineStyle="height:1200px"/>
+    </af:showDetailItem>
+     <af:showDetailItem id="Report6" text="BU Master Reports">
+      <af:inlineFrame id="if9" 
+                                                    source="/pages/Setup Reports/BUMaterReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+
+    </af:showDetailItem>
+    
+    <af:showDetailItem id="Report8" text="MarkUp Reports">
+      <af:inlineFrame id="if11" 
+                                                    source="/pages/Setup Reports/MarkUpReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:1200px"/>
+
+    </af:showDetailItem>
+     
+     
+    
+     
+    
   </af:panelTabbed>
 </ui:composition>

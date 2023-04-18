@@ -83,10 +83,12 @@ public class AllocationRun {
     public Connection getDBConnection() {
         Connection conn = null;
         try {
+
             String connectionUrl =
                 "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;";
             conn = DriverManager.getConnection(connectionUrl);
             //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
 
         } catch (SQLException sqle) {
             // TODO: Add catch code

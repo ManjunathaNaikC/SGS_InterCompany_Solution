@@ -96,10 +96,12 @@
                             </af:showDetailItem>
                             <af:showDetailItem id="Reports" text="Reports" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('REPORTS')}">
                                 <af:panelList id="pl4">
-                                    <af:link text="Reports"
+                                    <af:link text="Setup Reports"
                                              action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l14"/>
+                                    <af:link text="Transactional Reports"
+                                             action="#{pageFlowScope.navigateBean.sgstransactionreportsflow}" id="l15"/>
                                     <af:link text="Dump Report"
-                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l15"/>
+                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l16"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Security" text="Security" disclosed="true" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}">
@@ -111,7 +113,7 @@
                         <af:panelGroupLayout layout="scroll" id="pgl2">
                             <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
 
-                                       partialTriggers="::l1 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::fat01 ::tpa02 ::arp01 ::l2 ::l14"/>
+                                       partialTriggers="::l1 ::l3 ::l4 ::l5 ::l6 ::l4 ::l7 ::l8 ::l9 ::l10 ::l11 ::fat01 ::tpa02 ::arp01 ::l2 ::l14 ::l15 ::l16"/>
 
                             <!--<af:region value="#{bindings.maintaskflow1.regionModel}" id="r2" rendered="false"
                                        binding="#{pageFlowScope.navigateBean.mainTFBinding}"/>-->

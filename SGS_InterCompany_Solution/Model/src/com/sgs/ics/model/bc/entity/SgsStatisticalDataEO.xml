@@ -26,7 +26,6 @@
     ChangeIndicator="true"/>
   <Attribute
     Name="StatisticalDataCategory"
-    IsNotNull="true"
     Precision="80"
     ColumnName="STATISTICAL_DATA_CATEGORY"
     SQLType="VARCHAR"

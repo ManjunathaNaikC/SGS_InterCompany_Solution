@@ -7,14 +7,14 @@ import oracle.jbo.script.annotation.AccessorParameterExpression;
 @AccessorParameterExpression(accessorName="SgsLookupVO1", name="bLookupType")
 def bLookupType_SgsLookupVO1_BindVariable_BoundParameter()
 {
-'GEO'
+'GEO_LOOKUP'
 }
 
 
 @AccessorParameterExpression(accessorName="SgsLookupSupGeoVO", name="bLookupType")
 def bLookupType_SgsLookupSupGeoVO_BindVariable_BoundParameter()
 {
-'GEO'
+'GEO_LOOKUP'
 }
 
 
@@ -35,7 +35,7 @@ def bLookupType_SgsLookupCusBUVO_BindVariable_BoundParameter()
 @AccessorParameterExpression(accessorName="SgsLookupPayCurrencyVO", name="bLookupType")
 def bLookupType_SgsLookupPayCurrencyVO_BindVariable_BoundParameter()
 {
-'PAYMENT_CUR'
+'CURRENCY'
 }
 
 

@@ -363,6 +363,42 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_ATTRIBUTE1"
+    ListVOName="SgsLookupBankNameVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ATTRIBUTE1"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ATTRIBUTE2"
+    ListVOName="SgsLookupBankCodeVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ATTRIBUTE2"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT  
     SETTLEMENT_ID,  
     PAYMENT_ID,  
@@ -567,10 +603,10 @@ FROM
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.DISBUSEMENTBANKACCOUNT_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.DISBUSEMENTBANKACCOUNT_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -590,10 +626,10 @@ FROM
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RECEIVERBANKACCOUNT_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RECEIVERBANKACCOUNT_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -782,10 +818,19 @@ FROM
     ColumnType="VARCHAR"
     AliasName="ATTRIBUTE1"
     Expression="ATTRIBUTE1"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_ATTRIBUTE1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.ATTRIBUTE1_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ATTRIBUTE2"
@@ -797,10 +842,19 @@ FROM
     ColumnType="VARCHAR"
     AliasName="ATTRIBUTE2"
     Expression="ATTRIBUTE2"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LOV_ATTRIBUTE2">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.ATTRIBUTE2_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ATTRIBUTE3"

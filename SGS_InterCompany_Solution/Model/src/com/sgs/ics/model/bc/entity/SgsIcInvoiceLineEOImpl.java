@@ -85,6 +85,7 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
         SGSTAMNT,
         VATAMNT,
         VATRATE,
+        DOCATTM,
         SgsIcInvoiceHeaderEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -169,6 +170,7 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
     public static final int SGSTAMNT = AttributesEnum.SGSTAMNT.index();
     public static final int VATAMNT = AttributesEnum.VATAMNT.index();
     public static final int VATRATE = AttributesEnum.VATRATE.index();
+    public static final int DOCATTM = AttributesEnum.DOCATTM.index();
     public static final int SGSICINVOICEHEADEREO = AttributesEnum.SgsIcInvoiceHeaderEO.index();
 
     /**
@@ -1127,6 +1129,22 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
      */
     public void setVATRATE(BigDecimal value) {
         setAttributeInternal(VATRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for DOCATTM, using the alias name DOCATTM.
+     * @return the value of DOCATTM
+     */
+    public String getDOCATTM() {
+        return (String) getAttributeInternal(DOCATTM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DOCATTM.
+     * @param value value to set the DOCATTM
+     */
+    public void setDOCATTM(String value) {
+        setAttributeInternal(DOCATTM, value);
     }
 
     /**

@@ -629,6 +629,18 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="DOCATTM"
+    Precision="300"
+    ColumnName="DOC_ATTM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="IC_INVOICE_LINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsIcInvoiceHeaderEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

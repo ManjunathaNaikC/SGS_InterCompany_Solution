@@ -76,7 +76,6 @@
     AliasName="REJECTION_COMMENTS"/>
   <ViewAttribute
     Name="StatisticalDataCategory"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="StatisticalDataCategory"
     EntityUsage="sgsStatisticalDataTempEO"

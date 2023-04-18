@@ -69,7 +69,7 @@
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.PAYMENTID.validator}"/>
                         </af:inputText>
-                        <af:inputDate value="#{bindings.PAYMENTDATE.inputValue}"
+                        <af:inputDate value="#{pageFlowScope.selectedValueDate}"
                                       label="#{bindings.PAYMENTDATE.hints.label}"
                                       required="#{bindings.PAYMENTDATE.hints.mandatory}"
                                       columns="#{bindings.PAYMENTDATE.hints.displayWidth}"
@@ -109,6 +109,34 @@
                             <f:selectItems value="#{bindings.RECEIVERBANKACCOUNT1.items}" id="si8"/>
                             <f:validator binding="#{bindings.RECEIVERBANKACCOUNT1.validator}"/>
                         </af:selectOneChoice>
+                         <af:selectOneChoice value="#{bindings.DISBUSEMENTBANKACCOUNT1.inputValue}"
+                                            label="Payer Bank Name"
+                                            required="#{bindings.DISBUSEMENTBANKACCOUNT1.hints.mandatory}"
+                                            shortDesc="#{bindings.DISBUSEMENTBANKACCOUNT1.hints.tooltip}" id="soc17">
+                            <f:selectItems value="#{bindings.DISBUSEMENTBANKACCOUNT1.items}" id="si17"/>
+                            <f:validator binding="#{bindings.DISBUSEMENTBANKACCOUNT1.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.RECEIVERBANKACCOUNT1.inputValue}"
+                                            label="Payer Bank Code"
+                                            required="#{bindings.RECEIVERBANKACCOUNT1.hints.mandatory}"
+                                            shortDesc="#{bindings.RECEIVERBANKACCOUNT1.hints.tooltip}" id="soc18">
+                            <f:selectItems value="#{bindings.RECEIVERBANKACCOUNT1.items}" id="si18"/>
+                            <f:validator binding="#{bindings.RECEIVERBANKACCOUNT1.validator}"/>
+                        </af:selectOneChoice>
+                        <!--<af:selectOneChoice value="#{bindings.ATTRIBUTE1.inputValue}"
+                                            label="#{bindings.ATTRIBUTE1.label}"
+                                            required="#{bindings.ATTRIBUTE1.hints.mandatory}"
+                                            shortDesc="#{bindings.ATTRIBUTE1.hints.tooltip}" id="soc10">
+                            <f:selectItems value="#{bindings.ATTRIBUTE1.items}" id="si10"/>
+                            <f:validator binding="#{bindings.ATTRIBUTE1.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{bindings.ATTRIBUTE2.inputValue}"
+                                            label="#{bindings.ATTRIBUTE2.label}"
+                                            required="#{bindings.ATTRIBUTE2.hints.mandatory}"
+                                            shortDesc="#{bindings.ATTRIBUTE2.hints.tooltip}" id="soc11">
+                            <f:selectItems value="#{bindings.ATTRIBUTE2.items}" id="si11"/>
+                            <f:validator binding="#{bindings.ATTRIBUTE2.validator}"/>
+                        </af:selectOneChoice>-->
                         <af:selectOneChoice value="#{bindings.PAYMENTMETHOD.inputValue}"
                                             label="#{bindings.PAYMENTMETHOD.label}"
                                             required="#{bindings.PAYMENTMETHOD.hints.mandatory}"
@@ -244,11 +272,19 @@
                             <af:convertDateTime pattern="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.format}"/>
                         </af:outputText>
                     </af:column>
+                    <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.IcCustomerBu.label}" id="c20">
+                        <af:outputText value="#{row.IcCustomerBu}"
+                                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.IcCustomerBu.tooltip}" id="ot20"/>
+                    </af:column>
                     <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.name}" filterable="true"
                                sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.label}"
                                id="c3">
                         <af:outputText value="#{row.PsVoucherNo}"
                                        shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.tooltip}" id="ot2"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.IcSupplierBu.label}" id="c21">
+                        <af:outputText value="#{row.IcSupplierBu}"
+                                       shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.IcSupplierBu.tooltip}" id="ot21"/>
                     </af:column>
                     <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.name}" filterable="true"
                                sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.RefToArInvoice.label}"

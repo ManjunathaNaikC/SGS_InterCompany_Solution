@@ -45,3 +45,24 @@ def bLookupType_SgsLookupPayMethodVO_BindVariable_BoundParameter()
 'PAYMENT_METHOD'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupBankNameVO", name="bLookupType")
+def bLookupType_SgsLookupBankNameVO_BindVariable_BoundParameter()
+{
+'BANK_NAME'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupBankCodeVO", name="bLookupType")
+def bLookupType_SgsLookupBankCodeVO_BindVariable_BoundParameter()
+{
+'BANK_CODE'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupPurposeCodeVO", name="bLookupType")
+def bLookupType_SgsLookupPurposeCodeVO_BindVariable_BoundParameter()
+{
+'PURPOSE_CODE'
+}
+

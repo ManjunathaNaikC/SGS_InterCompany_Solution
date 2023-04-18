@@ -58,6 +58,14 @@
     Name="bSupBu"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bCollectorBU"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bPayerBU"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsStlmtVoucherEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO"/>
@@ -554,7 +562,14 @@
     PrecisionRule="true"
     EntityAttrName="DISBUSEMENTBANKACCOUNT"
     EntityUsage="SgsStlmtVoucherEO"
-    AliasName="DISBUSEMENT_BANK_ACCOUNT"/>
+    AliasName="DISBUSEMENT_BANK_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.DISBUSEMENTBANKACCOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ICCUSTOMERGEO"
     PrecisionRule="true"
@@ -584,7 +599,14 @@
     PrecisionRule="true"
     EntityAttrName="RECEIVERBANKACCOUNT"
     EntityUsage="SgsStlmtVoucherEO"
-    AliasName="RECEIVER_BANK_ACCOUNT"/>
+    AliasName="RECEIVER_BANK_ACCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.RECEIVERBANKACCOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BANKCHARGES"
     PrecisionRule="true"
@@ -610,6 +632,32 @@
     EntityAttrName="PURPOSECODE"
     EntityUsage="SgsStlmtVoucherEO"
     AliasName="PURPOSE_CODE"/>
+  <ViewAttribute
+    Name="COLLECTORBU"
+    PrecisionRule="true"
+    EntityAttrName="COLLECTORBU"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="COLLECTOR_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.COLLECTORBU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PAYERBU"
+    PrecisionRule="true"
+    EntityAttrName="PAYERBU"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="PAYER_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.PAYERBU_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"
@@ -750,6 +798,22 @@
         Operator="="
         Conjunction="AND"
         Value=":bSupGeo"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="COLLECTORBU"
+        ViewAttribute="COLLECTORBU"
+        Operator="="
+        Conjunction="AND"
+        Value=":bCollectorBU"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PAYERBU"
+        ViewAttribute="PAYERBU"
+        Operator="="
+        Conjunction="AND"
+        Value=":bPayerBU"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

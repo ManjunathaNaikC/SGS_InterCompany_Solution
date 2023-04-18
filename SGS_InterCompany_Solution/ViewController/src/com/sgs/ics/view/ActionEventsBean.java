@@ -71,14 +71,24 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import javax.faces.component.UIComponent;
+
 import oracle.adf.share.ADFContext;
+
+import oracle.adf.view.rich.component.rich.input.RichInputListOfValues;
+
 import oracle.adf.share.logging.ADFLogger;
+
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
+import oracle.adf.view.rich.component.rich.output.RichOutputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
 import oracle.jbo.ViewObject;
+
+import oracle.jbo.RowSetIterator;
+
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
 
@@ -130,6 +140,10 @@ public class ActionEventsBean {
     private RichPanelGroupLayout percentageGroupBind;
     private RichInputFile inputFileBindFA;
     private RichPopup approvePopupFABind;
+    private String balanceOutputText;
+    private RichOutputText balanceOutputText1;
+    private RichTable tablePaymentRecords1;
+
 
     public ActionEventsBean() {
     }
@@ -674,6 +688,37 @@ public class ActionEventsBean {
         AdfFacesContext.getCurrentInstance().addPartialTarget(invoiceColSelectBind);
     }
 
+    public void SaveWriteOffDetails(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+
+
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("StlmtStatus").equals("Partially paid") ||
+                rw.getAttribute("StlmtStatus").equals("Unpaid")) {
+
+                double outstandingAmount = ((Number) rw.getAttribute("OsAmountPayable")).doubleValue();
+                rw.setAttribute("AmountWrittenBank", outstandingAmount);
+                rw.setAttribute("OsAmountPayable", 0);
+                rw.setAttribute("StlmtStatus", "Amount Written Off");
+                // PaymentStatus
+                rw.setAttribute("PaymentStatus", "Written Off");
+            } else {
+
+                continue;
+            }
+        }
+
+        executeBinding("Commit");
+
+        AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords1);
+
+
+    }
+
     public void setInvoiceColSelectBind(RichColumn invoiceColSelectBind) {
         this.invoiceColSelectBind = invoiceColSelectBind;
     }
@@ -784,6 +829,8 @@ public class ActionEventsBean {
 
 
     public void onGenerateSettlementEvent(ActionEvent actionEvent) {
+
+
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
         double transactionAmount = ((Number) row.getAttribute("TRXAMOUNT")).doubleValue();
@@ -791,6 +838,7 @@ public class ActionEventsBean {
         ViewObject paymentIterator = ADFUtils.findIterator("SgsStlmtVoucherVO1Iterator").getViewObject();
         Row[] rows = paymentIterator.getAllRowsInRange();
         boolean isFirstRow = true;
+
         for (Row paymentRow : getUnpaidAndPartiallySettledRows()) {
 
 
@@ -798,8 +846,9 @@ public class ActionEventsBean {
             String paymentStatus = (String) paymentRow.getAttribute("PaymentStatus");
             double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
             double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
+            Date paymentDate= (Date) AdfFacesContext.getCurrentInstance()
+                                            .getPageFlowScope().get("selectedValueDate");
             double settlementAmount = 0;
-
 
             if ("Unpaid".equals(settlementStatus)) {
                 if (transactionAmount >= outstandingAmount) {
@@ -831,6 +880,12 @@ public class ActionEventsBean {
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                 paymentRow.setAttribute("OsAmountPayable",
                                         Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+                
+
+            } else if ("Transaction on Hold".equals(settlementStatus)) {
+
+                continue;
+
             } else {
                 if (transactionAmount >= outstandingAmount) {
                     settlementAmount = netPayableAmount;
@@ -843,6 +898,7 @@ public class ActionEventsBean {
                     DecimalFormat decimalFormat = new DecimalFormat("#.##");
                     decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                     settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
+
                     settlementStatus = "Partially settled";
                     paymentStatus = "Partially Paid";
                     transactionAmount = 0;
@@ -860,6 +916,7 @@ public class ActionEventsBean {
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                 paymentRow.setAttribute("OsAmountPayable",
                                         Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+                
 
 
             }
@@ -867,6 +924,23 @@ public class ActionEventsBean {
                 break;
             }
         }
+
+        System.out.println("Balance : "+transactionAmount);
+        
+        
+        if (transactionAmount>=0){
+                DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+                decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                String balanceText = "Balance: " + decimalFormat.format(transactionAmount);
+                System.out.println(balanceText);
+                this.setBalanceOutputText(balanceText);
+                System.out.println(balanceOutputText);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(balanceOutputText1);
+            
+            }
+            
+        
+
         //        executeBinding(SAVE_DATA);
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords);
@@ -875,12 +949,15 @@ public class ActionEventsBean {
     }
 
     private Row[] getUnpaidAndPartiallySettledRows() {
-        ViewObject vo = getPaymentSettlementVO();
-        vo.setWhereClause("STLMT_STATUS IN ('Unpaid', 'Partially Settled')");
-        vo.executeQuery();
-        return vo.getAllRowsInRange();
-    }
+    
+            ViewObject vo = getPaymentSettlementVO();
+            vo.setWhereClause("STLMT_STATUS IN ('Unpaid', 'Partially Settled','Transaction on Hold')");
+            vo.setOrderByClause("STLMT_STATUS , PS_VOUCHER_NO ");
+            vo.executeQuery();
+            return vo.getAllRowsInRange();
+        }
 
+  
     private ViewObject getPaymentSettlementVO() {
         DCBindingContainer binding = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
         DCIteratorBinding iterator = binding.findIteratorBinding("SgsStlmtVoucherVO1Iterator");
@@ -888,23 +965,44 @@ public class ActionEventsBean {
     }
 
 
+
     public void onCreateSettlementSearch(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        String PAYMENTID = (String) row.getAttribute("PAYMENTID");
-        String ICCUSTOMERGEO = (String) row.getAttribute("ICCUSTOMERGEO");
-        String ICCUSTOMERBU = (String) row.getAttribute("ICCUSTOMERBU");
-        String ICSUPPLIERGEO = (String) row.getAttribute("ICSUPPLIERGEO");
-        String ICSUPPLIERBU = (String) row.getAttribute("ICSUPPLIERBU");
+
+        
+        String ICSUPPLIERGEO = (String) AdfFacesContext.getCurrentInstance()
+                                .getPageFlowScope().get("selectedValue");
+        
+        String ICCUSTOMERGEO = (String) AdfFacesContext.getCurrentInstance()
+                                .getPageFlowScope().get("selectedValue1");
+        String collectionBU = (String) AdfFacesContext.getCurrentInstance()
+                                .getPageFlowScope().get("selectedValue2");
+        
+        String payerBU = (String) AdfFacesContext.getCurrentInstance()
+                                .getPageFlowScope().get("selectedValue3");
+        
+        System.out.println("suppliergeo : "+ICSUPPLIERGEO);
+        System.out.println("CUSTOMERGEO : "+ICSUPPLIERGEO);
+        
+//        String PAYMENTID = (String) row.getAttribute("PAYMENTID");
+//        String ICCUSTOMERGEO = (String) row.getAttribute("ICCUSTOMERGEO");
+//        String ICCUSTOMERBU = (String) row.getAttribute("ICCUSTOMERBU");
+//        String ICSUPPLIERGEO = (String) row.getAttribute("ICSUPPLIERGEO");
+//        String ICSUPPLIERBU = (String) row.getAttribute("ICSUPPLIERBU");
+
+
         DCIteratorBinding iteratorBinding = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         RowSetIterator rowSetIterator = iteratorBinding.getRowSetIterator();
         ViewObjectImpl voucherView = (ViewObjectImpl) iteratorBinding.getViewObject();
         ViewCriteria criteria = voucherView.getViewCriteria("SgsCreateStlmtVoucherVOCriteria");
         voucherView.applyViewCriteria(criteria);
-        voucherView.setNamedWhereClauseParam("bCusBu", ICCUSTOMERBU);
+//        voucherView.setNamedWhereClauseParam("bCusBu", ICCUSTOMERBU);
         voucherView.setNamedWhereClauseParam("bCusGeo", ICCUSTOMERGEO);
-        voucherView.setNamedWhereClauseParam("bSupBu", ICSUPPLIERBU);
+//        voucherView.setNamedWhereClauseParam("bSupBu", ICSUPPLIERBU);
         voucherView.setNamedWhereClauseParam("bSupGeo", ICSUPPLIERGEO);
+        voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
+        voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
         voucherView.executeQuery();
     }
 
@@ -913,6 +1011,49 @@ public class ActionEventsBean {
         ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsCreateSettlementVO1Iterator").getViewObject();
         data.executeQuery();
         ADFUtils.saveNotifier();
+    }
+
+    public void SaveHoldDetails(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+
+
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("StlmtStatus").equals("Unpaid")) {
+
+
+                rw.setAttribute("StlmtStatus", "Transaction on Hold");
+            }
+        }
+
+        executeBinding("Commit");
+
+
+    }
+
+
+    public void SaveReleaseDetails(ActionEvent actionEvent) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+
+
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("StlmtStatus").equals("Transaction on Hold")) {
+
+
+                rw.setAttribute("StlmtStatus", "Unpaid");
+            }
+        }
+
+        executeBinding("Commit");
+
+
     }
 
     public void onNettingHeaderSelectRecord(ValueChangeEvent valueChangeEvent) {
@@ -1834,6 +1975,51 @@ public class ActionEventsBean {
     public void saveCreateSettlement(ActionEvent actionEvent) {
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
+    }
+
+    public void resetSettlementAmt(ActionEvent actionEvent) {
+
+        //        executeBinding("clearVoCache");
+        //
+        //        BindingContext bindingContext = BindingContext.getCurrent();
+        //        DCBindingContainer bindingContainer = (DCBindingContainer) bindingContext.getCurrentBindingsEntry();
+        //        DCIteratorBinding iteratorBinding = bindingContainer.findIteratorBinding("SgsStlmtVoucherVO1Iterator");
+
+        //        iteratorBinding.executeQuery();
+        //        ViewObjectImpl data = (ViewObjectImpl) getDCIteratorBindings("SgsStlmtVoucherVO1Iterator").getViewObject();
+        //        data.clearCache();
+        //        data.executeQuery();
+        executeBinding("Rollback");
+        this.setBalanceOutputText("Balance : ");
+        ADFUtils.resetNotifier();
+        AdfFacesContext.getCurrentInstance().addPartialTarget(tablePaymentRecords);
+
+
+    }
+
+
+    public void setBalanceOutputText(String balanceOutputText) {
+        this.balanceOutputText = balanceOutputText;
+    }
+
+    public String  getBalanceOutputText() {
+        return balanceOutputText;
+    }
+
+    public void setBalanceOutputText1(RichOutputText balanceOutputText1) {
+        this.balanceOutputText1 = balanceOutputText1;
+    }
+
+    public RichOutputText getBalanceOutputText1() {
+        return balanceOutputText1;
+    }
+
+    public void setTablePaymentRecords1(RichTable tablePaymentRecords1) {
+        this.tablePaymentRecords1 = tablePaymentRecords1;
+    }
+
+    public RichTable getTablePaymentRecords1() {
+        return tablePaymentRecords1;
     }
 }
 

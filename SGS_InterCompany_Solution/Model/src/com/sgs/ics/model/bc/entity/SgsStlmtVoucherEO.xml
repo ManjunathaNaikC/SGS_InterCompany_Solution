@@ -525,6 +525,32 @@
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="COLLECTORBU"
+    Precision="30"
+    ColumnName="COLLECTOR_BU"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PAYERBU"
+    Precision="30"
+    ColumnName="PAYER_BU"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTLMTVOUCHER"
     PrimaryKey="true">
@@ -533,6 +559,30 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO.VoucherId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SGSSTLMTVOUCHERCOLLECTORBUCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"COLLECTOR_BU" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SGSSTLMTVOUCHERCOLLECTORBUChec"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO.COLLECTORBU"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SGSSTLMTVOUCHERPAYERBUCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"PAYER_BU" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SGSSTLMTVOUCHERPAYERBUCheck"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO.PAYERBU"/>
     </AttrArray>
   </Key>
 </Entity>

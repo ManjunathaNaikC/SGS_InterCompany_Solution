@@ -38,6 +38,7 @@ import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 
+import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
@@ -81,6 +82,8 @@ public class TransBCostAllocationBean {
     private RichInputText releaseRemarksBind1;
     protected String SAVE_DATA="Commit";
     private RichPopup confirmpopupbind;
+    
+    private static final ADFLogger LOG = ADFLogger.createADFLogger(TransBCostAllocationBean.class);
 
     public void setHoldPopup(RichPopup holdPopup) {
         this.holdPopup = holdPopup;
@@ -94,9 +97,6 @@ public class TransBCostAllocationBean {
     public TransBCostAllocationBean() {
     }
 
-    //    public BindingContainer getBindings() {
-    //        return BindingContext.getCurrent().getCurrentBindingsEntry();
-    //    }
 
     public String deleteTransBCostAllocation() {
         BindingContainer bindings = getBindingsCont();
@@ -114,7 +114,7 @@ public class TransBCostAllocationBean {
      * @param valueChangeEvent
      */
     public void uploadFileVCE(ValueChangeEvent valueChangeEvent) {
-        System.out.println("Inside upload file");
+        LOG.info("Inside upload file");
         UploadedFile file = (UploadedFile) valueChangeEvent.getNewValue();
 
         try {
@@ -143,7 +143,7 @@ public class TransBCostAllocationBean {
             //            AdfFacesContext.getCurrentInstance().addPartialTarget(empTable);
 
         } catch (IOException e) {
-            System.out.println("Exception : " + e);
+            LOG.info("Exception : " + e);
         }
     }
 
@@ -183,9 +183,9 @@ public class TransBCostAllocationBean {
         String _holdReason = getHoldReasonBind().getValue().toString();
         String _dueDate = getDueDateBind().getValue().toString();
         String _holdRemark = getHoldRemarkBind().getValue().toString();
-        System.out.println("hold reason : " + _holdReason);
-        System.out.println("Hold due date : " + _dueDate);
-        System.out.println("hold remarks : " + _holdRemark);
+        LOG.info("hold reason : " + _holdReason);
+        LOG.info("Hold due date : " + _dueDate);
+        LOG.info("hold remarks : " + _holdRemark);
 
         if(_holdReason != null){
             r.setAttribute("HoldReason", _holdReason);
@@ -215,9 +215,9 @@ public class TransBCostAllocationBean {
         String _holdReason1 = getHoldReasonBind1().getValue().toString();
         String _dueDate1 = getDueDateBind1().getValue().toString();
         String _holdRemark1 = getHoldRemarkBind1().getValue().toString();
-        System.out.println("hold reason : " + _holdReason1);
-        System.out.println("Hold due date : " + _dueDate1);
-        System.out.println("hold remarks : " + _holdRemark1);
+        LOG.info("hold reason : " + _holdReason1);
+        LOG.info("Hold due date : " + _dueDate1);
+        LOG.info("hold remarks : " + _holdRemark1);
 
         CommonUtils util = new CommonUtils();
         Object user = (Object) util.getSessionScopeValue("_username").toString();
@@ -225,7 +225,7 @@ public class TransBCostAllocationBean {
         String date = sdf.format(new Date());
 
         oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("Selected", true);
-        System.out.println("*****Selected rows****" + selectedRows.length);
+        LOG.info("*****Selected rows****" + selectedRows.length);
         for (oracle.jbo.Row rw : selectedRows) {
          if(rw.getAttribute("TransactionStatus").equals("New")||rw.getAttribute("TransactionStatus").equals("Transaction Released from Hold")){
            
@@ -276,7 +276,7 @@ public class TransBCostAllocationBean {
         String date = sdf.format(new Date());
 
         oracle.jbo.Row[] selectedRows = releaseVO.getFilteredRows("Selected", true);
-        System.out.println("*****Selected rows****" + selectedRows.length);
+        LOG.info("*****Selected rows****" + selectedRows.length);
         for (oracle.jbo.Row rw : selectedRows) {
             if (rw.getAttribute("TransactionStatus").equals("Transaction on Hold")) {
 
@@ -315,10 +315,7 @@ public class TransBCostAllocationBean {
      */
     public void readNProcessExcel(InputStream xls) throws IOException {
 
-        //        CollectionModel cModel = (CollectionModel) empTable.getValue();
-        //        JUCtrlHierBinding tableBinding = (JUCtrlHierBinding) cModel.getWrappedData();
-        //        DCIteratorBinding iter = tableBinding.getDCIteratorBinding();
-        System.out.println("Inside Read xls Method");
+        LOG.info("Inside Read xls Method");
 
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding iter = (DCIteratorBinding) bindings.get("SgsTransReceivablesTempVO1Iterator");
@@ -331,7 +328,7 @@ public class TransBCostAllocationBean {
         try {
             WorkBook = new HSSFWorkbook(xls);
         } catch (IOException e) {
-            System.out.println("Exception : " + e);
+            LOG.info("Exception : " + e);
         }
 
         HSSFSheet sheet = WorkBook.getSheetAt(sheetIndex);
@@ -342,7 +339,7 @@ public class TransBCostAllocationBean {
 
         //Iterate over excel rows
         for (Row tempRow : sheet) {
-            System.out.println(skipcnt + "--" + skipRw);
+            LOG.info(skipcnt + "--" + skipRw);
             if (skipcnt > skipRw) { //skip first n row for labels.
                 //Create new row in table
                 executeOperation("CreateInsertTempTbl").execute();
@@ -401,15 +398,15 @@ public class TransBCostAllocationBean {
                         } else if (Index == 14) {
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
-                                System.out.println("dATE-ValidateFrom" + date);
+                                LOG.info("dATE-ValidateFrom" + date);
                                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                                System.out.println("d");
+                                LOG.info("d");
                                 String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
+                                LOG.info("date1" + date1);
                                 try {
                                     date = dateFormat.parse(date1);
                                 } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
+                                    LOG.info("Exception : " + e);
                                 }
                                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                                 oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
@@ -420,15 +417,15 @@ public class TransBCostAllocationBean {
                         } else if (Index == 15) {
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
-                                System.out.println("dATE-ValidateFrom" + date);
+                                LOG.info("dATE-ValidateFrom" + date);
                                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                                System.out.println("d");
+                                LOG.info("d");
                                 String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
+                                LOG.info("date1" + date1);
                                 try {
                                     date = dateFormat.parse(date1);
                                 } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
+                                    LOG.info("Exception : " + e);
                                 }
                                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                                 oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
@@ -443,15 +440,15 @@ public class TransBCostAllocationBean {
                         } else if (Index == 17) {
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
-                                System.out.println("dATE-ValidateFrom" + date);
+                                LOG.info("dATE-ValidateFrom" + date);
                                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                                System.out.println("d");
+                                LOG.info("d");
                                 String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
+                                LOG.info("date1" + date1);
                                 try {
                                     date = dateFormat.parse(date1);
                                 } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
+                                    LOG.info("Exception : " + e);
                                 }
                                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                                 oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
@@ -477,7 +474,7 @@ public class TransBCostAllocationBean {
         }
         //Execute table viewObject
         //        executeOperation("Execute").execute();
-        System.out.println("xls commit");
+        LOG.info("xls commit");
         executeOperation("Commit").execute();
     }
 
@@ -494,7 +491,7 @@ public class TransBCostAllocationBean {
         //        JUCtrlHierBinding tableBinding = (JUCtrlHierBinding) cModel.getWrappedData();
         //        //Acess the ADF iterator binding that is used with ADF table binding
         //        DCIteratorBinding iter = tableBinding.getDCIteratorBinding();
-        System.out.println("Inside Read xlsx Method");
+        LOG.info("Inside Read xlsx Method");
 
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding iter = (DCIteratorBinding) bindings.get("SgsTransReceivablesTempVO1Iterator");
@@ -507,7 +504,7 @@ public class TransBCostAllocationBean {
         try {
             WorkBook = new XSSFWorkbook(xlsx);
         } catch (IOException e) {
-            System.out.println("Exception : " + e);
+            LOG.info("Exception : " + e);
         }
         XSSFSheet sheet = WorkBook.getSheetAt(sheetIndex);
 
@@ -516,56 +513,56 @@ public class TransBCostAllocationBean {
 
         //Iterate over excel rows
         for (Row tempRow : sheet) {
-            System.out.println("Row------>" + tempRow.getPhysicalNumberOfCells());
-            //            System.out.println("Repeting rows------>"+sheet.getRepeatingRows());
-            System.out.println("FirstRowNum------>" + sheet.getFirstRowNum());
-            System.out.println("getLastRowNum------>" + sheet.getLastRowNum());
-            System.out.println("RowNum------>" + tempRow.getRowNum());
-            System.out.println("RowNumFirst------>" + tempRow.getFirstCellNum());
-            System.out.println("RowNumLast------>" + tempRow.getLastCellNum());
+            LOG.info("Row------>" + tempRow.getPhysicalNumberOfCells());
+            //            LOG.info("Repeting rows------>"+sheet.getRepeatingRows());
+            LOG.info("FirstRowNum------>" + sheet.getFirstRowNum());
+            LOG.info("getLastRowNum------>" + sheet.getLastRowNum());
+            LOG.info("RowNum------>" + tempRow.getRowNum());
+            LOG.info("RowNumFirst------>" + tempRow.getFirstCellNum());
+            LOG.info("RowNumLast------>" + tempRow.getLastCellNum());
 
-            System.out.println("skipcnt------>" + skipcnt);
-            System.out.println("skipRw------>" + skipRw);
+            LOG.info("skipcnt------>" + skipcnt);
+            LOG.info("skipRw------>" + skipRw);
 
             if (skipcnt > skipRw) { //skip first n row for labels.
-                System.out.println("CreateInsert------>");
+                LOG.info("CreateInsert------>");
                 //Create new row in table
                 executeOperation("CreateInsertTempTbl").execute();
 
-                System.out.println("Get current row from iterator------>");
+                LOG.info("Get current row from iterator------>");
                 //Get current row from iterator
                 oracle.jbo.Row row = iter.getNavigatableRowIterator().getCurrentRow();
                 int Index = 0;
                 //Iterate over row's columns
                 for (int column = 0; column < tempRow.getLastCellNum(); column++) {
-                    System.out.println("Column------>" + column);
+                    LOG.info("Column------>" + column);
 
                     Cell MytempCell = tempRow.getCell(column);
                     if (MytempCell != null) {
-                        System.out.println("MytempCell------>" + MytempCell);
+                        LOG.info("MytempCell------>" + MytempCell);
                         Index = MytempCell.getColumnIndex();
-                        System.out.println("Index------>" + Index);
+                        LOG.info("Index------>" + Index);
 
                         if (Index == 0) {
-                            System.out.println("NatureOfExpense------>" + MytempCell.getCellType());
-                            System.out.println("NatureOfExpense------>" + MytempCell.getStringCellValue());
+                            LOG.info("NatureOfExpense------>" + MytempCell.getCellType());
+                            LOG.info("NatureOfExpense------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("NatureOfExpense", MytempCell.getStringCellValue());
 
                         } else if (Index == 1) {
-                            System.out.println("FromBusinessUnit------>" + MytempCell.getCellType());
-                            System.out.println("FromBusinessUnit------>" + MytempCell.getStringCellValue());
+                            LOG.info("FromBusinessUnit------>" + MytempCell.getCellType());
+                            LOG.info("FromBusinessUnit------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("FromBusinessUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 2) {
 
-                            System.out.println("FromJobCode Type*****------>" + MytempCell.getCellType());
+                            LOG.info("FromJobCode Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("FromJobCode Value*****------>" + str);
+                                LOG.info("FromJobCode Value*****------>" + str);
                                 row.setAttribute("FromJobCode", str);
                             } else {
 
@@ -575,24 +572,24 @@ public class TransBCostAllocationBean {
 
 
                         } else if (Index == 3) {
-                            System.out.println("CrGlAccount------>" + MytempCell.getCellType());
-                            System.out.println("CrGlAccount------>" + MytempCell.getStringCellValue());
+                            LOG.info("CrGlAccount------>" + MytempCell.getCellType());
+                            LOG.info("CrGlAccount------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("CrGlAccount", MytempCell.getStringCellValue());
 
                         } else if (Index == 4) {
-                            System.out.println("FromOperatingUnit------>" + MytempCell.getCellType());
-                            System.out.println("FromOperatingUnit------>" + MytempCell.getStringCellValue());
+                            LOG.info("FromOperatingUnit------>" + MytempCell.getCellType());
+                            LOG.info("FromOperatingUnit------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("FromOperatingUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 5) {
 
-                            System.out.println("FromDepartmentId Type*****------>" + MytempCell.getCellType());
+                            LOG.info("FromDepartmentId Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("FromDepartmentId Value*****------>" + str);
+                                LOG.info("FromDepartmentId Value*****------>" + str);
                                 row.setAttribute("FromDepartmentId", str);
                             } else {
 
@@ -602,26 +599,26 @@ public class TransBCostAllocationBean {
 
 
                         } else if (Index == 6) {
-                            System.out.println("ToBusinessUnit------>" + MytempCell.getCellType());
-                            System.out.println("ToBusinessUnit------>" + MytempCell.getStringCellValue());
+                            LOG.info("ToBusinessUnit------>" + MytempCell.getCellType());
+                            LOG.info("ToBusinessUnit------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToBusinessUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 7) {
-                            System.out.println("ToOperatingUnit------>" + MytempCell.getCellType());
-                            System.out.println("ToOperatingUnit------>" + MytempCell.getStringCellValue());
+                            LOG.info("ToOperatingUnit------>" + MytempCell.getCellType());
+                            LOG.info("ToOperatingUnit------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToOperatingUnit", MytempCell.getStringCellValue());
 
                         } else if (Index == 8) {
 
-                            System.out.println("ToJobCode Type*****------>" + MytempCell.getCellType());
+                            LOG.info("ToJobCode Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("ToJobCode Value*****------>" + str);
+                                LOG.info("ToJobCode Value*****------>" + str);
                                 row.setAttribute("ToJobCode", str);
                             } else {
 
@@ -631,11 +628,11 @@ public class TransBCostAllocationBean {
 
 
                         } else if (Index == 9) {
-                            System.out.println("ToDeptId Type*****------>" + MytempCell.getCellType());
+                            LOG.info("ToDeptId Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("ToDeptId Value*****------>" + str);
+                                LOG.info("ToDeptId Value*****------>" + str);
                                 row.setAttribute("ToDeptId", str);
                             } else {
 
@@ -645,52 +642,52 @@ public class TransBCostAllocationBean {
 
 
                         } else if (Index == 10) {
-                            System.out.println("DrGlAccount------>" + MytempCell.getCellType());
-                            System.out.println("DrGlAccount------>" + MytempCell.getStringCellValue());
+                            LOG.info("DrGlAccount------>" + MytempCell.getCellType());
+                            LOG.info("DrGlAccount------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("DrGlAccount", MytempCell.getStringCellValue());
 
                         } else if (Index == 11) {
-                            System.out.println("BaseCurrency------>" + MytempCell.getCellType());
-                            System.out.println("BaseCurrency------>" + MytempCell.getStringCellValue());
+                            LOG.info("BaseCurrency------>" + MytempCell.getCellType());
+                            LOG.info("BaseCurrency------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("BaseCurrency", MytempCell.getStringCellValue());
 
                         } else if (Index == 12) {
-                            System.out.println("ToTransactionCurrency------>" + MytempCell.getCellType());
-                            System.out.println("ToTransactionCurrency------>" + MytempCell.getStringCellValue());
+                            LOG.info("ToTransactionCurrency------>" + MytempCell.getCellType());
+                            LOG.info("ToTransactionCurrency------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("ToTransactionCurrency", MytempCell.getStringCellValue());
 
                         } else if (Index == 13) {
-                            System.out.println("TargetAmount------>" + MytempCell.getCellType());
-                            System.out.println("TargetAmount------>" + MytempCell.getNumericCellValue());
+                            LOG.info("TargetAmount------>" + MytempCell.getCellType());
+                            LOG.info("TargetAmount------>" + MytempCell.getNumericCellValue());
 
                             row.setAttribute("TargetAmount", MytempCell.getNumericCellValue());
 
                         } else if (Index == 14) {
-                            System.out.println("BookCode------>" + MytempCell.getCellType());
-                            System.out.println("BookCode------>" + MytempCell.getStringCellValue());
+                            LOG.info("BookCode------>" + MytempCell.getCellType());
+                            LOG.info("BookCode------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("BookCode", MytempCell.getStringCellValue());
 
                         } else if (Index == 15) {
-                            System.out.println("TransactionPeriod------>" + MytempCell.getCellType());
-                            System.out.println("TransactionPeriod------>" + MytempCell.getDateCellValue());
+                            LOG.info("TransactionPeriod------>" + MytempCell.getCellType());
+                            LOG.info("TransactionPeriod------>" + MytempCell.getDateCellValue());
 
                             // row.setAttribute("TransactionPeriod", MytempCell.getStringCellValue());
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
-                                System.out.println("DATE-TransactionPeriod    :" + date);
+                                LOG.info("DATE-TransactionPeriod    :" + date);
                                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
                                 String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
+                                LOG.info("date1" + date1);
                                 try {
                                     date = dateFormat.parse(date1);
                                 } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
+                                    LOG.info("Exception : " + e);
                                 }
                                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                                 oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
@@ -701,20 +698,20 @@ public class TransBCostAllocationBean {
 
 
                         } else if (Index == 16) {
-                            System.out.println("GlDate------>" + MytempCell.getCellType());
-                            System.out.println("GlDate------>" + MytempCell.getDateCellValue());
+                            LOG.info("GlDate------>" + MytempCell.getCellType());
+                            LOG.info("GlDate------>" + MytempCell.getDateCellValue());
 
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
-                                System.out.println("DATE-GlDate    :" + date);
+                                LOG.info("DATE-GlDate    :" + date);
                                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                                System.out.println("d");
+                                LOG.info("d");
                                 String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
+                                LOG.info("date1" + date1);
                                 try {
                                     date = dateFormat.parse(date1);
                                 } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
+                                    LOG.info("Exception : " + e);
                                 }
                                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                                 oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
@@ -724,22 +721,22 @@ public class TransBCostAllocationBean {
                             }
 
                         } else if (Index == 17) {
-                            System.out.println("TransactionDate------>" + MytempCell.getCellType());
+                            LOG.info("TransactionDate------>" + MytempCell.getCellType());
 
 
-                            System.out.println("TransactionDate------>" + MytempCell.getDateCellValue());
+                            LOG.info("TransactionDate------>" + MytempCell.getDateCellValue());
 
                             java.util.Date date = MytempCell.getDateCellValue();
                             if (null != date) {
-                                System.out.println("DATE-TransactionDate    :" + date);
+                                LOG.info("DATE-TransactionDate    :" + date);
                                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                                System.out.println("d");
+                                LOG.info("d");
                                 String date1 = dateFormat.format(date);
-                                System.out.println("date1" + date1);
+                                LOG.info("date1" + date1);
                                 try {
                                     date = dateFormat.parse(date1);
                                 } catch (ParseException e) {
-                                    System.out.println("Exception : " + e);
+                                    LOG.info("Exception : " + e);
                                 }
                                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                                 oracle.jbo.domain.Date jboDate = new oracle.jbo.domain.Date(sqlDate);
@@ -749,42 +746,42 @@ public class TransBCostAllocationBean {
                             }
 
                         } else if (Index == 18) {
-                            System.out.println("FromTransactionCurrency------>" + MytempCell.getCellType());
-                            System.out.println("FromTransactionCurrency------>" + MytempCell.getStringCellValue());
+                            LOG.info("FromTransactionCurrency------>" + MytempCell.getCellType());
+                            LOG.info("FromTransactionCurrency------>" + MytempCell.getStringCellValue());
 
 
                             row.setAttribute("FromTransactionCurrency", MytempCell.getStringCellValue());
 
                         } else if (Index == 19) {
-                            System.out.println("TransactionAmount------>" + MytempCell.getCellType());
-                            System.out.println("TransactionAmount------>" + MytempCell.getNumericCellValue());
+                            LOG.info("TransactionAmount------>" + MytempCell.getCellType());
+                            LOG.info("TransactionAmount------>" + MytempCell.getNumericCellValue());
 
                             row.setAttribute("TransactionAmount", MytempCell.getNumericCellValue());
 
                         } else if (Index == 20) {
-                            System.out.println("FunctionalCurrency------>" + MytempCell.getCellType());
-                            System.out.println("FunctionalCurrency------>" + MytempCell.getStringCellValue());
+                            LOG.info("FunctionalCurrency------>" + MytempCell.getCellType());
+                            LOG.info("FunctionalCurrency------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("FunctionalCurrency", MytempCell.getStringCellValue());
 
                         } else if (Index == 21) {
-                            System.out.println("AccountTreatment------>" + MytempCell.getCellType());
-                            System.out.println("AccountTreatment------>" + MytempCell.getStringCellValue());
+                            LOG.info("AccountTreatment------>" + MytempCell.getCellType());
+                            LOG.info("AccountTreatment------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("AccountTreatment", MytempCell.getStringCellValue());
 
                         } else if (Index == 22) {
-                            System.out.println("PeoplesoftTransactionId------>" + MytempCell.getCellType());
-                            System.out.println("PeoplesoftTransactionId------>" + MytempCell.getStringCellValue());
+                            LOG.info("PeoplesoftTransactionId------>" + MytempCell.getCellType());
+                            LOG.info("PeoplesoftTransactionId------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("PeoplesoftTransactionId", MytempCell.getStringCellValue());
 
                         } else if (Index == 23) {
-                            System.out.println("VendorId Type*****------>" + MytempCell.getCellType());
+                            LOG.info("VendorId Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("VendorId Value*****------>" + str);
+                                LOG.info("VendorId Value*****------>" + str);
                                 row.setAttribute("VendorId", str);
                             } else {
 
@@ -792,17 +789,17 @@ public class TransBCostAllocationBean {
 
                             }
                         } else if (Index == 24) {
-                            System.out.println("PoNumber------>" + MytempCell.getCellType());
-                            System.out.println("PoNumber------>" + MytempCell.getStringCellValue());
+                            LOG.info("PoNumber------>" + MytempCell.getCellType());
+                            LOG.info("PoNumber------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("PoNumber", MytempCell.getStringCellValue());
 
                         } else if (Index == 25) {
-                            System.out.println("VoucherId Type*****------>" + MytempCell.getCellType());
+                            LOG.info("VoucherId Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("VoucherId Value*****------>" + str);
+                                LOG.info("VoucherId Value*****------>" + str);
                                 row.setAttribute("VoucherId", str);
                             } else {
 
@@ -812,11 +809,11 @@ public class TransBCostAllocationBean {
 
 
                         } else if (Index == 26) {
-                            System.out.println("VoucherNo Type*****------>" + MytempCell.getCellType());
+                            LOG.info("VoucherNo Type*****------>" + MytempCell.getCellType());
 
                             if (MytempCell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                                 String str = NumberToTextConverter.toText(MytempCell.getNumericCellValue());
-                                System.out.println("VoucherNo Value*****------>" + str);
+                                LOG.info("VoucherNo Value*****------>" + str);
                                 row.setAttribute("VoucherNo", str);
                             } else {
 
@@ -825,15 +822,15 @@ public class TransBCostAllocationBean {
                             }
 
                         } else if (Index == 27) {
-                            System.out.println("SourceModule------>" + MytempCell.getCellType());
-                            System.out.println("SourceModule------>" + MytempCell.getStringCellValue());
+                            LOG.info("SourceModule------>" + MytempCell.getCellType());
+                            LOG.info("SourceModule------>" + MytempCell.getStringCellValue());
 
                             row.setAttribute("SourceModule", MytempCell.getStringCellValue());
 
                         } else {
-                            System.out.println("-----> cell Is empty Please fill the cell with data" +
+                            LOG.info("-----> cell Is empty Please fill the cell with data" +
                                                tempRow.getRowNum() + "+" + tempRow.getCell(column));
-                            System.out.println("-----> cell Is empty Please fill the cell with data at Index" + Index);
+                            LOG.info("-----> cell Is empty Please fill the cell with data at Index" + Index);
                             Index++;
                         }
 
@@ -842,15 +839,15 @@ public class TransBCostAllocationBean {
 
 
             }
-            System.out.println("skipcntBefore----->" + skipcnt);
+            LOG.info("skipcntBefore----->" + skipcnt);
 
             skipcnt++;
 
-            System.out.println("skipcntAfter----->" + skipcnt);
+            LOG.info("skipcntAfter----->" + skipcnt);
 
 
         }
-        System.out.println("xlsx Commit");
+        LOG.info("xlsx Commit");
         //Execute table viewObject
         executeOperation("Commit").execute();
 
@@ -956,10 +953,7 @@ public class TransBCostAllocationBean {
     public void selectAllCheckboxValueChange(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
         boolean isSelected = ((Boolean) valueChangeEvent.getNewValue()).booleanValue();
-        System.out.println("*****is Selected***" + isSelected);
-        //           String voName = (String)AdfFacesContext.getCurrentInstance().getPageFlowScope().get("voName");
-        //           String iteratorName = voName + "Iterator";
-        //           System.out.println("******"+iteratorName);
+        LOG.info("*****is Selected***" + isSelected);
         String SelectedAttribute = "Selected";
         DCBindingContainer bindingContainer =
             (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
@@ -973,10 +967,10 @@ public class TransBCostAllocationBean {
             row = rs.next();
             if (isSelected) {
                 row.setAttribute(SelectedAttribute, "true");
-                System.out.println("****selected***" + row.getAttribute(SelectedAttribute));
+                LOG.info("****selected***" + row.getAttribute(SelectedAttribute));
             } else {
                 row.setAttribute(SelectedAttribute, "false");
-                System.out.println("****Unselected***" + row.getAttribute(SelectedAttribute));
+                LOG.info("****Unselected***" + row.getAttribute(SelectedAttribute));
             }
         }
         rs.closeRowSetIterator();
@@ -1102,7 +1096,7 @@ public class TransBCostAllocationBean {
 
        
         oracle.jbo.Row[] selectedRows = confVO.getFilteredRows("Selected", true);
-        System.out.println("*****Selected rows****" + selectedRows.length);
+        LOG.info("*****Selected rows****" + selectedRows.length);
         for (oracle.jbo.Row rw : selectedRows) {
                 if(rw.getAttribute("TransactionStatus").equals("New")||rw.getAttribute("TransactionStatus").equals("Transaction Released from Hold")){
                     rw.setAttribute("TransactionStatus", "Confirmed for Processing");
@@ -1125,9 +1119,9 @@ public class TransBCostAllocationBean {
             File files = new File(filePath);
             if (!files.exists()) {
                 if (files.mkdirs()) {
-                    System.out.println("Multiple directories are created!");
+                    LOG.info("Multiple directories are created!");
                 } else {
-                    System.out.println("Failed to create multiple directories!");
+                    LOG.info("Failed to create multiple directories!");
                 }
             }
             fout = new FileOutputStream(filePath + fileName);
@@ -1170,16 +1164,11 @@ public class TransBCostAllocationBean {
                         // String filePath1 = "D:\\FilesStoragePath\\";
 
                        
-                        System.out.println("filePath1" + filePath1);
+                        LOG.info("filePath1" + filePath1);
                         
                         String tokens = uploadedFile.getFilename();
                         String fileNames = uploadedFile.getFilename();
                         String contentType = uploadedFile.getContentType();
-                        //                                        String fileNameWithOutExt = FilenameUtils.removeExtension(tokens);
-                        //                                        String fileNameWithExt = FilenameUtils.getExtension(tokens);
-                        //                                        DateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
-                        //                                        Date date = new Date();
-                        //                                        String fileNames = fileNameWithOutExt + "_" + dateFormat.format(date) + "." + fileNameWithExt;
                         path = filePath1 + fileNames;
                         saveFile(path, fileName, bfi);
 
@@ -1191,7 +1180,7 @@ public class TransBCostAllocationBean {
                         row.setAttribute("Attribute1", path);
                         row.setAttribute("Attribute2", contentType);
 
-                        System.out.println("File path and file Name in downlaod" + path + fileName);
+                        LOG.info("File path and file Name in downlaod" + path + fileName);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1210,8 +1199,8 @@ public class TransBCostAllocationBean {
 
             String filePath = (String) currentRow.getAttribute("Attribute1");
             String fileName = (String) currentRow.getAttribute("Attachment");
-            System.out.println("filePath :: " + filePath);
-            System.out.println("fileName :: " + fileName);
+            LOG.info("filePath :: " + filePath);
+            LOG.info("fileName :: " + fileName);
 
 
             try {
@@ -1257,7 +1246,7 @@ public class TransBCostAllocationBean {
 
         
         oracle.jbo.Row[] selectedRows = confVO.getFilteredRows("Selected", true);
-        System.out.println("*****Selected rows****" + selectedRows.length);
+        LOG.info("*****Selected rows****" + selectedRows.length);
         for (oracle.jbo.Row rw : selectedRows) {
                 if(rw.getAttribute("TransactionStatus").equals("New")||rw.getAttribute("TransactionStatus").equals("Transaction Released from Hold")){
                     rw.setAttribute("TransactionStatus", "Confirmed for Processing");

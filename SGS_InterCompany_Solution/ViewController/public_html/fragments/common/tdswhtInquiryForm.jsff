@@ -44,13 +44,13 @@
                           shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY.hints.tooltip}" id="it25">
               <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
             </af:inputText>-->
-            <!--<af:selectOneChoice value="#{bindings.SERVICERECEIVERLEGALENTITY1.inputValue}"
+            <af:selectOneChoice value="#{bindings.SERVICERECEIVERLEGALENTITY1.inputValue}"
                                 label="#{bindings.SERVICERECEIVERLEGALENTITY1.label}"
                                 required="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.mandatory}"
                                 shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.tooltip}" id="soc9">
               <f:selectItems value="#{bindings.SERVICERECEIVERLEGALENTITY1.items}" id="si9"/>
               <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY1.validator}"/>
-            </af:selectOneChoice>-->
+            </af:selectOneChoice>
             <af:selectOneChoice value="#{bindings.SERVICERECEIVERLEGALENTITY1.inputValue}"
                                 label="#{bindings.SERVICERECEIVERLEGALENTITY1.label}"
                                 required="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.mandatory}"
@@ -86,19 +86,19 @@
                           shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY.hints.tooltip}" id="it12">
               <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY.validator}"/>
             </af:inputText>-->
-            <!--<af:selectOneChoice value="#{bindings.SERVICEPROVIDERLEGALENTITY1.inputValue}"
+            <af:selectOneChoice value="#{bindings.SERVICEPROVIDERLEGALENTITY1.inputValue}"
                                 label="#{bindings.SERVICEPROVIDERLEGALENTITY1.label}"
                                 required="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.mandatory}"
                                 shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.tooltip}" id="soc11">
               <f:selectItems value="#{bindings.SERVICEPROVIDERLEGALENTITY1.items}" id="si11"/>
               <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY1.validator}"/>
-            </af:selectOneChoice>-->
+            </af:selectOneChoice>
             <af:selectOneChoice value="#{bindings.SERVICEPROVIDERLEGALENTITY1.inputValue}"
                                 label="#{bindings.SERVICEPROVIDERLEGALENTITY1.label}"
                                 required="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.mandatory}"
-                                shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.tooltip}" id="soc11"
+                                shortDesc="#{bindings.SERVICEPROVIDERLEGALENTITY1.hints.tooltip}" id="soc121"
                                 rendered="false">
-              <f:selectItems value="#{bindings.SERVICEPROVIDERLEGALENTITY1.items}" id="si11"/>
+              <f:selectItems value="#{bindings.SERVICEPROVIDERLEGALENTITY1.items}" id="si131"/>
               <f:validator binding="#{bindings.SERVICEPROVIDERLEGALENTITY1.validator}"/>
             </af:selectOneChoice>
             <!--<af:inputText value="#{bindings.DeductionPoint.inputValue}" label="#{bindings.DeductionPoint.hints.label}"

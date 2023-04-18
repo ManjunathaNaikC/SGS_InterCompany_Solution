@@ -846,6 +846,8 @@ public class ActionEventsBean {
             String paymentStatus = (String) paymentRow.getAttribute("PaymentStatus");
             double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
             double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
+            Date paymentDate= (Date) AdfFacesContext.getCurrentInstance()
+                                            .getPageFlowScope().get("selectedValueDate");
             double settlementAmount = 0;
 
             if ("Unpaid".equals(settlementStatus)) {
@@ -878,6 +880,7 @@ public class ActionEventsBean {
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                 paymentRow.setAttribute("OsAmountPayable",
                                         Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+                
 
             } else if ("Transaction on Hold".equals(settlementStatus)) {
 
@@ -913,6 +916,7 @@ public class ActionEventsBean {
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                 paymentRow.setAttribute("OsAmountPayable",
                                         Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+                
 
 
             }
@@ -1585,9 +1589,9 @@ public class ActionEventsBean {
     public Connection getDBConnection() {
         Connection conn = null;
         try {
-            conn =
-                DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
-            //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+//            conn =
+//                DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
+            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
         } catch (SQLException sqle) {
             // TODO: Add catch code

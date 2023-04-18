@@ -76,6 +76,8 @@
           <Item Value="PaymentStatus"/>
           <Item Value="StlmtStatus"/>
           <Item Value="BANKCHARGES"/>
+          <Item Value="IcCustomerBu"/>
+          <Item Value="IcSupplierBu"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -129,6 +131,10 @@
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_RECEIVERBANKACCOUNT"
           id="RECEIVERBANKACCOUNT1" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PURPOSECODE" id="PURPOSECODE"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ATTRIBUTE1" id="ATTRIBUTE1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ATTRIBUTE2" id="ATTRIBUTE2"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

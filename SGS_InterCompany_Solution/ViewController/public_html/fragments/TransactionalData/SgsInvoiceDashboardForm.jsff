@@ -289,6 +289,10 @@
               <af:outputText value="#{row.SourceStatId}"
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.SourceStatId.tooltip}" id="ot32"/>
             </af:column>
+            <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.DOCATTM.label}" id="c25">
+              <af:outputText value="#{row.DOCATTM}" shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.DOCATTM.tooltip}"
+                             id="ot48"/>
+            </af:column>
             <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.CreatedDate.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.CreatedDate.label}" id="c33">
               <f:facet name="filter">

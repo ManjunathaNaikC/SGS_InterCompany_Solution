@@ -14,19 +14,13 @@ public class ValueChangeListener {
     }
 
     public void onChangeOfNatureOfExpense(ValueChangeEvent valueChangeEvent) {
-        // Add event code here...
-       
-        System.out.println("lookupCode :: "+valueChangeEvent.getNewValue());
-        String newLokkupCode =(String)valueChangeEvent.getNewValue();
+        String newLokkupCode = (String) valueChangeEvent.getNewValue();
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("NatureOfExpenseLookupVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
         String lookupValue = (String) row.getAttribute("LOOKUPCODE");
-        System.out.println("lookupCode :: "+lookupValue);
         ViewObjectImpl costIdentificationVO =
             (ViewObjectImpl) getDCIteratorBindings("SgsCostIdentificationRuleVOIterator").getViewObject();
-//        costIdentificationVO.getViewCriteria("NatureOfExpenseVC");
-//        costIdentificationVO.setNamedWhereClause("bNatureOfExpense", lookupValue);
-        costIdentificationVO.setWhereClause("NATURE_OF_EXPENSE = '"+newLokkupCode+"'");
+        costIdentificationVO.setWhereClause("NATURE_OF_EXPENSE = '" + newLokkupCode + "'");
         costIdentificationVO.executeQuery();
 
     }

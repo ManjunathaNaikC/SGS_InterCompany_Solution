@@ -57,6 +57,7 @@
           <Item Value="VATAMNT"/>
           <Item Value="VATRATE"/>
           <Item Value="CGSTAMNT"/>
+          <Item Value="DOCATTM"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

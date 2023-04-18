@@ -18,7 +18,11 @@
         </af:panelGroupLayout>
         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
-          <f:facet name="toolbar"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t4">
+              <af:button text="Write Off" id="b1" actionListener="#{viewScope.ActionEventsBean.SaveWriteOffDetails}"/>
+            </af:toolbar>
+          </f:facet>
           <f:facet name="statusbar"/>
           <af:table value="#{bindings.SgsStlmtVoucherVO1.collectionModel}" var="row"
                     rows="#{bindings.SgsStlmtVoucherVO1.rangeSize}"
@@ -27,7 +31,7 @@
                     fetchSize="#{bindings.SgsStlmtVoucherVO1.rangeSize}"
                     filterModel="#{bindings.SgsStlmtVoucherVO1Query.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsStlmtVoucherVO1Query.processQuery}" varStatus="vs" id="t2"
-                    styleClass="AFStretchWidth">
+                    styleClass="AFStretchWidth" binding="#{viewScope.ActionEventsBean.tablePaymentRecords1}">
             <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.label}" id="c55"
                        binding="#{viewScope.ActionEventsBean.voucherColSelectBind}">
               <af:selectBooleanCheckbox value="#{row.bindings.SelectRecord.inputValue}"

@@ -895,6 +895,14 @@ public class ADFUtils {
         context.addMessage(null, fm);
     }
     
+    public static void resetNotifier() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String messageText = "Record resetted Successfully.";
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_INFO);
+        context.addMessage(null, fm);
+    }
+    
     public Object getSessionScopeValue(String name) {
         ADFContext adfCtx = ADFContext.getCurrent();
         Map sessionScope = adfCtx.getSessionScope();

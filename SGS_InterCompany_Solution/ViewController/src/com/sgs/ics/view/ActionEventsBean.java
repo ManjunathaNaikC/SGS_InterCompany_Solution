@@ -846,8 +846,27 @@ public class ActionEventsBean {
             String paymentStatus = (String) paymentRow.getAttribute("PaymentStatus");
             double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
             double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
-            Date paymentDate= (Date) AdfFacesContext.getCurrentInstance()
-                                            .getPageFlowScope().get("selectedValueDate");
+            String paymentId= (String) row.getAttribute("PAYMENTID");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date paymentDate = (java.util.Date) row.getAttribute("PAYMENTDATE");
+            java.sql.Date payDate = new java.sql.Date(paymentDate.getTime());
+            java.util.Date receiptDate = (java.util.Date) row.getAttribute("RECEIPTDATE");
+            java.sql.Date rctDate = new java.sql.Date(receiptDate.getTime());
+            System.out.println("Payment date" + payDate);
+            System.out.println("Receipt date" + rctDate);
+            String ReceiptBankName = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedRctBankName");
+            String ReceiptBankCode = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedRctBankCode");
+            String paymentBankName = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedPayBankName");
+            String paymentBankCode = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedPayBankCode");
+            System.out.println("Receipt Bank Name " + ReceiptBankName);
+            System.out.println("Receipt Bank Code " + ReceiptBankCode);
+            System.out.println("payment Bank Name " + paymentBankName);
+            System.out.println("payment Bank Code" + paymentBankCode);
+            
             double settlementAmount = 0;
 
             if ("Unpaid".equals(settlementStatus)) {
@@ -923,6 +942,17 @@ public class ActionEventsBean {
             if (transactionAmount <= 0) {
                 break;
             }
+            if("Settled".equals(settlementStatus)){
+                
+                    paymentRow.setAttribute("PaymentId", paymentId);
+                    paymentRow.setAttribute("PAYMENTDATE", payDate);
+                    paymentRow.setAttribute("RECEIPTDATE", rctDate);
+                    paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
+                    paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
+                    paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
+                    paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
+
+                }
         }
 
         System.out.println("Balance : "+transactionAmount);

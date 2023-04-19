@@ -658,6 +658,71 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="RECEIPTDATE"
+    PrecisionRule="true"
+    EntityAttrName="RECEIPTDATE"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="RECEIPT_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.RECEIPTDATE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RECEIPTBANKCD"
+    PrecisionRule="true"
+    EntityAttrName="RECEIPTBANKCD"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="RECEIPT_BANK_CD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.RECEIPTBANKCD_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RECEIPTBANKACCTKEY"
+    PrecisionRule="true"
+    EntityAttrName="RECEIPTBANKACCTKEY"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="RECEIPT_BANK_ACCT_KEY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.RECEIPTBANKACCTKEY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PAYMENTBANKCD"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTBANKCD"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="PAYMENT_BANK_CD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.PAYMENTBANKCD_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PAYMENTBANKACCTKEY"
+    PrecisionRule="true"
+    EntityAttrName="PAYMENTBANKACCTKEY"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="PAYMENT_BANK_ACCT_KEY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.PAYMENTBANKACCTKEY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"

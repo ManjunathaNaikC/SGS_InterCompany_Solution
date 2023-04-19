@@ -551,6 +551,61 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="PAYMENTBANKACCTKEY"
+    Precision="80"
+    ColumnName="PAYMENT_BANK_ACCT_KEY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PAYMENTBANKCD"
+    Precision="80"
+    ColumnName="PAYMENT_BANK_CD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RECEIPTBANKACCTKEY"
+    Precision="80"
+    ColumnName="RECEIPT_BANK_ACCT_KEY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RECEIPTBANKCD"
+    Precision="80"
+    ColumnName="RECEIPT_BANK_CD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RECEIPTDATE"
+    ColumnName="RECEIPT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_STLMT_VOUCHER"/>
   <Key
     Name="PKSGSSTLMTVOUCHER"
     PrimaryKey="true">

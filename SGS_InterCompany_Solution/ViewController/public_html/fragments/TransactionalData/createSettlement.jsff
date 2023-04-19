@@ -69,7 +69,7 @@
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.PAYMENTID.validator}"/>
                         </af:inputText>
-                        <af:inputDate value="#{pageFlowScope.selectedValueDate}"
+                        <af:inputDate value="#{bindings.PAYMENTDATE.inputValue}"
                                       label="#{bindings.PAYMENTDATE.hints.label}"
                                       required="#{bindings.PAYMENTDATE.hints.mandatory}"
                                       columns="#{bindings.PAYMENTDATE.hints.displayWidth}"
@@ -85,28 +85,28 @@
                             <f:validator binding="#{bindings.RECEIPTDATE.validator}"/>
                             <af:convertDateTime pattern="#{bindings.RECEIPTDATE.format}"/>
                         </af:inputDate>
-                        <af:selectOneChoice value="#{bindings.RECEIPTBANKCD.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedRctBankName}"
                                             label="#{bindings.RECEIPTBANKCD.label}"
                                             required="#{bindings.RECEIPTBANKCD.hints.mandatory}"
                                             shortDesc="#{bindings.RECEIPTBANKCD.hints.tooltip}" id="soc7">
                             <f:selectItems value="#{bindings.RECEIPTBANKCD.items}" id="si7"/>
                             <f:validator binding="#{bindings.RECEIPTBANKCD.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.RECEIPTBANKACCTKEY.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedRctBankCode}"
                                             label="#{bindings.RECEIPTBANKACCTKEY.label}"
                                             required="#{bindings.RECEIPTBANKACCTKEY.hints.mandatory}"
                                             shortDesc="#{bindings.RECEIPTBANKACCTKEY.hints.tooltip}" id="soc8">
                             <f:selectItems value="#{bindings.RECEIPTBANKACCTKEY.items}" id="si8"/>
                             <f:validator binding="#{bindings.RECEIPTBANKACCTKEY.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.PAYMENTBANKCD.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedPayBankName}"
                                             label="#{bindings.PAYMENTBANKCD.label}"
                                             required="#{bindings.PAYMENTBANKCD.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTBANKCD.hints.tooltip}" id="soc10">
                             <f:selectItems value="#{bindings.PAYMENTBANKCD.items}" id="si10"/>
                             <f:validator binding="#{bindings.PAYMENTBANKCD.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.PAYMENTBANKACCTKEY.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedPayBankCode}"
                                             label="#{bindings.PAYMENTBANKACCTKEY.label}"
                                             required="#{bindings.PAYMENTBANKACCTKEY.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTBANKACCTKEY.hints.tooltip}" id="soc11">

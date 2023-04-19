@@ -1134,7 +1134,6 @@ FROM
   </ViewAttribute>
   <ViewAttribute
     Name="RECEIPTBANKCD"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="80"
@@ -1158,7 +1157,6 @@ FROM
   </ViewAttribute>
   <ViewAttribute
     Name="RECEIPTBANKACCTKEY"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="80"
@@ -1182,7 +1180,6 @@ FROM
   </ViewAttribute>
   <ViewAttribute
     Name="PAYMENTBANKCD"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="80"
@@ -1206,7 +1203,6 @@ FROM
   </ViewAttribute>
   <ViewAttribute
     Name="PAYMENTBANKACCTKEY"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="80"

@@ -13,36 +13,34 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import java.net.MalformedURLException;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-
 import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.BindingContext;
-
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
-
+import oracle.adf.share.ADFContext;
+import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichColumn;
 import oracle.adf.view.rich.component.rich.data.RichTable;
@@ -50,51 +48,30 @@ import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
-import oracle.adf.view.rich.component.rich.input.RichSelectManyChoice;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
 import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
+import oracle.adf.view.rich.component.rich.output.RichOutputText;
+import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
-import oracle.jbo.server.ViewObjectImpl;
-import oracle.jbo.uicli.binding.JUCtrlListBinding;
-
-import oracle.jbo.server.ViewDefImpl;
-import oracle.jbo.server.ViewObjectImpl;
-
-import java.util.TimeZone;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
-import javax.faces.component.UIComponent;
-
-import oracle.adf.share.ADFContext;
-
-import oracle.adf.view.rich.component.rich.input.RichInputListOfValues;
-
-import oracle.adf.share.logging.ADFLogger;
-
-import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
-import oracle.adf.view.rich.component.rich.output.RichOutputText;
-import oracle.adf.view.rich.context.AdfFacesContext;
-
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
 import oracle.jbo.ViewObject;
-
-import oracle.jbo.RowSetIterator;
-
+import oracle.jbo.server.ViewObjectImpl;
+import oracle.jbo.uicli.binding.JUCtrlListBinding;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
 
 public class ActionEventsBean {
 
     private static final ADFLogger LOG = ADFLogger.createADFLogger(ActionEventsBean.class);
+    private SGSAppModuleImpl am = new SGSAppModuleImpl();
     protected String SAVE_DATA = "Commit";
     private RichPopup statisticspopupbind;
     private RichColumn invoiceColSelectBind;
@@ -1594,7 +1571,7 @@ public class ActionEventsBean {
 
         try {
 
-            conn = getDBConnection();
+            conn = am.getDBConnection();
             String SPsql = "EXEC USP_SCN_CREDIT_TXN "; // for stored proc
             PreparedStatement ps = conn.prepareStatement(SPsql);
 
@@ -1616,19 +1593,19 @@ public class ActionEventsBean {
         creditMemoPopupBind.hide();
     }
 
-    public Connection getDBConnection() {
-        Connection conn = null;
-        try {
-//            conn =
-//                DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
-            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
-
-        } catch (SQLException sqle) {
-            // TODO: Add catch code
-            sqle.printStackTrace();
-        }
-        return conn;
-    }
+//    public Connection getDBConnection() {
+//        Connection conn = null;
+//        try {
+////            conn =
+////                DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
+//            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+//
+//        } catch (SQLException sqle) {
+//            // TODO: Add catch code
+//            sqle.printStackTrace();
+//        }
+//        return conn;
+//    }
 
     public void setCreditDateBind(RichInputDate creditDateBind) {
         this.creditDateBind = creditDateBind;
@@ -1936,7 +1913,7 @@ public class ActionEventsBean {
         PreparedStatement pst = null;
         PreparedStatement ps = null;
         try {
-            conn = getDBConnection();
+            conn = am.getDBConnection();
             String SPsql = "EXEC USP_SCN_FA_IMPORT"; // for stored proc
             ps = conn.prepareStatement(SPsql);
             ps.execute();

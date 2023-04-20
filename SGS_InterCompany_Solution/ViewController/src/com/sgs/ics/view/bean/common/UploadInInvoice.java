@@ -1,27 +1,18 @@
 package com.sgs.ics.view.bean.common;
 
+import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 import com.sgs.ics.ui.utils.ADFUtils;
-
-import com.sgs.ics.view.bean.AuthenticationBean;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
-import java.util.GregorianCalendar;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-
 import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.BindingContext;
@@ -36,8 +27,6 @@ import oracle.binding.OperationBinding;
 import oracle.jbo.ViewObject;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.NumberToTextConverter;
@@ -52,7 +41,7 @@ public class UploadInInvoice {
     private RichSelectOneChoice adjTxnCategoryBind;
     private RichPopup adjEntryPopupBind;
     private static final ADFLogger LOG = ADFLogger.createADFLogger(UploadInInvoice.class);
-
+    private SGSAppModuleImpl am = new SGSAppModuleImpl();
 
     public UploadInInvoice() {
     }
@@ -384,7 +373,7 @@ public class UploadInInvoice {
         
         try {
             
-            conn = getDBConnection();
+            conn = am.getDBConnection();
             String SPsql = "EXEC USP_SCN_DRTCROSS_CHARGE "; // for stored proc
             //Connection con = SmartPoolFactory.getConnection();   // java.sql.Connection
             ps = conn.prepareStatement(SPsql);
@@ -404,22 +393,22 @@ public class UploadInInvoice {
         }
     }
     
-    public Connection getDBConnection() {
-            Connection conn = null;
-        try {
-//               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
-//                conn = DriverManager.getConnection(connectionUrl);
-            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
-
-        } catch (SQLException sqle) {
-            // TODO: Add catch code
-            sqle.printStackTrace();
-        } finally {
-
-        }
-               
-         return conn;   
-        }
+//    public Connection getDBConnection() {
+//            Connection conn = null;
+//        try {
+////               String connectionUrl = "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=SGS_NEW;integratedSecurity=true;";
+////                conn = DriverManager.getConnection(connectionUrl);
+//            conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+//
+//        } catch (SQLException sqle) {
+//            // TODO: Add catch code
+//            sqle.printStackTrace();
+//        } finally {
+//
+//        }
+//               
+//         return conn;   
+//        }
 
     public void setNatureOfExpenseLovBind(RichSelectOneChoice natureOfExpenseLovBind) {
         this.natureOfExpenseLovBind = natureOfExpenseLovBind;

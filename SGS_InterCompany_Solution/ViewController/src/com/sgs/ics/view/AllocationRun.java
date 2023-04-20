@@ -3,10 +3,9 @@ package com.sgs.ics.view;
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
-
 import java.io.StringReader;
 
 import java.math.BigDecimal;
@@ -18,7 +17,6 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,8 +36,6 @@ import oracle.adf.share.logging.ADFLogger;
 
 import oracle.binding.BindingContainer;
 
-import oracle.jbo.Row;
-import oracle.jbo.ViewCriteria;
 import oracle.jbo.server.ViewObjectImpl;
 
 import org.w3c.dom.Document;
@@ -52,14 +48,15 @@ public class AllocationRun {
     public AllocationRun() {
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(AllocationRun.class);
-
+    private SGSAppModuleImpl am = new SGSAppModuleImpl();
+    
     public void allocationRun(ActionEvent actionEvent) {
         LOG.info("Inside allocationRun**********************");
         Connection conn = null;
         PreparedStatement ps = null;
         java.util.Calendar cal = new GregorianCalendar();
         try {
-            conn = getDBConnection();
+            conn = am.getDBConnection();
             String SPsql = "EXEC UPKG_INITIAL_PRC ?,?"; // for stored proc taking 2 parameters
             ps = conn.prepareStatement(SPsql);
             ps.setEscapeProcessing(true);
@@ -80,25 +77,25 @@ public class AllocationRun {
         }
     }
 
-    public Connection getDBConnection() {
-        Connection conn = null;
-        try {
-
-            String connectionUrl =
-                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;";
-            conn = DriverManager.getConnection(connectionUrl);
-            //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
-
-
-        } catch (SQLException sqle) {
-            // TODO: Add catch code
-            sqle.printStackTrace();
-        } finally {
-
-        }
-
-        return conn;
-    }
+//    public Connection getDBConnection() {
+//        Connection conn = null;
+//        try {
+//
+//            String connectionUrl =
+//                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;";
+//            conn = DriverManager.getConnection(connectionUrl);
+//            //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+//
+//
+//        } catch (SQLException sqle) {
+//            // TODO: Add catch code
+//            sqle.printStackTrace();
+//        } finally {
+//
+//        }
+//
+//        return conn;
+//    }
 
     public BindingContainer getBindings() {
 

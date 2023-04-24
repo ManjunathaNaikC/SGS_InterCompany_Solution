@@ -49,7 +49,7 @@ public class AllocationRun {
     }
     private static final ADFLogger LOG = ADFLogger.createADFLogger(AllocationRun.class);
     private SGSAppModuleImpl am = new SGSAppModuleImpl();
-    
+
     public void allocationRun(ActionEvent actionEvent) {
         LOG.info("Inside allocationRun**********************");
         Connection conn = null;
@@ -77,25 +77,25 @@ public class AllocationRun {
         }
     }
 
-//    public Connection getDBConnection() {
-//        Connection conn = null;
-//        try {
-//
-//            String connectionUrl =
-//                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;";
-//            conn = DriverManager.getConnection(connectionUrl);
-//            //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
-//
-//
-//        } catch (SQLException sqle) {
-//            // TODO: Add catch code
-//            sqle.printStackTrace();
-//        } finally {
-//
-//        }
-//
-//        return conn;
-//    }
+    //    public Connection getDBConnection() {
+    //        Connection conn = null;
+    //        try {
+    //
+    //            String connectionUrl =
+    //                "jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;";
+    //            conn = DriverManager.getConnection(connectionUrl);
+    //            //conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+    //
+    //
+    //        } catch (SQLException sqle) {
+    //            // TODO: Add catch code
+    //            sqle.printStackTrace();
+    //        } finally {
+    //
+    //        }
+    //
+    //        return conn;
+    //    }
 
     public BindingContainer getBindings() {
 
@@ -639,4 +639,27 @@ public class AllocationRun {
     }
 
 
+    public void onAPPAYMENTCALL(ActionEvent actionEvent) {
+        // System.out.println("Inside ap payment**********************");
+        LOG.info("Inside ap payment**********************");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USP_PUSH_AR_PAYMENT";
+            ps = conn.prepareStatement(SPsql);
+            ps.execute();
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
+
+        }
+
+    }
 }

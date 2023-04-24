@@ -35,7 +35,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>standardRateSetupForm&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">98.79883</property>
+         name="y">98.44824</property>
       <property
          name="page">/fragments/TransactionalData/standardRateSetupForm.jsff</property>
       <property
@@ -53,6 +53,6 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">R50,146.70117,98.44824,261.90234,98.44824,L50</property>
+         name="sdm:polyPoints">R50,146.70117,98.09766,261.90234,98.44824,L50</property>
    </ControlFlowCase>
 </SDM>

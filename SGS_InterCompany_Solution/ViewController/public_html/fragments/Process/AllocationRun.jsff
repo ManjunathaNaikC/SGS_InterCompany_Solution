@@ -11,5 +11,6 @@
     <af:spacer id="s3"/>
     <af:button text="Update Billing Information" id="b4"
                actionListener="#{AllocationRunBean.onUpdateBillingInformation}"/>
+    <af:button text="AP Payment Call" id="b5" actionListener="#{AllocationRunBean.onAPPAYMENTCALL}"/>
   </af:panelBox>
 </ui:composition>

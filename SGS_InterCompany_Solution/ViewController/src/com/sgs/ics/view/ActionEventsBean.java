@@ -807,7 +807,7 @@ public class ActionEventsBean {
 
     public void onGenerateSettlementEvent(ActionEvent actionEvent) {
 
-
+      
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
         double transactionAmount = ((Number) row.getAttribute("TRXAMOUNT")).doubleValue();
@@ -821,6 +821,7 @@ public class ActionEventsBean {
 
             String settlementStatus = (String) paymentRow.getAttribute("StlmtStatus");
             String paymentStatus = (String) paymentRow.getAttribute("PaymentStatus");
+            String transactionRef = (String) row.getAttribute("TRANSACTIONREFERENCENO");
             double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
             double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
             String paymentId= (String) row.getAttribute("PAYMENTID");
@@ -839,6 +840,13 @@ public class ActionEventsBean {
                                     .getPageFlowScope().get("selectedPayBankName");
             String paymentBankCode = (String) AdfFacesContext.getCurrentInstance()
                                     .getPageFlowScope().get("selectedPayBankCode");
+            String paymentMethod = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedPayMetd");
+            String paymentCurrency = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedPayCurr");
+            String purposeCode = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedPurposeCode");
+            
             System.out.println("Receipt Bank Name " + ReceiptBankName);
             System.out.println("Receipt Bank Code " + ReceiptBankCode);
             System.out.println("payment Bank Name " + paymentBankName);
@@ -876,6 +884,17 @@ public class ActionEventsBean {
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                 paymentRow.setAttribute("OsAmountPayable",
                                         Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+                paymentRow.setAttribute("PaymentId", paymentId);
+                paymentRow.setAttribute("PAYMENTDATE", payDate);
+                paymentRow.setAttribute("RECEIPTDATE", rctDate);
+                paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
+                paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
+                paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
+                paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
+                paymentRow.setAttribute("TxnReferenceNo", transactionRef);
+                paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
+                paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
+                paymentRow.setAttribute("PURPOSECODE", purposeCode);
                 
 
             } else if ("Transaction on Hold".equals(settlementStatus)) {
@@ -884,6 +903,7 @@ public class ActionEventsBean {
 
             } else {
                 if (transactionAmount >= outstandingAmount) {
+                    System.out.println("inside partial settled record");
                     settlementAmount = netPayableAmount;
                     settlementStatus = "Settled";
                     paymentStatus = "Fully Paid";
@@ -912,6 +932,17 @@ public class ActionEventsBean {
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                 paymentRow.setAttribute("OsAmountPayable",
                                         Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
+                paymentRow.setAttribute("PaymentId", paymentId);
+                paymentRow.setAttribute("PAYMENTDATE", payDate);
+                paymentRow.setAttribute("RECEIPTDATE", rctDate);
+                paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
+                paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
+                paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
+                paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
+                paymentRow.setAttribute("TxnReferenceNo", transactionRef);
+                paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
+                paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
+                paymentRow.setAttribute("PURPOSECODE", purposeCode);
                 
 
 
@@ -919,17 +950,20 @@ public class ActionEventsBean {
             if (transactionAmount <= 0) {
                 break;
             }
-            if("Settled".equals(settlementStatus)){
-                
-                    paymentRow.setAttribute("PaymentId", paymentId);
-                    paymentRow.setAttribute("PAYMENTDATE", payDate);
-                    paymentRow.setAttribute("RECEIPTDATE", rctDate);
-                    paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
-                    paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
-                    paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
-                    paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
-
-                }
+            
+    //            if("Settled".equals(settlementStatus)||"Partially settled".equals(settlementStatus)){
+    //
+    //                    paymentRow.setAttribute("PaymentId", paymentId);
+    //                    paymentRow.setAttribute("PAYMENTDATE", payDate);
+    //                    paymentRow.setAttribute("RECEIPTDATE", rctDate);
+    //                    paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
+    //                    paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
+    //                    paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
+    //                    paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
+    //                    System.out.println(paymentRow.getAttribute("PaymentId")+""+paymentRow.getAttribute("PAYMENTDATE")+""+paymentRow.getAttribute("RECEIPTDATE"));
+    //
+    //                }
+            
         }
 
         System.out.println("Balance : "+transactionAmount);
@@ -959,7 +993,7 @@ public class ActionEventsBean {
     
             ViewObject vo = getPaymentSettlementVO();
             vo.setWhereClause("STLMT_STATUS IN ('Unpaid', 'Partially Settled','Transaction on Hold')");
-            vo.setOrderByClause("STLMT_STATUS , PS_VOUCHER_NO ");
+            vo.setOrderByClause("STLMT_STATUS , VOUCHER_ID ");
             vo.executeQuery();
             return vo.getAllRowsInRange();
         }

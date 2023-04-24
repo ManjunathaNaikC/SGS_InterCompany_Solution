@@ -54,7 +54,7 @@
                             <f:selectItems value="#{bindings.PAYERBU.items}" id="si4"/>
                             <f:validator binding="#{bindings.PAYERBU.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.PURPOSECODE.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
                                             label="#{bindings.PURPOSECODE.label}"
                                             required="#{bindings.PURPOSECODE.hints.mandatory}"
                                             shortDesc="#{bindings.PURPOSECODE.hints.tooltip}" id="soc9">
@@ -173,7 +173,7 @@
                             <f:selectItems value="#{bindings.ATTRIBUTE2.items}" id="si11"/>
                             <f:validator binding="#{bindings.ATTRIBUTE2.validator}"/>
                         </af:selectOneChoice>-->
-                        <af:selectOneChoice value="#{bindings.PAYMENTMETHOD.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedPayMetd}"
                                             label="#{bindings.PAYMENTMETHOD.label}"
                                             required="#{bindings.PAYMENTMETHOD.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTMETHOD.hints.tooltip}" id="soc6"
@@ -190,7 +190,7 @@
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.TRANSACTIONREFERENCENO.validator}"/>
                         </af:inputText>
-                        <af:selectOneChoice value="#{bindings.PAYMENTCURRENCY.inputValue}"
+                        <af:selectOneChoice value="#{pageFlowScope.selectedPayCurr}"
                                             label="#{bindings.PAYMENTCURRENCY.label}"
                                             required="#{bindings.PAYMENTCURRENCY.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTCURRENCY.hints.tooltip}" id="soc5"

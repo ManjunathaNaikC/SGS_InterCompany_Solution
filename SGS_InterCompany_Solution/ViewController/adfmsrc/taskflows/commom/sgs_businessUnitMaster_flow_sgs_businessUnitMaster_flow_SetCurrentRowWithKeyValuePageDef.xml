@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="sgs_businessUnitMaster_flow_sgs_businessUnitMaster_flow_SetCurrentRowWithKeyValuePageDef"
+                Package="taskflows.commom" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SgsBusinessUnitMasterVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsBusinessUnitMasterVO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SgsBusinessUnitMasterVO1Iterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.BUID}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

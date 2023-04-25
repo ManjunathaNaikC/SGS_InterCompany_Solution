@@ -43,7 +43,9 @@
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.TpaId.label}" id="resId1c1">
                 <!--<af:outputText value="#{row.TpaId}" shortDesc="#{bindings.SgsTpaMaster1VO1.hints.TpaId.tooltip}"
                              id="ot1"/>-->
-                <af:link text="#{row.TpaId}" id="l1" action="EDIT"/>
+                <af:link text="#{row.TpaId}" id="l1" action="EDIT">
+                <af:setPropertyListener from="#{row.TpaId}" to="#{pageFlowScope.TpaId}" type="action"/>
+                </af:link>
               </af:column>
               <af:column headerText="#{bindings.SgsTpaMaster1VO1.hints.LeServiceProvider.label}" id="resId1c2"
                          width="190">

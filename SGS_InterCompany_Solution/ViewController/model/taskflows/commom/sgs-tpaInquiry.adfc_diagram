@@ -9,9 +9,9 @@
       <property
          name="activityId">sgs-tpaInquiryFormEDIT</property>
       <property
-         name="x">564.3496</property>
+         name="x">647.3496</property>
       <property
-         name="y">25.396484</property>
+         name="y">24.695312</property>
       <property
          name="documentReference">/taskflows/commom/sgs-tpaInquiryForm-flow.xml</property>
       <property
@@ -32,7 +32,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>tpaInquiry&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">173.79883</property>
+         name="y">169.94238</property>
       <property
          name="page">/fragments/common/tpaInquiry.jsff</property>
       <property
@@ -67,20 +67,39 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">R54,96.5,176.94824,589.3506,212.39648,L50</property>
+         name="sdm:polyPoints">R54,96.5,173.0918,589.3506,212.39648,L50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue</property>
+      <property
+         name="x">261.7002</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">48.448242</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase11"
+      id="ControlFlowCase8"
       from="View8"
-      to="TaskFlowCall7">
-      <property
-         name="tosrcid">__3</property>
+      to="MethodCall7">
       <property
          name="fromOutcome">EDIT</property>
       <property
-         name="fromsrcid">__1</property>
+         name="sdm:polyPoints">R46,96.5,166.0918,220.7002,48.097656,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="MethodCall7"
+      to="TaskFlowCall7">
       <property
-         name="sdm:polyPoints">R46,96.5,169.94824,523.3496,25.045898,L50</property>
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">R50,302.7002,48.097656,606.3496,24.344727,L50</property>
    </ControlFlowCase>
 </SDM>

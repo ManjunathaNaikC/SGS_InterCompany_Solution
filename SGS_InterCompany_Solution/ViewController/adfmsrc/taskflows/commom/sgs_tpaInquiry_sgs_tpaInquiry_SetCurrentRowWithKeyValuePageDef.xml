@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="sgs_tpaInquiry_sgs_tpaInquiry_SetCurrentRowWithKeyValuePageDef" Package="taskflows.commom"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SgsTpaMaster1VO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsTpaMaster1VO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SgsTpaMaster1VO1Iterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.TpaId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -15,7 +15,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>businessUnitMaster&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">206.89648</property>
+         name="y">204.44238</property>
       <property
          name="page">/fragments/common/businessUnitMaster.jsff</property>
       <property
@@ -63,16 +63,39 @@
       <property
          name="fromOutcome">ADD</property>
       <property
-         name="sdm:polyPoints">R50,586.0,206.5459,935.6885,154.09766,L50</property>
+         name="sdm:polyPoints">R50,586.0,204.0918,935.6885,154.09766,L50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue</property>
+      <property
+         name="x">693.7002</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">330.1494</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase6"
+      id="ControlFlowCase8"
       from="View2"
-      to="TaskFlowCall4">
+      to="MethodCall7">
       <property
          name="fromOutcome">EDIT</property>
       <property
-         name="sdm:polyPoints">R54,586.0,210.0459,928.0254,341.39648,L50</property>
+         name="sdm:polyPoints">B50,545.0,258.0918,652.7002,329.79883,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="MethodCall7"
+      to="TaskFlowCall4">
+      <property
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">R50,734.7002,329.79883,928.0254,341.39648,L50</property>
    </ControlFlowCase>
 </SDM>

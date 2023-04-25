@@ -61,7 +61,9 @@
                 <!--<af:outputText value="#{row.BussinessUnitName}"
                                shortDesc="#{bindings.SgsBusinessUnitMasterVO1.hints.BussinessUnitName.tooltip}"
                                id="ot2"/>-->
-                <af:link text="#{row.BussinessUnitName}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"/>
+                <af:link text="#{row.BussinessUnitName}" id="l1" action="EDIT" inlineStyle="font-weight:bold;">
+                <af:setPropertyListener from="#{row.BussinessUnitName}" to="#{pageFlowScope.BUID}" type="action"/>
+                </af:link>
               </af:column>
               <af:column headerText="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.label}" id="resId1c3"
               sortable="true" sortProperty="#{bindings.SgsBusinessUnitMasterVO1.hints.OperatingUnit.name}"

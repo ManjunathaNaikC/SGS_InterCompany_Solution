@@ -55,6 +55,10 @@
     <page path="/fragments/TransactionalData/creditMemoInvoice.jsff"
           usageId="com_sgs_ics_view_creditMemoInvoicePageDef"/>
     <page path="/fragments/Process/AllocationRun.jsff" usageId="com_sgs_ics_view_AllocationRunPageDef"/>
+    <page path="/taskflows/commom/sgs-businessUnitMaster-flow.xml#sgs-businessUnitMaster-flow@SetCurrentRowWithKeyValue"
+          usageId="com_sgs_ics_view_sgs_businessUnitMaster_flow_sgs_businessUnitMaster_flow_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/taskflows/commom/sgs-tpaInquiry.xml#sgs-tpaInquiry@SetCurrentRowWithKeyValue"
+          usageId="com_sgs_ics_view_sgs_tpaInquiry_sgs_tpaInquiry_SetCurrentRowWithKeyValuePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -101,6 +105,10 @@
     <page id="com_sgs_ics_view_NettingLinesPageDef" path="fragments.TransactionalData.NettingLinesPageDef"/>
     <page id="com_sgs_ics_view_creditMemoInvoicePageDef" path="fragments.TransactionalData.creditMemoInvoicePageDef"/>
     <page id="com_sgs_ics_view_AllocationRunPageDef" path="fragments.Process.AllocationRunPageDef"/>
+    <page id="com_sgs_ics_view_sgs_businessUnitMaster_flow_sgs_businessUnitMaster_flow_SetCurrentRowWithKeyValuePageDef"
+          path="taskflows.commom.sgs_businessUnitMaster_flow_sgs_businessUnitMaster_flow_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="com_sgs_ics_view_sgs_tpaInquiry_sgs_tpaInquiry_SetCurrentRowWithKeyValuePageDef"
+          path="taskflows.commom.sgs_tpaInquiry_sgs_tpaInquiry_SetCurrentRowWithKeyValuePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

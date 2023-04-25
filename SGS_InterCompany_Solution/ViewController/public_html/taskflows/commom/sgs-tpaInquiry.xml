@@ -33,14 +33,27 @@
         <value>EDIT</value>
       </input-parameter>
     </task-flow-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>tpaInquiry</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>ADD</from-outcome>
         <to-activity-id>sgs-tpaInquiryFormADD</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__3">
+      <control-flow-case id="__7">
         <from-outcome>EDIT</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
         <to-activity-id>sgs-tpaInquiryFormEDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

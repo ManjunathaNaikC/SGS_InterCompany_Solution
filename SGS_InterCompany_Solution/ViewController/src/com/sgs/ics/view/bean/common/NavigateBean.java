@@ -400,8 +400,9 @@ public class NavigateBean implements Serializable {
         voucherView.applyViewCriteria(criteria);
         voucherView.setNamedWhereClauseParam("bCusGeo", "No_GEO");
         voucherView.setNamedWhereClauseParam("bSupGeo", "No_GEO");
-        voucherView.setNamedWhereClauseParam("bCollectorBU", "No_GEO");
-        voucherView.setNamedWhereClauseParam("bPayerBU", "No_GEO");
+        voucherView.setNamedWhereClauseParam("bCollectorBU", "No_BU");
+        voucherView.setNamedWhereClauseParam("bPayerBU", "No_BU");
+        voucherView.setNamedWhereClauseParam("bSltmtStatus", "Settled");
         voucherView.executeQuery();
         return null;
     }

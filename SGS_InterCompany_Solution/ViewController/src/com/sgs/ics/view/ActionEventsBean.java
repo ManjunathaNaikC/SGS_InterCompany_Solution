@@ -1051,6 +1051,7 @@ public class ActionEventsBean {
         voucherView.setNamedWhereClauseParam("bSupGeo", ICSUPPLIERGEO);
         voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
         voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
+        voucherView.setNamedWhereClauseParam("bSltmtStatus", "Settled");
         voucherView.executeQuery();
     }
 

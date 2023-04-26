@@ -25,6 +25,8 @@ import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
 
+import oracle.jbo.RowSetIterator;
+import oracle.jbo.ViewCriteria;
 import oracle.jbo.server.ViewObjectImpl;
 
 import org.apache.myfaces.trinidad.event.DisclosureEvent;
@@ -375,12 +377,32 @@ public class NavigateBean implements Serializable {
 
     public String createsettlement_flow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/createsettlement_flow.xml#createsettlement_flow");
-        ADFUtils.executeBinding("CreateSettlement");
-        SGSAppModuleImpl am = new SGSAppModuleImpl();
-        String value = "PS_" + (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
-        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
-        Row row = dcIteratorbinding.getCurrentRow();
-        row.setAttribute("PAYMENTID", value);
+        
+        //SgsStlmtVoucherVO1Iterator
+//        ViewObjectImpl viewImpl = null;
+//        viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsStlmtVoucherVO1Iterator").getViewObject();
+//        viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+//        viewImpl.setWhereClause(" VoucherId = null");
+//        LOG.info("viewImpl getQuery :: " + viewImpl.getQuery());
+//        viewImpl.executeQuery();
+//        ADFUtils.executeBinding("CreateSettlement");
+//        SGSAppModuleImpl am = new SGSAppModuleImpl();
+//        String value = "PS_" + (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
+//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
+//        Row row = dcIteratorbinding.getCurrentRow();
+//        row.setAttribute("PAYMENTID", value);
+        
+        
+        DCIteratorBinding iteratorBinding = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
+        //RowSetIterator rowSetIterator = iteratorBinding.getRowSetIterator();
+        ViewObjectImpl voucherView = (ViewObjectImpl) iteratorBinding.getViewObject();
+        ViewCriteria criteria = voucherView.getViewCriteria("SgsCreateStlmtVoucherVOCriteria");
+        voucherView.applyViewCriteria(criteria);
+        voucherView.setNamedWhereClauseParam("bCusGeo", "No_GEO");
+        voucherView.setNamedWhereClauseParam("bSupGeo", "No_GEO");
+        voucherView.setNamedWhereClauseParam("bCollectorBU", "No_GEO");
+        voucherView.setNamedWhereClauseParam("bPayerBU", "No_GEO");
+        voucherView.executeQuery();
         return null;
     }
 

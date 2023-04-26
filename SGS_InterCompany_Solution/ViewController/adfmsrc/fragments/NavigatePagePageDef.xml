@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
         <iterator Binds="SgsBusinessUnitMasterVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsBusinessUnitMasterVO1Iterator"/>
+                  <iterator id="SgsStlmtVoucherVO1Iterator" Binds="SgsStlmtVoucherVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>
     <searchRegion Criteria="SgsBusinessUnitMasterVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsBusinessUnitMasterVO1Iterator" id="SgsBusinessUnitMasterVOCriteriaQuery"/>

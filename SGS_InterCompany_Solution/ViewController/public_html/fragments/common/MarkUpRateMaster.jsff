@@ -270,7 +270,8 @@
                 <f:validator binding="#{row.bindings.NatureOfExpenses.validator}"/>
               </af:selectOneChoice>
             </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}" id="c9">
+            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}" id="c9"
+                       styleClass="mynumbercolumn">
               <af:inputText value="#{row.bindings.MarkUpRate.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.mandatory}"

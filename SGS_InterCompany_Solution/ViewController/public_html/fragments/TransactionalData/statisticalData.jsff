@@ -71,7 +71,7 @@
                               rowSelection="single" fetchSize="#{bindings.SgsStatisticalDataVO1.rangeSize}"
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
-                              styleClass="AFStretchWidth" inlineStyle="height:250px" autoHeightRows="10"
+                              styleClass="transaction" inlineStyle="height:250px" autoHeightRows="10"
                               scrollPolicy="page">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
                                    binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
@@ -189,7 +189,8 @@
                                 <f:validator binding="#{row.bindings.CostGroup.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}" id="c51">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}" id="c51"
+                                   styleClass="mynumbercolumn">
                             <af:inputText value="#{row.bindings.EMPGRADE.inputValue}"
                              readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}"
@@ -406,10 +407,11 @@
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.displayWidth}"
                                           maximumLength="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.precision}"
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.tooltip}"
-                                          id="it6">
+                                          id="it6" styleClass="mynumbercolumn">
                                 <f:validator binding="#{row.bindings.STATISTICALDATA.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}" id="c52"  sortProperty="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.name}"
@@ -523,7 +525,7 @@
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}" id="c11"
-                                   rendered="false">
+                                   rendered="false" styleClass="mynumbercolumn">
                             <af:inputText value="#{row.bindings.TargetAmount.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.mandatory}"
@@ -533,8 +535,9 @@
                                           id="it11"
                                           readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}">
                                 <f:validator binding="#{row.bindings.TargetAmount.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:inputText>
                         </af:column>
                         <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
@@ -733,7 +736,7 @@
                                           filterModel="#{bindings.SgsStatisticalPreviousMonthVO1Query.queryDescriptor}"
                                           filterVisible="false"
                                           queryListener="#{bindings.SgsStatisticalPreviousMonthVO1Query.processQuery}"
-                                          varStatus="vs" id="t3" inlineStyle="width:800px" styleClass="AFStretchWidth">
+                                          varStatus="vs" id="t3" inlineStyle="width:800px" styleClass="transaction">
                                     <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.name}"
                                                filterable="true"
                                                headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.NATUREOFEXPENSE.label}"
@@ -1031,7 +1034,7 @@
                                     <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.name}"
                                                filterable="true"
                                                headerText="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.label}"
-                                               id="c30">
+                                               id="c30" styleClass="mynumbercolumn">
                                         <af:inputText value="#{row.bindings.TARGETAMOUNT.inputValue}"
                                                       label="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.label}"
                                                       required="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.mandatory}"
@@ -1040,8 +1043,9 @@
                                                       shortDesc="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.tooltip}"
                                                       id="it26">
                                             <f:validator binding="#{row.bindings.TARGETAMOUNT.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.SgsStatisticalPreviousMonthVO11.hints.TARGETAMOUNT.format}"/>
+                                            <af:convertNumber groupingUsed="true"
+                                                              pattern="###,##0.00"
+                                                              type="currency"/>
                                         </af:inputText>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.SgsStatisticalPreviousMonthVO11.hints.VALIDITYFROM.name}"

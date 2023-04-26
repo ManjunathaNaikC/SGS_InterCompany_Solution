@@ -43,7 +43,7 @@
                       selectedRowKeys="#{bindings.SgsStandardRateSetupVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsStandardRateSetupVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsStandardRateSetupVO1.rangeSize}" id="resId1"
-                      styleClass="setup" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page">
+                      styleClass="transaction" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page">
                 <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
                 sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.name}"
                          width="220" sortable="true">

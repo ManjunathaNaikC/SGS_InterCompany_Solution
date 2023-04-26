@@ -221,7 +221,7 @@
                                   selectedRowKeys="#{bindings.SgsTransBCostAllocationVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsTransBCostAllocationVO1.collectionModel.makeCurrent}"
                                   rowSelection="multiple" fetchSize="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
-                                  id="t2" styleClass="AFStretchWidth" allDetailsEnabled="true"
+                                  id="t2" styleClass="transaction" allDetailsEnabled="true"
                                   partialTriggers="sbc1" inlineStyle="height:250px; " autoHeightRows="10"
                                   filterModel="#{bindings.SgsTransBCostAllocationVOCriteriaQuery.queryDescriptor}" filterVisible="false"
                                   queryListener="#{bindings.SgsTransBCostAllocationVOCriteriaQuery.processQuery}">
@@ -344,12 +344,13 @@
                             </af:column>
                             <af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.label}"
                             sortProperty="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.name}" filterable="true"
-                                       id="c22">
+                                       id="c22" styleClass="mynumbercolumn">
                                 <af:outputText value="#{row.TransactionAmount}"
                                                shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.tooltip}"
                                                id="ot23">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.SgsTransBCostAllocationVO1.hints.TransactionAmount.format}"/>
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="###,##0.00"
+                                                      type="currency"/>
                                 </af:outputText>
                             </af:column>
                             <!--<af:column headerText="#{bindings.SgsTransBCostAllocationVO1.hints.ServiceCategory.label}"

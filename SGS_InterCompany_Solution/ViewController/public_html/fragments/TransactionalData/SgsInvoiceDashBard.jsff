@@ -66,7 +66,7 @@
                               selectedRowKeys="#{bindings.SgsIcInvoiceHeaderVO1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SgsIcInvoiceHeaderVO1.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SgsIcInvoiceHeaderVO1.rangeSize}" id="ivd1"
-                              styleClass="AFStretchWidth"
+                              styleClass="transaction"
                               filterModel="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.queryDescriptor}"
                               filterVisible="false"
                               queryListener="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.processQuery}" varStatus="vs"
@@ -192,17 +192,17 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.label}"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.name}"
-                                   filterable="true" id="c34">
+                                   filterable="true" id="c34" styleClass="mynumbercolumn">
                             <af:outputText value="#{row.ALLOCATEDHEADERAMOUNT}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.tooltip}"
                                            id="ot34">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.ALLOCATEDHEADERAMOUNT.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00" type="currency"/>
                             </af:outputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.label}" id="c13"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupRate.name}"
-                                   filterable="true">
+                                   filterable="true" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.MarkupRate eq null}" id="ot367"
                                            inlineStyle="text-align:center;"/>
                             <af:outputText value="#{row.MarkupRate}" rendered="#{row.MarkupRate ne null}"
@@ -222,23 +222,25 @@
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceHeaderAmount.label}"
                                    id="c15"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceHeaderAmount.name}"
-                                   filterable="true">
+                                   filterable="true" styleClass="mynumbercolumn">
                             <af:outputText value="#{row.InvoiceHeaderAmount}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceHeaderAmount.tooltip}"
                                            id="ot15">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceHeaderAmount.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:outputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.label}" id="c16"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.name}"
-                                   filterable="true">
+                                   filterable="true" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.MarkupAmount eq null}" id="ot366" inlineStyle="text-align:center;"/>
                             <af:outputText value="#{row.MarkupAmount}" rendered="#{row.MarkupAmount ne null}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.tooltip}"
                                            id="ot16">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.MarkupAmount.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:outputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVERSALREASON.label}" id="c46"
@@ -255,7 +257,7 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVINVNUM.label}" id="c51"
                         sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVINVNUM.name}"
-                                   filterable="true">
+                                   filterable="true" styleClass="mynumbercolumn">
                             <af:outputText value="#{row.REVINVNUM}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.REVINVNUM.tooltip}"
                                            id="ot50">
@@ -266,12 +268,13 @@
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.label}"
                                    id="c17"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.name}"
-                                   filterable="true" rendered="false">
+                                   filterable="true" rendered="false" styleClass="mynumbercolumn">
                             <af:outputText value="#{row.BaseAmountBeforeTax}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.tooltip}"
                                            id="ot17">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:outputText>
                         </af:column>
                         <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.label}" id="c18"
@@ -290,7 +293,7 @@
                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.format}"/>
               </af:outputText>
             </af:column>-->
-                        <af:column headerText="GST Rate" id="c9">
+                        <af:column headerText="GST Rate" id="c9" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.GSTRATE eq null}" id="ot35"/>
                             <af:outputText value="#{row.GSTRATE}" rendered="#{row.GSTRATE ne null}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTRATE.tooltip}" id="ot9">
@@ -298,16 +301,17 @@
                                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTRATE.format}"/>
                             </af:outputText>
                         </af:column>
-                        <af:column headerText="GST Amount" id="c18">
+                        <af:column headerText="GST Amount" id="c18" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.GSTAMNT eq null}" id="ot33"/>
                             <af:outputText value="#{row.GSTAMNT}" rendered="#{row.GSTAMNT ne null}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTAMNT.tooltip}"
                                            id="ot18">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GSTAMNT.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:outputText>
                         </af:column>
-                        <af:column headerText="VAT Rate" id="c19">
+                        <af:column headerText="VAT Rate" id="c19" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.VATRATE eq null}" id="ot24"/>
                             <af:outputText value="#{row.VATRATE}" rendered="#{row.VATRATE ne null}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.tooltip}"
@@ -316,13 +320,14 @@
                                                   pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.format}"/>
                             </af:outputText>
                         </af:column>
-                        <af:column headerText="VAT Amount" id="c20">
+                        <af:column headerText="VAT Amount" id="c20" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.VATAMNT eq null}" id="ot25"/>
                             <af:outputText value="#{row.VATAMNT}" rendered="#{row.VATAMNT ne null}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATAMNT.tooltip}"
                                            id="ot20">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATAMNT.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:outputText>
                         </af:column>
                         <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TotalAmountAfterTax.label}" id="c20"
@@ -336,7 +341,7 @@
             </af:column>-->
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtRate.label}" id="c21"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtRate.name}"
-                                   filterable="true">
+                                   filterable="true" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.WhtRate eq null}" id="ot28"/>
                             <af:outputText value="#{row.WhtRate}" rendered="#{row.WhtRate ne null}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtRate.tooltip}"
@@ -347,13 +352,14 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.label}" id="c22"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.name}"
-                                   filterable="true">
+                                   filterable="true" styleClass="mynumbercolumn">
                             <af:outputText value="-" rendered="#{row.WhtAmount eq null}" id="ot32"/>
                             <af:outputText value="#{row.WhtAmount}" rendered="#{row.WhtAmount ne null}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.tooltip}"
                                            id="ot22">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.WhtAmount.format}"/>
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00"
+                                                  type="currency"/>
                             </af:outputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionStatus.label}" id="c23"
@@ -691,7 +697,7 @@
                                               filterModel="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor}"
                                               filterVisible="true"
                                               queryListener="#{bindings.SgsInvoiceCreditMemoVO1Query.processQuery}"
-                                              varStatus="vs" id="t1" styleClass="AFStretchWidth">
+                                              varStatus="vs" id="t1" styleClass="transaction">
                                         <af:column id="c45" binding="#{viewScope.ActionEventsBean.selectRecordColBind}">
                                             <af:selectBooleanCheckbox value="#{row.bindings.SelectCreditRecord.inputValue}"
                                                                       label="#{row.bindings.SelectCreditRecord.label}"
@@ -778,18 +784,19 @@
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
-                                                   id="c38">
+                                                   id="c38" styleClass="mynumbercolumn">
                                             <af:outputText value="#{row.InvoiceAmount}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.tooltip}"
                                                            id="ot43">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.format}"/>
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="###,##0.00"
+                                                                  type="currency"/>
                                             </af:outputText>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.label}"
-                                                   id="c39">
+                                                   id="c39" styleClass="mynumbercolumn">
                                             <af:inputText value="#{row.bindings.ReversalAmount.inputValue}"
                                                           required="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.mandatory}"
                                                           columns="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.displayWidth}"
@@ -797,8 +804,9 @@
                                                           shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}"
                                                           id="it1" readOnly="true">
                                                 <f:validator binding="#{row.bindings.ReversalAmount.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.format}"/>
+                                                <af:convertNumber groupingUsed="true"
+                                                                  pattern="###,##0.00"
+                                                                  type="currency"/>
                                             </af:inputText>
                                             <!--<af:outputText value="#{row.ReversalAmount}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}"

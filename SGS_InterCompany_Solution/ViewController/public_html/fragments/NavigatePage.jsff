@@ -68,21 +68,27 @@
                                 <af:panelList id="pl2">
                  
                                     <af:link text="Statistical Data" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('STAT_DATA')}"
-                                             action="#{pageFlowScope.navigateBean.sgsstatisticalDateflow}" id="l4"/>
+                                             action="#{pageFlowScope.navigateBean.sgsstatisticalDateflow}" id="l4"
+                                             immediate="true"/>
                                     <af:link text="Invoice DashBoard" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('INV_DB')}"
-                                             action="#{pageFlowScope.navigateBean.sgsinvoiceDashboardflow}" id="l10"/>
+                                             action="#{pageFlowScope.navigateBean.sgsinvoiceDashboardflow}" id="l10"
+                                             immediate="true"/>
                                     <af:link text="PeopleSoft Transactions" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('PS_TXN')}"
                                              action="#{pageFlowScope.navigateBean.sgstransBCostAllocationMainflow}"
-                                             id="l11"/>
+                                             id="l11" immediate="true"/>
 
                                     <af:link text="Create Settlement"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('CREATE_SETTLEMENT')}"
-                                             action="#{pageFlowScope.navigateBean.createsettlement_flow}" id="l13"/>
+                                             action="#{pageFlowScope.navigateBean.createsettlement_flow}" id="l13"
+                                             immediate="true"/>
                                     <af:link text="Settlement DashBoard"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('SETTLEMENT_DB')}"
-                                             action="#{pageFlowScope.navigateBean.settlementdashboardflow}" id="l12"/>
+                                             action="#{pageFlowScope.navigateBean.settlementdashboardflow}" id="l12"
+                                             immediate="true"/>
                                     <af:link text="Fixed Assets Transactions"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('FIXED_ASSETS')}"
-                                             action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"/>
+                                             action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"
+                                             immediate="true"/>
                                     <af:link text="Netting Settlement"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('NETTING')}"
-                                             action="#{pageFlowScope.navigateBean.sgsnettingflow}" id="l2"/>
+                                             action="#{pageFlowScope.navigateBean.sgsnettingflow}" id="l2"
+                                             immediate="true"/>
                                     <!--<af:link text="Credit Memo"
                                              action="#{pageFlowScope.navigateBean.sgs_creditmemo_flow}" id="l14"/>-->
                                 </af:panelList>
@@ -91,17 +97,21 @@
                                 <af:panelList id="pl3">
                                     <!--<af:link text="link 1" id="l2"/>-->
                                     <af:link text="Allocation Run"
-                                             action="#{pageFlowScope.navigateBean.sgsAllocationRunflow}" id="arp01"/>
+                                             action="#{pageFlowScope.navigateBean.sgsAllocationRunflow}" id="arp01"
+                                             immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Reports" text="Reports" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('REPORTS')}">
                                 <af:panelList id="pl4">
                                     <af:link text="Setup Reports"
-                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l14"/>
+                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l14"
+                                             immediate="true"/>
                                     <af:link text="Transactional Reports"
-                                             action="#{pageFlowScope.navigateBean.sgstransactionreportsflow}" id="l15"/>
+                                             action="#{pageFlowScope.navigateBean.sgstransactionreportsflow}" id="l15"
+                                             immediate="true"/>
                                     <af:link text="Dump Report"
-                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l16"/>
+                                             action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l16"
+                                             immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
                             <af:showDetailItem id="Security" text="Security" disclosed="true" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}">

@@ -42,7 +42,7 @@
                     rowSelection="single" fetchSize="#{bindings.SgsInvoiceCreditMemoVO1.rangeSize}"
                     filterModel="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsInvoiceCreditMemoVO1Query.processQuery}" varStatus="vs" id="t1"
-                    styleClass="AFStretchWidth">
+                    styleClass="transaction">
             <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.SelectCreditRecord.label}" id="c16"
                        binding="#{viewScope.ActionEventsBean.selectRecordColBind}">
               <af:selectBooleanCheckbox value="#{row.bindings.SelectCreditRecord.inputValue}"
@@ -113,16 +113,16 @@
             </af:column>
             <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}" filterable="true"
                        sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
-                       id="c9">
+                       id="c9" styleClass="mynumbercolumn">
               <af:outputText value="#{row.InvoiceAmount}"
                              shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.tooltip}" id="ot9">
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.format}"/>
+                <af:convertNumber groupingUsed="true"
+                                  pattern="###,##0.00" type="currency"/>
               </af:outputText>
             </af:column>
             <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.name}" filterable="true"
                        sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.label}"
-                       id="c10">
+                       id="c10" styleClass="mynumbercolumn">
               <af:inputText value="#{row.bindings.ReversalAmount.inputValue}"
                             required="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.mandatory}"
                             columns="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.displayWidth}"
@@ -130,8 +130,9 @@
                             shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}" id="it1"
                             readOnly="true">
                 <f:validator binding="#{row.bindings.ReversalAmount.validator}"/>
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.format}"/>
+                <af:convertNumber groupingUsed="true"
+                                  pattern="###,##0.00"
+                                  type="currency"/>
               </af:inputText>
               <!--<af:outputText value="#{row.ReversalAmount}"
                              shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}" id="ot10">

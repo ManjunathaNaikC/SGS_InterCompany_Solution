@@ -285,6 +285,23 @@ af|button:text-only{
     border-left: 1px solid #BF691E;
 }
 
+.transaction af|column::column-header-cell {
+    /*Table Header for Setup Screens*/
+
+    height: 35px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: none;
+    background-color: #2980b9;
+    vertical-align: middle;
+    border-left: 1px solid #BF691E;
+}
+
+.mynumbercolumn {
+    text-align: right;
+}
 /*.setupHeader af|button.p_AFTextOnly.p_AFActionDisabled {*/
      /*styles for the af:query search and reset buttons*/ 
 

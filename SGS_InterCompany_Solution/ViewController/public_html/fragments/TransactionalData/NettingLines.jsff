@@ -17,8 +17,9 @@
       </af:panelLabelAndMessage>
       <af:panelLabelAndMessage label="#{bindings.ALLOWABLENETTINGLIMIT.hints.label}" id="plam2">
         <af:outputText value="#{bindings.ALLOWABLENETTINGLIMIT.inputValue}"
-                       shortDesc="#{bindings.ALLOWABLENETTINGLIMIT.hints.tooltip}" id="ot20">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.ALLOWABLENETTINGLIMIT.format}"/>
+                       shortDesc="#{bindings.ALLOWABLENETTINGLIMIT.hints.tooltip}" id="ot20"
+                       styleClass="mynumbercolumn">
+          <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
         </af:outputText>
       </af:panelLabelAndMessage>
       <af:panelLabelAndMessage label="#{bindings.Status.hints.label}" id="plam3">
@@ -42,7 +43,7 @@
                 rowSelection="single" fetchSize="#{bindings.SgsNettingGeo1VO1.rangeSize}"
                 filterModel="#{bindings.SgsNettingGeo1VO1Query.queryDescriptor}" filterVisible="false"
                 queryListener="#{bindings.SgsNettingGeo1VO1Query.processQuery}" varStatus="vs" id="t1"
-                styleClass="AFStretchWidth"
+                styleClass="transaction"
                 selectionListener="#{bindings.SgsNettingGeo1VO1.collectionModel.makeCurrent}">
         <af:column     headerText="#{bindings.SgsNettingGeo1VO1.hints.SelectGeo1Rec.label}" id="c19" binding="#{viewScope.ActionEventsBean.bindGeo1SelectCol}">
           <af:selectBooleanCheckbox value="#{row.bindings.SelectGeo1Rec.inputValue}"
@@ -74,10 +75,12 @@
           <af:outputText value="#{row.CURRENCY}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.CURRENCY.tooltip}"
                          id="ot3"/>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.label}" id="c4">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.label}" id="c4"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.VOUCHERAMOUNT}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.tooltip}" id="ot4">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.VOUCHERAMOUNT.format}"/>
+            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                              type="currency"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.VOUCHERAMOUNT1.inputValue}"
@@ -86,9 +89,11 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.label}" id="c5">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.label}" id="c5"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.WHTTDS}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.tooltip}" id="ot5">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.WHTTDS.format}"/>
+            <af:convertNumber groupingUsed="true"
+                              type="currency" pattern="###,##0.00"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.WHTTDS.inputValue}" shortDesc="#{bindings.WHTTDS.hints.tooltip}" id="ot28">
@@ -96,11 +101,12 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.label}" id="c6">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.label}" id="c6"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.AMTAVAILABLENET}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.tooltip}" id="ot6">
-            <af:convertNumber groupingUsed="false"
-                              pattern="#{bindings.SgsNettingGeo1VO1.hints.AMTAVAILABLENET.format}"/>
+            <af:convertNumber groupingUsed="true"
+                              pattern="###,##0.00" type="currency"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.AMTAVAILABLENET.inputValue}"
@@ -109,9 +115,11 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.label}" id="c7">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.label}" id="c7"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.AMTNET}" shortDesc="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.tooltip}" id="ot7">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.AMTNET.format}"/>
+            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                              type="currency"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.AMTNET.inputValue}" shortDesc="#{bindings.AMTNET.hints.tooltip}" id="ot30">
@@ -119,16 +127,20 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.label}" id="c8">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.label}" id="c8"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.BALANCEPENDING}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.tooltip}" id="ot8">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.BALANCEPENDING.format}"/>
+            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                              type="currency"/>
           </af:outputText>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.label}" id="c9">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.label}" id="c9"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.PARTIALFULLNET}"
                          shortDesc="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.tooltip}" id="ot9">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo1VO1.hints.PARTIALFULLNET.format}"/>
+            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                              type="currency"/>
           </af:outputText>
         </af:column>
       </af:table>
@@ -150,7 +162,7 @@
                 rowSelection="multiple" fetchSize="#{bindings.SgsNettingGeo2VO1.rangeSize}"
                 filterModel="#{bindings.SgsNettingGeo2VO1Query.queryDescriptor}" filterVisible="false"
                 queryListener="#{bindings.SgsNettingGeo2VO1Query.processQuery}" varStatus="vs" id="t2"
-                styleClass="AFStretchWidth">
+                styleClass="transaction">
         <af:column   headerText="#{bindings.SgsNettingGeo2VO1.hints.SelectGeo2Rec.label}"  id="c20" binding="#{viewScope.ActionEventsBean.bindGeo2SelectCol}">
           <af:selectBooleanCheckbox value="#{row.bindings.SelectGeo2Rec.inputValue}"
                                     label="#{row.bindings.SelectGeo2Rec.label}"
@@ -181,10 +193,12 @@
           <af:outputText value="#{row.CURRENCY2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.CURRENCY2.tooltip}"
                          id="ot12"/>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.label}" id="c13">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.label}" id="c13"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.VOUCHERAMOUNT2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.tooltip}" id="ot13">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.VOUCHERAMOUNT2.format}"/>
+            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                              type="currency"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.VOUCHERAMOUNT.inputValue}"
@@ -193,10 +207,12 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.label}" id="c14">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.label}" id="c14"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.WHTTDS2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.tooltip}"
                          id="ot14">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.WHTTDS2.format}"/>
+            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                              type="currency"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.WHTTDS1.inputValue}" shortDesc="#{bindings.WHTTDS1.hints.tooltip}"
@@ -205,11 +221,12 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.label}" id="c15">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.label}" id="c15"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.AMTAVAILABLENET2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.tooltip}" id="ot15">
-            <af:convertNumber groupingUsed="false"
-                              pattern="#{bindings.SgsNettingGeo2VO1.hints.AMTAVAILABLENET2.format}"/>
+            <af:convertNumber groupingUsed="true"
+                              pattern="###,##0.00" type="currency"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.AMTAVAILABLENET1.inputValue}"
@@ -218,10 +235,12 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.label}" id="c16">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.label}" id="c16"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.AMTNET2}" shortDesc="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.tooltip}"
                          id="ot16">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNettingGeo2VO1.hints.AMTNET2.format}"/>
+            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                              type="currency"/>
           </af:outputText>
           <f:facet name="footer">
             <af:outputText value="#{bindings.AMTNET1.inputValue}" shortDesc="#{bindings.AMTNET1.hints.tooltip}"
@@ -230,18 +249,20 @@
             </af:outputText>
           </f:facet>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.label}" id="c17">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.label}" id="c17"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.BALANCEPENDING2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.tooltip}" id="ot17">
-            <af:convertNumber groupingUsed="false"
-                              pattern="#{bindings.SgsNettingGeo2VO1.hints.BALANCEPENDING2.format}"/>
+            <af:convertNumber groupingUsed="true"
+                              pattern="###,##0.00" type="currency"/>
           </af:outputText>
         </af:column>
-        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.label}" id="c18">
+        <af:column filterable="true" headerText="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.label}" id="c18"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.PARTIALFULLNET2}"
                          shortDesc="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.tooltip}" id="ot18">
-            <af:convertNumber groupingUsed="false"
-                              pattern="#{bindings.SgsNettingGeo2VO1.hints.PARTIALFULLNET2.format}"/>
+            <af:convertNumber groupingUsed="true"
+                              pattern="###,##0.00" type="currency"/>
           </af:outputText>
         </af:column>
       </af:table>

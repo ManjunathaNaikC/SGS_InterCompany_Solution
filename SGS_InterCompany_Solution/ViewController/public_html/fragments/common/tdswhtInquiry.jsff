@@ -87,7 +87,8 @@
                   <f:validator binding="#{row.bindings.WHTAPPLICATIBILITY.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.label}" id="resId1c8">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.label}" id="resId1c8"
+                         styleClass="mynumbercolumn">
                 <af:outputText value="#{row.RecoveryRate}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.tooltip}" id="ot8">
                   <af:convertNumber groupingUsed="false"

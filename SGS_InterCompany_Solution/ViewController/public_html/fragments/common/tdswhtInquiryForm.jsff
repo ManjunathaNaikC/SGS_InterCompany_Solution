@@ -238,7 +238,7 @@
                           required="#{bindings.RecoveryRate.hints.mandatory}"
                           columns="#{bindings.RecoveryRate.hints.displayWidth}"
                           maximumLength="#{bindings.RecoveryRate.hints.precision}"
-                          shortDesc="#{bindings.RecoveryRate.hints.tooltip}" id="it8">
+                          shortDesc="#{bindings.RecoveryRate.hints.tooltip}" id="it8" styleClass="mynumbercolumn">
               <f:validator binding="#{bindings.RecoveryRate.validator}"/>
               <af:convertNumber groupingUsed="false" pattern="#{bindings.RecoveryRate.format}"/>
             </af:inputText>
@@ -535,7 +535,7 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}" id="c12"
-                         width="140">
+                         width="140" styleClass="mynumbercolumn">
                 <af:inputText value="#{row.bindings.WithholdingTaxRate.inputValue}"
                               label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}"
                               required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.mandatory}"
@@ -549,7 +549,7 @@
                 </af:inputText>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
-                         id="c15" width="200">
+                         id="c15" width="200" styleClass="mynumbercolumn">
                 <af:inputText value="#{row.bindings.WitholdingTaxRateNoTin.inputValue}"
                               label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
                               required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.mandatory}"

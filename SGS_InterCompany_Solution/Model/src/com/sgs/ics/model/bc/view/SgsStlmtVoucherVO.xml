@@ -66,6 +66,10 @@
     Name="bPayerBU"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bSltmtStatus"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsStlmtVoucherEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO"/>
@@ -847,6 +851,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bSupBu"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="StlmtStatus"
+        ViewAttribute="StlmtStatus"
+        Operator="&lt;>"
+        Conjunction="AND"
+        Value=":bSltmtStatus"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

@@ -24,7 +24,7 @@
                fetchSize="#{bindings.SgsNettingInvoiceVoucherVO1.rangeSize}"
               filterModel="#{bindings.SgsNettingInvoiceVoucherVO1Query.queryDescriptor}"
               queryListener="#{bindings.SgsNettingInvoiceVoucherVO1Query.processQuery}" varStatus="vs" id="t1"
-              styleClass="AFStretchWidth" rowSelection="single">
+              styleClass="transaction" rowSelection="single">
       <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.SelectedNettingRec.label}" id="c10">
         <af:selectBooleanCheckbox value="#{row.bindings.SelectedNettingRec.inputValue}"
                                   label="#{row.bindings.SelectedNettingRec.label}"
@@ -52,14 +52,16 @@
           <af:outputText value="#{row.Geography1}"
                          shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Geography1.tooltip}" id="ot2"/>
         </af:column>
-        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE1.label}" id="c6">
+        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE1.label}" id="c6"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.ACCOUNTSPAYABLE1}"
                          shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE1.tooltip}" id="ot6">
             <af:convertNumber groupingUsed="false"
                               pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSPAYABLE1.format}"/>
           </af:outputText>
         </af:column>
-        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE1.label}" id="c7">
+        <af:column headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE1.label}" id="c7"
+                   styleClass="mynumbercolumn">
           <af:outputText value="#{row.ACCOUNTSRECEIVABLE1}"
                          shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ACCOUNTSRECEIVABLE1.tooltip}" id="ot7">
             <af:convertNumber groupingUsed="false"
@@ -89,19 +91,21 @@
         </af:column>
       </af:column>
       <af:column  sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.label}" id="c4">
+                 sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.label}" id="c4"
+                 styleClass="mynumbercolumn">
         <af:outputText value="#{row.ALLOWABLENETTINGLIMIT}"
                        shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.tooltip}" id="ot4">
-          <af:convertNumber groupingUsed="false"
-                            pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.ALLOWABLENETTINGLIMIT.format}"/>
+          <af:convertNumber groupingUsed="true"
+                            pattern="###,##0.00"/>
         </af:outputText>
       </af:column>
       <af:column sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.name}" filterable="true"
-                 sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.label}" id="c13">
+                 sortable="true" headerText="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.label}" id="c13"
+                 styleClass="mynumbercolumn">
         <af:outputText value="#{row.AMOUNTNETTEDOFF}"
                        shortDesc="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.tooltip}" id="ot10">
-          <af:convertNumber groupingUsed="false"
-                            pattern="#{bindings.SgsNettingInvoiceVoucherVO1.hints.AMOUNTNETTEDOFF.format}"/>
+          <af:convertNumber groupingUsed="true"
+                            pattern="###,##0.00" type="currency"/>
         </af:outputText>
       </af:column>
       <af:column sortProperty="#{bindings.SgsNettingInvoiceVoucherVO1.hints.Status.name}" filterable="true"

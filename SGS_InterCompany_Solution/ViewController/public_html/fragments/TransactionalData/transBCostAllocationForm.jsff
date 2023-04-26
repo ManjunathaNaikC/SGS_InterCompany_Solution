@@ -407,10 +407,10 @@
                                               required="#{bindings.TransactionAmount.hints.mandatory}" columns="10"
                                               maximumLength="#{bindings.TransactionAmount.hints.precision}"
                                               shortDesc="#{bindings.TransactionAmount.hints.tooltip}" id="it59"
-                                              readOnly="true">
+                                              readOnly="true" styleClass="mynumbercolumn">
                                     <f:validator binding="#{bindings.TransactionAmount.validator}"/>
                                     <af:convertNumber groupingUsed="true" type="currency"
-                                                      pattern="#{bindings.TransactionAmount.format}"
+                                                      pattern="###,##0.00"
                                                       minFractionDigits="2" currencySymbol=" " integerOnly="false"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.IgstAmount.inputValue}"
@@ -419,7 +419,7 @@
                                               columns="#{bindings.IgstAmount.hints.displayWidth}"
                                               maximumLength="#{bindings.IgstAmount.hints.precision}"
                                               shortDesc="#{bindings.IgstAmount.hints.tooltip}" id="it22"
-                                              readOnly="true">
+                                              readOnly="true" styleClass="mynumbercolumn">
                                     <f:validator binding="#{bindings.IgstAmount.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.CgstAmount.inputValue}"
@@ -428,7 +428,7 @@
                                               columns="#{bindings.CgstAmount.hints.displayWidth}"
                                               maximumLength="#{bindings.CgstAmount.hints.precision}"
                                               shortDesc="#{bindings.CgstAmount.hints.tooltip}" id="it27"
-                                              readOnly="true">
+                                              readOnly="true" styleClass="mynumbercolumn">
                                     <f:validator binding="#{bindings.CgstAmount.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.SgstAmount.inputValue}"
@@ -437,7 +437,7 @@
                                               columns="#{bindings.SgstAmount.hints.displayWidth}"
                                               maximumLength="#{bindings.SgstAmount.hints.precision}"
                                               shortDesc="#{bindings.SgstAmount.hints.tooltip}" id="it28"
-                                              readOnly="true">
+                                              readOnly="true" styleClass="mynumbercolumn">
                                     <f:validator binding="#{bindings.SgstAmount.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.FunctionalCurrency.inputValue}"
@@ -645,7 +645,8 @@
                                   rowBandingInterval="0"
                                   selectedRowKeys="#{bindings.SgsPstTxnDocAttachVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsPstTxnDocAttachVO1.collectionModel.makeCurrent}"
-                                  rowSelection="single" fetchSize="#{bindings.SgsPstTxnDocAttachVO1.rangeSize}" id="t4" styleClass="AFStretchWidth">
+                                  rowSelection="single" fetchSize="#{bindings.SgsPstTxnDocAttachVO1.rangeSize}" id="t4"
+                                  styleClass="transaction">
                             <af:column headerText="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.label}" id="c11">
                                 <af:inputText value="#{row.bindings.DocTypeValue.inputValue}"
                                               label="#{bindings.SgsPstTxnDocAttachVO1.hints.DocTypeValue.label}"
@@ -1046,7 +1047,7 @@
                                       selectedRowKeys="#{bindings.SgsOtrTargetVO1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.SgsOtrTargetVO1.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.SgsOtrTargetVO1.rangeSize}" id="t2"
-                                      styleClass="AFStretchWidth">
+                                      styleClass="transaction">
                                 <af:column headerText="#{bindings.SgsOtrTargetVO1.hints.ToBusinessUnit.label}" id="c1">
                                     <af:outputText value="#{row.ToBusinessUnit}"
                                                    shortDesc="#{bindings.SgsOtrTargetVO1.hints.ToBusinessUnit.tooltip}"
@@ -1087,8 +1088,9 @@
                                     <af:outputText value="#{row.TargetAmount}"
                                                    shortDesc="#{bindings.SgsOtrTargetVO1.hints.TargetAmount.tooltip}"
                                                    id="ot9">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.SgsOtrTargetVO1.hints.TargetAmount.format}"/>
+                                        <af:convertNumber groupingUsed="true"
+                                                          pattern="mynumbercolumn"
+                                                          type="currency"/>
                                     </af:outputText>
                                 </af:column>
                                 <af:column headerText="#{bindings.SgsOtrTargetVO1.hints.CreatedBy.label}" id="c9">

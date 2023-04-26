@@ -155,9 +155,11 @@
                                       required="#{bindings.NonPersonnelCost.hints.mandatory}"
                                       columns="#{bindings.NonPersonnelCost.hints.displayWidth}"
                                       maximumLength="#{bindings.NonPersonnelCost.hints.precision}"
-                                      shortDesc="#{bindings.NonPersonnelCost.hints.tooltip}" id="it13" rendered="false">
+                                      shortDesc="#{bindings.NonPersonnelCost.hints.tooltip}" id="it13" rendered="false"
+                                      styleClass="mynumbercolumn">
                             <f:validator binding="#{bindings.NonPersonnelCost.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NonPersonnelCost.format}"/>
+                            <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                                              type="currency"/>
                         </af:inputText>
                         <af:inputDate value="#{bindings.EffectiveStartDate.inputValue}"
                                       label="#{bindings.EffectiveStartDate.hints.label}"
@@ -238,7 +240,7 @@
                                   filterModel="#{bindings.SgsStdRateLineTblVO4Query.queryDescriptor}"
                                   filterVisible="true"
                                   queryListener="#{bindings.SgsStdRateLineTblVO4Query.processQuery}" varStatus="vs"
-                                  id="t2" columnStretching="last" partialTriggers="::b7 ::b9" styleClass="setup"
+                                  id="t2" columnStretching="last" partialTriggers="::b7 ::b9" styleClass="transaction"
                                   autoHeightRows="10" scrollPolicy="scroll">
                             <!--<af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.CostIdentifier.name}"
                                            filterable="true"
@@ -420,7 +422,7 @@
                             <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.label}" id="c3"
-                                       sortable="true">
+                                       sortable="true" styleClass="mynumbercolumn">
                                 <af:inputText value="#{row.bindings.StandardCost.inputValue}"
                                               label="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.label}"
                                               required="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.mandatory}"
@@ -429,14 +431,15 @@
                                               shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.tooltip}"
                                               id="it17">
                                     <f:validator binding="#{row.bindings.StandardCost.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.SgsStdRateLineTblVO4.hints.StandardCost.format}"/>
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="###,##0.00"
+                                                      type="currency"/>
                                 </af:inputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.name}"
                                        filterable="true"
                                        headerText="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.label}"
-                                       id="c4" sortable="true">
+                                       id="c4" sortable="true" styleClass="mynumbercolumn">
                                 <af:inputText value="#{row.bindings.NonPersonnelCost.inputValue}"
                                               label="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.label}"
                                               required="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.mandatory}"
@@ -445,8 +448,9 @@
                                               shortDesc="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.tooltip}"
                                               id="it18">
                                     <f:validator binding="#{row.bindings.NonPersonnelCost.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.SgsStdRateLineTblVO4.hints.NonPersonnelCost.format}"/>
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="###,##0.00"
+                                                      type="currency"/>
                                 </af:inputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.SgsStdRateLineTblVO4.hints.UnitOfMeasure.name}"
@@ -565,7 +569,7 @@
                                   rows="#{bindings.SgsStdRateDocVO1.rangeSize}"
                                   emptyText="#{bindings.SgsStdRateDocVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0" fetchSize="#{bindings.SgsStdRateDocVO1.rangeSize}" id="t5"
-                                  rowSelection="single">
+                                  rowSelection="single" styleClass="transaction">
                             <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}" id="c2">
                                 <af:inputText value="#{row.bindings.DocTypeValue.inputValue}"
                                               label="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}"

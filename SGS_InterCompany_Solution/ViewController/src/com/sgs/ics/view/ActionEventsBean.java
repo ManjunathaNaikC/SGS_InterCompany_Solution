@@ -884,7 +884,10 @@ public class ActionEventsBean {
                 decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                 paymentRow.setAttribute("OsAmountPayable",
                                         Double.parseDouble(decimalFormat.format(netPayableAmount - settlementAmount)));
-                paymentRow.setAttribute("PaymentId", paymentId);
+                SGSAppModuleImpl am = new SGSAppModuleImpl();
+                String value = "PS_" + (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
+                
+                paymentRow.setAttribute("PaymentId", value);
                 paymentRow.setAttribute("PAYMENTDATE", payDate);
                 paymentRow.setAttribute("RECEIPTDATE", rctDate);
                 paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
@@ -895,6 +898,10 @@ public class ActionEventsBean {
                 paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
                 paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
                 paymentRow.setAttribute("PURPOSECODE", purposeCode);
+                
+                
+                
+        
                 
 
             } else if ("Transaction on Hold".equals(settlementStatus)) {

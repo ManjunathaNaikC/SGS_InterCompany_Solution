@@ -61,14 +61,14 @@
                             <f:selectItems value="#{bindings.PURPOSECODE.items}" id="si9"/>
                             <f:validator binding="#{bindings.PURPOSECODE.validator}"/>
                         </af:selectOneChoice>
-                        <af:inputText value="#{bindings.PAYMENTID.inputValue}" label="#{bindings.PAYMENTID.hints.label}"
+                        <!--<af:inputText value="#{bindings.PAYMENTID.inputValue}" label="#{bindings.PAYMENTID.hints.label}"
                                       required="#{bindings.PAYMENTID.hints.mandatory}"
                                       columns="#{bindings.PAYMENTID.hints.displayWidth}"
                                       maximumLength="#{bindings.PAYMENTID.hints.precision}"
                                       shortDesc="#{bindings.PAYMENTID.hints.tooltip}" id="it1" readOnly="true"
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.PAYMENTID.validator}"/>
-                        </af:inputText>
+                        </af:inputText>-->
                         <af:inputDate value="#{bindings.PAYMENTDATE.inputValue}"
                                       label="#{bindings.PAYMENTDATE.hints.label}"
                                       required="#{bindings.PAYMENTDATE.hints.mandatory}"

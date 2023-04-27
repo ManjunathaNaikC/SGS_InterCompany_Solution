@@ -19,7 +19,8 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery><![CDATA[select LOOKUP_ID,LOOKUP_CODE,LOOKUP_TYPE,MEANING,DISPLAY_SEQUENCE from SGS_LOOKUP_TABLE       
-where LOOKUP_TYPE='REVERSAL_TYPE' AND ENABLED='Y']]></SQLQuery>
+where LOOKUP_TYPE='REVERSAL_TYPE' AND ENABLED='Y'
+ORDER BY MEANING]]></SQLQuery>
   <ViewAttribute
     Name="LOOKUPID"
     IsUpdateable="false"

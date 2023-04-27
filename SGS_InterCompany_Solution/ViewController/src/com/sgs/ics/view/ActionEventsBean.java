@@ -1606,7 +1606,7 @@ public class ActionEventsBean {
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(creditDateBindVal);
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
-        executeBinding(SAVE_DATA);
+       // executeBinding(SAVE_DATA);
         LOG.info("Inside DRTCROSS CHARGE**********************");
         Connection conn = null;
         PreparedStatement pst = null;
@@ -1805,10 +1805,20 @@ public class ActionEventsBean {
         DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
         oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
         CommonUtils util = new CommonUtils();
+        int nonInvoice=0;
         Object user = (Object) util.getSessionScopeValue("_username").toString();
         for (int i = 0; i < invoiceDatarows.length; i++) {
+
+            System.out.println("nonInvoice Cat::"+nonInvoice);
             if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
                 invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                String transactionCat = (String)invoiceDatarows[i].getAttribute("TransactionCategory");
+                System.out.println("Trans Cat::"+transactionCat);
+                System.out.println("nonInvoice Cat00::"+nonInvoice);
+                                if(null != transactionCat && !(transactionCat.equalsIgnoreCase("Invoice"))){
+                                    nonInvoice=1;
+                                   break;
+                                }
                 executeBinding("CreateInsertCredit");
                 Row row = creditData.getCurrentRow();
                 row.setAttribute("InvoiceSeqNo", invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
@@ -1816,7 +1826,7 @@ public class ActionEventsBean {
                 row.setAttribute("TransactionCategory", invoiceDatarows[i].getAttribute("TransactionCategory"));
                 row.setAttribute("PsftVoucherRef", invoiceDatarows[i].getAttribute("ReferenceVoucherNum"));
                 row.setAttribute("PsftInvoiceRef", invoiceDatarows[i].getAttribute("ReferenceInvoiceNum"));
-                //row.setAttribute("NatureOfExpense",null);
+                row.setAttribute("NatureOfExpense",invoiceDatarows[i].getAttribute("NATUREOFEXPENSE"));
                 row.setAttribute("FromBu", invoiceDatarows[i].getAttribute("SourceBu"));
                 row.setAttribute("ToBu", invoiceDatarows[i].getAttribute("TargetBu"));
                 row.setAttribute("InvoiceAmount", invoiceDatarows[i].getAttribute("ALLOCATEDHEADERAMOUNT"));
@@ -1827,11 +1837,32 @@ public class ActionEventsBean {
                 row.setAttribute("UpdatedDate", invoiceDatarows[i].getAttribute("UpdatedDate"));
                 row.setAttribute("UpdatedBy", invoiceDatarows[i].getAttribute("UpdatedBy"));
                 row.setAttribute("REVERSALREASON", invoiceDatarows[i].getAttribute("REVERSALREASON"));
-            }
+            
+            } 
         }
-        executeBinding(SAVE_DATA);
-        RichPopup.PopupHints hints = new RichPopup.PopupHints();
-        this.invoicecreditmemobindpopup.show(hints);
+                
+//                }else{
+//                 
+//                        FacesContext context = FacesContext.getCurrentInstance();
+//                        String messageText = "Please select the invoice records to create credit Memos.";
+//                        FacesMessage fm = new FacesMessage(messageText);
+//                        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+//                        context.addMessage(null, fm);
+//                }
+
+System.out.println("nonInvoice Cat 11::"+nonInvoice);
+        if (nonInvoice == 1) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            String messageText = "Please select the invoice records to create credit Memos.";
+            FacesMessage fm = new FacesMessage(messageText);
+            fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+            context.addMessage(null, fm);
+        } else {
+
+            executeBinding(SAVE_DATA);
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            this.invoicecreditmemobindpopup.show(hints);
+        }
     }
 
 
@@ -2069,6 +2100,12 @@ public class ActionEventsBean {
 
     public RichTable getTablePaymentRecords1() {
         return tablePaymentRecords1;
+    }
+
+    public void onCreditMemoSubmit(ActionEvent actionEvent) {
+        // Add event code here...
+        executeBinding(SAVE_DATA);
+        ADFUtils.saveNotifier();
     }
 }
 

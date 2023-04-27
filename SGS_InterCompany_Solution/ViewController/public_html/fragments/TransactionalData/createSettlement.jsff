@@ -275,7 +275,8 @@
                           rowSelection="multiple" fetchSize="#{bindings.SgsStlmtVoucherVO1.rangeSize}"
                           filterModel="#{bindings.SgsStlmtVoucherVO1Query.queryDescriptor}" filterVisible="false"
                           queryListener="#{bindings.SgsStlmtVoucherVO1Query.processQuery}" varStatus="vs" id="t1"
-                          styleClass="transaction" binding="#{viewScope.ActionEventsBean.tablePaymentRecords}">
+                          styleClass="transaction AFStretchWidth" binding="#{viewScope.ActionEventsBean.tablePaymentRecords}"
+                          autoHeightRows="-1">
                     <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.label}" id="c1"
                                binding="#{viewScope.ActionEventsBean.bindSettlementSelectColumn}">
                         <af:selectBooleanCheckbox value="#{row.bindings.SelectRecord.inputValue}"
@@ -294,7 +295,7 @@
                         <f:facet name="header">
                             <af:selectBooleanCheckbox text="Select All" id="sbc2"
                                                       valueChangeListener="#{viewScope.ActionEventsBean.onCreateSettlementSelectAll}"
-                                                      partialTriggers="::t1 c1 sbc1" autoSubmit="true"/>
+                                                      partialTriggers="::t1 c1 sbc1" autoSubmit="true" styleClass="cb"/>
                         </f:facet>
                     </af:column>
                     <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.name}" filterable="true"
@@ -557,7 +558,7 @@
                               rowSelection="single" fetchSize="#{bindings.SgsContraCashTblVO1.rangeSize}"
                               filterModel="#{bindings.SgsContraCashTblVO1Query.queryDescriptor}" filterVisible="false"
                               queryListener="#{bindings.SgsContraCashTblVO1Query.processQuery}" varStatus="vs" id="t2"
-                              styleClass="transaction">
+                              styleClass="transaction AFStretchWidth" autoHeightRows="-1">
                         <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.name}"
                                    filterable="true" sortable="true"
                                    headerText="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.label}" id="c11">

@@ -221,8 +221,8 @@
                                   selectedRowKeys="#{bindings.SgsTransBCostAllocationVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsTransBCostAllocationVO1.collectionModel.makeCurrent}"
                                   rowSelection="multiple" fetchSize="#{bindings.SgsTransBCostAllocationVO1.rangeSize}"
-                                  id="t2" styleClass="transaction" allDetailsEnabled="true"
-                                  partialTriggers="sbc1" inlineStyle="height:250px; " autoHeightRows="10"
+                                  id="t2" styleClass="transaction AFStretchWidth" allDetailsEnabled="true"
+                                  partialTriggers="sbc1" autoHeightRows="-1"
                                   filterModel="#{bindings.SgsTransBCostAllocationVOCriteriaQuery.queryDescriptor}" filterVisible="false"
                                   queryListener="#{bindings.SgsTransBCostAllocationVOCriteriaQuery.processQuery}">
                             <af:column id="c2"  headerText="#{bindings.SgsTransBCostAllocationVO1.hints.Selected.label}" 
@@ -233,9 +233,9 @@
                                                           shortDesc="#{bindings.SgsTransBCostAllocationVO1.hints.Selected.tooltip}"
                                                           id="sbc1" autoSubmit="true"/>
                                 <f:facet name="header">
-                                    <af:selectBooleanCheckbox valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.selectAllCheckboxValueChange}"
-                                                              label="Select All" id="sbc2" labelStyle="color:#336699"
-                                                              autoSubmit="true" partialTriggers="::t2 c2 sbc1">
+                                    <af:selectBooleanCheckbox valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.selectAllCheckboxValueChange}" id="sbc2"
+                                                              autoSubmit="true" partialTriggers="::t2 c2 sbc1"
+                                                              styleClass="cb" text="Select All">
                                         <af:setPropertyListener from="#{row.TransactionStatus}"
                                                                 to="#{pageFlowScope.Status}" type="valueChange"/>
                                     </af:selectBooleanCheckbox>

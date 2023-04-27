@@ -6,16 +6,16 @@
     <af:panelTabbed position="above" id="pt1" binding="#{viewScope.ActionEventsBean.bindStlmtDashboardPanelTab}">
       <af:showDetailItem id="tab1" text="Settlement of Inter-Company Vouchers"
                          binding="#{viewScope.ActionEventsBean.bindStlmtVoucherTab}">
-        <af:panelGroupLayout layout="horizontal" id="pgl1">
-         
+        
+           <af:panelHeader id="ph3">
             <af:query id="qryId1" headerText="Search" disclosed="true"
                       value="#{bindings.SgsStlmtVoucherVOCriteriaQuery.queryDescriptor}"
                       model="#{bindings.SgsStlmtVoucherVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsStlmtVoucherVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsStlmtVoucherVOCriteriaQuery.processQueryOperation}"
                       saveQueryMode="hidden" rows="4" maxColumns="2"/>
+          </af:panelHeader>
         
-        </af:panelGroupLayout>
         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
           <f:facet name="toolbar">
@@ -31,7 +31,8 @@
                     fetchSize="#{bindings.SgsStlmtVoucherVO1.rangeSize}"
                     filterModel="#{bindings.SgsStlmtVoucherVO1Query.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsStlmtVoucherVO1Query.processQuery}" varStatus="vs" id="t2"
-                    styleClass="transaction" binding="#{viewScope.ActionEventsBean.tablePaymentRecords1}">
+                    styleClass="transaction AFStretchWidth" binding="#{viewScope.ActionEventsBean.tablePaymentRecords1}"
+                    autoHeightRows="-1">
             <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.SelectRecord.label}" id="c55"
                        binding="#{viewScope.ActionEventsBean.voucherColSelectBind}">
               <af:selectBooleanCheckbox value="#{row.bindings.SelectRecord.inputValue}"
@@ -42,7 +43,7 @@
               <f:facet name="header">
                 <af:selectBooleanCheckbox text="Select All"  id="sbc2" autoSubmit="true"
                                           valueChangeListener="#{viewScope.ActionEventsBean.onSelectAllVouchers}"
-                                          partialTriggers="::t2 c55 sbc1"/>
+                                          partialTriggers="::t2 c55 sbc1" styleClass="cb"/>
               </f:facet>
             </af:column>
             <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.VoucherId.name}" filterable="true"
@@ -242,16 +243,16 @@
       </af:showDetailItem>
       <af:showDetailItem id="tab2" text="Settlement of Inter-Company Invoices"
                          binding="#{viewScope.ActionEventsBean.bindStlmtInvoiceTab}">
-        <af:panelGroupLayout layout="horizontal" id="pgl2">
-          
+    
+          <af:panelHeader id="ph1">
             <af:query id="qryId2" headerText="Search" disclosed="true"
                       value="#{bindings.SgsStlmtInvVOCriteriaQuery.queryDescriptor}"
                       model="#{bindings.SgsStlmtInvVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.SgsStlmtInvVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.SgsStlmtInvVOCriteriaQuery.processQueryOperation}"
                       saveQueryMode="hidden" rows="4" maxColumns="2"/>
-     
-        </af:panelGroupLayout>
+          </af:panelHeader>  
+        
         <af:panelCollection id="pc2" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
           <f:facet name="toolbar"/>
@@ -263,7 +264,7 @@
                      fetchSize="#{bindings.SgsStlmtInvVO1.rangeSize}"
                     filterModel="#{bindings.SgsStlmtInvVO1Query.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsStlmtInvVO1Query.processQuery}" varStatus="vs" id="t1"
-                    styleClass="transaction">
+                    styleClass="transaction AFStretchWidth" autoHeightRows="-1">
             <af:column headerText="#{bindings.SgsStlmtInvVO1.hints.SelectRecordInvoice.label}" id="c56"
                        binding="#{viewScope.ActionEventsBean.invoiceColSelectBind}">
               <af:selectBooleanCheckbox value="#{row.bindings.SelectRecordInvoice.inputValue}"
@@ -273,7 +274,7 @@
               <f:facet name="header">
                 <af:selectBooleanCheckbox text="Select All"  id="sbc4"
                                           valueChangeListener="#{viewScope.ActionEventsBean.onSelectAllInvoice}"
-                                          partialTriggers="::t1 c56 sbc3" autoSubmit="true"/>
+                                          partialTriggers="::t1 c56 sbc3" autoSubmit="true" styleClass="cb"/>
               </f:facet>
             </af:column>
             <!--<af:column headerText="#{bindings.SgsStlmtInvVO1.hints.SelectRecordInvoice.label}" id="c56"
@@ -500,15 +501,17 @@
         </af:panelCollection>
       </af:showDetailItem>
       <af:showDetailItem text="Contra Cash" id="sdi1" styleClass="AFStretchWidth">
-        <af:panelGroupLayout layout="horizontal" id="pgl3">
+        
           <!--<af:panelHeader text="SgsContraCashTblEO" id="ph1"/>-->
+          <af:panelHeader id="ph2">
           <af:query id="qryId3" headerText="Search" disclosed="true"
                     value="#{bindings.SgsContraCashTblVOCriteriaQuery.queryDescriptor}"
                     model="#{bindings.SgsContraCashTblVOCriteriaQuery.queryModel}"
                     queryListener="#{bindings.SgsContraCashTblVOCriteriaQuery.processQuery}"
                     queryOperationListener="#{bindings.SgsContraCashTblVOCriteriaQuery.processQueryOperation}"
                     rows="3" maxColumns="2" saveQueryMode="hidden"/>
-        </af:panelGroupLayout>
+         </af:panelHeader>
+       
         <af:panelCollection id="pc3" styleClass="AFStretchWidth">
           <f:facet name="menus"/>
           <f:facet name="toolbar"/>
@@ -521,7 +524,7 @@
                     rowSelection="single" fetchSize="#{bindings.SgsContraCashTblVO1.rangeSize}"
                     filterModel="#{bindings.SgsContraCashTblVOCriteriaQuery.queryDescriptor}" filterVisible="false"
                     queryListener="#{bindings.SgsContraCashTblVOCriteriaQuery.processQuery}" varStatus="vs" id="t3"
-                    styleClass="transaction">
+                    styleClass="transaction AFStretchWidth" autoHeightRows="-1">
             <af:column sortProperty="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.name}" filterable="true"
                        sortable="true" headerText="#{bindings.SgsContraCashTblVO1.hints.ContraCashId.label}" id="c57">
               <af:outputText value="#{row.ContraCashId}"

@@ -50,7 +50,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_RULE">
+    TableName="SGS_COST_IDENTIFICATION_RULE"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -123,7 +124,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_RULE">
+    TableName="SGS_COST_IDENTIFICATION_RULE"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -147,7 +149,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_RULE">
+    TableName="SGS_COST_IDENTIFICATION_RULE"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -159,7 +162,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="SGS_COST_IDENTIFICATION_RULE">
+    TableName="SGS_COST_IDENTIFICATION_RULE"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
@@ -433,6 +437,54 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO.CostIdentificationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SGSCOSTIDENTIFICATIONRULEACCOUNTINGTREATMENTCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ACCOUNTING_TREATMENT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SGSCOSTIDENTIFICATIONRULEACCOU"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO.AccountingTreatment"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SGSCOSTIDENTIFICATIONRULEALLOCATIONBASISCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ALLOCATION_BASIS" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SGSCOSTIDENTIFICATIONRULEALLOC"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO.AllocationBasis"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SGSCOSTIDENTIFICATIONRULEINPUTPROVIDERCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"INPUT_PROVIDER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SGSCOSTIDENTIFICATIONRULEINPUT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO.InputProvider"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SGSCOSTIDENTIFICATIONRULENATUREOFEXPENSECheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"NATURE_OF_EXPENSE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SGSCOSTIDENTIFICATIONRULENATUR"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.sgs.ics.model.bc.entity.SgsCostIdentificationRuleEO.NatureOfExpense"/>
     </AttrArray>
   </Key>
 </Entity>

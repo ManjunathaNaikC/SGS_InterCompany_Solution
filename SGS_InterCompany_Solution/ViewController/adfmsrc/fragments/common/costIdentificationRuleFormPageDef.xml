@@ -36,8 +36,6 @@
           id="AccountingTreatment" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_ServiceCategory"
           id="ServiceCategory" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_DataSource" id="DataSource"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="SgsCostIdentificationRuleVOIterator" id="EffectiveFrom">
       <AttrNames>
         <Item Value="EffectiveFrom"/>
@@ -307,5 +305,13 @@
         <Item Value="ADDTEXPENSECAT"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_AllocationBasis"
+                  id="AllocationBasis1"/>
+    <listOfValues IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_DataSource"
+                  id="DataSource1"/>
+    <listOfValues IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_NatureOfExpense"
+                  id="NatureOfExpense1"/>
+    <list IterBinding="SgsCostIdentificationRuleVOIterator" StaticList="false" Uses="LOV_DataSource" id="DataSource"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

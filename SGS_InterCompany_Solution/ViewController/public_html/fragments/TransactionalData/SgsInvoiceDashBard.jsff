@@ -594,8 +594,12 @@
                                 <af:panelFormLayout id="pfl3" maxColumns="2" rows="2">
                                     <f:facet name="footer">
                                         <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
-                                            <af:button text="Submit" id="b13"
+                                            <af:button text="Generate" id="b13"
                                                        actionListener="#{viewScope.ActionEventsBean.creditMemoSubmitApprovals}"/>
+                                            <af:spacer id="s5"/>
+                                            <af:button text="Submit" id="b15"
+                                                       actionListener="#{viewScope.ActionEventsBean.onCreditMemoSubmit}"/>
+                                            <af:spacer id="s6"/>
                                             <af:button text="Close" id="b14"
                                                        actionListener="#{viewScope.ActionEventsBean.onCreditPopupClose}"/>
                                         </af:panelGroupLayout>
@@ -617,7 +621,7 @@
                                      <!--<af:selectBooleanCheckbox text="Percentage Reversal" label=""  id="sbc6"
                                                               autoSubmit="true" partialTriggers="pfl3 it2 pgl4 ot2"  
                                                               valueChangeListener="#{viewScope.ActionEventsBean.onCompleteReversalChechBox}"/>-->
-                                    <af:selectOneChoice 
+                                    <af:selectOneChoice value="#{bindings.ReversalTypeLOVVO1.inputValue}"
                                                         label="#{bindings.ReversalTypeLOVVO1.label}"
                                                         required="#{bindings.ReversalTypeLOVVO1.hints.mandatory}"
                                                         shortDesc="#{bindings.ReversalTypeLOVVO1.hints.tooltip}"
@@ -794,7 +798,7 @@
                                                                   type="currency"/>
                                             </af:outputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.name}"
+                                        <!--<af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.label}"
                                                    id="c39" styleClass="mynumbercolumn">
@@ -809,13 +813,13 @@
                                                                   pattern="###,##0.00"
                                                                   type="currency"/>
                                             </af:inputText>
-                                            <!--<af:outputText value="#{row.ReversalAmount}"
+                                            --><!--<af:outputText value="#{row.ReversalAmount}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}"
                                                            id="ot44">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.format}"/>
-                                            </af:outputText>-->
-                                        </af:column>
+                                            </af:outputText>--><!--
+                                        </af:column>-->
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.label}"
@@ -829,7 +833,7 @@
                                                 <f:validator binding="#{row.bindings.REVERSALREASON.validator}"/>
                                             </af:selectOneChoice>
                                         </af:column>
-                                        <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PERCENTAGEREVERSAL.label}"
+                                        <!--<af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PERCENTAGEREVERSAL.label}"
                                                    id="c48">
                                             <af:outputText value="#{row.PERCENTAGEREVERSAL}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PERCENTAGEREVERSAL.tooltip}"
@@ -837,7 +841,7 @@
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.PERCENTAGEREVERSAL.format}"/>
                                             </af:outputText>
-                                        </af:column>
+                                        </af:column>-->
                                         <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALTYPE.label}"
                                         sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALTYPE.name}"
                                                    filterable="true" sortable="true"

@@ -302,6 +302,13 @@ af|button:text-only{
 .mynumbercolumn {
     text-align: right;
 }
+
+/* CSS class for the table */
+.myTable {
+    max-height: 100%; 
+    overflow-y: auto; 
+    max-width: 100%;
+}
 /*.setupHeader af|button.p_AFTextOnly.p_AFActionDisabled {*/
      /*styles for the af:query search and reset buttons*/ 
 
@@ -346,6 +353,15 @@ background-color:#e4f0fa;
 background-color:#ebebeb;
 }*/
 
+af|query::title-text1 {
+  color:white;
+}
+
+.cb af|selectBooleanCheckbox::item-text{
+    
+    color:white;
+
+}
 
 
 

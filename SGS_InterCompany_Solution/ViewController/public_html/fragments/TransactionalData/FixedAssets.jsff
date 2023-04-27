@@ -39,7 +39,7 @@
                                   selectedRowKeys="#{bindings.SgsFixedAssetsTxnVO1.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SgsFixedAssetsTxnVO1.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SgsFixedAssetsTxnVO1.rangeSize}"
-                                  id="resId1" styleClass="transaction" allDetailsEnabled="true" autoHeightRows="5">
+                                  id="resId1" styleClass="transaction AFStretchWidth" allDetailsEnabled="true" autoHeightRows="-1">
                             <af:column id="cs2"
                                        headerText="#{bindings.SgsFixedAssetsTxnVO1Iterator.hints.Selected.label}"
                                        align="center">
@@ -48,9 +48,9 @@
                                                           shortDesc="#{bindings.SgsFixedAssetsTxnVO1Iterator.hints.Selected.tooltip}"
                                                           id="sbc1" autoSubmit="true"/>
                                 <f:facet name="header">
-                                    <af:selectBooleanCheckbox valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.selectAllCheckboxValueChange}"
-                                                              label="Select All" id="sbc2" labelStyle="color:#336699"
-                                                              autoSubmit="true" partialTriggers="cs2 sbc1 ::resId1"></af:selectBooleanCheckbox>
+                                    <af:selectBooleanCheckbox valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.selectAllCheckboxValueChange}" id="sbc2"
+                                                              autoSubmit="true" partialTriggers="cs2 sbc1 ::resId1"
+                                                              text="Select All" styleClass="cb"></af:selectBooleanCheckbox>
                                 </f:facet>
                             </af:column>
                             <!--<af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FstId.label}" id="resId1c1">

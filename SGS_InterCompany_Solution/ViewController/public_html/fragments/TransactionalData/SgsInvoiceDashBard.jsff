@@ -66,11 +66,11 @@
                               selectedRowKeys="#{bindings.SgsIcInvoiceHeaderVO1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SgsIcInvoiceHeaderVO1.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SgsIcInvoiceHeaderVO1.rangeSize}" id="ivd1"
-                              styleClass="transaction"
+                              styleClass="transaction AFStretchWidth"
                               filterModel="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.queryDescriptor}"
                               filterVisible="false"
                               queryListener="#{bindings.SgsIcInvoiceHeaderVOCriteriaQuery.processQuery}" varStatus="vs"
-                              scrollPolicy="page" autoHeightRows="15">
+                              scrollPolicy="page" autoHeightRows="-1">
                         <af:column id="c5" binding="#{viewScope.ActionEventsBean.selectcolInvoiceDBBind}">
                             <af:selectBooleanCheckbox value="#{row.bindings.selectInvoiceRecord.inputValue}"
                                                       label="#{row.bindings.selectInvoiceRecord.label}"
@@ -81,7 +81,7 @@
                             <f:facet name="header">
                                  <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
                                     autoSubmit="true" valueChangeListener="#{viewScope.ActionEventsBean.onInvoiceSelectAll}"
-                                                        partialTriggers="c5 ::ivd1 sbc1"/>
+                                                        partialTriggers="c5 ::ivd1 sbc1" styleClass="cb"/>
                             </f:facet>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.label}" id="c1"
@@ -707,7 +707,8 @@
                                             <f:facet name="header">
                                                   <af:selectBooleanCheckbox text="Select All" id="sbc4" autoSubmit="true"
                                             valueChangeListener="#{viewScope.ActionEventsBean.onCreditMemoSelectAll}"
-                                                                            partialTriggers="::t1 c45 sbc3"/></f:facet>
+                                                                            partialTriggers="::t1 c45 sbc3"
+                                                                            styleClass="cb"/></f:facet>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.name}"
                                                    filterable="true" sortable="true"

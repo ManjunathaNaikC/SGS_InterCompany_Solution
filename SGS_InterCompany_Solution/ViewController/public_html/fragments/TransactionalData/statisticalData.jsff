@@ -22,7 +22,7 @@
                               queryOperationListener="#{bindings.SgsStatisticalDataVOCriteriaQuery.processQueryOperation}"
                               saveQueryMode="hidden" rows="3" maxColumns="3" resultComponentId="::pc1:t1"/>
                 </af:panelHeader>
-                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                <af:panelCollection id="pc1" styleClass="AFStretchWidth" >
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t2">
@@ -71,8 +71,7 @@
                               rowSelection="single" fetchSize="#{bindings.SgsStatisticalDataVO1.rangeSize}"
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
-                              styleClass="transaction" inlineStyle="height:250px" autoHeightRows="10"
-                              scrollPolicy="page">
+                              styleClass="transaction  AFStretchWidth" autoHeightRows="-1" scrollPolicy="page">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
                                    binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
                                    inlineStyle="color:White;">
@@ -90,7 +89,7 @@
                             <f:facet name="header">
                               <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
                                     autoSubmit="true" valueChangeListener="#{viewScope.ActionEventsBean.onStatisticalSelectAll}"
-                                                        partialTriggers="::t1 c55 sbc1"/>
+                                                        partialTriggers="::t1 c55 sbc1" styleClass="cb"/>
                             </f:facet>
                         </af:column>
                          <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"

@@ -184,5 +184,7 @@
         <Item Value="MEANING"/>
       </AttrNames>
     </list>
+    <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

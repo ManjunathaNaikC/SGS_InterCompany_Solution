@@ -1783,6 +1783,7 @@ public class ActionEventsBean {
     public void onCreditTransactionActionButton(ActionEvent actionEvent) {
         DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
         DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+        //creditData.getViewObject().executeQuery();
         oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
         CommonUtils util = new CommonUtils();
         int nonInvoice=0;
@@ -1862,7 +1863,7 @@ public class ActionEventsBean {
             context.addMessage(null, fm);
         } else {
 
-            executeBinding(SAVE_DATA);
+            //executeBinding(SAVE_DATA);
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             this.invoicecreditmemobindpopup.show(hints);
         }
@@ -1899,6 +1900,7 @@ public class ActionEventsBean {
     }
 
     public void onCreditPopupClose(ActionEvent actionEvent) {
+        executeBinding("Rollback");
         invoicecreditmemobindpopup.hide();
     }
 

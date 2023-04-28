@@ -1607,27 +1607,6 @@ public class ActionEventsBean {
         AdfFacesContext.getCurrentInstance().addPartialTarget(creditDateBindVal);
         AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
        // executeBinding(SAVE_DATA);
-        LOG.info("Inside DRTCROSS CHARGE**********************");
-        Connection conn = null;
-        PreparedStatement pst = null;
-
-        try {
-
-            conn = am.getDBConnection();
-            String SPsql = "EXEC USP_SCN_CREDIT_TXN "; // for stored proc
-            PreparedStatement ps = conn.prepareStatement(SPsql);
-
-            ps.execute();
-        } catch (SQLException sqle) {
-            // TODO: Add catch code
-            sqle.printStackTrace();
-        } finally {
-            try {
-                conn.close();
-                pst.close();
-            } catch (SQLException e) {
-            }
-        }
 
     }
 
@@ -1806,19 +1785,28 @@ public class ActionEventsBean {
         oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
         CommonUtils util = new CommonUtils();
         int nonInvoice=0;
+        int selectedRecords=0;
         Object user = (Object) util.getSessionScopeValue("_username").toString();
+        
+//        for (int j = 0; j < invoiceDatarows.length; j++) {
+//                if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
+//                    invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+//                    }
+//            }
+        
+        
         for (int i = 0; i < invoiceDatarows.length; i++) {
 
             System.out.println("nonInvoice Cat::"+nonInvoice);
             if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
                 invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
-                String transactionCat = (String)invoiceDatarows[i].getAttribute("TransactionCategory");
-                System.out.println("Trans Cat::"+transactionCat);
-                System.out.println("nonInvoice Cat00::"+nonInvoice);
-                                if(null != transactionCat && !(transactionCat.equalsIgnoreCase("Invoice"))){
-                                    nonInvoice=1;
-                                   break;
-                                }
+                String transactionStatus = (String)invoiceDatarows[i].getAttribute("TransactionStatus");
+                System.out.println("transaction Statust::"+transactionStatus);
+                System.out.println("nonInvoice Cat00::" + nonInvoice);
+                if (null != transactionStatus && !(transactionStatus.equalsIgnoreCase("Invoiced In PeopleSoft"))) {
+                    nonInvoice = 1;
+                    break;
+                }
                 executeBinding("CreateInsertCredit");
                 Row row = creditData.getCurrentRow();
                 row.setAttribute("InvoiceSeqNo", invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
@@ -1837,8 +1825,15 @@ public class ActionEventsBean {
                 row.setAttribute("UpdatedDate", invoiceDatarows[i].getAttribute("UpdatedDate"));
                 row.setAttribute("UpdatedBy", invoiceDatarows[i].getAttribute("UpdatedBy"));
                 row.setAttribute("REVERSALREASON", invoiceDatarows[i].getAttribute("REVERSALREASON"));
+            }
             
-            } 
+//            else {
+//                
+//                selectedRecords=1;
+//                break;
+//               // creditData.getViewObject().setWhereClause(arg0);
+//
+//            }
         }
                 
 //                }else{
@@ -1849,8 +1844,15 @@ public class ActionEventsBean {
 //                        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
 //                        context.addMessage(null, fm);
 //                }
-
-System.out.println("nonInvoice Cat 11::"+nonInvoice);
+//          if (selectedRecords == 1) {
+//                        ViewObjectImpl viewImpl = null;
+//                viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator").getViewObject();
+//                viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
+//                viewImpl.setWhereClause("INVOICE_SEQ_NO IN ("+ null +")");
+//                viewImpl.executeQuery();
+//          }
+          
+        System.out.println("nonInvoice Cat 11::"+nonInvoice);
         if (nonInvoice == 1) {
             FacesContext context = FacesContext.getCurrentInstance();
             String messageText = "Please select the invoice records to create credit Memos.";
@@ -2106,6 +2108,28 @@ System.out.println("nonInvoice Cat 11::"+nonInvoice);
         // Add event code here...
         executeBinding(SAVE_DATA);
         ADFUtils.saveNotifier();
+        
+        LOG.info("Inside DRTCROSS CHARGE**********************");
+        Connection conn = null;
+        PreparedStatement pst = null;
+
+        try {
+
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USP_SCN_CREDIT_TXN "; // for stored proc
+            PreparedStatement ps = conn.prepareStatement(SPsql);
+
+            ps.execute();
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+            }
+        }
     }
 }
 

@@ -94,17 +94,18 @@
                                 <f:selectItems value="#{bindings.AllocationBasis.items}" id="si5"/>
                                 <f:validator binding="#{bindings.AllocationBasis.validator}"/>
                             </af:selectOneChoice>-->
-                            <af:inputListOfValues id="allocationBasis1Id"
-                                                  popupTitle="Search and Select: #{bindings.AllocationBasis1.hints.label}"
-                                                  value="#{bindings.AllocationBasis1.inputValue}"
-                                                  label="#{bindings.AllocationBasis1.hints.label}"
-                                                  model="#{bindings.AllocationBasis1.listOfValuesModel}"
-                                                  required="#{bindings.AllocationBasis1.hints.mandatory}"
-                                                  columns="#{bindings.AllocationBasis1.hints.displayWidth}"
-                                                  shortDesc="#{bindings.AllocationBasis1.hints.tooltip}">
+                           
+                            <af:inputComboboxListOfValues id="allocationBasis1Id"
+                                                          popupTitle="Search and Select: #{bindings.AllocationBasis1.hints.label}"
+                                                          value="#{bindings.AllocationBasis1.inputValue}"
+                                                          label="#{bindings.AllocationBasis1.hints.label}"
+                                                          model="#{bindings.AllocationBasis1.listOfValuesModel}"
+                                                          required="#{bindings.AllocationBasis1.hints.mandatory}"
+                                                          columns="#{bindings.AllocationBasis1.hints.displayWidth}"
+                                                          shortDesc="#{bindings.AllocationBasis1.hints.tooltip}">
                                 <f:validator binding="#{bindings.AllocationBasis1.validator}"/>
-                                 <af:autoSuggestBehavior minChars="2" suggestedItems="#{bindings.AllocationBasis1.suggestedItems}"/>
-                            </af:inputListOfValues>
+                                <af:autoSuggestBehavior suggestedItems="#{bindings.AllocationBasis1.suggestedItems}"/>
+                            </af:inputComboboxListOfValues>
                             <af:inputText value="#{bindings.CostGroup1.inputValue}"
                                           label="#{bindings.CostGroup1.hints.label}"
                                           required="#{bindings.CostGroup1.hints.mandatory}"

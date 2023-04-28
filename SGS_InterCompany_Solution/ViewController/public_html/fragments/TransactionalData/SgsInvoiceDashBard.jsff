@@ -587,23 +587,12 @@
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1creditMemo"
                               binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}">
-                        <af:dialog id="d2" type="cancel">
+                        <af:dialog id="d2" type="none">
                             <f:facet name="buttonBar"/>
                             <af:panelBox text="Invoice Credit Memo Dash Board" id="pb2" inlineStyle="width:1400px">
                                 <f:facet name="toolbar"/>
                                 <af:panelFormLayout id="pfl3" maxColumns="2" rows="2">
-                                    <f:facet name="footer">
-                                        <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
-                                            <af:button text="Generate" id="b13"
-                                                       actionListener="#{viewScope.ActionEventsBean.creditMemoSubmitApprovals}"/>
-                                            <af:spacer id="s5"/>
-                                            <af:button text="Submit" id="b15"
-                                                       actionListener="#{viewScope.ActionEventsBean.onCreditMemoSubmit}"/>
-                                            <af:spacer id="s6"/>
-                                            <af:button text="Close" id="b14"
-                                                       actionListener="#{viewScope.ActionEventsBean.onCreditPopupClose}"/>
-                                        </af:panelGroupLayout>
-                                    </f:facet>
+                                    <f:facet name="footer"/>
                                     <af:inputDate label="Credit Date" id="id5"  
                                     binding="#{viewScope.ActionEventsBean.creditDateBindVal}"
                                                   autoSubmit="true"/>
@@ -627,7 +616,7 @@
                                                         shortDesc="#{bindings.ReversalTypeLOVVO1.hints.tooltip}"
                                                         id="soc8" partialTriggers="pgl4 it2 ot2"
                                                         valueChangeListener="#{viewScope.ActionEventsBean.onReversalTypeVL}"
-                                                        autoSubmit="true">
+                                                        autoSubmit="true" readOnly="true">
                                         <f:selectItems value="#{bindings.ReversalTypeLOVVO1.items}" id="si8"/>
                                         <f:validator binding="#{bindings.ReversalTypeLOVVO1.validator}"/>
                                     </af:selectOneChoice>
@@ -680,13 +669,19 @@
                                         <f:validator binding="#{bindings.ReversalReasonLov.validator}"/>
                                     </af:selectOneChoice>-->
                                 </af:panelFormLayout>
+                                <af:spacer id="s7" height="5"/>
+                                <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
+                                    <af:button text="Generate" id="b13"
+                                               actionListener="#{viewScope.ActionEventsBean.creditMemoSubmitApprovals}"/>
+                                    <af:spacer id="s5" width="5"/>
+                                </af:panelGroupLayout>
                                 <af:spacer id="s4" height="20"/>
                                 <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
-                                            <af:button text="Save" id="b12"
-                                                       actionListener="#{viewScope.ActionEventsBean.onCreditMemoSave}"/>
+                                            <!--<af:button text="Save" id="b12"
+                                                       actionListener="#{viewScope.ActionEventsBean.onCreditMemoSave}"/>-->
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="statusbar"/>
@@ -920,6 +915,13 @@
                                 <af:region value="#{bindings.sgs_creditmemo_flow1.regionModel}" id="r1"
                                            styleClass="AFStretchWidth"/>
                             </af:panelGroupLayout>-->
+                            <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                <af:button text="Submit" id="b15"
+                                           actionListener="#{viewScope.ActionEventsBean.onCreditMemoSubmit}"/>
+                                <af:spacer id="s6" width="5"/>
+                                <af:button text="Close" id="b14"
+                                           actionListener="#{viewScope.ActionEventsBean.onCreditPopupClose}"/>
+                            </af:panelGroupLayout>
                         </af:dialog>
                     </af:popup>
                 </af:panelCollection>

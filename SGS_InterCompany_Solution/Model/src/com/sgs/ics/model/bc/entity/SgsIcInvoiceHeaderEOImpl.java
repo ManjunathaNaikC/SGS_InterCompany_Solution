@@ -83,6 +83,9 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         REVERSALREASON,
         NATUREOFEXPENSE,
         REVINVNUM,
+        CGSTAMOUNT,
+        IGSTAMOUNT,
+        SGSTAMOUNT,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -164,6 +167,9 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public static final int REVERSALREASON = AttributesEnum.REVERSALREASON.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int REVINVNUM = AttributesEnum.REVINVNUM.index();
+    public static final int CGSTAMOUNT = AttributesEnum.CGSTAMOUNT.index();
+    public static final int IGSTAMOUNT = AttributesEnum.IGSTAMOUNT.index();
+    public static final int SGSTAMOUNT = AttributesEnum.SGSTAMOUNT.index();
     public static final int SGSICINVOICELINEEO = AttributesEnum.SgsIcInvoiceLineEO.index();
 
     /**
@@ -1074,6 +1080,54 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      */
     public void setREVINVNUM(BigDecimal value) {
         setAttributeInternal(REVINVNUM, value);
+    }
+
+    /**
+     * Gets the attribute value for CGSTAMOUNT, using the alias name CGSTAMOUNT.
+     * @return the value of CGSTAMOUNT
+     */
+    public BigDecimal getCGSTAMOUNT() {
+        return (BigDecimal) getAttributeInternal(CGSTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CGSTAMOUNT.
+     * @param value value to set the CGSTAMOUNT
+     */
+    public void setCGSTAMOUNT(BigDecimal value) {
+        setAttributeInternal(CGSTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for IGSTAMOUNT, using the alias name IGSTAMOUNT.
+     * @return the value of IGSTAMOUNT
+     */
+    public BigDecimal getIGSTAMOUNT() {
+        return (BigDecimal) getAttributeInternal(IGSTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IGSTAMOUNT.
+     * @param value value to set the IGSTAMOUNT
+     */
+    public void setIGSTAMOUNT(BigDecimal value) {
+        setAttributeInternal(IGSTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for SGSTAMOUNT, using the alias name SGSTAMOUNT.
+     * @return the value of SGSTAMOUNT
+     */
+    public BigDecimal getSGSTAMOUNT() {
+        return (BigDecimal) getAttributeInternal(SGSTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SGSTAMOUNT.
+     * @param value value to set the SGSTAMOUNT
+     */
+    public void setSGSTAMOUNT(BigDecimal value) {
+        setAttributeInternal(SGSTAMOUNT, value);
     }
 
     /**

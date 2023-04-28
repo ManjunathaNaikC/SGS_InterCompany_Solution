@@ -128,7 +128,8 @@
        SgsStatisticalDataEO.FROM_OU,   
        SgsStatisticalDataEO.NATURE_OF_EXPENSE,
        SgsStatisticalDataEO.TRANSACTION_PERIOD
-FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO]]></SQLQuery>
+FROM  SGS_STATISTICAL_DATA_TBL SgsStatisticalDataEO
+WHERE SgsStatisticalDataEO.APPROVE_STATUS='Approved']]></SQLQuery>
   <ViewAttribute
     Name="ATTRIBUTE1"
     IsUpdateable="false"

@@ -160,6 +160,7 @@
           <Item Value="FROMJOBCODE"/>
           <Item Value="FROMOU"/>
           <Item Value="NATUREOFEXPENSE"/>
+          <Item Value="TRANSACTIONPERIOD"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

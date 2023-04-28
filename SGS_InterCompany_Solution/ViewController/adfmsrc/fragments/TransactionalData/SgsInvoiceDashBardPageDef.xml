@@ -77,6 +77,9 @@
           <Item Value="REVERSALREASON"/>
           <Item Value="NATUREOFEXPENSE"/>
           <Item Value="REVINVNUM"/>
+          <Item Value="CGSTAMOUNT"/>
+          <Item Value="IGSTAMOUNT"/>
+          <Item Value="SGSTAMOUNT"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

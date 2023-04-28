@@ -109,78 +109,81 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT SgsIcInvoiceHeaderEO.INVOICE_SEQ_NO,  
-       SgsIcInvoiceHeaderEO.PERIOD,  
-       SgsIcInvoiceHeaderEO.TPA_ID,  
-       SgsIcInvoiceHeaderEO.TRANSACTION_CATEGORY,  
-       SgsIcInvoiceHeaderEO.TRANSACTION_TYPE,  
-       SgsIcInvoiceHeaderEO.IU_VENDOR,  
-       SgsIcInvoiceHeaderEO.SOURCE_BU,  
-       SgsIcInvoiceHeaderEO.SOURCE_CURRENCY,  
-       SgsIcInvoiceHeaderEO.SOURCE_AMOUNT,  
-       SgsIcInvoiceHeaderEO.IU_CUSTOMER,  
-       SgsIcInvoiceHeaderEO.TARGET_BU,  
-       SgsIcInvoiceHeaderEO.ACCOUNTING_TREATMENT,  
-(CASE  WHEN SgsIcInvoiceHeaderEO.MARKUP_RATE =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.MARKUP_RATE
-	   END) AS MARKUP_RATE,	   
-       SgsIcInvoiceHeaderEO.TARGET_CURRENCY,  
-       SgsIcInvoiceHeaderEO.INVOICE_HEADER_AMOUNT,  
-(CASE  WHEN SgsIcInvoiceHeaderEO.MARKUP_AMOUNT =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.MARKUP_AMOUNT
-	   END) AS MARKUP_AMOUNT,	   
-       SgsIcInvoiceHeaderEO.BASE_AMOUNT_BEFORE_TAX,  
-       SgsIcInvoiceHeaderEO.GST_VAT_RATE,  
-       SgsIcInvoiceHeaderEO.GST_VAT_AMOUNT,  
-       SgsIcInvoiceHeaderEO.TOTAL_AMOUNT_AFTER_TAX,  
-(CASE  WHEN SgsIcInvoiceHeaderEO.WHT_RATE =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.WHT_RATE
-	   END) AS WHT_RATE,	   
-(CASE  WHEN SgsIcInvoiceHeaderEO.WHT_AMOUNT =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.WHT_AMOUNT
-	   END) AS WHT_AMOUNT,	   
-       SgsIcInvoiceHeaderEO.TRANSACTION_STATUS,  
-       SgsIcInvoiceHeaderEO.PAYMENT_STATUS,  
-       SgsIcInvoiceHeaderEO.PAID_AMOUNT,  
-       SgsIcInvoiceHeaderEO.REFERENCE_VOUCHER_NUM,  
-       SgsIcInvoiceHeaderEO.REFERENCE_INVOICE_NUM,  
-       SgsIcInvoiceHeaderEO.REVIEW_ACC_ENTRIES,  
-       SgsIcInvoiceHeaderEO.INPUT_PROVIDER,  
-       SgsIcInvoiceHeaderEO.CREATED_DATE,  
-       SgsIcInvoiceHeaderEO.CREATED_BY,  
-       SgsIcInvoiceHeaderEO.UPDATED_DATE,  
-       SgsIcInvoiceHeaderEO.UPDATED_BY,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE1,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE2,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE3,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE4,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE5,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE6,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE7,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE8,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE9,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE10,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE11,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE12,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE13,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE14,  
-       SgsIcInvoiceHeaderEO.ATTRIBUTE15,  
-       SgsIcInvoiceHeaderEO.ALLOCATED_HEADER_AMOUNT,  
-(CASE  WHEN SgsIcInvoiceHeaderEO.GST_AMNT =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.GST_AMNT
-	   END) AS GST_AMNT,	   
-(CASE  WHEN SgsIcInvoiceHeaderEO.GST_RATE =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.GST_RATE
-	   END) AS GST_RATE,	   
-(CASE  WHEN SgsIcInvoiceHeaderEO.VAT_AMNT =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.VAT_AMNT
-	   END) AS VAT_AMNT,	   
-       (CASE  WHEN SgsIcInvoiceHeaderEO.VAT_RATE =0.00 THEN null
-	   ELSE SgsIcInvoiceHeaderEO.VAT_RATE
-	   END) AS VAT_RATE,
-           SgsIcInvoiceHeaderEO.REVERSAL_REASON,
-           SgsIcInvoiceHeaderEO.NATURE_OF_EXPENSE,
-           SgsIcInvoiceHeaderEO.REV_INV_NUM
+  <SQLQuery><![CDATA[SELECT SgsIcInvoiceHeaderEO.INVOICE_SEQ_NO,     
+       SgsIcInvoiceHeaderEO.PERIOD,     
+       SgsIcInvoiceHeaderEO.TPA_ID,     
+       SgsIcInvoiceHeaderEO.TRANSACTION_CATEGORY,     
+       SgsIcInvoiceHeaderEO.TRANSACTION_TYPE,     
+       SgsIcInvoiceHeaderEO.IU_VENDOR,     
+       SgsIcInvoiceHeaderEO.SOURCE_BU,     
+       SgsIcInvoiceHeaderEO.SOURCE_CURRENCY,     
+       SgsIcInvoiceHeaderEO.SOURCE_AMOUNT,     
+       SgsIcInvoiceHeaderEO.IU_CUSTOMER,     
+       SgsIcInvoiceHeaderEO.TARGET_BU,     
+       SgsIcInvoiceHeaderEO.ACCOUNTING_TREATMENT,     
+(CASE  WHEN SgsIcInvoiceHeaderEO.MARKUP_RATE =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.MARKUP_RATE   
+	   END) AS MARKUP_RATE,	      
+       SgsIcInvoiceHeaderEO.TARGET_CURRENCY,     
+       SgsIcInvoiceHeaderEO.INVOICE_HEADER_AMOUNT,     
+(CASE  WHEN SgsIcInvoiceHeaderEO.MARKUP_AMOUNT =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.MARKUP_AMOUNT   
+	   END) AS MARKUP_AMOUNT,	      
+       SgsIcInvoiceHeaderEO.BASE_AMOUNT_BEFORE_TAX,     
+       SgsIcInvoiceHeaderEO.GST_VAT_RATE,     
+       SgsIcInvoiceHeaderEO.GST_VAT_AMOUNT,     
+       SgsIcInvoiceHeaderEO.TOTAL_AMOUNT_AFTER_TAX,     
+(CASE  WHEN SgsIcInvoiceHeaderEO.WHT_RATE =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.WHT_RATE   
+	   END) AS WHT_RATE,	      
+(CASE  WHEN SgsIcInvoiceHeaderEO.WHT_AMOUNT =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.WHT_AMOUNT   
+	   END) AS WHT_AMOUNT,	      
+       SgsIcInvoiceHeaderEO.TRANSACTION_STATUS,     
+       SgsIcInvoiceHeaderEO.PAYMENT_STATUS,     
+       SgsIcInvoiceHeaderEO.PAID_AMOUNT,     
+       SgsIcInvoiceHeaderEO.REFERENCE_VOUCHER_NUM,     
+       SgsIcInvoiceHeaderEO.REFERENCE_INVOICE_NUM,     
+       SgsIcInvoiceHeaderEO.REVIEW_ACC_ENTRIES,     
+       SgsIcInvoiceHeaderEO.INPUT_PROVIDER,     
+       SgsIcInvoiceHeaderEO.CREATED_DATE,     
+       SgsIcInvoiceHeaderEO.CREATED_BY,     
+       SgsIcInvoiceHeaderEO.UPDATED_DATE,     
+       SgsIcInvoiceHeaderEO.UPDATED_BY,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE1,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE2,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE3,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE4,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE5,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE6,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE7,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE8,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE9,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE10,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE11,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE12,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE13,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE14,     
+       SgsIcInvoiceHeaderEO.ATTRIBUTE15,     
+       SgsIcInvoiceHeaderEO.IGST_AMOUNT,  
+	   SgsIcInvoiceHeaderEO.CGST_AMOUNT, 
+	   SgsIcInvoiceHeaderEO.SGST_AMOUNT, 
+	   SgsIcInvoiceHeaderEO.ALLOCATED_HEADER_AMOUNT, 
+(CASE  WHEN SgsIcInvoiceHeaderEO.GST_AMNT =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.GST_AMNT   
+	   END) AS GST_AMNT,	  	   	      
+(CASE  WHEN SgsIcInvoiceHeaderEO.GST_RATE =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.GST_RATE   
+	   END) AS GST_RATE,	      
+(CASE  WHEN SgsIcInvoiceHeaderEO.VAT_AMNT =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.VAT_AMNT   
+	   END) AS VAT_AMNT,	      
+       (CASE  WHEN SgsIcInvoiceHeaderEO.VAT_RATE =0.00 THEN null   
+	   ELSE SgsIcInvoiceHeaderEO.VAT_RATE   
+	   END) AS VAT_RATE,   
+           SgsIcInvoiceHeaderEO.REVERSAL_REASON,   
+           SgsIcInvoiceHeaderEO.NATURE_OF_EXPENSE,   
+           SgsIcInvoiceHeaderEO.REV_INV_NUM   
 FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
   <EntityUsage
     Name="SgsIcInvoiceHeaderEO"
@@ -751,6 +754,45 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     EntityAttrName="Attribute15"
     EntityUsage="SgsIcInvoiceHeaderEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="IGSTAMOUNT"
+    PrecisionRule="true"
+    EntityAttrName="IGSTAMOUNT"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="IGST_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.IGSTAMOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CGSTAMOUNT"
+    PrecisionRule="true"
+    EntityAttrName="CGSTAMOUNT"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="CGST_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.CGSTAMOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SGSTAMOUNT"
+    PrecisionRule="true"
+    EntityAttrName="SGSTAMOUNT"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="SGST_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.SGSTAMOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ALLOCATEDHEADERAMOUNT"
     PrecisionRule="true"

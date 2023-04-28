@@ -220,8 +220,8 @@
                                       filterVisible="false"
                                       queryListener="#{bindings.SgsCostIdentificationRuleVOQuery.processQuery}"
                                       varStatus="vs" id="resId1" partialTriggers="::b1" 
-                                      columnStretching="last" inlineStyle="height:250px;" autoHeightRows="10"
-                                      scrollPolicy="page" styleClass="setup">
+                                      columnStretching="last" inlineStyle="height:250px;" autoHeightRows="-1"
+                                      scrollPolicy="page" styleClass="setup AFStretchWidth">
                                 <!--<af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationName.label}"

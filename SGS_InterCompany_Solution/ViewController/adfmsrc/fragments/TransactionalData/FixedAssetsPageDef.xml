@@ -54,6 +54,7 @@
           <Item Value="VATRATE"/>
           <Item Value="SGTAMOUNT"/>
           <Item Value="ATTACHMENT"/>
+          <Item Value="Selected"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

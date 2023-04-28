@@ -434,7 +434,7 @@ public class ActionEventsBean {
         viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator").getViewObject();
         viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
         viewImpl.setWhereClause("MONTH(TRANSACTION_PERIOD) = '" + month[gcal.get(Calendar.MONTH)] +
-                                "'  and YEAR(TRANSACTION_PERIOD) ='" + gcal.get(Calendar.YEAR) + "'");
+                                "'  AND YEAR(TRANSACTION_PERIOD) ='" + gcal.get(Calendar.YEAR) + "'");
         viewImpl.executeQuery();
 
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
@@ -493,6 +493,7 @@ public class ActionEventsBean {
                 row.setAttribute("ToOperatingUnit", previousMonthDatarows[i].getAttribute("TOOPERATINGUNIT"));
                 row.setAttribute("ToJobCode", previousMonthDatarows[i].getAttribute("TOJOBCODE"));
                 row.setAttribute("ToBusinessUnit", previousMonthDatarows[i].getAttribute("TOBUSINESSUNIT"));
+                row.setAttribute("TRANSACTIONPERIOD", previousMonthDatarows[i].getAttribute("TRANSACTIONPERIOD"));
 
 
             }
@@ -2131,5 +2132,7 @@ public class ActionEventsBean {
             }
         }
     }
+
+
 }
 

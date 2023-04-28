@@ -17,14 +17,6 @@
   FetchMode="FETCH_AS_NEEDED"
   AccessMode="RANGE_PAGING">
   <Variable
-    Name="bStatsCategory"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="bStastiticalData"
-    Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
     Name="bBusinessUnit"
     Kind="viewcriteria"
     Type="java.lang.String"/>
@@ -51,6 +43,14 @@
     Name="bTransactionPeriod"
     Kind="viewcriteria"
     Type="java.sql.Date"/>
+  <Variable
+    Name="approvalStatus"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindNatureOfExpense"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="CostGroupLOV1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.CostGroupLOV"
@@ -1057,14 +1057,6 @@
       Name="SgsStatisticalDataVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="StatisticalDataCategory"
-        ViewAttribute="StatisticalDataCategory"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":bStatsCategory"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="ToBusinessUnit"
         ViewAttribute="ToBusinessUnit"
         Operator="CONTAINS"
@@ -1094,6 +1086,22 @@
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bInputProvider"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="NATUREOFEXPENSE"
+        ViewAttribute="NATUREOFEXPENSE"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindNatureOfExpense"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="APPROVESTATUS"
+        ViewAttribute="APPROVESTATUS"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":approvalStatus"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

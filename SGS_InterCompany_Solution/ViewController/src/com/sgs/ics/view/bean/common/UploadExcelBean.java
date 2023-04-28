@@ -567,4 +567,9 @@ public class UploadExcelBean {
         }
 
 
+    public void creditUploadActionEvent(ActionEvent actionEvent) {
+        // Add event code here...
+        executeOperation("ExecuteStatisticalData").execute();
+        ADFUtils.saveNotifier();
+    }
 }

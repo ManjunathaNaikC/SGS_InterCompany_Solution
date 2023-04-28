@@ -19,7 +19,10 @@ import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichSelectBooleanCheckbox;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
+
+import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
@@ -42,6 +45,8 @@ public class UploadInInvoice {
     private RichPopup adjEntryPopupBind;
     private static final ADFLogger LOG = ADFLogger.createADFLogger(UploadInInvoice.class);
     private SGSAppModuleImpl am = new SGSAppModuleImpl();
+    private RichSelectBooleanCheckbox digitalPLBind;
+    private RichSelectBooleanCheckbox taxApplicaBind;
 
     public UploadInInvoice() {
     }
@@ -320,9 +325,13 @@ public class UploadInInvoice {
     public void adjEntrySave(ActionEvent actionEvent) {
         // Add event code here...
         String nature_value = adjNatureofExpBind.getValue().toString();
-        String reversEntry = adjReverseEntryBind.getValue().toString();
+//        String reversEntry = adjReverseEntryBind.getValue().toString();
         String txnCategory = adjTxnCategoryBind.getValue().toString();
-        
+        String digitalPL = digitalPLBind.getValue().toString();
+        System.out.println("Digital P&L : "+digitalPL);
+        String AddExpQualifier = (String) AdfFacesContext.getCurrentInstance()
+                                    .getPageFlowScope().get("selectedAddExpQualifier");
+//        String taxApplicable = taxApplicaBind.getValue().toString();
         String lookup = null;
         
         BindingContainer bindings = getBindingsCont();
@@ -345,15 +354,19 @@ public class UploadInInvoice {
         String alloc_basis = "ADJUSTMENT_ENTRY";
         
         for(oracle.jbo.Row rw:selectedRows){
-        if (null != adjNatureofExpBind.getValue() && null != adjReverseEntryBind.getValue() && null != adjTxnCategoryBind.getValue()) {
+        if (null != adjNatureofExpBind.getValue()) {
             LOG.info("Nature of Expense : " + lookup);
             rw.setAttribute("NatureOfExpense", lookup);
-            rw.setAttribute("REVERSABLEENTRY", reversEntry);
+//            rw.setAttribute("REVERSABLEENTRY", reversEntry);
             rw.setAttribute("TRANSACTIONCATEGORY", txnCategory);
             rw.setAttribute("AllocationBasis", alloc_basis);  
             rw.setAttribute("AllocationStatus", status);
+            rw.setAttribute("AdditionalExpQualifier", AddExpQualifier);
             
             }
+            if(digitalPL =="true"){
+                rw.setAttribute("TXNTYPE", "Digital P&L");
+                }
         }
         executeOperation("Commit").execute();
         adjNatureofExpBind.setValue(null);
@@ -456,5 +469,21 @@ public class UploadInInvoice {
 
     public RichPopup getAdjEntryPopupBind() {
         return adjEntryPopupBind;
+    }
+
+    public void setDigitalPLBind(RichSelectBooleanCheckbox digitalPLBind) {
+        this.digitalPLBind = digitalPLBind;
+    }
+
+    public RichSelectBooleanCheckbox getDigitalPLBind() {
+        return digitalPLBind;
+    }
+
+    public void setTaxApplicaBind(RichSelectBooleanCheckbox taxApplicaBind) {
+        this.taxApplicaBind = taxApplicaBind;
+    }
+
+    public RichSelectBooleanCheckbox getTaxApplicaBind() {
+        return taxApplicaBind;
     }
 }

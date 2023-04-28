@@ -181,5 +181,34 @@
         <Item Value="MEANING"/>
       </AttrNames>
     </list>
+    <list IterBinding="SgsDrtCrossChargeVO1Iterator" StaticList="false" Uses="LOV_AdditionalExpQualifier"
+          id="AdditionalExpQualifier" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <button IterBinding="SgsDrtCrossChargeVO1Iterator" id="Digital_PL1" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="Digital_PL"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="SgsDrtCrossChargeVO1Iterator" id="TaxApplicability1" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="TaxApplicability"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="SgsDrtCrossChargeVO1Iterator" id="REVERSABLEENTRY" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="REVERSABLEENTRY"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

@@ -412,6 +412,74 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="AdditionalExpQualifier"
+    Precision="80"
+    ColumnName="Additional_Exp_Qualifier"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_DRTCROSS_CHARGE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO.AdditionalExpQualifier_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TaxApplicability"
+    Precision="1"
+    ColumnName="Tax_Applicability"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_DRTCROSS_CHARGE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO.TaxApplicability_LABEL"/>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Digital_PL"
+    Precision="80"
+    ColumnName="Digital_PL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO.Digital_PL_LABEL"/>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TXNTYPE"
+    Precision="80"
+    ColumnName="TXN_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_DRTCROSS_CHARGE_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSDRTCROSSCHARGETBL"
     PrimaryKey="true">
@@ -422,4 +490,8 @@
       <Item Value="com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO.DrtcrossChargeId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

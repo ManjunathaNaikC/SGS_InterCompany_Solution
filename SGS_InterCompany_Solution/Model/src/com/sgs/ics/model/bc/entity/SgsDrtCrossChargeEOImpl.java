@@ -61,7 +61,11 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
         TargetGlAccountDr,
         AllocationStatus,
         REVERSABLEENTRY,
-        TRANSACTIONCATEGORY;
+        TRANSACTIONCATEGORY,
+        AdditionalExpQualifier,
+        TaxApplicability,
+        Digital_PL,
+        TXNTYPE;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -125,6 +129,10 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
     public static final int ALLOCATIONSTATUS = AttributesEnum.AllocationStatus.index();
     public static final int REVERSABLEENTRY = AttributesEnum.REVERSABLEENTRY.index();
     public static final int TRANSACTIONCATEGORY = AttributesEnum.TRANSACTIONCATEGORY.index();
+    public static final int ADDITIONALEXPQUALIFIER = AttributesEnum.AdditionalExpQualifier.index();
+    public static final int TAXAPPLICABILITY = AttributesEnum.TaxApplicability.index();
+    public static final int DIGITAL_PL = AttributesEnum.Digital_PL.index();
+    public static final int TXNTYPE = AttributesEnum.TXNTYPE.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -747,6 +755,70 @@ public class SgsDrtCrossChargeEOImpl extends EntityImpl {
      */
     public void setTRANSACTIONCATEGORY(String value) {
         setAttributeInternal(TRANSACTIONCATEGORY, value);
+    }
+
+    /**
+     * Gets the attribute value for AdditionalExpQualifier, using the alias name AdditionalExpQualifier.
+     * @return the value of AdditionalExpQualifier
+     */
+    public String getAdditionalExpQualifier() {
+        return (String) getAttributeInternal(ADDITIONALEXPQUALIFIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for AdditionalExpQualifier.
+     * @param value value to set the AdditionalExpQualifier
+     */
+    public void setAdditionalExpQualifier(String value) {
+        setAttributeInternal(ADDITIONALEXPQUALIFIER, value);
+    }
+
+    /**
+     * Gets the attribute value for TaxApplicability, using the alias name TaxApplicability.
+     * @return the value of TaxApplicability
+     */
+    public String getTaxApplicability() {
+        return (String) getAttributeInternal(TAXAPPLICABILITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TaxApplicability.
+     * @param value value to set the TaxApplicability
+     */
+    public void setTaxApplicability(String value) {
+        setAttributeInternal(TAXAPPLICABILITY, value);
+    }
+
+    /**
+     * Gets the attribute value for Digital_PL, using the alias name Digital_PL.
+     * @return the value of Digital_PL
+     */
+    public String getDigital_PL() {
+        return (String) getAttributeInternal(DIGITAL_PL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Digital_PL.
+     * @param value value to set the Digital_PL
+     */
+    public void setDigital_PL(String value) {
+        setAttributeInternal(DIGITAL_PL, value);
+    }
+
+    /**
+     * Gets the attribute value for TXNTYPE, using the alias name TXNTYPE.
+     * @return the value of TXNTYPE
+     */
+    public String getTXNTYPE() {
+        return (String) getAttributeInternal(TXNTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TXNTYPE.
+     * @param value value to set the TXNTYPE
+     */
+    public void setTXNTYPE(String value) {
+        setAttributeInternal(TXNTYPE, value);
     }
 
     /**

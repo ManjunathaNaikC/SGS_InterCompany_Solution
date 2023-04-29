@@ -20,6 +20,28 @@
         ResId="com.sgs.ics.model.bc.view.SgsDrtCrossChargeVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <ViewAccessor
+    Name="SgsAddExpQuFVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsAddExpQuFVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_AdditionalExpQualifier"
+    ListVOName="SgsAddExpQuFVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AdditionalExpQualifier"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsDrtCrossChargeEO"
     Entity="com.sgs.ics.model.bc.entity.SgsDrtCrossChargeEO"/>
@@ -155,13 +177,74 @@
     PrecisionRule="true"
     EntityAttrName="REVERSABLEENTRY"
     EntityUsage="SgsDrtCrossChargeEO"
-    AliasName="REVERSABLE_ENTRY"/>
+    AliasName="REVERSABLE_ENTRY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsDrtCrossChargeVO.REVERSABLEENTRY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TRANSACTIONCATEGORY"
     PrecisionRule="true"
     EntityAttrName="TRANSACTIONCATEGORY"
     EntityUsage="SgsDrtCrossChargeEO"
     AliasName="TRANSACTION_CATEGORY"/>
+  <ViewAttribute
+    Name="AdditionalExpQualifier"
+    PrecisionRule="true"
+    EntityAttrName="AdditionalExpQualifier"
+    EntityUsage="SgsDrtCrossChargeEO"
+    AliasName="Additional_Exp_Qualifier"
+    LOVName="LOV_AdditionalExpQualifier">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TaxApplicability"
+    PrecisionRule="true"
+    EntityAttrName="TaxApplicability"
+    EntityUsage="SgsDrtCrossChargeEO"
+    AliasName="Tax_Applicability"/>
+  <ViewAttribute
+    Name="Digital_PL"
+    PrecisionRule="true"
+    EntityAttrName="Digital_PL"
+    EntityUsage="SgsDrtCrossChargeEO"
+    AliasName="Digital_PL"
+    IsQueriable="false"
+    IsPersistent="false"/>
+  <ViewAttribute
+    Name="Attribute1"
+    PrecisionRule="true"
+    EntityAttrName="Attribute1"
+    EntityUsage="SgsDrtCrossChargeEO"
+    AliasName="ATTRIBUTE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsDrtCrossChargeVO.Attribute1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TXNTYPE"
+    PrecisionRule="true"
+    EntityAttrName="TXNTYPE"
+    EntityUsage="SgsDrtCrossChargeEO"
+    AliasName="TXN_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsDrtCrossChargeVO.TXNTYPE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

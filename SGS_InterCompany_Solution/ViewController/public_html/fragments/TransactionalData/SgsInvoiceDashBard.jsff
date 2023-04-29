@@ -496,26 +496,64 @@
                                                     label="Nature of Expense"
                                                     required="#{bindings.MEANING.hints.mandatory}"
                                                     shortDesc="#{bindings.MEANING.hints.tooltip}" id="soc2"
-                                                    binding="#{pageFlowScope.UploadInInvoice.adjNatureofExpBind}">
+                                                    binding="#{pageFlowScope.UploadInInvoice.adjNatureofExpBind}"
+                                                    autoSubmit="true">
                                     <f:selectItems value="#{bindings.MEANING.items}" id="si1"/>
                                     <f:validator binding="#{bindings.MEANING.validator}"/>
                                 </af:selectOneChoice>
-                                <af:selectOneChoice value="#{bindings.YesOrNoLookupVO1.inputValue}"
+                                <af:selectOneChoice value="#{pageFlowScope.selectedAddExpQualifier}"
+                                                    label="#{bindings.AdditionalExpQualifier.label}"
+                                                    required="#{bindings.AdditionalExpQualifier.hints.mandatory}"
+                                                    shortDesc="#{bindings.AdditionalExpQualifier.hints.tooltip}"
+                                                    id="soc11">
+                                    <f:selectItems value="#{bindings.AdditionalExpQualifier.items}" id="si11digitalPLBind"/>
+                                    <f:validator binding="#{bindings.AdditionalExpQualifier.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectBooleanCheckbox value="#{bindings.Digital_PL1.inputValue}"
+                                                          label="#{bindings.Digital_PL1.label}"
+                                                          shortDesc="#{bindings.Digital_PL1.hints.tooltip}" id="sbc5"
+                                                          binding="#{pageFlowScope.UploadInInvoice.digitalPLBind}"
+                                                          autoSubmit="true" partialTriggers="soc2"
+                                                          rendered="#{bindings.MEANING.inputValue == 'IT Expenses' ? true:false}"/>
+                                <!--<af:selectBooleanCheckbox value="#{bindings.Digital_PL.inputValue}"
+                                                          label="#{bindings.Digital_PL.label}"
+                                                          shortDesc="#{bindings.Digital_PL.hints.tooltip}" id="sbc5"
+                                                          binding="#{pageFlowScope.UploadInInvoice.digitalPLBind}"
+                                                          autoSubmit="true"/>-->
+                                <af:selectOneChoice value="#{bindings.TxnCategoryLOVVO1.inputValue}"
+                                                    label="Transaction Category"
+                                                    required="#{bindings.TxnCategoryLOVVO1.hints.mandatory}"
+                                                    shortDesc="#{bindings.TxnCategoryLOVVO1.hints.tooltip}" id="soc4"
+                                                    binding="#{pageFlowScope.UploadInInvoice.adjTxnCategoryBind}"
+                                                    autoSubmit="true">
+                                    <f:selectItems value="#{bindings.TxnCategoryLOVVO1.items}" id="si4"/>
+                                    <f:validator binding="#{bindings.TxnCategoryLOVVO1.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectBooleanCheckbox value="#{bindings.REVERSABLEENTRY.inputValue}"
+                                                          label="#{bindings.REVERSABLEENTRY.label}"
+                                                          shortDesc="#{bindings.REVERSABLEENTRY.hints.tooltip}"
+                                                          id="sbc7" autoSubmit="true" partialTriggers="soc4"
+                                                          rendered="#{bindings.TxnCategoryLOVVO1.inputValue == 'Journal' ? true:false}"/>
+                                <!--<af:selectOneChoice value="#{bindings.YesOrNoLookupVO1.inputValue}"
                                                     label="Reversable Entry"
                                                     required="#{bindings.YesOrNoLookupVO1.hints.mandatory}"
                                                     shortDesc="#{bindings.YesOrNoLookupVO1.hints.tooltip}" id="soc3"
                                                     binding="#{pageFlowScope.UploadInInvoice.adjReverseEntryBind}">
                                     <f:selectItems value="#{bindings.YesOrNoLookupVO1.items}" id="si3"/>
                                     <f:validator binding="#{bindings.YesOrNoLookupVO1.validator}"/>
-                                </af:selectOneChoice>
-                                <af:selectOneChoice value="#{bindings.TxnCategoryLOVVO1.inputValue}"
-                                                    label="Transaction Category"
-                                                    required="#{bindings.TxnCategoryLOVVO1.hints.mandatory}"
-                                                    shortDesc="#{bindings.TxnCategoryLOVVO1.hints.tooltip}" id="soc4"
-                                                    binding="#{pageFlowScope.UploadInInvoice.adjTxnCategoryBind}">
-                                    <f:selectItems value="#{bindings.TxnCategoryLOVVO1.items}" id="si4"/>
-                                    <f:validator binding="#{bindings.TxnCategoryLOVVO1.validator}"/>
-                                </af:selectOneChoice>
+                                </af:selectOneChoice>-->
+                                <af:selectBooleanCheckbox value="#{bindings.TaxApplicability1.inputValue}"
+                                                          label="#{bindings.TaxApplicability1.label}"
+                                                          shortDesc="#{bindings.TaxApplicability1.hints.tooltip}"
+                                                          id="sbc6"
+                                                          binding="#{pageFlowScope.UploadInInvoice.taxApplicaBind}"
+                                                          autoSubmit="true"/>
+                                <!--<af:selectBooleanCheckbox value="#{bindings.TaxApplicability.inputValue}"
+                                                          label="#{bindings.TaxApplicability.label}"
+                                                          shortDesc="#{bindings.TaxApplicability.hints.tooltip}"
+                                                          id="sbc6"
+                                                          binding="#{pageFlowScope.UploadInInvoice.taxApplicaBind}"
+                                                          autoSubmit="true"/>-->
                             </af:panelFormLayout>
                             <af:spacer id="s2upload" height="10px"/>
                             <af:inputFile label="Select File" id="if2" labelStyle="font-weight:bold;color:navy;"

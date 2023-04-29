@@ -434,7 +434,7 @@ public class ActionEventsBean {
         viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsStatisticalPreviousMonthVO1Iterator").getViewObject();
         viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
         viewImpl.setWhereClause("MONTH(TRANSACTION_PERIOD) = '" + month[gcal.get(Calendar.MONTH)] +
-                                "'  and YEAR(TRANSACTION_PERIOD) ='" + gcal.get(Calendar.YEAR) + "'");
+                                "'  AND YEAR(TRANSACTION_PERIOD) ='" + gcal.get(Calendar.YEAR) + "'");
         viewImpl.executeQuery();
 
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
@@ -493,6 +493,7 @@ public class ActionEventsBean {
                 row.setAttribute("ToOperatingUnit", previousMonthDatarows[i].getAttribute("TOOPERATINGUNIT"));
                 row.setAttribute("ToJobCode", previousMonthDatarows[i].getAttribute("TOJOBCODE"));
                 row.setAttribute("ToBusinessUnit", previousMonthDatarows[i].getAttribute("TOBUSINESSUNIT"));
+                row.setAttribute("TRANSACTIONPERIOD", previousMonthDatarows[i].getAttribute("TRANSACTIONPERIOD"));
 
 
             }
@@ -1782,6 +1783,7 @@ public class ActionEventsBean {
     public void onCreditTransactionActionButton(ActionEvent actionEvent) {
         DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
         DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+        //creditData.getViewObject().executeQuery();
         oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
         CommonUtils util = new CommonUtils();
         int nonInvoice=0;
@@ -1861,7 +1863,7 @@ public class ActionEventsBean {
             context.addMessage(null, fm);
         } else {
 
-            executeBinding(SAVE_DATA);
+            //executeBinding(SAVE_DATA);
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             this.invoicecreditmemobindpopup.show(hints);
         }
@@ -1898,6 +1900,7 @@ public class ActionEventsBean {
     }
 
     public void onCreditPopupClose(ActionEvent actionEvent) {
+        executeBinding("Rollback");
         invoicecreditmemobindpopup.hide();
     }
 
@@ -2131,5 +2134,7 @@ public class ActionEventsBean {
             }
         }
     }
+
+
 }
 

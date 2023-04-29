@@ -588,6 +588,33 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="CGSTAMOUNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="CGST_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="IGSTAMOUNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="IGST_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="SGSTAMOUNT"
+    Precision="20"
+    Scale="2"
+    ColumnName="SGST_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="IC_INVOICE_HEADER"/>
   <AccessorAttribute
     Name="SgsIcInvoiceLineEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

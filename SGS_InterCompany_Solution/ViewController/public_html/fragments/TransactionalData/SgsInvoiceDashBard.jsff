@@ -533,7 +533,8 @@
                                                           label="#{bindings.REVERSABLEENTRY.label}"
                                                           shortDesc="#{bindings.REVERSABLEENTRY.hints.tooltip}"
                                                           id="sbc7" autoSubmit="true" partialTriggers="soc4"
-                                                          rendered="#{bindings.TxnCategoryLOVVO1.inputValue == 'Journal' ? true:false}"/>
+                                                          rendered="#{bindings.TxnCategoryLOVVO1.inputValue == 'Journal' ? true:false}"
+                                                          binding="#{pageFlowScope.UploadInInvoice.reverseEntryBind}"/>
                                 <!--<af:selectOneChoice value="#{bindings.YesOrNoLookupVO1.inputValue}"
                                                     label="Reversable Entry"
                                                     required="#{bindings.YesOrNoLookupVO1.hints.mandatory}"

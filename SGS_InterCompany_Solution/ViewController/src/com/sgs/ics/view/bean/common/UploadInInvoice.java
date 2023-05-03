@@ -47,6 +47,7 @@ public class UploadInInvoice {
     private SGSAppModuleImpl am = new SGSAppModuleImpl();
     private RichSelectBooleanCheckbox digitalPLBind;
     private RichSelectBooleanCheckbox taxApplicaBind;
+    private RichSelectBooleanCheckbox reverseEntryBind;
 
     public UploadInInvoice() {
     }
@@ -319,61 +320,79 @@ public class UploadInInvoice {
     }
     
     
-    /**    
+    /**
      *Save button on the popup for Upload Adjustment Entries button
-    */                                                 
+     */
     public void adjEntrySave(ActionEvent actionEvent) {
         // Add event code here...
         String nature_value = adjNatureofExpBind.getValue().toString();
-//        String reversEntry = adjReverseEntryBind.getValue().toString();
+        String reversEntry = reverseEntryBind.getValue().toString();
         String txnCategory = adjTxnCategoryBind.getValue().toString();
         String digitalPL = digitalPLBind.getValue().toString();
-        System.out.println("Digital P&L : "+digitalPL);
+        System.out.println("Digital P&L : " + digitalPL);
         String AddExpQualifier = (String) AdfFacesContext.getCurrentInstance()
-                                    .getPageFlowScope().get("selectedAddExpQualifier");
-//        String taxApplicable = taxApplicaBind.getValue().toString();
+                                                         .getPageFlowScope()
+                                                         .get("selectedAddExpQualifier");
+        String taxApplicable = taxApplicaBind.getValue().toString();
         String lookup = null;
-        
+
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding natureIter = (DCIteratorBinding) bindings.get("NatureOfExpenseLookupVO2Iterator");
         ViewObject natureVO = natureIter.getViewObject();
-       oracle.jbo.Row natRow= natureVO.getCurrentRow();
-       if(natRow.getAttribute("MEANING") == nature_value){
-             lookup = natRow.getAttribute("LOOKUPCODE").toString();
-             LOG.info("lookup code  : "+ lookup);
-           }
-        
-        
-    //        BindingContainer bindings = getBindingsCont();
+        oracle.jbo.Row natRow = natureVO.getCurrentRow();
+        if (natRow.getAttribute("MEANING") == nature_value) {
+            lookup = natRow.getAttribute("LOOKUPCODE").toString();
+            LOG.info("lookup code  : " + lookup);
+        }
+
+
+        //        BindingContainer bindings = getBindingsCont();
         DCIteratorBinding directIter = (DCIteratorBinding) bindings.get("SgsDrtCrossChargeVO1Iterator");
         ViewObject directCVO = directIter.getViewObject();
-        
-        oracle.jbo.Row[] selectedRows =directCVO.getFilteredRows("NatureOfExpense", null);
-        LOG.info("*****Selected rows****"+selectedRows.length);
+
+        oracle.jbo.Row[] selectedRows = directCVO.getFilteredRows("NatureOfExpense", null);
+        LOG.info("*****Selected rows****" + selectedRows.length);
         String status = "New";
-        String alloc_basis = "ADJUSTMENT_ENTRY";
-        
-        for(oracle.jbo.Row rw:selectedRows){
-        if (null != adjNatureofExpBind.getValue()) {
-            LOG.info("Nature of Expense : " + lookup);
-            rw.setAttribute("NatureOfExpense", lookup);
-//            rw.setAttribute("REVERSABLEENTRY", reversEntry);
-            rw.setAttribute("TRANSACTIONCATEGORY", txnCategory);
-            rw.setAttribute("AllocationBasis", alloc_basis);  
-            rw.setAttribute("AllocationStatus", status);
-            rw.setAttribute("AdditionalExpQualifier", AddExpQualifier);
-            
-            }
-            if(digitalPL =="true"){
-                rw.setAttribute("TXNTYPE", "Digital P&L");
+        String alloc_basis = "DIRECT_CROSS_CHARGE";
+//        String txn_type = "ADJUSTMENT_ENTRY";
+
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (null != adjNatureofExpBind.getValue()) {
+                LOG.info("Nature of Expense : " + lookup);
+                rw.setAttribute("NatureOfExpense", lookup);
+                //            rw.setAttribute("REVERSABLEENTRY", reversEntry);
+                rw.setAttribute("TRANSACTIONCATEGORY", txnCategory);
+                rw.setAttribute("AllocationBasis", alloc_basis);
+                rw.setAttribute("AllocationStatus", status);
+                rw.setAttribute("AdditionalExpQualifier", AddExpQualifier);
+                if ("true".equalsIgnoreCase(reversEntry)) {
+                    rw.setAttribute("REVERSABLEENTRY", "Y");
+                } else {
+                    rw.setAttribute("REVERSABLEENTRY", "N");
                 }
+
+                if ("true".equalsIgnoreCase(taxApplicable)) {
+                    rw.setAttribute("TaxApplicability", "Y");
+                } else {
+                    rw.setAttribute("TaxApplicability", "N");
+                }
+
+
+            }
+            if (digitalPL == "true") {
+                rw.setAttribute("TXNTYPE", "Digital P&L");
+            } else {
+                rw.setAttribute("TXNTYPE", "ADJUSTMENT_ENTRY");
+            }
         }
         executeOperation("Commit").execute();
         adjNatureofExpBind.setValue(null);
         adjEntryPopupBind.hide();
         ADFUtils.saveNotifier();
+       
         
-        
+
+
     }
     
     
@@ -485,5 +504,13 @@ public class UploadInInvoice {
 
     public RichSelectBooleanCheckbox getTaxApplicaBind() {
         return taxApplicaBind;
+    }
+
+    public void setReverseEntryBind(RichSelectBooleanCheckbox reverseEntryBind) {
+        this.reverseEntryBind = reverseEntryBind;
+    }
+
+    public RichSelectBooleanCheckbox getReverseEntryBind() {
+        return reverseEntryBind;
     }
 }

@@ -141,5 +141,14 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_PAYMENTBANKACCTKEY"
           id="PAYMENTBANKACCTKEY" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCreateSettlementVO1Iterator" StaticList="false" Uses="LOV_RECEIPTPURPOSECODE"
+          id="RECEIPTPURPOSECODE" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="SgsCreateSettlementVO1Iterator" StaticList="false" Uses="LOV_RECEIPTCURRENCY"
+          id="RECEIPTCURRENCY" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="TrxAmount">
+      <AttrNames>
+        <Item Value="TrxAmount"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

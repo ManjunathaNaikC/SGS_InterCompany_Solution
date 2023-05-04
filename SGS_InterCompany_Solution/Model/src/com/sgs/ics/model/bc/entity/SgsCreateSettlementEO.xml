@@ -460,6 +460,30 @@
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="RECEIPTCURRENCY"
+    Precision="100"
+    ColumnName="RECEIPT_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RECEIPTPURPOSECODE"
+    Precision="100"
+    ColumnName="RECEIPT_PURPOSE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_CREATE_SETTLEMENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSCREATESETTLEMENT"
     PrimaryKey="true">

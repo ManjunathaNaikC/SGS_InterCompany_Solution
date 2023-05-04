@@ -1,0 +1,19 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsCreateSettlementVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupRctPurCodeVO", name="bLookupType")
+def bLookupType_SgsLookupRctPurCodeVO_BindVariable_BoundParameter()
+{
+'RECEIPT_PURPOSE_CODE'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupRctCurrVO", name="bLookupType")
+def bLookupType_SgsLookupRctCurrVO_BindVariable_BoundParameter()
+{
+'RECEIPT_CURRENCY'
+}
+

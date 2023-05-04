@@ -69,9 +69,10 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
         PSVOUCHERNUMBER,
         SETTLEMENTAMOUNT,
         SETTLEMENTSTATUS,
-        TRANSACTIONCURRENCY;
+        TRANSACTIONCURRENCY,
+        RECEIPTCURRENCY,
+        RECEIPTPURPOSECODE;
         private static AttributesEnum[] vals = null;
-        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -139,6 +140,8 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
     public static final int SETTLEMENTAMOUNT = AttributesEnum.SETTLEMENTAMOUNT.index();
     public static final int SETTLEMENTSTATUS = AttributesEnum.SETTLEMENTSTATUS.index();
     public static final int TRANSACTIONCURRENCY = AttributesEnum.TRANSACTIONCURRENCY.index();
+    public static final int RECEIPTCURRENCY = AttributesEnum.RECEIPTCURRENCY.index();
+    public static final int RECEIPTPURPOSECODE = AttributesEnum.RECEIPTPURPOSECODE.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -858,6 +861,38 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
         setAttributeInternal(TRANSACTIONCURRENCY, value);
     }
 
+
+    /**
+     * Gets the attribute value for RECEIPTCURRENCY, using the alias name RECEIPTCURRENCY.
+     * @return the value of RECEIPTCURRENCY
+     */
+    public String getRECEIPTCURRENCY() {
+        return (String) getAttributeInternal(RECEIPTCURRENCY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RECEIPTCURRENCY.
+     * @param value value to set the RECEIPTCURRENCY
+     */
+    public void setRECEIPTCURRENCY(String value) {
+        setAttributeInternal(RECEIPTCURRENCY, value);
+    }
+
+    /**
+     * Gets the attribute value for RECEIPTPURPOSECODE, using the alias name RECEIPTPURPOSECODE.
+     * @return the value of RECEIPTPURPOSECODE
+     */
+    public String getRECEIPTPURPOSECODE() {
+        return (String) getAttributeInternal(RECEIPTPURPOSECODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RECEIPTPURPOSECODE.
+     * @param value value to set the RECEIPTPURPOSECODE
+     */
+    public void setRECEIPTPURPOSECODE(String value) {
+        setAttributeInternal(RECEIPTPURPOSECODE, value);
+    }
 
     /**
      * @param settlementId key constituent

@@ -150,5 +150,23 @@
         <Item Value="TrxAmount"/>
       </AttrNames>
     </attributeValues>
+    <button IterBinding="SgsCreateSettlementVO1Iterator" id="ApplyPaymentOnly" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ApplyPaymentOnly"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="SgsCreateSettlementVO1Iterator" id="ApplyReceiptOnly" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ApplyReceiptOnly"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

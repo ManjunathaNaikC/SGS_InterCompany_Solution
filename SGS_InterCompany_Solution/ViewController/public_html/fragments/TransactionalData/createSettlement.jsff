@@ -228,6 +228,9 @@
                         <f:facet name="toolbar"/>
                         <af:panelFormLayout id="pfl1" maxColumns="2" rows="4">
                             <f:facet name="footer"/>
+                            <af:selectBooleanCheckbox value="#{bindings.ApplyPaymentOnly.inputValue}"
+                                                      label="#{bindings.ApplyPaymentOnly.label}"
+                                                      shortDesc="#{bindings.ApplyPaymentOnly.hints.tooltip}" id="sbc3"/>
                             <af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
                                                 label="#{bindings.PURPOSECODE.label}"
                                                 required="#{bindings.PURPOSECODE.hints.mandatory}"
@@ -289,6 +292,9 @@
                         <f:facet name="toolbar"/>
                         <af:panelFormLayout id="pfl3" maxColumns="2" rows="4">
                             <f:facet name="footer"/>
+                            <af:selectBooleanCheckbox value="#{bindings.ApplyReceiptOnly.inputValue}"
+                                                      label="#{bindings.ApplyReceiptOnly.label}"
+                                                      shortDesc="#{bindings.ApplyReceiptOnly.hints.tooltip}" id="sbc4"/>
                             <af:selectOneChoice value="#{bindings.RECEIPTPURPOSECODE.inputValue}"
                                                 label="#{bindings.RECEIPTPURPOSECODE.label}"
                                                 required="#{bindings.RECEIPTPURPOSECODE.hints.mandatory}"

@@ -73,6 +73,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
         RECEIPTCURRENCY,
         RECEIPTPURPOSECODE;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -893,6 +894,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
     public void setRECEIPTPURPOSECODE(String value) {
         setAttributeInternal(RECEIPTPURPOSECODE, value);
     }
+
 
     /**
      * @param settlementId key constituent

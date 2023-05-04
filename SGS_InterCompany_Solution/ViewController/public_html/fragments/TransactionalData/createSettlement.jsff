@@ -6,26 +6,28 @@
         <af:panelTabbed position="above" id="pt1">
             <af:showDetailItem id="tab1" text="Settlement of Inter-Company">
                 <af:spacer id="s4" height="20"/>
-                <af:panelBox text="Payment Details Section" id="pb3">
-                    <f:facet name="toolbar"/>
-                    <af:panelFormLayout id="pfl2" rows="4" maxColumns="2">
-                        <af:selectOneChoice value="#{pageFlowScope.selectedValue}"
-                                            label="#{bindings.ICSUPPLIERGEO.label}"
-                                            required="#{bindings.ICSUPPLIERGEO.hints.mandatory}"
-                                            shortDesc="#{bindings.ICSUPPLIERGEO.hints.tooltip}" id="soc1"
-                                            autoSubmit="true">
-                            <f:selectItems value="#{bindings.ICSUPPLIERGEO.items}" id="si1"/>
-                            <f:validator binding="#{bindings.ICSUPPLIERGEO.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedValue1}"
-                                            label="#{bindings.ICCUSTOMERGEO.label}"
-                                            required="#{bindings.ICCUSTOMERGEO.hints.mandatory}"
-                                            shortDesc="#{bindings.ICCUSTOMERGEO.hints.tooltip}" id="soc2"
-                                            autoSubmit="true">
-                            <f:selectItems value="#{bindings.ICCUSTOMERGEO.items}" id="si2"/>
-                            <f:validator binding="#{bindings.ICCUSTOMERGEO.validator}"/>
-                        </af:selectOneChoice>
-                        <!--<af:selectOneChoice value="#{bindings.ICSUPPLIERBU.inputValue}"
+                <af:panelBox id="pb4">
+                    <af:spacer id="s13" height="20"/>
+                    <af:panelBox id="pb3">
+                        <f:facet name="toolbar"/>
+                        <af:panelFormLayout id="pfl2" rows="2" maxColumns="2">
+                            <af:selectOneChoice value="#{pageFlowScope.selectedValue}"
+                                                label="#{bindings.ICSUPPLIERGEO.label}"
+                                                required="#{bindings.ICSUPPLIERGEO.hints.mandatory}"
+                                                shortDesc="#{bindings.ICSUPPLIERGEO.hints.tooltip}" id="soc1"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.ICSUPPLIERGEO.items}" id="si1"/>
+                                <f:validator binding="#{bindings.ICSUPPLIERGEO.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedValue1}"
+                                                label="#{bindings.ICCUSTOMERGEO.label}"
+                                                required="#{bindings.ICCUSTOMERGEO.hints.mandatory}"
+                                                shortDesc="#{bindings.ICCUSTOMERGEO.hints.tooltip}" id="soc2"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.ICCUSTOMERGEO.items}" id="si2"/>
+                                <f:validator binding="#{bindings.ICCUSTOMERGEO.validator}"/>
+                            </af:selectOneChoice>
+                            <!--<af:selectOneChoice value="#{bindings.ICSUPPLIERBU.inputValue}"
                                             label="#{bindings.ICSUPPLIERBU.label}"
                                             required="#{bindings.ICSUPPLIERBU.hints.mandatory}"
                                             shortDesc="#{bindings.ICSUPPLIERBU.hints.tooltip}" id="soc3"
@@ -41,27 +43,28 @@
                             <f:selectItems value="#{bindings.ICCUSTOMERBU.items}" id="si4"/>
                             <f:validator binding="#{bindings.ICCUSTOMERBU.validator}"/>
                         </af:selectOneChoice>-->
-                        <af:selectOneChoice value="#{pageFlowScope.selectedValue2}"
-                                            label="#{bindings.COLLECTORBU.label}"
-                                            required="#{bindings.COLLECTORBU.hints.mandatory}"
-                                            shortDesc="#{bindings.COLLECTORBU.hints.tooltip}" id="soc3">
-                            <f:selectItems value="#{bindings.COLLECTORBU.items}" id="si3"/>
-                            <f:validator binding="#{bindings.COLLECTORBU.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedValue3}" label="#{bindings.PAYERBU.label}"
-                                            required="#{bindings.PAYERBU.hints.mandatory}"
-                                            shortDesc="#{bindings.PAYERBU.hints.tooltip}" id="soc4">
-                            <f:selectItems value="#{bindings.PAYERBU.items}" id="si4"/>
-                            <f:validator binding="#{bindings.PAYERBU.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
+                            <af:selectOneChoice value="#{pageFlowScope.selectedValue2}"
+                                                label="#{bindings.COLLECTORBU.label}"
+                                                required="#{bindings.COLLECTORBU.hints.mandatory}"
+                                                shortDesc="#{bindings.COLLECTORBU.hints.tooltip}" id="soc3">
+                                <f:selectItems value="#{bindings.COLLECTORBU.items}" id="si3"/>
+                                <f:validator binding="#{bindings.COLLECTORBU.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedValue3}"
+                                                label="#{bindings.PAYERBU.label}"
+                                                required="#{bindings.PAYERBU.hints.mandatory}"
+                                                shortDesc="#{bindings.PAYERBU.hints.tooltip}" id="soc4">
+                                <f:selectItems value="#{bindings.PAYERBU.items}" id="si4"/>
+                                <f:validator binding="#{bindings.PAYERBU.validator}"/>
+                            </af:selectOneChoice>
+                            <!--<af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
                                             label="#{bindings.PURPOSECODE.label}"
                                             required="#{bindings.PURPOSECODE.hints.mandatory}"
                                             shortDesc="#{bindings.PURPOSECODE.hints.tooltip}" id="soc9">
                             <f:selectItems value="#{bindings.PURPOSECODE.items}" id="si9"/>
                             <f:validator binding="#{bindings.PURPOSECODE.validator}"/>
-                        </af:selectOneChoice>
-                        <!--<af:inputText value="#{bindings.PAYMENTID.inputValue}" label="#{bindings.PAYMENTID.hints.label}"
+                        </af:selectOneChoice>-->
+                            <!--<af:inputText value="#{bindings.PAYMENTID.inputValue}" label="#{bindings.PAYMENTID.hints.label}"
                                       required="#{bindings.PAYMENTID.hints.mandatory}"
                                       columns="#{bindings.PAYMENTID.hints.displayWidth}"
                                       maximumLength="#{bindings.PAYMENTID.hints.precision}"
@@ -69,51 +72,51 @@
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.PAYMENTID.validator}"/>
                         </af:inputText>-->
-                        <af:inputDate value="#{bindings.PAYMENTDATE.inputValue}"
+                            <!--<af:inputDate value="#{bindings.PAYMENTDATE.inputValue}"
                                       label="#{bindings.PAYMENTDATE.hints.label}"
                                       required="#{bindings.PAYMENTDATE.hints.mandatory}"
                                       columns="#{bindings.PAYMENTDATE.hints.displayWidth}"
                                       shortDesc="#{bindings.PAYMENTDATE.hints.tooltip}" id="id1" autoSubmit="true">
                             <f:validator binding="#{bindings.PAYMENTDATE.validator}"/>
                             <af:convertDateTime pattern="#{bindings.PAYMENTDATE.format}"/>
-                        </af:inputDate>
-                        <af:inputDate value="#{bindings.RECEIPTDATE.inputValue}"
+                        </af:inputDate>-->
+                            <!--<af:inputDate value="#{bindings.RECEIPTDATE.inputValue}"
                                       label="#{bindings.RECEIPTDATE.hints.label}"
                                       required="#{bindings.RECEIPTDATE.hints.mandatory}"
                                       columns="#{bindings.RECEIPTDATE.hints.displayWidth}"
                                       shortDesc="#{bindings.RECEIPTDATE.hints.tooltip}" id="id3">
                             <f:validator binding="#{bindings.RECEIPTDATE.validator}"/>
                             <af:convertDateTime pattern="#{bindings.RECEIPTDATE.format}"/>
-                        </af:inputDate>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedRctBankName}"
+                        </af:inputDate>-->
+                            <!--<af:selectOneChoice value="#{pageFlowScope.selectedRctBankName}"
                                             label="#{bindings.RECEIPTBANKCD.label}"
                                             required="#{bindings.RECEIPTBANKCD.hints.mandatory}"
                                             shortDesc="#{bindings.RECEIPTBANKCD.hints.tooltip}" id="soc7">
                             <f:selectItems value="#{bindings.RECEIPTBANKCD.items}" id="si7"/>
                             <f:validator binding="#{bindings.RECEIPTBANKCD.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedRctBankCode}"
+                        </af:selectOneChoice>-->
+                            <!--<af:selectOneChoice value="#{pageFlowScope.selectedRctBankCode}"
                                             label="#{bindings.RECEIPTBANKACCTKEY.label}"
                                             required="#{bindings.RECEIPTBANKACCTKEY.hints.mandatory}"
                                             shortDesc="#{bindings.RECEIPTBANKACCTKEY.hints.tooltip}" id="soc8">
                             <f:selectItems value="#{bindings.RECEIPTBANKACCTKEY.items}" id="si8"/>
                             <f:validator binding="#{bindings.RECEIPTBANKACCTKEY.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedPayBankName}"
+                        </af:selectOneChoice>-->
+                            <!--<af:selectOneChoice value="#{pageFlowScope.selectedPayBankName}"
                                             label="#{bindings.PAYMENTBANKCD.label}"
                                             required="#{bindings.PAYMENTBANKCD.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTBANKCD.hints.tooltip}" id="soc10">
                             <f:selectItems value="#{bindings.PAYMENTBANKCD.items}" id="si10"/>
                             <f:validator binding="#{bindings.PAYMENTBANKCD.validator}"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedPayBankCode}"
+                        </af:selectOneChoice>-->
+                            <!--<af:selectOneChoice value="#{pageFlowScope.selectedPayBankCode}"
                                             label="#{bindings.PAYMENTBANKACCTKEY.label}"
                                             required="#{bindings.PAYMENTBANKACCTKEY.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTBANKACCTKEY.hints.tooltip}" id="soc11">
                             <f:selectItems value="#{bindings.PAYMENTBANKACCTKEY.items}" id="si11"/>
                             <f:validator binding="#{bindings.PAYMENTBANKACCTKEY.validator}"/>
-                        </af:selectOneChoice>
-                        <!--<af:inputText value="#{bindings.DISBUSEMENTBANKACCOUNT.inputValue}"
+                        </af:selectOneChoice>-->
+                            <!--<af:inputText value="#{bindings.DISBUSEMENTBANKACCOUNT.inputValue}"
                                       label="#{bindings.DISBUSEMENTBANKACCOUNT.hints.label}"
                                       required="#{bindings.DISBUSEMENTBANKACCOUNT.hints.mandatory}"
                                       columns="#{bindings.DISBUSEMENTBANKACCOUNT.hints.displayWidth}"
@@ -131,7 +134,7 @@
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.RECEIVERBANKACCOUNT.validator}"/>
                         </af:inputText>-->
-                        <!--<af:selectOneChoice value="#{bindings.DISBUSEMENTBANKACCOUNT1.inputValue}"
+                            <!--<af:selectOneChoice value="#{bindings.DISBUSEMENTBANKACCOUNT1.inputValue}"
                                             label="#{bindings.DISBUSEMENTBANKACCOUNT1.label}"
                                             required="#{bindings.DISBUSEMENTBANKACCOUNT1.hints.mandatory}"
                                             shortDesc="#{bindings.DISBUSEMENTBANKACCOUNT1.hints.tooltip}" id="soc7">
@@ -159,7 +162,7 @@
                             <f:selectItems value="#{bindings.RECEIVERBANKACCOUNT1.items}" id="si18"/>
                             <f:validator binding="#{bindings.RECEIVERBANKACCOUNT1.validator}"/>
                         </af:selectOneChoice>-->
-                        <!--<af:selectOneChoice value="#{bindings.ATTRIBUTE1.inputValue}"
+                            <!--<af:selectOneChoice value="#{bindings.ATTRIBUTE1.inputValue}"
                                             label="#{bindings.ATTRIBUTE1.label}"
                                             required="#{bindings.ATTRIBUTE1.hints.mandatory}"
                                             shortDesc="#{bindings.ATTRIBUTE1.hints.tooltip}" id="soc10">
@@ -173,15 +176,15 @@
                             <f:selectItems value="#{bindings.ATTRIBUTE2.items}" id="si11"/>
                             <f:validator binding="#{bindings.ATTRIBUTE2.validator}"/>
                         </af:selectOneChoice>-->
-                        <af:selectOneChoice value="#{pageFlowScope.selectedPayMetd}"
+                            <!--<af:selectOneChoice value="#{pageFlowScope.selectedPayMetd}"
                                             label="#{bindings.PAYMENTMETHOD.label}"
                                             required="#{bindings.PAYMENTMETHOD.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTMETHOD.hints.tooltip}" id="soc6"
                                             autoSubmit="true">
                             <f:selectItems value="#{bindings.PAYMENTMETHOD.items}" id="si6"/>
                             <f:validator binding="#{bindings.PAYMENTMETHOD.validator}"/>
-                        </af:selectOneChoice>
-                        <af:inputText value="#{bindings.TRANSACTIONREFERENCENO.inputValue}"
+                        </af:selectOneChoice>-->
+                            <!--<af:inputText value="#{bindings.TRANSACTIONREFERENCENO.inputValue}"
                                       label="#{bindings.TRANSACTIONREFERENCENO.hints.label}"
                                       required="#{bindings.TRANSACTIONREFERENCENO.hints.mandatory}"
                                       columns="#{bindings.TRANSACTIONREFERENCENO.hints.displayWidth}"
@@ -189,16 +192,16 @@
                                       shortDesc="#{bindings.TRANSACTIONREFERENCENO.hints.tooltip}" id="it9"
                                       autoSubmit="true">
                             <f:validator binding="#{bindings.TRANSACTIONREFERENCENO.validator}"/>
-                        </af:inputText>
-                        <af:selectOneChoice value="#{pageFlowScope.selectedPayCurr}"
+                        </af:inputText>-->
+                            <!--<af:selectOneChoice value="#{pageFlowScope.selectedPayCurr}"
                                             label="#{bindings.PAYMENTCURRENCY.label}"
                                             required="#{bindings.PAYMENTCURRENCY.hints.mandatory}"
                                             shortDesc="#{bindings.PAYMENTCURRENCY.hints.tooltip}" id="soc5"
                                             autoSubmit="true">
                             <f:selectItems value="#{bindings.PAYMENTCURRENCY.items}" id="si5"/>
                             <f:validator binding="#{bindings.PAYMENTCURRENCY.validator}"/>
-                        </af:selectOneChoice>
-                        <af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
+                        </af:selectOneChoice>-->
+                            <!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
                                       required="#{bindings.TRXAMOUNT.hints.mandatory}"
                                       columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
                                       maximumLength="#{bindings.TRXAMOUNT.hints.precision}"
@@ -207,8 +210,8 @@
                                       styleClass="mynumbercolumn">
                             <f:validator binding="#{bindings.TRXAMOUNT.validator}"/>
                             <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.BANKCHARGES.inputValue}"
+                        </af:inputText>-->
+                            <!--<af:inputText value="#{bindings.BANKCHARGES.inputValue}"
                                       label="#{bindings.BANKCHARGES.hints.label}"
                                       required="#{bindings.BANKCHARGES.hints.mandatory}"
                                       columns="#{bindings.BANKCHARGES.hints.displayWidth}"
@@ -218,20 +221,152 @@
                                       styleClass="mynumbercolumn">
                             <f:validator binding="#{bindings.BANKCHARGES.validator}"/>
                             <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                        </af:inputText>-->
+                        </af:panelFormLayout>
+                    </af:panelBox>
+                    <af:panelBox text="Payment Details" id="pb2">
+                        <f:facet name="toolbar"/>
+                        <af:panelFormLayout id="pfl1" maxColumns="2" rows="4">
+                            <f:facet name="footer"/>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
+                                                label="#{bindings.PURPOSECODE.label}"
+                                                required="#{bindings.PURPOSECODE.hints.mandatory}"
+                                                shortDesc="#{bindings.PURPOSECODE.hints.tooltip}" id="soc9">
+                                <f:selectItems value="#{bindings.PURPOSECODE.items}" id="si9"/>
+                                <f:validator binding="#{bindings.PURPOSECODE.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputDate value="#{bindings.PAYMENTDATE.inputValue}"
+                                          label="#{bindings.PAYMENTDATE.hints.label}"
+                                          required="#{bindings.PAYMENTDATE.hints.mandatory}"
+                                          columns="#{bindings.PAYMENTDATE.hints.displayWidth}"
+                                          shortDesc="#{bindings.PAYMENTDATE.hints.tooltip}" id="id1" autoSubmit="true">
+                                <f:validator binding="#{bindings.PAYMENTDATE.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.PAYMENTDATE.format}"/>
+                            </af:inputDate>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedPayBankName}"
+                                                label="#{bindings.PAYMENTBANKCD.label}"
+                                                required="#{bindings.PAYMENTBANKCD.hints.mandatory}"
+                                                shortDesc="#{bindings.PAYMENTBANKCD.hints.tooltip}" id="soc10">
+                                <f:selectItems value="#{bindings.PAYMENTBANKCD.items}" id="si10"/>
+                                <f:validator binding="#{bindings.PAYMENTBANKCD.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedPayBankCode}"
+                                                label="#{bindings.PAYMENTBANKACCTKEY.label}"
+                                                required="#{bindings.PAYMENTBANKACCTKEY.hints.mandatory}"
+                                                shortDesc="#{bindings.PAYMENTBANKACCTKEY.hints.tooltip}" id="soc11">
+                                <f:selectItems value="#{bindings.PAYMENTBANKACCTKEY.items}" id="si11"/>
+                                <f:validator binding="#{bindings.PAYMENTBANKACCTKEY.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedPayMetd}"
+                                                label="#{bindings.PAYMENTMETHOD.label}"
+                                                required="#{bindings.PAYMENTMETHOD.hints.mandatory}"
+                                                shortDesc="#{bindings.PAYMENTMETHOD.hints.tooltip}" id="soc6"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.PAYMENTMETHOD.items}" id="si6"/>
+                                <f:validator binding="#{bindings.PAYMENTMETHOD.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedPayCurr}"
+                                                label="#{bindings.PAYMENTCURRENCY.label}"
+                                                required="#{bindings.PAYMENTCURRENCY.hints.mandatory}"
+                                                shortDesc="#{bindings.PAYMENTCURRENCY.hints.tooltip}" id="soc5"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.PAYMENTCURRENCY.items}" id="si5"/>
+                                <f:validator binding="#{bindings.PAYMENTCURRENCY.validator}"/>
+                            </af:selectOneChoice>
+                           <af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
+                                      required="#{bindings.TRXAMOUNT.hints.mandatory}"
+                                      columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
+                                      maximumLength="#{bindings.TRXAMOUNT.hints.precision}"
+                                      shortDesc="#{bindings.TRXAMOUNT.hints.tooltip}" id="it11" autoSubmit="true"
+                                      binding="#{viewScope.ActionEventsBean.inputTransactionAmount}"
+                                      styleClass="mynumbercolumn">
+                            <f:validator binding="#{bindings.TRXAMOUNT.validator}"/>
+                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
                         </af:inputText>
-                        <f:facet name="footer">
-                            <af:panelGroupLayout id="pgl5" layout="horizontal" halign="right">
-                                <af:button text="Search" id="b4"
-                                           actionListener="#{viewScope.ActionEventsBean.onCreateSettlementSearch}"/>
-                                <af:spacer id="s10" width="10"/>
-                                <af:button text="Save" id="b5"
-                                           actionListener="#{viewScope.ActionEventsBean.onCreateSettlementSave}"
-                                           rendered="false"/>
-                                <af:button text="Generate Settlement" id="b1"
-                                           actionListener="#{viewScope.ActionEventsBean.onGenerateSettlementEvent}"/>
-                            </af:panelGroupLayout>
-                        </f:facet>
-                    </af:panelFormLayout>
+                        </af:panelFormLayout>
+                    </af:panelBox>
+                    <af:panelBox text="Receipt Details" id="pb5">
+                        <f:facet name="toolbar"/>
+                        <af:panelFormLayout id="pfl3" maxColumns="2" rows="4">
+                            <f:facet name="footer"/>
+                            <af:selectOneChoice value="#{bindings.RECEIPTPURPOSECODE.inputValue}"
+                                                label="#{bindings.RECEIPTPURPOSECODE.label}"
+                                                required="#{bindings.RECEIPTPURPOSECODE.hints.mandatory}"
+                                                shortDesc="#{bindings.RECEIPTPURPOSECODE.hints.tooltip}" id="soc12"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.RECEIPTPURPOSECODE.items}" id="si12"/>
+                                <f:validator binding="#{bindings.RECEIPTPURPOSECODE.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputDate value="#{bindings.RECEIPTDATE.inputValue}"
+                                      label="#{bindings.RECEIPTDATE.hints.label}"
+                                      required="#{bindings.RECEIPTDATE.hints.mandatory}"
+                                      columns="#{bindings.RECEIPTDATE.hints.displayWidth}"
+                                      shortDesc="#{bindings.RECEIPTDATE.hints.tooltip}" id="id3">
+                            <f:validator binding="#{bindings.RECEIPTDATE.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.RECEIPTDATE.format}"/>
+                        </af:inputDate>
+                        <af:selectOneChoice value="#{pageFlowScope.selectedRctBankName}"
+                                            label="#{bindings.RECEIPTBANKCD.label}"
+                                            required="#{bindings.RECEIPTBANKCD.hints.mandatory}"
+                                            shortDesc="#{bindings.RECEIPTBANKCD.hints.tooltip}" id="soc7">
+                            <f:selectItems value="#{bindings.RECEIPTBANKCD.items}" id="si7"/>
+                            <f:validator binding="#{bindings.RECEIPTBANKCD.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{pageFlowScope.selectedRctBankCode}"
+                                            label="#{bindings.RECEIPTBANKACCTKEY.label}"
+                                            required="#{bindings.RECEIPTBANKACCTKEY.hints.mandatory}"
+                                            shortDesc="#{bindings.RECEIPTBANKACCTKEY.hints.tooltip}" id="soc8">
+                            <f:selectItems value="#{bindings.RECEIPTBANKACCTKEY.items}" id="si8"/>
+                            <f:validator binding="#{bindings.RECEIPTBANKACCTKEY.validator}"/>
+                        </af:selectOneChoice>
+                            <af:selectOneChoice value="#{bindings.RECEIPTCURRENCY.inputValue}"
+                                                label="#{bindings.RECEIPTCURRENCY.label}"
+                                                required="#{bindings.RECEIPTCURRENCY.hints.mandatory}"
+                                                shortDesc="#{bindings.RECEIPTCURRENCY.hints.tooltip}" id="soc13"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.RECEIPTCURRENCY.items}" id="si13"/>
+                                <f:validator binding="#{bindings.RECEIPTCURRENCY.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
+                                      required="#{bindings.TRXAMOUNT.hints.mandatory}"
+                                      columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
+                                      maximumLength="#{bindings.TRXAMOUNT.hints.precision}"
+                                      shortDesc="#{bindings.TRXAMOUNT.hints.tooltip}" id="it11Cont" autoSubmit="true"
+                                      binding="#{viewScope.ActionEventsBean.inputTransactionAmount}">
+                            <f:validator binding="#{bindings.TRXAMOUNT.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TRXAMOUNT.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.BANKCHARGES.inputValue}"
+                                      label="#{bindings.BANKCHARGES.hints.label}"
+                                      required="#{bindings.BANKCHARGES.hints.mandatory}"
+                                      columns="#{bindings.BANKCHARGES.hints.displayWidth}"
+                                      maximumLength="#{bindings.BANKCHARGES.hints.precision}"
+                                      shortDesc="#{bindings.BANKCHARGES.hints.tooltip}" id="it2Cont"
+                                      binding="#{viewScope.ActionEventsBean.inputBankCharge}">
+                            <f:validator binding="#{bindings.BANKCHARGES.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BANKCHARGES.format}"/>
+                        </af:inputText>
+                        </af:panelFormLayout>
+                    </af:panelBox>
+                    <af:panelGridLayout id="pgl6">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc3"/>
+                            <af:gridCell id="gc4" width="50%">
+                                <af:panelGroupLayout id="pgl4">
+                                    <af:spacer id="s10" width="365"/>
+                                    <af:button text="Search" id="b4Cont"
+                                               actionListener="#{viewScope.ActionEventsBean.onCreateSettlementSearch}"/>
+                                    <af:spacer id="s12" width="10"/>
+                                    <af:button text="Save" id="b5Cont"
+                                               actionListener="#{viewScope.ActionEventsBean.onCreateSettlementSave}"
+                                               rendered="false"/>
+                                    <af:button text="Generate Settlement" id="b1Cont"
+                                               actionListener="#{viewScope.ActionEventsBean.onGenerateSettlementEvent}"/>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                    <f:facet name="toolbar"/>
                 </af:panelBox>
                 <af:spacer id="s3" height="20"/>
                 <af:panelGridLayout id="pgl2">
@@ -393,7 +528,7 @@
                 </af:table>
             </af:showDetailItem>
             
-            <af:showDetailItem id="tab2" text="Contra Cash">
+            <!--<af:showDetailItem id="tab2" text="Contra Cash">
                 <af:spacer id="s4Cont" height="20"/>
                 <af:panelBox text="Payment Details Section" id="pb3Cont">
                     <f:facet name="toolbar"/>
@@ -489,7 +624,7 @@
                             <f:selectItems value="#{bindings.PAYMENTCURRENCY.items}" id="si5Cont"/>
                             <f:validator binding="#{bindings.PAYMENTCURRENCY.validator}"/>
                         </af:selectOneChoice>
-                        <!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
+                        --><!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
                                       required="#{bindings.TRXAMOUNT.hints.mandatory}"
                                       columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
                                       maximumLength="#{bindings.TRXAMOUNT.hints.precision}"
@@ -507,7 +642,7 @@
                                       binding="#{viewScope.ActionEventsBean.inputBankCharge}">
                             <f:validator binding="#{bindings.BANKCHARGES.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.BANKCHARGES.format}"/>
-                        </af:inputText>-->
+                        </af:inputText>--><!--
                         <f:facet name="footer">
                             <af:panelGroupLayout id="pgl5Cont" layout="horizontal" halign="right">
                                 <af:button text="Search" id="b4Cont"
@@ -629,7 +764,7 @@
                         </af:column>
                     </af:table>
                 </af:panelCollection>
-            </af:showDetailItem>
+            </af:showDetailItem>-->
         </af:panelTabbed>
         <!--<af:panelGroupLayout id="pgl6" layout="horizontal">
       <af:selectOneChoice value="#{bindings.MEANING.inputValue}" label="#{bindings.MEANING.label}"

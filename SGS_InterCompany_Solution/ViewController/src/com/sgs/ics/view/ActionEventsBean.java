@@ -128,10 +128,7 @@ public class ActionEventsBean {
     private String balanceOutputText;
     private RichOutputText balanceOutputText1;
     private RichTable tablePaymentRecords1;
-    private RichSelectBooleanCheckbox applyPaymentOnlyBind;
-    private RichSelectBooleanCheckbox applyReceiptOnlyBind;
-    private Boolean checkboxValue;
-    private String selectOneChoiceValue;
+
     private RichSelectBooleanCheckbox bindPaymentCheck;
     private RichSelectBooleanCheckbox bindReceiptCheck;
 
@@ -893,9 +890,9 @@ public class ActionEventsBean {
             String purposeCode = (String) AdfFacesContext.getCurrentInstance()
                                                          .getPageFlowScope()
                                                          .get("selectedPurposeCode");
-            String paymentOnly = applyPaymentOnlyBind.getValue().toString();
-
-            String receiptOnly = applyReceiptOnlyBind.getValue().toString();
+//            boolean paymentOnly =(Boolean)bindPaymentCheck.getValue();
+//
+//            boolean receiptOnly =(Boolean)bindReceiptCheck.getValue();
 
             String receiptPurposeCode = (String) AdfFacesContext.getCurrentInstance()
                                                                 .getPageFlowScope()
@@ -911,7 +908,7 @@ public class ActionEventsBean {
             System.out.println("payment Bank Code" + paymentBankCode);
 
             double settlementAmount = 0;
-            if (paymentOnly.equalsIgnoreCase("true")) {
+                if(null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue()){
                 System.out.println("ONPAYMENTONLY");
                 if ("Unpaid".equals(paymentStatus)) {
                     if (transactionAmount >= outstandingAmount) {
@@ -1014,7 +1011,7 @@ public class ActionEventsBean {
 
 
                 }
-            } else if (receiptOnly.equalsIgnoreCase("true")) {
+            } else if(null != (Boolean)getBindReceiptCheck().getValue() &&  (Boolean)getBindReceiptCheck().getValue()){
                 System.out.println("ONLYRECEIPT");
                 if ("Unpaid".equals(paymentStatus)) {
                     if (transactionAmount >= outstandingAmount) {
@@ -1116,7 +1113,7 @@ public class ActionEventsBean {
 
 
                 }
-            } else if (paymentOnly.equalsIgnoreCase("true") && receiptOnly.equalsIgnoreCase("true")) {
+            } else if (null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue()){
                 if ("Unpaid".equals(paymentStatus)) {
                     if (transactionAmount >= outstandingAmount) {
                         settlementAmount = outstandingAmount;
@@ -1219,7 +1216,7 @@ public class ActionEventsBean {
 
                 }
             } else {
-                JSFUtil.addComponentFacesMessage(FacesMessage.SEVERITY_ERROR, "Select at least one checkbox.", null);
+                JSFUtil.addComponentFacesMessage(FacesMessage.SEVERITY_ERROR, "Select either Apply Payment Only OR Apply Receipt Only", null);
                 break;
             }
             if (transactionAmount <= 0) {
@@ -2446,20 +2443,20 @@ public class ActionEventsBean {
     }
 
 
-    public void setApplyPaymentOnlyBind(RichSelectBooleanCheckbox applyPaymentOnlyBind) {
-        this.applyPaymentOnlyBind = applyPaymentOnlyBind;
+    public void setbindPaymentCheckBind(RichSelectBooleanCheckbox bindPaymentCheck) {
+        this.bindPaymentCheck = bindPaymentCheck;
     }
 
-    public RichSelectBooleanCheckbox getApplyPaymentOnlyBind() {
-        return applyPaymentOnlyBind;
+    public RichSelectBooleanCheckbox getbindPaymentCheckBind() {
+        return bindPaymentCheck;
     }
 
-    public void setApplyReceiptOnlyBind(RichSelectBooleanCheckbox applyReceiptOnlyBind) {
-        this.applyReceiptOnlyBind = applyReceiptOnlyBind;
+    public void setbindReceiptCheckBind(RichSelectBooleanCheckbox bindReceiptCheck) {
+        this.bindReceiptCheck = bindReceiptCheck;
     }
 
-    public RichSelectBooleanCheckbox getApplyReceiptOnlyBind() {
-        return applyReceiptOnlyBind;
+    public RichSelectBooleanCheckbox getbindReceiptCheckBind() {
+        return bindReceiptCheck;
     }
 
 

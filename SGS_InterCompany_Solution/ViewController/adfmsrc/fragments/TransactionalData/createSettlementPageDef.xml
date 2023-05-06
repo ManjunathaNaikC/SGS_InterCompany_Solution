@@ -58,7 +58,7 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICCUSTOMERGEO" id="ICCUSTOMERGEO"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICSUPPLIERBU" id="ICSUPPLIERBU"
+   <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICSUPPLIERBU" id="ICSUPPLIERBU"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICCUSTOMERBU" id="ICCUSTOMERBU"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
@@ -168,5 +168,16 @@
         <Item Value="N"/>
       </ValueList>
     </button>
+     
+    <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="PSINVOICENUMBER">
+      <AttrNames>
+        <Item Value="PSINVOICENUMBER"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="PSVOUCHERNUMBER">
+      <AttrNames>
+        <Item Value="PSVOUCHERNUMBER"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

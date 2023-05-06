@@ -606,6 +606,30 @@
     Type="java.sql.Date"
     ColumnType="DATE"
     TableName="SGS_STLMT_VOUCHER"/>
+  <Attribute
+    Name="RECEIPTCURRENCY"
+    Precision="100"
+    ColumnName="RECEIPT_CURRENCY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RECEIPTPURPOSECODE"
+    Precision="100"
+    ColumnName="RECEIPT_PURPOSE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTLMTVOUCHER"
     PrimaryKey="true">

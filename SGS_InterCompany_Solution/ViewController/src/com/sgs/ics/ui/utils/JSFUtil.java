@@ -518,6 +518,12 @@ public class JSFUtil {
         treeNode = treeBinding.findNodeByKeyPath(key);
         return treeNode;
     }
+    
+    public static void addComponentFacesMessage(FacesMessage.Severity severity, String msg, String clientId) {
+            FacesContext ctx = getFacesContext();
+            FacesMessage fm = new FacesMessage(severity, "", msg);
+            ctx.addMessage(clientId, fm);
+   }
 
     public static JUCtrlHierNodeBinding getDraggedRowNodeFromTreeTable(DropEvent dropEvent, String discriminant) {
         JUCtrlHierNodeBinding draggedRowNode = null;

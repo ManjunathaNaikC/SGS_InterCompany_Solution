@@ -132,8 +132,8 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox applyReceiptOnlyBind;
     private Boolean checkboxValue;
     private String selectOneChoiceValue;
-
-
+    private RichSelectBooleanCheckbox bindPaymentCheck;
+    private RichSelectBooleanCheckbox bindReceiptCheck;
 
 
     public ActionEventsBean() {
@@ -1274,9 +1274,16 @@ public class ActionEventsBean {
 
 
     public void onCreateSettlementSearch(ActionEvent actionEvent) {
+        
+        System.out.println("bindPaymentCheck::"+getBindPaymentCheck().getValue());
+        System.out.println("bindReceiptCheck::"+getBindReceiptCheck().getValue());
+        
+//        bindPaymentCheck
+//        bindReceiptCheck
+        
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-
+        //SgsCreateSettlementVO1Iterator
 
         String ICSUPPLIERGEO = (String) AdfFacesContext.getCurrentInstance()
                                                        .getPageFlowScope()
@@ -1293,15 +1300,27 @@ public class ActionEventsBean {
                                                  .getPageFlowScope()
                                                  .get("selectedValue3");
 
+     
+//
+//                String PAYMENTID = (String) row.getAttribute("PAYMENTID");
+//                String ICCUSTOMERGEO = (String) row.getAttribute("ICCUSTOMERGEO");
+//                String ICCUSTOMERBU = (String) row.getAttribute("ICCUSTOMERBU");
+//                String ICSUPPLIERGEO = (String) row.getAttribute("ICSUPPLIERGEO");
+//                String ICSUPPLIERBU = (String) row.getAttribute("ICSUPPLIERBU");
+                
+//        String COLLECTORBU = (String) row.getAttribute("COLLECTORBU");
+//        String PAYERBU = (String) row.getAttribute("PAYERBU");
+        
+        
+            
         System.out.println("suppliergeo : " + ICSUPPLIERGEO);
-        System.out.println("CUSTOMERGEO : " + ICSUPPLIERGEO);
-
-        //        String PAYMENTID = (String) row.getAttribute("PAYMENTID");
-        //        String ICCUSTOMERGEO = (String) row.getAttribute("ICCUSTOMERGEO");
-        //        String ICCUSTOMERBU = (String) row.getAttribute("ICCUSTOMERBU");
-        //        String ICSUPPLIERGEO = (String) row.getAttribute("ICSUPPLIERGEO");
-        //        String ICSUPPLIERBU = (String) row.getAttribute("ICSUPPLIERBU");
-
+        System.out.println("CUSTOMERGEO : " + ICCUSTOMERGEO);
+        
+        System.out.println("collectionBU : " + collectionBU);
+        System.out.println("payerBU : " + payerBU);
+        
+//        System.out.println("COLLECTORBU : " + COLLECTORBU);
+//        System.out.println("PAYERBU : " + PAYERBU);
 
         DCIteratorBinding iteratorBinding = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         RowSetIterator rowSetIterator = iteratorBinding.getRowSetIterator();
@@ -1315,6 +1334,35 @@ public class ActionEventsBean {
         voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
         voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
         voucherView.setNamedWhereClauseParam("bSltmtStatus", "Settled");
+        System.out.println("bindPaymentCheck::"+getBindPaymentCheck().getValue());
+        System.out.println("bindReceiptCheck::"+getBindReceiptCheck().getValue());
+//        boolean paymentCheck= (Boolean)getBindPaymentCheck().getValue();
+//        boolean receiptCheck= (Boolean)getBindReceiptCheck().getValue();
+//        System.out.println("bindPaymentCheck::"+paymentCheck);
+//        System.out.println("bindReceiptCheck::"+paymentCheck);
+        if(null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue()){
+            String stlmtStatus="'Pending for Settlement','Settlement on Hold'";
+            String paymentStatus=" 'Fully Paid','On Hold'";
+            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Settlement on Hold");
+            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Pending for Settlement");
+            voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");  
+            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
+        }else if(null != (Boolean)getBindReceiptCheck().getValue() &&  (Boolean)getBindReceiptCheck().getValue()){
+            String stlmtStatus="'Voucher Paid','Invoice Pending'";
+            String paymentStatus="'Fully Paid','Partially Paid'";
+            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Voucher Paid");
+            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Invoice Pending");
+            voucherView.setNamedWhereClauseParam("bPayStatus", "Partially Paid");  
+            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");  
+        }else if(null != (Boolean)getBindReceiptCheck().getValue() && null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindReceiptCheck().getValue()){
+            String stlmtStatus="'Pending for Settlement','Settlement on Hold'";
+            String paymentStatus=" 'Fully Paid','On Hold'";
+            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Pending for Settlement");
+            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Settlement on Hold");
+            voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");  
+            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
+        }
+        System.out.println("Query ::"+voucherView.getQuery());
         voucherView.executeQuery();
     }
 
@@ -2413,7 +2461,22 @@ public class ActionEventsBean {
     public RichSelectBooleanCheckbox getApplyReceiptOnlyBind() {
         return applyReceiptOnlyBind;
     }
-    
-   
+
+
+    public void setBindPaymentCheck(RichSelectBooleanCheckbox bindPaymentCheck) {
+        this.bindPaymentCheck = bindPaymentCheck;
+    }
+
+    public RichSelectBooleanCheckbox getBindPaymentCheck() {
+        return bindPaymentCheck;
+    }
+
+    public void setBindReceiptCheck(RichSelectBooleanCheckbox bindReceiptCheck) {
+        this.bindReceiptCheck = bindReceiptCheck;
+    }
+
+    public RichSelectBooleanCheckbox getBindReceiptCheck() {
+        return bindReceiptCheck;
+    }
 }
 

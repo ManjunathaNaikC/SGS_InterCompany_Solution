@@ -58,6 +58,10 @@
                                 <f:selectItems value="#{bindings.PAYERBU.items}" id="si4"/>
                                 <f:validator binding="#{bindings.PAYERBU.validator}"/>
                             </af:selectOneChoice>
+                            <af:selectBooleanCheckbox  text="(Apply Payment Only)" id="sbc5" autoSubmit="true"
+                                                      binding="#{viewScope.ActionEventsBean.bindPaymentCheck}"/>
+                            <af:selectBooleanCheckbox  text="(Apply Receipt Only)" id="sbc6" autoSubmit="true"
+                                                      binding="#{viewScope.ActionEventsBean.bindReceiptCheck}"/>
                             <!--<af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
                                             label="#{bindings.PURPOSECODE.label}"
                                             required="#{bindings.PURPOSECODE.hints.mandatory}"

@@ -70,6 +70,22 @@
     Name="bSltmtStatus"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bPayStatus"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bNewStlmtStatus"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bPayStatus2"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bNewStlmtStatus2"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsStlmtVoucherEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO"/>
@@ -866,14 +882,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="StlmtStatus"
-        ViewAttribute="StlmtStatus"
-        Operator="&lt;>"
-        Conjunction="AND"
-        Value=":bSltmtStatus"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="ICCUSTOMERGEO"
         ViewAttribute="ICCUSTOMERGEO"
         Operator="="
@@ -905,6 +913,82 @@
         Value=":bPayerBU"
         IsBindVarValue="true"
         Required="Optional"/>
+    </ViewCriteriaRow>
+    <ViewCriteriaRow
+      Name="SgsCreateStlmtVoucherVOCriteria_row_1"
+      UpperColumns="1"
+      Conjunction="AND">
+      <ViewCriteriaItemCompound
+        Name="PaymentStatus"
+        ViewAttribute="PaymentStatus">
+        <ViewCriteria
+          Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_1_PaymentStatus_itemHolder"
+          ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"
+          Conjunction="OR">
+          <ViewCriteriaRow
+            Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_1_PaymentStatus_itemHolder_row_0"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="PaymentStatus"
+              ViewAttribute="PaymentStatus"
+              Operator="="
+              Conjunction="AND"
+              Value=":bPayStatus"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+          <ViewCriteriaRow
+            Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_1_PaymentStatus_itemHolder_row_1"
+            Conjunction="OR">
+            <ViewCriteriaItem
+              Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_1_PaymentStatus_SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_1_PaymentStatus_itemHolder_SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_1_PaymentStatus_itemHolder_row_1_PaymentStatus"
+              ViewAttribute="PaymentStatus"
+              Operator="="
+              Conjunction="OR"
+              Value=":bPayStatus2"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItemCompound>
+    </ViewCriteriaRow>
+    <ViewCriteriaRow
+      Name="SgsCreateStlmtVoucherVOCriteria_row_2"
+      Conjunction="AND"
+      UpperColumns="1">
+      <ViewCriteriaItemCompound
+        Name="StlmtStatus"
+        ViewAttribute="StlmtStatus">
+        <ViewCriteria
+          Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_2_StlmtStatus_itemHolder"
+          ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"
+          Conjunction="OR">
+          <ViewCriteriaRow
+            Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_2_StlmtStatus_itemHolder_row_0"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="StlmtStatus"
+              ViewAttribute="StlmtStatus"
+              Operator="="
+              Conjunction="AND"
+              Value=":bNewStlmtStatus"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+          <ViewCriteriaRow
+            Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_2_StlmtStatus_itemHolder_row_1"
+            Conjunction="OR">
+            <ViewCriteriaItem
+              Name="SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_2_StlmtStatus_SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_2_StlmtStatus_itemHolder_SgsCreateStlmtVoucherVOCriteria_SgsCreateStlmtVoucherVOCriteria_row_2_StlmtStatus_itemHolder_row_1_StlmtStatus"
+              ViewAttribute="StlmtStatus"
+              Operator="="
+              Conjunction="OR"
+              Value=":bNewStlmtStatus2"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItemCompound>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ResourceBundle>

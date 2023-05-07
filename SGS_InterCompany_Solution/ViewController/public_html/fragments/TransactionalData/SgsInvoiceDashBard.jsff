@@ -524,8 +524,8 @@
                                         <f:selectItems value="#{bindings.ReversalReasonLOVVO1.items}" id="si5"/>
                                         <f:validator binding="#{bindings.ReversalReasonLOVVO1.validator}"/>
                                     </af:selectOneChoice>
-                                    <af:selectOneChoice value="#{bindings.ReversalTypeLOVVO1.inputValue}"
-                                                        label="#{bindings.ReversalTypeLOVVO1.label}"
+
+                                    <af:selectOneChoice value="#{bindings.ReversalTypeLOVVO1.inputValue}"label="#{bindings.ReversalTypeLOVVO1.label}"
                                                         required="#{bindings.ReversalTypeLOVVO1.hints.mandatory}"
                                                         shortDesc="#{bindings.ReversalTypeLOVVO1.hints.tooltip}"
                                                         id="soc8" partialTriggers="pgl4 it2 ot2"
@@ -533,6 +533,7 @@
                                                         autoSubmit="true" readOnly="true">
                                         <f:selectItems value="#{bindings.ReversalTypeLOVVO1.items}" id="si8"/>
                                         <f:validator binding="#{bindings.ReversalTypeLOVVO1.validator}"/>
+
                                     </af:selectOneChoice>
                                     <af:panelGroupLayout id="pgl4" layout="horizontal"
                                                          binding="#{viewScope.ActionEventsBean.percentageGroupBind}"

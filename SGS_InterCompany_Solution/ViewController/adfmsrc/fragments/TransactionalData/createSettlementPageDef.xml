@@ -58,7 +58,7 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICCUSTOMERGEO" id="ICCUSTOMERGEO"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICSUPPLIERBU" id="ICSUPPLIERBU"
+   <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICSUPPLIERBU" id="ICSUPPLIERBU"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_ICCUSTOMERBU" id="ICCUSTOMERBU"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
@@ -148,6 +148,35 @@
     <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="TrxAmount">
       <AttrNames>
         <Item Value="TrxAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="SgsCreateSettlementVO1Iterator" id="ApplyPaymentOnly" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ApplyPaymentOnly"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <button IterBinding="SgsCreateSettlementVO1Iterator" id="ApplyReceiptOnly" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="ApplyReceiptOnly"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+     
+    <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="PSINVOICENUMBER">
+      <AttrNames>
+        <Item Value="PSINVOICENUMBER"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="PSVOUCHERNUMBER">
+      <AttrNames>
+        <Item Value="PSVOUCHERNUMBER"/>
       </AttrNames>
     </attributeValues>
   </bindings>

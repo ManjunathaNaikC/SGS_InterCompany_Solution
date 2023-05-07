@@ -82,14 +82,14 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
 
             conn = DriverManager.getConnection(connectionUrl);
 
-            //          conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;");
-            //          conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+                    //  conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;");
+                 //    conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
 
         } catch (SQLException sqle) {
             // TODO: Add catch code
             sqle.printStackTrace();
-        } catch (IOException ex) {
+       } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
             if (input != null) {

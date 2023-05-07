@@ -131,6 +131,8 @@ public class ActionEventsBean {
 
     private RichSelectBooleanCheckbox bindPaymentCheck;
     private RichSelectBooleanCheckbox bindReceiptCheck;
+    private RichInputText bindPsInvoiceNumber;
+    private RichInputText bindPsVoucherNumber;
 
 
     public ActionEventsBean() {
@@ -1297,7 +1299,9 @@ public class ActionEventsBean {
                                                  .getPageFlowScope()
                                                  .get("selectedValue3");
 
-     
+        bindPsVoucherNumber.getValue();
+        bindPsInvoiceNumber.getValue();
+        
 //
 //                String PAYMENTID = (String) row.getAttribute("PAYMENTID");
 //                String ICCUSTOMERGEO = (String) row.getAttribute("ICCUSTOMERGEO");
@@ -1331,6 +1335,15 @@ public class ActionEventsBean {
         voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
         voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
         voucherView.setNamedWhereClauseParam("bSltmtStatus", "Settled");
+        if(null != bindPsVoucherNumber.getValue()){
+                   voucherView.setNamedWhereClauseParam("bPsVoucherNumber",bindPsVoucherNumber.getValue());
+               }
+                       
+                       
+                       
+        if(null != bindPsVoucherNumber.getValue()){
+                   voucherView.setNamedWhereClauseParam("bRefToArInvoice",bindPsVoucherNumber.getValue());
+               }
         System.out.println("bindPaymentCheck::"+getBindPaymentCheck().getValue());
         System.out.println("bindReceiptCheck::"+getBindReceiptCheck().getValue());
 //        boolean paymentCheck= (Boolean)getBindPaymentCheck().getValue();
@@ -2477,6 +2490,22 @@ public class ActionEventsBean {
 
     public RichSelectBooleanCheckbox getBindReceiptCheck() {
         return bindReceiptCheck;
+    }
+
+    public void setBindPsInvoiceNumber(RichInputText bindPsInvoiceNumber) {
+        this.bindPsInvoiceNumber = bindPsInvoiceNumber;
+    }
+
+    public RichInputText getBindPsInvoiceNumber() {
+        return bindPsInvoiceNumber;
+    }
+
+    public void setBindPsVoucherNumber(RichInputText bindPsVoucherNumber) {
+        this.bindPsVoucherNumber = bindPsVoucherNumber;
+    }
+
+    public RichInputText getBindPsVoucherNumber() {
+        return bindPsVoucherNumber;
     }
 }
 

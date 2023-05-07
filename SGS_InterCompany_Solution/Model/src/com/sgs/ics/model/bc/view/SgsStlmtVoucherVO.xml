@@ -86,6 +86,14 @@
     Name="bNewStlmtStatus2"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bRefToArInvoice"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bPsVoucherNumber"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsStlmtVoucherEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO"/>
@@ -866,6 +874,14 @@
       Name="SgsStlmtVoucherVOCriteria1_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="PsVoucherNo"
+        ViewAttribute="PsVoucherNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bPsVoucherNumber"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="IcCustomerBu"
         ViewAttribute="IcCustomerBu"
         Operator="="
@@ -879,6 +895,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bSupBu"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="RefToArInvoice"
+        ViewAttribute="RefToArInvoice"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bRefToArInvoice"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

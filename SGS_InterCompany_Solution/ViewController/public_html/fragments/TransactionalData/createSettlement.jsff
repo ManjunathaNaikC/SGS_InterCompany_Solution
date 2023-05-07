@@ -11,9 +11,7 @@
                     <af:spacer id="s13" height="20"/>
                     <af:panelBox id="pb3" showHeader="always" text="Search">
                         
-                        <af:panelFormLayout id="pfl2" rows="5" maxColumns="2">
-                            <af:selectBooleanCheckbox text="(Apply Payment Only)" id="sbc5" autoSubmit="true"
-                                                      binding="#{viewScope.ActionEventsBean.bindPaymentCheck}"/>
+                        <af:panelFormLayout id="pfl2" rows="5" styleClass="AFStretchWidth" maxColumns="2">
                             <af:selectOneChoice value="#{pageFlowScope.selectedValue}"
                                                 label="#{bindings.ICSUPPLIERGEO.label}"
                                                 required="#{bindings.ICSUPPLIERGEO.hints.mandatory}"
@@ -30,14 +28,8 @@
                             <f:selectItems value="#{bindings.ICSUPPLIERBU.items}" id="si3"/>
                             <f:validator binding="#{bindings.ICSUPPLIERBU.validator}"/>
                         </af:selectOneChoice>
-                            <af:inputText value="#{bindings.PSINVOICENUMBER.inputValue}"
-                                          label="#{bindings.PSINVOICENUMBER.hints.label}"
-                                          required="#{bindings.PSINVOICENUMBER.hints.mandatory}"
-                                          columns="#{bindings.PSINVOICENUMBER.hints.displayWidth}"
-                                          maximumLength="#{bindings.PSINVOICENUMBER.hints.precision}"
-                                          shortDesc="#{bindings.PSINVOICENUMBER.hints.tooltip}" id="it1">
-                                <f:validator binding="#{bindings.PSINVOICENUMBER.validator}"/>
-                            </af:inputText>
+                            <af:inputText label="PS Invoice Number" id="it1"
+                                          binding="#{viewScope.ActionEventsBean.bindPsInvoiceNumber}"/>
                             <af:selectOneChoice value="#{pageFlowScope.selectedValue2}"
                                                 label="#{bindings.COLLECTORBU.label}"
                                                 required="#{bindings.COLLECTORBU.hints.mandatory}"
@@ -45,8 +37,6 @@
                                 <f:selectItems value="#{bindings.COLLECTORBU.items}" id="si14"/>
                                 <f:validator binding="#{bindings.COLLECTORBU.validator}"/>
                             </af:selectOneChoice>
-                            <af:selectBooleanCheckbox text="(Apply Receipt Only)" id="sbc6" autoSubmit="true"
-                                                      binding="#{viewScope.ActionEventsBean.bindReceiptCheck}"/>
                             <af:selectOneChoice value="#{pageFlowScope.selectedValue1}"
                                                 label="#{bindings.ICCUSTOMERGEO.label}"
                                                 required="#{bindings.ICCUSTOMERGEO.hints.mandatory}"
@@ -63,14 +53,8 @@
                             <f:selectItems value="#{bindings.ICCUSTOMERBU.items}" id="si4"/>
                             <f:validator binding="#{bindings.ICCUSTOMERBU.validator}"/>
                         </af:selectOneChoice>
-                            <af:inputText value="#{bindings.PSVOUCHERNUMBER.inputValue}"
-                                          label="#{bindings.PSVOUCHERNUMBER.hints.label}"
-                                          required="#{bindings.PSVOUCHERNUMBER.hints.mandatory}"
-                                          columns="#{bindings.PSVOUCHERNUMBER.hints.displayWidth}"
-                                          maximumLength="#{bindings.PSVOUCHERNUMBER.hints.precision}"
-                                          shortDesc="#{bindings.PSVOUCHERNUMBER.hints.tooltip}" id="it2">
-                                <f:validator binding="#{bindings.PSVOUCHERNUMBER.validator}"/>
-                            </af:inputText>
+                            <af:inputText label="PS Voucher Number" id="it2"
+                                          binding="#{viewScope.ActionEventsBean.bindPsVoucherNumber}"/>
                             <af:selectOneChoice value="#{pageFlowScope.selectedValue3}"
                                                 label="#{bindings.PAYERBU.label}"
                                                 required="#{bindings.PAYERBU.hints.mandatory}"
@@ -78,6 +62,10 @@
                                 <f:selectItems value="#{bindings.PAYERBU.items}" id="si15"/>
                                 <f:validator binding="#{bindings.PAYERBU.validator}"/>
                             </af:selectOneChoice>
+                            <af:selectBooleanCheckbox text="(Apply Receipt Only)" id="sbc6" autoSubmit="true"
+                                                      binding="#{viewScope.ActionEventsBean.bindReceiptCheck}"/>
+                            <af:selectBooleanCheckbox text="(Apply Payment Only)" id="sbc5" autoSubmit="true"
+                                                      binding="#{viewScope.ActionEventsBean.bindPaymentCheck}"/>
                             <!--<af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
                                             label="#{bindings.PURPOSECODE.label}"
                                             required="#{bindings.PURPOSECODE.hints.mandatory}"

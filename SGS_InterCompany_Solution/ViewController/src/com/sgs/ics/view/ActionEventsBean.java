@@ -28,6 +28,9 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -1780,11 +1783,98 @@ public class ActionEventsBean {
         for (int i = 0; i < rows.length; i++) {
             if (null != rows[i].getAttribute("selectInvoiceRecord") &&
                 rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                
+                System.out.println("Period 0::" + rows[i].getAttribute("Period"));
+                java.util.Date period1 = (java.util.Date) rows[i].getAttribute("Period");
+                System.out.println("Period1::" + period1);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                System.out.println(" sdf: " + sdf);
+                String dateAsString2 = sdf.format(period1);
+                System.out.println(" dateAsString2: " + dateAsString2);
+                LocalDate currentDateTest = LocalDate.parse(dateAsString2);
+                int day1 = currentDateTest.getMonthValue();
+                System.out.println(" day1: " + day1);
+                int cutOffDay=returnCutOffDay(day1);
+                System.out.println(" cutOffDay: " + cutOffDay);
+               // currentDateTest.getMonthValue();
+//                Date d = new Date();
+                // Get an instance of LocalTime
+                // from date
+//                String dateAsString = "2020-07-18";
+//                // String period =  sdf.format(period1);
+//                LocalDate currentDate = LocalDate.parse(dateAsString);
+//                System.out.println("Specified  date: " + currentDate);
+//                // Get day from date
+//                int day = currentDate.getDayOfMonth();
+//
+//                // Get month from date
+//                Month month1 = currentDate.getMonth();
+//
+//                // Get year from date
+//                int year = currentDate.getYear();
+//
+//                // Print the day, month, and year
+//                System.out.println("Day: " + day);
+//                System.out.println("Month: " + month1);
+//                System.out.println("Year: " + year);
+                
+                LocalDate currentdate1 = LocalDate.now();
+                System.out.println("Current date: " + currentdate1);
+                int currentDay = currentdate1.getDayOfMonth();
+                System.out.println("Current day: " + currentDay);
+
+
                 rows[i].setAttribute("TransactionStatus", "Approved");
+                if(currentDay>cutOffDay){
+                    rows[i].setAttribute("TransactionCategory", "Provisional Journal");
+                }
+                
             }
         }
         executeBinding(SAVE_DATA);
         invoiceApprovBind.hide();
+    }
+    public int returnCutOffDay(int day){
+        int dayOFMonth=0;
+        Date d=null;
+        String queryString =
+            "SELECT DATE FROM PROV_ENTRY_CUTOFF_TBL WHERE PERIOD="+day+"";
+        Connection conn = null;
+        PreparedStatement pst = null;
+        try {
+            SGSAppModuleImpl am = new SGSAppModuleImpl();
+            conn = am.getDBConnection();
+            String sqlIdentifier = queryString;
+            pst = conn.prepareStatement(sqlIdentifier);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                d = (Date) rs.getDate(1);
+            }
+            System.out.println("date 0::" + d);
+
+//            java.util.Date period1 = (java.util.Date) rows[i].getAttribute("Period");
+//            System.out.println("Period1::" + period1);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            System.out.println(" sdf3: " + sdf);
+            String dateAsString = sdf.format(d);
+            System.out.println(" dateAsString3: " + dateAsString);
+            LocalDate currentDateTest = LocalDate.parse(dateAsString);
+            dayOFMonth = currentDateTest.getDayOfMonth();
+            System.out.println(" day3 dayOFMonth: " + dayOFMonth);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+     
+        
+        
+        return dayOFMonth;
     }
 
     public void onInvoiceReject(ActionEvent actionEvent) {

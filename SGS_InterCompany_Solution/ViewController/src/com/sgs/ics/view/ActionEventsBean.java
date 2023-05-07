@@ -1865,18 +1865,18 @@ public class ActionEventsBean {
                 DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
                 java.sql.Date dateCredit = new java.sql.Date(utilDate.getTime());
             }
-            if (null != percentageReversalBind.getValue()) {
-                String str = (String) percentageReversalBind.getValue();
-                double reversalPerc = Double.parseDouble(str);
-                Object invAmt = row[i].getAttribute("InvoiceAmount");
-                double invAmt2 = new Double(invAmt.toString());
-                DecimalFormat df = new DecimalFormat("#.##");
-                double invoiceAmount = Double.valueOf(df.format(invAmt2));
-                double reversalAmt = (Double) ((reversalPerc / 100) * (invoiceAmount));
-                double revAmt = Double.valueOf(df.format(reversalAmt));
-                row[i].setAttribute("ReversalAmount", revAmt);
-                row[i].setAttribute("PERCENTAGEREVERSAL", reversalPerc);
-            }
+//            if (null != percentageReversalBind.getValue()) {
+//                String str = (String) percentageReversalBind.getValue();
+//                double reversalPerc = Double.parseDouble(str);
+//                Object invAmt = row[i].getAttribute("InvoiceAmount");
+//                double invAmt2 = new Double(invAmt.toString());
+//                DecimalFormat df = new DecimalFormat("#.##");
+//                double invoiceAmount = Double.valueOf(df.format(invAmt2));
+//                double reversalAmt = (Double) ((reversalPerc / 100) * (invoiceAmount));
+//                double revAmt = Double.valueOf(df.format(reversalAmt));
+//                row[i].setAttribute("ReversalAmount", revAmt);
+//                row[i].setAttribute("PERCENTAGEREVERSAL", reversalPerc);
+//            }
             BindingContainer bc = this.getBindingsCont();
             JUCtrlListBinding list = (JUCtrlListBinding) bc.get("ReversalReasonLOVVO1");
             String selectedRow = (String) list.getSelectedValue();
@@ -1910,10 +1910,10 @@ public class ActionEventsBean {
 
 
         this.creditDateBindVal.setValue(null);
-        this.percentageReversalBind.setValue(null);
+//        this.percentageReversalBind.setValue(null);
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(creditDateBindVal);
-        AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
+   //     AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
         // executeBinding(SAVE_DATA);
 
     }
@@ -2203,6 +2203,7 @@ public class ActionEventsBean {
     }
 
     public void onCreditPopupClose(ActionEvent actionEvent) {
+        System.out.println("onCreditPopupClose called");
         executeBinding("Rollback");
         invoicecreditmemobindpopup.hide();
     }

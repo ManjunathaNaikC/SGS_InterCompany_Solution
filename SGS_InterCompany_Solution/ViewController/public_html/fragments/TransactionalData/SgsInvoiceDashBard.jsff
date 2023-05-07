@@ -532,7 +532,7 @@
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1creditMemo"
                               binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}"
-                              popupCanceledListener="#{viewScope.ActionEventsBean.onCreditPopupClose}">
+                             >
                         <af:dialog id="d2" type="none">
                             <f:facet name="buttonBar"/>
                             <af:panelBox text="Invoice Credit Memo Dash Board" id="pb2" inlineStyle="width:1400px">
@@ -551,7 +551,7 @@
                                         <f:validator binding="#{bindings.ReversalReasonLOVVO1.validator}"/>
                                     </af:selectOneChoice>
                                     
-                                    <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                    <!--<af:panelGroupLayout id="pgl4" layout="horizontal"
                                                          binding="#{viewScope.ActionEventsBean.percentageGroupBind}"
                                                           partialTriggers="soc8"
                                                          inlineStyle="margin-left: -72px;"
@@ -561,7 +561,7 @@
                                                       autoSubmit="true"  visible="false" partialTriggers="soc8"
                                                       inlineStyle="width:60px"/>
                                         <af:outputText value="%" id="ot2"/>
-                                    </af:panelGroupLayout>
+                                    </af:panelGroupLayout>-->
                                     
                                 </af:panelFormLayout>
                                 <af:spacer id="s7" height="5"/>
@@ -610,7 +610,7 @@
                                                    id="c24">
                                             <af:outputText value="#{row.InvoiceSeqNo}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.tooltip}"
-                                                           id="ot5"/>
+                                                           id="ot56"/>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.name}"
                                                    filterable="true" sortable="true"
@@ -618,7 +618,7 @@
                                                    id="c25">
                                             <f:facet name="filter">
                                                 <af:inputDate value="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
-                                                              id="id1">
+                                                              id="id17">
                                                     <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.format}"/>
                                                 </af:inputDate>
                                             </f:facet>
@@ -639,7 +639,7 @@
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.label}"
-                                                   id="c32">
+                                                   id="c325">
                                             <af:outputText value="#{row.PsftVoucherRef}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.tooltip}"
                                                            id="ot38"/>
@@ -647,7 +647,7 @@
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.label}"
-                                                   id="c33">
+                                                   id="c313">
                                             <af:outputText value="#{row.PsftInvoiceRef}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.tooltip}"
                                                            id="ot39"/>

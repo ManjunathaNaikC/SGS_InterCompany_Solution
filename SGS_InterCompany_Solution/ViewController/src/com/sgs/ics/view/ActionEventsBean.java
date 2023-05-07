@@ -1345,10 +1345,10 @@ public class ActionEventsBean {
             voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");  
             voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
         }else if(null != (Boolean)getBindReceiptCheck().getValue() &&  (Boolean)getBindReceiptCheck().getValue()){
-            String stlmtStatus="'Voucher Paid','Invoice Pending'";
+            String stlmtStatus="'Voucher Paid-Invoice Pending'";
             String paymentStatus="'Fully Paid','Partially Paid'";
-            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Voucher Paid");
-            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Invoice Pending");
+           // voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Voucher Paid");
+            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Voucher Paid-Invoice Pending");
             voucherView.setNamedWhereClauseParam("bPayStatus", "Partially Paid");  
             voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");  
         }else if(null != (Boolean)getBindReceiptCheck().getValue() && null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindReceiptCheck().getValue()){
@@ -1361,6 +1361,13 @@ public class ActionEventsBean {
         }
         System.out.println("Query ::"+voucherView.getQuery());
         voucherView.executeQuery();
+        System.out.println("voucherView Row Count ::"+voucherView.getRowCount());
+        if (null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
+            if(voucherView.getRowCount()==0){
+            String message="Please apply payment first on the pending Vouchers";
+            ADFUtils.errorPopup(message);
+            }
+        }
     }
 
     public void onCreateSettlementSave(ActionEvent actionEvent) {

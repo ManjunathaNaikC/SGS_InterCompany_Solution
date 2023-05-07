@@ -1070,15 +1070,15 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
      * Gets the attribute value for REVINVNUM, using the alias name REVINVNUM.
      * @return the value of REVINVNUM
      */
-    public BigDecimal getREVINVNUM() {
-        return (BigDecimal) getAttributeInternal(REVINVNUM);
+    public String getREVINVNUM() {
+        return (String) getAttributeInternal(REVINVNUM);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for REVINVNUM.
      * @param value value to set the REVINVNUM
      */
-    public void setREVINVNUM(BigDecimal value) {
+    public void setREVINVNUM(String value) {
         setAttributeInternal(REVINVNUM, value);
     }
 

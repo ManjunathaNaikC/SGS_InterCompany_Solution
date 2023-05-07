@@ -581,12 +581,11 @@
   </Attribute>
   <Attribute
     Name="REVINVNUM"
-    Precision="10"
-    Scale="2"
+    Precision="80"
     ColumnName="REV_INV_NUM"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMERIC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
     TableName="IC_INVOICE_HEADER"/>
   <Attribute
     Name="CGSTAMOUNT"

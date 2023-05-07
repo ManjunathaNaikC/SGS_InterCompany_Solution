@@ -2087,93 +2087,81 @@ public class ActionEventsBean {
         return selectcheckInvoiceBind;
     }
 
-    public void onCreditTransactionActionButton(ActionEvent actionEvent) {
+      public void onCreditTransactionActionButton(ActionEvent actionEvent) {
         DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
         DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
         //creditData.getViewObject().executeQuery();
         oracle.jbo.Row[] invoiceDatarows = invoiceData.getAllRowsInRange();
         CommonUtils util = new CommonUtils();
-        int nonInvoice = 0;
-        int selectedRecords = 0;
+        int nonInvoice=0;
+        int selectedRecords=0;
         Object user = (Object) util.getSessionScopeValue("_username").toString();
-
-        //        for (int j = 0; j < invoiceDatarows.length; j++) {
-        //                if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
-        //                    invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
-        //                    }
-        //            }
-
-
-        for (int i = 0; i < invoiceDatarows.length; i++) {
-
-            System.out.println("nonInvoice Cat::" + nonInvoice);
-            if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
-                invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
-                String transactionStatus = (String) invoiceDatarows[i].getAttribute("TransactionStatus");
-                System.out.println("transaction Statust::" + transactionStatus);
-                System.out.println("nonInvoice Cat00::" + nonInvoice);
-                if (null != transactionStatus && !(transactionStatus.equalsIgnoreCase("Invoiced In PeopleSoft"))) {
-                    nonInvoice = 1;
-                    break;
-                }
-                executeBinding("CreateInsertCredit");
-                Row row = creditData.getCurrentRow();
-                row.setAttribute("InvoiceSeqNo", invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
-                row.setAttribute("Period", invoiceDatarows[i].getAttribute("Period"));
-                row.setAttribute("TransactionCategory", invoiceDatarows[i].getAttribute("TransactionCategory"));
-                row.setAttribute("PsftVoucherRef", invoiceDatarows[i].getAttribute("ReferenceVoucherNum"));
-                row.setAttribute("PsftInvoiceRef", invoiceDatarows[i].getAttribute("ReferenceInvoiceNum"));
-                row.setAttribute("NatureOfExpense", invoiceDatarows[i].getAttribute("NATUREOFEXPENSE"));
-                row.setAttribute("FromBu", invoiceDatarows[i].getAttribute("SourceBu"));
-                row.setAttribute("ToBu", invoiceDatarows[i].getAttribute("TargetBu"));
-                row.setAttribute("InvoiceAmount", invoiceDatarows[i].getAttribute("ALLOCATEDHEADERAMOUNT"));
-                //row.setAttribute("ReversalAmount",null);
-                row.setAttribute("InputProvider", invoiceDatarows[i].getAttribute("InputProvider"));
-                row.setAttribute("CreatedDate", invoiceDatarows[i].getAttribute("CreatedDate"));
-                row.setAttribute("CreatedBy", invoiceDatarows[i].getAttribute("CreatedBy"));
-                row.setAttribute("UpdatedDate", invoiceDatarows[i].getAttribute("UpdatedDate"));
-                row.setAttribute("UpdatedBy", invoiceDatarows[i].getAttribute("UpdatedBy"));
-                row.setAttribute("REVERSALREASON", invoiceDatarows[i].getAttribute("REVERSALREASON"));
-            }
-
-            //            else {
-            //
-            //                selectedRecords=1;
-            //                break;
-            //               // creditData.getViewObject().setWhereClause(arg0);
-            //
-            //            }
-        }
-
-        //                }else{
-        //
-        //                        FacesContext context = FacesContext.getCurrentInstance();
-        //                        String messageText = "Please select the invoice records to create credit Memos.";
-        //                        FacesMessage fm = new FacesMessage(messageText);
-        //                        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
-        //                        context.addMessage(null, fm);
-        //                }
-        //          if (selectedRecords == 1) {
-        //                        ViewObjectImpl viewImpl = null;
-        //                viewImpl = (ViewObjectImpl) getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator").getViewObject();
-        //                viewImpl.setFullSqlMode(ViewObjectImpl.FULLSQL_MODE_AUGMENTATION);
-        //                viewImpl.setWhereClause("INVOICE_SEQ_NO IN ("+ null +")");
-        //                viewImpl.executeQuery();
-        //          }
-
-        System.out.println("nonInvoice Cat 11::" + nonInvoice);
-        if (nonInvoice == 1) {
+        
+//        for (int j = 0; j < invoiceDatarows.length; j++) {
+//                if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
+//                    invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+//                    }
+//            }
+        
+        System.out.println("invoiceDatarows.length ****"+invoiceDatarows.length);
+        
+        if(invoiceDatarows.length==0){
             FacesContext context = FacesContext.getCurrentInstance();
-            String messageText = "Please select the invoice records to create credit Memos.";
+            String messageText = "For credit transactions, select the lines with status Invoiced In PeopleSoft";
             FacesMessage fm = new FacesMessage(messageText);
             fm.setSeverity(FacesMessage.SEVERITY_ERROR);
             context.addMessage(null, fm);
         } else {
+            for (int i = 0; i < invoiceDatarows.length; i++) {
 
-            //executeBinding(SAVE_DATA);
-            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-            this.invoicecreditmemobindpopup.show(hints);
+                System.out.println("nonInvoice Cat::"+nonInvoice);
+                if (null != invoiceDatarows[i].getAttribute("selectInvoiceRecord") &&
+                    invoiceDatarows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                    String transactionStatus = (String)invoiceDatarows[i].getAttribute("TransactionStatus");
+                    System.out.println("transaction Statust::"+transactionStatus);
+                    System.out.println("nonInvoice Cat00::" + nonInvoice);
+                    if (null != transactionStatus && !(transactionStatus.equalsIgnoreCase("Invoiced In PeopleSoft"))) {
+                        nonInvoice = 1;
+                        break;
+                    }
+                    executeBinding("CreateInsertCredit");
+                    Row row = creditData.getCurrentRow();
+                    row.setAttribute("InvoiceSeqNo", invoiceDatarows[i].getAttribute("InvoiceSeqNo"));
+                    row.setAttribute("Period", invoiceDatarows[i].getAttribute("Period"));
+                    row.setAttribute("TransactionCategory", invoiceDatarows[i].getAttribute("TransactionCategory"));
+                    row.setAttribute("PsftVoucherRef", invoiceDatarows[i].getAttribute("ReferenceVoucherNum"));
+                    row.setAttribute("PsftInvoiceRef", invoiceDatarows[i].getAttribute("ReferenceInvoiceNum"));
+                    row.setAttribute("NatureOfExpense",invoiceDatarows[i].getAttribute("NATUREOFEXPENSE"));
+                    row.setAttribute("FromBu", invoiceDatarows[i].getAttribute("SourceBu"));
+                    row.setAttribute("ToBu", invoiceDatarows[i].getAttribute("TargetBu"));
+                    row.setAttribute("InvoiceAmount", invoiceDatarows[i].getAttribute("ALLOCATEDHEADERAMOUNT"));
+                    //row.setAttribute("ReversalAmount",null);
+                    row.setAttribute("InputProvider", invoiceDatarows[i].getAttribute("InputProvider"));
+                    row.setAttribute("CreatedDate", invoiceDatarows[i].getAttribute("CreatedDate"));
+                    row.setAttribute("CreatedBy", invoiceDatarows[i].getAttribute("CreatedBy"));
+                    row.setAttribute("UpdatedDate", invoiceDatarows[i].getAttribute("UpdatedDate"));
+                    row.setAttribute("UpdatedBy", invoiceDatarows[i].getAttribute("UpdatedBy"));
+                    row.setAttribute("REVERSALREASON", invoiceDatarows[i].getAttribute("REVERSALREASON"));
+                    selectedRecords=selectedRecords+1;
+                }
+             
+            }
+            System.out.println("nonInvoice Cat 11::"+nonInvoice);
+            if (nonInvoice == 1 ||selectedRecords==0) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                String messageText = "For credit transactions, select the lines with status Invoiced In PeopleSoft";
+                FacesMessage fm = new FacesMessage(messageText);
+                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+                context.addMessage(null, fm);
+            }else {
+
+                //executeBinding(SAVE_DATA);
+                RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                this.invoicecreditmemobindpopup.show(hints);
+            }
+            
         }
+         
     }
 
 
@@ -2428,8 +2416,9 @@ public class ActionEventsBean {
             conn = am.getDBConnection();
             String SPsql = "EXEC USP_SCN_CREDIT_TXN "; // for stored proc
             PreparedStatement ps = conn.prepareStatement(SPsql);
-
             ps.execute();
+//            DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+//            invoiceData .getViewObject().executeQuery();
         } catch (SQLException sqle) {
             // TODO: Add catch code
             sqle.printStackTrace();

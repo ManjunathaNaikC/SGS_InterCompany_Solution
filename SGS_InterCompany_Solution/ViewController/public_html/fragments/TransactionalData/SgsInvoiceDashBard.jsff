@@ -28,12 +28,12 @@
                                 <af:exportCollectionActionListener type="excelHTML" exportedId="ivd1"
                                                                    filename="InvoiceDashBoard.xls"/>
                             </af:button>
-                            <af:button text="Upload Direct Cross Charges" id="b2upload" 
+                            <!--<af:button text="Upload Direct Cross Charges" id="b2upload" 
                              rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_DC')}" 
                             >
                              
                                 <af:showPopupBehavior popupId="DirectChargePopup"/>
-                            </af:button>
+                            </af:button>-->
                             <af:button text="Approve" id="b3" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}" >
                             
                                 <af:showPopupBehavior popupId="p1approve"/>
@@ -385,93 +385,7 @@
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.tooltip}"
                                            id="ot55"/>
                         </af:column>
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.label}" id="c6"
-                                   sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.name}"
-                                   filterable="true" visible="false">
-                            <af:outputText value="#{row.IuVendor}"
-                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuVendor.tooltip}"
-                                           id="ot6"/>
-                        </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.label}" id="c9"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.name}" filterable="true">
-              <af:outputText value="#{row.SourceAmount}"
-                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.tooltip}" id="ot9">
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceAmount.format}"/>
-              </af:outputText>
-            </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.label}" id="c10"
-                                   sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.name}"
-                                   filterable="true" visible="false">
-                            <af:outputText value="#{row.IuCustomer}"
-                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.IuCustomer.tooltip}"
-                                           id="ot10"/>
-                        </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.label}"
-                                   id="c17"
-                                   sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.name}"
-                                   filterable="true" rendered="false" styleClass="mynumbercolumn">
-                            <af:outputText value="#{row.BaseAmountBeforeTax}"
-                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.BaseAmountBeforeTax.tooltip}"
-                                           id="ot17">
-                                <af:convertNumber groupingUsed="true"
-                                                  pattern="###,##0.00"
-                                                  type="currency"/>
-                            </af:outputText>
-                        </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.label}" id="c18"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.name}" filterable="true">
-              <af:outputText value="#{row.GstVatRate}"
-                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.tooltip}" id="ot18">
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatRate.format}"/>
-              </af:outputText>
-            </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.label}" id="c19"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.name}" filterable="true">
-              <af:outputText value="#{row.GstVatAmount}"
-                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.tooltip}" id="ot19">
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.GstVatAmount.format}"/>
-              </af:outputText>
-            </af:column>-->
-                        <!--<af:column headerText="VAT Rate" id="c19" styleClass="mynumbercolumn">
-                            <af:outputText value="-" rendered="#{row.VATRATE eq null}" id="ot24"/>
-                            <af:outputText value="#{row.VATRATE}" rendered="#{row.VATRATE ne null}"
-                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.tooltip}"
-                                           id="ot19">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.format}"/>
-                            </af:outputText>
-                        </af:column>-->
-                        <!--<af:column headerText="VAT Amount" id="c20" styleClass="mynumbercolumn">
-                            <af:outputText value="-" rendered="#{row.VATAMNT eq null}" id="ot25"/>
-                            <af:outputText value="#{row.VATAMNT}" rendered="#{row.VATAMNT ne null}"
-                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATAMNT.tooltip}"
-                                           id="ot53">
-                                <af:convertNumber groupingUsed="true"
-                                                  pattern="###,##0.00"
-                                                  type="currency"/>
-                            </af:outputText>
-                        </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaymentStatus.label}" id="c24"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaymentStatus.name}" filterable="true">
-              <af:outputText value="#{row.PaymentStatus}"
-                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaymentStatus.tooltip}" id="ot24"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.label}" id="c25"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.name}" filterable="true">
-              <af:outputText value="#{row.PaidAmount}"
-                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.tooltip}" id="ot25">
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.PaidAmount.format}"/>
-              </af:outputText>
-            </af:column>-->
-                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReviewAccEntries.label}" id="c28"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReviewAccEntries.name}" filterable="true">
-              <af:outputText value="#{row.ReviewAccEntries}"
-                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.ReviewAccEntries.tooltip}" id="ot28"/>
-            </af:column>-->
+                       
                     </af:table>
                     
                      <af:popup childCreation="deferred" autoCancel="disabled" id="AdjEntryPopup"
@@ -484,14 +398,7 @@
                             <af:panelFormLayout id="pfl2" maxColumns="1" rows="3" styleClass="AFStretchWidth">
                                 <f:facet name="footer"/>
                                 
-                                <!--<af:selectOneChoice value="#{bindings.MEANING.inputValue}"
-                                                    label="Nature of Expense"
-                                                    required="#{bindings.MEANING.hints.mandatory}"
-                                                    shortDesc="#{bindings.MEANING.hints.tooltip}" id="soc1"
-                                                    binding="#{pageFlowScope.UploadInInvoice.natureOfExpenseLovBind}">
-                                    <f:selectItems value="#{bindings.MEANING.items}" id="si2"/>
-                                    <f:validator binding="#{bindings.MEANING.validator}"/>
-                                </af:selectOneChoice>-->
+                                
                                 <af:selectOneChoice value="#{bindings.MEANING.inputValue}"
                                                     label="Nature of Expense"
                                                     required="#{bindings.MEANING.hints.mandatory}"
@@ -515,11 +422,7 @@
                                                           binding="#{pageFlowScope.UploadInInvoice.digitalPLBind}"
                                                           autoSubmit="true" partialTriggers="soc2"
                                                           rendered="#{bindings.MEANING.inputValue == 'IT Expenses' ? true:false}"/>
-                                <!--<af:selectBooleanCheckbox value="#{bindings.Digital_PL.inputValue}"
-                                                          label="#{bindings.Digital_PL.label}"
-                                                          shortDesc="#{bindings.Digital_PL.hints.tooltip}" id="sbc5"
-                                                          binding="#{pageFlowScope.UploadInInvoice.digitalPLBind}"
-                                                          autoSubmit="true"/>-->
+                               
                                 <af:selectOneChoice value="#{bindings.TxnCategoryLOVVO1.inputValue}"
                                                     label="Transaction Category"
                                                     required="#{bindings.TxnCategoryLOVVO1.hints.mandatory}"
@@ -535,31 +438,19 @@
                                                           id="sbc7" autoSubmit="true" partialTriggers="soc4"
                                                           rendered="#{bindings.TxnCategoryLOVVO1.inputValue == 'Journal' ? true:false}"
                                                           binding="#{pageFlowScope.UploadInInvoice.reverseEntryBind}"/>
-                                <!--<af:selectOneChoice value="#{bindings.YesOrNoLookupVO1.inputValue}"
-                                                    label="Reversable Entry"
-                                                    required="#{bindings.YesOrNoLookupVO1.hints.mandatory}"
-                                                    shortDesc="#{bindings.YesOrNoLookupVO1.hints.tooltip}" id="soc3"
-                                                    binding="#{pageFlowScope.UploadInInvoice.adjReverseEntryBind}">
-                                    <f:selectItems value="#{bindings.YesOrNoLookupVO1.items}" id="si3"/>
-                                    <f:validator binding="#{bindings.YesOrNoLookupVO1.validator}"/>
-                                </af:selectOneChoice>-->
+                               
                                 <af:selectBooleanCheckbox value="#{bindings.TaxApplicability1.inputValue}"
                                                           label="#{bindings.TaxApplicability1.label}"
                                                           shortDesc="#{bindings.TaxApplicability1.hints.tooltip}"
                                                           id="sbc6"
                                                           binding="#{pageFlowScope.UploadInInvoice.taxApplicaBind}"
                                                           autoSubmit="true"/>
-                                <!--<af:selectBooleanCheckbox value="#{bindings.TaxApplicability.inputValue}"
-                                                          label="#{bindings.TaxApplicability.label}"
-                                                          shortDesc="#{bindings.TaxApplicability.hints.tooltip}"
-                                                          id="sbc6"
-                                                          binding="#{pageFlowScope.UploadInInvoice.taxApplicaBind}"
-                                                          autoSubmit="true"/>-->
+                              
                             </af:panelFormLayout>
                             <af:spacer id="s2upload" height="10px"/>
                             <af:inputFile label="Select File" id="if2" labelStyle="font-weight:bold;color:navy;"
                                           valueChangeListener="#{pageFlowScope.UploadInInvoice.uploadFileVCE}"
-                                          uploadType="submit" autoSubmit="true"/>
+                                          uploadType="submit" autoSubmit="false" showRequired="true"/>
                         </af:dialog>
                     </af:popup>
                     
@@ -582,14 +473,7 @@
                                     <f:selectItems value="#{bindings.MEANING.items}" id="si2"/>
                                     <f:validator binding="#{bindings.MEANING.validator}"/>
                                 </af:selectOneChoice>
-                                <!--<af:selectOneChoice value="#{bindings.NATUREOFEXPENSE1.inputValue}"
-                                                    label="#{bindings.NATUREOFEXPENSE1.label}"
-                                                    required="#{bindings.NATUREOFEXPENSE1.hints.mandatory}"
-                                                    shortDesc="#{bindings.NATUREOFEXPENSE1.hints.tooltip}" id="soc2"
-                                                    binding="#{viewScope.UploadInInvoice.natureOfExpenseLovBind}">
-                                    <f:selectItems value="#{bindings.NATUREOFEXPENSE1.items}" id="si1"/>
-                                    <f:validator binding="#{bindings.NATUREOFEXPENSE1.validator}"/>
-                                </af:selectOneChoice>-->
+                                
                                 
                             </af:panelFormLayout>
                             <af:spacer id="s1upload" height="10px"/>
@@ -647,7 +531,8 @@
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1creditMemo"
-                              binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}">
+                              binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}"
+                              popupCanceledListener="#{viewScope.ActionEventsBean.onCreditPopupClose}">
                         <af:dialog id="d2" type="none">
                             <f:facet name="buttonBar"/>
                             <af:panelBox text="Invoice Credit Memo Dash Board" id="pb2" inlineStyle="width:1400px">
@@ -665,27 +550,7 @@
                                         <f:selectItems value="#{bindings.ReversalReasonLOVVO1.items}" id="si5"/>
                                         <f:validator binding="#{bindings.ReversalReasonLOVVO1.validator}"/>
                                     </af:selectOneChoice>
-                                    <!--<af:selectBooleanCheckbox text="Complete Reversal" label=""  id="sbc5"
-                                                              autoSubmit="true" partialTriggers="it2 pfl3"  
-                                                              valueChangeListener="#{viewScope.ActionEventsBean.onCompleteReversalChechBox}"/>-->
-                                     <!--<af:selectBooleanCheckbox text="Percentage Reversal" label=""  id="sbc6"
-                                                              autoSubmit="true" partialTriggers="pfl3 it2 pgl4 ot2"  
-                                                              valueChangeListener="#{viewScope.ActionEventsBean.onCompleteReversalChechBox}"/>-->
-                                    <!--<af:selectOneChoice value="#{bindings.ReversalTypeLOVVO1.inputValue}"
-                                                        label="#{bindings.ReversalTypeLOVVO1.label}"
-                                                        required="#{bindings.ReversalTypeLOVVO1.hints.mandatory}"
-                                                        shortDesc="#{bindings.ReversalTypeLOVVO1.hints.tooltip}"
-                                                        id="soc8" partialTriggers="pgl4 it2 ot2"
-                                                        valueChangeListener="#{viewScope.ActionEventsBean.onReversalTypeVL}"
-                                                        autoSubmit="true" readOnly="true">
-                                        <f:selectItems value="#{bindings.ReversalTypeLOVVO1.items}" id="si8"/>
-                                        <f:validator binding="#{bindings.ReversalTypeLOVVO1.validator}"/>
-                                    </af:selectOneChoice>-->
-                                    <!--<af:selectBooleanCheckbox  id="it3"
-                                                              
-                                                              autoSubmit="true" text="Complete Reversal"
-                                                              partialTriggers="it2"
-                                                              valueChangeListener="#{viewScope.ActionEventsBean.onCompleteReversalChechBox}"/>-->
+                                    
                                     <af:panelGroupLayout id="pgl4" layout="horizontal"
                                                          binding="#{viewScope.ActionEventsBean.percentageGroupBind}"
                                                           partialTriggers="soc8"
@@ -697,38 +562,7 @@
                                                       inlineStyle="width:60px"/>
                                         <af:outputText value="%" id="ot2"/>
                                     </af:panelGroupLayout>
-                                    <!--<af:selectOneChoice label="Reversal Reason" id="smc1" autoSubmit="true"
-                                    binding="#{viewScope.ActionEventsBean.reversalReasonLovBind}">
-                                        <f:selectItems value="INCORRECT_AMOUNT" id="si3"
-                                                       itemLabel="InCorrect Forex Rate"/>
-                                        <f:selectItems value="INCORRECT_FOREX_RATE" id="si4"
-                                                       itemLabel="InCorrect Amount"/>
-                                    </af:selectOneChoice>-->
-                                    <!--<af:inputDate value="#{bindings.PERIOD.inputValue}"
                                     
-                                                  label="#{bindings.PERIOD.hints.label}"
-                                                  required="#{bindings.PERIOD.hints.mandatory}"
-                                                  columns="#{bindings.PERIOD.hints.displayWidth}"
-                                                  shortDesc="#{bindings.PERIOD.hints.tooltip}" id="id7">
-                                        <f:validator binding="#{bindings.PERIOD.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.PERIOD.format}"/>
-                                    </af:inputDate>
-                                    <af:inputDate value="#{bindings.CreditPeriod.inputValue}"
-                                                  label="#{bindings.CreditPeriod.hints.label}"
-                                                  required="#{bindings.CreditPeriod.hints.mandatory}"
-                                                  columns="#{bindings.CreditPeriod.hints.displayWidth}"
-                                                  shortDesc="#{bindings.CreditPeriod.hints.tooltip}" id="id6">
-                                        <f:validator binding="#{bindings.CreditPeriod.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.CreditPeriod.format}"/>
-                                    </af:inputDate>
-                                    <af:selectOneChoice value="#{bindings.ReversalReasonLov.inputValue}"
-                                                        label="#{bindings.ReversalReasonLov.label}"
-                                                        required="#{bindings.ReversalReasonLov.hints.mandatory}"
-                                                        shortDesc="#{bindings.ReversalReasonLov.hints.tooltip}"
-                                                        id="soc3">
-                                        <f:selectItems value="#{bindings.ReversalReasonLov.items}" id="si3"/>
-                                        <f:validator binding="#{bindings.ReversalReasonLov.validator}"/>
-                                    </af:selectOneChoice>-->
                                 </af:panelFormLayout>
                                 <af:spacer id="s7" height="5"/>
                                 <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
@@ -844,9 +678,9 @@
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}"
                                                    filterable="true" sortable="true"
-                                                   headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
+                                                   headerText="Reversed #{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
                                                    id="c38" styleClass="mynumbercolumn">
-                                            <af:outputText value="#{row.InvoiceAmount}"
+                                            <af:outputText value="-#{row.InvoiceAmount}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.tooltip}"
                                                            id="ot43">
                                                 <af:convertNumber groupingUsed="true"
@@ -854,28 +688,7 @@
                                                                   type="currency"/>
                                             </af:outputText>
                                         </af:column>
-                                        <!--<af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.label}"
-                                                   id="c39" styleClass="mynumbercolumn">
-                                            <af:inputText value="#{row.bindings.ReversalAmount.inputValue}"
-                                                          required="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.mandatory}"
-                                                          columns="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.displayWidth}"
-                                                          maximumLength="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.precision}"
-                                                          shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}"
-                                                          id="it1" readOnly="true">
-                                                <f:validator binding="#{row.bindings.ReversalAmount.validator}"/>
-                                                <af:convertNumber groupingUsed="true"
-                                                                  pattern="###,##0.00"
-                                                                  type="currency"/>
-                                            </af:inputText>
-                                            --><!--<af:outputText value="#{row.ReversalAmount}"
-                                                           shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.tooltip}"
-                                                           id="ot44">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.ReversalAmount.format}"/>
-                                            </af:outputText>--><!--
-                                        </af:column>-->
+                                    
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.label}"
@@ -889,28 +702,7 @@
                                                 <f:validator binding="#{row.bindings.REVERSALREASON.validator}"/>
                                             </af:selectOneChoice>
                                         </af:column>
-                                        <!--<af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PERCENTAGEREVERSAL.label}"
-                                                   id="c48">
-                                            <af:outputText value="#{row.PERCENTAGEREVERSAL}"
-                                                           shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PERCENTAGEREVERSAL.tooltip}"
-                                                           id="ot44">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.PERCENTAGEREVERSAL.format}"/>
-                                            </af:outputText>
-                                        </af:column>-->
-                                        <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALTYPE.label}"
-                                        sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALTYPE.name}"
-                                                   filterable="true" sortable="true"
-                                                   id="c47">
-                                            <af:selectOneChoice value="#{row.bindings.REVERSALTYPE.inputValue}"
-                                                                label="#{row.bindings.REVERSALTYPE.label}"
-                                                                required="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALTYPE.mandatory}"
-                                                                shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALTYPE.tooltip}"
-                                                                id="soc9" readOnly="true">
-                                                <f:selectItems value="#{row.bindings.REVERSALTYPE.items}" id="si9"/>
-                                                <f:validator binding="#{row.bindings.REVERSALTYPE.validator}"/>
-                                            </af:selectOneChoice>
-                                        </af:column>
+                                      
                                         <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.label}"
                                          sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.name}"
                                                    filterable="true" sortable="true"
@@ -970,13 +762,7 @@
                                     </af:table>
                                 </af:panelCollection>
                             </af:panelBox>
-                            <!--<af:panelGroupLayout id="pgl3" layout="vertical" styleClass="AFStretchWidth">
-                                <af:button text="Close" id="b12"
-                                           actionListener="#{viewScope.ActionEventsBean.onCreditMemosClose}"
-                                           inlineStyle="margin-left:11px;"/>
-                                <af:region value="#{bindings.sgs_creditmemo_flow1.regionModel}" id="r1"
-                                           styleClass="AFStretchWidth"/>
-                            </af:panelGroupLayout>-->
+                          
                             <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                 <af:button text="Submit" id="b15"
                                            actionListener="#{viewScope.ActionEventsBean.onCreditMemoSubmit}"/>

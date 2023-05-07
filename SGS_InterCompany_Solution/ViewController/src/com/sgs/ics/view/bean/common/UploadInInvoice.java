@@ -388,11 +388,35 @@ public class UploadInInvoice {
         executeOperation("Commit").execute();
         adjNatureofExpBind.setValue(null);
         adjEntryPopupBind.hide();
+        adjustmentEntryProc();
         ADFUtils.saveNotifier();
        
         
 
 
+    }
+    public void adjustmentEntryProc(){
+        System.out.println("**adjustmentEntryProc Called*");
+        Connection conn = null;
+        PreparedStatement pst = null;
+        PreparedStatement ps = null;
+        try {
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USP_SCN_ADJMENT_ENTRY"; // for stored proc
+            ps = conn.prepareStatement(SPsql);
+            ps.execute();
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
+
+        }
+        System.out.println("**adjustmentEntryProc Called End*");
     }
     
     

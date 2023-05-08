@@ -136,6 +136,17 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox bindReceiptCheck;
     private RichInputText bindPsInvoiceNumber;
     private RichInputText bindPsVoucherNumber;
+    private RichSelectOneChoice purposeCodeLov;
+    private RichInputDate paymentDate;
+    private RichSelectOneChoice payBankName;
+    private RichSelectOneChoice payBankCode;
+    private RichSelectOneChoice paymentMethod;
+    private RichSelectOneChoice paymentCurrency;
+    private RichSelectOneChoice recPurposeCode;
+    private RichInputDate receiptDate;
+    private RichSelectOneChoice recBankName;
+    private RichSelectOneChoice recBankCode;
+    private RichSelectOneChoice recCurrency;
 
 
     public ActionEventsBean() {
@@ -825,11 +836,18 @@ public class ActionEventsBean {
     public void onGenerateSettlementEvent(ActionEvent actionEvent) {
         
         System.out.println("ONGEN");
-
+        double transactionAmount=0.00;
+        double bankCharge=0.00;
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        double transactionAmount = ((Number) row.getAttribute("TRXAMOUNT")).doubleValue();
-        double bankCharge = ((Number) row.getAttribute("BANKCHARGES")).doubleValue();
+        if(row.getAttribute("TRXAMOUNT")!=null){
+            transactionAmount = ((Number) row.getAttribute("TRXAMOUNT")).doubleValue();
+        }
+        
+        if(row.getAttribute("BANKCHARGES")!=null){
+            bankCharge = ((Number) row.getAttribute("BANKCHARGES")).doubleValue();
+        }
+        
         ViewObject paymentIterator = ADFUtils.findIterator("SgsStlmtVoucherVO1Iterator").getViewObject();
         Row[] rows = paymentIterator.getAllRowsInRange();
         boolean isFirstRow = true;
@@ -2633,6 +2651,217 @@ public class ActionEventsBean {
 
     public RichInputText getBindPsVoucherNumber() {
         return bindPsVoucherNumber;
+    }
+    
+    public void disablePaymentAction(ValueChangeEvent valueChangeEvent) {
+
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            purposeCodeLov.setDisabled(false);
+
+        } else {
+            purposeCodeLov.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(purposeCodeLov);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            paymentDate.setDisabled(false);
+
+        } else {
+            paymentDate.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentDate);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            payBankName.setDisabled(false);
+
+        } else {
+            payBankName.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(payBankName);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            payBankCode.setDisabled(false);
+
+        } else {
+            payBankCode.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(payBankCode);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            paymentMethod.setDisabled(false);
+
+        } else {
+            paymentMethod.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentMethod);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            paymentCurrency.setDisabled(false);
+
+        } else {
+            paymentCurrency.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentCurrency);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            inputTransactionAmount.setDisabled(false);
+
+        } else {
+            inputTransactionAmount.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(inputTransactionAmount);
+    }
+
+    public void setPurposeCodeLov(RichSelectOneChoice purposeCodeLov) {
+        this.purposeCodeLov = purposeCodeLov;
+    }
+
+    public RichSelectOneChoice getPurposeCodeLov() {
+        return purposeCodeLov;
+    }
+
+    public void setPaymentDate(RichInputDate paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    public RichInputDate getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPayBankName(RichSelectOneChoice payBankName) {
+        this.payBankName = payBankName;
+    }
+
+    public RichSelectOneChoice getPayBankName() {
+        return payBankName;
+    }
+
+    public void setPayBankCode(RichSelectOneChoice payBankCode) {
+        this.payBankCode = payBankCode;
+    }
+
+    public RichSelectOneChoice getPayBankCode() {
+        return payBankCode;
+    }
+
+    public void setPaymentMethod(RichSelectOneChoice paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public RichSelectOneChoice getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentCurrency(RichSelectOneChoice paymentCurrency) {
+        this.paymentCurrency = paymentCurrency;
+    }
+
+    public RichSelectOneChoice getPaymentCurrency() {
+        return paymentCurrency;
+    }
+    
+    public void disableReceiptAction(ValueChangeEvent valueChangeEvent) {
+
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            recPurposeCode.setDisabled(false);
+
+        } else {
+            recPurposeCode.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recPurposeCode);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            receiptDate.setDisabled(false);
+
+        } else {
+            receiptDate.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(receiptDate);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            recBankName.setDisabled(false);
+
+        } else {
+            recBankName.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recBankName);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            recBankCode.setDisabled(false);
+
+        } else {
+            recBankCode.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recBankCode);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            recCurrency.setDisabled(false);
+
+        } else {
+            recCurrency.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recCurrency);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            inputBankCharge.setDisabled(false);
+
+        } else {
+            inputBankCharge.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(inputBankCharge);
+    }
+
+    public void setRecPurposeCode(RichSelectOneChoice recPurposeCode) {
+        this.recPurposeCode = recPurposeCode;
+    }
+
+    public RichSelectOneChoice getRecPurposeCode() {
+        return recPurposeCode;
+    }
+
+    public void setReceiptDate(RichInputDate receiptDate) {
+        this.receiptDate = receiptDate;
+    }
+
+    public RichInputDate getReceiptDate() {
+        return receiptDate;
+    }
+
+    public void setRecBankName(RichSelectOneChoice recBankName) {
+        this.recBankName = recBankName;
+    }
+
+    public RichSelectOneChoice getRecBankName() {
+        return recBankName;
+    }
+
+    public void setRecBankCode(RichSelectOneChoice recBankCode) {
+        this.recBankCode = recBankCode;
+    }
+
+    public RichSelectOneChoice getRecBankCode() {
+        return recBankCode;
+    }
+
+    public void setRecCurrency(RichSelectOneChoice recCurrency) {
+        this.recCurrency = recCurrency;
+    }
+
+    public RichSelectOneChoice getRecCurrency() {
+        return recCurrency;
     }
 }
 

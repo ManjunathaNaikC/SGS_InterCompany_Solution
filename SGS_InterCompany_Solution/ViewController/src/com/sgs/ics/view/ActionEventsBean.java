@@ -2394,9 +2394,45 @@ public class ActionEventsBean {
 
     public void onConfirmingInvoiceEvent(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsFixedAssetsTxnVO1Iterator");
-        Row row = dcIteratorbinding.getCurrentRow();
-        row.setAttribute("Status", "Confirmed for Invoicing");
+
+        ViewObject faVO = dcIteratorbinding.getViewObject();
+                oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("Selected", true);
+                for (oracle.jbo.Row rw : selectedRows) {
+                    rw.setAttribute("Status", "Confirmed for Invoicing");
+                }
+        
     }
+    
+    public void selectAllCheckboxValueChangeFA(ValueChangeEvent valueChangeEvent) {
+           // Add event code here...
+           boolean isSelected = ((Boolean) valueChangeEvent.getNewValue()).booleanValue();
+           LOG.info("*****is Selected***" + isSelected);
+           String SelectedAttribute = "Selected";
+           DCBindingContainer bindingContainer =
+               (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+           DCIteratorBinding dciter = bindingContainer.findIteratorBinding("SgsFixedAssetsTxnVO1Iterator");
+           ViewObject vo = dciter.getViewObject();
+           oracle.jbo.Row row = null;
+           vo.reset();
+           RowSetIterator rs = vo.createRowSetIterator(null);
+           rs.reset();
+           while (rs.hasNext()) {
+               row = rs.next();
+               if (isSelected) {
+                   row.setAttribute(SelectedAttribute, "true");
+                   LOG.info("****selected***" + row.getAttribute(SelectedAttribute));
+               } else {
+                   row.setAttribute(SelectedAttribute, "false");
+                   LOG.info("****Unselected***" + row.getAttribute(SelectedAttribute));
+               }
+           }
+           rs.closeRowSetIterator();
+           //Refresh the table
+           AdfFacesContext.getCurrentInstance().addPartialTarget(valueChangeEvent.getComponent()
+                                                                                 .getParent()
+                                                                                 .getParent());
+
+       }
 
 
     public void importFromTxn(ActionEvent actionEvent) {

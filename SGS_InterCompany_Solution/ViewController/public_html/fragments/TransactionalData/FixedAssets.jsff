@@ -48,7 +48,7 @@
                                                           shortDesc="#{bindings.SgsFixedAssetsTxnVO1Iterator.hints.Selected.tooltip}"
                                                           id="sbc1" autoSubmit="true"/>
                                 <f:facet name="header">
-                                    <af:selectBooleanCheckbox valueChangeListener="#{pageFlowScope.TransBCostAllocationBean.selectAllCheckboxValueChange}" id="sbc2"
+                                    <af:selectBooleanCheckbox valueChangeListener="#{viewScope.ActionEventsBean.selectAllCheckboxValueChangeFA}" id="sbc2"
                                                               autoSubmit="true" partialTriggers="cs2 sbc1 ::resId1"
                                                               text="Select All" styleClass="cb"></af:selectBooleanCheckbox>
                                 </f:facet>
@@ -354,7 +354,7 @@
                             <af:dialog id="d4" title="Upload Attachment" type="none">
                                 <f:facet name="buttonBar">
                                     <af:button text="Upload" id="b13"
-                                               actionListener="#{viewScope.ActionEventsBean.onAdminEmilFileAttachment}"/>
+                                               actionListener="#{viewScope.ActionEventsBean.onFAFileAttachment}"/>
                                 </f:facet>
                                 <af:inputFile label="Select File" id="if2"
                                               binding="#{viewScope.ActionEventsBean.inputFileBindFA}" autoSubmit="true"/>

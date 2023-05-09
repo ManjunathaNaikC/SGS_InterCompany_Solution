@@ -149,7 +149,17 @@ public class ActionEventsBean {
     private RichSelectOneChoice recCurrency;
     private RichInputText paymentTxnNum;
     private RichInputText recTxnRefNum;
+    private RichOutputText txnAmtOnReceipt;
+    private Double totalSettlementAmount;
+    private RichOutputText totalSettleOutput;
 
+    public void setTotalSettlementAmount(Double totalSettlementAmount) {
+        this.totalSettlementAmount = totalSettlementAmount;
+    }
+
+    public Double getTotalSettlementAmount() {
+        return totalSettlementAmount;
+    }
 
     public ActionEventsBean() {
     }
@@ -1441,6 +1451,17 @@ public class ActionEventsBean {
             if(voucherView.getRowCount()==0){
             String message="Please apply payment first on the pending Vouchers";
             ADFUtils.errorPopup(message);
+            }
+        }
+        if(null != (Boolean)getBindReceiptCheck().getValue() &&  (Boolean)getBindReceiptCheck().getValue()){
+            totalSettlementAmount = calculateTotalSettlementAmount();
+            if(totalSettleOutput != null){
+            totalSettleOutput.setVisible(true);
+            }
+        }
+        else{
+            if(totalSettleOutput != null){
+            totalSettleOutput.setVisible(false);
             }
         }
     }
@@ -2943,6 +2964,55 @@ public class ActionEventsBean {
 
     public RichInputText getRecTxnRefNum() {
         return recTxnRefNum;
+    }
+
+    public void amountOnReceiptDisplay(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        System.out.println("bindPaymentCheck::" + getBindPaymentCheck().getValue());
+        System.out.println("bindReceiptCheck::" + getBindReceiptCheck().getValue());
+        if (null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue() &&
+            null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
+            System.out.println("bindReceiptCheck*******");
+            txnAmtOnReceipt.setVisible(true);
+        } else {
+            txnAmtOnReceipt.setVisible(false);
+        }
+    }
+
+    public void setTxnAmtOnReceipt(RichOutputText txnAmtOnReceipt) {
+        this.txnAmtOnReceipt = txnAmtOnReceipt;
+    }
+
+    public RichOutputText getTxnAmtOnReceipt() {
+        return txnAmtOnReceipt;
+    }
+
+    private Double calculateTotalSettlementAmount() {
+        try {
+            Double totalSettlementAmount = 0.0;
+            ViewObject voucherVO = ADFUtils.findIterator("SgsStlmtVoucherVO1Iterator").getViewObject();
+            RowSetIterator iterator = voucherVO.createRowSetIterator(null);
+            while (iterator.hasNext()) {
+                Row row = iterator.next();
+                Double settlementAmount = (Double) row.getAttribute("StlmtAmount");
+                if (settlementAmount != null) {
+                    totalSettlementAmount += settlementAmount;
+                }
+            }
+            
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        return totalSettlementAmount;
+    }
+
+    public void setTotalSettleOutput(RichOutputText totalSettleOutput) {
+        this.totalSettleOutput = totalSettleOutput;
+    }
+
+    public RichOutputText getTotalSettleOutput() {
+        return totalSettleOutput;
     }
 }
 

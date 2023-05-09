@@ -215,5 +215,13 @@
     </button>
     <action id="Rollback" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
+    <list IterBinding="SgsDrtCrossChargeVO1Iterator" ListOperMode="navigation" ListIter="SgsDrtCrossChargeVO1Iterator"
+          id="SgsDrtCrossChargeVO1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="TRANSACTIONCATEGORY"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="SgsDrtCrossChargeVO1Iterator" StaticList="false" Uses="LOV_TRANSACTIONCATEGORY"
+          id="TRANSACTIONCATEGORY" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

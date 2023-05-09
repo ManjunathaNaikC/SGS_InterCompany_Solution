@@ -325,9 +325,14 @@ public class UploadInInvoice {
      */
     public void adjEntrySave(ActionEvent actionEvent) {
         // Add event code here...
+        System.out.println("adjEntrySave entry");
+        String txnCategory="";
         String nature_value = adjNatureofExpBind.getValue().toString();
         String reversEntry = reverseEntryBind.getValue().toString();
-        String txnCategory = adjTxnCategoryBind.getValue().toString();
+        if(adjTxnCategoryBind!=null){
+            txnCategory = adjTxnCategoryBind.getValue().toString();
+        }
+        
         String digitalPL = digitalPLBind.getValue().toString();
         System.out.println("Digital P&L : " + digitalPL);
         String AddExpQualifier = (String) AdfFacesContext.getCurrentInstance()
@@ -536,5 +541,28 @@ public class UploadInInvoice {
 
     public RichSelectBooleanCheckbox getReverseEntryBind() {
         return reverseEntryBind;
+    }
+
+    public void onAdjustmentUpload(ActionEvent actionEvent) {
+        // Add event code here...
+        System.out.println("onAdjustmentUpload entry");
+        if(digitalPLBind!=null){
+            digitalPLBind.setValue(false);
+        }
+        if(reverseEntryBind!=null){
+            reverseEntryBind.setValue(false);  
+        }
+        if(taxApplicaBind!=null){
+            taxApplicaBind.setValue(false); 
+        }
+        if(adjTxnCategoryBind!=null){
+            adjTxnCategoryBind.setValue("");
+        }
+        
+    
+            
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        getAdjEntryPopupBind().show(hints);
+       
     }
 }

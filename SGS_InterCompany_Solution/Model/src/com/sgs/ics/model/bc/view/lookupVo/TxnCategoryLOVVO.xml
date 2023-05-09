@@ -88,6 +88,13 @@ where LOOKUP_TYPE='TRANSACTION_CATEGORY']]></SQLQuery>
   <AttrArray Name="KeyAttributes">
     <Item Value="LOOKUPID"/>
   </AttrArray>
+  <LOVUIHints
+    ListType="105"
+    MRUCount="0"
+    NullValueFlag="start"
+    NullValueId="LOVUIHints_NullValueId">
+    <DisplayCriteria/>
+  </LOVUIHints>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

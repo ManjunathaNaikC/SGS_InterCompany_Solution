@@ -1700,28 +1700,33 @@ public class ActionEventsBean {
     }
 
     public void onAdminEmilFileAttachment(ActionEvent actionEvent) {
-        DCIteratorBinding statData = null;
-        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
-        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
-        for (int i = 0; i < statDataDatarows.length; i++) {
-            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
-                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
-                if (null != inputFileBind.getValue()) {
-                    UploadedFile uploadedFile = (UploadedFile) inputFileBind.getValue();
-                    if (null != uploadedFile.getFilename()) {
-                        String fileName = (String) uploadedFile.getFilename();
-                        statDataDatarows[i].setAttribute("EMAILATTACHMENT", fileName);
-                        statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
-                    }
+        try {
+            DCIteratorBinding statData = null;
+            statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+            oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+            for (int i = 0; i < statDataDatarows.length; i++) {
+                if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                    statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                    if (null != inputFileBind.getValue()) {
+                        UploadedFile uploadedFile = (UploadedFile) inputFileBind.getValue();
+                        if (null != uploadedFile.getFilename()) {
+                            String fileName = (String) uploadedFile.getFilename();
+                            statDataDatarows[i].setAttribute("EMAILATTACHMENT", fileName);
+                            statDataDatarows[i].setAttribute("APPROVESTATUS", "Approved");
+                        }
 
+                    }
                 }
             }
+            executeBinding(SAVE_DATA);
+            inputFileBind.setValue(null);
+            inputFileBind.resetValue();
+            AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
+            approvepoopupbind.hide();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
         }
-        executeBinding(SAVE_DATA);
-        inputFileBind.setValue(null);
-        inputFileBind.resetValue();
-        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBind);
-        approvepoopupbind.hide();
     }
 
 

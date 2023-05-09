@@ -24,6 +24,10 @@
     Name="SgsAddExpQuFVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsAddExpQuFVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TxnCategoryLOVVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.TxnCategoryLOVVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_AdditionalExpQualifier"
     ListVOName="SgsAddExpQuFVO1"
@@ -39,6 +43,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ADDTEXPENSECAT"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TRANSACTIONCATEGORY"
+    ListVOName="TxnCategoryLOVVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TRANSACTIONCATEGORY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MEANING"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MEANING"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -190,7 +212,15 @@
     PrecisionRule="true"
     EntityAttrName="TRANSACTIONCATEGORY"
     EntityUsage="SgsDrtCrossChargeEO"
-    AliasName="TRANSACTION_CATEGORY"/>
+    AliasName="TRANSACTION_CATEGORY"
+    LOVName="LOV_TRANSACTIONCATEGORY">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AdditionalExpQualifier"
     PrecisionRule="true"

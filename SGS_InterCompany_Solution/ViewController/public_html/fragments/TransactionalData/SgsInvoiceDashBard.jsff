@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
     <af:panelStretchLayout id="psl1">
         <f:facet name="start"/>
         <f:facet name="end"/>
@@ -41,18 +41,21 @@
                             <af:button text="Reject" id="b4" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
                                 <af:showPopupBehavior popupId="p2reject"/>
                             </af:button>
-                            <af:button text="Confirm For Invoice" id="b5">
+                            <af:button text="Confirm For Invoice" id="b5"
+                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}"
+                            >
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
                            <!-- <af:button text="Create Credit Memo" id="b2">
                                 <af:showPopupBehavior popupId="p1creditMemo"/>
                             </af:button>-->
                             <af:button text="Upload Adjustment Entries" id="b1adj" 
-                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}">
+                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}"
+                                       actionListener="#{pageFlowScope.UploadInInvoice.onAdjustmentUpload}">
                              
-                                <af:showPopupBehavior popupId="AdjEntryPopup"/>
+                                <!--<af:showPopupBehavior popupId="AdjEntryPopup"/>-->
                             </af:button>
-                            <af:button text="Credit Transaction" id="b2"
+                            <af:button text="Credit Transaction" id="b2" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CREDIT_TXN')}"
                                        actionListener="#{viewScope.ActionEventsBean.onCreditTransactionActionButton}">
                                 <!--<af:showPopupBehavior popupId="p1creditMemo"/>-->
                             </af:button>
@@ -363,7 +366,7 @@
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.CreatedBy.tooltip}"
                                            id="ot31"/>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.label}" id="c32"
+                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.label}" id="c32"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.name}"
                                    filterable="true">
                             <af:outputText value="#{row.UpdatedDate}"
@@ -377,14 +380,14 @@
                                     <af:convertDateTime pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedDate.format}"/>
                                 </af:inputDate>
                             </f:facet>
-                        </af:column>
-                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.label}" id="c33"
+                        </af:column>-->
+                        <!--<af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.label}" id="c33"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.name}"
                                    filterable="true">
                             <af:outputText value="#{row.UpdatedBy}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.tooltip}"
                                            id="ot55"/>
-                        </af:column>
+                        </af:column>-->
                        
                     </af:table>
                     
@@ -392,7 +395,7 @@
                               binding="#{pageFlowScope.UploadInInvoice.adjEntryPopupBind}">
                         <af:dialog id="d10" title="Adjustment Entries Upload" styleClass="AFStretchWidth" type="none">
                             <f:facet name="buttonBar">
-                                <af:button text="Save" id="b31"
+                                <af:button text="Submit" id="b31"
                                            actionListener="#{pageFlowScope.UploadInInvoice.adjEntrySave}"/>
                             </f:facet>
                             <af:panelFormLayout id="pfl2" maxColumns="1" rows="3" styleClass="AFStretchWidth">
@@ -422,21 +425,30 @@
                                                           binding="#{pageFlowScope.UploadInInvoice.digitalPLBind}"
                                                           autoSubmit="true" partialTriggers="soc2"
                                                           rendered="#{bindings.MEANING.inputValue == 'IT Expenses' ? true:false}"/>
-                               
-                                <af:selectOneChoice value="#{bindings.TxnCategoryLOVVO1.inputValue}"
+                                <af:selectOneChoice value="#{bindings.TRANSACTIONCATEGORY.inputValue}"
                                                     label="Transaction Category"
-                                                    required="#{bindings.TxnCategoryLOVVO1.hints.mandatory}"
+                                                    required="#{bindings.TRANSACTIONCATEGORY.hints.mandatory}"
+                                                    shortDesc="#{bindings.TxnCategoryLOVVO1.hints.tooltip}" id="soc4"
+                                                    binding="#{pageFlowScope.UploadInInvoice.adjTxnCategoryBind}">
+                                    <f:selectItems value="#{bindings.TRANSACTIONCATEGORY.items}" id="si3"/>
+                                    <f:validator binding="#{bindings.TRANSACTIONCATEGORY.validator}"/>
+                                </af:selectOneChoice>
+                                <!--<af:selectOneChoice value="#{bindings.SgsDrtCrossChargeVO1.inputValue}"
+                                                    label="#{bindings.SgsDrtCrossChargeVO1.label}"
+                                                    required="#{bindings.SgsDrtCrossChargeVO1.hints.mandatory}"
                                                     shortDesc="#{bindings.TxnCategoryLOVVO1.hints.tooltip}" id="soc4"
                                                     binding="#{pageFlowScope.UploadInInvoice.adjTxnCategoryBind}"
                                                     autoSubmit="true">
-                                    <f:selectItems value="#{bindings.TxnCategoryLOVVO1.items}" id="si4"/>
-                                    <f:validator binding="#{bindings.TxnCategoryLOVVO1.validator}"/>
-                                </af:selectOneChoice>
+                                    <f:selectItems value="#{bindings.SgsDrtCrossChargeVO1.items}" id="si4"/>
+                                    <f:validator binding="#{bindings.SgsDrtCrossChargeVO1.validator}"/>
+                                </af:selectOneChoice>-->
+                                
+                                <!--<h:outputText value="bindings.TRANSACTIONCATEGORY.inputValue" id="ot6" par/>-->
                                 <af:selectBooleanCheckbox value="#{bindings.REVERSABLEENTRY.inputValue}"
                                                           label="#{bindings.REVERSABLEENTRY.label}"
                                                           shortDesc="#{bindings.REVERSABLEENTRY.hints.tooltip}"
                                                           id="sbc7" autoSubmit="true" partialTriggers="soc4"
-                                                          rendered="#{bindings.TxnCategoryLOVVO1.inputValue == 'Journal' ? true:false}"
+                                                          
                                                           binding="#{pageFlowScope.UploadInInvoice.reverseEntryBind}"/>
                                
                                 <af:selectBooleanCheckbox value="#{bindings.TaxApplicability1.inputValue}"
@@ -450,7 +462,7 @@
                             <af:spacer id="s2upload" height="10px"/>
                             <af:inputFile label="Select File" id="if2" labelStyle="font-weight:bold;color:navy;"
                                           valueChangeListener="#{pageFlowScope.UploadInInvoice.uploadFileVCE}"
-                                          uploadType="submit" autoSubmit="false" showRequired="true"/>
+                                          uploadType="submit" autoSubmit="true"/>
                         </af:dialog>
                     </af:popup>
                     
@@ -495,7 +507,7 @@
                                 </af:group>
                             </f:facet>
                             <af:message id="m1approve" messageType="confirmation"
-                                        message="Please Confirm, Do You Want To Approve?"/>
+                                        message="Selected transaction shall be created as a Provisional Journal"/>
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p2reject"
@@ -535,7 +547,7 @@
                              >
                         <af:dialog id="d2" type="none">
                             <f:facet name="buttonBar"/>
-                            <af:panelBox text="Invoice Credit Memo Dash Board" id="pb2" inlineStyle="width:1400px">
+                            <af:panelBox text="Credit Transaction Dashboard" id="pb2" inlineStyle="width:1400px">
                                 <f:facet name="toolbar"/>
                                 <af:panelFormLayout id="pfl3" maxColumns="2" rows="2">
                                     <f:facet name="footer"/>
@@ -678,15 +690,29 @@
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}"
                                                    filterable="true" sortable="true"
-                                                   headerText="Reversed #{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
-                                                   id="c38" styleClass="mynumbercolumn">
-                                            <af:outputText value="-#{row.InvoiceAmount}"
+                                                   headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
+                                                   id="c381" styleClass="mynumbercolumn">
+                                            <af:outputText value="#{row.InvoiceAmount}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.tooltip}"
-                                                           id="ot43">
+                                                           id="ot431">
                                                 <af:convertNumber groupingUsed="true"
                                                                   pattern="###,##0.00"
                                                                   type="currency"/>
                                             </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="Reversed #{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
+                                                   id="c38" styleClass="mynumbercolumn" align="right">
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                                <af:outputText value="-" id="ot2"/>
+                                                <af:outputText value="#{row.InvoiceAmount}"
+                                                               shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.tooltip}"
+                                                               id="ot43">
+                                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00"
+                                                                      type="currency"/>
+                                                </af:outputText>
+                                            </af:panelGroupLayout>
                                         </af:column>
                                     
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.name}"
@@ -735,7 +761,7 @@
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedBy.tooltip}"
                                                            id="ot46"/>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.name}"
+                                        <!--<af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.label}"
                                                    id="c43">
@@ -750,15 +776,15 @@
                                                            id="ot47">
                                                 <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedDate.format}"/>
                                             </af:outputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedBy.name}"
+                                        </af:column>-->
+                                        <!--<af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedBy.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedBy.label}"
                                                    id="c44">
                                             <af:outputText value="#{row.UpdatedBy}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.UpdatedBy.tooltip}"
                                                            id="ot48"/>
-                                        </af:column>
+                                        </af:column>-->
                                     </af:table>
                                 </af:panelCollection>
                             </af:panelBox>

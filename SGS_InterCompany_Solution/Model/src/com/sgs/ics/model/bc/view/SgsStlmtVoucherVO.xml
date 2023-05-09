@@ -763,6 +763,12 @@
     EntityAttrName="RECEIPTCURRENCY"
     EntityUsage="SgsStlmtVoucherEO"
     AliasName="RECEIPT_CURRENCY"/>
+  <ViewAttribute
+    Name="RECTXNREFERENCENO"
+    PrecisionRule="true"
+    EntityAttrName="RECTXNREFERENCENO"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="_REC_TXN_REFERENCE_NO"/>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"

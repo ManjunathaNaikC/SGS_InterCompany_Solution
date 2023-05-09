@@ -55,7 +55,8 @@
        SgsCreateSettlementEO.SETTLEMENT_STATUS, 
        SgsCreateSettlementEO.TRANSACTION_CURRENCY, 
        SgsCreateSettlementEO.RECEIPT_PURPOSE_CODE, 
-       SgsCreateSettlementEO.RECEIPT_CURRENCY"
+       SgsCreateSettlementEO.RECEIPT_CURRENCY, 
+       SgsCreateSettlementEO._REC_TXN_REFERENCE_NO"
   FromList="SGS_CREATE_SETTLEMENT SgsCreateSettlementEO">
   <ViewAccessor
     Name="SgsLookupVO1"
@@ -541,6 +542,19 @@
           ResId="com.sgs.ics.model.bc.view.SgsCreateSettlementVO.ApplyReceiptOnly_LABEL"/>
         <CONTROLTYPE
           Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RECTXNREFERENCENO"
+    PrecisionRule="true"
+    EntityAttrName="RECTXNREFERENCENO"
+    EntityUsage="SgsCreateSettlementEO"
+    AliasName="_REC_TXN_REFERENCE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsCreateSettlementVO.RECTXNREFERENCENO_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

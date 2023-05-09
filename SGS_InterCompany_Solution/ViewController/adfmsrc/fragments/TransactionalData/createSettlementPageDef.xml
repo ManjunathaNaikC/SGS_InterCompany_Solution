@@ -179,6 +179,10 @@
         <Item Value="PSVOUCHERNUMBER"/>
       </AttrNames>
     </attributeValues>
-    
+    <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="RECTXNREFERENCENO">
+      <AttrNames>
+        <Item Value="RECTXNREFERENCENO"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -34,28 +34,33 @@
                              
                                 <af:showPopupBehavior popupId="DirectChargePopup"/>
                             </af:button>-->
-                            <af:button text="Approve" id="b3" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}" >
-                            
-                                <af:showPopupBehavior popupId="p1approve"/>
+                            <af:button text="Approve" id="b3"
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}"
+                                       actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveClick}">
+                                <!--<af:showPopupBehavior popupId="p1approve"/>-->
                             </af:button>
-                            <af:button text="Reject" id="b4" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
+                            <af:button text="Reject" id="b4"
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
                                 <af:showPopupBehavior popupId="p2reject"/>
                             </af:button>
-                            <af:button text="Confirm for Processing" id="b12" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CONFIRM_PROCESS')}"/>
+                            <af:button text="Confirm for Processing" id="b12"
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CONFIRM_PROCESS')}">
+                                <af:showPopupBehavior popupId="p1proc"/>
+                            </af:button>
                             <af:button text="Confirm For Invoice" id="b5"
-                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}">
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}">
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
-                           <!-- <af:button text="Create Credit Memo" id="b2">
+                            <!-- <af:button text="Create Credit Memo" id="b2">
                                 <af:showPopupBehavior popupId="p1creditMemo"/>
                             </af:button>-->
-                            <af:button text="Upload Adjustment Entries" id="b1adj" 
-                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}"
+                            <af:button text="Upload Adjustment Entries" id="b1adj"
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}"
                                        actionListener="#{pageFlowScope.UploadInInvoice.onAdjustmentUpload}">
-                             
                                 <!--<af:showPopupBehavior popupId="AdjEntryPopup"/>-->
                             </af:button>
-                            <af:button text="Credit Transaction" id="b2" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CREDIT_TXN')}"
+                            <af:button text="Credit Transaction" id="b2"
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CREDIT_TXN')}"
                                        actionListener="#{viewScope.ActionEventsBean.onCreditTransactionActionButton}">
                                 <!--<af:showPopupBehavior popupId="p1creditMemo"/>-->
                             </af:button>
@@ -82,9 +87,9 @@
                                                       binding="#{viewScope.ActionEventsBean.selectcheckInvoiceBind}"
                                                       autoSubmit="true"/>
                             <f:facet name="header">
-                                 <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
-                                    autoSubmit="true" valueChangeListener="#{viewScope.ActionEventsBean.onInvoiceSelectAll}"
-                                                        partialTriggers="c5 ::ivd1 sbc1" styleClass="cb"/>
+                                <af:selectBooleanCheckbox text="Select All" id="sbc2" autoSubmit="true"
+                                                          valueChangeListener="#{viewScope.ActionEventsBean.onInvoiceSelectAll}"
+                                                          partialTriggers="c5 ::ivd1 sbc1" styleClass="cb"/>
                             </f:facet>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.InvoiceSeqNo.label}" id="c1"
@@ -119,7 +124,8 @@
                             </af:panelGroupLayout>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.label}" id="c50"
-                        sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.name}" filterable="true">
+                                   sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.name}"
+                                   filterable="true">
                             <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
                                                 label="#{row.bindings.NATUREOFEXPENSE.label}"
                                                 required="#{bindings.SgsIcInvoiceHeaderVO1.hints.NATUREOFEXPENSE.mandatory}"
@@ -146,10 +152,12 @@
                                            id="ot4"/>
                         </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.label}" id="c53"
-                       sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.name}" filterable="true">
-              <af:outputText value="#{row.TransactionType}"
-                             shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.tooltip}" id="ot5"/>
-            </af:column>
+                                   sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.name}"
+                                   filterable="true">
+                            <af:outputText value="#{row.TransactionType}"
+                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.TransactionType.tooltip}"
+                                           id="ot5"/>
+                        </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceBu.label}" id="c7"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.SourceBu.name}"
                                    filterable="true">
@@ -388,10 +396,8 @@
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.UpdatedBy.tooltip}"
                                            id="ot55"/>
                         </af:column>-->
-                       
                     </af:table>
-                    
-                     <af:popup childCreation="deferred" autoCancel="disabled" id="AdjEntryPopup"
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="AdjEntryPopup"
                               binding="#{pageFlowScope.UploadInInvoice.adjEntryPopupBind}">
                         <af:dialog id="d10" title="Adjustment Entries Upload" styleClass="AFStretchWidth" type="none">
                             <f:facet name="buttonBar">
@@ -400,10 +406,7 @@
                             </f:facet>
                             <af:panelFormLayout id="pfl2" maxColumns="1" rows="3" styleClass="AFStretchWidth">
                                 <f:facet name="footer"/>
-                                
-                                
-                                <af:selectOneChoice value="#{bindings.MEANING.inputValue}"
-                                                    label="Nature of Expense"
+                                <af:selectOneChoice value="#{bindings.MEANING.inputValue}" label="Nature of Expense"
                                                     required="#{bindings.MEANING.hints.mandatory}"
                                                     shortDesc="#{bindings.MEANING.hints.tooltip}" id="soc2"
                                                     binding="#{pageFlowScope.UploadInInvoice.adjNatureofExpBind}"
@@ -416,7 +419,8 @@
                                                     required="#{bindings.AdditionalExpQualifier.hints.mandatory}"
                                                     shortDesc="#{bindings.AdditionalExpQualifier.hints.tooltip}"
                                                     id="soc11">
-                                    <f:selectItems value="#{bindings.AdditionalExpQualifier.items}" id="si11digitalPLBind"/>
+                                    <f:selectItems value="#{bindings.AdditionalExpQualifier.items}"
+                                                   id="si11digitalPLBind"/>
                                     <f:validator binding="#{bindings.AdditionalExpQualifier.validator}"/>
                                 </af:selectOneChoice>
                                 <af:selectBooleanCheckbox value="#{bindings.Digital_PL1.inputValue}"
@@ -429,7 +433,8 @@
                                                     label="Transaction Category"
                                                     required="#{bindings.TRANSACTIONCATEGORY.hints.mandatory}"
                                                     shortDesc="#{bindings.TxnCategoryLOVVO1.hints.tooltip}" id="soc4"
-                                                    binding="#{pageFlowScope.UploadInInvoice.adjTxnCategoryBind}">
+                                                    binding="#{pageFlowScope.UploadInInvoice.adjTxnCategoryBind}"
+                                                    autoSubmit="true" partialTriggers="sbc7">
                                     <f:selectItems value="#{bindings.TRANSACTIONCATEGORY.items}" id="si3"/>
                                     <f:validator binding="#{bindings.TRANSACTIONCATEGORY.validator}"/>
                                 </af:selectOneChoice>
@@ -442,22 +447,19 @@
                                     <f:selectItems value="#{bindings.SgsDrtCrossChargeVO1.items}" id="si4"/>
                                     <f:validator binding="#{bindings.SgsDrtCrossChargeVO1.validator}"/>
                                 </af:selectOneChoice>-->
-                                
                                 <!--<h:outputText value="bindings.TRANSACTIONCATEGORY.inputValue" id="ot6" par/>-->
                                 <af:selectBooleanCheckbox value="#{bindings.REVERSABLEENTRY.inputValue}"
+                                                          rendered="#{bindings.TRANSACTIONCATEGORY.inputValue eq 'Journal' ? true:false}"
                                                           label="#{bindings.REVERSABLEENTRY.label}"
                                                           shortDesc="#{bindings.REVERSABLEENTRY.hints.tooltip}"
                                                           id="sbc7" autoSubmit="true" partialTriggers="soc4"
-                                                          
                                                           binding="#{pageFlowScope.UploadInInvoice.reverseEntryBind}"/>
-                               
                                 <af:selectBooleanCheckbox value="#{bindings.TaxApplicability1.inputValue}"
                                                           label="#{bindings.TaxApplicability1.label}"
                                                           shortDesc="#{bindings.TaxApplicability1.hints.tooltip}"
                                                           id="sbc6"
                                                           binding="#{pageFlowScope.UploadInInvoice.taxApplicaBind}"
                                                           autoSubmit="true"/>
-                              
                             </af:panelFormLayout>
                             <af:spacer id="s2upload" height="10px"/>
                             <af:inputFile label="Select File" id="if2" labelStyle="font-weight:bold;color:navy;"
@@ -465,9 +467,7 @@
                                           uploadType="submit" autoSubmit="true"/>
                         </af:dialog>
                     </af:popup>
-                    
-                    
-                      <af:popup childCreation="deferred" autoCancel="disabled" id="DirectChargePopup"
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="DirectChargePopup"
                               binding="#{pageFlowScope.UploadInInvoice.directChargePopupBind}">
                         <af:dialog id="d1" title="Direct Charge Upload" styleClass="AFStretchWidth" type="none">
                             <f:facet name="buttonBar">
@@ -476,17 +476,13 @@
                             </f:facet>
                             <af:panelFormLayout id="pfl1" maxColumns="1" rows="3" styleClass="AFStretchWidth">
                                 <f:facet name="footer"/>
-                                
-                                <af:selectOneChoice value="#{bindings.MEANING.inputValue}"
-                                                    label="Nature of Expense"
+                                <af:selectOneChoice value="#{bindings.MEANING.inputValue}" label="Nature of Expense"
                                                     required="#{bindings.MEANING.hints.mandatory}"
                                                     shortDesc="#{bindings.MEANING.hints.tooltip}" id="soc1"
                                                     binding="#{pageFlowScope.UploadInInvoice.natureOfExpenseLovBind}">
                                     <f:selectItems value="#{bindings.MEANING.items}" id="si2"/>
                                     <f:validator binding="#{bindings.MEANING.validator}"/>
                                 </af:selectOneChoice>
-                                
-                                
                             </af:panelFormLayout>
                             <af:spacer id="s1upload" height="10px"/>
                             <af:inputFile label="Select File" id="if1" labelStyle="font-weight:bold;color:navy;"
@@ -510,6 +506,22 @@
                                         message="Selected transaction shall be created as a Provisional Journal"/>
                         </af:dialog>
                     </af:popup>
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1appro"
+                              binding="#{viewScope.ActionEventsBean.invoiceApproveYesNoPopup}">
+                        <af:dialog id="d1appro" type="none">
+                            <f:facet name="buttonBar">
+                                <af:group id="g2appro">
+                                    <af:button text="Yes" id="b10appro"
+                                               actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveYes}"/>
+                                    <af:spacer id="s2appro"/>
+                                    <af:button text="No" id="b11appro"
+                                               actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveNoClick}"/>
+                                </af:group>
+                            </f:facet>
+                            <af:message id="m1appro" messageType="confirmation"
+                                        message="Do You Really Want To Proceed?"/>
+                        </af:dialog>
+                    </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p2reject"
                               binding="#{viewScope.ActionEventsBean.invoiceRejectBind}">
                         <af:dialog id="d1reject" type="none">
@@ -524,6 +536,22 @@
                             </f:facet>
                             <af:message id="m1reject" messageType="confirmation"
                                         message="Do You Really Want To Reject?"/>
+                        </af:dialog>
+                    </af:popup>
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1proc"
+                              binding="#{viewScope.ActionEventsBean.invoiceConfirmProcessPopup}">
+                        <af:dialog id="d1proc" type="none">
+                            <f:facet name="buttonBar">
+                                <af:group id="g2approve">
+                                    <af:button text="Yes" id="b10approve"
+                                               actionListener="#{viewScope.ActionEventsBean.onInvoiceConfirmProcessing}"/>
+                                    <af:spacer id="s2approve"/>
+                                    <af:button text="No" id="b11approve"
+                                               actionListener="#{viewScope.ActionEventsBean.onInvoiceConfirmProcessNo}"/>
+                                </af:group>
+                            </f:facet>
+                            <af:message id="m1proc" messageType="confirmation"
+                                        message="Do You Really Want To Proceed?"/>
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p3confirming"
@@ -543,16 +571,15 @@
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1creditMemo"
-                              binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}"
-                             >
+                              binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}">
                         <af:dialog id="d2" type="none">
                             <f:facet name="buttonBar"/>
                             <af:panelBox text="Credit Transaction Dashboard" id="pb2" inlineStyle="width:1400px">
                                 <f:facet name="toolbar"/>
                                 <af:panelFormLayout id="pfl3" maxColumns="2" rows="2">
                                     <f:facet name="footer"/>
-                                    <af:inputDate label="Credit Date" id="id5"  
-                                    binding="#{viewScope.ActionEventsBean.creditDateBindVal}"
+                                    <af:inputDate label="Credit Date" id="id5"
+                                                  binding="#{viewScope.ActionEventsBean.creditDateBindVal}"
                                                   autoSubmit="true"/>
                                     <af:selectOneChoice value="#{bindings.ReversalReasonLOVVO1.inputValue}"
                                                         label="Reversal Reason"
@@ -562,7 +589,6 @@
                                         <f:selectItems value="#{bindings.ReversalReasonLOVVO1.items}" id="si5"/>
                                         <f:validator binding="#{bindings.ReversalReasonLOVVO1.validator}"/>
                                     </af:selectOneChoice>
-                                    
                                     <!--<af:panelGroupLayout id="pgl4" layout="horizontal"
                                                          binding="#{viewScope.ActionEventsBean.percentageGroupBind}"
                                                           partialTriggers="soc8"
@@ -574,7 +600,6 @@
                                                       inlineStyle="width:60px"/>
                                         <af:outputText value="%" id="ot2"/>
                                     </af:panelGroupLayout>-->
-                                    
                                 </af:panelFormLayout>
                                 <af:spacer id="s7" height="5"/>
                                 <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
@@ -611,10 +636,11 @@
                                                                       shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.SelectCreditRecord.tooltip}"
                                                                       id="sbc3"/>
                                             <f:facet name="header">
-                                                  <af:selectBooleanCheckbox text="Select All" id="sbc4" autoSubmit="true"
-                                            valueChangeListener="#{viewScope.ActionEventsBean.onCreditMemoSelectAll}"
-                                                                            partialTriggers="::t1 c45 sbc3"
-                                                                            styleClass="cb"/></f:facet>
+                                                <af:selectBooleanCheckbox text="Select All" id="sbc4" autoSubmit="true"
+                                                                          valueChangeListener="#{viewScope.ActionEventsBean.onCreditMemoSelectAll}"
+                                                                          partialTriggers="::t1 c45 sbc3"
+                                                                          styleClass="cb"/>
+                                            </f:facet>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.name}"
                                                    filterable="true" sortable="true"
@@ -695,8 +721,7 @@
                                             <af:outputText value="#{row.InvoiceAmount}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.tooltip}"
                                                            id="ot431">
-                                                <af:convertNumber groupingUsed="true"
-                                                                  pattern="###,##0.00"
+                                                <af:convertNumber groupingUsed="true" pattern="###,##0.00"
                                                                   type="currency"/>
                                             </af:outputText>
                                         </af:column>
@@ -714,7 +739,6 @@
                                                 </af:outputText>
                                             </af:panelGroupLayout>
                                         </af:column>
-                                    
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.label}"
@@ -728,11 +752,9 @@
                                                 <f:validator binding="#{row.bindings.REVERSALREASON.validator}"/>
                                             </af:selectOneChoice>
                                         </af:column>
-                                      
                                         <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.label}"
-                                         sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.name}"
-                                                   filterable="true" sortable="true"
-                                                   id="c49">
+                                                   sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.name}"
+                                                   filterable="true" sortable="true" id="c49">
                                             <af:outputText value="#{row.STATUS}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.tooltip}"
                                                            id="ot49"/>
@@ -788,7 +810,6 @@
                                     </af:table>
                                 </af:panelCollection>
                             </af:panelBox>
-                          
                             <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                 <af:button text="Submit" id="b15"
                                            actionListener="#{viewScope.ActionEventsBean.onCreditMemoSubmit}"/>

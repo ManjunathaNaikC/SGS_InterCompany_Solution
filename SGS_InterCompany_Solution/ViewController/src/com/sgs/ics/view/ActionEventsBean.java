@@ -147,11 +147,16 @@ public class ActionEventsBean {
     private RichSelectOneChoice recBankName;
     private RichSelectOneChoice recBankCode;
     private RichSelectOneChoice recCurrency;
+    private RichPopup invoiceConfirmProcessPopup;
     private RichInputText paymentTxnNum;
     private RichInputText recTxnRefNum;
+
     private RichOutputText txnAmtOnReceipt;
     private Double totalSettlementAmount;
     private RichOutputText totalSettleOutput;
+
+    private RichPopup invoiceApproveYesNoPopup;
+
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -478,6 +483,7 @@ public class ActionEventsBean {
 
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.statisticspopupbind.show(hints);
+
 
     }
 
@@ -2950,6 +2956,32 @@ public class ActionEventsBean {
         return recCurrency;
     }
 
+
+    public void onInvoiceConfirmProcessing(ActionEvent actionEvent) {
+        DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
+        for (int i = 0; i < rows.length; i++) {
+            if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                rows[i].setAttribute("TransactionStatus", "Confirmed for processing");
+            }
+        }
+        executeBinding(SAVE_DATA);
+        invoiceConfirmProcessPopup.hide();
+    }
+
+    public void setInvoiceConfirmProcessPopup(RichPopup invoiceConfirmProcessPopup) {
+        this.invoiceConfirmProcessPopup = invoiceConfirmProcessPopup;
+    }
+
+    public RichPopup getInvoiceConfirmProcessPopup() {
+        return invoiceConfirmProcessPopup;
+    }
+
+    public void onInvoiceConfirmProcessNo(ActionEvent actionEvent) {
+        invoiceConfirmProcessPopup.hide();
+    }
+  
     public void setPaymentTxnNum(RichInputText paymentTxnNum) {
         this.paymentTxnNum = paymentTxnNum;
     }
@@ -2965,6 +2997,7 @@ public class ActionEventsBean {
     public RichInputText getRecTxnRefNum() {
         return recTxnRefNum;
     }
+
 
     public void amountOnReceiptDisplay(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
@@ -3013,6 +3046,127 @@ public class ActionEventsBean {
 
     public RichOutputText getTotalSettleOutput() {
         return totalSettleOutput;
+    }
+    public void onInvoiceApproveClick(ActionEvent actionEvent) {
+     
+            
+        DCIteratorBinding statData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        oracle.jbo.Row[] rows = statData.getAllRowsInRange();
+        int j=0;
+        for (int i = 0; i < rows.length; i++) {
+            if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                
+                System.out.println("Period 0::" + rows[i].getAttribute("Period"));
+                java.util.Date period1 = (java.util.Date) rows[i].getAttribute("Period");
+                System.out.println("Period1::" + period1);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                System.out.println(" sdf: " + sdf);
+                String dateAsString2 = sdf.format(period1);
+                System.out.println(" dateAsString2: " + dateAsString2);
+                LocalDate currentDateTest = LocalDate.parse(dateAsString2);
+                int day1 = currentDateTest.getMonthValue();
+                System.out.println(" day1: " + day1);
+                int cutOffDay=returnCutOffDay(day1);
+                System.out.println(" cutOffDay: " + cutOffDay);                
+                LocalDate currentdate1 = LocalDate.now();
+                System.out.println("Current date: " + currentdate1);
+                int currentDay = currentdate1.getDayOfMonth();
+                System.out.println("Current day: " + currentDay);
+
+
+                rows[i].setAttribute("TransactionStatus", "Approved");
+                if(currentDay>cutOffDay){
+                  j=1;
+                  break;
+                }
+                
+            }
+        }
+        
+        if(j==1){
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            this.invoiceApprovBind.show(hints);
+            
+        }else{
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            this.invoiceApproveYesNoPopup.show(hints);
+            
+            
+        }
+//        executeBinding(SAVE_DATA);
+//        invoiceApproveYesNoPopup.hide();
+    }
+
+    public void setInvoiceApproveYesNoPopup(RichPopup invoiceApproveYesNoPopup) {
+        this.invoiceApproveYesNoPopup = invoiceApproveYesNoPopup;
+    }
+
+    public RichPopup getInvoiceApproveYesNoPopup() {
+        return invoiceApproveYesNoPopup;
+    }
+
+    public void onInvoiceApproveYes(ActionEvent actionEvent) {
+        DCIteratorBinding statData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        oracle.jbo.Row[] rows = statData.getAllRowsInRange();
+        for (int i = 0; i < rows.length; i++) {
+            if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                
+                System.out.println("Period 0::" + rows[i].getAttribute("Period"));
+                java.util.Date period1 = (java.util.Date) rows[i].getAttribute("Period");
+                System.out.println("Period1::" + period1);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                System.out.println(" sdf: " + sdf);
+                String dateAsString2 = sdf.format(period1);
+                System.out.println(" dateAsString2: " + dateAsString2);
+                LocalDate currentDateTest = LocalDate.parse(dateAsString2);
+                int day1 = currentDateTest.getMonthValue();
+                System.out.println(" day1: " + day1);
+                int cutOffDay=returnCutOffDay(day1);
+                System.out.println(" cutOffDay: " + cutOffDay);
+               // currentDateTest.getMonthValue();
+        //                Date d = new Date();
+                // Get an instance of LocalTime
+                // from date
+        //                String dateAsString = "2020-07-18";
+        //                // String period =  sdf.format(period1);
+        //                LocalDate currentDate = LocalDate.parse(dateAsString);
+        //                System.out.println("Specified  date: " + currentDate);
+        //                // Get day from date
+        //                int day = currentDate.getDayOfMonth();
+        //
+        //                // Get month from date
+        //                Month month1 = currentDate.getMonth();
+        //
+        //                // Get year from date
+        //                int year = currentDate.getYear();
+        //
+        //                // Print the day, month, and year
+        //                System.out.println("Day: " + day);
+        //                System.out.println("Month: " + month1);
+        //                System.out.println("Year: " + year);
+                
+                LocalDate currentdate1 = LocalDate.now();
+                System.out.println("Current date: " + currentdate1);
+                int currentDay = currentdate1.getDayOfMonth();
+                System.out.println("Current day: " + currentDay);
+
+
+                rows[i].setAttribute("TransactionStatus", "Approved");
+                if(currentDay>cutOffDay){
+                    rows[i].setAttribute("TransactionCategory", "Provisional Journal");
+                }
+                
+            }
+        }
+        executeBinding(SAVE_DATA);
+        invoiceApproveYesNoPopup.hide();
+    }
+
+    public void onInvoiceApproveNoClick(ActionEvent actionEvent) {
+        invoiceApproveYesNoPopup.hide();
+
     }
 }
 

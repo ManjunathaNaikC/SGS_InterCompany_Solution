@@ -35,8 +35,9 @@
                                 <af:showPopupBehavior popupId="DirectChargePopup"/>
                             </af:button>-->
                             <af:button text="Approve" id="b3"
-                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}">
-                                <af:showPopupBehavior popupId="p1approve"/>
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}"
+                                       actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveClick}">
+                                <!--<af:showPopupBehavior popupId="p1approve"/>-->
                             </af:button>
                             <af:button text="Reject" id="b4"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
@@ -448,7 +449,7 @@
                                 </af:selectOneChoice>-->
                                 <!--<h:outputText value="bindings.TRANSACTIONCATEGORY.inputValue" id="ot6" par/>-->
                                 <af:selectBooleanCheckbox value="#{bindings.REVERSABLEENTRY.inputValue}"
-                                rendered="#{bindings.TRANSACTIONCATEGORY.inputValue eq 'Journal' ? true:false}"
+                                                          rendered="#{bindings.TRANSACTIONCATEGORY.inputValue eq 'Journal' ? true:false}"
                                                           label="#{bindings.REVERSABLEENTRY.label}"
                                                           shortDesc="#{bindings.REVERSABLEENTRY.hints.tooltip}"
                                                           id="sbc7" autoSubmit="true" partialTriggers="soc4"
@@ -503,6 +504,22 @@
                             </f:facet>
                             <af:message id="m1approve" messageType="confirmation"
                                         message="Selected transaction shall be created as a Provisional Journal"/>
+                        </af:dialog>
+                    </af:popup>
+                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1appro"
+                              binding="#{viewScope.ActionEventsBean.invoiceApproveYesNoPopup}">
+                        <af:dialog id="d1appro" type="none">
+                            <f:facet name="buttonBar">
+                                <af:group id="g2appro">
+                                    <af:button text="Yes" id="b10appro"
+                                               actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveYes}"/>
+                                    <af:spacer id="s2appro"/>
+                                    <af:button text="No" id="b11appro"
+                                               actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveNoClick}"/>
+                                </af:group>
+                            </f:facet>
+                            <af:message id="m1appro" messageType="confirmation"
+                                        message="Do You Really Want To Proceed?"/>
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p2reject"

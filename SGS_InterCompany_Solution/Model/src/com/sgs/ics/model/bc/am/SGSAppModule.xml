@@ -218,6 +218,9 @@
   <ViewUsage
     Name="SgsStlmtVoucherVO2"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"/>
+  <ViewUsage
+    Name="BuLov1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.BuLov"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

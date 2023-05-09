@@ -981,7 +981,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
 
 
-                } else if ("Transaction on Hold".equals(paymentStatus)) {
+                } else if ("On Hold".equals(paymentStatus)) {
 
                     continue;
 
@@ -1084,7 +1084,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTCURRENCY", receiptCurrency);
 
 
-                } else if ("Transaction on Hold".equals(paymentStatus)) {
+                } else if ("On Hold".equals(paymentStatus)) {
 
                     continue;
 
@@ -1186,7 +1186,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTPURPOSECODE", receiptPurposeCode);
 
 
-                } else if ("Transaction on Hold".equals(paymentStatus)) {
+                } else if ("On Hold".equals(paymentStatus)) {
 
                     continue;
 
@@ -1319,6 +1319,14 @@ public class ActionEventsBean {
         String payerBU = (String) AdfFacesContext.getCurrentInstance()
                                                  .getPageFlowScope()
                                                  .get("selectedValue3");
+        
+        String ICCUSTOMERBU = (String) AdfFacesContext.getCurrentInstance()
+                                                 .getPageFlowScope()
+                                                 .get("selectedValue4");
+        
+        String ICSUPPLIERBU = (String) AdfFacesContext.getCurrentInstance()
+                                                 .getPageFlowScope()
+                                                 .get("selectedValue4");
 
         bindPsVoucherNumber.getValue();
         bindPsInvoiceNumber.getValue();
@@ -1341,6 +1349,11 @@ public class ActionEventsBean {
         System.out.println("collectionBU : " + collectionBU);
         System.out.println("payerBU : " + payerBU);
         
+        System.out.println("IC customer BU : " + ICCUSTOMERBU);
+        System.out.println("IC Supplier BU : " + ICSUPPLIERBU);
+        
+        
+        
 //        System.out.println("COLLECTORBU : " + COLLECTORBU);
 //        System.out.println("PAYERBU : " + PAYERBU);
 
@@ -1349,21 +1362,28 @@ public class ActionEventsBean {
         ViewObjectImpl voucherView = (ViewObjectImpl) iteratorBinding.getViewObject();
         ViewCriteria criteria = voucherView.getViewCriteria("SgsCreateStlmtVoucherVOCriteria");
         voucherView.applyViewCriteria(criteria);
-        //        voucherView.setNamedWhereClauseParam("bCusBu", ICCUSTOMERBU);
+                voucherView.setNamedWhereClauseParam("bCusBu", ICCUSTOMERBU);
         voucherView.setNamedWhereClauseParam("bCusGeo", ICCUSTOMERGEO);
-        //        voucherView.setNamedWhereClauseParam("bSupBu", ICSUPPLIERBU);
+            voucherView.setNamedWhereClauseParam("bSupBu", ICSUPPLIERBU);
         voucherView.setNamedWhereClauseParam("bSupGeo", ICSUPPLIERGEO);
         voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
         voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
         voucherView.setNamedWhereClauseParam("bSltmtStatus", "Settled");
+        voucherView.setWhereClause(" (PAYMENT_STATUS = 'Fully Paid' AND STLMT_STATUS = 'Voucher Paid-Invoice Pending') " +
+        "OR PAYMENT_STATUS = 'Unpaid' " +
+        "OR PAYMENT_STATUS = 'Partially Paid' "+
+        "OR (PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') ");
+
+
+       
         if(null != bindPsVoucherNumber.getValue()){
                    voucherView.setNamedWhereClauseParam("bPsVoucherNumber",bindPsVoucherNumber.getValue());
                }
                        
                        
                        
-        if(null != bindPsVoucherNumber.getValue()){
-                   voucherView.setNamedWhereClauseParam("bRefToArInvoice",bindPsVoucherNumber.getValue());
+        if(null != bindPsInvoiceNumber.getValue()){
+                   voucherView.setNamedWhereClauseParam("bRefToArInvoice",bindPsInvoiceNumber.getValue());
                }
         System.out.println("bindPaymentCheck::"+getBindPaymentCheck().getValue());
         System.out.println("bindReceiptCheck::"+getBindReceiptCheck().getValue());
@@ -1412,47 +1432,47 @@ public class ActionEventsBean {
     }
 
     public void SaveHoldDetails(ActionEvent actionEvent) {
-        BindingContainer bindings = getBindingsCont();
-        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
-        ViewObject holdVO = holditer.getViewObject();
+            BindingContainer bindings = getBindingsCont();
+            DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
+            ViewObject holdVO = holditer.getViewObject();
 
 
-        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
-        System.out.println("*****Selected rows****" + selectedRows.length);
-        for (oracle.jbo.Row rw : selectedRows) {
-            if (rw.getAttribute("StlmtStatus").equals("Unpaid")) {
+            oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
+            System.out.println("*****Selected rows****" + selectedRows.length);
+            for (oracle.jbo.Row rw : selectedRows) {
+                if (rw.getAttribute("PaymentStatus").equals("Unpaid")) {
 
 
-                rw.setAttribute("StlmtStatus", "Transaction on Hold");
+                    rw.setAttribute("PaymentStatus", "'On Hold");
+                }
             }
+
+            executeBinding("Commit");
+
+
         }
-
-        executeBinding("Commit");
-
-
-    }
 
 
     public void SaveReleaseDetails(ActionEvent actionEvent) {
-        BindingContainer bindings = getBindingsCont();
-        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
-        ViewObject holdVO = holditer.getViewObject();
+            BindingContainer bindings = getBindingsCont();
+            DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsStlmtVoucherVO1Iterator");
+            ViewObject holdVO = holditer.getViewObject();
 
 
-        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
-        System.out.println("*****Selected rows****" + selectedRows.length);
-        for (oracle.jbo.Row rw : selectedRows) {
-            if (rw.getAttribute("StlmtStatus").equals("Transaction on Hold")) {
+            oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
+            System.out.println("*****Selected rows****" + selectedRows.length);
+            for (oracle.jbo.Row rw : selectedRows) {
+                if (rw.getAttribute("PaymentStatus").equals("On Hold")) {
 
 
-                rw.setAttribute("StlmtStatus", "Unpaid");
+                    rw.setAttribute("PaymentStatus", "Unpaid");
+                }
             }
+
+            executeBinding("Commit");
+
+
         }
-
-        executeBinding("Commit");
-
-
-    }
 
     public void onNettingHeaderSelectRecord(ValueChangeEvent valueChangeEvent) {
         DCIteratorBinding settlementData = null;

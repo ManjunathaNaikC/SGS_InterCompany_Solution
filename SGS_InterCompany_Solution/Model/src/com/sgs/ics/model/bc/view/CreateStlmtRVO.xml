@@ -203,6 +203,14 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="IcSuppBuLov1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.BuLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="IcCustBuBuLov1"
+    ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.BuLov"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ICCUSTOMERGEO"
     ListVOName="SgsLookupVO1"
@@ -222,7 +230,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_ICCUSTOMERBU"
-    ListVOName="SgsLookupCusBUVO"
+    ListVOName="IcCustBuBuLov1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -230,10 +238,10 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="LookupCode"/>
+      <Item Value="BUSSINESSUNITID"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Meaning"/>
+      <Item Value="BUSSINESSUNITID"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -256,7 +264,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_ICSUPPLIERBU"
-    ListVOName="SgsLookupSupBuVO"
+    ListVOName="IcSuppBuLov1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -264,10 +272,10 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="LookupCode"/>
+      <Item Value="BUSSINESSUNITID"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Meaning"/>
+      <Item Value="BUSSINESSUNITID"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

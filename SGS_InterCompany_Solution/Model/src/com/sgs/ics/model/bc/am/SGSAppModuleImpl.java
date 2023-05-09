@@ -5,6 +5,8 @@ import com.sgs.ics.model.bc.am.common.SGSAppModule;
 import com.sgs.ics.model.bc.view.SgsStdRateLineTblVOImpl;
 import com.sgs.ics.model.bc.view.SgsTpaMasterVOImpl;
 
+import com.sgs.ics.model.bc.view.lookupVo.BuLovImpl;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -75,24 +77,24 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
         InputStream input = null;
         try {
 
-//            input = getClass().getClassLoader().getResourceAsStream("com/sgs/ics/model/bc/am/db_config.properties");
-//            prop.load(input);
-//
-//            String connectionUrl = prop.getProperty("db_url_local");
-//
-//            conn = DriverManager.getConnection(connectionUrl);
+            input = getClass().getClassLoader().getResourceAsStream("com/sgs/ics/model/bc/am/db_config.properties");
+            prop.load(input);
 
-                    //  conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;");
-                     conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+            String connectionUrl = prop.getProperty("db_url_local");
+
+            conn = DriverManager.getConnection(connectionUrl);
+
+                      conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;");
+                   //  conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
 
         } catch (SQLException sqle) {
             // TODO: Add catch code
             sqle.printStackTrace();
        } 
-//        catch (IOException ex) {
-//            ex.printStackTrace();
-//        } 
+        catch (IOException ex) {
+            ex.printStackTrace();
+        } 
         finally {
             if (input != null) {
                 try {
@@ -842,6 +844,14 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewObjectImpl getSgsStlmtVoucherVO2() {
         return (ViewObjectImpl) findViewObject("SgsStlmtVoucherVO2");
+    }
+
+    /**
+     * Container's getter for BuLov1.
+     * @return BuLov1
+     */
+    public BuLovImpl getBuLov1() {
+        return (BuLovImpl) findViewObject("BuLov1");
     }
 }
 

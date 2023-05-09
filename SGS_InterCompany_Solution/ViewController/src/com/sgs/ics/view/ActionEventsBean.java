@@ -148,6 +148,8 @@ public class ActionEventsBean {
     private RichSelectOneChoice recBankCode;
     private RichSelectOneChoice recCurrency;
     private RichPopup invoiceConfirmProcessPopup;
+    private RichInputText paymentTxnNum;
+    private RichInputText recTxnRefNum;
 
 
     public ActionEventsBean() {
@@ -859,6 +861,7 @@ public class ActionEventsBean {
             String settlementStatus = (String) paymentRow.getAttribute("StlmtStatus");
             String paymentStatus = (String) paymentRow.getAttribute("PaymentStatus");
             String transactionRef = (String) row.getAttribute("TRANSACTIONREFERENCENO");
+            String recTxnRefNum = (String) row.getAttribute("RECTXNREFERENCENO");
             double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
             double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
             String paymentId = (String) row.getAttribute("PAYMENTID");
@@ -914,6 +917,8 @@ public class ActionEventsBean {
             String purposeCode = (String) AdfFacesContext.getCurrentInstance()
                                                          .getPageFlowScope()
                                                          .get("selectedPurposeCode");
+            
+           
 //            boolean paymentOnly =(Boolean)bindPaymentCheck.getValue();
 //
 //            boolean receiptOnly =(Boolean)bindReceiptCheck.getValue();
@@ -947,7 +952,7 @@ public class ActionEventsBean {
                         settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
 
 
-                        settlementStatus = "Partially settled";
+                        settlementStatus = "Partial Voucher Paid-Invoice Pending";
                         paymentStatus = "Partially Paid";
                         transactionAmount = 0;
                     }
@@ -979,6 +984,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("PAYMENTDATE", payDate);
                     paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
                     paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
+                    paymentRow.setAttribute("TxnReferenceNo", transactionRef);
                     paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
 
 
@@ -1000,7 +1006,7 @@ public class ActionEventsBean {
                         decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                         settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
 
-                        settlementStatus = "Partially settled";
+                        settlementStatus = "Partial Voucher Paid-Invoice Pending";
                         paymentStatus = "Partially Paid";
                         transactionAmount = 0;
                     }
@@ -1031,6 +1037,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("PAYMENTDATE", payDate);
                     paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
                     paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
+                    paymentRow.setAttribute("TxnReferenceNo", transactionRef);
                     paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
 
 
@@ -1040,7 +1047,7 @@ public class ActionEventsBean {
                 if ("Unpaid".equals(paymentStatus)) {
                     if (transactionAmount >= outstandingAmount) {
                         settlementAmount = outstandingAmount;
-                        settlementStatus = "Voucher Pending-Invoice Paid";
+                        settlementStatus = "Settlement Completed";
                         paymentStatus = "Fully Paid";
 
                     } else {
@@ -1050,7 +1057,7 @@ public class ActionEventsBean {
                         settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
 
 
-                        settlementStatus = "Partially settled";
+                        settlementStatus = "Partially Settled";
                         paymentStatus = "Partially Paid";
                         transactionAmount = 0;
                     }
@@ -1082,6 +1089,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTDATE", rctDate);
                     paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
                     paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
+                    paymentRow.setAttribute("RECTXNREFERENCENO", recTxnRefNum);
                     paymentRow.setAttribute("RECEIPTCURRENCY", receiptCurrency);
 
 
@@ -1093,7 +1101,7 @@ public class ActionEventsBean {
                     if (transactionAmount >= outstandingAmount) {
                         System.out.println("inside partial settled record");
                         settlementAmount = netPayableAmount;
-                        settlementStatus = "Voucher Pending-Invoice Paid";
+                        settlementStatus = "Settlement Completed";
                         paymentStatus = "Fully Paid";
 
 
@@ -1103,7 +1111,7 @@ public class ActionEventsBean {
                         decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                         settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
 
-                        settlementStatus = "Partially settled";
+                        settlementStatus = "Partially Settled";
                         paymentStatus = "Partially Paid";
                         transactionAmount = 0;
                     }
@@ -1133,15 +1141,17 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTDATE", rctDate);
                     paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
                     paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
+                    paymentRow.setAttribute("RECTXNREFERENCENO", recTxnRefNum);
                     paymentRow.setAttribute("RECEIPTCURRENCY", receiptCurrency);
 
 
                 }
-            } else if (null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue()){
+            } else if (null != (Boolean)getBindReceiptCheck().getValue() && null != (Boolean)getBindPaymentCheck().getValue() && 
+						(Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindReceiptCheck().getValue()){
                 if ("Unpaid".equals(paymentStatus)) {
                     if (transactionAmount >= outstandingAmount) {
                         settlementAmount = outstandingAmount;
-                        settlementStatus = "Fully Settled";
+                        settlementStatus = "Transaction Settled";
                         paymentStatus = "Fully Paid";
 
                     } else {
@@ -1179,7 +1189,8 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
                     paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
                     paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
-                    // paymentRow.setAttribute("TxnReferenceNo", transactionRef);
+                    paymentRow.setAttribute("TxnReferenceNo", transactionRef);
+                    paymentRow.setAttribute("RECTXNREFERENCENO", recTxnRefNum);
                     paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
                     paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
                     paymentRow.setAttribute("PURPOSECODE", purposeCode);
@@ -1195,7 +1206,7 @@ public class ActionEventsBean {
                     if (transactionAmount >= outstandingAmount) {
                         System.out.println("inside partial settled record");
                         settlementAmount = netPayableAmount;
-                        settlementStatus = "Fully Settled";
+                        settlementStatus = "Transaction Settled";
                         paymentStatus = "Fully Paid";
 
 
@@ -1230,7 +1241,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
                     paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
                     paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
-                    // paymentRow.setAttribute("TxnReferenceNo", transactionRef);
+                    paymentRow.setAttribute("TxnReferenceNo", transactionRef);
                     paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
                     paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
                     paymentRow.setAttribute("PURPOSECODE", purposeCode);
@@ -1370,10 +1381,10 @@ public class ActionEventsBean {
         voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
         voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
         voucherView.setNamedWhereClauseParam("bSltmtStatus", "Settled");
-        voucherView.setWhereClause(" (PAYMENT_STATUS = 'Fully Paid' AND STLMT_STATUS = 'Voucher Paid-Invoice Pending') " +
-        "OR PAYMENT_STATUS = 'Unpaid' " +
-        "OR PAYMENT_STATUS = 'Partially Paid' "+
-        "OR (PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') ");
+//        voucherView.setWhereClause(" (PAYMENT_STATUS = 'Fully Paid' AND STLMT_STATUS = 'Voucher Paid-Invoice Pending') " +
+//        "OR PAYMENT_STATUS = 'Unpaid' " +
+//        "OR PAYMENT_STATUS = 'Partially Paid' "+
+//        "OR (PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') ");
 
 
        
@@ -1395,25 +1406,35 @@ public class ActionEventsBean {
         if(null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue()){
             String stlmtStatus="'Pending for Settlement','Settlement on Hold'";
             String paymentStatus=" 'Fully Paid','On Hold'";
-            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Settlement on Hold");
-            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Pending for Settlement");
-            voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");  
-            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
+//            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Settlement on Hold");
+//            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Pending for Settlement");
+//            voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");  
+//            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
+            voucherView.setWhereClause(" PAYMENT_STATUS = 'Unpaid' " +
+            "OR PAYMENT_STATUS = 'Partially Paid' ");
+            
         }else if(null != (Boolean)getBindReceiptCheck().getValue() &&  (Boolean)getBindReceiptCheck().getValue()){
             String stlmtStatus="'Voucher Paid-Invoice Pending'";
             String paymentStatus="'Fully Paid','Partially Paid'";
            // voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Voucher Paid");
-            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Voucher Paid-Invoice Pending");
-            voucherView.setNamedWhereClauseParam("bPayStatus", "Partially Paid");  
-            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");  
+//            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Voucher Paid-Invoice Pending");
+//            voucherView.setNamedWhereClauseParam("bPayStatus", "Partially Paid");  
+//            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");  
+        voucherView.setWhereClause(" (PAYMENT_STATUS = 'Fully Paid' AND STLMT_STATUS = 'Voucher Paid-Invoice Pending') " +
+        " OR(PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') ");
         }else if(null != (Boolean)getBindReceiptCheck().getValue() && null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindReceiptCheck().getValue()){
             String stlmtStatus="'Pending for Settlement','Settlement on Hold'";
             String paymentStatus=" 'Fully Paid','On Hold'";
-            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Pending for Settlement");
-            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Settlement on Hold");
-            voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");  
-            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
+//            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Pending for Settlement");
+//            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Settlement on Hold");
+//            voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");  
+//            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
+//            voucherView.setWhereClause(" (PAYMENT_STATUS = 'Unpaid') " +
+//            "(OR PAYMENT_STATUS = 'Partially Paid') ");
+           JSFUtil.addComponentFacesMessage(FacesMessage.SEVERITY_ERROR, "Select either Apply Payment Only OR Apply Receipt Only", null);
+                            
         }
+        
         System.out.println("Query ::"+voucherView.getQuery());
         voucherView.executeQuery();
         System.out.println("voucherView Row Count ::"+voucherView.getRowCount());
@@ -2743,6 +2764,15 @@ public class ActionEventsBean {
 
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(inputTransactionAmount);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            paymentTxnNum.setDisabled(false);
+
+        } else {
+            paymentTxnNum.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentTxnNum);
     }
 
     public void setPurposeCodeLov(RichSelectOneChoice purposeCodeLov) {
@@ -2848,6 +2878,16 @@ public class ActionEventsBean {
 
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(inputBankCharge);
+        
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            recTxnRefNum.setDisabled(false);
+
+        } else {
+            recTxnRefNum.setDisabled(true);
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recTxnRefNum);
+        
     }
 
     public void setRecPurposeCode(RichSelectOneChoice recPurposeCode) {
@@ -2890,6 +2930,7 @@ public class ActionEventsBean {
         return recCurrency;
     }
 
+
     public void onInvoiceConfirmProcessing(ActionEvent actionEvent) {
         DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
         oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
@@ -2913,6 +2954,22 @@ public class ActionEventsBean {
 
     public void onInvoiceConfirmProcessNo(ActionEvent actionEvent) {
         invoiceConfirmProcessPopup.hide();
+    }
+  
+    public void setPaymentTxnNum(RichInputText paymentTxnNum) {
+        this.paymentTxnNum = paymentTxnNum;
+    }
+
+    public RichInputText getPaymentTxnNum() {
+        return paymentTxnNum;
+    }
+
+    public void setRecTxnRefNum(RichInputText recTxnRefNum) {
+        this.recTxnRefNum = recTxnRefNum;
+    }
+
+    public RichInputText getRecTxnRefNum() {
+        return recTxnRefNum;
     }
 }
 

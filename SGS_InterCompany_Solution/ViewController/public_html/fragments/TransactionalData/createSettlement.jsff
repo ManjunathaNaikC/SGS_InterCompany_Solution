@@ -248,11 +248,11 @@
                         </af:panelFormLayout>
                         <af:panelGridLayout id="pgl10">
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
-                                <af:gridCell marginStart="5px" width="50%" id="gc5">
+                                <af:gridCell marginStart="5px" width="50%" id="gc5" halign="end">
                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
                                         <h:outputLabel value="Apply Payment Only" id="ol1" for="sbc5"
                                                        style="font-weight: bold;"/>
-                                        <af:spacer id="s12"/>
+                                       
                                         <af:selectBooleanCheckbox  id="sbc5"
                                                                   autoSubmit="true"
                                                                   binding="#{viewScope.ActionEventsBean.bindPaymentCheck}"
@@ -285,7 +285,7 @@
                     </af:panelBox>
                     <af:panelGroupLayout id="pgl5" layout="horizontal">
                         <af:panelBox text="Payment Details" id="pb2"
-                                     inlineStyle="  width: 550px;     height: 350px;">
+                                     inlineStyle="  width: 550px;     height: 380px;">
                             <f:facet name="toolbar"/>
                             <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
                                 <f:facet name="footer"/>
@@ -340,6 +340,16 @@
                                     <f:selectItems value="#{bindings.PAYMENTMETHOD.items}" id="si6"/>
                                     <f:validator binding="#{bindings.PAYMENTMETHOD.validator}"/>
                                 </af:selectOneChoice>
+                                 <af:inputText value="#{bindings.TRANSACTIONREFERENCENO.inputValue}"
+                                      label="#{bindings.TRANSACTIONREFERENCENO.hints.label}"
+                                      required="#{bindings.TRANSACTIONREFERENCENO.hints.mandatory}"
+                                      columns="#{bindings.TRANSACTIONREFERENCENO.hints.displayWidth}"
+                                      maximumLength="#{bindings.TRANSACTIONREFERENCENO.hints.precision}"
+                                      shortDesc="#{bindings.TRANSACTIONREFERENCENO.hints.tooltip}" id="it9"
+                                      autoSubmit="true" binding="#{viewScope.ActionEventsBean.paymentTxnNum}"
+                                               disabled="true">
+                            <f:validator binding="#{bindings.TRANSACTIONREFERENCENO.validator}"/>
+                        </af:inputText>
                                 <af:selectOneChoice value="#{pageFlowScope.selectedPayCurr}"
                                                     label="#{bindings.PAYMENTCURRENCY.label}"
                                                     required="#{bindings.PAYMENTCURRENCY.hints.mandatory}"
@@ -365,7 +375,7 @@
                         </af:panelBox>
                         <!--<af:spacer id="s12" width="100"/>-->
                         <af:panelBox text="Receipt Details" id="pb5"
-                                     inlineStyle="  width: 550px;     height: 350px;">
+                                     inlineStyle="  width: 550px;     height: 380px;">
                             <f:facet name="toolbar"/>
                             <af:panelFormLayout id="pfl3">
                                 <f:facet name="footer"/>
@@ -417,6 +427,15 @@
                                     <f:selectItems value="#{bindings.RECEIPTCURRENCY.items}" id="si13"/>
                                     <f:validator binding="#{bindings.RECEIPTCURRENCY.validator}"/>
                                 </af:selectOneChoice>
+                                <af:inputText value="#{bindings.RECTXNREFERENCENO.inputValue}"
+                                              label="#{bindings.RECTXNREFERENCENO.hints.label}"
+                                              required="#{bindings.RECTXNREFERENCENO.hints.mandatory}"
+                                              columns="#{bindings.RECTXNREFERENCENO.hints.displayWidth}"
+                                              maximumLength="#{bindings.RECTXNREFERENCENO.hints.precision}"
+                                              shortDesc="#{bindings.RECTXNREFERENCENO.hints.tooltip}" id="it3"
+                                              binding="#{viewScope.ActionEventsBean.recTxnRefNum}" disabled="true">
+                                    <f:validator binding="#{bindings.RECTXNREFERENCENO.validator}"/>
+                                </af:inputText>
                                 <af:inputText value="#{bindings.BANKCHARGES.inputValue}"
                                                   label="#{bindings.BANKCHARGES.hints.label}"
                                                   required="#{bindings.BANKCHARGES.hints.mandatory}"
@@ -512,7 +531,7 @@
                                                inlineStyle="font-family: Arial; font-size: 16px; color: blue;"
                                                value="#{viewScope.ActionEventsBean.balanceOutputText} "
                                                binding="#{viewScope.ActionEventsBean.balanceOutputText1}"
-                                               partialTriggers="b1 b7"/>
+                                               partialTriggers="b7"/>
                                 <af:spacer id="s11" width="20"/>
                                 <af:button text="Reset" id="b7"
                                            actionListener="#{viewScope.ActionEventsBean.resetSettlementAmt}"/>

@@ -147,6 +147,7 @@ public class ActionEventsBean {
     private RichSelectOneChoice recBankName;
     private RichSelectOneChoice recBankCode;
     private RichSelectOneChoice recCurrency;
+    private RichPopup invoiceConfirmProcessPopup;
     private RichInputText paymentTxnNum;
     private RichInputText recTxnRefNum;
 
@@ -2929,6 +2930,32 @@ public class ActionEventsBean {
         return recCurrency;
     }
 
+
+    public void onInvoiceConfirmProcessing(ActionEvent actionEvent) {
+        DCIteratorBinding invoiceData = getDCIteratorBindings("SgsIcInvoiceHeaderVO1Iterator");
+        oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
+        for (int i = 0; i < rows.length; i++) {
+            if (null != rows[i].getAttribute("selectInvoiceRecord") &&
+                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                rows[i].setAttribute("TransactionStatus", "Confirmed for processing");
+            }
+        }
+        executeBinding(SAVE_DATA);
+        invoiceConfirmProcessPopup.hide();
+    }
+
+    public void setInvoiceConfirmProcessPopup(RichPopup invoiceConfirmProcessPopup) {
+        this.invoiceConfirmProcessPopup = invoiceConfirmProcessPopup;
+    }
+
+    public RichPopup getInvoiceConfirmProcessPopup() {
+        return invoiceConfirmProcessPopup;
+    }
+
+    public void onInvoiceConfirmProcessNo(ActionEvent actionEvent) {
+        invoiceConfirmProcessPopup.hide();
+    }
+  
     public void setPaymentTxnNum(RichInputText paymentTxnNum) {
         this.paymentTxnNum = paymentTxnNum;
     }

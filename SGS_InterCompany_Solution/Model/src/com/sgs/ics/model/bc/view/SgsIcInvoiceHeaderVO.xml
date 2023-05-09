@@ -43,6 +43,26 @@
     Name="bInputProvider"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bTxnStatus"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bInvSeq"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="btxnCat"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bSourceBU"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="btxntype"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="SgsLookupReversalReasonVO1"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
@@ -911,6 +931,14 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
       Name="SgsIcInvoiceHeaderVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="InvoiceSeqNo"
+        ViewAttribute="InvoiceSeqNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bInvSeq"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="Period"
         ViewAttribute="Period"
         Operator="CONTAINS"
@@ -919,11 +947,35 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
+        Name="TransactionCategory"
+        ViewAttribute="TransactionCategory"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":btxnCat"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TransactionType"
+        ViewAttribute="TransactionType"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":btxntype"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="IuVendor"
         ViewAttribute="IuVendor"
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bIuVendor"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SourceBu"
+        ViewAttribute="SourceBu"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bSourceBU"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
@@ -948,6 +1000,14 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":bAccountTreatment"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TransactionStatus"
+        ViewAttribute="TransactionStatus"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bTxnStatus"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
@@ -977,6 +1037,11 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="CreatedDate"
+      Ascending="false"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="CreatedDate"

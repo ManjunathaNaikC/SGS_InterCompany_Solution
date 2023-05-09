@@ -41,9 +41,9 @@
                             <af:button text="Reject" id="b4" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
                                 <af:showPopupBehavior popupId="p2reject"/>
                             </af:button>
+                            <af:button text="Confirm for Processing" id="b12" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CONFIRM_PROCESS')}"/>
                             <af:button text="Confirm For Invoice" id="b5"
-                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}"
-                            >
+                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}">
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
                            <!-- <af:button text="Create Credit Memo" id="b2">

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
                 
     <af:panelBox text="Create Settlement" id="pb1">
         <af:spacer id="s7" height="20"/>
@@ -20,16 +20,25 @@
                                 <f:selectItems value="#{bindings.ICSUPPLIERGEO.items}" id="si1"/>
                                 <f:validator binding="#{bindings.ICSUPPLIERGEO.validator}"/>
                             </af:selectOneChoice>
-                             <af:selectOneChoice value="#{bindings.ICSUPPLIERBU.inputValue}"
+                             <!--<af:selectOneChoice value="#{bindings.ICSUPPLIERBU.inputValue}"
                                             label="#{bindings.ICSUPPLIERBU.label}"
                                             required="#{bindings.ICSUPPLIERBU.hints.mandatory}"
                                             shortDesc="#{bindings.ICSUPPLIERBU.hints.tooltip}" id="soc13"
                                             autoSubmit="true">
                             <f:selectItems value="#{bindings.ICSUPPLIERBU.items}" id="si3"/>
                             <f:validator binding="#{bindings.ICSUPPLIERBU.validator}"/>
-                        </af:selectOneChoice>
+                        </af:selectOneChoice>-->
+                            <af:selectOneChoice value="#{bindings.ICSUPPLIERBU.inputValue}"
+                                                label="#{bindings.ICSUPPLIERBU.label}"
+                                                required="#{bindings.ICSUPPLIERBU.hints.mandatory}"
+                                                shortDesc="#{bindings.ICSUPPLIERBU.hints.tooltip}" id="soc13">
+                                <f:selectItems value="#{bindings.ICSUPPLIERBU.items}" id="si3"/>
+                                <f:validator binding="#{bindings.ICSUPPLIERBU.validator}"/>
+                            </af:selectOneChoice>
                             <af:inputText label="PS Invoice Number" id="it1"
-                                          binding="#{viewScope.ActionEventsBean.bindPsInvoiceNumber}"/>
+                                          binding="#{viewScope.ActionEventsBean.bindPsInvoiceNumber}">
+                                
+                            </af:inputText>
                             <af:selectOneChoice value="#{pageFlowScope.selectedValue2}"
                                                 label="#{bindings.COLLECTORBU.label}"
                                                 required="#{bindings.COLLECTORBU.hints.mandatory}"
@@ -55,6 +64,7 @@
                         </af:selectOneChoice>
                             <af:inputText label="PS Voucher Number" id="it2"
                                           binding="#{viewScope.ActionEventsBean.bindPsVoucherNumber}"/>
+                         
                             <af:selectOneChoice value="#{pageFlowScope.selectedValue3}"
                                                 label="#{bindings.PAYERBU.label}"
                                                 required="#{bindings.PAYERBU.hints.mandatory}"
@@ -239,20 +249,27 @@
                         <af:panelGridLayout id="pgl10">
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                                 <af:gridCell marginStart="5px" width="50%" id="gc5">
-                                    <af:panelGroupLayout id="pgl8">
-                                        <af:selectBooleanCheckbox text="Apply Payment Only" id="sbc5"
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                        <h:outputLabel value="Apply Payment Only" id="ol1" for="sbc5"
+                                                       style="font-weight: bold;"/>
+                                        <af:spacer id="s12"/>
+                                        <af:selectBooleanCheckbox  id="sbc5"
                                                                   autoSubmit="true"
                                                                   binding="#{viewScope.ActionEventsBean.bindPaymentCheck}"
                                                                   valueChangeListener="#{viewScope.ActionEventsBean.disablePaymentAction}"
-                                                                  inlineStyle="width:850px;"/>
+                                                                  inlineStyle="width: 390px"/>
+                                       
                                     </af:panelGroupLayout>
                                 </af:gridCell>
                                 <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc6">
                                     <af:panelGroupLayout id="pgl9" layout="horizontal">
-                                        <af:selectBooleanCheckbox text="Apply Receipt Only" id="sbc6"
+                                        <h:outputLabel value="Apply Receipt Only" id="ol2" for="sbc6"
+                                                       style="font-weight: bold;"/>
+                                        <af:selectBooleanCheckbox  id="sbc6"
                                                                   autoSubmit="true"
                                                                   binding="#{viewScope.ActionEventsBean.bindReceiptCheck}"
-                                                                  valueChangeListener="#{viewScope.ActionEventsBean.disableReceiptAction}"/>
+                                                                  valueChangeListener="#{viewScope.ActionEventsBean.disableReceiptAction}"
+                                                                  inlineStyle="width:230px"/>
                                     </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>

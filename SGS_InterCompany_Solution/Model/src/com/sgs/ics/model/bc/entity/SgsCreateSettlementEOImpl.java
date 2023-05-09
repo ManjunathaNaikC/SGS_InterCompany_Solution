@@ -71,9 +71,9 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
         SETTLEMENTSTATUS,
         TRANSACTIONCURRENCY,
         RECEIPTCURRENCY,
-        RECEIPTPURPOSECODE;
+        RECEIPTPURPOSECODE,
+        RECTXNREFERENCENO;
         private static AttributesEnum[] vals = null;
-        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -143,6 +143,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
     public static final int TRANSACTIONCURRENCY = AttributesEnum.TRANSACTIONCURRENCY.index();
     public static final int RECEIPTCURRENCY = AttributesEnum.RECEIPTCURRENCY.index();
     public static final int RECEIPTPURPOSECODE = AttributesEnum.RECEIPTPURPOSECODE.index();
+    public static final int RECTXNREFERENCENO = AttributesEnum.RECTXNREFERENCENO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -895,6 +896,22 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
         setAttributeInternal(RECEIPTPURPOSECODE, value);
     }
 
+
+    /**
+     * Gets the attribute value for RECTXNREFERENCENO, using the alias name RECTXNREFERENCENO.
+     * @return the value of RECTXNREFERENCENO
+     */
+    public String getRECTXNREFERENCENO() {
+        return (String) getAttributeInternal(RECTXNREFERENCENO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RECTXNREFERENCENO.
+     * @param value value to set the RECTXNREFERENCENO
+     */
+    public void setRECTXNREFERENCENO(String value) {
+        setAttributeInternal(RECTXNREFERENCENO, value);
+    }
 
     /**
      * @param settlementId key constituent

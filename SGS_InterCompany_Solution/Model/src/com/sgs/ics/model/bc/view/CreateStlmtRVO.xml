@@ -282,8 +282,9 @@
   <ListBinding
     Name="LOV_PAYMENTMETHOD"
     ListVOName="SgsLookupPayMethodVO"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="end"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="PAYMENTMETHOD"/>
     </AttrArray>
@@ -475,49 +476,50 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT  
-    SETTLEMENT_ID,  
-    PAYMENT_ID,  
-    IC_CUSTOMER_GEO,  
-    IC_CUSTOMER_BU,  
-    IC_SUPPLIER_GEO,  
-    IC_SUPPLIER_BU,  
-    PAYMENT_DATE,  
-    RECEIPT_DATE,  
-    DISBUSEMENT_BANK_ACCOUNT,  
-    RECEIVER_BANK_ACCOUNT,  
-    PAYMENT_METHOD,  
-    TRANSACTION_REFERENCE_NO,  
-    PAYMENT_CURRENCY,  
-    TRX_AMOUNT,  
-    BANK_CHARGES,  
-    PURPOSE_CODE,  
-    CREATED_DATE,  
-    CREATED_BY,  
-    UPDATED_DATE,  
-    UPDATED_BY,  
-    ATTRIBUTE1,  
-    ATTRIBUTE2,  
-    ATTRIBUTE3,  
-    ATTRIBUTE4,  
-    ATTRIBUTE5,  
-    ATTRIBUTE6,  
-    ATTRIBUTE7,  
-    ATTRIBUTE8,  
-    ATTRIBUTE9,  
-    ATTRIBUTE10,  
-    ATTRIBUTE11,  
-    ATTRIBUTE12,  
-    ATTRIBUTE13,  
-    ATTRIBUTE14,  
-    ATTRIBUTE15,  
-    COLLECTOR_BU COLLECTOR_BU,  
-    PAYER_BU PAYER_BU,  
-    RECEIPT_BANK_CD,  
-    RECEIPT_BANK_ACCT_KEY,  
-    PAYMENT_BANK_CD,  
-    PAYMENT_BANK_ACCT_KEY  
-FROM  
+  <SQLQuery><![CDATA[SELECT    
+    SETTLEMENT_ID,    
+    PAYMENT_ID,    
+    IC_CUSTOMER_GEO,    
+    IC_CUSTOMER_BU,    
+    IC_SUPPLIER_GEO,    
+    IC_SUPPLIER_BU,    
+    PAYMENT_DATE,    
+    RECEIPT_DATE,    
+    DISBUSEMENT_BANK_ACCOUNT,    
+    RECEIVER_BANK_ACCOUNT,    
+    PAYMENT_METHOD,    
+    TRANSACTION_REFERENCE_NO,    
+    PAYMENT_CURRENCY,    
+    TRX_AMOUNT,    
+    BANK_CHARGES,    
+    PURPOSE_CODE,    
+    CREATED_DATE,    
+    CREATED_BY,    
+    UPDATED_DATE,    
+    UPDATED_BY,    
+    ATTRIBUTE1,    
+    ATTRIBUTE2,    
+    ATTRIBUTE3,    
+    ATTRIBUTE4,    
+    ATTRIBUTE5,    
+    ATTRIBUTE6,    
+    ATTRIBUTE7,    
+    ATTRIBUTE8,    
+    ATTRIBUTE9,    
+    ATTRIBUTE10,    
+    ATTRIBUTE11,    
+    ATTRIBUTE12,    
+    ATTRIBUTE13,    
+    ATTRIBUTE14,    
+    ATTRIBUTE15,    
+    COLLECTOR_BU COLLECTOR_BU,    
+    PAYER_BU PAYER_BU,    
+    RECEIPT_BANK_CD,    
+    RECEIPT_BANK_ACCT_KEY,    
+    PAYMENT_BANK_CD,    
+    PAYMENT_BANK_ACCT_KEY,  
+    _REC_TXN_REFERENCE_NO 
+FROM    
     SGS_CREATE_SETTLEMENT]]></SQLQuery>
   <ViewAttribute
     Name="SETTLEMENTID"
@@ -1231,6 +1233,21 @@ FROM
           Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RECTXNREFERENCENO"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="_REC_TXN_REFERENCE_NO"
+    Expression="_REC_TXN_REFERENCE_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="SETTLEMENTID"/>

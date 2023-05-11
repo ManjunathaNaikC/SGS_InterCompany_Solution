@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import java.net.MalformedURLException;
@@ -1459,15 +1460,14 @@ public class ActionEventsBean {
             ADFUtils.errorPopup(message);
             }
         }
-        if(null != (Boolean)getBindReceiptCheck().getValue() &&  (Boolean)getBindReceiptCheck().getValue()){
-            totalSettlementAmount = calculateTotalSettlementAmount();
-            if(totalSettleOutput != null){
-            totalSettleOutput.setVisible(true);
-            }
-        }
-        else{
-            if(totalSettleOutput != null){
-            totalSettleOutput.setVisible(false);
+        if (null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
+            if(null != getBindPaymentCheck()) {
+                if((Boolean) getBindPaymentCheck().getValue()){
+                    System.out.println("Not calling calculateTotalSettlementAmount()");
+                }else{
+                    System.out.println("calling calculateTotalSettlementAmount()");
+                    calculateTotalSettlementAmount();
+                }
             }
         }
     }
@@ -3020,24 +3020,18 @@ public class ActionEventsBean {
         return txnAmtOnReceipt;
     }
 
-    private Double calculateTotalSettlementAmount() {
-        try {
-            Double totalSettlementAmount = 0.0;
-            ViewObject voucherVO = ADFUtils.findIterator("SgsStlmtVoucherVO1Iterator").getViewObject();
-            RowSetIterator iterator = voucherVO.createRowSetIterator(null);
-            while (iterator.hasNext()) {
-                Row row = iterator.next();
-                Double settlementAmount = (Double) row.getAttribute("StlmtAmount");
-                if (settlementAmount != null) {
-                    totalSettlementAmount += settlementAmount;
-                }
-            }
-            
-        } catch (Exception e) {
-            // TODO: Add catch code
-            e.printStackTrace();
+    public void calculateTotalSettlementAmount() {
+        DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iter = bindings.findIteratorBinding("SgsStlmtVoucherVO1Iterator");
+        Double totalSettlementAmount = 0.0;
+        RowSetIterator rowSetIterator = iter.getRowSetIterator();
+        while (rowSetIterator.hasNext()) {
+            Row row = rowSetIterator.next();
+            totalSettlementAmount += ((BigDecimal) row.getAttribute("StlmtAmount")).doubleValue();
         }
-        return totalSettlementAmount;
+        System.out.println("Amount---"+totalSettlementAmount);
+        setTotalSettlementAmount(totalSettlementAmount);
+
     }
 
     public void setTotalSettleOutput(RichOutputText totalSettleOutput) {

@@ -58,5 +58,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

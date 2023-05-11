@@ -359,7 +359,7 @@
                                     <f:selectItems value="#{bindings.PAYMENTCURRENCY.items}" id="si5"/>
                                     <f:validator binding="#{bindings.PAYMENTCURRENCY.validator}"/>
                                 </af:selectOneChoice>
-                                <af:inputText value="#{pageFlowScope.inputValue}"
+                                <af:inputText value="#{bindings.TRXAMOUNT.inputValue}"
                                               label="#{bindings.TRXAMOUNT.hints.label}"
                                               required="#{bindings.TRXAMOUNT.hints.mandatory}"
                                               columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
@@ -447,12 +447,13 @@
                                     <f:validator binding="#{bindings.BANKCHARGES.validator}"/>
                                     <af:convertNumber groupingUsed="false" pattern="#{bindings.BANKCHARGES.format}"/>
                                 </af:inputText>
-                                <af:outputText value="Amount : #{pageFlowScope.inputValue}" id="ot8"
+                                <af:outputText value="Amount : #{bindings.TRXAMOUNT.inputValue}" id="ot8"
                                                partialTriggers="it11 sbc5 sbc6"
                                                inlineStyle="font-family: Arial; font-size: 14px; color: black;"
                                                visible="false" binding="#{viewScope.ActionEventsBean.txnAmtOnReceipt}"/>
                                 <af:outputText value="Amount : #{viewScope.ActionEventsBean.totalSettlementAmount}"
-                                               id="ot12" partialTriggers="b4Cont" visible="false"
+                                               id="ot12" partialTriggers="b4Cont" visible="true"
+                                               inlineStyle="font-family: Arial; font-size: 14px; color: black;"
                                                binding="#{viewScope.ActionEventsBean.totalSettleOutput}"/>
                                 <!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}"
                                               label="#{bindings.TRXAMOUNT.hints.label}"

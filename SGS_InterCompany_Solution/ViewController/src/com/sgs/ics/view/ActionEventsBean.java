@@ -1491,7 +1491,7 @@ public class ActionEventsBean {
                 if (rw.getAttribute("PaymentStatus").equals("Unpaid")) {
 
 
-                    rw.setAttribute("PaymentStatus", "'On Hold");
+                    rw.setAttribute("PaymentStatus", "On Hold");
                 }
             }
 

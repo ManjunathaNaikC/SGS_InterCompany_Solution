@@ -184,5 +184,10 @@
         <Item Value="RECTXNREFERENCENO"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SgsCreateSettlementVO1Iterator" id="TransactionReferenceNo">
+      <AttrNames>
+        <Item Value="TransactionReferenceNo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -155,8 +155,10 @@ public class ActionEventsBean {
     private RichOutputText txnAmtOnReceipt;
     private Double totalSettlementAmount;
     private RichOutputText totalSettleOutput;
+    
 
     private RichPopup invoiceApproveYesNoPopup;
+    private RichInputText bindPaymentRefNum;
 
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
@@ -721,8 +723,8 @@ public class ActionEventsBean {
         oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("SelectRecord", "Yes");
         System.out.println("*****Selected rows****" + selectedRows.length);
         for (oracle.jbo.Row rw : selectedRows) {
-            if (rw.getAttribute("StlmtStatus").equals("Partially paid") ||
-                rw.getAttribute("StlmtStatus").equals("Unpaid")) {
+            if (rw.getAttribute("PaymentStatus").equals("Partially paid") ||
+                rw.getAttribute("PaymentStatus").equals("Unpaid")) {
 
                 double outstandingAmount = ((Number) rw.getAttribute("OsAmountPayable")).doubleValue();
                 rw.setAttribute("AmountWrittenBank", outstandingAmount);
@@ -1356,8 +1358,10 @@ public class ActionEventsBean {
                                                  .getPageFlowScope()
                                                  .get("selectedValue4");
 
-        bindPsVoucherNumber.getValue();
-        bindPsInvoiceNumber.getValue();
+//        bindPsVoucherNumber.getValue();
+//        bindPsInvoiceNumber.getValue();
+//        paymentTxnNum.getValue();
+        
         
 //
 //                String PAYMENTID = (String) row.getAttribute("PAYMENTID");
@@ -1397,11 +1401,11 @@ public class ActionEventsBean {
         voucherView.setNamedWhereClauseParam("bCollectorBU", collectionBU);
         voucherView.setNamedWhereClauseParam("bPayerBU", payerBU);
         voucherView.setNamedWhereClauseParam("bSltmtStatus", "Settled");
-//        voucherView.setWhereClause(" (PAYMENT_STATUS = 'Fully Paid' AND STLMT_STATUS = 'Voucher Paid-Invoice Pending') " +
-//        "OR PAYMENT_STATUS = 'Unpaid' " +
-//        "OR PAYMENT_STATUS = 'Partially Paid' "+
-//        "OR (PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') ");
+        
 
+        if(null != bindPaymentRefNum.getValue()){
+                   voucherView.setNamedWhereClauseParam("bPaymentRefNum",bindPaymentRefNum.getValue());
+               }
 
        
         if(null != bindPsVoucherNumber.getValue()){
@@ -1413,13 +1417,16 @@ public class ActionEventsBean {
         if(null != bindPsInvoiceNumber.getValue()){
                    voucherView.setNamedWhereClauseParam("bRefToArInvoice",bindPsInvoiceNumber.getValue());
                }
+       
         System.out.println("bindPaymentCheck::"+getBindPaymentCheck().getValue());
         System.out.println("bindReceiptCheck::"+getBindReceiptCheck().getValue());
+        
 //        boolean paymentCheck= (Boolean)getBindPaymentCheck().getValue();
 //        boolean receiptCheck= (Boolean)getBindReceiptCheck().getValue();
 //        System.out.println("bindPaymentCheck::"+paymentCheck);
 //        System.out.println("bindReceiptCheck::"+paymentCheck);
         if(null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue()){
+            totalSettleOutput.setVisible(false);
             String stlmtStatus="'Pending for Settlement','Settlement on Hold'";
             String paymentStatus=" 'Fully Paid','On Hold'";
 //            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Settlement on Hold");
@@ -1430,6 +1437,7 @@ public class ActionEventsBean {
             "OR PAYMENT_STATUS = 'Partially Paid' ");
             
         }else if(null != (Boolean)getBindReceiptCheck().getValue() &&  (Boolean)getBindReceiptCheck().getValue()){
+            totalSettleOutput.setVisible(true);
             String stlmtStatus="'Voucher Paid-Invoice Pending'";
             String paymentStatus="'Fully Paid','Partially Paid'";
            // voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Voucher Paid");
@@ -1439,6 +1447,7 @@ public class ActionEventsBean {
         voucherView.setWhereClause(" (PAYMENT_STATUS = 'Fully Paid' AND STLMT_STATUS = 'Voucher Paid-Invoice Pending') " +
         " OR(PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') ");
         }else if(null != (Boolean)getBindReceiptCheck().getValue() && null != (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindPaymentCheck().getValue() && (Boolean)getBindReceiptCheck().getValue()){
+            totalSettleOutput.setVisible(false);                                                                                                                                                                                                          
             String stlmtStatus="'Pending for Settlement','Settlement on Hold'";
             String paymentStatus=" 'Fully Paid','On Hold'";
 //            voucherView.setNamedWhereClauseParam("bNewStlmtStatus", "Pending for Settlement");
@@ -1454,22 +1463,38 @@ public class ActionEventsBean {
         System.out.println("Query ::"+voucherView.getQuery());
         voucherView.executeQuery();
         System.out.println("voucherView Row Count ::"+voucherView.getRowCount());
+        
+        
+        
         if (null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
+            System.out.println("calling calculateTotalSettlementAmount()");
+            calculateTotalSettlementAmount();
             if(voucherView.getRowCount()==0){
             String message="Please apply payment first on the pending Vouchers";
             ADFUtils.errorPopup(message);
             }
         }
-        if (null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
-            if(null != getBindPaymentCheck()) {
-                if((Boolean) getBindPaymentCheck().getValue()){
-                    System.out.println("Not calling calculateTotalSettlementAmount()");
-                }else{
-                    System.out.println("calling calculateTotalSettlementAmount()");
-                    calculateTotalSettlementAmount();
-                }
-            }
-        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(totalSettleOutput);
+//        if (null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
+//            if(null != getBindPaymentCheck()) {
+//                if((Boolean) getBindPaymentCheck().getValue()){
+//                    System.out.println("Not calling calculateTotalSettlementAmount()");
+//                }else{
+//                    System.out.println("calling calculateTotalSettlementAmount()");
+//                    calculateTotalSettlementAmount();
+//                }
+//            }
+//        }
+//        if (getBindReceiptCheck() != null && (Boolean) getBindReceiptCheck().getValue() != null && (Boolean) getBindReceiptCheck().getValue()) {
+//    if (getBindPaymentCheck() != null && (Boolean) getBindPaymentCheck().getValue() != null) {
+//        if ((Boolean) getBindPaymentCheck().getValue()) {
+//            System.out.println("Not calling calculateTotalSettlementAmount()");
+//        } else {
+//            System.out.println("calling calculateTotalSettlementAmount()");
+//            calculateTotalSettlementAmount();
+//        }
+//    }
+//}
     }
 
     public void onCreateSettlementSave(ActionEvent actionEvent) {
@@ -2730,75 +2755,46 @@ public class ActionEventsBean {
 
         if (valueChangeEvent.getNewValue().equals(true)) {
             purposeCodeLov.setDisabled(false);
-
-        } else {
-            purposeCodeLov.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(purposeCodeLov);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
             paymentDate.setDisabled(false);
-
-        } else {
-            paymentDate.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentDate);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
             payBankName.setDisabled(false);
-
-        } else {
-            payBankName.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(payBankName);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
             payBankCode.setDisabled(false);
-
-        } else {
-            payBankCode.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(payBankCode);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
             paymentMethod.setDisabled(false);
-
-        } else {
-            paymentMethod.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentMethod);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
             paymentCurrency.setDisabled(false);
-
-        } else {
-            paymentCurrency.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentCurrency);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
             inputTransactionAmount.setDisabled(false);
-
-        } else {
-            inputTransactionAmount.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(inputTransactionAmount);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
             paymentTxnNum.setDisabled(false);
 
         } else {
+            purposeCodeLov.setDisabled(true);
+            paymentDate.setDisabled(true);
+            payBankName.setDisabled(true);
+            payBankCode.setDisabled(true);
+            paymentMethod.setDisabled(true);
+            paymentCurrency.setDisabled(true);
+            inputTransactionAmount.setDisabled(true);
             paymentTxnNum.setDisabled(true);
+            
 
         }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(purposeCodeLov);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentDate);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(payBankName);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(payBankCode);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentMethod);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentCurrency);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(inputTransactionAmount);
         AdfFacesContext.getCurrentInstance().addPartialTarget(paymentTxnNum);
+       
+        if (valueChangeEvent.getNewValue().equals(true) && (null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) ) {
+            txnAmtOnReceipt.setVisible(true);
+            totalSettleOutput.setVisible(false);
+        }
+        else
+        {
+                txnAmtOnReceipt.setVisible(false);
+                totalSettleOutput.setVisible(false);
+            }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(txnAmtOnReceipt);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(totalSettleOutput);
     }
 
     public void setPurposeCodeLov(RichSelectOneChoice purposeCodeLov) {
@@ -2850,71 +2846,51 @@ public class ActionEventsBean {
     }
     
     public void disableReceiptAction(ValueChangeEvent valueChangeEvent) {
-
+            
         if (valueChangeEvent.getNewValue().equals(true)) {
             recPurposeCode.setDisabled(false);
-
+            totalSettleOutput.setVisible(true);
+            receiptDate.setDisabled(false);
+            recBankName.setDisabled(false);
+            recBankCode.setDisabled(false);
+            recCurrency.setDisabled(false);
+            inputBankCharge.setDisabled(false);
+            recTxnRefNum.setDisabled(false);
+            
         } else {
             recPurposeCode.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(recPurposeCode);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
-            receiptDate.setDisabled(false);
-
-        } else {
+            totalSettleOutput.setVisible(false);
             receiptDate.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(receiptDate);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
-            recBankName.setDisabled(false);
-
-        } else {
             recBankName.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(recBankName);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
-            recBankCode.setDisabled(false);
-
-        } else {
             recBankCode.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(recBankCode);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
-            recCurrency.setDisabled(false);
-
-        } else {
             recCurrency.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(recCurrency);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
-            inputBankCharge.setDisabled(false);
-
-        } else {
             inputBankCharge.setDisabled(true);
-
-        }
-        AdfFacesContext.getCurrentInstance().addPartialTarget(inputBankCharge);
-        
-        if (valueChangeEvent.getNewValue().equals(true)) {
-            recTxnRefNum.setDisabled(false);
-
-        } else {
             recTxnRefNum.setDisabled(true);
 
         }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recPurposeCode);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(totalSettleOutput);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(receiptDate);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recBankName);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recBankCode);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(recCurrency);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(inputBankCharge);
         AdfFacesContext.getCurrentInstance().addPartialTarget(recTxnRefNum);
-        
-    }
+    
+        if (valueChangeEvent.getNewValue().equals(true) && (null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue()) ) {
+            txnAmtOnReceipt.setVisible(true);
+            totalSettleOutput.setVisible(false);
+        }
+        else
+        {
+                txnAmtOnReceipt.setVisible(false);
+                totalSettleOutput.setVisible(false);
+            }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(txnAmtOnReceipt);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(totalSettleOutput);
+        }
+    
+
 
     public void setRecPurposeCode(RichSelectOneChoice recPurposeCode) {
         this.recPurposeCode = recPurposeCode;
@@ -3027,10 +3003,15 @@ public class ActionEventsBean {
         RowSetIterator rowSetIterator = iter.getRowSetIterator();
         while (rowSetIterator.hasNext()) {
             Row row = rowSetIterator.next();
-            totalSettlementAmount += ((BigDecimal) row.getAttribute("StlmtAmount")).doubleValue();
+            Object stlmtAmountObj = row.getAttribute("StlmtAmount");
+            if (stlmtAmountObj != null) {
+
+                totalSettlementAmount += ((BigDecimal) row.getAttribute("StlmtAmount")).doubleValue();
+            }
         }
-        System.out.println("Amount---"+totalSettlementAmount);
+        System.out.println("Amount---" + totalSettlementAmount);
         setTotalSettlementAmount(totalSettlementAmount);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(totalSettleOutput);
 
     }
 
@@ -3161,6 +3142,15 @@ public class ActionEventsBean {
     public void onInvoiceApproveNoClick(ActionEvent actionEvent) {
         invoiceApproveYesNoPopup.hide();
 
+    }
+
+
+    public void setBindPaymentRefNum(RichInputText bindPaymentRefNum) {
+        this.bindPaymentRefNum = bindPaymentRefNum;
+    }
+
+    public RichInputText getBindPaymentRefNum() {
+        return bindPaymentRefNum;
     }
 }
 

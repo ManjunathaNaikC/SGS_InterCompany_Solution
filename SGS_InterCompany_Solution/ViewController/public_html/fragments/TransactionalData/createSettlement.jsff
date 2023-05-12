@@ -11,7 +11,32 @@
                     <af:spacer id="s13" height="20"/>
                     <af:panelBox id="pb3" showHeader="always" text="Search">
                         
-                        <af:panelFormLayout id="pfl2" rows="4" maxColumns="2">
+                        <af:panelFormLayout id="pfl2" maxColumns="2" rows="4">
+                            <af:selectOneChoice value="#{pageFlowScope.selectedValue1}"
+                                                label="#{bindings.ICCUSTOMERGEO.label}"
+                                                required="#{bindings.ICCUSTOMERGEO.hints.mandatory}"
+                                                shortDesc="#{bindings.ICCUSTOMERGEO.hints.tooltip}" id="soc2"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.ICCUSTOMERGEO.items}" id="si2"/>
+                                <f:validator binding="#{bindings.ICCUSTOMERGEO.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{bindings.ICCUSTOMERBU.inputValue}"
+                                                label="#{bindings.ICCUSTOMERBU.label}"
+                                                required="#{bindings.ICCUSTOMERBU.hints.mandatory}"
+                                                shortDesc="#{bindings.ICCUSTOMERBU.hints.tooltip}" id="soc4"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.ICCUSTOMERBU.items}" id="si4"/>
+                                <f:validator binding="#{bindings.ICCUSTOMERBU.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputText label="PS Voucher Number" id="it2"
+                                          binding="#{viewScope.ActionEventsBean.bindPsVoucherNumber}"/>
+                            <af:selectOneChoice value="#{pageFlowScope.selectedValue3}"
+                                                label="#{bindings.PAYERBU.label}"
+                                                required="#{bindings.PAYERBU.hints.mandatory}"
+                                                shortDesc="#{bindings.PAYERBU.hints.tooltip}" id="soc15">
+                                <f:selectItems value="#{bindings.PAYERBU.items}" id="si15"/>
+                                <f:validator binding="#{bindings.PAYERBU.validator}"/>
+                            </af:selectOneChoice>
                             <af:selectOneChoice value="#{pageFlowScope.selectedValue}"
                                                 label="#{bindings.ICSUPPLIERGEO.label}"
                                                 required="#{bindings.ICSUPPLIERGEO.hints.mandatory}"
@@ -46,32 +71,8 @@
                                 <f:selectItems value="#{bindings.COLLECTORBU.items}" id="si14"/>
                                 <f:validator binding="#{bindings.COLLECTORBU.validator}"/>
                             </af:selectOneChoice>
-                            <af:selectOneChoice value="#{pageFlowScope.selectedValue1}"
-                                                label="#{bindings.ICCUSTOMERGEO.label}"
-                                                required="#{bindings.ICCUSTOMERGEO.hints.mandatory}"
-                                                shortDesc="#{bindings.ICCUSTOMERGEO.hints.tooltip}" id="soc2"
-                                                autoSubmit="true">
-                                <f:selectItems value="#{bindings.ICCUSTOMERGEO.items}" id="si2"/>
-                                <f:validator binding="#{bindings.ICCUSTOMERGEO.validator}"/>
-                            </af:selectOneChoice>
-                        <af:selectOneChoice value="#{bindings.ICCUSTOMERBU.inputValue}"
-                                            label="#{bindings.ICCUSTOMERBU.label}"
-                                            required="#{bindings.ICCUSTOMERBU.hints.mandatory}"
-                                            shortDesc="#{bindings.ICCUSTOMERBU.hints.tooltip}" id="soc4"
-                                            autoSubmit="true">
-                            <f:selectItems value="#{bindings.ICCUSTOMERBU.items}" id="si4"/>
-                            <f:validator binding="#{bindings.ICCUSTOMERBU.validator}"/>
-                        </af:selectOneChoice>
-                            <af:inputText label="PS Voucher Number" id="it2"
-                                          binding="#{viewScope.ActionEventsBean.bindPsVoucherNumber}"/>
-                         
-                            <af:selectOneChoice value="#{pageFlowScope.selectedValue3}"
-                                                label="#{bindings.PAYERBU.label}"
-                                                required="#{bindings.PAYERBU.hints.mandatory}"
-                                                shortDesc="#{bindings.PAYERBU.hints.tooltip}" id="soc15">
-                                <f:selectItems value="#{bindings.PAYERBU.items}" id="si15"/>
-                                <f:validator binding="#{bindings.PAYERBU.validator}"/>
-                            </af:selectOneChoice>
+                            <af:inputText label="Payment Refernce Number" id="it4"
+                                          binding="#{viewScope.ActionEventsBean.bindPaymentRefNum}"/>
                             <!--<af:selectOneChoice value="#{pageFlowScope.selectedPurposeCode}"
                                             label="#{bindings.PURPOSECODE.label}"
                                             required="#{bindings.PURPOSECODE.hints.mandatory}"
@@ -452,9 +453,10 @@
                                                inlineStyle="font-family: Arial; font-size: 14px; color: black;"
                                                visible="false" binding="#{viewScope.ActionEventsBean.txnAmtOnReceipt}"/>
                                 <af:outputText value="Amount : #{viewScope.ActionEventsBean.totalSettlementAmount}"
-                                               id="ot12" partialTriggers="b4Cont" visible="true"
+                                               id="ot12" partialTriggers="b4Cont" 
                                                inlineStyle="font-family: Arial; font-size: 14px; color: black;"
-                                               binding="#{viewScope.ActionEventsBean.totalSettleOutput}"/>
+                                               binding="#{viewScope.ActionEventsBean.totalSettleOutput}"
+                                               visible="false"/>
                                 <!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}"
                                               label="#{bindings.TRXAMOUNT.hints.label}"
                                               required="#{bindings.TRXAMOUNT.hints.mandatory}"

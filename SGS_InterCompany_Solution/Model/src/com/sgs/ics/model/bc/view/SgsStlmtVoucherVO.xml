@@ -94,6 +94,10 @@
     Name="bPsVoucherNumber"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bPaymentRefNum"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsStlmtVoucherEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO"/>
@@ -901,6 +905,14 @@
         Operator="="
         Conjunction="AND"
         Value=":bSupBu"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TxnReferenceNo"
+        ViewAttribute="TxnReferenceNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bPaymentRefNum"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

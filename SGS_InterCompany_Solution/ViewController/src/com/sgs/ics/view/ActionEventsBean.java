@@ -3001,13 +3001,17 @@ public class ActionEventsBean {
         DCIteratorBinding iter = bindings.findIteratorBinding("SgsStlmtVoucherVO1Iterator");
         Double totalSettlementAmount = 0.0;
         RowSetIterator rowSetIterator = iter.getRowSetIterator();
-        while (rowSetIterator.hasNext()) {
-            Row row = rowSetIterator.next();
+        System.out.println("LENGTH---"+rowSetIterator.getFetchedRowCount());
+//        while (rowSetIterator.hasNext())
+        for (Row row : rowSetIterator.getAllRowsInRange()){
+//            row = rowSetIterator.next();
             Object stlmtAmountObj = row.getAttribute("StlmtAmount");
-            if (stlmtAmountObj != null) {
+            if (stlmtAmountObj == null) {
 
-                totalSettlementAmount += ((BigDecimal) row.getAttribute("StlmtAmount")).doubleValue();
+               continue;
             }
+            totalSettlementAmount += ((BigDecimal) row.getAttribute("StlmtAmount")).doubleValue();
+            System.out.println("totalSettlementAmount--"+totalSettlementAmount);
         }
         System.out.println("Amount---" + totalSettlementAmount);
         setTotalSettlementAmount(totalSettlementAmount);

@@ -5,7 +5,7 @@
     <af:panelBox text="Create Settlement" id="pb1">
         <af:spacer id="s7" height="20"/>
         <af:panelTabbed position="above" id="pt1">
-            <af:showDetailItem id="tab1" text="Settlement of Inter-Company">
+            <af:showDetailItem id="tab1" text="">
                 <af:panelBox id="pb4">
                    
               
@@ -157,7 +157,7 @@
                                       maximumLength="#{bindings.TRANSACTIONREFERENCENO.hints.precision}"
                                       shortDesc="#{bindings.TRANSACTIONREFERENCENO.hints.tooltip}" id="it9"
                                       autoSubmit="true" binding="#{viewScope.ActionEventsBean.paymentTxnNum}"
-                                               disabled="true">
+                                               disabled="true" showRequired="true">
                             <f:validator binding="#{bindings.TRANSACTIONREFERENCENO.validator}"/>
                         </af:inputText>
                                 <af:selectOneChoice value="#{pageFlowScope.selectedPayCurr}"

@@ -20,10 +20,11 @@
     IsNotNull="true"
     ColumnName="FST_ID"
     SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INT"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
     TableName="SGS_FIXED_ASSETS_TXN"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    Precision="80"/>
   <Attribute
     Name="TransferDate"
     ColumnName="TRANSFER_DATE"

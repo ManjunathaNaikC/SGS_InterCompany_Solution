@@ -63,6 +63,7 @@ import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
 
+import oracle.adf.view.rich.event.PopupCanceledEvent;
 import oracle.adf.view.rich.render.ClientEvent;
 
 import oracle.binding.BindingContainer;
@@ -3155,6 +3156,17 @@ public class ActionEventsBean {
 
     public RichInputText getBindPaymentRefNum() {
         return bindPaymentRefNum;
+    }
+
+
+    public void CreditTxnPopupCancel(PopupCanceledEvent popupCanceledEvent) {
+        // Add event code here...
+        try {
+            executeBinding("Rollback");
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
     }
 }
 

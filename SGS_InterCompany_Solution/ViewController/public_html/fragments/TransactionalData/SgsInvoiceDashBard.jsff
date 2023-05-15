@@ -571,7 +571,9 @@
                         </af:dialog>
                     </af:popup>
                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1creditMemo"
-                              binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}">
+                    
+                              binding="#{viewScope.ActionEventsBean.invoicecreditmemobindpopup}"
+                              popupCanceledListener="#{viewScope.ActionEventsBean.CreditTxnPopupCancel}">
                         <af:dialog id="d2" type="none">
                             <f:facet name="buttonBar"/>
                             <af:panelBox text="Credit Transaction Dashboard" id="pb2" inlineStyle="width:1400px">

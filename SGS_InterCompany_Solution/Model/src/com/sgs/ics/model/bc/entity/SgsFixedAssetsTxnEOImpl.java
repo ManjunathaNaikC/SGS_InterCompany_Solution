@@ -153,15 +153,15 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
      * Gets the attribute value for FstId, using the alias name FstId.
      * @return the value of FstId
      */
-    public Integer getFstId() {
-        return (Integer) getAttributeInternal(FSTID);
+    public String getFstId() {
+        return (String) getAttributeInternal(FSTID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for FstId.
      * @param value value to set the FstId
      */
-    public void setFstId(Integer value) {
+    public void setFstId(String value) {
         setAttributeInternal(FSTID, value);
     }
 
@@ -808,12 +808,13 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         setAttributeInternal(ATTACHMENT, value);
     }
 
+
     /**
      * @param fstId key constituent
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(Integer fstId) {
+    public static Key createPrimaryKey(String fstId) {
         return new Key(new Object[] { fstId });
     }
 
@@ -826,7 +827,7 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         try {
             SGSAppModuleImpl am = new SGSAppModuleImpl();
             //setCostIdentificationId("SGSID"+Math.random());
-            setFstId(am.getDBSequence1("SEQ_SEQ_SGS_FIXED_ASSETS_TXN"));
+//            setFstId(am.getDBSequence1("SEQ_SEQ_SGS_FIXED_ASSETS_TXN"));
             CommonUtils util = new CommonUtils();
             Object user = (Object) util.getSessionScopeValue("_username").toString();
             setCreatedBy(user.toString());

@@ -160,6 +160,7 @@ public class ActionEventsBean {
 
     private RichPopup invoiceApproveYesNoPopup;
     private RichInputText bindPaymentRefNum;
+    private RichPopup faRejectBind;
 
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
@@ -1129,7 +1130,8 @@ public class ActionEventsBean {
                         DecimalFormat decimalFormat = new DecimalFormat("#.##");
                         decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                         settlementAmount = Double.parseDouble(decimalFormat.format(transactionAmount));
-
+                System.out.println("partially paid stlmnt status $$$$ ");
+                        
                         settlementStatus = "Partially Settled";
                         paymentStatus = "Partially Paid";
                         transactionAmount = 0;
@@ -1999,7 +2001,7 @@ public class ActionEventsBean {
         oracle.jbo.Row[] rows = invoiceData.getAllRowsInRange();
         for (int i = 0; i < rows.length; i++) {
             if (null != rows[i].getAttribute("selectInvoiceRecord") &&
-                rows[i].getAttribute("selectInvoiceRecord").equals("Yes")) {
+                rows[i].getAttribute("SelecselectInvoiceRecordted").equals("Yes")) {
                 rows[i].setAttribute("TransactionStatus", "Rejected");
             }
         }
@@ -3167,6 +3169,47 @@ public class ActionEventsBean {
             // TODO: Add catch code
             e.printStackTrace();
         }
+    }
+
+    public void setFaRejectBind(RichPopup faRejectBind) {
+        this.faRejectBind = faRejectBind;
+    }
+
+    public RichPopup getFaRejectBind() {
+        return faRejectBind;
+    }
+
+    public void onFaReject(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            DCIteratorBinding data = getDCIteratorBindings("SgsFixedAssetsTxnVO1Iterator");
+            oracle.jbo.Row[] rows = data.getAllRowsInRange();
+            //        for (int i = 0; i < rows.length; i++) {
+            //            if (null != rows[i].getAttribute("Selected") &&
+            //                rows[i].getAttribute("Selected").equals("true")) {
+            //                rows[i].setAttribute("Status", "Rejected");
+            //            }
+            //        }
+            for (Row rw : rows) {
+                System.out.println("selected value : " + rw.getAttribute("Selected"));
+                if (rw.getAttribute("Selected").equals(true)) {
+                    rw.setAttribute("Status", "Rejected");
+
+                }
+
+            }
+            
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        executeBinding(SAVE_DATA);
+        faRejectBind.hide();
+    }
+
+    public void onFaRejectNo(ActionEvent actionEvent) {
+        // Add event code here...
+        faRejectBind.hide();
     }
 }
 

@@ -22,12 +22,17 @@
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t1">
-                                <af:button text="Confirm for Invoicing" id="b1"
-                                           actionListener="#{viewScope.ActionEventsBean.onConfirmingInvoiceEvent}"/>
-                                <af:button text="Import from Transaction" id="b2"
-                                           actionListener="#{viewScope.ActionEventsBean.importFromTxn}"/>
-                                <af:button text="Approve" id="b3">
+                                <!--<af:button text="Confirm for Invoicing" id="b1"
+                                           actionListener="#{viewScope.ActionEventsBean.onConfirmingInvoiceEvent}"/>-->
+                                <!--<af:button text="Import from Transaction" id="b2"
+                                           actionListener="#{viewScope.ActionEventsBean.importFromTxn}"/>-->
+                                <af:button text="Approve" id="b3"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('FA_APPROVE')}">
                                     <af:showPopupBehavior popupId="p1approve"/>
+                                </af:button>
+                                <af:button text="Reject" id="b1"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('FA_REJECT')}">
+                                    <af:showPopupBehavior popupId="Fareject"/>
                                 </af:button>
                             </af:toolbar>
                         </f:facet>
@@ -48,19 +53,28 @@
                                                           shortDesc="#{bindings.SgsFixedAssetsTxnVO1Iterator.hints.Selected.tooltip}"
                                                           id="sbc1" autoSubmit="true"/>
                                 <f:facet name="header">
-                                    <af:selectBooleanCheckbox valueChangeListener="#{viewScope.ActionEventsBean.selectAllCheckboxValueChangeFA}" id="sbc2"
-                                                              autoSubmit="true" partialTriggers="cs2 sbc1 ::resId1"
-                                                              text="Select All" styleClass="cb"></af:selectBooleanCheckbox>
+                                    <af:selectBooleanCheckbox valueChangeListener="#{viewScope.ActionEventsBean.selectAllCheckboxValueChangeFA}"
+                                                              id="sbc2" autoSubmit="true"
+                                                              partialTriggers="cs2 sbc1 ::resId1" text="Select All"
+                                                              styleClass="cb"/>
                                 </f:facet>
                             </af:column>
-                            <!--<af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FstId.label}" id="resId1c1">
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.FstId.label}" id="resId1c1">
                                 <af:outputText value="#{row.FstId}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FstId.tooltip}"
-                                               id="ot1">
+                                               id="ot123">
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.FstId.format}"/>
                                 </af:outputText>
-                            </af:column>-->
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.label}"
+                                       id="resId1c28">
+                                <af:outputText value="#{row.TransferDate}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.tooltip}"
+                                               id="ot28">
+                                    <af:convertDateTime pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.format}"/>
+                                </af:outputText>
+                            </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCategory.label}"
                                        id="resId1c2">
                                 <af:outputText value="#{row.TransactionCategory}"
@@ -151,96 +165,34 @@
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ToGlAccount.tooltip}"
                                                id="ot16"/>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.label}"
-                                       id="resId1c17" styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.GstVatRate}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.tooltip}"
-                                               id="ot17">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatAmount.label}"
-                                       id="resId1c18" styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.GstVatAmount}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatAmount.tooltip}"
-                                               id="ot18">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00" type="currency"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.AccountingEntry.label}"
-                                       id="resId1c19">
-                                <af:outputText value="#{row.AccountingEntry}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.AccountingEntry.tooltip}"
-                                               id="ot19"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.Approval.label}"
-                                       id="resId1c20">
-                                <af:outputText value="#{row.Approval}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.Approval.tooltip}"
-                                               id="ot20"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.DepAmount.label}"
-                                       id="resId1c21" styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.DepAmount}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.DepAmount.tooltip}"
-                                               id="ot21">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00" type="currency"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.label}"
-                                       id="resId1c22" styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.InvoiceValue}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.tooltip}"
-                                               id="ot22">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoicingCurrency.label}"
-                                       id="resId1c23">
-                                <af:outputText value="#{row.InvoicingCurrency}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoicingCurrency.tooltip}"
-                                               id="ot23"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.NetBookValue.label}"
-                                       id="resId1c24" styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.NetBookValue}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.NetBookValue.tooltip}"
-                                               id="ot24">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00"
-                                                      type="currency"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.label}"
-                                       id="resId1c25" styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.OriginalCost}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.tooltip}"
-                                               id="ot25">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00" type="currency"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.label}" id="resId1c26">
-                                <af:outputText value="#{row.Status}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.tooltip}"
-                                               id="ot26"/>
-                            </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCurrency.label}"
                                        id="resId1c27">
                                 <af:outputText value="#{row.TransactionCurrency}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCurrency.tooltip}"
                                                id="ot27"/>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.label}"
-                                       id="resId1c28">
-                                <af:outputText value="#{row.TransferDate}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.tooltip}"
-                                               id="ot28">
-                                    <af:convertDateTime pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferDate.format}"/>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.label}"
+                                       id="resId1c25" styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.OriginalCost}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.OriginalCost.tooltip}"
+                                               id="ot25">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.DepAmount.label}"
+                                       id="resId1c21" styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.DepAmount}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.DepAmount.tooltip}"
+                                               id="ot21">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.NetBookValue.label}"
+                                       id="resId1c24" styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.NetBookValue}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.NetBookValue.tooltip}"
+                                               id="ot24">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferValue.label}"
@@ -252,20 +204,19 @@
                                                       pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.TransferValue.format}"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.label}" id="c1">
-                                <af:outputText value="#{row.ACCDATE}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.tooltip}"
-                                               id="ot1">
-                                    <af:convertDateTime pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.format}"/>
-                                </af:outputText>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoicingCurrency.label}"
+                                       id="resId1c23">
+                                <af:outputText value="#{row.InvoicingCurrency}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoicingCurrency.tooltip}"
+                                               id="ot23"/>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTAMOUNT.label}" id="c2"
-                                       styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.GSTAMOUNT}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTAMOUNT.tooltip}"
-                                               id="ot34">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00" type="currency"/>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.label}"
+                                       id="resId1c22" styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.InvoiceValue}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.tooltip}"
+                                               id="ot22">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.InvoiceValue.format}"/>
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTRATE.label}" id="c3">
@@ -281,9 +232,7 @@
                                 <af:outputText value="#{row.SGTAMOUNT}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.SGTAMOUNT.tooltip}"
                                                id="ot39">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00"
-                                                      type="currency"/>
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.IGSTAMOUNT.label}" id="c4"
@@ -291,19 +240,7 @@
                                 <af:outputText value="#{row.IGSTAMOUNT}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.IGSTAMOUNT.tooltip}"
                                                id="ot36">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00"
-                                                      type="currency"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.VATAMOUNT.label}" id="c5"
-                                       styleClass="mynumbercolumn">
-                                <af:outputText value="#{row.VATAMOUNT}"
-                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.VATAMOUNT.tooltip}"
-                                               id="ot37">
-                                    <af:convertNumber groupingUsed="true"
-                                                      pattern="###,##0.00"
-                                                      type="currency"/>
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
                                 </af:outputText>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.VATRATE.label}" id="c6"
@@ -314,6 +251,31 @@
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.VATRATE.format}"/>
                                 </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.VATAMOUNT.label}" id="c5"
+                                       styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.VATAMOUNT}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.VATAMOUNT.tooltip}"
+                                               id="ot37">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.label}" id="resId1c26">
+                                <af:outputText value="#{row.Status}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.Status.tooltip}"
+                                               id="ot26"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.AccountingEntry.label}"
+                                       id="resId1c19">
+                                <af:outputText value="#{row.AccountingEntry}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.AccountingEntry.tooltip}"
+                                               id="ot19"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.Approval.label}"
+                                       id="resId1c20">
+                                <af:outputText value="#{row.Approval}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.Approval.tooltip}"
+                                               id="ot20"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTACHMENT.label}" id="c8">
                                 <af:outputText value="#{row.ATTACHMENT}"
@@ -348,6 +310,40 @@
                                     <af:convertDateTime pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.UpdatedDate.format}"/>
                                 </af:outputText>
                             </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.label}"
+                                       id="resId1c17" styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.GstVatRate}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.tooltip}"
+                                               id="ot17">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatRate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatAmount.label}"
+                                       id="resId1c18" styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.GstVatAmount}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GstVatAmount.tooltip}"
+                                               id="ot18">
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.label}" id="c1">
+                                <af:outputText value="#{row.ACCDATE}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.tooltip}"
+                                               id="ot1">
+                                    <af:convertDateTime pattern="#{bindings.SgsFixedAssetsTxnVO1.hints.ACCDATE.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTAMOUNT.label}" id="c2"
+                                       styleClass="mynumbercolumn">
+                                <af:outputText value="#{row.GSTAMOUNT}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.GSTAMOUNT.tooltip}"
+                                               id="ot34">
+                                    <af:convertNumber groupingUsed="true"
+                                                      pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
                         </af:table>
                         <af:popup childCreation="deferred" autoCancel="disabled" id="p1approve"
                                   binding="#{viewScope.ActionEventsBean.approvePopupFABind}">
@@ -360,6 +356,22 @@
                                               binding="#{viewScope.ActionEventsBean.inputFileBindFA}" autoSubmit="true"/>
                             </af:dialog>
                         </af:popup>
+                         <af:popup childCreation="deferred" autoCancel="disabled" id="Fareject"
+                              binding="#{viewScope.ActionEventsBean.faRejectBind}">
+                        <af:dialog id="d1reject" type="none">
+                            <f:facet name="buttonBar">
+                                <af:group id="g1">
+                                    <af:button text="Yes" id="b6"
+                                               actionListener="#{viewScope.ActionEventsBean.onFaReject}"/>
+                                    <af:spacer id="s1"/>
+                                    <af:button text="No" id="b7"
+                                               actionListener="#{viewScope.ActionEventsBean.onFaRejectNo}"/>
+                                </af:group>
+                            </f:facet>
+                            <af:message id="m1reject" messageType="confirmation"
+                                        message="Do You Really Want To Reject?"/>
+                        </af:dialog>
+                    </af:popup>
                     </af:panelCollection>
                 </af:panelGroupLayout>
             </af:panelBox>

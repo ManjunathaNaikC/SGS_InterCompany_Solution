@@ -221,6 +221,21 @@
   <ViewUsage
     Name="BuLov1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.BuLov"/>
+  <ViewUsage
+    Name="SgsNetHeaderTblVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO"/>
+  <ViewUsage
+    Name="SgsNetIcPayableVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNetIcPayableVO"/>
+  <ViewUsage
+    Name="SgsNetIcReceivableEO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNetIcReceivableVO"/>
+  <ViewUsage
+    Name="SgsNetIcReceivableVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNetIcReceivableVO"/>
+  <ViewUsage
+    Name="SgsNetIcPayableVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNetIcPayableVO"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"
@@ -335,8 +350,40 @@
     SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStandardRateSetupVO1"
     DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsStdRateDocVO1"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="NettingHeaderToReceivableVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.NettingHeaderToReceivableVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsNetHeaderTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsNetIcReceivableVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="NettingHeaderToPayableVL1"
+    ViewLinkObjectName="com.sgs.ics.model.bc.view.link.NettingHeaderToPayableVL"
+    SrcViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsNetHeaderTblVO1"
+    DstViewUsageName="com.sgs.ics.model.bc.am.SGSAppModule.SgsNetIcPayableVO2"
+    Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
+    <Method
+      Name="loginValidationMethod"
+      MethodName="loginValidationMethod">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="user"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pass"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getDBConnection"
+      MethodName="getDBConnection">
+      <Return
+        Name="_return_type_"
+        Type="java.sql.Connection"/>
+    </Method>
     <Method
       Name="loginValidationMethod"
       MethodName="loginValidationMethod">

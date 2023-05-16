@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="NettingChilds_NewPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsNetIcReceivableVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsNetIcReceivableVO1Iterator"/>
+    <searchRegion Binds="SgsNetIcReceivableVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNetIcReceivableVO1Query"/>
+    <iterator Binds="SgsNetIcPayableVO2" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsNetIcPayableVO2Iterator"/>
+    <searchRegion Binds="SgsNetIcPayableVO2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNetIcPayableVO2Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsNetIcReceivableVO1Iterator" id="SgsNetIcReceivableVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsNetIcReceivableVO" Name="SgsNetIcReceivableVO10">
+        <AttrNames>
+          <Item Value="NettingId"/>
+          <Item Value="NicviId"/>
+          <Item Value="InvoiceSeqNo"/>
+          <Item Value="Period"/>
+          <Item Value="IuVendor"/>
+          <Item Value="ArBu"/>
+          <Item Value="InvoiceNum"/>
+          <Item Value="IuCustomer"/>
+          <Item Value="ApBu"/>
+          <Item Value="VoucherNum"/>
+          <Item Value="InvooiceAmount"/>
+          <Item Value="WhtAmount"/>
+          <Item Value="NetAllLimit"/>
+          <Item Value="NetPerformed"/>
+          <Item Value="NetBalance"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SgsNetIcPayableVO2Iterator" id="SgsNetIcPayableVO2">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsNetIcPayableVO" Name="SgsNetIcPayableVO20">
+        <AttrNames>
+          <Item Value="NettingId"/>
+          <Item Value="NicviId"/>
+          <Item Value="InvoiceSeqNo"/>
+          <Item Value="Period"/>
+          <Item Value="IuCustomer"/>
+          <Item Value="ApBu"/>
+          <Item Value="VoucherNum"/>
+          <Item Value="IuVendor"/>
+          <Item Value="ArBu"/>
+          <Item Value="InvoiceNum"/>
+          <Item Value="VoucherAmount"/>
+          <Item Value="WhtAmount"/>
+          <Item Value="NetAllLimit"/>
+          <Item Value="NetPerformed"/>
+          <Item Value="NetBalance"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

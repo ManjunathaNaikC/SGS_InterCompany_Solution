@@ -59,6 +59,10 @@
           usageId="com_sgs_ics_view_sgs_businessUnitMaster_flow_sgs_businessUnitMaster_flow_SetCurrentRowWithKeyValuePageDef"/>
     <page path="/taskflows/commom/sgs-tpaInquiry.xml#sgs-tpaInquiry@SetCurrentRowWithKeyValue"
           usageId="com_sgs_ics_view_sgs_tpaInquiry_sgs_tpaInquiry_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/fragments/TransactionalData/NettingHeader_New.jsff"
+          usageId="com_sgs_ics_view_NettingHeader_NewPageDef"/>
+    <page path="/fragments/TransactionalData/NettingChilds_New.jsff"
+          usageId="com_sgs_ics_view_NettingChilds_NewPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_sgs_ics_view_MainPagePageDef" path="pages.MainPagePageDef"/>
@@ -109,6 +113,8 @@
           path="taskflows.commom.sgs_businessUnitMaster_flow_sgs_businessUnitMaster_flow_SetCurrentRowWithKeyValuePageDef"/>
     <page id="com_sgs_ics_view_sgs_tpaInquiry_sgs_tpaInquiry_SetCurrentRowWithKeyValuePageDef"
           path="taskflows.commom.sgs_tpaInquiry_sgs_tpaInquiry_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="com_sgs_ics_view_NettingHeader_NewPageDef" path="fragments.TransactionalData.NettingHeader_NewPageDef"/>
+    <page id="com_sgs_ics_view_NettingChilds_NewPageDef" path="fragments.TransactionalData.NettingChilds_NewPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SGSAppModuleDataControl" Package="com.sgs.ics.model.bc.am"

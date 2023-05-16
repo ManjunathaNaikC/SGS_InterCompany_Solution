@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sgs_netting_new_flow">
+    <default-activity>NettingHeader_New</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="NettingHeader_New">
+      <page>/fragments/TransactionalData/NettingHeader_New.jsff</page>
+    </view>
+    <view id="NettingChilds_New">
+      <page>/fragments/TransactionalData/NettingChilds_New.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>NettingHeader_New</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Lines</from-outcome>
+        <to-activity-id>NettingChilds_New</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>NettingChilds_New</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>Header</from-outcome>
+        <to-activity-id>NettingHeader_New</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

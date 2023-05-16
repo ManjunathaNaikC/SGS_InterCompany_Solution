@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">NettingHeader_New</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">259.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>NettingHeader_New&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">190.79297</property>
+      <property
+         name="page">/fragments/TransactionalData/NettingHeader_New.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">NettingChilds_New</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">502.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>NettingChilds_New&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">183.89648</property>
+      <property
+         name="page">/fragments/TransactionalData/NettingChilds_New.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">Lines</property>
+      <property
+         name="sdm:polyPoints">R50,300.0,190.44238,461.0,183.5459,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">Header</property>
+      <property
+         name="sdm:polyPoints">L54,461.0,187.0459,300.14984,193.94238,R54</property>
+   </ControlFlowCase>
+</SDM>

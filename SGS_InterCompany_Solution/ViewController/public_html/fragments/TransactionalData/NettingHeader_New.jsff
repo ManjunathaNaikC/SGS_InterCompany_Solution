@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Netting" id="pb1">
+    <f:facet name="toolbar">
+      <!--<af:button text="button 1" id="b1" action="Lines"/>-->
+    </f:facet>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.SgsNetHeaderTblVO1.collectionModel}" var="row"
+                rows="#{bindings.SgsNetHeaderTblVO1.rangeSize}"
+                emptyText="#{bindings.SgsNetHeaderTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" fetchSize="#{bindings.SgsNetHeaderTblVO1.rangeSize}"
+                filterModel="#{bindings.SgsNetHeaderTblVO1Query.queryDescriptor}" filterVisible="false"
+                queryListener="#{bindings.SgsNetHeaderTblVO1Query.processQuery}" varStatus="vs" id="t1"
+                styleClass="AFStretchWidth">
+        <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.label}" id="c1">
+          <af:link id="l1" action="Lines">
+            <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.tooltip}"
+                           id="ot1">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.format}"/>
+            </af:outputText>
+          </af:link>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.label}" id="c2">
+          <af:outputText value="#{row.NettingId}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.tooltip}"
+                         id="ot2"/>
+        </af:column>
+        <af:column id="c16" headerText="Accounts Receivable">
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.GeoSupplier.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.GeoSupplier.label}" id="c3">
+            <af:outputText value="#{row.GeoSupplier}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.GeoSupplier.tooltip}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.IcReceivable.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.IcReceivable.label}" id="c4">
+            <af:outputText value="#{row.IcReceivable}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.IcReceivable.tooltip}" id="ot4">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.IcReceivable.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.ArCollection.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.ArCollection.label}" id="c5">
+            <af:outputText value="#{row.ArCollection}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.ArCollection.tooltip}" id="ot5">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.ArCollection.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.TotalRec.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetHeaderTblVO1.hints.TotalRec.label}" id="c6">
+            <af:outputText value="#{row.TotalRec}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.TotalRec.tooltip}"
+                           id="ot6">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetHeaderTblVO1.hints.TotalRec.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:column>
+        <af:column id="c17" headerText="Account Payable">
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.GeoCustomer.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.GeoCustomer.label}" id="c7">
+            <af:outputText value="#{row.GeoCustomer}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.GeoCustomer.tooltip}" id="ot7"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.IcPayable.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.IcPayable.label}" id="c8">
+            <af:outputText value="#{row.IcPayable}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.IcPayable.tooltip}"
+                           id="ot8">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetHeaderTblVO1.hints.IcPayable.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.ApPayments.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.ApPayments.label}" id="c9">
+            <af:outputText value="#{row.ApPayments}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.ApPayments.tooltip}"
+                           id="ot9">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetHeaderTblVO1.hints.ApPayments.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.TotalPay.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetHeaderTblVO1.hints.TotalPay.label}" id="c10">
+            <af:outputText value="#{row.TotalPay}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.TotalPay.tooltip}"
+                           id="ot10">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetHeaderTblVO1.hints.TotalPay.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:column>
+        <af:column id="c18" headerText="Netting Allowable Limit">
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowIcTran.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowIcTran.label}" id="c11">
+            <af:outputText value="#{row.NetAllowIcTran}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowIcTran.tooltip}" id="ot11">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowIcTran.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowArColl.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowArColl.label}" id="c12">
+            <af:outputText value="#{row.NetAllowArColl}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowArColl.tooltip}" id="ot12">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.NetAllowArColl.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:column>
+        <af:column id="c19" headerText="Netting Performed">
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NetPerIcTran.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.NetPerIcTran.label}" id="c13">
+            <af:outputText value="#{row.NetPerIcTran}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NetPerIcTran.tooltip}" id="ot13">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.NetPerIcTran.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NetPerArColl.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.NetPerArColl.label}" id="c14">
+            <af:outputText value="#{row.NetPerArColl}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NetPerArColl.tooltip}" id="ot14">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.NetPerArColl.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:column>
+        <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.Status.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.SgsNetHeaderTblVO1.hints.Status.label}" id="c15">
+          <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.Status.tooltip}"
+                         id="ot15"/>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+  </af:panelBox>
+</ui:composition>

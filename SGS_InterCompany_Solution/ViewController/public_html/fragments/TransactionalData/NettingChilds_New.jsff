@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Netting Lines" id="pb1">
+    <f:facet name="toolbar">
+      <!--<af:button text="button 1" id="b1" action="Header"/>-->
+    </f:facet>
+    <af:panelBox text="Netting Receivable" id="pb2">
+      <f:facet name="toolbar"/>
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.SgsNetIcReceivableVO1.collectionModel}" var="row"
+                  rows="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
+                  emptyText="#{bindings.SgsNetIcReceivableVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
+                  filterModel="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor}" filterVisible="false"
+                  queryListener="#{bindings.SgsNetIcReceivableVO1Query.processQuery}" varStatus="vs" id="t1"
+                  styleClass="AFStretchWidth">
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.label}" id="c1">
+            <af:outputText value="#{row.NettingId}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.tooltip}" id="ot1"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.label}" id="c2">
+            <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.tooltip}"
+                           id="ot2">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceSeqNo.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceSeqNo.label}" id="c3">
+            <af:outputText value="#{row.InvoiceSeqNo}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceSeqNo.tooltip}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.Period.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.Period.label}" id="c4">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                            id="id1">
+                <af:convertDateTime pattern="#{bindings.SgsNetIcReceivableVO1.hints.Period.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:outputText value="#{row.Period}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.Period.tooltip}"
+                           id="ot4">
+              <af:convertDateTime pattern="#{bindings.SgsNetIcReceivableVO1.hints.Period.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.label}" id="c5">
+            <af:outputText value="#{row.IuVendor}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.tooltip}"
+                           id="ot5"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.label}" id="c6">
+            <af:outputText value="#{row.ArBu}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.tooltip}"
+                           id="ot6"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.label}" id="c7">
+            <af:outputText value="#{row.InvoiceNum}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.tooltip}" id="ot7"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.IuCustomer.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.IuCustomer.label}" id="c8">
+            <af:outputText value="#{row.IuCustomer}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.IuCustomer.tooltip}" id="ot8"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.label}" id="c9">
+            <af:outputText value="#{row.ApBu}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.tooltip}"
+                           id="ot9"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.label}" id="c10">
+            <af:outputText value="#{row.VoucherNum}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.tooltip}" id="ot10"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.label}" id="c11">
+            <af:outputText value="#{row.InvooiceAmount}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.tooltip}" id="ot11">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.label}" id="c12">
+            <af:outputText value="#{row.WhtAmount}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.tooltip}" id="ot12">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.label}" id="c13">
+            <af:outputText value="#{row.NetAllLimit}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.tooltip}" id="ot13">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.label}" id="c14">
+            <af:outputText value="#{row.NetPerformed}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.tooltip}" id="ot14">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.label}" id="c15">
+            <af:outputText value="#{row.NetBalance}"
+                           shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.tooltip}" id="ot15">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.Status.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.Status.label}" id="c16">
+            <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.Status.tooltip}"
+                           id="ot16"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelBox>
+    <af:panelBox text="Netting Payable" id="pb3">
+      <f:facet name="toolbar"/>
+      <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.SgsNetIcPayableVO2.collectionModel}" var="row"
+                  rows="#{bindings.SgsNetIcPayableVO2.rangeSize}"
+                  emptyText="#{bindings.SgsNetIcPayableVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcPayableVO2.rangeSize}"
+                  filterModel="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor}" filterVisible="false"
+                  queryListener="#{bindings.SgsNetIcPayableVO2Query.processQuery}" varStatus="vs" id="t2"
+                  styleClass="AFStretchWidth">
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NettingId.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NettingId.label}" id="c17">
+            <af:outputText value="#{row.NettingId}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NettingId.tooltip}"
+                           id="ot17"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NicviId.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcPayableVO2.hints.NicviId.label}" id="c18">
+            <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NicviId.tooltip}"
+                           id="ot18">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetIcPayableVO2.hints.NicviId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.InvoiceSeqNo.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.InvoiceSeqNo.label}" id="c19">
+            <af:outputText value="#{row.InvoiceSeqNo}"
+                           shortDesc="#{bindings.SgsNetIcPayableVO2.hints.InvoiceSeqNo.tooltip}" id="ot19"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.Period.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcPayableVO2.hints.Period.label}" id="c20">
+            <f:facet name="filter">
+              <af:inputDate value="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                            id="id2">
+                <af:convertDateTime pattern="#{bindings.SgsNetIcPayableVO2.hints.Period.format}"/>
+              </af:inputDate>
+            </f:facet>
+            <af:outputText value="#{row.Period}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.Period.tooltip}"
+                           id="ot20">
+              <af:convertDateTime pattern="#{bindings.SgsNetIcPayableVO2.hints.Period.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.label}" id="c21">
+            <af:outputText value="#{row.IuCustomer}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.tooltip}"
+                           id="ot21"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.ApBu.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcPayableVO2.hints.ApBu.label}" id="c22">
+            <af:outputText value="#{row.ApBu}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.ApBu.tooltip}" id="ot22"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.label}" id="c23">
+            <af:outputText value="#{row.VoucherNum}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.tooltip}"
+                           id="ot23"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.IuVendor.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcPayableVO2.hints.IuVendor.label}" id="c24">
+            <af:outputText value="#{row.IuVendor}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.IuVendor.tooltip}"
+                           id="ot24"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.ArBu.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcPayableVO2.hints.ArBu.label}" id="c25">
+            <af:outputText value="#{row.ArBu}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.ArBu.tooltip}" id="ot25"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.label}" id="c26">
+            <af:outputText value="#{row.InvoiceNum}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.tooltip}"
+                           id="ot26"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.label}" id="c27">
+            <af:outputText value="#{row.VoucherAmount}"
+                           shortDesc="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.tooltip}" id="ot27">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.label}" id="c28">
+            <af:outputText value="#{row.WhtAmount}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.tooltip}"
+                           id="ot28">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.label}" id="c29">
+            <af:outputText value="#{row.NetAllLimit}"
+                           shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.tooltip}" id="ot29">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.label}" id="c30">
+            <af:outputText value="#{row.NetPerformed}"
+                           shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.tooltip}" id="ot30">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.name}" filterable="true"
+                     sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.label}" id="c31">
+            <af:outputText value="#{row.NetBalance}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.tooltip}"
+                           id="ot31">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.Status.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SgsNetIcPayableVO2.hints.Status.label}" id="c32">
+            <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.Status.tooltip}"
+                           id="ot32"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelBox>
+  </af:panelBox>
+</ui:composition>

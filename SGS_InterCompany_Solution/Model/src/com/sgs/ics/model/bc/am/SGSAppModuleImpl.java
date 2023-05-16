@@ -83,9 +83,9 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
 //            String connectionUrl = prop.getProperty("db_url_local");
 //
 //            conn = DriverManager.getConnection(connectionUrl);
-//
-//                      conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER;integratedSecurity=true;");
-                   conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
+                    conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
+                 //  conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
 
 
         } catch (SQLException sqle) {
@@ -852,6 +852,63 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public BuLovImpl getBuLov1() {
         return (BuLovImpl) findViewObject("BuLov1");
+    }
+
+    /**
+     * Container's getter for SgsNetHeaderTblVO1.
+     * @return SgsNetHeaderTblVO1
+     */
+    public ViewObjectImpl getSgsNetHeaderTblVO1() {
+        return (ViewObjectImpl) findViewObject("SgsNetHeaderTblVO1");
+    }
+
+    /**
+     * Container's getter for SgsNetIcPayableVO1.
+     * @return SgsNetIcPayableVO1
+     */
+    public ViewObjectImpl getSgsNetIcPayableVO1() {
+        return (ViewObjectImpl) findViewObject("SgsNetIcPayableVO1");
+    }
+
+    /**
+     * Container's getter for SgsNetIcReceivableEO1.
+     * @return SgsNetIcReceivableEO1
+     */
+    public ViewObjectImpl getSgsNetIcReceivableEO1() {
+        return (ViewObjectImpl) findViewObject("SgsNetIcReceivableEO1");
+    }
+
+
+    /**
+     * Container's getter for SgsNetIcReceivableVO1.
+     * @return SgsNetIcReceivableVO1
+     */
+    public ViewObjectImpl getSgsNetIcReceivableVO1() {
+        return (ViewObjectImpl) findViewObject("SgsNetIcReceivableVO1");
+    }
+
+    /**
+     * Container's getter for NettingHeaderToReceivableVL1.
+     * @return NettingHeaderToReceivableVL1
+     */
+    public ViewLinkImpl getNettingHeaderToReceivableVL1() {
+        return (ViewLinkImpl) findViewLink("NettingHeaderToReceivableVL1");
+    }
+
+    /**
+     * Container's getter for SgsNetIcPayableVO2.
+     * @return SgsNetIcPayableVO2
+     */
+    public ViewObjectImpl getSgsNetIcPayableVO2() {
+        return (ViewObjectImpl) findViewObject("SgsNetIcPayableVO2");
+    }
+
+    /**
+     * Container's getter for NettingHeaderToPayableVL1.
+     * @return NettingHeaderToPayableVL1
+     */
+    public ViewLinkImpl getNettingHeaderToPayableVL1() {
+        return (ViewLinkImpl) findViewLink("NettingHeaderToPayableVL1");
     }
 }
 

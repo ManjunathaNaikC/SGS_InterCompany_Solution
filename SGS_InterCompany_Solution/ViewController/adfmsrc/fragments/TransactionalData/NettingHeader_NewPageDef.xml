@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="NettingHeader_NewPageDef"
+                Package="fragments.TransactionalData">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SgsNetHeaderTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsNetHeaderTblVO1Iterator"/>
+    <searchRegion Binds="SgsNetHeaderTblVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNetHeaderTblVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SgsNetHeaderTblVO1Iterator" id="SgsNetHeaderTblVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO" Name="SgsNetHeaderTblVO10">
+        <AttrNames>
+          <Item Value="NicviId"/>
+          <Item Value="NettingId"/>
+          <Item Value="GeoSupplier"/>
+          <Item Value="IcReceivable"/>
+          <Item Value="ArCollection"/>
+          <Item Value="TotalRec"/>
+          <Item Value="GeoCustomer"/>
+          <Item Value="IcPayable"/>
+          <Item Value="ApPayments"/>
+          <Item Value="TotalPay"/>
+          <Item Value="NetAllowIcTran"/>
+          <Item Value="NetAllowArColl"/>
+          <Item Value="NetPerIcTran"/>
+          <Item Value="NetPerArColl"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

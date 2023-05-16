@@ -1382,19 +1382,19 @@ public class ActionEventsBean {
 
         }
 
-        System.out.println("Balance : " + transactionAmount);
-
-
-        if (transactionAmount >= 0) {
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-            decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-            String balanceText = "Balance: " + decimalFormat.format(transactionAmount);
-            System.out.println(balanceText);
-            this.setBalanceOutputText(balanceText);
-            System.out.println(balanceOutputText);
-            AdfFacesContext.getCurrentInstance().addPartialTarget(balanceOutputText1);
-
-        }
+//        System.out.println("Balance : " + transactionAmount);
+//
+//
+//        if (transactionAmount >= 0) {
+//            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+//            decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+//            String balanceText = "Balance: " + decimalFormat.format(transactionAmount);
+//            System.out.println(balanceText);
+//            this.setBalanceOutputText(balanceText);
+//            System.out.println(balanceOutputText);
+//            AdfFacesContext.getCurrentInstance().addPartialTarget(balanceOutputText1);
+//
+//        }
 
 
         //        executeBinding(SAVE_DATA);

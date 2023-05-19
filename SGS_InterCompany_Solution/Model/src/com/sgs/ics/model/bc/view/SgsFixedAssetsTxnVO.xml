@@ -600,6 +600,18 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ATTRIBUTE1"
+    PrecisionRule="true"
+    EntityAttrName="ATTRIBUTE1"
+    EntityUsage="SgsFixedAssetsTxnEO"
+    AliasName="ATTRIBUTE1"/>
+  <ViewAttribute
+    Name="ATTRIBUTE2"
+    PrecisionRule="true"
+    EntityAttrName="ATTRIBUTE2"
+    EntityUsage="SgsFixedAssetsTxnEO"
+    AliasName="ATTRIBUTE2"/>
   <ViewCriteria
     Name="SgsFixedAssetsTxnVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO"

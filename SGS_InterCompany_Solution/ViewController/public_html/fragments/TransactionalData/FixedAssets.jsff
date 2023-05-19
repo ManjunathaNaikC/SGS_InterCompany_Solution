@@ -278,9 +278,13 @@
                                                id="ot20"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTACHMENT.label}" id="c8">
-                                <af:outputText value="#{row.ATTACHMENT}"
+                                <!--<af:outputText value="#{row.ATTACHMENT}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTACHMENT.tooltip}"
-                                               id="ot40"/>
+                                               id="ot40"/>-->
+                                <af:link text="#{row.ATTACHMENT}" id="l1">
+                                    <af:fileDownloadActionListener filename="#{row.ATTACHMENT}"
+                                                                   method="#{viewScope.ActionEventsBean.onFADocsDownload}"/>
+                                </af:link>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.CreatedBy.label}"
                                        id="resId1c30">
@@ -350,10 +354,11 @@
                             <af:dialog id="d4" title="Upload Attachment" type="none">
                                 <f:facet name="buttonBar">
                                     <af:button text="Upload" id="b13"
-                                               actionListener="#{viewScope.ActionEventsBean.onFAFileAttachment}"/>
+                                               actionListener="#{viewScope.ActionEventsBean.OnFAUpload}"/>
                                 </f:facet>
                                 <af:inputFile label="Select File" id="if2"
-                                              binding="#{viewScope.ActionEventsBean.inputFileBindFA}" autoSubmit="true"/>
+                                              binding="#{viewScope.ActionEventsBean.inputFileBindFA}" autoSubmit="true"
+                                              valueChangeListener="#{viewScope.ActionEventsBean.onFAFileAttachment}"/>
                             </af:dialog>
                         </af:popup>
                          <af:popup childCreation="deferred" autoCancel="disabled" id="Fareject"

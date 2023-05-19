@@ -66,7 +66,9 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         VATAMOUNT,
         VATRATE,
         Selected,
-        ATTACHMENT;
+        ATTACHMENT,
+        ATTRIBUTE1,
+        ATTRIBUTE2;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -134,6 +136,8 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
     public static final int VATRATE = AttributesEnum.VATRATE.index();
     public static final int SELECTED = AttributesEnum.Selected.index();
     public static final int ATTACHMENT = AttributesEnum.ATTACHMENT.index();
+    public static final int ATTRIBUTE1 = AttributesEnum.ATTRIBUTE1.index();
+    public static final int ATTRIBUTE2 = AttributesEnum.ATTRIBUTE2.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -808,6 +812,38 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         setAttributeInternal(ATTACHMENT, value);
     }
 
+
+    /**
+     * Gets the attribute value for ATTRIBUTE1, using the alias name ATTRIBUTE1.
+     * @return the value of ATTRIBUTE1
+     */
+    public String getATTRIBUTE1() {
+        return (String) getAttributeInternal(ATTRIBUTE1);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ATTRIBUTE1.
+     * @param value value to set the ATTRIBUTE1
+     */
+    public void setATTRIBUTE1(String value) {
+        setAttributeInternal(ATTRIBUTE1, value);
+    }
+
+    /**
+     * Gets the attribute value for ATTRIBUTE2, using the alias name ATTRIBUTE2.
+     * @return the value of ATTRIBUTE2
+     */
+    public String getATTRIBUTE2() {
+        return (String) getAttributeInternal(ATTRIBUTE2);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ATTRIBUTE2.
+     * @param value value to set the ATTRIBUTE2
+     */
+    public void setATTRIBUTE2(String value) {
+        setAttributeInternal(ATTRIBUTE2, value);
+    }
 
     /**
      * @param fstId key constituent

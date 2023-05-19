@@ -675,6 +675,81 @@ public class ActionEventsBean {
 
     }
 
+    public void onFADocsDownload(FacesContext facesContext, OutputStream outputStream) {
+        DCBindingContainer bindingContainer =
+            (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsFixedAssetsTxnVO1Iterator");
+        ViewObject vo = imageIter.getViewObject();
+        oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
+        String filePath = (String) currentRow.getAttribute("ATTRIBUTE1");
+        String fileName = (String) currentRow.getAttribute("ATTACHMENT");
+
+        String filePath1 = ADFUtils.getPath();
+        LOG.info("File Path :: " + filePath1);
+
+        try {
+            if (filePath1.equalsIgnoreCase("NOPATH")) {
+                System.out.println("No Path selected");
+            }
+            
+            else if (null != filePath1 && null != fileName) {
+                File f = new File(filePath1 + File.separator + fileName);
+                FileInputStream fis;
+                byte[] b;
+
+                fis = new FileInputStream(f);
+                int n;
+                while ((n = fis.available()) > 0) {
+                    b = new byte[n];
+                    int result = fis.read(b);
+
+                    outputStream.write(b, 0, b.length);
+                    if (result == -1)
+                        break;
+                }
+                outputStream.flush();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+//    public void onFADocsDownload(FacesContext facesContext, OutputStream outputStream) {
+//        DCBindingContainer bindingContainer =
+//            (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+//        DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsFixedAssetsTxnVO1Iterator");
+//        ViewObject vo = imageIter.getViewObject();
+//        oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
+//        String filePath = (String) currentRow.getAttribute("ATTRIBUTE1");
+//        String fileName = (String) currentRow.getAttribute("ATTACHMENT");
+//    
+//            String filePath1 = ADFUtils.getPath();
+//            LOG.info("File Path :: " + filePath1);
+//            if (filePath1.equalsIgnoreCase("NOPATH")) {
+//            } else {
+//                File filed = new File(filePath1 + fileName);
+//            if (filePath != null && !filePath.isEmpty() && fileName != null && !fileName.isEmpty()) {
+//
+//                String fileFullPath = filePath + File.separator + fileName;
+//                File file = new File(fileFullPath);
+//
+//
+//                FileInputStream fis = new FileInputStream(file);
+//                byte[] buffer = new byte[4096];
+//                int bytesRead;
+//                while ((bytesRead = fis.read(buffer)) != -1) {
+//                    outputStream.write(buffer, 0, bytesRead);
+//                }
+//                outputStream.flush();
+//            }
+//        } 
+//
+//    }
+
+
     public void onSelectAllVouchers(ValueChangeEvent valueChangeEvent) {
 
         DCIteratorBinding voucherData = null;
@@ -1955,28 +2030,87 @@ public class ActionEventsBean {
     }
 
 
-    public void onFAFileAttachment(ActionEvent actionEvent) {
-        BindingContainer bindings = getBindingsCont();
-        DCIteratorBinding faiter = (DCIteratorBinding) bindings.get("SgsFixedAssetsTxnVO1Iterator");
-        ViewObject faVO = faiter.getViewObject();
-        oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("Selected", true);
-        for (oracle.jbo.Row rw : selectedRows) {
-            if (null != inputFileBindFA.getValue()) {
-                UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
-                if (null != uploadedFile.getFilename()) {
-                    String fileName = (String) uploadedFile.getFilename();
-                    rw.setAttribute("ATTACHMENT", fileName);
-                    rw.setAttribute("Status", "Approved");
+//    public void onFAFileAttachment(ActionEvent actionEvent) {
+//        BindingContainer bindings = getBindingsCont();
+//        DCIteratorBinding faiter = (DCIteratorBinding) bindings.get("SgsFixedAssetsTxnVO1Iterator");
+//        ViewObject faVO = faiter.getViewObject();
+//        oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("Selected", true);
+//        for (oracle.jbo.Row rw : selectedRows) {
+//            if (null != inputFileBindFA.getValue()) {
+//                UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
+//                if (null != uploadedFile.getFilename()) {
+//                    String fileName = (String) uploadedFile.getFilename();
+//                    rw.setAttribute("ATTACHMENT", fileName);
+//                    rw.setAttribute("Status", "Approved");
+//                }
+//            }
+//        }
+//        executeBinding(SAVE_DATA);
+//        inputFileBindFA.setValue(null);
+//        inputFileBindFA.resetValue();
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBindFA);
+//        approvePopupFABind.hide();
+//
+//    }
+
+    public void onFAFileAttachment(ValueChangeEvent valueChangeEvent) {
+        if (valueChangeEvent.getNewValue() != null) {
+
+            String filePath1 = ADFUtils.getPath();
+            if (filePath1.equalsIgnoreCase("NOPATH")) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                String messageText = "Please setup the system path to upload the file.";
+                FacesMessage fm = new FacesMessage(messageText);
+                fm.setSeverity(FacesMessage.SEVERITY_INFO);
+                context.addMessage(null, fm);
+            } else {
+                try {
+                    UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
+                    if (null != uploadedFile) {
+                        InputStream inputStream = null;
+                        inputStream = uploadedFile.getInputStream();
+                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
+                        String fileName = uploadedFile.getFilename();
+                        String path = null;
+
+
+                        String tokens = uploadedFile.getFilename();
+                        String fileNames = uploadedFile.getFilename();
+                        String contentType = uploadedFile.getContentType();
+
+                        path = filePath1 + fileNames;
+                        saveFile(path, fileName, bfi);
+
+                        // DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocAttachment1VO2Iterator");
+                        // Row row = docs.getCurrentRow();
+                        BindingContainer bindings = getBindingsCont();
+                        DCIteratorBinding faiter = (DCIteratorBinding) bindings.get("SgsFixedAssetsTxnVO1Iterator");
+                        ViewObject faVO = faiter.getViewObject();
+                        oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("Selected", true);
+                        for (oracle.jbo.Row rw : selectedRows) {
+                            if (null != inputFileBindFA.getValue()) {
+                                //                UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
+                                if (null != uploadedFile.getFilename()) {
+                                    //                    fileName = (String) uploadedFile.getFilename();
+                                    rw.setAttribute("ATTACHMENT", fileName);
+                                    rw.setAttribute("Status", "Approved");
+                                    rw.setAttribute("ATTRIBUTE1", path);
+                                    rw.setAttribute("ATTRIBUTE2", contentType);
+                                }
+                            }
+                        }
+
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
-        executeBinding(SAVE_DATA);
-        inputFileBindFA.setValue(null);
-        inputFileBindFA.resetValue();
-        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBindFA);
-        approvePopupFABind.hide();
+       
 
     }
+
 
     public void setRejectionReasonLOVBind(RichSelectOneChoice rejectionReasonLOVBind) {
         this.rejectionReasonLOVBind = rejectionReasonLOVBind;
@@ -3324,6 +3458,22 @@ public class ActionEventsBean {
     public void onFaRejectNo(ActionEvent actionEvent) {
         // Add event code here...
         faRejectBind.hide();
+    }
+
+
+    public void OnFAUpload(ActionEvent actionEvent) {
+        // Add event code here...
+        FacesContext context = FacesContext.getCurrentInstance();
+        String messageText = "File Uploaded successfully";
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_INFO);
+        context.addMessage(null, fm);
+        
+        executeBinding(SAVE_DATA);
+        inputFileBindFA.setValue(null);
+        inputFileBindFA.resetValue();
+        AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBindFA);
+        approvePopupFABind.hide();
     }
 }
 

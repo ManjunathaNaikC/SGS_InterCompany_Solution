@@ -6,11 +6,12 @@
     <af:button text="Allocation Calculation" id="b1" actionListener="#{AllocationRunBean.allocationRun}"/>
     <af:spacer id="s1" width="10"/>
     <af:button text="INVOICE API CALL" id="b2" actionListener="#{AllocationRunBean.onSOAPAPICALL}"/>
-    <af:spacer id="s2"/>
+    <af:spacer id="s2" width="10"/>
     <af:button text="Deposit API Call" id="b3" actionListener="#{AllocationRunBean.onDEPOSITAPI}"/>
-    <af:spacer id="s3"/>
+    <af:spacer id="s3" width="10"/>
     <af:button text="Update Billing Information" id="b4"
                actionListener="#{AllocationRunBean.onUpdateBillingInformation}"/>
+    <af:spacer id="s4" width="10"/>
     <af:button text="AP Payment Call" id="b5" actionListener="#{AllocationRunBean.onAPPAYMENTCALL}"/>
   </af:panelBox>
 </ui:composition>

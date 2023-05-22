@@ -23,7 +23,8 @@
                 <f:facet name="start"/>
                 <f:facet name="end"/>
                 <f:facet name="top">
-                    <af:panelGridLayout id="pgl2" styleClass="headerbgcolor">
+                    <af:panelGridLayout id="pgl2" styleClass="headerbgcolor"
+                                        inlineStyle="position: fixed; top: 0; left: 0; z-index: 9999;">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                             <af:gridCell marginStart="5px" width="25%" id="gc1" halign="start" valign="middle"
                                          inlineStyle="background-color:white;">
@@ -36,7 +37,7 @@
                                 <af:panelGroupLayout id="pgl4" valign="middle" halign="center">
                                     <af:outputText value="Intercompany Workbench Application"
                                                    id="ot3"
-                                                   inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:White;"/>
+                                                   inlineStyle="flex-align:center; text-align:center; font-weight:900; font-size:large; color:#485B84; font-family:Sans-Serif;"/>
                                 </af:panelGroupLayout>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="25%" marginEnd="15px" id="gc4" halign="end"
@@ -44,7 +45,7 @@
                                          valign="middle">
                                 <af:panelGroupLayout id="pgl3" layout="horizontal" valign="middle" halign="center">
                                    <af:outputText value="Logged in Username : #{sessionScope._username}" id="ot1"
-                                                   inlineStyle="font-weight:bold; margin-left:20px; color:White;"
+                                                   inlineStyle="font-weight:bold; margin-left:20px; color:#E0004D;"
                                                    shortDesc="Logged in Username"/>
                                     <af:spacer id="s1" width="15"/>
                                     <af:link id="l1" destination="/faces/jsf/welcomePage.jsf" shortDesc="Home"/>

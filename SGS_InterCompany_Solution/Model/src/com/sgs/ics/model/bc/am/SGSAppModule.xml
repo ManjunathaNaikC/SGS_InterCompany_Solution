@@ -236,6 +236,9 @@
   <ViewUsage
     Name="SgsNetIcPayableVO2"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsNetIcPayableVO"/>
+  <ViewUsage
+    Name="NOE_DVT1"
+    ViewObjectName="com.sgs.ics.model.bc.view.NOE_DVT"/>
   <ViewLinkUsage
     Name="CostIdentificationRuleToAllocationRulelink"
     ViewLinkObjectName="com.sgs.ics.model.bc.view.link.CostIdentificationRuleToAllocationRulelink"

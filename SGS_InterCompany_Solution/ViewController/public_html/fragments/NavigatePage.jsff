@@ -90,8 +90,8 @@
                                              action="#{pageFlowScope.navigateBean.sgsnettingflow}" id="l2"
                                              immediate="true"/>
 
-                                    <!--<af:link text="Netting"  rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('NETTING')}"
-                                             action="#{pageFlowScope.navigateBean.sgs_netting_new_flow}" id="l18"/>-->
+                                    <af:link text="Netting"  rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('NETTING')}"
+                                             action="#{pageFlowScope.navigateBean.sgs_netting_new_flow}" id="l18"/>
                                     <!--<af:link text="Credit Memo"
                                              action="#{pageFlowScope.navigateBean.sgs_creditmemo_flow}" id="l14"/>-->
                                 </af:panelList>

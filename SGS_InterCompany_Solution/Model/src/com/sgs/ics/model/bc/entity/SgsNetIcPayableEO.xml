@@ -19,7 +19,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR"
     TableName="NET_IC_PAYABLE"
-    PrimaryKey="true">
+    >
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -357,6 +357,39 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="NET_IC_PAYABLE"/>
+  <Attribute
+    Name="ID"
+    IsNotNull="true"
+    ColumnName="ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="NET_IC_PAYABLE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="ARGEO"
+    Precision="80"
+    ColumnName="AR_GEO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="NET_IC_PAYABLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="APGEO"
+    Precision="80"
+    ColumnName="AP_GEO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="NET_IC_PAYABLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKNETICPAYABLE"
     PrimaryKey="true">

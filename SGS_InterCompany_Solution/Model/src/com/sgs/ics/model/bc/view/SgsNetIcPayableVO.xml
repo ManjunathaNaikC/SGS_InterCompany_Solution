@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="SgsNetIcPayableEO"
     Entity="com.sgs.ics.model.bc.entity.SgsNetIcPayableEO"/>
@@ -339,6 +340,25 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsNetIcPayableEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="APGEO"
+    PrecisionRule="true"
+    EntityAttrName="APGEO"
+    EntityUsage="SgsNetIcPayableEO"
+    AliasName="AP_GEO"/>
+  <ViewAttribute
+    Name="ID"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ID"
+    EntityUsage="SgsNetIcPayableEO"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="ARGEO"
+    PrecisionRule="true"
+    EntityAttrName="ARGEO"
+    EntityUsage="SgsNetIcPayableEO"
+    AliasName="AR_GEO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

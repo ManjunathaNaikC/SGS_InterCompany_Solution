@@ -3,7 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelBox text="Netting" id="pb1">
     <f:facet name="toolbar">
-      <!--<af:button text="button 1" id="b1" action="Lines"/>-->
+   
     </f:facet>
     <af:panelCollection id="pc1" styleClass="AFStretchWidth">
       <f:facet name="menus"/>

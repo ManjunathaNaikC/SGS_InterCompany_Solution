@@ -18,8 +18,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR"
-    TableName="NET_IC_RECEIVABLE"
-    PrimaryKey="true">
+    TableName="NET_IC_RECEIVABLE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -357,6 +356,39 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="NET_IC_RECEIVABLE"/>
+  <Attribute
+    Name="APGEO"
+    Precision="80"
+    ColumnName="AP_GEO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="NET_IC_RECEIVABLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ARGEO"
+    Precision="80"
+    ColumnName="AR_GEO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="NET_IC_RECEIVABLE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ID"
+    IsNotNull="true"
+    ColumnName="ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="NET_IC_RECEIVABLE"
+    PrimaryKey="true"/>
   <Key
     Name="PKNETICRECEIVABLE"
     PrimaryKey="true">

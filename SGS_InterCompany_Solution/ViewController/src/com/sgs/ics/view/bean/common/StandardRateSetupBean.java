@@ -23,6 +23,7 @@ import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
+
 import java.net.MalformedURLException;
 
 import javax.faces.application.FacesMessage;
@@ -37,10 +38,10 @@ import org.apache.myfaces.trinidad.model.UploadedFile;
 
 
 public class StandardRateSetupBean {
-    
-    protected String SAVE_DATA="Commit";
+
+    protected String SAVE_DATA = "Commit";
     private static final ADFLogger LOG = ADFLogger.createADFLogger(StandardRateSetupBean.class);
-    
+
     public StandardRateSetupBean() {
     }
 
@@ -50,7 +51,7 @@ public class StandardRateSetupBean {
     public BindingContainer getBindingsCont() {
         return BindingContext.getCurrent().getCurrentBindingsEntry();
     }
-    
+
     /**
      * Generic Method to DCIteratorBinding operation
      * */
@@ -58,9 +59,9 @@ public class StandardRateSetupBean {
         DCBindingContainer bindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
         return bindings.findIteratorBinding(iterName);
 
-    } 
-    
-    
+    }
+
+
     /**
      * Generic Method to execute operation
      * */
@@ -70,8 +71,7 @@ public class StandardRateSetupBean {
 
     }
 
-    
-    
+
     public String deleteStandardrateRule() {
         BindingContainer bindings = getBindingsCont();
         OperationBinding operationBinding = bindings.getOperationBinding("Delete");
@@ -83,74 +83,105 @@ public class StandardRateSetupBean {
         }
         return null;
     }
-    
-    
-  
-    
-    public void saveFile(String filePath, String fileName, BufferedInputStream in) throws MalformedURLException,
-                                                                                          IOException {
-        FileOutputStream fout = null;
+
+
+    public void saveFile(String folderPath, String fileName, UploadedFile file) throws MalformedURLException,
+
+                                                                                       IOException {
+
+        InputStream inputStream = null;
+
         try {
-            File files = new File(filePath);
-            if (!files.exists()) {
-                if (files.mkdirs()) {
-                    LOG.info("Multiple directories are created!");
-                } else {
-                    LOG.info("Failed to create multiple directories!");
-                }
+
+            File folder = new File(folderPath);
+
+            if (!folder.exists()) {
+
+                folder.mkdirs();
+
             }
-            fout = new FileOutputStream(filePath + fileName);
-            byte data[] = new byte[8192];
-            int count;
-            while ((count = in.read(data, 0, 8192)) != -1) {
-                fout.write(data, 0, count);
+
+
+            // Create the output file path
+
+            String filePath = folderPath + File.separator + fileName;
+            File outputFile = new File(filePath);
+
+            // Save the uploaded file to the file system
+
+            FileOutputStream out = new FileOutputStream(outputFile);
+
+            inputStream = file.getInputStream();
+
+            byte[] buffer = new byte[8192];
+
+            int bytesRead = 0;
+
+            while ((bytesRead = inputStream.read(buffer, 0, 8192)) != -1) {
+
+                out.write(buffer, 0, bytesRead);
+
             }
+
+            out.flush();
+
+            out.close();
+
         } catch (Exception ex) {
+
+            // handle exception
+
             ex.printStackTrace();
         } finally {
-            if (in != null)
-                in.close();
-            if (fout != null)
-                fout.close();
+
+            try {
+
+                inputStream.close();
+
+            } catch (IOException e) {
+
+            }
+
         }
+
     }
 
-    
+
     public void onStdRateDocsUpload(ValueChangeEvent valueChangeEvent) {
-            // Add event code here...
-            if (valueChangeEvent.getNewValue() != null) {
-                
-                String filePath1 = ADFUtils.getPath();
-                if(filePath1.equalsIgnoreCase("NOPATH")){
-                    FacesContext context = FacesContext.getCurrentInstance();
-                    String messageText = "Please setup the system path to upload the file.";
-                    FacesMessage fm = new FacesMessage(messageText);
-                    fm.setSeverity(FacesMessage.SEVERITY_INFO);
-                    context.addMessage(null, fm);
-                }else{
+        // Add event code here...
+        if (valueChangeEvent.getNewValue() != null) {
+
+            String filePath1 = ADFUtils.getPath();
+            if (filePath1.equalsIgnoreCase("NOPATH")) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                String messageText = "Please setup the system path to upload the file.";
+                FacesMessage fm = new FacesMessage(messageText);
+                fm.setSeverity(FacesMessage.SEVERITY_INFO);
+                context.addMessage(null, fm);
+            } else {
                 try {
                     UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
                     if (null != uploadedFile) {
-                        InputStream inputStream = null;
-                        inputStream = uploadedFile.getInputStream();
-                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
-                        String fileName = uploadedFile.getFilename();
+                        // InputStream inputStream = null;
+                        // inputStream = uploadedFile.getInputStream();
+                        // BufferedInputStream bfi = new BufferedInputStream(inputStream);
+                        // String fileName = uploadedFile.getFilename();
                         String path = null;
                         // String filePath1 = "D:\\FilesStoragePath\\";
 
-                       
+
                         LOG.info("filePath1" + filePath1);
-                        
+
                         String tokens = uploadedFile.getFilename();
-                        String fileNames = uploadedFile.getFilename();
+                        String fileName = uploadedFile.getFilename();
                         String contentType = uploadedFile.getContentType();
                         //                                        String fileNameWithOutExt = FilenameUtils.removeExtension(tokens);
                         //                                        String fileNameWithExt = FilenameUtils.getExtension(tokens);
                         //                                        DateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
                         //                                        Date date = new Date();
                         //                                        String fileNames = fileNameWithOutExt + "_" + dateFormat.format(date) + "." + fileNameWithExt;
-                        path = filePath1 + fileNames;
-                        saveFile(path, fileName, bfi);
+                        //path = filePath1 + fileNames;
+                        saveFile(filePath1, fileName, uploadedFile);
 
                         DCIteratorBinding docs = getDCIteratorBindings("SgsStdRateDocVO1Iterator");
                         oracle.jbo.Row row = docs.getCurrentRow();
@@ -167,52 +198,52 @@ public class StandardRateSetupBean {
                 }
             }
         }
-        }
-    
-    
+    }
+
+
     public void onStdRateDocsDownload(FacesContext facesContext, OutputStream outputStream) {
-            DCBindingContainer bindingContainer =
-                (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
-            DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsStdRateDocVO1Iterator");
-            ViewObject vo = imageIter.getViewObject();
-            oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
+        DCBindingContainer bindingContainer =
+            (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsStdRateDocVO1Iterator");
+        ViewObject vo = imageIter.getViewObject();
+        oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
 
-            String filePath = (String) currentRow.getAttribute("Attribute1");
-            String fileName = (String) currentRow.getAttribute("Attachment");
-            LOG.info("filePath :: " + filePath);
-            LOG.info("fileName :: " + fileName);
+        String filePath = (String) currentRow.getAttribute("Attribute1");
+        String fileName = (String) currentRow.getAttribute("Attachment");
+        LOG.info("filePath :: " + filePath);
+        LOG.info("fileName :: " + fileName);
 
 
-            try {
-                if (null != filePath && null != fileName) {
-                    File f = new File(filePath + fileName);
-                    FileInputStream fis;
-                    byte[] b;
+        try {
+            if (null != filePath && null != fileName) {
+                File f = new File(filePath + fileName);
+                FileInputStream fis;
+                byte[] b;
 
-                    fis = new FileInputStream(f);
-                    int n;
-                    while ((n = fis.available()) > 0) {
-                        b = new byte[n];
-                        int result = fis.read(b);
+                fis = new FileInputStream(f);
+                int n;
+                while ((n = fis.available()) > 0) {
+                    b = new byte[n];
+                    int result = fis.read(b);
 
-                        outputStream.write(b, 0, b.length);
-                        if (result == -1)
-                            break;
-                    }
-                    outputStream.flush();
+                    outputStream.write(b, 0, b.length);
+                    if (result == -1)
+                        break;
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+                outputStream.flush();
             }
-
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+    }
 
 
     public void onDocumentsDelete(ActionEvent actionEvent) {
         executeOperation("DeleteDocs").execute();
-        executeOperation(SAVE_DATA).execute();      
+        executeOperation(SAVE_DATA).execute();
         ADFUtils.deleteNotifier();
     }
 }

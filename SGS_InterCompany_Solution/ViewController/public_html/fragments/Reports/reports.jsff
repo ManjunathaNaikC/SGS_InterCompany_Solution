@@ -14,6 +14,13 @@
                                                     inlineStyle="height:700px"/>
 
     </af:showDetailItem>
+    <af:showDetailItem id="Report9" text="Standard Rate Reports">
+      <af:inlineFrame id="if9" 
+                                                    source="/pages/Setup Reports/StandardRateReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:700px"/>
+
+    </af:showDetailItem>
     <af:showDetailItem id="Report3" text="WHT Dump Reports">
       <af:inlineFrame id="if6" 
                                                     source="/pages/Setup Reports/WTHReport.html"

@@ -22,6 +22,19 @@
                                                     inlineStyle="height:700px"/>
 
     </af:showDetailItem>
-    
+     <af:showDetailItem id="Report4" text="Fixed Asset Transaction Reports">
+      <af:inlineFrame id="if14" 
+                                                    source="/pages/Transaction Reports/FixedAssetReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:700px"/>
+
+    </af:showDetailItem>
+     <af:showDetailItem id="Report5" text="PeopleSoft Transaction Reports">
+      <af:inlineFrame id="if15" 
+                                                    source="/pages/Transaction Reports/PplSoftTxnReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:700px"/>
+
+    </af:showDetailItem>
   </af:panelTabbed>
 </ui:composition>

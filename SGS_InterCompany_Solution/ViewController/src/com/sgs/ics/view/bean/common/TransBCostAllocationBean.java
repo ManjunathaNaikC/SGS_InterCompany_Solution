@@ -1112,32 +1112,65 @@ public class TransBCostAllocationBean {
         ADFUtils.deleteNotifier();
     }
     
-    public void saveFile(String filePath, String fileName, BufferedInputStream in) throws MalformedURLException,
-                                                                                          IOException {
-        FileOutputStream fout = null;
+    public void saveFile(String folderPath, String fileName, UploadedFile file) throws MalformedURLException,
+
+                                                                                       IOException {
+
+        InputStream inputStream = null;
+
         try {
-            File files = new File(filePath);
-            if (!files.exists()) {
-                if (files.mkdirs()) {
-                    LOG.info("Multiple directories are created!");
-                } else {
-                    LOG.info("Failed to create multiple directories!");
-                }
+
+            File folder = new File(folderPath);
+
+            if (!folder.exists()) {
+
+                folder.mkdirs();
+
             }
-            fout = new FileOutputStream(filePath + fileName);
-            byte data[] = new byte[8192];
-            int count;
-            while ((count = in.read(data, 0, 8192)) != -1) {
-                fout.write(data, 0, count);
+
+
+            // Create the output file path
+
+            String filePath = folderPath + File.separator + fileName;
+            File outputFile = new File(filePath);
+
+            // Save the uploaded file to the file system
+
+            FileOutputStream out = new FileOutputStream(outputFile);
+
+            inputStream = file.getInputStream();
+
+            byte[] buffer = new byte[8192];
+
+            int bytesRead = 0;
+
+            while ((bytesRead = inputStream.read(buffer, 0, 8192)) != -1) {
+
+                out.write(buffer, 0, bytesRead);
+
             }
+
+            out.flush();
+
+            out.close();
+
         } catch (Exception ex) {
+
+            // handle exception
+
             ex.printStackTrace();
         } finally {
-            if (in != null)
-                in.close();
-            if (fout != null)
-                fout.close();
+
+            try {
+
+                inputStream.close();
+
+            } catch (IOException e) {
+
+            }
+
         }
+
     }
 
     
@@ -1156,10 +1189,10 @@ public class TransBCostAllocationBean {
                 try {
                     UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
                     if (null != uploadedFile) {
-                        InputStream inputStream = null;
-                        inputStream = uploadedFile.getInputStream();
-                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
-                        String fileName = uploadedFile.getFilename();
+                        // InputStream inputStream = null;
+                        // inputStream = uploadedFile.getInputStream();
+                        // BufferedInputStream bfi = new BufferedInputStream(inputStream);
+                        // String fileName = uploadedFile.getFilename();
                         String path = null;
                         // String filePath1 = "D:\\FilesStoragePath\\";
 
@@ -1167,10 +1200,10 @@ public class TransBCostAllocationBean {
                         LOG.info("filePath1" + filePath1);
                         
                         String tokens = uploadedFile.getFilename();
-                        String fileNames = uploadedFile.getFilename();
+                        String fileName = uploadedFile.getFilename();
                         String contentType = uploadedFile.getContentType();
-                        path = filePath1 + fileNames;
-                        saveFile(path, fileName, bfi);
+                        // path = filePath1 + fileNames;
+                        saveFile(filePath1, fileName, uploadedFile);
 
                         DCIteratorBinding docs = getDCIteratorBindings("SgsPstTxnDocAttachVO1Iterator");
                         oracle.jbo.Row row = docs.getCurrentRow();

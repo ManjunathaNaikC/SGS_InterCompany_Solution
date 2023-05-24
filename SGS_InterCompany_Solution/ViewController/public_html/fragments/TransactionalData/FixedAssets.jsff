@@ -369,11 +369,13 @@
                             <af:dialog id="d4" title="Upload Attachment" type="none">
                                 <f:facet name="buttonBar">
                                     <af:button text="Upload" id="b13"
-                                               actionListener="#{viewScope.ActionEventsBean.OnFAUpload}"/>
+                                               actionListener="#{viewScope.ActionEventsBean.OnFAUpload}"
+                                               partialSubmit="true"/>
                                 </f:facet>
                                 <af:inputFile label="Select File" id="if2"
                                               binding="#{viewScope.ActionEventsBean.inputFileBindFA}" autoSubmit="true"
-                                              valueChangeListener="#{viewScope.ActionEventsBean.onFAFileAttachment}"/>
+                                              valueChangeListener="#{viewScope.ActionEventsBean.onFAFileAttachment}"
+                                              partialTriggers="b13"/>
                             </af:dialog>
                         </af:popup>
                          <af:popup childCreation="deferred" autoCancel="disabled" id="Fareject"

@@ -11,11 +11,13 @@
       <f:facet name="statusbar"/>
       <af:table value="#{bindings.SgsNetHeaderTblVO1.collectionModel}" var="row"
                 rows="#{bindings.SgsNetHeaderTblVO1.rangeSize}"
+                 selectedRowKeys="#{bindings.SgsNetHeaderTblVO1.collectionModel.selectedRow}"
+                 selectionListener="#{bindings.SgsNetHeaderTblVO1.collectionModel.makeCurrent}"
                 emptyText="#{bindings.SgsNetHeaderTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                 rowBandingInterval="0" fetchSize="#{bindings.SgsNetHeaderTblVO1.rangeSize}"
                 filterModel="#{bindings.SgsNetHeaderTblVO1Query.queryDescriptor}" filterVisible="false"
                 queryListener="#{bindings.SgsNetHeaderTblVO1Query.processQuery}" varStatus="vs" id="t1"
-                styleClass="AFStretchWidth">
+                styleClass="AFStretchWidth" rowSelection="single">
         <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.name}" filterable="true" sortable="true"
                    headerText="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.label}" id="c1">
           <af:link id="l1" action="Lines">

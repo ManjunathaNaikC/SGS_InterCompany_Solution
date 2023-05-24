@@ -14,7 +14,8 @@
                     <f:facet name="first">
                         <!-- Left -->
                         <af:panelAccordion discloseMany="true" id="MenuOptions" styleClass="">
-                            <af:showDetailItem id="Setup" text="Setup" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('SET_UP')}">
+                            <af:showDetailItem id="Setup" text="Setup" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('SET_UP')}"
+                                               icon="/resources/icons/setup.png">
                                 <af:panelList maxColumns="1" id="pl1" shortDesc="Select The Options">
                                     <af:link text="Cost Allocation Setup"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')   or  sessionScope.get('pageList').contains('COST_ALLOWCATE')}"
                                              action="#{pageFlowScope.navigateBean.sgscostIdentificationRuleflow}"
@@ -64,7 +65,8 @@
                                              action="#{pageFlowScope.navigateBean.sgstpaInquiryflow}" immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Transaction" text="Transactional Data"  rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('TXN_DATA')}">
+                            <af:showDetailItem id="Transaction" text="Transactional Data"  rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('TXN_DATA')}"
+                                               icon="/resources/icons/transactional.png">
                                 <af:panelList id="pl2">
                  
                                     <af:link text="Statistical Data" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('STAT_DATA')}"
@@ -96,7 +98,8 @@
                                              action="#{pageFlowScope.navigateBean.sgs_creditmemo_flow}" id="l14"/>-->
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Process" text="Process" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}">
+                            <af:showDetailItem id="Process" text="Process" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}"
+                                               icon="/resources/icons/process_new.png">
                                 <af:panelList id="pl3">
                                     <!--<af:link text="link 1" id="l2"/>-->
                                     <af:link text="Allocation Run"
@@ -104,7 +107,8 @@
                                              immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Reports" text="Reports" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('REPORTS')}">
+                            <af:showDetailItem id="Reports" text="Reports" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('REPORTS')}"
+                                               icon="/resources/icons/reports_new.png">
                                 <af:panelList id="pl4">
                                     <af:link text="Setup Reports"
                                              action="#{pageFlowScope.navigateBean.sgsreportsflow}" id="l14"
@@ -117,7 +121,8 @@
                                              immediate="true"/>
                                 </af:panelList>
                             </af:showDetailItem>
-                            <af:showDetailItem id="Security" text="Security" disclosed="true" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}">
+                            <af:showDetailItem id="Security" text="Security" disclosed="true" rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')}"
+                                               icon="/resources/icons/security_new.png">
                                 <f:facet name="toolbar"/>
                             </af:showDetailItem>
                         </af:panelAccordion>

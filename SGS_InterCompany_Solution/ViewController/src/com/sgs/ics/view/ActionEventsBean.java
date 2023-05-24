@@ -589,22 +589,23 @@ public class ActionEventsBean {
                 try {
                     UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
                     if (null != uploadedFile) {
-                        InputStream inputStream = null;
-                        inputStream = uploadedFile.getInputStream();
-                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
-                        String fileName = uploadedFile.getFilename();
+                        // InputStream inputStream = null;
+                        // inputStream = uploadedFile.getInputStream();
+                        // BufferedInputStream bfi = new BufferedInputStream(inputStream);
+                        // String fileName = uploadedFile.getFilename();
                         String path = null;
 
 
                         String tokens = uploadedFile.getFilename();
-                        String fileNames = uploadedFile.getFilename();
+                        String fileName = uploadedFile.getFilename();
                         String contentType = uploadedFile.getContentType();
 
-                        path = filePath1 + fileNames;
-                        saveFile(path, fileName, bfi);
+                        // path = filePath1 + fileNames;
+                        saveFile(filePath1, fileName, uploadedFile);
 
                         DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocAttachment1VO2Iterator");
                         Row row = docs.getCurrentRow();
+
                         row.setAttribute("Attachment", fileName);
                         row.setAttribute("Attribute1", path);
                         row.setAttribute("Attribute2", contentType);
@@ -617,34 +618,70 @@ public class ActionEventsBean {
             }
         }
     }
+        
 
 
-    public void saveFile(String filePath, String fileName, BufferedInputStream in) throws MalformedURLException,
-                                                                                          IOException {
-        FileOutputStream fout = null;
+
+
+    public void saveFile(String folderPath, String fileName, UploadedFile file) throws MalformedURLException,
+
+                                                                                       IOException {
+
+        InputStream inputStream = null;
+
         try {
-            File files = new File(filePath);
-            if (!files.exists()) {
-                if (files.mkdirs()) {
-                    LOG.info("Multiple directories are created!");
-                } else {
-                    LOG.info("Failed to create multiple directories!");
-                }
+
+            File folder = new File(folderPath);
+
+            if (!folder.exists()) {
+
+                folder.mkdirs();
+
             }
-            fout = new FileOutputStream(filePath + fileName);
-            byte data[] = new byte[8192];
-            int count;
-            while ((count = in.read(data, 0, 8192)) != -1) {
-                fout.write(data, 0, count);
+
+
+            // Create the output file path
+
+            String filePath = folderPath + File.separator + fileName;
+            File outputFile = new File(filePath);
+
+            // Save the uploaded file to the file system
+
+            FileOutputStream out = new FileOutputStream(outputFile);
+
+            inputStream = file.getInputStream();
+
+            byte[] buffer = new byte[8192];
+
+            int bytesRead = 0;
+
+            while ((bytesRead = inputStream.read(buffer, 0, 8192)) != -1) {
+
+                out.write(buffer, 0, bytesRead);
+
             }
+
+            out.flush();
+
+            out.close();
+
         } catch (Exception ex) {
+
+            // handle exception
+
             ex.printStackTrace();
         } finally {
-            if (in != null)
-                in.close();
-            if (fout != null)
-                fout.close();
+
+            try {
+
+                inputStream.close();
+
+            } catch (IOException e) {
+
+            }
+
         }
+
     }
 
     public void onTpaDocsDownload(FacesContext facesContext, OutputStream outputStream) {
@@ -2061,13 +2098,19 @@ public class ActionEventsBean {
 //
 //    }
 
-    public void onFAFileAttachment(ValueChangeEvent valueChangeEvent) {
+   public void onFAFileAttachment(ValueChangeEvent valueChangeEvent) {
+
         if (valueChangeEvent.getNewValue() != null) {
 
+
             String filePath1 = ADFUtils.getPath();
+
             if (filePath1.equalsIgnoreCase("NOPATH")) {
+
                 FacesContext context = FacesContext.getCurrentInstance();
+
                 String messageText = "Please setup the system path to upload the file.";
+
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_INFO);
                 context.addMessage(null, fm);
@@ -2075,50 +2118,55 @@ public class ActionEventsBean {
                 try {
                     UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
                     if (null != uploadedFile) {
-                        InputStream inputStream = null;
-                        inputStream = uploadedFile.getInputStream();
-                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
-                        String fileName = uploadedFile.getFilename();
+
+                        //                        InputStream inputStream = null;
+
+                        //                        inputStream = uploadedFile.getInputStream();
+
+                        //                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
+
+                        //                        String fileName = uploadedFile.getFilename();
                         String path = null;
 
-
                         String tokens = uploadedFile.getFilename();
-                        String fileNames = uploadedFile.getFilename();
+                        String fileName = uploadedFile.getFilename();
                         String contentType = uploadedFile.getContentType();
 
-                        path = filePath1 + fileNames;
-                        saveFile(path, fileName, bfi);
+
+                        //                        path = filePath1 + File.separator + fileName;
+                        saveFile(filePath1, fileName, uploadedFile);
 
                         // DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocAttachment1VO2Iterator");
+
                         // Row row = docs.getCurrentRow();
                         BindingContainer bindings = getBindingsCont();
                         DCIteratorBinding faiter = (DCIteratorBinding) bindings.get("SgsFixedAssetsTxnVO1Iterator");
                         ViewObject faVO = faiter.getViewObject();
                         oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("Selected", true);
                         for (oracle.jbo.Row rw : selectedRows) {
+
                             if (null != inputFileBindFA.getValue()) {
-                                //                UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
+                                //                UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
                                 if (null != uploadedFile.getFilename()) {
-                                    //                    fileName = (String) uploadedFile.getFilename();
+                                    //                    fileName = (String) uploadedFile.getFilename();
                                     rw.setAttribute("ATTACHMENT", fileName);
                                     rw.setAttribute("Status", "Approved");
                                     rw.setAttribute("ATTRIBUTE1", path);
                                     rw.setAttribute("ATTRIBUTE2", contentType);
+
                                 }
                             }
                         }
-
 
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
             }
         }
-       
 
     }
-
 
     public void setRejectionReasonLOVBind(RichSelectOneChoice rejectionReasonLOVBind) {
         this.rejectionReasonLOVBind = rejectionReasonLOVBind;

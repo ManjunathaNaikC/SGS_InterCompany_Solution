@@ -2,9 +2,9 @@ package com.sgs.ics.model.bc.am;
 
 
 import com.sgs.ics.model.bc.am.common.SGSAppModule;
+import com.sgs.ics.model.bc.view.NOE_DVTImpl;
 import com.sgs.ics.model.bc.view.SgsStdRateLineTblVOImpl;
 import com.sgs.ics.model.bc.view.SgsTpaMasterVOImpl;
-
 import com.sgs.ics.model.bc.view.lookupVo.BuLovImpl;
 
 import java.io.IOException;
@@ -84,8 +84,11 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
 //
 //            conn = DriverManager.getConnection(connectionUrl);
 
-                  //  conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=DEVINTER;integratedSecurity=true;");
-                   conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
+                 
+                    conn = DriverManager.getConnection("jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databasename=DEVINTER1;integratedSecurity=true;");
+                 //  conn = DriverManager.getConnection("jdbc:sqlserver://ASBCOLPS02:1433;databaseName=DEVINTER","EYUser","Ey@123");
+
 
 
         } catch (SQLException sqle) {
@@ -909,6 +912,14 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
      */
     public ViewLinkImpl getNettingHeaderToPayableVL1() {
         return (ViewLinkImpl) findViewLink("NettingHeaderToPayableVL1");
+    }
+
+    /**
+     * Container's getter for NOE_DVT1.
+     * @return NOE_DVT1
+     */
+    public NOE_DVTImpl getNOE_DVT1() {
+        return (NOE_DVTImpl) findViewObject("NOE_DVT1");
     }
 }
 

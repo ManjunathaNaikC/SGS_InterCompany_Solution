@@ -88,6 +88,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         SGSTAMOUNT,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -1129,6 +1130,7 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public void setSGSTAMOUNT(BigDecimal value) {
         setAttributeInternal(SGSTAMOUNT, value);
     }
+
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.

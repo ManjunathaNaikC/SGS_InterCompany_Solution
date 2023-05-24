@@ -68,7 +68,10 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
         Selected,
         ATTACHMENT,
         ATTRIBUTE1,
-        ATTRIBUTE2;
+        ATTRIBUTE2,
+        ATTRIBUTE3,
+        ATTRIBUTE4,
+        ATTRIBUTE5;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -138,6 +141,9 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
     public static final int ATTACHMENT = AttributesEnum.ATTACHMENT.index();
     public static final int ATTRIBUTE1 = AttributesEnum.ATTRIBUTE1.index();
     public static final int ATTRIBUTE2 = AttributesEnum.ATTRIBUTE2.index();
+    public static final int ATTRIBUTE3 = AttributesEnum.ATTRIBUTE3.index();
+    public static final int ATTRIBUTE4 = AttributesEnum.ATTRIBUTE4.index();
+    public static final int ATTRIBUTE5 = AttributesEnum.ATTRIBUTE5.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -843,6 +849,54 @@ public class SgsFixedAssetsTxnEOImpl extends EntityImpl {
      */
     public void setATTRIBUTE2(String value) {
         setAttributeInternal(ATTRIBUTE2, value);
+    }
+
+    /**
+     * Gets the attribute value for ATTRIBUTE3, using the alias name ATTRIBUTE3.
+     * @return the value of ATTRIBUTE3
+     */
+    public String getATTRIBUTE3() {
+        return (String) getAttributeInternal(ATTRIBUTE3);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ATTRIBUTE3.
+     * @param value value to set the ATTRIBUTE3
+     */
+    public void setATTRIBUTE3(String value) {
+        setAttributeInternal(ATTRIBUTE3, value);
+    }
+
+    /**
+     * Gets the attribute value for ATTRIBUTE4, using the alias name ATTRIBUTE4.
+     * @return the value of ATTRIBUTE4
+     */
+    public String getATTRIBUTE4() {
+        return (String) getAttributeInternal(ATTRIBUTE4);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ATTRIBUTE4.
+     * @param value value to set the ATTRIBUTE4
+     */
+    public void setATTRIBUTE4(String value) {
+        setAttributeInternal(ATTRIBUTE4, value);
+    }
+
+    /**
+     * Gets the attribute value for ATTRIBUTE5, using the alias name ATTRIBUTE5.
+     * @return the value of ATTRIBUTE5
+     */
+    public String getATTRIBUTE5() {
+        return (String) getAttributeInternal(ATTRIBUTE5);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ATTRIBUTE5.
+     * @param value value to set the ATTRIBUTE5
+     */
+    public void setATTRIBUTE5(String value) {
+        setAttributeInternal(ATTRIBUTE5, value);
     }
 
     /**

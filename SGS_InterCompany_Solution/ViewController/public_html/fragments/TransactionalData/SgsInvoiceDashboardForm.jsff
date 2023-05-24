@@ -31,16 +31,16 @@
               <af:outputText value="#{row.IcLineSeqNo}"
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.IcLineSeqNo.tooltip}" id="ot1"/>
             </af:column>
-            <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.IcLineNo.name}" filterable="true"
+            <!--<af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.IcLineNo.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.IcLineNo.label}" id="c2">
               <af:outputText value="#{row.IcLineNo}" shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.IcLineNo.tooltip}"
                              id="ot2"/>
-            </af:column>
-            <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.InvoiceSeqNo.name}" filterable="true"
+            </af:column>-->
+            <!--<af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.InvoiceSeqNo.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.InvoiceSeqNo.label}" id="c3">
               <af:outputText value="#{row.InvoiceSeqNo}"
                              shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.InvoiceSeqNo.tooltip}" id="ot3"/>
-            </af:column>
+            </af:column>-->
             <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.CostIdentificationId.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.CostIdentificationId.label}" id="c4">
               <af:outputText value="#{row.CostIdentificationId}"

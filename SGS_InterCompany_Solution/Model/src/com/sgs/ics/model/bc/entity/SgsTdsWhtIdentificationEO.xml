@@ -274,6 +274,13 @@
     Type="java.sql.Date"
     ColumnType="DATE"
     TableName="SGS_TDS_WHT_IDENTIFICATION"/>
+  <Attribute
+    Name="DUEDATE"
+    ColumnName="DUE_DATE"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    TableName="SGS_TDS_WHT_IDENTIFICATION"/>
   <AccessorAttribute
     Name="SgsTdsWhtTblEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtIdentificationAssoc"

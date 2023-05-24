@@ -53,6 +53,7 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
         Attribute15,
         CREATEDBY,
         CREATEDDATE,
+        DUEDATE,
         SgsTdsWhtTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -106,6 +107,7 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
     public static final int ATTRIBUTE15 = AttributesEnum.Attribute15.index();
     public static final int CREATEDBY = AttributesEnum.CREATEDBY.index();
     public static final int CREATEDDATE = AttributesEnum.CREATEDDATE.index();
+    public static final int DUEDATE = AttributesEnum.DUEDATE.index();
     public static final int SGSTDSWHTTBLEO = AttributesEnum.SgsTdsWhtTblEO.index();
 
     /**
@@ -257,10 +259,6 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
     public String getLastUpdatedBy() {
         return (String) getAttributeInternal(LASTUPDATEDBY);
     }
-    
-    public void setLastUpdatedBy(String value) {
-         setAttributeInternal(LASTUPDATEDBY, value);
-     }
 
 
     /**
@@ -269,6 +267,10 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
      */
     public Date getLastUpdatedDate() {
         return (Date) getAttributeInternal(LASTUPDATEDDATE);
+    }
+
+    public void setLastUpdatedBy(String value) {
+        setAttributeInternal(LASTUPDATEDBY, value);
     }
 
 
@@ -543,6 +545,22 @@ public class SgsTdsWhtIdentificationEOImpl extends EntityImpl {
      */
     public void setCREATEDDATE(Date value) {
         setAttributeInternal(CREATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for DUEDATE, using the alias name DUEDATE.
+     * @return the value of DUEDATE
+     */
+    public Date getDUEDATE() {
+        return (Date) getAttributeInternal(DUEDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DUEDATE.
+     * @param value value to set the DUEDATE
+     */
+    public void setDUEDATE(Date value) {
+        setAttributeInternal(DUEDATE, value);
     }
 
     /**

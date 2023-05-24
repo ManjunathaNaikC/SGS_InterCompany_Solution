@@ -612,6 +612,45 @@
     EntityAttrName="ATTRIBUTE2"
     EntityUsage="SgsFixedAssetsTxnEO"
     AliasName="ATTRIBUTE2"/>
+  <ViewAttribute
+    Name="ATTRIBUTE3"
+    PrecisionRule="true"
+    EntityAttrName="ATTRIBUTE3"
+    EntityUsage="SgsFixedAssetsTxnEO"
+    AliasName="ATTRIBUTE3">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO.ATTRIBUTE3_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ATTRIBUTE4"
+    PrecisionRule="true"
+    EntityAttrName="ATTRIBUTE4"
+    EntityUsage="SgsFixedAssetsTxnEO"
+    AliasName="ATTRIBUTE4">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO.ATTRIBUTE4_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ATTRIBUTE5"
+    PrecisionRule="true"
+    EntityAttrName="ATTRIBUTE5"
+    EntityUsage="SgsFixedAssetsTxnEO"
+    AliasName="ATTRIBUTE5">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO.ATTRIBUTE5_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsFixedAssetsTxnVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsFixedAssetsTxnVO"

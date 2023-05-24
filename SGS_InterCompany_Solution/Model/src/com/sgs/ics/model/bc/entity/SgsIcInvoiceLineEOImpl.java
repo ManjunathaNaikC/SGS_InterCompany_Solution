@@ -88,6 +88,7 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
         DOCATTM,
         SgsIcInvoiceHeaderEO;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -1146,6 +1147,7 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
     public void setDOCATTM(String value) {
         setAttributeInternal(DOCATTM, value);
     }
+
 
     /**
      * @return the associated entity SgsIcInvoiceHeaderEOImpl.

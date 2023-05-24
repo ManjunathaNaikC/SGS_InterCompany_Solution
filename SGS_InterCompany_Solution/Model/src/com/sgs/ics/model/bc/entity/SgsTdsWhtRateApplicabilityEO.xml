@@ -323,6 +323,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="TAXRATEIDENTIFIER"
+    Precision="80"
+    ColumnName="TAX_RATE_IDENTIFIER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsTdsWhtTblEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtRateApplicabilityAssoc"

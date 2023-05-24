@@ -99,6 +99,7 @@
           <Item Value="Attachment"/>
           <Item Value="LastUpdatedBy"/>
           <Item Value="LastUpdatedDate"/>
+          <Item Value="DUEDATE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -117,6 +118,7 @@
           <Item Value="TdsWhtApplSeq"/>
           <Item Value="NATUREOFEXPENSE"/>
           <Item Value="SLOC"/>
+          <Item Value="TAXRATEIDENTIFIER"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

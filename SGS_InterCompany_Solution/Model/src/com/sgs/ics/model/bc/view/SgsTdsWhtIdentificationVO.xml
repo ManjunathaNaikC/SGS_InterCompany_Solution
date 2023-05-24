@@ -244,6 +244,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="DUEDATE"
+    PrecisionRule="true"
+    EntityAttrName="DUEDATE"
+    EntityUsage="SgsTdsWhtIdentificationEO"
+    AliasName="DUE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtIdentificationVO.DUEDATE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

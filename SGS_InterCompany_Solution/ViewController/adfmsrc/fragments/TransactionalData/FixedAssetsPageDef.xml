@@ -55,6 +55,9 @@
           <Item Value="SGTAMOUNT"/>
           <Item Value="ATTACHMENT"/>
           <Item Value="Selected"/>
+          <Item Value="ATTRIBUTE5"/>
+          <Item Value="ATTRIBUTE3"/>
+          <Item Value="ATTRIBUTE4"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

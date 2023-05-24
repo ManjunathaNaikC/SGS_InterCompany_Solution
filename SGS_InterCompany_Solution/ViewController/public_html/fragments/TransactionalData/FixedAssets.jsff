@@ -135,6 +135,16 @@
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.FromGlAccount.tooltip}"
                                                id="ot11"/>
                             </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTRIBUTE3.label}" id="c10">
+                                <af:outputText value="#{row.ATTRIBUTE3}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTRIBUTE3.tooltip}"
+                                               id="ot41"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTRIBUTE4.label}" id="c11">
+                                <af:outputText value="#{row.ATTRIBUTE4}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTRIBUTE4.tooltip}"
+                                               id="ot42"/>
+                            </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ToBusinessUnit.label}"
                                        id="resId1c12">
                                 <af:outputText value="#{row.ToBusinessUnit}"
@@ -164,6 +174,11 @@
                                 <af:outputText value="#{row.ToGlAccount}"
                                                shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ToGlAccount.tooltip}"
                                                id="ot16"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTRIBUTE5.label}" id="c9">
+                                <af:outputText value="#{row.ATTRIBUTE5}"
+                                               shortDesc="#{bindings.SgsFixedAssetsTxnVO1.hints.ATTRIBUTE5.tooltip}"
+                                               id="ot40"/>
                             </af:column>
                             <af:column headerText="#{bindings.SgsFixedAssetsTxnVO1.hints.TransactionCurrency.label}"
                                        id="resId1c27">

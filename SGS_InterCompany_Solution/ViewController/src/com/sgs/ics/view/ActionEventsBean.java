@@ -38,9 +38,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
+
+import javax.swing.text.View;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
@@ -161,7 +164,12 @@ public class ActionEventsBean {
     private RichPopup invoiceApproveYesNoPopup;
     private RichInputText bindPaymentRefNum;
     private RichPopup faRejectBind;
-
+    private RichTable taxRateAppWhtBind;
+    private RichColumn bindTaxRateIdenWht;
+    private RichColumn taxRateIdenColumnBind;
+    private RichColumn docTypeBind;
+    private RichColumn dueDateBind;
+    private boolean trcReadOnly1;
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -3522,6 +3530,79 @@ public class ActionEventsBean {
         inputFileBindFA.resetValue();
         AdfFacesContext.getCurrentInstance().addPartialTarget(inputFileBindFA);
         approvePopupFABind.hide();
+    }
+
+    public void handleGeoChange(ValueChangeEvent valueChangeEvent) {
+        System.out.println("--------------------------inside handleGeoChange------------ ");
+        String selectedGeo = valueChangeEvent.getNewValue().toString();
+        System.out.println("selected geo----" + selectedGeo);
+        try {
+//            UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
+//            RichColumn TaxRateIdenHide = (RichColumn) viewRoot.findComponent("taxRateAppWhtBind:c15");
+            if (selectedGeo.equalsIgnoreCase("IND")) {
+
+                taxRateIdenColumnBind.setRendered(true);
+            } else {
+                taxRateIdenColumnBind.setRendered(false);
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+    }
+
+    public void setTaxRateAppWhtBind(RichTable taxRateAppWhtBind) {
+        this.taxRateAppWhtBind = taxRateAppWhtBind;
+    }
+
+    public RichTable getTaxRateAppWhtBind() {
+        return taxRateAppWhtBind;
+    }
+
+    public void setBindTaxRateIdenWht(RichColumn bindTaxRateIdenWht) {
+        this.bindTaxRateIdenWht = bindTaxRateIdenWht;
+    }
+
+    public RichColumn getBindTaxRateIdenWht() {
+        return bindTaxRateIdenWht;
+    }
+
+    public void setTaxRateIdenColumnBind(RichColumn taxRateIdenColumnBind) {
+        this.taxRateIdenColumnBind = taxRateIdenColumnBind;
+    }
+
+    public RichColumn getTaxRateIdenColumnBind() {
+        return taxRateIdenColumnBind;
+    }
+
+    public void handleTRCChange(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        System.out.println("--------------------------inside handleTRCChange------------ ");
+                String selectedDocType = valueChangeEvent.getNewValue().toString();
+                System.out.println("selected DocType----" + selectedDocType);
+                try {
+                    trcReadOnly1 = !(selectedDocType != null && selectedDocType.equalsIgnoreCase("0"));
+                } catch (Exception e) {
+                    // TODO: Add catch code
+                    e.printStackTrace();
+                }
+    }
+
+
+    public void setDueDateBind(RichColumn dueDateBind) {
+        this.dueDateBind = dueDateBind;
+    }
+
+    public RichColumn getDueDateBind() {
+        return dueDateBind;
+    }
+
+    public void setTrcReadOnly1(boolean trcReadOnly1) {
+        this.trcReadOnly1 = trcReadOnly1;
+    }
+
+    public boolean getTrcReadOnly1() {
+        return trcReadOnly1;
     }
 }
 

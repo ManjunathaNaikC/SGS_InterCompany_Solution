@@ -227,6 +227,22 @@
                                 <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
                             </af:outputText>
                         </af:column>
+                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.label}" id="c6">
+                            <af:outputText value="#{row.VATRATE}"
+                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.tooltip}" id="ot6">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATRATE.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATAMNT.label}" id="c10"
+                                   styleClass="mynumbercolumn">
+                            <af:outputText value="#{row.VATAMNT}"
+                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.VATAMNT.tooltip}"
+                                           id="ot10">
+                                <af:convertNumber groupingUsed="true"
+                                                  pattern="###,##0.00" type="currency"/>
+                            </af:outputText>
+                        </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.CGSTAMOUNT.label}" id="c39">
                             <af:outputText value="#{row.CGSTAMOUNT}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.CGSTAMOUNT.tooltip}"

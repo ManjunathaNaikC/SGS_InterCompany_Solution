@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelStretchLayout id="psl1">
     <f:facet name="start"/>
     <f:facet name="end"/>
@@ -32,7 +32,8 @@
             </af:selectOneChoice>-->
             <af:selectOneChoice value="#{bindings.ServReceiver1.inputValue}" label="#{bindings.ServReceiver1.label}"
                                 required="#{bindings.ServReceiver1.hints.mandatory}"
-                                shortDesc="#{bindings.ServReceiver1.hints.tooltip}" id="soc8">
+                                shortDesc="#{bindings.ServReceiver1.hints.tooltip}" id="soc8" autoSubmit="true"
+                                valueChangeListener="#{viewScope.ActionEventsBean.handleGeoChange}">
               <f:selectItems value="#{bindings.ServReceiver1.items}" id="si8"/>
               <f:validator binding="#{bindings.ServReceiver1.validator}"/>
             </af:selectOneChoice>
@@ -54,9 +55,9 @@
             <af:selectOneChoice value="#{bindings.SERVICERECEIVERLEGALENTITY1.inputValue}"
                                 label="#{bindings.SERVICERECEIVERLEGALENTITY1.label}"
                                 required="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.mandatory}"
-                                shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.tooltip}" id="soc9"
+                                shortDesc="#{bindings.SERVICERECEIVERLEGALENTITY1.hints.tooltip}" id="soc14"
                                 rendered="false">
-              <f:selectItems value="#{bindings.SERVICERECEIVERLEGALENTITY1.items}" id="si9"/>
+              <f:selectItems value="#{bindings.SERVICERECEIVERLEGALENTITY1.items}" id="si14"/>
               <f:validator binding="#{bindings.SERVICERECEIVERLEGALENTITY1.validator}"/>
             </af:selectOneChoice>
             <!--<af:inputText value="#{bindings.ServProvider.inputValue}" label="#{bindings.ServProvider.hints.label}"
@@ -197,7 +198,8 @@
             </af:toolbar>
           </f:facet>
         </af:panelBox>
-        <af:panelBox id="pb4" rendered="#{bindings.WHTAPPLICATIBILITY.inputValue eq 'Yes'}">
+        <af:panelBox id="pb4" rendered="#{bindings.WHTAPPLICATIBILITY.inputValue eq 'Yes'}" showHeader="always"
+                     text="Withholding Tax(WHT) details">
           <f:facet name="toolbar"/>
           <af:panelFormLayout id="pfl2" rows="5" maxColumns="2">
             <f:facet name="footer"/>
@@ -220,13 +222,15 @@
                           shortDesc="#{bindings.WhtLibilityAcc.hints.tooltip}" id="it6">
               <f:validator binding="#{bindings.WhtLibilityAcc.validator}"/>
             </af:inputText>
-            <af:selectOneChoice value="#{bindings.DOCAPPL.inputValue}" label="#{bindings.DOCAPPL.label}"
+           
+            <af:selectOneChoice value="#{bindings.DOCAPPL.inputValue}"  label="#{bindings.DOCAPPL.label}"
                                 required="#{bindings.DOCAPPL.hints.mandatory}"
                                 shortDesc="#{bindings.DOCAPPL.hints.tooltip}" id="soc12">
               <f:selectItems value="#{bindings.DOCAPPL.items}" id="si12"/>
               <f:validator binding="#{bindings.DOCAPPL.validator}"/>
-            </af:selectOneChoice>
-            <af:outputText value="In case of reimbursement" id="ot1" inlineStyle="font-style:italic;"/>
+              </af:selectOneChoice>
+             <af:outputLabel value="In case of reimbursement" id="ol1"  inlineStyle="font-style:italic;" for="si12"/>
+            <!--<af:outputText value="In case of reimbursement" id="ot1" inlineStyle="font-style:italic;"/>-->
             <af:inputText value="#{bindings.WhtCreditAcc.inputValue}" label="#{bindings.WhtCreditAcc.hints.label}"
                           required="#{bindings.WhtCreditAcc.hints.mandatory}"
                           columns="#{bindings.WhtCreditAcc.hints.displayWidth}"
@@ -278,8 +282,8 @@
                       selectedRowKeys="#{bindings.SgsTdsWhtIdentificationVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTdsWhtIdentificationVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsTdsWhtIdentificationVO1.rangeSize}" id="t1"
-                      partialTriggers="::b3 ::b4 :::b5 :::pc2:b6 :::pc2:b7" styleClass="setup"
-                      columnStretching="column:c4">
+                      partialTriggers=":::b5 ::b3 ::b4 :::pc2:b6 :::pc2:b7 soc4" styleClass="setup"
+                      columnStretching="column:c11">
               <!--<af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.TdsWhtIdenSeq.label}" id="c1">
                   <af:inputText value="#{row.bindings.TdsWhtIdenSeq.inputValue}"
                                 label="#{bindings.SgsTdsWhtIdentificationVO1.hints.TdsWhtIdenSeq.label}"
@@ -293,7 +297,8 @@
                                       pattern="#{bindings.SgsTdsWhtIdentificationVO1.hints.TdsWhtIdenSeq.format}"/>
                   </af:inputText>
                 </af:column>-->
-              <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.LegalEntity.label}" id="c11">
+              <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.LegalEntity.label}" id="c11"
+                         width="200">
                 <af:selectOneChoice value="#{row.bindings.LegalEntity.inputValue}"
                                     label="#{row.bindings.LegalEntity.label}"
                                     required="#{bindings.SgsTdsWhtIdentificationVO1.hints.LegalEntity.mandatory}"
@@ -325,18 +330,31 @@
                   </af:inputText>
                 </af:column>-->
               <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.DocumentType.label}" id="c3"
-                         width="140">
+                         width="160">
                 <af:selectOneChoice value="#{row.bindings.DocumentType.inputValue}"
                                     label="#{row.bindings.DocumentType.label}"
                                     required="#{bindings.SgsTdsWhtIdentificationVO1.hints.DocumentType.mandatory}"
                                     shortDesc="#{bindings.SgsTdsWhtIdentificationVO1.hints.DocumentType.tooltip}"
-                                    id="soc4">
+                                    id="soc4" autoSubmit="true"
+                                    valueChangeListener="#{viewScope.ActionEventsBean.handleTRCChange}">
                   <f:selectItems value="#{row.bindings.DocumentType.items}" id="si4"/>
                   <f:validator binding="#{row.bindings.DocumentType.validator}"/>
                 </af:selectOneChoice>
               </af:column>
+              <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.DUEDATE.label}" id="c2" width="140"
+                         binding="#{viewScope.ActionEventsBean.dueDateBind}">
+                <af:inputDate value="#{row.bindings.DUEDATE.inputValue}"
+                              label="#{bindings.SgsTdsWhtIdentificationVO1.hints.DUEDATE.label}"
+                              required="#{bindings.SgsTdsWhtIdentificationVO1.hints.DUEDATE.mandatory}"
+                              columns="#{bindings.SgsTdsWhtIdentificationVO1.hints.DUEDATE.displayWidth}"
+                              shortDesc="#{bindings.SgsTdsWhtIdentificationVO1.hints.DUEDATE.tooltip}" id="id5"
+                              readOnly="#{viewScope.ActionEventsBean.trcReadOnly1}">
+                  <f:validator binding="#{row.bindings.DUEDATE.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.SgsTdsWhtIdentificationVO1.hints.DUEDATE.format}"/>
+                </af:inputDate>
+              </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.TaxIdentificationNum.label}" id="c4"
-                         width="150">
+                         width="190">
                 <af:inputText value="#{row.bindings.TaxIdentificationNum.inputValue}"
                               label="#{bindings.SgsTdsWhtIdentificationVO1.hints.TaxIdentificationNum.label}"
                               required="#{bindings.SgsTdsWhtIdentificationVO1.hints.TaxIdentificationNum.mandatory}"
@@ -347,7 +365,8 @@
                   <f:validator binding="#{row.bindings.TaxIdentificationNum.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodFrom.label}" id="c5">
+              <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodFrom.label}" id="c5"
+                         width="120">
                 <af:inputDate value="#{row.bindings.ValidityPeriodFrom.inputValue}"
                               label="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodFrom.label}"
                               required="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodFrom.mandatory}"
@@ -358,7 +377,8 @@
                   <af:convertDateTime pattern="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodFrom.format}"/>
                 </af:inputDate>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodTo.label}" id="c6">
+              <af:column headerText="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodTo.label}" id="c6"
+                         width="120">
                 <af:inputDate value="#{row.bindings.ValidityPeriodTo.inputValue}"
                               label="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodTo.label}"
                               required="#{bindings.SgsTdsWhtIdentificationVO1.hints.ValidityPeriodTo.mandatory}"
@@ -433,9 +453,10 @@
                       selectedRowKeys="#{bindings.SgsTdsWhtRateApplicabilityVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTdsWhtRateApplicabilityVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsTdsWhtRateApplicabilityVO1.rangeSize}" id="t4"
-                      partialTriggers="::b6 ::b7" styleClass="setup" columnStretching="column:c14">
+                      partialTriggers="::b6 ::b7 :::soc8" styleClass="setup" columnStretching="column:c14"
+                      binding="#{viewScope.ActionEventsBean.taxRateAppWhtBind}">
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.CostIdenId.label}" id="c10"
-                         visible="false">
+                         visible="false" width="200">
                 <af:inputText value="#{row.bindings.CostIdenId.inputValue}"
                               label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.CostIdenId.label}"
                               required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.CostIdenId.mandatory}"
@@ -446,7 +467,7 @@
                 </af:inputText>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c1"
-                         width="140">
+                         width="300">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
                                     label="#{row.bindings.NATUREOFEXPENSE.label}"
                                     required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
@@ -457,7 +478,7 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.AccountingTreatment.label}"
-                         id="c16">
+                         id="c16" width="300">
                 <af:selectOneChoice value="#{row.bindings.AccountingTreatment.inputValue}"
                                     label="#{row.bindings.AccountingTreatment.label}"
                                     required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.AccountingTreatment.mandatory}"
@@ -503,7 +524,7 @@
                 </af:selectOneChoice>
               </af:column>-->
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SectionTaxCode.label}" id="c13"
-                         width="130">
+                         width="200">
                 <af:inputText value="#{row.bindings.SectionTaxCode.inputValue}"
                               label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SectionTaxCode.label}"
                               required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SectionTaxCode.mandatory}"
@@ -526,7 +547,7 @@
                   <f:validator binding="#{row.bindings.PeoplesoftTaxCode.validator}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SLOC.label}" id="c19">
+              <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SLOC.label}" id="c19" width="200">
                 <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}" label="#{row.bindings.SLOC.label}"
                                     required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SLOC.mandatory}"
                                     shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SLOC.tooltip}" id="soc13">
@@ -535,7 +556,7 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}" id="c12"
-                         width="140" styleClass="mynumbercolumn">
+                         width="200" styleClass="mynumbercolumn">
                 <af:inputText value="#{row.bindings.WithholdingTaxRate.inputValue}"
                               label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}"
                               required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.mandatory}"
@@ -548,7 +569,19 @@
                                     pattern="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.format}"/>
                 </af:inputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
+              <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TAXRATEIDENTIFIER.label}" id="c15"
+                         binding="#{viewScope.ActionEventsBean.taxRateIdenColumnBind}">
+                <af:inputText value="#{row.bindings.TAXRATEIDENTIFIER.inputValue}"
+                              label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TAXRATEIDENTIFIER.label}"
+                              required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TAXRATEIDENTIFIER.mandatory}"
+                              columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TAXRATEIDENTIFIER.displayWidth}"
+                              maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TAXRATEIDENTIFIER.precision}"
+                              shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TAXRATEIDENTIFIER.tooltip}"
+                              id="it2">
+                  <f:validator binding="#{row.bindings.TAXRATEIDENTIFIER.validator}"/>
+                </af:inputText>
+              </af:column>
+              <!--<af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
                          id="c15" width="200" styleClass="mynumbercolumn">
                 <af:inputText value="#{row.bindings.WitholdingTaxRateNoTin.inputValue}"
                               label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
@@ -561,7 +594,7 @@
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.format}"/>
                 </af:inputText>
-              </af:column>
+              </af:column>-->
               <!--<af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.Documentation.label}" id="c16">
                   <af:inputText value="#{row.bindings.Documentation.inputValue}"
                                 label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.Documentation.label}"
@@ -585,7 +618,7 @@
                 </af:selectOneChoice>
               </af:column>-->
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TdsWhtApplSeq.label}" id="c18"
-                         visible="false">
+                         visible="false" width="200">
                 <!--<af:inputText value="#{row.bindings.TdsWhtApplSeq.inputValue}"
                                 label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TdsWhtApplSeq.label}"
                                 required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TdsWhtApplSeq.mandatory}"

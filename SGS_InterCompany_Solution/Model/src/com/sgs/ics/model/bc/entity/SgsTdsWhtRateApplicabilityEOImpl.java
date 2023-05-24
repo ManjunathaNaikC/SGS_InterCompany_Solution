@@ -57,6 +57,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
         CREATEDBY,
         NATUREOFEXPENSE,
         SLOC,
+        TAXRATEIDENTIFIER,
         SgsTdsWhtTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -114,6 +115,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
     public static final int CREATEDBY = AttributesEnum.CREATEDBY.index();
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int SLOC = AttributesEnum.SLOC.index();
+    public static final int TAXRATEIDENTIFIER = AttributesEnum.TAXRATEIDENTIFIER.index();
     public static final int SGSTDSWHTTBLEO = AttributesEnum.SgsTdsWhtTblEO.index();
 
     /**
@@ -577,6 +579,22 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
      */
     public void setSLOC(String value) {
         setAttributeInternal(SLOC, value);
+    }
+
+    /**
+     * Gets the attribute value for TAXRATEIDENTIFIER, using the alias name TAXRATEIDENTIFIER.
+     * @return the value of TAXRATEIDENTIFIER
+     */
+    public String getTAXRATEIDENTIFIER() {
+        return (String) getAttributeInternal(TAXRATEIDENTIFIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TAXRATEIDENTIFIER.
+     * @param value value to set the TAXRATEIDENTIFIER
+     */
+    public void setTAXRATEIDENTIFIER(String value) {
+        setAttributeInternal(TAXRATEIDENTIFIER, value);
     }
 
     /**

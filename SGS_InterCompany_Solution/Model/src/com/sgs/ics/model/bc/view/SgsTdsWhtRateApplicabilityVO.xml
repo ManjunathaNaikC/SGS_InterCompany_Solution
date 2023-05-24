@@ -384,6 +384,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="TAXRATEIDENTIFIER"
+    PrecisionRule="true"
+    EntityAttrName="TAXRATEIDENTIFIER"
+    EntityUsage="SgsTdsWhtRateApplicabilityEO"
+    AliasName="TAX_RATE_IDENTIFIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsTdsWhtRateApplicabilityVO.TAXRATEIDENTIFIER_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

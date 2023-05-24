@@ -227,7 +227,14 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="Period"
     EntityUsage="SgsIcInvoiceHeaderEO"
-    AliasName="PERIOD"/>
+    AliasName="PERIOD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.Period_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TpaId"
     PrecisionRule="true"
@@ -843,13 +850,27 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="VATAMNT"
     EntityUsage="SgsIcInvoiceHeaderEO"
-    AliasName="VAT_AMNT"/>
+    AliasName="VAT_AMNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.VATAMNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="VATRATE"
     PrecisionRule="true"
     EntityAttrName="VATRATE"
     EntityUsage="SgsIcInvoiceHeaderEO"
-    AliasName="VAT_RATE"/>
+    AliasName="VAT_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.VATRATE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
     <ViewAttribute
     Name="REVERSALREASON"
     PrecisionRule="true"

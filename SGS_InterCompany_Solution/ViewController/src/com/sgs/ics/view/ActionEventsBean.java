@@ -3674,11 +3674,11 @@ public class ActionEventsBean {
         System.out.println("UserIcAllowableLimit ::"+ADFContext.getCurrent().getPageFlowScope().get("UserIcAllowableLimit"));
         System.out.println("UserCCAllowableLimit ::"+ADFContext.getCurrent().getPageFlowScope().get("UserCCAllowableLimit"));
         if(null != icAllowableLimitBind.getValue() ){
-            row.setAttribute("NETLIMITFIXARCOLL",icAllowableLimitBind.getValue());
+            row.setAttribute("NETLIMITFIXARCOLL",ccAllowableLimit.getValue());
         }
         
         if(null != ccAllowableLimit.getValue()){
-            row.setAttribute("NETLIMITFIXICTRANS",ccAllowableLimit.getValue());
+            row.setAttribute("NETLIMITFIXICTRANS",icAllowableLimitBind.getValue());
         }
         if(null != nettingRemarksBind.getValue()){
             System.out.println("Remarks ::"+nettingRemarksBind.getValue());

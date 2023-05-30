@@ -5,52 +5,123 @@
     <f:facet name="toolbar">
       <af:button text="Back" id="b1" action="Header"/>
     </f:facet>
-    <af:panelFormLayout id="pfl1" rows="10">
+    <af:panelGridLayout id="pgl2">
+      <af:gridRow marginTop="5px" height="auto" id="gr6">
+        <af:gridCell marginStart="5px" width="50%" id="gc11">
+          <af:panelLabelAndMessage label="Netting ID" id="plam1">
+            <af:outputText value="#{bindings.NettingId.inputValue}" shortDesc="#{bindings.NettingId.hints.tooltip}"
+                           id="ot33"/>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc12"/>
+      </af:gridRow>
+      <af:gridRow id="gr1" height="10px">
+        <af:gridCell id="gc1" width="50%"/>
+        <af:gridCell id="gc2" width="50%"/>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" height="auto" id="gr7">
+        <af:gridCell marginStart="5px" width="50%" id="gc13">
+          <af:panelLabelAndMessage label="Netting Allowable Limit – IC Transactions" id="plam2">
+            <af:outputText value="#{bindings.NetAllowIcTran.inputValue}"
+                           shortDesc="#{bindings.NetAllowIcTran.hints.tooltip}" id="ot34">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.NetAllowIcTran.format}"/>
+            </af:outputText>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc14">
+          <af:panelLabelAndMessage label="Netting Limit Fixed By Users – IC Transaction" id="plam4">
+            <af:outputText value="#{bindings.NETLIMITFIXICTRANS.inputValue}"
+                           shortDesc="#{bindings.NETLIMITFIXICTRANS.hints.tooltip}" id="ot36">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.NETLIMITFIXICTRANS.format}"/>
+            </af:outputText>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow id="gr2"  height="10px">
+        <af:gridCell id="gc3" width="50%"/>
+        <af:gridCell id="gc4" width="50%"/>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" height="auto" id="gr8">
+        <af:gridCell marginStart="5px" width="50%" id="gc15">
+          <af:panelLabelAndMessage label="Netting Allowable Limit – AR Collection" id="plam3">
+            <af:outputText value="#{bindings.NetAllowArColl.inputValue}"
+                           shortDesc="#{bindings.NetAllowArColl.hints.tooltip}" id="ot35">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.NetAllowArColl.format}"/>
+            </af:outputText>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc16">
+          <af:panelLabelAndMessage label="Netting Limit Fixed By Users – AR Collection" id="plam5">
+            <af:outputText value="#{bindings.NETLIMITFIXARCOLL.inputValue}"
+                           shortDesc="#{bindings.NETLIMITFIXARCOLL.hints.tooltip}" id="ot37">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.NETLIMITFIXARCOLL.format}"/>
+            </af:outputText>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow id="gr3"  height="10px">
+        <af:gridCell id="gc5" width="50%"/>
+        <af:gridCell id="gc6" width="50%"/>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" height="auto" id="gr9">
+        <af:gridCell marginStart="5px" width="50%" id="gc17">
+          <af:panelLabelAndMessage label="Netting Balance – IC Transactions" id="plam6">
+            <af:outputText value="#{bindings.NETBALICTRANS.inputValue}"
+                           shortDesc="#{bindings.NETBALICTRANS.hints.tooltip}" id="ot38">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.NETBALICTRANS.format}"/>
+            </af:outputText>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc18">
+          <af:panelLabelAndMessage label="Netting Balance – AR Collection" id="plam7">
+            <af:outputText value="#{bindings.NETBALARCOLL.inputValue}"
+                           shortDesc="#{bindings.NETBALARCOLL.hints.tooltip}" id="ot39">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.NETBALARCOLL.format}"/>
+            </af:outputText>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow id="gr4"  height="10px">
+        <af:gridCell id="gc7" width="50%"/>
+        <af:gridCell id="gc8" width="50%"/>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+        <af:gridCell marginStart="5px" width="50%" id="gc19">
+          <af:panelLabelAndMessage label="#{bindings.Status.hints.label}" id="plam8">
+            <af:outputText value="#{bindings.Status.inputValue}" shortDesc="#{bindings.Status.hints.tooltip}"
+                           id="ot40"/>
+          </af:panelLabelAndMessage>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc20"/>
+      </af:gridRow>
+      <af:gridRow id="gr11" height="10px">
+        <af:gridCell id="gc21"/>
+        <af:gridCell id="gc22"/>
+      </af:gridRow>
+      <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
+        <af:gridCell id="gc9">
+          <af:inputText value="#{bindings.REMARKS.inputValue}" label="#{bindings.REMARKS.hints.label}"
+                        required="#{bindings.REMARKS.hints.mandatory}" columns="#{bindings.REMARKS.hints.displayWidth}"
+                        maximumLength="#{bindings.REMARKS.hints.precision}"
+                        shortDesc="#{bindings.REMARKS.hints.tooltip}" id="it3" readOnly="true">
+            <f:validator binding="#{bindings.REMARKS.validator}"/>
+          </af:inputText>
+          <!--<af:panelLabelAndMessage label="Remarks" id="plam9">
+            <af:outputText value="#{bindings.REMARKS.inputValue}" shortDesc="#{bindings.REMARKS.hints.tooltip}"
+                           id="ot41"/>
+          </af:panelLabelAndMessage>-->
+          <!--<af:panelLabelAndMessage label="Remarks" id="plam9">
+            <af:outputText value="#{bindings.REMARKS.inputValue}" shortDesc="#{bindings.REMARKS.hints.tooltip}"
+                           id="ot41"/>
+          </af:panelLabelAndMessage>-->
+        </af:gridCell>
+        <af:gridCell id="gc10"/>
+      </af:gridRow>
+    </af:panelGridLayout>
+    <!--<af:panelFormLayout id="pfl1" rows="4" maxColumns="2">
       <f:facet name="footer"/>
-      <af:panelLabelAndMessage label="#{bindings.NettingId.hints.label}" id="plam1">
-        <af:outputText value="#{bindings.NettingId.inputValue}" shortDesc="#{bindings.NettingId.hints.tooltip}"
-                       id="ot33"/>
-      </af:panelLabelAndMessage>
-      <af:panelLabelAndMessage label="#{bindings.NetAllowIcTran.hints.label}" id="plam2">
-        <af:outputText value="#{bindings.NetAllowIcTran.inputValue}"
-                       shortDesc="#{bindings.NetAllowIcTran.hints.tooltip}" id="ot34">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.NetAllowIcTran.format}"/>
-        </af:outputText>
-      </af:panelLabelAndMessage>
-      <af:panelLabelAndMessage label="#{bindings.NetAllowArColl.hints.label}" id="plam3">
-        <af:outputText value="#{bindings.NetAllowArColl.inputValue}"
-                       shortDesc="#{bindings.NetAllowArColl.hints.tooltip}" id="ot35">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.NetAllowArColl.format}"/>
-        </af:outputText>
-      </af:panelLabelAndMessage>
-      <af:panelLabelAndMessage label="#{bindings.NETLIMITFIXICTRANS.hints.label}" id="plam4">
-        <af:outputText value="#{bindings.NETLIMITFIXICTRANS.inputValue}"
-                       shortDesc="#{bindings.NETLIMITFIXICTRANS.hints.tooltip}" id="ot36">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETLIMITFIXICTRANS.format}"/>
-        </af:outputText>
-      </af:panelLabelAndMessage>
-      <af:panelLabelAndMessage label="#{bindings.NETLIMITFIXARCOLL.hints.label}" id="plam5">
-        <af:outputText value="#{bindings.NETLIMITFIXARCOLL.inputValue}"
-                       shortDesc="#{bindings.NETLIMITFIXARCOLL.hints.tooltip}" id="ot37">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETLIMITFIXARCOLL.format}"/>
-        </af:outputText>
-      </af:panelLabelAndMessage>
-      <af:panelLabelAndMessage label="#{bindings.NETBALICTRANS.hints.label}" id="plam6">
-        <af:outputText value="#{bindings.NETBALICTRANS.inputValue}" shortDesc="#{bindings.NETBALICTRANS.hints.tooltip}"
-                       id="ot38">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETBALICTRANS.format}"/>
-        </af:outputText>
-      </af:panelLabelAndMessage>
-      <af:panelLabelAndMessage label="#{bindings.NETBALARCOLL.hints.label}" id="plam7">
-        <af:outputText value="#{bindings.NETBALARCOLL.inputValue}" shortDesc="#{bindings.NETBALARCOLL.hints.tooltip}"
-                       id="ot39">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETBALARCOLL.format}"/>
-        </af:outputText>
-      </af:panelLabelAndMessage>
-      <af:panelLabelAndMessage label="#{bindings.Status.hints.label}" id="plam8">
-        <af:outputText value="#{bindings.Status.inputValue}" shortDesc="#{bindings.Status.hints.tooltip}" id="ot40"/>
-      </af:panelLabelAndMessage>
-    </af:panelFormLayout>
+    </af:panelFormLayout>-->
+    <af:spacer id="s1" height="20"/>
     <af:panelBox text="Netting Receivable" id="pb2">
       <f:facet name="toolbar"/>
       <af:panelCollection id="pc1" styleClass="AFStretchWidth">
@@ -288,5 +359,34 @@
         </af:table>
       </af:panelCollection>
     </af:panelBox>
+    <af:panelFormLayout id="pfl1" rows="4" maxColumns="1">
+      <f:facet name="footer"/>
+      <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"
+                    required="#{bindings.CreatedBy.hints.mandatory}" columns="#{bindings.CreatedBy.hints.displayWidth}"
+                    maximumLength="#{bindings.CreatedBy.hints.precision}"
+                    shortDesc="#{bindings.CreatedBy.hints.tooltip}" id="it1" readOnly="true">
+        <f:validator binding="#{bindings.CreatedBy.validator}"/>
+      </af:inputText>
+      <af:inputDate value="#{bindings.CreatedDate.inputValue}" label="#{bindings.CreatedDate.hints.label}"
+                    required="#{bindings.CreatedDate.hints.mandatory}"
+                    columns="#{bindings.CreatedDate.hints.displayWidth}"
+                    shortDesc="#{bindings.CreatedDate.hints.tooltip}" id="id3" readOnly="true">
+        <f:validator binding="#{bindings.CreatedDate.validator}"/>
+        <af:convertDateTime pattern="#{bindings.CreatedDate.format}"/>
+      </af:inputDate>
+      <af:inputText value="#{bindings.UpdatedBy.inputValue}" label="#{bindings.UpdatedBy.hints.label}"
+                    required="#{bindings.UpdatedBy.hints.mandatory}" columns="#{bindings.UpdatedBy.hints.displayWidth}"
+                    maximumLength="#{bindings.UpdatedBy.hints.precision}"
+                    shortDesc="#{bindings.UpdatedBy.hints.tooltip}" id="it2" readOnly="true">
+        <f:validator binding="#{bindings.UpdatedBy.validator}"/>
+      </af:inputText>
+      <af:inputDate value="#{bindings.UpdatedDate.inputValue}" label="#{bindings.UpdatedDate.hints.label}"
+                    required="#{bindings.UpdatedDate.hints.mandatory}"
+                    columns="#{bindings.UpdatedDate.hints.displayWidth}"
+                    shortDesc="#{bindings.UpdatedDate.hints.tooltip}" id="id4" readOnly="true">
+        <f:validator binding="#{bindings.UpdatedDate.validator}"/>
+        <af:convertDateTime pattern="#{bindings.UpdatedDate.format}"/>
+      </af:inputDate>
+    </af:panelFormLayout>
   </af:panelBox>
 </ui:composition>

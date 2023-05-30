@@ -4,7 +4,7 @@
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="customUrl">
-        <Contents>jdbc:sqlserver://localhost;instanceName=MSSQLSERVER;databasename=SGSICO;integratedSecurity=true;</Contents>
+        <Contents>jdbc:sqlserver://ASBCOLPS02:1433;DatabaseName=DEVINTER;encrypt=true;trustServerCertificate=true;</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="driver">
@@ -14,7 +14,7 @@
         <Contents>thirdParty</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="user">
-        <Contents>newuser</Contents>
+        <Contents>EYUser</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>

@@ -223,13 +223,13 @@
               <f:validator binding="#{bindings.WhtLibilityAcc.validator}"/>
             </af:inputText>
            
-            <af:selectOneChoice value="#{bindings.DOCAPPL.inputValue}"  label="#{bindings.DOCAPPL.label}"
+            <!--<af:selectOneChoice value="#{bindings.DOCAPPL.inputValue}"  label="#{bindings.DOCAPPL.label}"
                                 required="#{bindings.DOCAPPL.hints.mandatory}"
                                 shortDesc="#{bindings.DOCAPPL.hints.tooltip}" id="soc12">
               <f:selectItems value="#{bindings.DOCAPPL.items}" id="si12"/>
               <f:validator binding="#{bindings.DOCAPPL.validator}"/>
-              </af:selectOneChoice>
-             <af:outputLabel value="In case of reimbursement" id="ol1"  inlineStyle="font-style:italic;" for="si12"/>
+              </af:selectOneChoice>-->
+             <!--<af:outputLabel value="In case of reimbursement" id="ol1"  inlineStyle="font-style:italic;" for="si12"/>-->
             <!--<af:outputText value="In case of reimbursement" id="ot1" inlineStyle="font-style:italic;"/>-->
             <af:inputText value="#{bindings.WhtCreditAcc.inputValue}" label="#{bindings.WhtCreditAcc.hints.label}"
                           required="#{bindings.WhtCreditAcc.hints.mandatory}"
@@ -555,6 +555,16 @@
                   <f:validator binding="#{row.bindings.SLOC.validator}"/>
                 </af:selectOneChoice>
               </af:column>
+              <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.DOCAPPL.label}" id="c20">
+                <af:selectOneChoice value="#{row.bindings.DOCAPPL.inputValue}" label="#{row.bindings.DOCAPPL.label}"
+                                    required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.DOCAPPL.mandatory}"
+                                    shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.DOCAPPL.tooltip}"
+                                    id="soc12" valueChangeListener="#{viewScope.ActionEventsBean.onDocAppTds}"
+                                    autoSubmit="true">
+                  <f:selectItems value="#{row.bindings.DOCAPPL.items}" id="si12"/>
+                  <f:validator binding="#{row.bindings.DOCAPPL.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.label}" id="c12"
                          width="200" styleClass="mynumbercolumn">
                 <af:inputText value="#{row.bindings.WithholdingTaxRate.inputValue}"
@@ -563,10 +573,24 @@
                               columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.displayWidth}"
                               maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.precision}"
                               shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.tooltip}"
-                              id="it19">
+                              id="it19" readOnly="#{viewScope.ActionEventsBean.taxRate}">
                   <f:validator binding="#{row.bindings.WithholdingTaxRate.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WithholdingTaxRate.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
+                         id="c17" width="200" styleClass="mynumbercolumn">
+                <af:inputText value="#{row.bindings.WitholdingTaxRateNoTin.inputValue}"
+                              label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
+                              required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.mandatory}"
+                              columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.displayWidth}"
+                              maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.precision}"
+                              shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.tooltip}"
+                              id="it22" readOnly="#{viewScope.ActionEventsBean.taxRateNoDoc}">
+                  <f:validator binding="#{row.bindings.WitholdingTaxRateNoTin.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.format}"/>
                 </af:inputText>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.TAXRATEIDENTIFIER.label}" id="c15"
@@ -581,20 +605,6 @@
                   <f:validator binding="#{row.bindings.TAXRATEIDENTIFIER.validator}"/>
                 </af:inputText>
               </af:column>
-              <!--<af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
-                         id="c15" width="200" styleClass="mynumbercolumn">
-                <af:inputText value="#{row.bindings.WitholdingTaxRateNoTin.inputValue}"
-                              label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.label}"
-                              required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.mandatory}"
-                              columns="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.displayWidth}"
-                              maximumLength="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.precision}"
-                              shortDesc="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.tooltip}"
-                              id="it22">
-                  <f:validator binding="#{row.bindings.WitholdingTaxRateNoTin.validator}"/>
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.WitholdingTaxRateNoTin.format}"/>
-                </af:inputText>
-              </af:column>-->
               <!--<af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.Documentation.label}" id="c16">
                   <af:inputText value="#{row.bindings.Documentation.inputValue}"
                                 label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.Documentation.label}"

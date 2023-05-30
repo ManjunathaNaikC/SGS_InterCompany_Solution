@@ -38,3 +38,10 @@ def bLookupType_SgsLookupAcctTreatment_BindVariable_BoundParameter()
 'ACC_TREATMENT'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupYesNoVO2", name="bLookupType")
+def bLookupType_SgsLookupYesNoVO2_BindVariable_BoundParameter()
+{
+'YESORNO'
+}
+

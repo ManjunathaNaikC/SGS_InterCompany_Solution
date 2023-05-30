@@ -335,6 +335,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="DOCAPPL"
+    Precision="30"
+    ColumnName="DOC_APPL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_TDS_WHT_RATE_APPLICABILITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SgsTdsWhtTblEO"
     Association="com.sgs.ics.model.bc.entity.assoc.sgsTdsWhtRateApplicabilityAssoc"

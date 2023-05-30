@@ -70,7 +70,6 @@
     TableName="SGS_TDS_WHT_IDENTIFICATION"/>
   <Attribute
     Name="ValidityPeriodTo"
-    IsNotNull="true"
     ColumnName="VALIDITY_PERIOD_TO"
     SQLType="DATE"
     Type="java.sql.Date"

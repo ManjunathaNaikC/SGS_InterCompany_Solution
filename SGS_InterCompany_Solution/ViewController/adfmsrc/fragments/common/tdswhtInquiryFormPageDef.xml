@@ -119,6 +119,7 @@
           <Item Value="NATUREOFEXPENSE"/>
           <Item Value="SLOC"/>
           <Item Value="TAXRATEIDENTIFIER"/>
+          <Item Value="DOCAPPL"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

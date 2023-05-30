@@ -71,7 +71,8 @@
                               rowSelection="single" fetchSize="#{bindings.SgsStatisticalDataVO1.rangeSize}"
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
-                              styleClass="transaction  AFStretchWidth" autoHeightRows="-1" scrollPolicy="page">
+                              styleClass="transaction  AFStretchWidth" autoHeightRows="-1" scrollPolicy="page"
+                              partialTriggers="::b13 ::if2">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
                                    binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
                                    inlineStyle="color:White;">
@@ -459,7 +460,10 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.label}" id="c54"
                          sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.name}">
-                            <af:link text="#{row.bindings.EMAILATTACHMENT.inputValue}" id="l1"/>
+                            <af:link text="#{row.bindings.EMAILATTACHMENT.inputValue}" id="l1">
+                                <af:fileDownloadActionListener filename="#{row.bindings.EMAILATTACHMENT.inputValue}"
+                                                               method="#{viewScope.ActionEventsBean.onStatDocsDownload}"/>
+                            </af:link>
                             <!--<af:inputText value="#{row.bindings.EMAILATTACHMENT.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.mandatory}"
@@ -669,7 +673,7 @@
                             </f:facet>
                             <af:inputFile label="Select File" id="if2"
                                           binding="#{viewScope.ActionEventsBean.inputFileBind}" autoSubmit="true"
-                                          />
+                                          valueChangeListener="#{viewScope.ActionEventsBean.onStatUpload}"/>
                         </af:dialog>
                     </af:popup>
                             <!--<af:popup childCreation="deferred" autoCancel="disabled" id="p1submit"

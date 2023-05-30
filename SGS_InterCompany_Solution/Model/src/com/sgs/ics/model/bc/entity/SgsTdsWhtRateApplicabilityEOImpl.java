@@ -58,6 +58,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
         NATUREOFEXPENSE,
         SLOC,
         TAXRATEIDENTIFIER,
+        DOCAPPL,
         SgsTdsWhtTblEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -116,6 +117,7 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
     public static final int NATUREOFEXPENSE = AttributesEnum.NATUREOFEXPENSE.index();
     public static final int SLOC = AttributesEnum.SLOC.index();
     public static final int TAXRATEIDENTIFIER = AttributesEnum.TAXRATEIDENTIFIER.index();
+    public static final int DOCAPPL = AttributesEnum.DOCAPPL.index();
     public static final int SGSTDSWHTTBLEO = AttributesEnum.SgsTdsWhtTblEO.index();
 
     /**
@@ -595,6 +597,22 @@ public class SgsTdsWhtRateApplicabilityEOImpl extends EntityImpl {
      */
     public void setTAXRATEIDENTIFIER(String value) {
         setAttributeInternal(TAXRATEIDENTIFIER, value);
+    }
+
+    /**
+     * Gets the attribute value for DOCAPPL, using the alias name DOCAPPL.
+     * @return the value of DOCAPPL
+     */
+    public String getDOCAPPL() {
+        return (String) getAttributeInternal(DOCAPPL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DOCAPPL.
+     * @param value value to set the DOCAPPL
+     */
+    public void setDOCAPPL(String value) {
+        setAttributeInternal(DOCAPPL, value);
     }
 
     /**

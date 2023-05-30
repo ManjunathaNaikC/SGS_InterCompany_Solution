@@ -28,8 +28,12 @@
           <Item Value="NetPerIcTran"/>
           <Item Value="NetPerArColl"/>
           <Item Value="Status"/>
+          <Item Value="NETLIMITFIXICTRANS"/>
+          <Item Value="NETLIMITFIXARCOLL"/>
+          <Item Value="REMARKS"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

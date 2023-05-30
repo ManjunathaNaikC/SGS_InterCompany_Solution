@@ -12,6 +12,8 @@
               id="SgsNetIcPayableVO2Iterator"/>
     <searchRegion Binds="SgsNetIcPayableVO2Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNetIcPayableVO2Query"/>
+    <iterator Binds="SgsNetHeaderTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsNetHeaderTblVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsNetIcReceivableVO1Iterator" id="SgsNetIcReceivableVO1">
@@ -58,5 +60,45 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="NettingId">
+      <AttrNames>
+        <Item Value="NettingId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="NetAllowIcTran">
+      <AttrNames>
+        <Item Value="NetAllowIcTran"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="NetAllowArColl">
+      <AttrNames>
+        <Item Value="NetAllowArColl"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="NETLIMITFIXICTRANS">
+      <AttrNames>
+        <Item Value="NETLIMITFIXICTRANS"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="NETLIMITFIXARCOLL">
+      <AttrNames>
+        <Item Value="NETLIMITFIXARCOLL"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="NETBALICTRANS">
+      <AttrNames>
+        <Item Value="NETBALICTRANS"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="NETBALARCOLL">
+      <AttrNames>
+        <Item Value="NETBALARCOLL"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

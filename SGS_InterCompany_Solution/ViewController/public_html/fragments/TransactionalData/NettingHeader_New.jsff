@@ -7,7 +7,12 @@
     </f:facet>
     <af:panelCollection id="pc1" styleClass="AFStretchWidth">
       <f:facet name="menus"/>
-      <f:facet name="toolbar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button text="Overriding Netting Limit" id="b1"
+                     actionListener="#{viewScope.ActionEventsBean.overRidingNettingLimit}"/>
+        </af:toolbar>
+      </f:facet>
       <f:facet name="statusbar"/>
       <af:table value="#{bindings.SgsNetHeaderTblVO1.collectionModel}" var="row"
                 rows="#{bindings.SgsNetHeaderTblVO1.rangeSize}"
@@ -18,7 +23,7 @@
                 filterModel="#{bindings.SgsNetHeaderTblVO1Query.queryDescriptor}" filterVisible="false"
                 queryListener="#{bindings.SgsNetHeaderTblVO1Query.processQuery}" varStatus="vs" id="t1"
                 styleClass="AFStretchWidth" rowSelection="single">
-        <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.name}" filterable="true" sortable="true"
+        <!--<af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.name}" filterable="true" sortable="true"
                    headerText="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.label}" id="c1">
           <af:link id="l1" action="Lines">
             <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.tooltip}"
@@ -26,11 +31,13 @@
               <af:convertNumber groupingUsed="false" pattern="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.format}"/>
             </af:outputText>
           </af:link>
-        </af:column>
+        </af:column>-->
         <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.name}" filterable="true" sortable="true"
                    headerText="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.label}" id="c2">
-          <af:outputText value="#{row.NettingId}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.tooltip}"
-                         id="ot2"/>
+          <af:link action="Lines" id="l2">
+            <af:outputText value="#{row.NettingId}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.tooltip}"
+                           id="ot2"/>
+          </af:link>
         </af:column>
         <af:column id="c16" headerText="Accounts Receivable">
           <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.GeoSupplier.name}" filterable="true"
@@ -108,6 +115,22 @@
             </af:outputText>
           </af:column>
         </af:column>
+        <af:column id="c1" headerText="Netting Limit Fixed by Users">
+          <af:column id="c21" headerText="IC Transactions">
+            <af:outputText value="#{row.NETLIMITFIXICTRANS}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NETLIMITFIXICTRANS.tooltip}" id="ot1">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.NETLIMITFIXICTRANS.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column id="c20" headerText="AR Collection">
+            <af:outputText value="#{row.NETLIMITFIXARCOLL}"
+                           shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.NETLIMITFIXARCOLL.tooltip}" id="ot16">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.SgsNetHeaderTblVO1.hints.NETLIMITFIXARCOLL.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:column>
         <af:column id="c19" headerText="Netting Performed">
           <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NetPerIcTran.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.NetPerIcTran.label}" id="c13">
@@ -131,7 +154,62 @@
           <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.Status.tooltip}"
                          id="ot15"/>
         </af:column>
+        <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.REMARKS.label}" sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.REMARKS.name}" filterable="true" sortable="true" id="c22">
+          <af:outputText value="#{row.REMARKS}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.REMARKS.tooltip}"
+                         id="ot17"/>
+        </af:column>
       </af:table>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                binding="#{viewScope.ActionEventsBean.nettingovertidepopup}">
+        <af:dialog id="d1" styleClass="AFStretchWidth" type="none" title="Set Netting Allowable Limit "
+                   closeIconVisible="false">
+          <f:facet name="buttonBar"/>
+          <!--<af:table var="row" rowBandingInterval="0" id="t3">
+            <af:column id="c21" headerText="Set Netting Allowable Limit">
+              <af:column sortable="false" headerText="Particulars" id="c1">
+                <af:outputText value="Geography 1" id="ot20"/>
+                <af:outputText value="Geography 2" id="ot19"/>
+                <af:outputText value="Netting IC Allowable Limit" id="ot18"/>
+                <af:outputText value="Netting CC Allowable Limit" id="ot17"/>
+                <af:outputText value="Created By" id="ot16"/>
+                <af:outputText value="Creation Date" id="ot1"/>
+                <af:inputText label="Remarks" id="it3" rows="3" columns="5"/>
+              </af:column>
+              <af:column sortable="false" headerText="Details" id="c20">
+                <af:outputText value="Geography 1" id="ot21"/>
+                <af:outputText value="Geography 2" id="ot22"/>
+                <af:outputText value="Netting IC Allowable Limit" id="ot23"/>
+                <af:inputText label="Enter IC Netting-Off Limit" id="it1"/>
+                <af:inputText label="Enter CC Netting-Off Limit" id="it2"/>
+                <af:outputText value="Netting CC Allowable Limit" id="ot24"/>
+              </af:column>
+            </af:column>
+          </af:table>-->
+          <af:panelFormLayout id="pfl1" rows="15" maxColumns="1" styleClass="AFStretchWidth">
+            <f:facet name="footer">
+              <af:group id="g1">
+                <af:panelGroupLayout id="pgl1" layout="horizontal" halign="end">
+                  <af:button text="Save" id="b2" actionListener="#{viewScope.ActionEventsBean.overRidingSavePopup}"/>
+                  <af:spacer id="s1" width="10"/>
+                  <af:button text="Close" id="b3" actionListener="#{viewScope.ActionEventsBean.overRidingClosePopup}"/>
+                </af:panelGroupLayout>
+              </af:group>
+            </f:facet>
+            <af:inputText label="Geography 1" id="ot25"   value="#{pageFlowScope.Geo1}" readOnly="true"/>
+            <af:inputText label="Geography 2" id="ot26" value="#{pageFlowScope.Geo2}" readOnly="true"/>
+            <af:inputText label="Netting IC Allowable Limit(Calculated)" value="#{pageFlowScope.CalculatedIcAllowableLimit}" id="ot27" readOnly="true"/>
+            <af:inputText label="Enter IC Netting-Off Limit" id="it4"
+                          binding="#{viewScope.ActionEventsBean.icAllowableLimitBind}"/>
+            <af:inputText label="Netting CC Allowable Limit(Calculated)" value="#{pageFlowScope.CalculatedCCAllowableLimit}"  readOnly="true" id="ot28"/>
+            <af:inputText label="Enter CC Netting-Off Limit"  id="it5"
+                          binding="#{viewScope.ActionEventsBean.ccAllowableLimit}"/>
+            <af:inputText label="Created By" value="#{pageFlowScope.createdBy}" id="ot29" readOnly="true"/>
+            <af:inputText label="Creation Date" value="#{pageFlowScope.creationDate}" id="ot30" readOnly="true" />
+            <af:inputText label="Remarks"  id="it6" rows="5" columns="5" contentStyle="width:300px"
+                          binding="#{viewScope.ActionEventsBean.nettingRemarksBind}"/>
+          </af:panelFormLayout>
+        </af:dialog>
+      </af:popup>
     </af:panelCollection>
   </af:panelBox>
 </ui:composition>

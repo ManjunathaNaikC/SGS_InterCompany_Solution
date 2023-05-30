@@ -921,5 +921,37 @@ public class SGSAppModuleImpl extends ApplicationModuleImpl implements SGSAppMod
     public NOE_DVTImpl getNOE_DVT1() {
         return (NOE_DVTImpl) findViewObject("NOE_DVT1");
     }
+
+    /**
+     * Container's getter for NetArColPayVO1.
+     * @return NetArColPayVO1
+     */
+    public ViewObjectImpl getNetArColPayVO1() {
+        return (ViewObjectImpl) findViewObject("NetArColPayVO1");
+    }
+
+    /**
+     * Container's getter for NettingToArcollectionPayVL1.
+     * @return NettingToArcollectionPayVL1
+     */
+    public ViewLinkImpl getNettingToArcollectionPayVL1() {
+        return (ViewLinkImpl) findViewLink("NettingToArcollectionPayVL1");
+    }
+
+    /**
+     * Container's getter for NetArColRecVO1.
+     * @return NetArColRecVO1
+     */
+    public ViewObjectImpl getNetArColRecVO1() {
+        return (ViewObjectImpl) findViewObject("NetArColRecVO1");
+    }
+
+    /**
+     * Container's getter for NettingToArcollectionRecVL1.
+     * @return NettingToArcollectionRecVL1
+     */
+    public ViewLinkImpl getNettingToArcollectionRecVL1() {
+        return (ViewLinkImpl) findViewLink("NettingToArcollectionRecVL1");
+    }
 }
 

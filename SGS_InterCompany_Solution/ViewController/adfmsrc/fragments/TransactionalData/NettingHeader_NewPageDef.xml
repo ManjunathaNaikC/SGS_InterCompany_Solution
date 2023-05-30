@@ -31,9 +31,19 @@
           <Item Value="NETLIMITFIXICTRANS"/>
           <Item Value="NETLIMITFIXARCOLL"/>
           <Item Value="REMARKS"/>
+          <Item Value="selectedRecord" Binds="selectedRecord"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <action id="Commit" DataControl="SGSAppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <button IterBinding="SgsNetHeaderTblVO1Iterator" id="selectedRecord" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="selectedRecord"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

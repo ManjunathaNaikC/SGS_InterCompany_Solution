@@ -100,5 +100,30 @@
         <Item Value="Status"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="REMARKS">
+      <AttrNames>
+        <Item Value="REMARKS"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="CreatedDate">
+      <AttrNames>
+        <Item Value="CreatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="UpdatedBy">
+      <AttrNames>
+        <Item Value="UpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SgsNetHeaderTblVO1Iterator" id="UpdatedDate">
+      <AttrNames>
+        <Item Value="UpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

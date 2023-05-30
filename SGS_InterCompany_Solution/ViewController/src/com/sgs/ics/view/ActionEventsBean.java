@@ -1305,7 +1305,7 @@ public class ActionEventsBean {
                         settlementAmount += Double.parseDouble(decimalFormat.format(transactionAmount));
 
 
-                        settlementStatus = "Partially settled";
+                        settlementStatus = "Partially Settled";
                         paymentStatus = "Partially Paid";
                         //                        transactionAmount = 0;
                     }
@@ -1360,7 +1360,7 @@ public class ActionEventsBean {
                         decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
                         settlementAmount += Double.parseDouble(decimalFormat.format(transactionAmount));
 
-                        settlementStatus = "Partially settled";
+                        settlementStatus = "Partially Settled";
                         paymentStatus = "Partially Paid";
                         //                        transactionAmount = 0;
                     }
@@ -3737,6 +3737,7 @@ public class ActionEventsBean {
 
     public boolean getTaxRateNoDoc() {
         return taxRateNoDoc;
+    }
 
     public void overRidingNettingLimit(ActionEvent actionEvent) {
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");

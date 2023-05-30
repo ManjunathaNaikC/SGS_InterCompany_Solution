@@ -171,6 +171,10 @@ public class ActionEventsBean {
     private boolean trcReadOnly1;
     private boolean taxRate;
     private boolean taxRateNoDoc;
+    private RichPopup nettingovertidepopup;
+    private RichInputText icAllowableLimitBind;
+    private RichInputText ccAllowableLimit;
+    private RichInputText nettingRemarksBind;
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -620,6 +624,9 @@ public class ActionEventsBean {
             }
         }
     }
+        
+
+
 
 
     public void saveFile(String folderPath, String fileName, UploadedFile file) throws MalformedURLException,
@@ -2085,7 +2092,9 @@ public class ActionEventsBean {
     //
     //    }
 
-    public void onFAFileAttachment(ValueChangeEvent valueChangeEvent) {
+
+   public void onFAFileAttachment(ValueChangeEvent valueChangeEvent) {
+
 
         if (valueChangeEvent.getNewValue() != null) {
 
@@ -2106,13 +2115,13 @@ public class ActionEventsBean {
                     UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
                     if (null != uploadedFile) {
 
-                        //                        InputStream inputStream = null;
+                        //Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  InputStream inputStream = null;
 
-                        //                        inputStream = uploadedFile.getInputStream();
+                        //Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  inputStream = uploadedFile.getInputStream();
 
-                        //                        BufferedInputStream bfi = new BufferedInputStream(inputStream);
+                        //Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  BufferedInputStream bfi = new BufferedInputStream(inputStream);
 
-                        //                        String fileName = uploadedFile.getFilename();
+                        //Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  String fileName = uploadedFile.getFilename();
                         String path = null;
 
                         String tokens = uploadedFile.getFilename();
@@ -2120,7 +2129,7 @@ public class ActionEventsBean {
                         String contentType = uploadedFile.getContentType();
 
 
-                        //                        path = filePath1 + File.separator + fileName;
+                        //Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  path = filePath1 + File.separator + fileName;
                         saveFile(filePath1, fileName, uploadedFile);
 
                         // DCIteratorBinding docs = getDCIteratorBindings("SgsTpaDocAttachment1VO2Iterator");
@@ -2133,9 +2142,9 @@ public class ActionEventsBean {
                         for (oracle.jbo.Row rw : selectedRows) {
 
                             if (null != inputFileBindFA.getValue()) {
-                                //                UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
+                                //Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  UploadedFile uploadedFile = (UploadedFile) inputFileBindFA.getValue();
                                 if (null != uploadedFile.getFilename()) {
-                                    //                    fileName = (String) uploadedFile.getFilename();
+                                    //Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  fileName = (String) uploadedFile.getFilename();
                                     rw.setAttribute("ATTACHMENT", fileName);
                                     rw.setAttribute("Status", "Approved");
                                     rw.setAttribute("ATTRIBUTE1", path);
@@ -2154,7 +2163,6 @@ public class ActionEventsBean {
         }
 
     }
-
 
     public void setRejectionReasonLOVBind(RichSelectOneChoice rejectionReasonLOVBind) {
         this.rejectionReasonLOVBind = rejectionReasonLOVBind;
@@ -3591,6 +3599,7 @@ public class ActionEventsBean {
     }
 
 
+
     public void onStatUpload(ValueChangeEvent valueChangeEvent) {
         System.out.println("---------------inside onStatUpload-------------------");
         if (valueChangeEvent.getNewValue() != null) {
@@ -3728,6 +3737,137 @@ public class ActionEventsBean {
 
     public boolean getTaxRateNoDoc() {
         return taxRateNoDoc;
+
+    public void overRidingNettingLimit(ActionEvent actionEvent) {
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        String nettingId = (String) row.getAttribute("NettingId");
+        System.out.println("Netting ID ::" + nettingId);
+        if (null != nettingId && !nettingId.isEmpty()) {
+            String[] result = new String[2];
+            result = nettingId.split("\\-", 0); // splitting the string at "-"
+            String Geo1 = result[0];
+            String Geo2 = result[1];
+            System.out.println("Geo1 ::" + Geo1);
+            System.out.println("Geo2 ::" + Geo2);
+            CommonUtils util = new CommonUtils();
+            Object user = (Object) util.getSessionScopeValue("_username").toString();
+            ADFContext.getCurrent().getPageFlowScope().put("Geo1", Geo1);
+            ADFContext.getCurrent().getPageFlowScope().put("Geo2", Geo2);
+            ADFContext.getCurrent().getPageFlowScope().put("CalculatedIcAllowableLimit", row.getAttribute("NetAllowIcTran"));
+            ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
+            ADFContext.getCurrent().getPageFlowScope().put("CalculatedCCAllowableLimit", row.getAttribute("NetAllowArColl"));
+            ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
+            ADFContext.getCurrent().getPageFlowScope().put("createdBy", user);
+            ADFContext.getCurrent().getPageFlowScope().put("creationDate", new Date());
+            ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
+            
+//            value="#{pageFlowScope.Geo1}"
+//            value="#{pageFlowScope.Geo2}"
+//            value="#{pageFlowScope.CalculatedIcAllowableLimit}"
+//            value="#{pageFlowScope.UserIcAllowableLimit}"
+//            value="#{pageFlowScope.CalculatedCCAllowableLimit}"
+//            value="#{pageFlowScope.UserCCAllowableLimit}"
+//            value="#{pageFlowScope.createdBy}"
+//            value="#{pageFlowScope.creationDate}"
+//            value="#{pageFlowScope.Remarks}"
+        }
+        
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.nettingovertidepopup.show(hints);
+        
+        
+    }
+    
+    public void overRidingClosePopup(ActionEvent actionEvent) {
+            this.nettingovertidepopup.hide();
+            ADFContext.getCurrent().getPageFlowScope().put("Geo1", null);
+            ADFContext.getCurrent().getPageFlowScope().put("Geo2", null);
+            ADFContext.getCurrent().getPageFlowScope().put("CalculatedIcAllowableLimit", null);
+            // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
+            ADFContext.getCurrent().getPageFlowScope().put("CalculatedCCAllowableLimit",null);
+            // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
+            ADFContext.getCurrent().getPageFlowScope().put("createdBy", null);
+            ADFContext.getCurrent().getPageFlowScope().put("creationDate", null);
+            ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
+            setCcAllowableLimit(null);
+            setIcAllowableLimitBind(null);
+            setNettingRemarksBind(null);
+        }
+    
+    public void overRidingSavePopup(ActionEvent actionEvent) {
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        System.out.println("GEO1 ::"+ADFContext.getCurrent().getPageFlowScope().get("Geo1"));
+        System.out.println("GEO2 ::"+ADFContext.getCurrent().getPageFlowScope().get("Geo2"));
+        System.out.println("UserIcAllowableLimit ::"+ADFContext.getCurrent().getPageFlowScope().get("UserIcAllowableLimit"));
+        System.out.println("UserCCAllowableLimit ::"+ADFContext.getCurrent().getPageFlowScope().get("UserCCAllowableLimit"));
+        if(null != icAllowableLimitBind.getValue() ){
+            row.setAttribute("NETLIMITFIXARCOLL",icAllowableLimitBind.getValue());
+        }
+        
+        if(null != ccAllowableLimit.getValue()){
+            row.setAttribute("NETLIMITFIXICTRANS",ccAllowableLimit.getValue());
+        }
+        if(null != nettingRemarksBind.getValue()){
+            System.out.println("Remarks ::"+nettingRemarksBind.getValue());
+            row.setAttribute("REMARKS",nettingRemarksBind.getValue());
+        }
+        
+        
+        
+        executeBinding(SAVE_DATA);
+        ADFContext.getCurrent().getPageFlowScope().put("Geo1", null);
+        ADFContext.getCurrent().getPageFlowScope().put("Geo2", null);
+        ADFContext.getCurrent().getPageFlowScope().put("CalculatedIcAllowableLimit", null);
+       // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
+        ADFContext.getCurrent().getPageFlowScope().put("CalculatedCCAllowableLimit",null);
+       // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
+        ADFContext.getCurrent().getPageFlowScope().put("createdBy", null);
+        ADFContext.getCurrent().getPageFlowScope().put("creationDate", null);
+        ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
+        
+        this.nettingovertidepopup.hide();
+
+        setCcAllowableLimit(null);
+        setIcAllowableLimitBind(null);
+        setNettingRemarksBind(null);
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(icAllowableLimitBind);
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(ccAllowableLimit);
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(nettingRemarksBind);
+    }
+
+    public void setNettingovertidepopup(RichPopup nettingovertidepopup) {
+        this.nettingovertidepopup = nettingovertidepopup;
+    }
+
+    public RichPopup getNettingovertidepopup() {
+        return nettingovertidepopup;
+    }
+
+    public void setIcAllowableLimitBind(RichInputText icAllowableLimitBind) {
+        this.icAllowableLimitBind = icAllowableLimitBind;
+    }
+
+    public RichInputText getIcAllowableLimitBind() {
+        return icAllowableLimitBind;
+    }
+
+    public void setCcAllowableLimit(RichInputText ccAllowableLimit) {
+        this.ccAllowableLimit = ccAllowableLimit;
+    }
+
+    public RichInputText getCcAllowableLimit() {
+        return ccAllowableLimit;
+    }
+
+    public void setNettingRemarksBind(RichInputText nettingRemarksBind) {
+        this.nettingRemarksBind = nettingRemarksBind;
+    }
+
+    public RichInputText getNettingRemarksBind() {
+        return nettingRemarksBind;
+
     }
 }
 

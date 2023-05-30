@@ -5,23 +5,36 @@
       <af:inlineFrame id="if10" 
                                                     source="/pages/Transaction Reports/StatisticalDataReport.html"
                                                     styleClass="AFStretchWidth" sizing="preferred"
-                                                    inlineStyle="height:1200px"/>
+                                                    inlineStyle="height:700px"/>
     </af:showDetailItem>
     
      <af:showDetailItem id="Report2" text="Invoice Dashboard Reports">
       <af:inlineFrame id="if12" 
                                                     source="/pages/Transaction Reports/InvoiceDashboardReport.html"
                                                     styleClass="AFStretchWidth" sizing="preferred"
-                                                    inlineStyle="height:1200px"/>
+                                                    inlineStyle="height:700px"/>
 
     </af:showDetailItem>
      <af:showDetailItem id="Report3" text="Accounting Entries Reports">
       <af:inlineFrame id="if13" 
                                                     source="/pages/Transaction Reports/AccountingEntries.html"
                                                     styleClass="AFStretchWidth" sizing="preferred"
-                                                    inlineStyle="height:1200px"/>
+                                                    inlineStyle="height:700px"/>
 
     </af:showDetailItem>
-    
+     <af:showDetailItem id="Report4" text="Fixed Asset Transaction Reports">
+      <af:inlineFrame id="if14" 
+                                                    source="/pages/Transaction Reports/FixedAssetReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:700px"/>
+
+    </af:showDetailItem>
+     <af:showDetailItem id="Report5" text="PeopleSoft Transaction Reports">
+      <af:inlineFrame id="if15" 
+                                                    source="/pages/Transaction Reports/PplSoftTxnReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:700px"/>
+
+    </af:showDetailItem>
   </af:panelTabbed>
 </ui:composition>

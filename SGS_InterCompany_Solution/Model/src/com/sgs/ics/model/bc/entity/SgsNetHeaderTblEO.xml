@@ -335,6 +335,54 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="NET_HEADER_TBL"/>
+  <Attribute
+    Name="NETBALARCOLL"
+    Precision="20"
+    Scale="2"
+    ColumnName="NET_BAL_AR_COLL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="NET_HEADER_TBL"/>
+  <Attribute
+    Name="NETBALICTRANS"
+    Precision="20"
+    Scale="2"
+    ColumnName="NET_BAL_IC_TRANS"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="NET_HEADER_TBL"/>
+  <Attribute
+    Name="NETLIMITFIXARCOLL"
+    Precision="20"
+    Scale="2"
+    ColumnName="NET_LIMIT_FIX_AR_COLL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="NET_HEADER_TBL"/>
+  <Attribute
+    Name="NETLIMITFIXICTRANS"
+    Precision="20"
+    Scale="2"
+    ColumnName="NET_LIMIT_FIX_IC_TRANS"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMERIC"
+    TableName="NET_HEADER_TBL"/>
+  <Attribute
+    Name="REMARKS"
+    Precision="1000"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="NET_HEADER_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKNETHEADERTBL"
     PrimaryKey="true">

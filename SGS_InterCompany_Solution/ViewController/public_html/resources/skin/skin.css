@@ -241,7 +241,8 @@ af|panelHeader::content0 {
 }
 
 af|panelGridLayout.headerbgcolor {
-  background-image: linear-gradient(120deg,#2980b9,#8e44ad);
+  /*background-image: linear-gradient(120deg,#2980b9,#8e44ad);*/
+  background-color: White;
 }
 
 /*.AFButtonGradientStartDisabledColor:alias{
@@ -361,6 +362,111 @@ af|query::title-text1 {
     
     color:white;
 
+}
+
+/*--*//*--*//*--*/
+
+af|panelAccordion::header-title{
+    background-color: #6B7896;
+    color: #fff;																	  
+}
+
+/*background-color: #001E60;*/
+
+af|panelAccordion::header-disclose{
+    white-space: nowrap;
+    border-bottom: 0px solid #D7D7C5;
+    background-color: #6B7896;
+    border-color: #3d4453;
+}
+
+af|panelAccordion::header-toolbar{
+	background-color: #e0004d;
+}
+
+af|panelAccordion::header-title:hover{
+	background: #485B84;
+}
+
+af|panelAccordion::body-content{
+    color : #ee1954;
+}
+
+af|query::title1{
+    background-color : #485B84;
+}
+
+af|query::title-text1{
+    color : #fff;
+}
+
+.setup af|column::column-header-cell{
+    background-color : #485B84;
+}
+
+/*.setupHeader af|button.p_AFTextOnly.p_AFActionDisabled{*/
+ /*styles for the af:query search and reset buttons*/ 
+    /*background: #00e093;
+    color: white;
+    font-weight:600;
+    border-color: #e0004d;
+    border-radius: 3px;
+}*/
+
+/*.setupHeader af|button::text{
+    color: white;
+    text-decoration: none;
+}*/
+
+/*.button af|button.p_AFCore.p_AFDefault{
+    background : #43c1ab;
+    color: white;
+    text-decoration: none;
+}*/
+
+
+
+.transaction af|column::column-header-cell{
+    background-color : #485B84;
+    border-radius: 3px;
+    border-color: #fff;
+}
+
+
+af|table::data-row:selected:inactive af|column::data-cell,
+af|column::data-cell:selected,
+af|table::data-row:selected:busy,
+af|column::data-cell:focus,
+af|table::data-row:selected:focused af|column::banded-data-cell,
+af|table::data-row:selected:focused af|column::data-cell,
+af|table::data-row:selected af|column::data-cell{
+    background-color: #B1BDD3;
+}
+
+af|button{
+    text-shadow:none;
+}
+af|button::link{
+    background-color: #9EADC8;
+    color: Black;
+    text-shadow:none;
+}
+
+/*.login af|button::link{
+    background-image: linear-gradient(172deg, #1c2b66, #a82b56);
+    margin-bottom:30px; 
+    width:265px; 
+    margin-left:4px; 
+    border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ;  
+    color:white; 
+    font-size:medium;
+}*/
+af|panelTabbed{
+    font-size: larger;
+    text-align: -webkit-center;
+}
+af|panelTabbed::tab{
+    background-color: #c9ccd4;
 }
 
 

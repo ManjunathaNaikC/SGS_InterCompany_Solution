@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="SgsNetHeaderTblEO"
     Entity="com.sgs.ics.model.bc.entity.SgsNetHeaderTblEO"/>
@@ -326,6 +327,71 @@
     EntityAttrName="Attribute15"
     EntityUsage="SgsNetHeaderTblEO"
     AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="NETBALARCOLL"
+    PrecisionRule="true"
+    EntityAttrName="NETBALARCOLL"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="NET_BAL_AR_COLL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.NETBALARCOLL_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NETBALICTRANS"
+    PrecisionRule="true"
+    EntityAttrName="NETBALICTRANS"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="NET_BAL_IC_TRANS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.NETBALICTRANS_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NETLIMITFIXARCOLL"
+    PrecisionRule="true"
+    EntityAttrName="NETLIMITFIXARCOLL"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="NET_LIMIT_FIX_AR_COLL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.NETLIMITFIXARCOLL_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NETLIMITFIXICTRANS"
+    PrecisionRule="true"
+    EntityAttrName="NETLIMITFIXICTRANS"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="NET_LIMIT_FIX_IC_TRANS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.NETLIMITFIXICTRANS_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="REMARKS"
+    PrecisionRule="true"
+    EntityAttrName="REMARKS"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="REMARKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.REMARKS_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SgsNetIcReceivableVO"
     ViewLink="com.sgs.ics.model.bc.view.link.NettingHeaderToReceivableVL"

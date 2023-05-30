@@ -1,10 +1,56 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelBox text="Netting Lines" id="pb1">
+  <af:panelBox text="Netting Details" id="pb1">
     <f:facet name="toolbar">
       <af:button text="Back" id="b1" action="Header"/>
     </f:facet>
+    <af:panelFormLayout id="pfl1" rows="10">
+      <f:facet name="footer"/>
+      <af:panelLabelAndMessage label="#{bindings.NettingId.hints.label}" id="plam1">
+        <af:outputText value="#{bindings.NettingId.inputValue}" shortDesc="#{bindings.NettingId.hints.tooltip}"
+                       id="ot33"/>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.NetAllowIcTran.hints.label}" id="plam2">
+        <af:outputText value="#{bindings.NetAllowIcTran.inputValue}"
+                       shortDesc="#{bindings.NetAllowIcTran.hints.tooltip}" id="ot34">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.NetAllowIcTran.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.NetAllowArColl.hints.label}" id="plam3">
+        <af:outputText value="#{bindings.NetAllowArColl.inputValue}"
+                       shortDesc="#{bindings.NetAllowArColl.hints.tooltip}" id="ot35">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.NetAllowArColl.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.NETLIMITFIXICTRANS.hints.label}" id="plam4">
+        <af:outputText value="#{bindings.NETLIMITFIXICTRANS.inputValue}"
+                       shortDesc="#{bindings.NETLIMITFIXICTRANS.hints.tooltip}" id="ot36">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETLIMITFIXICTRANS.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.NETLIMITFIXARCOLL.hints.label}" id="plam5">
+        <af:outputText value="#{bindings.NETLIMITFIXARCOLL.inputValue}"
+                       shortDesc="#{bindings.NETLIMITFIXARCOLL.hints.tooltip}" id="ot37">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETLIMITFIXARCOLL.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.NETBALICTRANS.hints.label}" id="plam6">
+        <af:outputText value="#{bindings.NETBALICTRANS.inputValue}" shortDesc="#{bindings.NETBALICTRANS.hints.tooltip}"
+                       id="ot38">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETBALICTRANS.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.NETBALARCOLL.hints.label}" id="plam7">
+        <af:outputText value="#{bindings.NETBALARCOLL.inputValue}" shortDesc="#{bindings.NETBALARCOLL.hints.tooltip}"
+                       id="ot39">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.NETBALARCOLL.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.Status.hints.label}" id="plam8">
+        <af:outputText value="#{bindings.Status.inputValue}" shortDesc="#{bindings.Status.hints.tooltip}" id="ot40"/>
+      </af:panelLabelAndMessage>
+    </af:panelFormLayout>
     <af:panelBox text="Netting Receivable" id="pb2">
       <f:facet name="toolbar"/>
       <af:panelCollection id="pc1" styleClass="AFStretchWidth">

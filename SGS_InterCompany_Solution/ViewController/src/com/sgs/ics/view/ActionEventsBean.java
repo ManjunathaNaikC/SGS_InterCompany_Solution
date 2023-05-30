@@ -174,6 +174,9 @@ public class ActionEventsBean {
     private RichInputText icAllowableLimitBind;
     private RichInputText ccAllowableLimit;
     private RichInputText nettingRemarksBind;
+    private RichColumn oncolumnSelectRecord;
+    private RichSelectBooleanCheckbox nettingselectcheckbox;
+    private RichSelectBooleanCheckbox onNettingSelectAll;
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -3610,6 +3613,29 @@ public class ActionEventsBean {
     }
 
     public void overRidingNettingLimit(ActionEvent actionEvent) {
+        DCIteratorBinding nettingData = null;
+        nettingData = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+        oracle.jbo.Row[] nettingDataDatarows = nettingData.getAllRowsInRange();
+        int rowCount=0;
+        System.out.println("NettingDataDatarows Length::"+nettingDataDatarows.length);
+        System.out.println("Before rowCount::"+rowCount);
+        for (int i = 0; i < nettingDataDatarows.length; i++) {
+            System.out.println("Selected Record ::"+nettingDataDatarows[i].getAttribute("selectedRecord"));
+            if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
+                nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {
+                    rowCount++;
+                }
+        }
+        System.out.println("After rowCount::"+rowCount);
+        
+        if(rowCount >1){
+            FacesContext context = FacesContext.getCurrentInstance();
+            String messageText = "Please select only one record to Override the Netting Limit.";
+            FacesMessage fm = new FacesMessage(messageText);
+            fm.setSeverity(FacesMessage.SEVERITY_WARN);
+            context.addMessage(null, fm);
+            
+        }else if(rowCount==1){
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
         String nettingId = (String) row.getAttribute("NettingId");
@@ -3632,21 +3658,12 @@ public class ActionEventsBean {
             ADFContext.getCurrent().getPageFlowScope().put("createdBy", user);
             ADFContext.getCurrent().getPageFlowScope().put("creationDate", new Date());
             ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
-            
-//            value="#{pageFlowScope.Geo1}"
-//            value="#{pageFlowScope.Geo2}"
-//            value="#{pageFlowScope.CalculatedIcAllowableLimit}"
-//            value="#{pageFlowScope.UserIcAllowableLimit}"
-//            value="#{pageFlowScope.CalculatedCCAllowableLimit}"
-//            value="#{pageFlowScope.UserCCAllowableLimit}"
-//            value="#{pageFlowScope.createdBy}"
-//            value="#{pageFlowScope.creationDate}"
-//            value="#{pageFlowScope.Remarks}"
+
         }
         
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.nettingovertidepopup.show(hints);
-        
+     }
         
     }
     
@@ -3667,6 +3684,7 @@ public class ActionEventsBean {
         }
     
     public void overRidingSavePopup(ActionEvent actionEvent) {
+
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
         System.out.println("GEO1 ::"+ADFContext.getCurrent().getPageFlowScope().get("Geo1"));
@@ -3697,15 +3715,11 @@ public class ActionEventsBean {
         ADFContext.getCurrent().getPageFlowScope().put("createdBy", null);
         ADFContext.getCurrent().getPageFlowScope().put("creationDate", null);
         ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
-        
         this.nettingovertidepopup.hide();
-
         setCcAllowableLimit(null);
         setIcAllowableLimitBind(null);
         setNettingRemarksBind(null);
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(icAllowableLimitBind);
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(ccAllowableLimit);
-//        AdfFacesContext.getCurrentInstance().addPartialTarget(nettingRemarksBind);
+        
     }
 
     public void setNettingovertidepopup(RichPopup nettingovertidepopup) {
@@ -3738,6 +3752,47 @@ public class ActionEventsBean {
 
     public RichInputText getNettingRemarksBind() {
         return nettingRemarksBind;
+    }
+
+    public void setOncolumnSelectRecord(RichColumn oncolumnSelectRecord) {
+        this.oncolumnSelectRecord = oncolumnSelectRecord;
+    }
+
+    public RichColumn getOncolumnSelectRecord() {
+        return oncolumnSelectRecord;
+    }
+
+    public void setNettingselectcheckbox(RichSelectBooleanCheckbox nettingselectcheckbox) {
+        this.nettingselectcheckbox = nettingselectcheckbox;
+    }
+
+    public RichSelectBooleanCheckbox getNettingselectcheckbox() {
+        return nettingselectcheckbox;
+    }
+
+    public void setOnNettingSelectAll(RichSelectBooleanCheckbox onNettingSelectAll) {
+        this.onNettingSelectAll = onNettingSelectAll;
+    }
+
+    public RichSelectBooleanCheckbox getOnNettingSelectAll() {
+        return onNettingSelectAll;
+    }
+
+    public void onNettingSelectAll(ValueChangeEvent valueChangeEvent) {
+        DCIteratorBinding nettingData = null;
+        nettingData = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+        oracle.jbo.Row[] nettingDataDatarows = nettingData.getAllRowsInRange();
+        if ((Boolean) valueChangeEvent.getNewValue()) {
+            for (int i = 0; i < nettingDataDatarows.length; i++) {
+                nettingDataDatarows[i].setAttribute("selectedRecord", "Yes");
+            }
+        } else {
+            for (int i = 0; i < nettingDataDatarows.length; i++) {
+                nettingDataDatarows[i].setAttribute("selectedRecord", "No");
+            }
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(nettingselectcheckbox);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(oncolumnSelectRecord);
     }
 }
 

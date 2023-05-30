@@ -32,6 +32,26 @@
             </af:outputText>
           </af:link>
         </af:column>-->
+                        <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.selectedRecord.label}"  id="c55"
+                                   
+                                   inlineStyle="color:White;"
+                                   binding="#{viewScope.ActionEventsBean.oncolumnSelectRecord}">
+          <!--<af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
+                                    label="#{row.bindings.selectedRecord.label}"
+                                    shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.selectedRecord.tooltip}" id="sbc3"/>-->
+          <af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
+                                                      label="#{row.bindings.selectedRecord.label}"
+                                                      shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.selectedRecord.tooltip}"
+                                                      id="sbc1" 
+                                                      autoSubmit="true"
+                                                      binding="#{viewScope.ActionEventsBean.nettingselectcheckbox}"/>
+                            <f:facet name="header">
+                              <af:selectBooleanCheckbox text="Select All"  id="sbc2" 
+                                    autoSubmit="true" styleClass="cb"
+                                                       valueChangeListener="#{viewScope.ActionEventsBean.onNettingSelectAll}"
+                                                        partialTriggers="::t1 c55 sbc1"/>
+                            </f:facet>
+                        </af:column>
         <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.name}" filterable="true" sortable="true"
                    headerText="#{bindings.SgsNetHeaderTblVO1.hints.NettingId.label}" id="c2">
           <af:link action="Lines" id="l2">

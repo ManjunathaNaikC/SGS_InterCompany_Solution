@@ -392,6 +392,15 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="selectedRecord"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ViewLinkAccessor
     Name="SgsNetIcReceivableVO"
     ViewLink="com.sgs.ics.model.bc.view.link.NettingHeaderToReceivableVL"
@@ -400,6 +409,16 @@
   <ViewLinkAccessor
     Name="SgsNetIcPayableVO"
     ViewLink="com.sgs.ics.model.bc.view.link.NettingHeaderToPayableVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="NetArColRecVO"
+    ViewLink="com.sgs.ics.model.bc.view.link.NettingToArcollectionRecVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="NetArColPayVO"
+    ViewLink="com.sgs.ics.model.bc.view.link.NettingToArcollectionPayVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

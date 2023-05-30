@@ -14,6 +14,12 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNetIcPayableVO2Query"/>
     <iterator Binds="SgsNetHeaderTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsNetHeaderTblVO1Iterator"/>
+    <iterator Binds="NetArColRecVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="NetArColRecVO1Iterator"/>
+    <searchRegion Binds="NetArColRecVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="NetArColRecVO1Query"/>
+    <iterator Binds="NetArColPayVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="NetArColPayVO1Iterator"/>
+    <searchRegion Binds="NetArColPayVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="NetArColPayVO1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsNetIcReceivableVO1Iterator" id="SgsNetIcReceivableVO1">
@@ -125,5 +131,51 @@
         <Item Value="UpdatedDate"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="NetArColRecVO1Iterator" id="NetArColRecVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.NetArColRecVO" Name="NetArColRecVO10">
+        <AttrNames>
+          <Item Value="NettingId"/>
+          <Item Value="NicviId"/>
+          <Item Value="Period"/>
+          <Item Value="IuVendor"/>
+          <Item Value="ArBu"/>
+          <Item Value="ArPsftRefNum"/>
+          <Item Value="IuCustomer"/>
+          <Item Value="ApBu"/>
+          <Item Value="ApPsftRefNum"/>
+          <Item Value="CustRefNum"/>
+          <Item Value="InvoiceAmount"/>
+          <Item Value="NetAllLimit"/>
+          <Item Value="NetPerformed"/>
+          <Item Value="NetBalance"/>
+          <Item Value="Status"/>
+          <Item Value="ApGeo"/>
+          <Item Value="ArGeo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="NetArColPayVO1Iterator" id="NetArColPayVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.NetArColPayVO" Name="NetArColPayVO10">
+        <AttrNames>
+          <Item Value="NettingId2"/>
+          <Item Value="NicviId"/>
+          <Item Value="Period"/>
+          <Item Value="IuCustomer"/>
+          <Item Value="ApBu"/>
+          <Item Value="ApPsftRefNum"/>
+          <Item Value="IuVendor"/>
+          <Item Value="ArBu"/>
+          <Item Value="ArPsftRefNum"/>
+          <Item Value="CustRefNum"/>
+          <Item Value="VoucherAmount"/>
+          <Item Value="NetAllLimit"/>
+          <Item Value="NetPerformed"/>
+          <Item Value="NetBalance"/>
+          <Item Value="Status"/>
+          <Item Value="ApGeo"/>
+          <Item Value="ArGeo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

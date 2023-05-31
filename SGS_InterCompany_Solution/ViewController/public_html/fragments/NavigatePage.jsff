@@ -88,9 +88,9 @@
                                     <af:link text="Fixed Assets Transactions"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or  sessionScope.get('pageList').contains('FIXED_ASSETS')}"
                                              action="#{pageFlowScope.navigateBean.sgsfixedAssetsTxnflow}" id="fat01"
                                              immediate="true"/>
-                                    <af:link text="Netting Settlement"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('NETTING')}"
+                                    <!--<af:link text="Netting Settlement"   rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('NETTING')}"
                                              action="#{pageFlowScope.navigateBean.sgsnettingflow}" id="l2"
-                                             immediate="true"/>
+                                             immediate="true"/>-->
 
                                     <af:link text="Netting"  rendered="#{sessionScope.get('pageList').contains('ALL_PAGE')  or  sessionScope.get('pageList').contains('NETTING')}"
                                              action="#{pageFlowScope.navigateBean.sgs_netting_new_flow}" id="l18"/>

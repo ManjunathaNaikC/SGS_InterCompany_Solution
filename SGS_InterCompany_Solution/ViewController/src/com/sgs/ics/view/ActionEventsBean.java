@@ -3765,9 +3765,13 @@ public class ActionEventsBean {
             context.addMessage(null, fm);
 
         } else if (rowCount == 1) {
-            DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
-            Row row = dcIteratorbinding.getCurrentRow();
-            String nettingId = (String) row.getAttribute("NettingId");
+            for (int i = 0; i < nettingDataDatarows.length; i++) {
+                System.out.println("Selected Record ::" + nettingDataDatarows[i].getAttribute("selectedRecord"));
+                if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
+                    nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {           
+//            DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+//            Row row = dcIteratorbinding.getCurrentRow();
+            String nettingId = (String) nettingDataDatarows[i].getAttribute("NettingId");
             System.out.println("Netting ID ::" + nettingId);
             if (null != nettingId && !nettingId.isEmpty()) {
                 String[] result = new String[2];
@@ -3786,13 +3790,13 @@ public class ActionEventsBean {
                           .put("Geo2", Geo2);
                 ADFContext.getCurrent()
                           .getPageFlowScope()
-                          .put("CalculatedIcAllowableLimit", row.getAttribute("NetAllowIcTran"));
+                          .put("CalculatedIcAllowableLimit", nettingDataDatarows[i].getAttribute("NetAllowIcTran"));
                 ADFContext.getCurrent()
                           .getPageFlowScope()
                           .put("UserIcAllowableLimit", null);
                 ADFContext.getCurrent()
                           .getPageFlowScope()
-                          .put("CalculatedCCAllowableLimit", row.getAttribute("NetAllowArColl"));
+                          .put("CalculatedCCAllowableLimit", nettingDataDatarows[i].getAttribute("NetAllowArColl"));
                 ADFContext.getCurrent()
                           .getPageFlowScope()
                           .put("UserCCAllowableLimit", null);
@@ -3810,11 +3814,16 @@ public class ActionEventsBean {
 
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             this.nettingovertidepopup.show(hints);
+            }
+        } 
+            
+            
         }
 
     }
 
     public void overRidingClosePopup(ActionEvent actionEvent) {
+  
         this.nettingovertidepopup.hide();
         ADFContext.getCurrent()
                   .getPageFlowScope()
@@ -3842,12 +3851,30 @@ public class ActionEventsBean {
         setCcAllowableLimit(null);
         setIcAllowableLimitBind(null);
         setNettingRemarksBind(null);
+        
     }
 
     public void overRidingSavePopup(ActionEvent actionEvent) {
+        int count=0;
+        DCIteratorBinding nettingData = null;
+        nettingData = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+        oracle.jbo.Row[] nettingDataDatarows = nettingData.getAllRowsInRange();
+        for (int i = 0; i < nettingDataDatarows.length; i++) {
+            System.out.println("Selected Record ::" + nettingDataDatarows[i].getAttribute("selectedRecord"));
+            if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
+                nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {
+                count++;
+            }
+        }
+        
+        if(count==1) {
+        for (int i = 0; i < nettingDataDatarows.length; i++) {
+            System.out.println("Selected Record ::" + nettingDataDatarows[i].getAttribute("selectedRecord"));
+            if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
+                nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {
 
-        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
-        Row row = dcIteratorbinding.getCurrentRow();
+//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+//        Row row = dcIteratorbinding.getCurrentRow();
         System.out.println("GEO1 ::" + ADFContext.getCurrent()
                                                  .getPageFlowScope()
                                                  .get("Geo1"));
@@ -3861,15 +3888,15 @@ public class ActionEventsBean {
                                                                  .getPageFlowScope()
                                                                  .get("UserCCAllowableLimit"));
         if (null != icAllowableLimitBind.getValue()) {
-            row.setAttribute("NETLIMITFIXARCOLL", ccAllowableLimit.getValue());
+             nettingDataDatarows[i].setAttribute("NETLIMITFIXARCOLL", ccAllowableLimit.getValue());
         }
 
         if (null != ccAllowableLimit.getValue()) {
-            row.setAttribute("NETLIMITFIXICTRANS", icAllowableLimitBind.getValue());
+             nettingDataDatarows[i].setAttribute("NETLIMITFIXICTRANS", icAllowableLimitBind.getValue());
         }
         if (null != nettingRemarksBind.getValue()) {
             System.out.println("Remarks ::" + nettingRemarksBind.getValue());
-            row.setAttribute("REMARKS", nettingRemarksBind.getValue());
+             nettingDataDatarows[i].setAttribute("REMARKS", nettingRemarksBind.getValue());
         }
 
         double NetIcAllLimCalRead = ((BigDecimal) netIcAllLimCalBind.getValue()).doubleValue();
@@ -3914,8 +3941,10 @@ public class ActionEventsBean {
             setCcAllowableLimit(null);
             setIcAllowableLimitBind(null);
             setNettingRemarksBind(null);
-
         }
+        }    
+    }
+    }
 
 
     }

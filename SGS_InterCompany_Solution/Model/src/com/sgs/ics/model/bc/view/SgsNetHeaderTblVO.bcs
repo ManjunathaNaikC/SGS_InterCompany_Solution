@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.SgsNetHeaderTblVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="SgsLookupGeoVO1", name="bLookupType")
+def bLookupType_SgsLookupGeoVO1_BindVariable_BoundParameter()
+{
+'GEOGRAPHY_LOOKUP'
+}
+

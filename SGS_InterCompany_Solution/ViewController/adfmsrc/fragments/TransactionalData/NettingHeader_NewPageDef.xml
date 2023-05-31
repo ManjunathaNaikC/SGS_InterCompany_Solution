@@ -8,6 +8,10 @@
               id="SgsNetHeaderTblVO1Iterator"/>
     <searchRegion Binds="SgsNetHeaderTblVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsNetHeaderTblVO1Query"/>
+    <searchRegion Criteria="SgsNetHeaderTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsNetHeaderTblVO1Iterator" id="SgsNetHeaderTblVOCriteriaQuery"/>
+    <searchRegion Criteria="SgsNetHeaderTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SgsNetHeaderTblVO1Iterator" id="SgsNetHeaderTblVOCriteriaQuery1"/>
   </executables>
   <bindings>
     <tree IterBinding="SgsNetHeaderTblVO1Iterator" id="SgsNetHeaderTblVO1">

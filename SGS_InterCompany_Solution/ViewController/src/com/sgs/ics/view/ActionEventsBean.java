@@ -80,6 +80,8 @@ import oracle.jbo.ViewObject;
 import oracle.jbo.server.ViewObjectImpl;
 import oracle.jbo.uicli.binding.JUCtrlListBinding;
 
+import oracle.jbo.uicli.binding.JUCtrlValueBinding;
+
 import org.apache.myfaces.trinidad.model.UploadedFile;
 
 
@@ -178,6 +180,7 @@ public class ActionEventsBean {
     private RichColumn oncolumnSelectRecord;
     private RichSelectBooleanCheckbox nettingselectcheckbox;
     private RichSelectBooleanCheckbox onNettingSelectAll;
+    private RichInputText netIcAllLimCalBind;
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -627,9 +630,6 @@ public class ActionEventsBean {
             }
         }
     }
-        
-
-
 
 
     public void saveFile(String folderPath, String fileName, UploadedFile file) throws MalformedURLException,
@@ -2096,7 +2096,7 @@ public class ActionEventsBean {
     //    }
 
 
-   public void onFAFileAttachment(ValueChangeEvent valueChangeEvent) {
+    public void onFAFileAttachment(ValueChangeEvent valueChangeEvent) {
 
 
         if (valueChangeEvent.getNewValue() != null) {
@@ -3602,7 +3602,6 @@ public class ActionEventsBean {
     }
 
 
-
     public void onStatUpload(ValueChangeEvent valueChangeEvent) {
         System.out.println("---------------inside onStatUpload-------------------");
         if (valueChangeEvent.getNewValue() != null) {
@@ -3746,110 +3745,179 @@ public class ActionEventsBean {
         DCIteratorBinding nettingData = null;
         nettingData = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
         oracle.jbo.Row[] nettingDataDatarows = nettingData.getAllRowsInRange();
-        int rowCount=0;
-        System.out.println("NettingDataDatarows Length::"+nettingDataDatarows.length);
-        System.out.println("Before rowCount::"+rowCount);
+        int rowCount = 0;
+        System.out.println("NettingDataDatarows Length::" + nettingDataDatarows.length);
+        System.out.println("Before rowCount::" + rowCount);
         for (int i = 0; i < nettingDataDatarows.length; i++) {
-            System.out.println("Selected Record ::"+nettingDataDatarows[i].getAttribute("selectedRecord"));
+            System.out.println("Selected Record ::" + nettingDataDatarows[i].getAttribute("selectedRecord"));
             if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
                 nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {
-                    rowCount++;
-                }
+                rowCount++;
+            }
         }
-        System.out.println("After rowCount::"+rowCount);
-        
-        if(rowCount >1){
+        System.out.println("After rowCount::" + rowCount);
+
+        if (rowCount > 1) {
             FacesContext context = FacesContext.getCurrentInstance();
             String messageText = "Please select only one record to Override the Netting Limit.";
             FacesMessage fm = new FacesMessage(messageText);
             fm.setSeverity(FacesMessage.SEVERITY_WARN);
             context.addMessage(null, fm);
-            
-        }else if(rowCount==1){
-        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
-        Row row = dcIteratorbinding.getCurrentRow();
-        String nettingId = (String) row.getAttribute("NettingId");
-        System.out.println("Netting ID ::" + nettingId);
-        if (null != nettingId && !nettingId.isEmpty()) {
-            String[] result = new String[2];
-            result = nettingId.split("\\-", 0); // splitting the string at "-"
-            String Geo1 = result[0];
-            String Geo2 = result[1];
-            System.out.println("Geo1 ::" + Geo1);
-            System.out.println("Geo2 ::" + Geo2);
-            CommonUtils util = new CommonUtils();
-            Object user = (Object) util.getSessionScopeValue("_username").toString();
-            ADFContext.getCurrent().getPageFlowScope().put("Geo1", Geo1);
-            ADFContext.getCurrent().getPageFlowScope().put("Geo2", Geo2);
-            ADFContext.getCurrent().getPageFlowScope().put("CalculatedIcAllowableLimit", row.getAttribute("NetAllowIcTran"));
-            ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
-            ADFContext.getCurrent().getPageFlowScope().put("CalculatedCCAllowableLimit", row.getAttribute("NetAllowArColl"));
-            ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
-            ADFContext.getCurrent().getPageFlowScope().put("createdBy", user);
-            ADFContext.getCurrent().getPageFlowScope().put("creationDate", new Date());
-            ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
 
+        } else if (rowCount == 1) {
+            DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+            Row row = dcIteratorbinding.getCurrentRow();
+            String nettingId = (String) row.getAttribute("NettingId");
+            System.out.println("Netting ID ::" + nettingId);
+            if (null != nettingId && !nettingId.isEmpty()) {
+                String[] result = new String[2];
+                result = nettingId.split("\\-", 0); // splitting the string at "-"
+                String Geo1 = result[0];
+                String Geo2 = result[1];
+                System.out.println("Geo1 ::" + Geo1);
+                System.out.println("Geo2 ::" + Geo2);
+                CommonUtils util = new CommonUtils();
+                Object user = (Object) util.getSessionScopeValue("_username").toString();
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("Geo1", Geo1);
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("Geo2", Geo2);
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("CalculatedIcAllowableLimit", row.getAttribute("NetAllowIcTran"));
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("UserIcAllowableLimit", null);
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("CalculatedCCAllowableLimit", row.getAttribute("NetAllowArColl"));
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("UserCCAllowableLimit", null);
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("createdBy", user);
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("creationDate", new Date());
+                ADFContext.getCurrent()
+                          .getPageFlowScope()
+                          .put("Remarks", null);
+
+            }
+
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            this.nettingovertidepopup.show(hints);
         }
-        
-        RichPopup.PopupHints hints = new RichPopup.PopupHints();
-        this.nettingovertidepopup.show(hints);
-     }
-        
+
     }
-    
+
     public void overRidingClosePopup(ActionEvent actionEvent) {
-            this.nettingovertidepopup.hide();
-            ADFContext.getCurrent().getPageFlowScope().put("Geo1", null);
-            ADFContext.getCurrent().getPageFlowScope().put("Geo2", null);
-            ADFContext.getCurrent().getPageFlowScope().put("CalculatedIcAllowableLimit", null);
-            // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
-            ADFContext.getCurrent().getPageFlowScope().put("CalculatedCCAllowableLimit",null);
-            // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
-            ADFContext.getCurrent().getPageFlowScope().put("createdBy", null);
-            ADFContext.getCurrent().getPageFlowScope().put("creationDate", null);
-            ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
-            setCcAllowableLimit(null);
-            setIcAllowableLimitBind(null);
-            setNettingRemarksBind(null);
-        }
-    
+        this.nettingovertidepopup.hide();
+        ADFContext.getCurrent()
+                  .getPageFlowScope()
+                  .put("Geo1", null);
+        ADFContext.getCurrent()
+                  .getPageFlowScope()
+                  .put("Geo2", null);
+        ADFContext.getCurrent()
+                  .getPageFlowScope()
+                  .put("CalculatedIcAllowableLimit", null);
+        // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
+        ADFContext.getCurrent()
+                  .getPageFlowScope()
+                  .put("CalculatedCCAllowableLimit", null);
+        // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
+        ADFContext.getCurrent()
+                  .getPageFlowScope()
+                  .put("createdBy", null);
+        ADFContext.getCurrent()
+                  .getPageFlowScope()
+                  .put("creationDate", null);
+        ADFContext.getCurrent()
+                  .getPageFlowScope()
+                  .put("Remarks", null);
+        setCcAllowableLimit(null);
+        setIcAllowableLimitBind(null);
+        setNettingRemarksBind(null);
+    }
+
     public void overRidingSavePopup(ActionEvent actionEvent) {
 
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
-        System.out.println("GEO1 ::"+ADFContext.getCurrent().getPageFlowScope().get("Geo1"));
-        System.out.println("GEO2 ::"+ADFContext.getCurrent().getPageFlowScope().get("Geo2"));
-        System.out.println("UserIcAllowableLimit ::"+ADFContext.getCurrent().getPageFlowScope().get("UserIcAllowableLimit"));
-        System.out.println("UserCCAllowableLimit ::"+ADFContext.getCurrent().getPageFlowScope().get("UserCCAllowableLimit"));
-        if(null != icAllowableLimitBind.getValue() ){
-            row.setAttribute("NETLIMITFIXARCOLL",ccAllowableLimit.getValue());
+        System.out.println("GEO1 ::" + ADFContext.getCurrent()
+                                                 .getPageFlowScope()
+                                                 .get("Geo1"));
+        System.out.println("GEO2 ::" + ADFContext.getCurrent()
+                                                 .getPageFlowScope()
+                                                 .get("Geo2"));
+        System.out.println("UserIcAllowableLimit ::" + ADFContext.getCurrent()
+                                                                 .getPageFlowScope()
+                                                                 .get("UserIcAllowableLimit"));
+        System.out.println("UserCCAllowableLimit ::" + ADFContext.getCurrent()
+                                                                 .getPageFlowScope()
+                                                                 .get("UserCCAllowableLimit"));
+        if (null != icAllowableLimitBind.getValue()) {
+            row.setAttribute("NETLIMITFIXARCOLL", ccAllowableLimit.getValue());
         }
-        
-        if(null != ccAllowableLimit.getValue()){
-            row.setAttribute("NETLIMITFIXICTRANS",icAllowableLimitBind.getValue());
+
+        if (null != ccAllowableLimit.getValue()) {
+            row.setAttribute("NETLIMITFIXICTRANS", icAllowableLimitBind.getValue());
         }
-        if(null != nettingRemarksBind.getValue()){
-            System.out.println("Remarks ::"+nettingRemarksBind.getValue());
-            row.setAttribute("REMARKS",nettingRemarksBind.getValue());
+        if (null != nettingRemarksBind.getValue()) {
+            System.out.println("Remarks ::" + nettingRemarksBind.getValue());
+            row.setAttribute("REMARKS", nettingRemarksBind.getValue());
         }
-        
-        
-        
-        executeBinding(SAVE_DATA);
-        ADFContext.getCurrent().getPageFlowScope().put("Geo1", null);
-        ADFContext.getCurrent().getPageFlowScope().put("Geo2", null);
-        ADFContext.getCurrent().getPageFlowScope().put("CalculatedIcAllowableLimit", null);
-       // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
-        ADFContext.getCurrent().getPageFlowScope().put("CalculatedCCAllowableLimit",null);
-       // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
-        ADFContext.getCurrent().getPageFlowScope().put("createdBy", null);
-        ADFContext.getCurrent().getPageFlowScope().put("creationDate", null);
-        ADFContext.getCurrent().getPageFlowScope().put("Remarks", null);
-        this.nettingovertidepopup.hide();
-        setCcAllowableLimit(null);
-        setIcAllowableLimitBind(null);
-        setNettingRemarksBind(null);
-        
+
+        double NetIcAllLimCalRead = ((BigDecimal) netIcAllLimCalBind.getValue()).doubleValue();
+       
+        double EnterNetIcLimOf =  Double.parseDouble((String) icAllowableLimitBind.getValue()); 
+
+        if (EnterNetIcLimOf > NetIcAllLimCalRead) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            String messageText = "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
+            FacesMessage fm = new FacesMessage(messageText);
+            fm.setSeverity(FacesMessage.SEVERITY_WARN);
+            context.addMessage(null, fm);
+
+        } else {
+
+
+            executeBinding(SAVE_DATA);
+            ADFContext.getCurrent()
+                      .getPageFlowScope()
+                      .put("Geo1", null);
+            ADFContext.getCurrent()
+                      .getPageFlowScope()
+                      .put("Geo2", null);
+            ADFContext.getCurrent()
+                      .getPageFlowScope()
+                      .put("CalculatedIcAllowableLimit", null);
+            // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
+            ADFContext.getCurrent()
+                      .getPageFlowScope()
+                      .put("CalculatedCCAllowableLimit", null);
+            // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
+            ADFContext.getCurrent()
+                      .getPageFlowScope()
+                      .put("createdBy", null);
+            ADFContext.getCurrent()
+                      .getPageFlowScope()
+                      .put("creationDate", null);
+            ADFContext.getCurrent()
+                      .getPageFlowScope()
+                      .put("Remarks", null);
+            this.nettingovertidepopup.hide();
+            setCcAllowableLimit(null);
+            setIcAllowableLimitBind(null);
+            setNettingRemarksBind(null);
+
+        }
+
+
     }
 
     public void setNettingovertidepopup(RichPopup nettingovertidepopup) {
@@ -3924,6 +3992,14 @@ public class ActionEventsBean {
         }
         AdfFacesContext.getCurrentInstance().addPartialTarget(nettingselectcheckbox);
         AdfFacesContext.getCurrentInstance().addPartialTarget(oncolumnSelectRecord);
+    }
+
+    public void setNetIcAllLimCalBind(RichInputText netIcAllLimCalBind) {
+        this.netIcAllLimCalBind = netIcAllLimCalBind;
+    }
+
+    public RichInputText getNetIcAllLimCalBind() {
+        return netIcAllLimCalBind;
     }
 }
 

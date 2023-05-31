@@ -14,6 +14,74 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <Variable
+    Name="bGeo1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bNettingId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bStatus"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bGeo2"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="SgsLookupGeoVO1"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="SgsNetHeaderTblVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_GeoCustomer"
+    ListVOName="SgsLookupGeoVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GeoCustomer"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_GeoSupplier"
+    ListVOName="SgsLookupGeoVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GeoSupplier"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SgsNetHeaderTblEO"
     Entity="com.sgs.ics.model.bc.entity.SgsNetHeaderTblEO"/>
@@ -49,11 +117,14 @@
     PrecisionRule="true"
     EntityAttrName="GeoSupplier"
     EntityUsage="SgsNetHeaderTblEO"
-    AliasName="GEO_SUPPLIER">
+    AliasName="GEO_SUPPLIER"
+    LOVName="LOV_GeoSupplier">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.GeoSupplier_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -101,11 +172,14 @@
     PrecisionRule="true"
     EntityAttrName="GeoCustomer"
     EntityUsage="SgsNetHeaderTblEO"
-    AliasName="GEO_CUSTOMER">
+    AliasName="GEO_CUSTOMER"
+    LOVName="LOV_GeoCustomer">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.GeoCustomer_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -401,6 +475,66 @@
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewCriteria
+    Name="SgsNetHeaderTblVOCriteria"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SgsNetHeaderTblVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="NettingId"
+        ViewAttribute="NettingId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bNettingId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="GeoSupplier"
+        ViewAttribute="GeoSupplier"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bGeo1"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="GeoCustomer"
+        ViewAttribute="GeoCustomer"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bGeo2"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Status"
+        ViewAttribute="Status"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bStatus"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SgsNetIcReceivableVO"
     ViewLink="com.sgs.ics.model.bc.view.link.NettingHeaderToReceivableVL"

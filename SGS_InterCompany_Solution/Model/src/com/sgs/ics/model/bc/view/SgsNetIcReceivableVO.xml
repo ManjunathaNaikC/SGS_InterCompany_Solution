@@ -13,7 +13,7 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  AccessMode="DEFAULT">
+  FetchMode="FETCH_AS_NEEDED">
   <EntityUsage
     Name="SgsNetIcReceivableEO"
     Entity="com.sgs.ics.model.bc.entity.SgsNetIcReceivableEO"/>

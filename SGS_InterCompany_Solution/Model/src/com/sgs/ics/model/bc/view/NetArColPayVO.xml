@@ -29,13 +29,27 @@
     PrecisionRule="true"
     EntityAttrName="NettingId2"
     EntityUsage="NetArColPayEO"
-    AliasName="NETTING_ID2"/>
+    AliasName="NETTING_ID2">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.NettingId2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NicviId"
     PrecisionRule="true"
     EntityAttrName="NicviId"
     EntityUsage="NetArColPayEO"
-    AliasName="NICVI_ID"/>
+    AliasName="NICVI_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.NicviId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Period"
     PrecisionRule="true"
@@ -47,67 +61,144 @@
     PrecisionRule="true"
     EntityAttrName="IuCustomer"
     EntityUsage="NetArColPayEO"
-    AliasName="IU_CUSTOMER"/>
+    AliasName="IU_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.IuCustomer_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ApBu"
     PrecisionRule="true"
     EntityAttrName="ApBu"
     EntityUsage="NetArColPayEO"
-    AliasName="AP_BU"/>
+    AliasName="AP_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.ApBu_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ApPsftRefNum"
     PrecisionRule="true"
     EntityAttrName="ApPsftRefNum"
     EntityUsage="NetArColPayEO"
-    AliasName="AP_PSFT_REF_NUM"/>
+    AliasName="AP_PSFT_REF_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.ApPsftRefNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IuVendor"
     PrecisionRule="true"
     EntityAttrName="IuVendor"
     EntityUsage="NetArColPayEO"
-    AliasName="IU_VENDOR"/>
+    AliasName="IU_VENDOR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.IuVendor_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ArBu"
     PrecisionRule="true"
     EntityAttrName="ArBu"
     EntityUsage="NetArColPayEO"
-    AliasName="AR_BU"/>
+    AliasName="AR_BU">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.ArBu_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ArPsftRefNum"
     PrecisionRule="true"
     EntityAttrName="ArPsftRefNum"
     EntityUsage="NetArColPayEO"
-    AliasName="AR_PSFT_REF_NUM"/>
+    AliasName="AR_PSFT_REF_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.ArPsftRefNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustRefNum"
     PrecisionRule="true"
     EntityAttrName="CustRefNum"
     EntityUsage="NetArColPayEO"
-    AliasName="CUST_REF_NUM"/>
+    AliasName="CUST_REF_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.CustRefNum_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="VoucherAmount"
     PrecisionRule="true"
     EntityAttrName="VoucherAmount"
     EntityUsage="NetArColPayEO"
-    AliasName="VOUCHER_AMOUNT"/>
+    AliasName="VOUCHER_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.VoucherAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NetAllLimit"
     PrecisionRule="true"
     EntityAttrName="NetAllLimit"
     EntityUsage="NetArColPayEO"
-    AliasName="NET_ALL_LIMIT"/>
+    AliasName="NET_ALL_LIMIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.NetAllLimit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NetPerformed"
     PrecisionRule="true"
     EntityAttrName="NetPerformed"
     EntityUsage="NetArColPayEO"
-    AliasName="NET_PERFORMED"/>
+    AliasName="NET_PERFORMED">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.NetPerformed_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NetBalance"
     PrecisionRule="true"
     EntityAttrName="NetBalance"
     EntityUsage="NetArColPayEO"
-    AliasName="NET_BALANCE"/>
+    AliasName="NET_BALANCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.NetBalance_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Status"
     PrecisionRule="true"
@@ -119,25 +210,53 @@
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="NetArColPayEO"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.CreatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="NetArColPayEO"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.CreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedDate"
     PrecisionRule="true"
     EntityAttrName="UpdatedDate"
     EntityUsage="NetArColPayEO"
-    AliasName="UPDATED_DATE"/>
+    AliasName="UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.UpdatedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UpdatedBy"
     PrecisionRule="true"
     EntityAttrName="UpdatedBy"
     EntityUsage="NetArColPayEO"
-    AliasName="UPDATED_BY"/>
+    AliasName="UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.UpdatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Attribute1"
     PrecisionRule="true"
@@ -233,11 +352,29 @@
     PrecisionRule="true"
     EntityAttrName="ApGeo"
     EntityUsage="NetArColPayEO"
-    AliasName="AP_GEO"/>
+    AliasName="AP_GEO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.ApGeo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ArGeo"
     PrecisionRule="true"
     EntityAttrName="ArGeo"
     EntityUsage="NetArColPayEO"
-    AliasName="AR_GEO"/>
+    AliasName="AR_GEO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.NetArColPayVO.ArGeo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

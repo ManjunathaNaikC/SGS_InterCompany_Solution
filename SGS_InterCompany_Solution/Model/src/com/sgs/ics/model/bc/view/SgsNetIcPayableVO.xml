@@ -359,6 +359,15 @@
     EntityAttrName="ARGEO"
     EntityUsage="SgsNetIcPayableEO"
     AliasName="AR_GEO"/>
+  <ViewAttribute
+    Name="selectedRecord"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

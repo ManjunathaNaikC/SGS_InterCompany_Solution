@@ -181,6 +181,14 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox nettingselectcheckbox;
     private RichSelectBooleanCheckbox onNettingSelectAll;
     private RichInputText netIcAllLimCalBind;
+    private RichColumn onIcRecvColumnSelectRecord;
+    private RichSelectBooleanCheckbox netIcRecvselectcheckbox;
+    private RichColumn onIcPayColumnSelectRecord;
+    private RichSelectBooleanCheckbox netIcPayselectcheckbox;
+    private RichColumn onNetArColRecColumnSelectRecord;
+    private RichSelectBooleanCheckbox netNetArColRecselectcheckbox;
+    private RichColumn onNetArColPayColumnSelectRecord;
+    private RichSelectBooleanCheckbox netNetArColPayselectcheckbox;
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -3768,62 +3776,64 @@ public class ActionEventsBean {
             for (int i = 0; i < nettingDataDatarows.length; i++) {
                 System.out.println("Selected Record ::" + nettingDataDatarows[i].getAttribute("selectedRecord"));
                 if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
-                    nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {           
-//            DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
-//            Row row = dcIteratorbinding.getCurrentRow();
-            String nettingId = (String) nettingDataDatarows[i].getAttribute("NettingId");
-            System.out.println("Netting ID ::" + nettingId);
-            if (null != nettingId && !nettingId.isEmpty()) {
-                String[] result = new String[2];
-                result = nettingId.split("\\-", 0); // splitting the string at "-"
-                String Geo1 = result[0];
-                String Geo2 = result[1];
-                System.out.println("Geo1 ::" + Geo1);
-                System.out.println("Geo2 ::" + Geo2);
-                CommonUtils util = new CommonUtils();
-                Object user = (Object) util.getSessionScopeValue("_username").toString();
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("Geo1", Geo1);
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("Geo2", Geo2);
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("CalculatedIcAllowableLimit", nettingDataDatarows[i].getAttribute("NetAllowIcTran"));
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("UserIcAllowableLimit", null);
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("CalculatedCCAllowableLimit", nettingDataDatarows[i].getAttribute("NetAllowArColl"));
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("UserCCAllowableLimit", null);
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("createdBy", user);
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("creationDate", new Date());
-                ADFContext.getCurrent()
-                          .getPageFlowScope()
-                          .put("Remarks", null);
+                    nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {
+                    //            DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+                    //            Row row = dcIteratorbinding.getCurrentRow();
+                    String nettingId = (String) nettingDataDatarows[i].getAttribute("NettingId");
+                    System.out.println("Netting ID ::" + nettingId);
+                    if (null != nettingId && !nettingId.isEmpty()) {
+                        String[] result = new String[2];
+                        result = nettingId.split("\\-", 0); // splitting the string at "-"
+                        String Geo1 = result[0];
+                        String Geo2 = result[1];
+                        System.out.println("Geo1 ::" + Geo1);
+                        System.out.println("Geo2 ::" + Geo2);
+                        CommonUtils util = new CommonUtils();
+                        Object user = (Object) util.getSessionScopeValue("_username").toString();
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("Geo1", Geo1);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("Geo2", Geo2);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("CalculatedIcAllowableLimit",
+                                       nettingDataDatarows[i].getAttribute("NetAllowIcTran"));
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("UserIcAllowableLimit", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("CalculatedCCAllowableLimit",
+                                       nettingDataDatarows[i].getAttribute("NetAllowArColl"));
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("UserCCAllowableLimit", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("createdBy", user);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("creationDate", new Date());
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("Remarks", null);
 
+                    }
+
+                    RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                    this.nettingovertidepopup.show(hints);
+                }
             }
 
-            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-            this.nettingovertidepopup.show(hints);
-            }
-        } 
-            
-            
+
         }
 
     }
 
     public void overRidingClosePopup(ActionEvent actionEvent) {
-  
+
         this.nettingovertidepopup.hide();
         ADFContext.getCurrent()
                   .getPageFlowScope()
@@ -3851,11 +3861,11 @@ public class ActionEventsBean {
         setCcAllowableLimit(null);
         setIcAllowableLimitBind(null);
         setNettingRemarksBind(null);
-        
+
     }
 
     public void overRidingSavePopup(ActionEvent actionEvent) {
-        int count=0;
+        int count = 0;
         DCIteratorBinding nettingData = null;
         nettingData = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
         oracle.jbo.Row[] nettingDataDatarows = nettingData.getAllRowsInRange();
@@ -3866,85 +3876,86 @@ public class ActionEventsBean {
                 count++;
             }
         }
-        
-        if(count==1) {
-        for (int i = 0; i < nettingDataDatarows.length; i++) {
-            System.out.println("Selected Record ::" + nettingDataDatarows[i].getAttribute("selectedRecord"));
-            if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
-                nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {
 
-//        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
-//        Row row = dcIteratorbinding.getCurrentRow();
-        System.out.println("GEO1 ::" + ADFContext.getCurrent()
-                                                 .getPageFlowScope()
-                                                 .get("Geo1"));
-        System.out.println("GEO2 ::" + ADFContext.getCurrent()
-                                                 .getPageFlowScope()
-                                                 .get("Geo2"));
-        System.out.println("UserIcAllowableLimit ::" + ADFContext.getCurrent()
-                                                                 .getPageFlowScope()
-                                                                 .get("UserIcAllowableLimit"));
-        System.out.println("UserCCAllowableLimit ::" + ADFContext.getCurrent()
-                                                                 .getPageFlowScope()
-                                                                 .get("UserCCAllowableLimit"));
-        if (null != icAllowableLimitBind.getValue()) {
-             nettingDataDatarows[i].setAttribute("NETLIMITFIXARCOLL", ccAllowableLimit.getValue());
+        if (count == 1) {
+            for (int i = 0; i < nettingDataDatarows.length; i++) {
+                System.out.println("Selected Record ::" + nettingDataDatarows[i].getAttribute("selectedRecord"));
+                if (null != nettingDataDatarows[i].getAttribute("selectedRecord") &&
+                    nettingDataDatarows[i].getAttribute("selectedRecord").equals("Yes")) {
+
+                    //        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+                    //        Row row = dcIteratorbinding.getCurrentRow();
+                    System.out.println("GEO1 ::" + ADFContext.getCurrent()
+                                                             .getPageFlowScope()
+                                                             .get("Geo1"));
+                    System.out.println("GEO2 ::" + ADFContext.getCurrent()
+                                                             .getPageFlowScope()
+                                                             .get("Geo2"));
+                    System.out.println("UserIcAllowableLimit ::" + ADFContext.getCurrent()
+                                                                             .getPageFlowScope()
+                                                                             .get("UserIcAllowableLimit"));
+                    System.out.println("UserCCAllowableLimit ::" + ADFContext.getCurrent()
+                                                                             .getPageFlowScope()
+                                                                             .get("UserCCAllowableLimit"));
+                    if (null != icAllowableLimitBind.getValue()) {
+                        nettingDataDatarows[i].setAttribute("NETLIMITFIXARCOLL", ccAllowableLimit.getValue());
+                    }
+
+                    if (null != ccAllowableLimit.getValue()) {
+                        nettingDataDatarows[i].setAttribute("NETLIMITFIXICTRANS", icAllowableLimitBind.getValue());
+                    }
+                    if (null != nettingRemarksBind.getValue()) {
+                        System.out.println("Remarks ::" + nettingRemarksBind.getValue());
+                        nettingDataDatarows[i].setAttribute("REMARKS", nettingRemarksBind.getValue());
+                    }
+
+                    double NetIcAllLimCalRead = ((BigDecimal) netIcAllLimCalBind.getValue()).doubleValue();
+
+                    double EnterNetIcLimOf = Double.parseDouble((String) icAllowableLimitBind.getValue());
+
+                    if (EnterNetIcLimOf > NetIcAllLimCalRead) {
+                        FacesContext context = FacesContext.getCurrentInstance();
+                        String messageText =
+                            "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
+                        FacesMessage fm = new FacesMessage(messageText);
+                        fm.setSeverity(FacesMessage.SEVERITY_WARN);
+                        context.addMessage(null, fm);
+
+                    } else {
+
+
+                        executeBinding(SAVE_DATA);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("Geo1", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("Geo2", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("CalculatedIcAllowableLimit", null);
+                        // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("CalculatedCCAllowableLimit", null);
+                        // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("createdBy", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("creationDate", null);
+                        ADFContext.getCurrent()
+                                  .getPageFlowScope()
+                                  .put("Remarks", null);
+                        this.nettingovertidepopup.hide();
+                        setCcAllowableLimit(null);
+                        setIcAllowableLimitBind(null);
+                        setNettingRemarksBind(null);
+                    }
+                }
+            }
         }
-
-        if (null != ccAllowableLimit.getValue()) {
-             nettingDataDatarows[i].setAttribute("NETLIMITFIXICTRANS", icAllowableLimitBind.getValue());
-        }
-        if (null != nettingRemarksBind.getValue()) {
-            System.out.println("Remarks ::" + nettingRemarksBind.getValue());
-             nettingDataDatarows[i].setAttribute("REMARKS", nettingRemarksBind.getValue());
-        }
-
-        double NetIcAllLimCalRead = ((BigDecimal) netIcAllLimCalBind.getValue()).doubleValue();
-       
-        double EnterNetIcLimOf =  Double.parseDouble((String) icAllowableLimitBind.getValue()); 
-
-        if (EnterNetIcLimOf > NetIcAllLimCalRead) {
-            FacesContext context = FacesContext.getCurrentInstance();
-            String messageText = "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
-            FacesMessage fm = new FacesMessage(messageText);
-            fm.setSeverity(FacesMessage.SEVERITY_WARN);
-            context.addMessage(null, fm);
-
-        } else {
-
-
-            executeBinding(SAVE_DATA);
-            ADFContext.getCurrent()
-                      .getPageFlowScope()
-                      .put("Geo1", null);
-            ADFContext.getCurrent()
-                      .getPageFlowScope()
-                      .put("Geo2", null);
-            ADFContext.getCurrent()
-                      .getPageFlowScope()
-                      .put("CalculatedIcAllowableLimit", null);
-            // ADFContext.getCurrent().getPageFlowScope().put("UserIcAllowableLimit", null);
-            ADFContext.getCurrent()
-                      .getPageFlowScope()
-                      .put("CalculatedCCAllowableLimit", null);
-            // ADFContext.getCurrent().getPageFlowScope().put("UserCCAllowableLimit", null);
-            ADFContext.getCurrent()
-                      .getPageFlowScope()
-                      .put("createdBy", null);
-            ADFContext.getCurrent()
-                      .getPageFlowScope()
-                      .put("creationDate", null);
-            ADFContext.getCurrent()
-                      .getPageFlowScope()
-                      .put("Remarks", null);
-            this.nettingovertidepopup.hide();
-            setCcAllowableLimit(null);
-            setIcAllowableLimitBind(null);
-            setNettingRemarksBind(null);
-        }
-        }    
-    }
-    }
 
 
     }
@@ -4029,6 +4040,245 @@ public class ActionEventsBean {
 
     public RichInputText getNetIcAllLimCalBind() {
         return netIcAllLimCalBind;
+    }
+
+
+    public void syncAction(ActionEvent actionEvent) {
+        LOG.info("Inside syncAction**********************");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        // java.util.Calendar cal = new GregorianCalendar();
+        try {
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USPGET_NETTING_HEADER";
+            ps = conn.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.execute();
+
+            String SPsql1 = "EXEC USPGET_NETTING_HEADER_PPSOFT";
+            ps = conn.prepareStatement(SPsql1);
+            ps.setEscapeProcessing(true);
+            ps.execute();
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
+
+
+        }
+    }
+
+    public void netPerformAction(ActionEvent actionEvent) {
+        // Add event code here...
+        LOG.info("Inside syncAction**********************");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("SgsNetHeaderTblVO1Iterator");
+        Row row = dcIteratorbinding.getCurrentRow();
+        String nettingid = (String) row.getAttribute("NettingId");
+        // java.util.Calendar cal = new GregorianCalendar();
+        try {
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USP_UPDATE_NETTING ?";
+            ps = conn.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.setString(1, nettingid);
+            ps.execute();
+            String SPsql1 = "EXEC USP_UPDATE_NETTING_PPLSOFT ?";
+            ps = conn.prepareStatement(SPsql1);
+            ps.setEscapeProcessing(true);
+            ps.setString(1, nettingid);
+            ps.execute();
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
+
+
+        }
+    }
+
+    public void onNetIcRecvSelectAll(ValueChangeEvent valueChangeEvent) {
+        String newValue = valueChangeEvent.getNewValue().toString();
+        System.out.println("---newvalue---" + newValue);
+        ViewObject netIcRecvVO = ADFUtils.findIterator("SgsNetIcReceivableVO1Iterator").getViewObject();
+        RowSetIterator dtlsRS = netIcRecvVO.createRowSetIterator(null);
+        while (dtlsRS.hasNext()) {
+
+            Row r = dtlsRS.next();
+
+            if (newValue.equals("true")) {
+
+                r.setAttribute("selectedRecords", "true");
+
+            } else {
+
+                r.setAttribute("selectedRecords", "false");
+
+            }
+
+        }
+
+        AdfFacesContext.getCurrentInstance().addPartialTarget(netIcRecvselectcheckbox);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(onIcRecvColumnSelectRecord);
+
+
+    }
+
+
+    public void setOnIcRecvColumnSelectRecord(RichColumn onIcRecvColumnSelectRecord) {
+        this.onIcRecvColumnSelectRecord = onIcRecvColumnSelectRecord;
+    }
+
+    public RichColumn getOnIcRecvColumnSelectRecord() {
+        return onIcRecvColumnSelectRecord;
+    }
+
+    public void setNetIcRecvselectcheckbox(RichSelectBooleanCheckbox netIcRecvselectcheckbox) {
+        this.netIcRecvselectcheckbox = netIcRecvselectcheckbox;
+    }
+
+    public RichSelectBooleanCheckbox getNetIcRecvselectcheckbox() {
+        return netIcRecvselectcheckbox;
+    }
+
+    public void setOnIcPayColumnSelectRecord(RichColumn onIcPayColumnSelectRecord) {
+        this.onIcPayColumnSelectRecord = onIcPayColumnSelectRecord;
+    }
+
+    public RichColumn getOnIcPayColumnSelectRecord() {
+        return onIcPayColumnSelectRecord;
+    }
+
+    public void setNetIcPayselectcheckbox(RichSelectBooleanCheckbox netIcPayselectcheckbox) {
+        this.netIcPayselectcheckbox = netIcPayselectcheckbox;
+    }
+
+    public RichSelectBooleanCheckbox getNetIcPayselectcheckbox() {
+        return netIcPayselectcheckbox;
+    }
+
+    public void onNetIcPaySelectAll(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        String newValue = valueChangeEvent.getNewValue().toString();
+        System.out.println("---newvalue---" + newValue);
+        ViewObject netIcPayVO = ADFUtils.findIterator("SgsNetIcPayableVO2Iterator").getViewObject();
+        RowSetIterator dtlsRS = netIcPayVO.createRowSetIterator(null);
+        while (dtlsRS.hasNext()) {
+
+            Row r = dtlsRS.next();
+
+            if (newValue.equals("true")) {
+
+                r.setAttribute("selectedRecord", "true");
+
+            } else {
+
+                r.setAttribute("selectedRecord", "false");
+
+            }
+
+        }
+
+        AdfFacesContext.getCurrentInstance().addPartialTarget(netIcPayselectcheckbox);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(onIcPayColumnSelectRecord);
+    }
+
+    public void setOnNetArColRecColumnSelectRecord(RichColumn onNetArColRecColumnSelectRecord) {
+        this.onNetArColRecColumnSelectRecord = onNetArColRecColumnSelectRecord;
+    }
+
+    public RichColumn getOnNetArColRecColumnSelectRecord() {
+        return onNetArColRecColumnSelectRecord;
+    }
+
+    public void setNetNetArColRecselectcheckbox(RichSelectBooleanCheckbox netNetArColRecselectcheckbox) {
+        this.netNetArColRecselectcheckbox = netNetArColRecselectcheckbox;
+    }
+
+    public RichSelectBooleanCheckbox getNetNetArColRecselectcheckbox() {
+        return netNetArColRecselectcheckbox;
+    }
+
+    public void onNetArColRecvSelectAll(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        String newValue = valueChangeEvent.getNewValue().toString();
+        System.out.println("---newvalue---" + newValue);
+        ViewObject netArColRecvVO = ADFUtils.findIterator("NetArColRecVO1Iterator").getViewObject();
+        RowSetIterator dtlsRS = netArColRecvVO.createRowSetIterator(null);
+        while (dtlsRS.hasNext()) {
+
+            Row r = dtlsRS.next();
+
+            if (newValue.equals("true")) {
+
+                r.setAttribute("selectedRecord", "true");
+
+            } else {
+
+                r.setAttribute("selectedRecord", "false");
+
+            }
+
+        }
+
+        AdfFacesContext.getCurrentInstance().addPartialTarget(netNetArColRecselectcheckbox);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(onNetArColRecColumnSelectRecord);
+
+    }
+
+    public void setOnNetArColPayColumnSelectRecord(RichColumn onNetArColPayColumnSelectRecord) {
+        this.onNetArColPayColumnSelectRecord = onNetArColPayColumnSelectRecord;
+    }
+
+    public RichColumn getOnNetArColPayColumnSelectRecord() {
+        return onNetArColPayColumnSelectRecord;
+    }
+
+    public void setNetNetArColPayselectcheckbox(RichSelectBooleanCheckbox netNetArColPayselectcheckbox) {
+        this.netNetArColPayselectcheckbox = netNetArColPayselectcheckbox;
+    }
+
+    public RichSelectBooleanCheckbox getNetNetArColPayselectcheckbox() {
+        return netNetArColPayselectcheckbox;
+    }
+
+    public void onNetArColPaySelectAll(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        String newValue = valueChangeEvent.getNewValue().toString();
+        System.out.println("---newvalue---" + newValue);
+        ViewObject netArColPayVO = ADFUtils.findIterator("NetArColPayVO1Iterator").getViewObject();
+        RowSetIterator dtlsRS = netArColPayVO.createRowSetIterator(null);
+        while (dtlsRS.hasNext()) {
+
+            Row r = dtlsRS.next();
+
+            if (newValue.equals("true")) {
+
+                r.setAttribute("selectedRecord", "true");
+
+            } else {
+
+                r.setAttribute("selectedRecord", "false");
+
+            }
+
+        }
+
+        AdfFacesContext.getCurrentInstance().addPartialTarget(netNetArColPayselectcheckbox);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(onNetArColPayColumnSelectRecord);
+
     }
 }
 

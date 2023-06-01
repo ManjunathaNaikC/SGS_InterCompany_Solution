@@ -4030,5 +4030,77 @@ public class ActionEventsBean {
     public RichInputText getNetIcAllLimCalBind() {
         return netIcAllLimCalBind;
     }
+    
+    public void onCreditTransactionInSettlement(ActionEvent actionEvent) {
+        DCIteratorBinding settlemtntData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
+        DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
+        //creditData.getViewObject().executeQuery();
+        oracle.jbo.Row[] settlemtntDatarows = settlemtntData.getAllRowsInRange();
+        CommonUtils util = new CommonUtils();
+        int nonInvoice = 0;
+        int selectedRecords = 0;
+        Object user = (Object) util.getSessionScopeValue("_username").toString();
+
+        System.out.println("invoiceDatarows.length ****" + settlemtntDatarows.length);
+
+        if (settlemtntDatarows.length == 0) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            String messageText = "Please select a transaction for creation of Credit Transactions";
+            FacesMessage fm = new FacesMessage(messageText);
+            fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+            context.addMessage(null, fm);
+        } else {
+            for (int i = 0; i < settlemtntDatarows.length; i++) {
+                if (null != settlemtntDatarows[i].getAttribute("SelectRecord") &&
+                    settlemtntDatarows[i].getAttribute("SelectRecord").equals("Yes")) {
+                    
+                    executeBinding("CreateInsertCreditInStltmt");
+                    Row row = creditData.getCurrentRow();
+                    row.setAttribute("InvoiceSeqNo", settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
+                    row.setAttribute("Period", settlemtntDatarows[i].getAttribute("Period"));
+                    row.setAttribute("TransactionCategory", settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY"));
+                    row.setAttribute("PsftVoucherRef", settlemtntDatarows[i].getAttribute("PsVoucherNo"));
+                    row.setAttribute("PsftInvoiceRef", settlemtntDatarows[i].getAttribute("RefToArInvoice"));
+                    row.setAttribute("NatureOfExpense", settlemtntDatarows[i].getAttribute("NATUREOFEXPENSE"));
+                    row.setAttribute("FromBu", settlemtntDatarows[i].getAttribute("IcSupplierBu"));
+                    row.setAttribute("ToBu", settlemtntDatarows[i].getAttribute("IcCustomerBu"));
+                    row.setAttribute("InvoiceAmount", settlemtntDatarows[i].getAttribute("VoucherAmount"));
+                    //row.setAttribute("ReversalAmount",null);
+                    row.setAttribute("InputProvider", settlemtntDatarows[i].getAttribute("INPUTPROVIDER"));
+                    row.setAttribute("CreatedDate", settlemtntDatarows[i].getAttribute("CreatedDate"));
+                    row.setAttribute("CreatedBy", settlemtntDatarows[i].getAttribute("CreatedBy"));
+                    row.setAttribute("UpdatedDate", settlemtntDatarows[i].getAttribute("UpdatedDate"));
+                    row.setAttribute("UpdatedBy", settlemtntDatarows[i].getAttribute("UpdatedBy"));
+                    //row.setAttribute("REVERSALREASON", settlemtntDatarows[i].getAttribute("REVERSALREASON"));
+                    selectedRecords = selectedRecords + 1;
+                }
+
+            }
+            System.out.println("nonInvoice Cat 11::" + nonInvoice);
+//            if (nonInvoice == 1) {
+//                FacesContext context = FacesContext.getCurrentInstance();
+//                String messageText =
+//                    "Please select a transaction Invoiced in PeopleSoft for creation of Credit Transactions";
+//                FacesMessage fm = new FacesMessage(messageText);
+//                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+//                context.addMessage(null, fm);
+//            } else if (selectedRecords == 0) {
+//                FacesContext context = FacesContext.getCurrentInstance();
+//                String messageText = "Please select a transaction for creation of Credit Transactions";
+//                FacesMessage fm = new FacesMessage(messageText);
+//                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+//                context.addMessage(null, fm);
+//            } else {
+//
+//                //executeBinding(SAVE_DATA);
+                RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                this.invoicecreditmemobindpopup.show(hints);
+//            }
+
+        }
+
+
+    }
+
 }
 

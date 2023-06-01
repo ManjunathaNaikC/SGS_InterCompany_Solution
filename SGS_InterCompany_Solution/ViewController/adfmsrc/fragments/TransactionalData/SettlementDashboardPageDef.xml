@@ -7,7 +7,7 @@
     <iterator Binds="SgsStlmtInvVO1" RangeSize="25" DataControl="SGSAppModuleDataControl" id="SgsStlmtInvVO1Iterator"/>
     <searchRegion Binds="SgsStlmtInvVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStlmtInvVO1Query"/>
-    <iterator Binds="SgsStlmtVoucherVO2" RangeSize="25" DataControl="SGSAppModuleDataControl"
+    <iterator Binds="SgsStlmtVoucherVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsStlmtVoucherVO1Iterator"/>
     <searchRegion Binds="SgsStlmtVoucherVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsStlmtVoucherVO1Query"/>
@@ -15,12 +15,56 @@
                   Binds="SgsStlmtVoucherVO1Iterator" id="SgsStlmtVoucherVOCriteriaQuery"/>
     <searchRegion Criteria="SgsStlmtInvVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsStlmtInvVO1Iterator" id="SgsStlmtInvVOCriteriaQuery"/>
+    <iterator Binds="SgsInvoiceCreditMemoVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="SgsInvoiceCreditMemoVO1Iterator"/>
+    <searchRegion Binds="SgsInvoiceCreditMemoVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SgsInvoiceCreditMemoVO1Query"/>
     <iterator Binds="SgsContraCashTblVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
               id="SgsContraCashTblVO1Iterator"/>
     <searchRegion Criteria="SgsContraCashTblVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="SgsContraCashTblVO1Iterator" id="SgsContraCashTblVOCriteriaQuery"/>
+    <iterator Binds="ReversalReasonLOVVO1" RangeSize="25" DataControl="SGSAppModuleDataControl"
+              id="ReversalReasonLOVVO1Iterator"/>
   </executables>
   <bindings>
+    <tree IterBinding="SgsInvoiceCreditMemoVO1Iterator" id="SgsInvoiceCreditMemoVO1">
+      <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsInvoiceCreditMemoVO" Name="SgsInvoiceCreditMemoVO10">
+        <AttrNames>
+          <Item Value="InvoiceSeqNo"/>
+          <Item Value="Period"/>
+          <Item Value="TransactionCategory"/>
+          <Item Value="PsftVoucherRef"/>
+          <Item Value="PsftInvoiceRef"/>
+          <Item Value="NatureOfExpense"/>
+          <Item Value="FromBu"/>
+          <Item Value="ToBu"/>
+          <Item Value="InvoiceAmount"/>
+          <Item Value="ReversalAmount"/>
+          <Item Value="REVERSALREASON"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="UpdatedDate"/>
+          <Item Value="UpdatedBy"/>
+          <Item Value="SelectCreditRecord" Binds="SelectCreditRecord"/>
+          <Item Value="REVERSALTYPE"/>
+          <Item Value="PERCENTAGEREVERSAL"/>
+          <Item Value="STATUS"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+        <button IterBinding="SgsInvoiceCreditMemoVO1Iterator" id="SelectCreditRecord" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="SelectCreditRecord"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
+      <action IterBinding="SgsInvoiceCreditMemoVO1Iterator" id="CreateInsertCreditInStltmt"
+            InstanceName="SGSAppModuleDataControl.SgsInvoiceCreditMemoVO1" DataControl="SGSAppModuleDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
     <tree IterBinding="SgsStlmtInvVO1Iterator" id="SgsStlmtInvVO1">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStlmtInvVO" Name="SgsStlmtInvVO10">
         <AttrNames>
@@ -56,6 +100,12 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+        <list IterBinding="ReversalReasonLOVVO1Iterator" ListOperMode="navigation" ListIter="ReversalReasonLOVVO1Iterator"
+          id="ReversalReasonLOVVO1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="MEANING"/>
+      </AttrNames>
+    </list>
     <tree IterBinding="SgsStlmtVoucherVO1Iterator" id="SgsStlmtVoucherVO1">
       <nodeDefinition DefName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO" Name="SgsStlmtVoucherVO10">
         <AttrNames>
@@ -85,7 +135,11 @@
           <Item Value="CreatedBy"/>
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
-          <Item Value="SelectRecord" Binds="SelectRecord"/>
+          <Item Value="SelectRecord"/>
+          <Item Value="TRANSACTIONCATEGORY"/>
+          <Item Value="INVOICESEQNO"/>
+          <Item Value="INPUTPROVIDER"/>
+          <Item Value="NATUREOFEXPENSE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

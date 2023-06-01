@@ -59,11 +59,11 @@
                                        actionListener="#{pageFlowScope.UploadInInvoice.onAdjustmentUpload}">
                                 <!--<af:showPopupBehavior popupId="AdjEntryPopup"/>-->
                             </af:button>
-                            <af:button text="Credit Transaction" id="b2"
+                            <!--<af:button text="Credit Transaction" id="b2"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CREDIT_TXN')}"
                                        actionListener="#{viewScope.ActionEventsBean.onCreditTransactionActionButton}">
-                                <!--<af:showPopupBehavior popupId="p1creditMemo"/>-->
-                            </af:button>
+                                --><!--<af:showPopupBehavior popupId="p1creditMemo"/>--><!--
+                            </af:button>-->
                         </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>

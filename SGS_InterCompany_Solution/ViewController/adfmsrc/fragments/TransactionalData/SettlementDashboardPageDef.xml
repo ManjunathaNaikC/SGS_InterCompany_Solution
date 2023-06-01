@@ -135,7 +135,7 @@
           <Item Value="CreatedBy"/>
           <Item Value="UpdatedDate"/>
           <Item Value="UpdatedBy"/>
-          <Item Value="SelectRecord"/>
+          <Item Value="SelectRecord" Binds="SelectRecord"/>
           <Item Value="TRANSACTIONCATEGORY"/>
           <Item Value="INVOICESEQNO"/>
           <Item Value="INPUTPROVIDER"/>

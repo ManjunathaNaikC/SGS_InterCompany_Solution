@@ -20,7 +20,8 @@
           <f:facet name="menus"/>
           <f:facet name="toolbar">
             <af:toolbar id="t4">
-              <af:button text="Write Off" id="b1" actionListener="#{viewScope.ActionEventsBean.SaveWriteOffDetails}"/>
+              <af:button text="Write Off" id="b1" actionListener="#{viewScope.ActionEventsBean.SaveWriteOffDetails}"
+                         inlineStyle="border-radius:5px 5px 5px 5px;"/>
             </af:toolbar>
           </f:facet>
           <f:facet name="statusbar"/>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="welcomePage.jsf" id="d1" inlineStyle="background-color:#f2f9ff;">
+    <af:document title="welcomePage.jsf" id="d1" inlineStyle="background-color:White;">
     <!--<af:clientListener method="triggerEvent" type="load"/>
         <af:resource type="javascript">
           function triggerEvent(event) {
@@ -18,7 +18,7 @@
             window.history.forward();
         }
     </script>
-        <af:form id="f2" inlineStyle="background-color:transparent;" usesUpload="true">
+        <af:form id="f2" inlineStyle="background-color:White;" usesUpload="true">
             <af:panelStretchLayout id="psl1" topHeight="68px" >
                 <f:facet name="start"/>
                 <f:facet name="end"/>
@@ -44,9 +44,11 @@
                                          inlineStyle="margin-left:10px; margin-top:70px;margin-right:30px;background-image: none;border:none;"
                                          valign="middle">
                                 <af:panelGroupLayout id="pgl3" layout="horizontal" valign="middle" halign="center">
-                                   <af:outputText value="Logged in Username : #{sessionScope._username}" id="ot1"
+                                   <af:outputText value="Logged in Username : " id="ot1"
                                                    inlineStyle="font-weight:bold; margin-left:20px; color:#E0004D;"
                                                    shortDesc="Logged in Username"/>
+                                    <af:outputText value="#{sessionScope._username}" id="ot4"
+                                                   inlineStyle="font-weight:bold; margin-left:5px; color:#485B84;"/>
                                     <af:spacer id="s1" width="15"/>
                                     <af:link id="l1" destination="/faces/jsf/welcomePage.jsf" shortDesc="Home"/>
                                     <af:button text="" id="b2"
@@ -80,7 +82,8 @@
                 <f:facet name="bottom"/>
                 <f:facet name="center">
                   <!--<af:outputText value="ggdgfdgf" id="ot2" />-->
-                    <af:region value="#{bindings.navigatetaskflow1.regionModel}" id="r1" inlineStyle="background-color:#f2f9ff;"/>
+                    <af:region value="#{bindings.navigatetaskflow1.regionModel}" id="r1"
+                               inlineStyle="background-image: linear-gradient(327deg, #6b849d, #94afc9); height:1500px; top: 0%;"/>
                   
                   
                 </f:facet>

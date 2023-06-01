@@ -8,11 +8,11 @@
     </af:panelGroupLayout>
     <af:spacer id="s4" height="10"/>
     <af:panelGroupLayout id="pgl1" layout="horizontal" halign="start">
-      <af:button text="Approve" id="b1"/>
+      <af:button text="Approve" id="b1" inlineStyle="border-radius:5px 5px 5px 5px;"/>
       <af:spacer id="s2" width="30"/>
-      <af:button text="Hold" id="b2"/>
+      <af:button text="Hold" id="b2" inlineStyle="border-radius:5px 5px 5px 5px;"/>
       <af:spacer id="s3" width="30"/>
-      <af:button text="Netting" id="b3"/>
+      <af:button text="Netting" id="b3" inlineStyle="border-radius:5px 5px 5px 5px;"/>
     </af:panelGroupLayout>
     <af:spacer id="s1" height="40"/>
     <af:table value="#{bindings.SgsNettingInvoiceVoucherVO1.collectionModel}" var="row"

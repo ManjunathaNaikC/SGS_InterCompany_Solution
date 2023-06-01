@@ -23,10 +23,10 @@
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t1">
-                <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
+                <af:button id="b1" icon="/resources/icons/plus_new.png" action="ADD"
                            actionListener="#{bindings.CreateInsert.execute}"/>
-                <af:button id="b2" icon="/resources/icons/delete.png" actionListener="#{bindings.Delete.execute}"/>
-                <af:button text="TPA Report" id="b3">
+                <af:button id="b2" icon="/resources/icons/delete_new.png" actionListener="#{bindings.Delete.execute}"/>
+                <af:button text="TPA Report" id="b3" inlineStyle="border-radius:5px 5px 5px 5px;">
                   <af:fileDownloadActionListener method="#{viewScope.ActionEventsBean.downloadFileListener}"
                                                  filename="TPA_Master.xlsx"/>
                 </af:button>

@@ -188,13 +188,15 @@
           </af:panelFormLayout>
           <f:facet name="toolbar">
             <af:toolbar id="t2">
-              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.onTdsWhtSave}"/>
+              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.onTdsWhtSave}"
+                         inlineStyle="border-radius:5px 5px 5px 5px;"/>
               <af:button text="Cancel" id="b2" immediate="true"
                          actionListener="#{bindings.Rollback.execute}"
-                         rendered="#{pageFlowScope.pTDSWHTAddEdit == 'EDIT'}" action="back"/>
+                         rendered="#{pageFlowScope.pTDSWHTAddEdit == 'EDIT'}" action="back"
+                         inlineStyle="border-radius:5px 5px 5px 5px;"/>
               <af:button text="Cancel" id="b5" actionListener="#{bindings.Delete2.execute}"
                          disabled="#{! bindings.Delete2.enabled}" rendered="#{pageFlowScope.pTDSWHTAddEdit == 'ADD'}"
-                         action="back" immediate="true"/>
+                         action="back" immediate="true" inlineStyle="border-radius:5px 5px 5px 5px;"/>
             </af:toolbar>
           </f:facet>
         </af:panelBox>

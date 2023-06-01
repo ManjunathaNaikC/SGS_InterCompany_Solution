@@ -12,9 +12,11 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b8"
-                                       actionListener="#{viewScope.ActionEventsBean.onCostIdentificationSave}"/>
+                                       actionListener="#{viewScope.ActionEventsBean.onCostIdentificationSave}"
+                                       inlineStyle="border-radius:5px 5px 5px 5px / 5px 5px 5px 5px;"/>
                             <af:button id="b1" actionListener="#{bindings.Commit.execute}"
-                        action="back"  text="Save and Close" accessKey="S"/>
+                        action="back"  text="Save and Close" accessKey="S"
+                                       inlineStyle="border-radius:5px 5px 5px 5px / 5px 5px 5px 5px;"/>
                             <af:button actionListener="#{bindings.Rollback.execute}" immediate="true" id="b2" action="back"
                        rendered="#{pageFlowScope.paddEditCIR == 'EDIT'}" text="Cancel" accessKey="C">
               <af:resetActionListener/>
@@ -292,9 +294,9 @@
                                 <!--<af:button id="b8" icon="/resources/icons/plus.png"
                                                    actionListener="#{bindings.CreateInsertIdenCombo.execute}"
                                                    disabled="#{!bindings.CreateInsertIdenCombo.enabled}"/>-->
-                                <af:button id="b4" icon="/resources/icons/plus.png"
+                                <af:button id="b4" icon="/resources/icons/plus_new.png"
                                            actionListener="#{viewScope.ActionEventsBean.onIdenComboCreate}"/>
-                                <af:button id="b9" icon="/resources/icons/delete.png"
+                                <af:button id="b9" icon="/resources/icons/delete_new.png"
                                            actionListener="#{viewScope.ActionEventsBean.onIdenComboDelete}"
                                            disabled="#{!bindings.DeleteIdenCombo.enabled}"/>
                             </af:toolbar>
@@ -649,10 +651,10 @@
                                 <!--<af:button actionListener="#{bindings.CreateInsertCrossCombo.execute}"
                                                    disabled="#{!bindings.CreateInsertCrossCombo.enabled}"
                                                    id="b10"/>-->
-                                <af:button icon="/resources/icons/plus.png" id="b6"
+                                <af:button icon="/resources/icons/plus_new.png" id="b6"
                                            actionListener="#{viewScope.ActionEventsBean.onCrossChargeCreate}"/>
                                 <af:button actionListener="#{viewScope.ActionEventsBean.onCrossChargeComboDelete}"
-                                           icon="/resources/icons/delete.png"
+                                           icon="/resources/icons/delete_new.png"
                                            disabled="#{!bindings.DeleteCrossCharge.enabled}" id="b11"/>
                                 <!--<af:button id="b5" icon="/resources/icons/delete.png"/>-->
                             </af:toolbar>
@@ -1091,10 +1093,10 @@
                                                   
                                                    disabled="#{!bindings.CreateInsertTargetCombo.enabled}"
                                                    id="b6"/>-->
-                                <af:button id="b5" icon="/resources/icons/plus.png"
+                                <af:button id="b5" icon="/resources/icons/plus_new.png"
                                            actionListener="#{viewScope.ActionEventsBean.onTargetComboCreate}"/>
                                 <af:button actionListener="#{viewScope.ActionEventsBean.onTargetComboDelete}"
-                                           icon="/resources/icons/delete.png"
+                                           icon="/resources/icons/delete_new.png"
                                            disabled="#{!bindings.DeleteTargetCombo.enabled}" id="b7"/>
                                 <!--<af:button id="b7" icon="/resources/icons/delete.png"/>-->
                             </af:toolbar>

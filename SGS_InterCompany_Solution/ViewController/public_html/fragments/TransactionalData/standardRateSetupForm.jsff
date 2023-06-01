@@ -13,12 +13,15 @@
                     <af:toolbar id="t1">
                         <af:button id="b1" action="back" 
                                    text="Save and Close" accessKey="S"
-                                   actionListener="#{viewScope.ActionEventsBean.onStdRateFormSave}"/>
+                                   actionListener="#{viewScope.ActionEventsBean.onStdRateFormSave}"
+                                   inlineStyle="border-radius:5px 5px 5px 5px;"/>
                         <af:button id="b2" action="back" immediate="true" actionListener="#{bindings.Rollback.execute}"
-                                   rendered="#{pageFlowScope.pSRAddEdit == 'EDIT'}" text="Cancel" accessKey="C"/>
+                                   rendered="#{pageFlowScope.pSRAddEdit == 'EDIT'}" text="Cancel" accessKey="C"
+                                   inlineStyle="border-radius:5px 5px 5px 5px;"/>
                         <af:button actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}"
                                    id="b3" rendered="#{pageFlowScope.pSRAddEdit == 'ADD'}" action="back"
-                                   immediate="true" text="Cancel" accessKey="C"/>
+                                   immediate="true" text="Cancel" accessKey="C"
+                                   inlineStyle="border-radius:5px 5px 5px 5px;"/>
                     </af:toolbar>
                 </f:facet>
                     <af:panelFormLayout id="pfl1" rows="5" maxColumns="3">
@@ -215,17 +218,17 @@
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t3">
-                                <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                           icon="/resources/icons/plus.png" disabled="#{!bindings.CreateInsert.enabled}"
-                                           id="b7"/>
                                 <af:button actionListener="#{viewScope.ActionEventsBean.onStdRateChildSave}"
                                            disabled="#{!bindings.Commit.enabled}" id="b8" text="Save"/>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}"
+                                           icon="/resources/icons/plus_new.png" disabled="#{!bindings.CreateInsert.enabled}"
+                                           id="b7"/>
                                 <!--<af:button text="Cancel" id="b4"/>
                                     <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
                                                 immediate="true" id="b6">
                                         <af:resetActionListener/>
                                     </af:button>-->
-                                <af:button icon="/resources/icons/delete.png" disabled="#{!bindings.Delete1.enabled}"
+                                <af:button icon="/resources/icons/delete_new.png" disabled="#{!bindings.Delete1.enabled}"
                                            id="b9" actionListener="#{viewScope.ActionEventsBean.onStdRateChildDelete}"/>
                             </af:toolbar>
                         </f:facet>
@@ -558,9 +561,9 @@
                             <af:toolbar id="t4">
                                 <af:button id="b4" actionListener="#{bindings.CreateInsertDoc.execute}"
                                            disabled="#{!bindings.CreateInsertDoc.enabled}"
-                                           icon="/resources/icons/plus.png"/>
+                                           icon="/resources/icons/plus_new.png"/>
                                 <af:button id="b5" disabled="#{!bindings.DeleteDoc.enabled}"
-                                           icon="/resources/icons/delete.png"
+                                           icon="/resources/icons/delete_new.png"
                                            actionListener="#{pageFlowScope.StandardRateSetupBean.onDocumentsDelete}"/>
                             </af:toolbar>
                         </f:facet>
@@ -569,7 +572,7 @@
                                   rows="#{bindings.SgsStdRateDocVO1.rangeSize}"
                                   emptyText="#{bindings.SgsStdRateDocVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0" fetchSize="#{bindings.SgsStdRateDocVO1.rangeSize}" id="t5"
-                                  rowSelection="single" styleClass="transaction">
+                                  rowSelection="single" styleClass="transaction" partialTriggers="::b4">
                             <af:column headerText="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}" id="c2">
                                 <af:inputText value="#{row.bindings.DocTypeValue.inputValue}"
                                               label="#{bindings.SgsStdRateDocVO1.hints.DocTypeValue.label}"

@@ -337,7 +337,7 @@
                                               rowSelection="single"
                                               fetchSize="#{bindings.SgsInvoiceCreditMemoVO1.rangeSize}"
                                               filterModel="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor}"
-                                              filterVisible="true"
+                                              filterVisible="false"
                                               queryListener="#{bindings.SgsInvoiceCreditMemoVO1Query.processQuery}"
                                               varStatus="vs" id="t1" styleClass="transaction">
                                         <af:column id="c14" binding="#{viewScope.ActionEventsBean.selectRecordColBind}">

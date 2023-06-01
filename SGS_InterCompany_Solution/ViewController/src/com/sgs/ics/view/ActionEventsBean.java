@@ -2427,19 +2427,19 @@ public class ActionEventsBean {
 
             }
 
-            BindingContainer bc1 = this.getBindingsCont();
-            JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
-            String selectedRow1 = (String) list1.getSelectedValue();
-
-            String reversalType = "NONE";
-            if (null != selectedRow1) {
-                String type = "REVERSAL_TYPE";
-                reversalType = getLookupCode(selectedRow1, type);
-            }
-
-            if (null != reversalType) {
-                row[i].setAttribute("REVERSALTYPE", reversalType);
-            }
+//            BindingContainer bc1 = this.getBindingsCont();
+//            JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
+//            String selectedRow1 = (String) list1.getSelectedValue();
+//
+//            String reversalType = "NONE";
+//            if (null != selectedRow1) {
+//                String type = "REVERSAL_TYPE";
+//                reversalType = getLookupCode(selectedRow1, type);
+//            }
+//
+//            if (null != reversalType) {
+//                row[i].setAttribute("REVERSALTYPE", reversalType);
+//            }
 
             row[i].setAttribute("STATUS", "New");
         }
@@ -4053,8 +4053,7 @@ public class ActionEventsBean {
         int selectedRecords = 0;
         Object user = (Object) util.getSessionScopeValue("_username").toString();
 
-        System.out.println("invoiceDatarows.length ****" + settlemtntDatarows.length);
-
+        System.out.println("settlemtntDatarows Length ::"+settlemtntDatarows.length);
         if (settlemtntDatarows.length == 0) {
             FacesContext context = FacesContext.getCurrentInstance();
             String messageText = "Please select a transaction for creation of Credit Transactions";
@@ -4063,9 +4062,10 @@ public class ActionEventsBean {
             context.addMessage(null, fm);
         } else {
             for (int i = 0; i < settlemtntDatarows.length; i++) {
+                System.out.println("SelectRecord ::"+settlemtntDatarows[i].getAttribute("SelectRecord"));
                 if (null != settlemtntDatarows[i].getAttribute("SelectRecord") &&
                     settlemtntDatarows[i].getAttribute("SelectRecord").equals("Yes")) {
-                    
+                    System.out.println("SelectRecord ::"+settlemtntDatarows[i].getAttribute("SelectRecord"));
                     executeBinding("CreateInsertCreditInStltmt");
                     Row row = creditData.getCurrentRow();
                     row.setAttribute("InvoiceSeqNo", settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
@@ -4083,6 +4083,23 @@ public class ActionEventsBean {
                     row.setAttribute("CreatedBy", settlemtntDatarows[i].getAttribute("CreatedBy"));
                     row.setAttribute("UpdatedDate", settlemtntDatarows[i].getAttribute("UpdatedDate"));
                     row.setAttribute("UpdatedBy", settlemtntDatarows[i].getAttribute("UpdatedBy"));
+                    
+                    
+                    
+                    System.out.println("InvoiceSeqNo::::"+ settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
+                    System.out.println("Period::"+ settlemtntDatarows[i].getAttribute("Period"));
+                    System.out.println("TransactionCategory::"+ settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY"));
+                    System.out.println("PsftVoucherRef::"+ settlemtntDatarows[i].getAttribute("PsVoucherNo"));
+                    System.out.println("PsftInvoiceRef::"+ settlemtntDatarows[i].getAttribute("RefToArInvoice"));
+                    System.out.println("NatureOfExpense::"+ settlemtntDatarows[i].getAttribute("NATUREOFEXPENSE"));
+                    System.out.println("FromBu::"+ settlemtntDatarows[i].getAttribute("IcSupplierBu"));
+                    System.out.println("ToBu::"+ settlemtntDatarows[i].getAttribute("IcCustomerBu"));
+                    System.out.println("InvoiceAmount::"+ settlemtntDatarows[i].getAttribute("VoucherAmount"));
+                    System.out.println("InputProvider::"+ settlemtntDatarows[i].getAttribute("INPUTPROVIDER"));
+                    System.out.println("CreatedDate::"+ settlemtntDatarows[i].getAttribute("CreatedDate"));
+                    System.out.println("CreatedBy::"+ settlemtntDatarows[i].getAttribute("CreatedBy"));
+                    System.out.println("UpdatedDate::"+ settlemtntDatarows[i].getAttribute("UpdatedDate"));
+                    System.out.println("UpdatedBy::"+ settlemtntDatarows[i].getAttribute("UpdatedBy"));
                     //row.setAttribute("REVERSALREASON", settlemtntDatarows[i].getAttribute("REVERSALREASON"));
                     selectedRecords = selectedRecords + 1;
                 }

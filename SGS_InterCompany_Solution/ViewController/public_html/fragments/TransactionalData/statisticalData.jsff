@@ -28,35 +28,38 @@
                         <af:toolbar id="t2">
                             <af:button text="Copy From Previous Month" id="b3"
                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_COPY')}"
-                                       actionListener="#{viewScope.ActionEventsBean.onCopyFromPreviousMonthActionEvent}"/>
+                                       actionListener="#{viewScope.ActionEventsBean.onCopyFromPreviousMonthActionEvent}"
+                                       inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             <af:button text="Upload Data" id="b5" 
                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_UPLOAD')}" 
-                            partialSubmit="true">
+                            partialSubmit="true" inlineStyle="border-radius:5px 5px 5px 5px;">
                                 <af:showPopupBehavior popupId="p1Upload" triggerType="action"/>
                             </af:button>
                             <!--<af:button text="Delete Data" id="b6"/>-->
                             <af:button actionListener="#{viewScope.ActionEventsBean.onStatisticalDataSave}" text="Save"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_SAVE')}"
-                                       id="b4"/>
+                                       id="b4" inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             <af:button text="Submit For Approval" 
                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_SUMBIT')}"
-                            id="b7">
+                            id="b7" inlineStyle="border-radius:5px 5px 5px 5px;">
                                 <af:showPopupBehavior popupId="p1submit"/>
                             </af:button>
                             <af:button text="Approve" id="b10"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_APPROVE')}"
-                                       actionListener="#{viewScope.ActionEventsBean.onStatisticalApprove}">
+                                       actionListener="#{viewScope.ActionEventsBean.onStatisticalApprove}"
+                                       inlineStyle="border-radius:5px 5px 5px 5px;">
                                
                             </af:button>
                             <af:button text="Reject" id="b11"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_REJECT')}"
-                                       actionListener="#{viewScope.ActionEventsBean.onStatisticalReject}">
+                                       actionListener="#{viewScope.ActionEventsBean.onStatisticalReject}"
+                                       inlineStyle="border-radius:5px 5px 5px 5px;">
                                 <af:showPopupBehavior popupId="p1reject"/>
                             </af:button>
-                            <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete.png"
+                            <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete_new.png"
                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_DELETE')}"
                                        actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
-                            <af:button id="b1" action="ADD" icon="/resources/icons/plus.png"
+                            <af:button id="b1" action="ADD" icon="/resources/icons/plus_new.png"
                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_ADD')}"
                                        shortDesc="Create/Add Statistical Data"
                                        actionListener="#{bindings.CreateStatisticalData.execute}"/>
@@ -72,7 +75,7 @@
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
                               styleClass="transaction  AFStretchWidth" autoHeightRows="-1" scrollPolicy="page"
-                              partialTriggers="::b13 ::if2">
+                              partialTriggers="::b13 ::if2 ::b1">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
                                    binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
                                    inlineStyle="color:White;">

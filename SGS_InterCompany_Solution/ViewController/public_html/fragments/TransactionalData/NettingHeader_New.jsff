@@ -25,11 +25,13 @@
             <f:facet name="toolbar">
               <af:toolbar id="t2">
                 <af:button text="Overriding Netting Limit" id="b1"
-                           actionListener="#{viewScope.ActionEventsBean.overRidingNettingLimit}"/>
-                <af:button text="Approve" id="b4"/>
-                <af:button text="Reject" id="b6"/>
-                <af:button text="Hold" id="b5"/>
-                <af:button text="Sync" id="b7" actionListener="#{viewScope.ActionEventsBean.syncAction}"/>
+                           actionListener="#{viewScope.ActionEventsBean.overRidingNettingLimit}"
+                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                <af:button text="Approve" id="b4" inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                <af:button text="Reject" id="b6" inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                <af:button text="Hold" id="b5" inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                <af:button text="Sync" id="b7" actionListener="#{viewScope.ActionEventsBean.syncAction}"
+                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>

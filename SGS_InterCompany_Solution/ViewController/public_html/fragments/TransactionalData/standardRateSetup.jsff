@@ -23,15 +23,15 @@
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t1">
-                <af:button id="b1" icon="/resources/icons/microsoft-excel.png"
+                <af:button id="b1" icon="/resources/icons/microsoft-excel_new.png"
                                            shortDesc="Export to Excel"
                                            disabled="#{bindings.SgsStandardRateSetupVO1.estimatedRowCount &lt;=0}">
                    <af:exportCollectionActionListener type="excelHTML" exportedId="resId1" filename="StandardRateRule.xls"/>
                 </af:button>
                 <af:button id="b2" actionListener="#{bindings.CreateInsert.execute}"
-                                           action="ADD" icon="/resources/icons/plus.png"
+                                           action="ADD" icon="/resources/icons/plus_new.png"
                                            shortDesc="Create/Add StandardRate Setup"/>
-                <af:button id="b3" shortDesc="Delete StandardRate Setup" icon="/resources/icons/delete.png"
+                <af:button id="b3" shortDesc="Delete StandardRate Setup" icon="/resources/icons/delete_new.png"
                                            action="#{pageFlowScope.StandardRateSetupBean.deleteStandardrateRule}"/>
               </af:toolbar>
             </f:facet>
@@ -43,7 +43,8 @@
                       selectedRowKeys="#{bindings.SgsStandardRateSetupVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsStandardRateSetupVO1.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.SgsStandardRateSetupVO1.rangeSize}" id="resId1"
-                      styleClass="transaction" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page">
+                      styleClass="transaction" inlineStyle="height:250px;" autoHeightRows="10" scrollPolicy="page"
+                      partialTriggers="::b2">
                 <!--<af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
                 sortProperty="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.name}"
                          width="220" sortable="true">
@@ -51,7 +52,7 @@
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>
               </af:column>-->
               <af:column headerText="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.label}" id="c3"
-                         width="220">
+                         width="220" frozen="true">
                 <!--<af:outputText value="#{row.StandardRateId}"
                                shortDesc="#{bindings.SgsStandardRateSetupVO1.hints.StandardRateId.tooltip}" id="ot2"/>-->
                                <af:link text="#{row.StandardRateId}" id="l1" action="EDIT" inlineStyle="font-weight:bold;"

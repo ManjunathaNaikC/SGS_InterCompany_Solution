@@ -11,12 +11,14 @@
         <af:panelBox text="Value Added Tax" id="pb1">
           <f:facet name="toolbar">
             <af:toolbar id="t1">
-              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"/>
+              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"
+                         inlineStyle="border-radius:5px 5px 5px 5px;"/>
               <af:button text="Cancel" id="b2" actionListener="#{bindings.Rollback.execute}"
-                         immediate="true" rendered="#{pageFlowScope.pVATAddEdit == 'EDIT'}" action="back"/>
+                         immediate="true" rendered="#{pageFlowScope.pVATAddEdit == 'EDIT'}" action="back"
+                         inlineStyle="border-radius:5px 5px 5px 5px;"/>
               <af:button text="Cancel" id="b3" rendered="#{pageFlowScope.pVATAddEdit == 'ADD'}" immediate="true"
                          actionListener="#{bindings.Delete.execute}" disabled="#{! bindings.Delete.enabled}"
-                         action="back"/>
+                         action="back" inlineStyle="border-radius:5px 5px 5px 5px;"/>
             </af:toolbar>
           </f:facet>
           <af:panelFormLayout id="pfl1" rows="6">

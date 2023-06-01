@@ -23,9 +23,9 @@
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t1">
-                <af:button id="b1" icon="/resources/icons/plus.png" action="ADD"
+                <af:button id="b1" icon="/resources/icons/plus_new.png" action="ADD"
                            actionListener="#{bindings.CreateInsert.execute}"/>
-                <af:button id="b2" icon="/resources/icons/delete.png">
+                <af:button id="b2" icon="/resources/icons/delete_new.png">
                   <af:showPopupBehavior popupId="p1vat"/>
                 </af:button>
               </af:toolbar>

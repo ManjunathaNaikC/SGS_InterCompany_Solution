@@ -27,11 +27,13 @@
                                 <!--<af:button text="Import from Transaction" id="b2"
                                            actionListener="#{viewScope.ActionEventsBean.importFromTxn}"/>-->
                                 <af:button text="Approve" id="b3"
-                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('FA_APPROVE')}">
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('FA_APPROVE')}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;">
                                     <af:showPopupBehavior popupId="p1approve"/>
                                 </af:button>
                                 <af:button text="Reject" id="b1"
-                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('FA_REJECT')}">
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('FA_REJECT')}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;">
                                     <af:showPopupBehavior popupId="Fareject"/>
                                 </af:button>
                             </af:toolbar>

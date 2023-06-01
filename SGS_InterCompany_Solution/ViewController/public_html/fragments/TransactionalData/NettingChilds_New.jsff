@@ -134,8 +134,8 @@
         <af:panelBox text="Netting IC Receivable" id="pb2">
             <f:facet name="toolbar">
                 <af:toolbar id="t6">
-                    <af:button text="Hold" id="b3"/>
-                    <af:button text="Release" id="b4"/>
+                    <af:button text="Hold" id="b3" inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                    <af:button text="Release" id="b4" inlineStyle="border-radius:5px 5px 5px 5px;"/>
                 </af:toolbar>
             </f:facet>
             <af:panelCollection id="pc1" styleClass="AFStretchWidth">

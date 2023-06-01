@@ -118,7 +118,8 @@ background-color: White;
 }
 
 .af_document {
-    background-image: url("../images/backgroudblue.PNG");
+    /*background-image: url("../images/backgroudblue.PNG");*/
+    background-color: White;
 }
 
 .af_decorativeBox_frame {
@@ -228,7 +229,7 @@ af|outputLabel {
 
 af|column::column-header-cell{
 color:white;
-background-color: #2980b9;
+background-color: #485B84;
 }
 
 af|query::content1 {
@@ -248,11 +249,11 @@ af|panelGridLayout.headerbgcolor {
 /*.AFButtonGradientStartDisabledColor:alias{
     background:#0000a5;
 }
-
+*/
 af|button::text{
 
   color: white;
-}*/
+}
 /*af|query div[id='r1:0:r1:1:qryId1:_search']{
 
     background:Orange ;
@@ -445,11 +446,15 @@ af|table::data-row:selected af|column::data-cell{
 
 af|button{
     text-shadow:none;
+    border-radius: 5px;
+    background-image: #c4ced7;
+    border-radius:5px 5px 5px 5px / 5px 5px 5px 5px;
 }
 af|button::link{
-    background-color: #9EADC8;
+    background-color: #4f76bc;
     color: Black;
     text-shadow:none;
+    border-radius: 5px;
 }
 
 /*.login af|button::link{
@@ -469,6 +474,15 @@ af|panelTabbed::tab{
     background-color: #c9ccd4;
 }
 
+af|panelTabbed::body{
+    border-width:0px;
+}
 
+af|panelBox::header-element{
+    color: #E0004D;
+}
 
-
+af|panelBox::disclosure-link,
+af|panelBox::disclosure-icon-container{
+	color: #E0004D;
+}

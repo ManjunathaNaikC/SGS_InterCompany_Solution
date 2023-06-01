@@ -773,6 +773,58 @@
     EntityAttrName="RECTXNREFERENCENO"
     EntityUsage="SgsStlmtVoucherEO"
     AliasName="_REC_TXN_REFERENCE_NO"/>
+  <ViewAttribute
+    Name="NATUREOFEXPENSE"
+    PrecisionRule="true"
+    EntityAttrName="NATUREOFEXPENSE"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="NATURE_OF_EXPENSE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.NATUREOFEXPENSE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TRANSACTIONCATEGORY"
+    PrecisionRule="true"
+    EntityAttrName="TRANSACTIONCATEGORY"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="TRANSACTION_CATEGORY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.TRANSACTIONCATEGORY_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="INVOICESEQNO"
+    PrecisionRule="true"
+    EntityAttrName="INVOICESEQNO"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="INVOICE_SEQ_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.INVOICESEQNO_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="INPUTPROVIDER"
+    PrecisionRule="true"
+    EntityAttrName="INPUTPROVIDER"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="INPUT_PROVIDER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO.INPUTPROVIDER_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"

@@ -41,6 +41,7 @@
           <Item Value="NetPerformed"/>
           <Item Value="NetBalance"/>
           <Item Value="Status"/>
+          <Item Value="selectedRecords"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -63,6 +64,7 @@
           <Item Value="NetPerformed"/>
           <Item Value="NetBalance"/>
           <Item Value="Status"/>
+          <Item Value="selectedRecord"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -151,6 +153,7 @@
           <Item Value="Status"/>
           <Item Value="ApGeo"/>
           <Item Value="ArGeo"/>
+          <Item Value="selectedRecord"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -174,6 +177,7 @@
           <Item Value="Status"/>
           <Item Value="ApGeo"/>
           <Item Value="ArGeo"/>
+          <Item Value="selectedRecord"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

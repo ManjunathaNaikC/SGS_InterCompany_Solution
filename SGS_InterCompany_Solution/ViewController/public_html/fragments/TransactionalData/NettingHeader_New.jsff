@@ -29,7 +29,7 @@
                 <af:button text="Approve" id="b4"/>
                 <af:button text="Reject" id="b6"/>
                 <af:button text="Hold" id="b5"/>
-                <af:button text="Sync" id="b7"/>
+                <af:button text="Sync" id="b7" actionListener="#{viewScope.ActionEventsBean.syncAction}"/>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>

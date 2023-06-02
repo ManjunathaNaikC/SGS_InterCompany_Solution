@@ -180,6 +180,81 @@
                                                           shortDesc="#{bindings.ApplyReceiptOnly.hints.tooltip}"
                                                           id="sbc4"
                                                           binding="#{viewScope.ActionEventsBean.applyReceiptOnlyBind}"/>-->
+
+                                <af:selectOneChoice value="#{pageFlowScope.selectedReceiptPurposeCode}"
+                                                    label="#{bindings.RECEIPTPURPOSECODE.label}"
+                                                    required="#{bindings.RECEIPTPURPOSECODE.hints.mandatory}"
+                                                    shortDesc="#{bindings.RECEIPTPURPOSECODE.hints.tooltip}" id="soc12"
+                                                    autoSubmit="true" disabled="true"
+                                                    binding="#{viewScope.ActionEventsBean.recPurposeCode}">
+                                    <f:selectItems value="#{bindings.RECEIPTPURPOSECODE.items}" id="si12"/>
+                                    <f:validator binding="#{bindings.RECEIPTPURPOSECODE.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputDate value="#{bindings.RECEIPTDATE.inputValue}"
+                                              label="#{bindings.RECEIPTDATE.hints.label}"
+                                              required="#{bindings.RECEIPTDATE.hints.mandatory}"
+                                              columns="#{bindings.RECEIPTDATE.hints.displayWidth}"
+                                              shortDesc="#{bindings.RECEIPTDATE.hints.tooltip}" id="id3" disabled="true"
+                                              binding="#{viewScope.ActionEventsBean.receiptDate}">
+                                    <f:validator binding="#{bindings.RECEIPTDATE.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.RECEIPTDATE.format}"/>
+                                </af:inputDate>
+                                <af:selectOneChoice value="#{pageFlowScope.selectedRctBankName}"
+                                                    label="#{bindings.RECEIPTBANKCD.label}"
+                                                    required="#{bindings.RECEIPTBANKCD.hints.mandatory}"
+                                                    shortDesc="#{bindings.RECEIPTBANKCD.hints.tooltip}" id="soc7"
+                                                    disabled="true" binding="#{viewScope.ActionEventsBean.recBankName}">
+                                    <f:selectItems value="#{bindings.RECEIPTBANKCD.items}" id="si7"/>
+                                    <f:validator binding="#{bindings.RECEIPTBANKCD.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{pageFlowScope.selectedRctBankCode}"
+                                                    label="#{bindings.RECEIPTBANKACCTKEY.label}"
+                                                    required="#{bindings.RECEIPTBANKACCTKEY.hints.mandatory}"
+                                                    shortDesc="#{bindings.RECEIPTBANKACCTKEY.hints.tooltip}" id="soc8"
+                                                    disabled="true" binding="#{viewScope.ActionEventsBean.recBankCode}">
+                                    <f:selectItems value="#{bindings.RECEIPTBANKACCTKEY.items}" id="si8"/>
+                                    <f:validator binding="#{bindings.RECEIPTBANKACCTKEY.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{pageFlowScope.selectedReceiptCurrency}"
+                                                    label="#{bindings.RECEIPTCURRENCY.label}"
+                                                    required="#{bindings.RECEIPTCURRENCY.hints.mandatory}"
+                                                    shortDesc="#{bindings.RECEIPTCURRENCY.hints.tooltip}" id="soc3"
+                                                    autoSubmit="true" disabled="true"
+                                                    binding="#{viewScope.ActionEventsBean.recCurrency}">
+                                    <f:selectItems value="#{bindings.RECEIPTCURRENCY.items}" id="si13"/>
+                                    <f:validator binding="#{bindings.RECEIPTCURRENCY.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputText value="#{bindings.RECTXNREFERENCENO.inputValue}"
+                                              label="#{bindings.RECTXNREFERENCENO.hints.label}"
+                                              required="#{bindings.RECTXNREFERENCENO.hints.mandatory}"
+                                              columns="#{bindings.RECTXNREFERENCENO.hints.displayWidth}"
+                                              maximumLength="#{bindings.RECTXNREFERENCENO.hints.precision}"
+                                              shortDesc="#{bindings.RECTXNREFERENCENO.hints.tooltip}" id="it3"
+                                              binding="#{viewScope.ActionEventsBean.recTxnRefNum}" disabled="true"
+                                              autoSubmit="true">
+                                    <f:validator binding="#{bindings.RECTXNREFERENCENO.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.BANKCHARGES.inputValue}"
+                                              label="#{bindings.BANKCHARGES.hints.label}"
+                                              required="#{bindings.BANKCHARGES.hints.mandatory}"
+                                              columns="#{bindings.BANKCHARGES.hints.displayWidth}"
+                                              maximumLength="#{bindings.BANKCHARGES.hints.precision}"
+                                              shortDesc="#{bindings.BANKCHARGES.hints.tooltip}" id="it2Cont"
+                                              binding="#{viewScope.ActionEventsBean.inputBankCharge}" disabled="true">
+                                    <f:validator binding="#{bindings.BANKCHARGES.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.BANKCHARGES.format}"/>
+                                </af:inputText>
+                                <af:outputText value="Amount : #{bindings.TRXAMOUNT.inputValue}" id="ot8"
+                                               partialTriggers="it11 sbc5 sbc6"
+                                               inlineStyle="font-family: Arial; font-size: 14px; color: black;"
+                                               visible="false" binding="#{viewScope.ActionEventsBean.txnAmtOnReceipt}"/>
+                                <af:outputText value="Amount : #{viewScope.ActionEventsBean.totalSettlementAmount}"
+                                               id="ot12" partialTriggers="b4Cont" 
+                                               inlineStyle="font-family: Arial; font-size: 14px; color: black;"
+                                               binding="#{viewScope.ActionEventsBean.totalSettleOutput}"
+                                               visible="false"/>
+                               
+
                         <af:selectOneChoice value="#{pageFlowScope.selectedReceiptPurposeCode}"
                                             label="#{bindings.RECEIPTPURPOSECODE.label}"
                                             required="#{bindings.RECEIPTPURPOSECODE.hints.mandatory}"
@@ -250,7 +325,8 @@
                                        partialTriggers="b4Cont"
                                        inlineStyle="font-family: Arial; font-size: 14px; color: black;"
                                        binding="#{viewScope.ActionEventsBean.totalSettleOutput}" visible="false"/>
-                        <!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}"
+                        <af:inputText value="#{bindings.TRXAMOUNT.inputValue}"
+
                                               label="#{bindings.TRXAMOUNT.hints.label}"
                                               required="#{bindings.TRXAMOUNT.hints.mandatory}"
                                               columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
@@ -270,7 +346,7 @@
                                               binding="#{viewScope.ActionEventsBean.inputBankCharge}">
                                     <f:validator binding="#{bindings.BANKCHARGES.validator}"/>
                                     <af:convertNumber groupingUsed="false" pattern="#{bindings.BANKCHARGES.format}"/>
-                                </af:inputText>-->
+                                </af:inputText>
                     </af:panelFormLayout>
                 </af:panelBox>
             </af:panelGroupLayout>
@@ -557,9 +633,12 @@
                                             autoSubmit="true">
                             <f:selectItems value="#{bindings.PAYMENTCURRENCY.items}" id="si5Cont"/>
                             <f:validator binding="#{bindings.PAYMENTCURRENCY.validator}"/>
-                        </af:selectOneChoice>
-                        -->
+
+                        </af:selectOneChoice>-->
+                        
+                        
         <!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
+
                                       required="#{bindings.TRXAMOUNT.hints.mandatory}"
                                       columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
                                       maximumLength="#{bindings.TRXAMOUNT.hints.precision}"

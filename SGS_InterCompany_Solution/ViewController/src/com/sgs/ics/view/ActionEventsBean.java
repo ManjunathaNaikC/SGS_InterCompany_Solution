@@ -37,6 +37,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import java.util.Objects;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
@@ -189,6 +191,7 @@ public class ActionEventsBean {
     private RichSelectBooleanCheckbox netNetArColRecselectcheckbox;
     private RichColumn onNetArColPayColumnSelectRecord;
     private RichSelectBooleanCheckbox netNetArColPayselectcheckbox;
+    private RichInputText netCcAllLimCal;
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -1001,6 +1004,9 @@ public class ActionEventsBean {
         double bankCharge = 0.00;
         DCIteratorBinding dcIteratorbinding = getDCIteratorBindings("CreateStlmtRVO1Iterator");
         Row row = dcIteratorbinding.getCurrentRow();
+        //        SGSAppModuleImpl am = new SGSAppModuleImpl();
+        String paymentId = "PS_" + (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
+        System.out.println("---paymentid---" + paymentId);
         if (row.getAttribute("TRXAMOUNT") != null) {
             transactionAmount = ((Number) row.getAttribute("TRXAMOUNT")).doubleValue();
         }
@@ -1022,7 +1028,7 @@ public class ActionEventsBean {
                 String recTxnRefNum = (String) row.getAttribute("RECTXNREFERENCENO");
                 double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
                 double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
-                String paymentId = (String) row.getAttribute("PAYMENTID");
+                //                String paymentId = (String) row.getAttribute("PaymentId");
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
                 //            java.util.Date paymentDate = (java.util.Date) row.getAttribute("PAYMENTDATE");
@@ -1129,15 +1135,14 @@ public class ActionEventsBean {
                     //                    paymentRow.setAttribute("OsAmountPayable",
                     //                                            Double.parseDouble(decimalFormat.format(netPayableAmount -
                     //                                                                                    settlementAmount)));
-                    SGSAppModuleImpl am = new SGSAppModuleImpl();
-                    String value = "PS_" + (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
 
-                    paymentRow.setAttribute("PAYMENTCURRENCY", "NULL");
-                    paymentRow.setAttribute("PURPOSECODE", "NULL");
-                    paymentRow.setAttribute("PAYMENTDATE", "");
-                    paymentRow.setAttribute("PAYMENTBANKCD", "NULL");
-                    paymentRow.setAttribute("PAYMENTMETHOD", "NULL");
-                    paymentRow.setAttribute("PAYMENTBANKACCTKEY", "NULL");
+
+                    //                    paymentRow.setAttribute("PAYMENTCURRENCY", "NULL");
+                    //                    paymentRow.setAttribute("PURPOSECODE", "NULL");
+                    //                    paymentRow.setAttribute("PAYMENTDATE", "");
+                    //                    paymentRow.setAttribute("PAYMENTBANKCD", "NULL");
+                    //                    paymentRow.setAttribute("PAYMENTMETHOD", "NULL");
+                    //                    paymentRow.setAttribute("PAYMENTBANKACCTKEY", "NULL");
 
                     paymentRow.setAttribute("RECEIPTPURPOSECODE", receiptPurposeCode);
                     paymentRow.setAttribute("RECEIPTDATE", rctDate);
@@ -1145,6 +1150,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
                     paymentRow.setAttribute("RECTXNREFERENCENO", recTxnRefNum);
                     paymentRow.setAttribute("RECEIPTCURRENCY", receiptCurrency);
+                    paymentRow.setAttribute("PaymentId", paymentId);
 
 
                 } else if ("On Hold".equals(paymentStatus)) {
@@ -1188,12 +1194,12 @@ public class ActionEventsBean {
                     //                                            Double.parseDouble(decimalFormat.format(netPayableAmount -
                     //                                                                                    settlementAmount)));
 
-                    paymentRow.setAttribute("PAYMENTCURRENCY", "NULL");
-                    paymentRow.setAttribute("PURPOSECODE", "NULL");
-                    paymentRow.setAttribute("PAYMENTDATE", "");
-                    paymentRow.setAttribute("PAYMENTBANKCD", "NULL");
-                    paymentRow.setAttribute("PAYMENTMETHOD", "NULL");
-                    paymentRow.setAttribute("PAYMENTBANKACCTKEY", "NULL");
+                    //                    paymentRow.setAttribute("PAYMENTCURRENCY", "NULL");
+                    //                    paymentRow.setAttribute("PURPOSECODE", "NULL");
+                    //                    paymentRow.setAttribute("PAYMENTDATE", "");
+                    //                    paymentRow.setAttribute("PAYMENTBANKCD", "NULL");
+                    //                    paymentRow.setAttribute("PAYMENTMETHOD", "NULL");
+                    //                    paymentRow.setAttribute("PAYMENTBANKACCTKEY", "NULL");
 
                     paymentRow.setAttribute("RECEIPTPURPOSECODE", receiptPurposeCode);
                     paymentRow.setAttribute("RECEIPTDATE", rctDate);
@@ -1201,6 +1207,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
                     paymentRow.setAttribute("RECTXNREFERENCENO", recTxnRefNum);
                     paymentRow.setAttribute("RECEIPTCURRENCY", receiptCurrency);
+                    paymentRow.setAttribute("PaymentId", paymentId);
 
 
                 }
@@ -1225,7 +1232,7 @@ public class ActionEventsBean {
                 settlementAmount = ((Number) paymentRow.getAttribute("StlmtAmount")).doubleValue();
             }
 
-            String paymentId = (String) row.getAttribute("PAYMENTID");
+            //            String paymentId = (String) row.getAttribute("PaymentId");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             //            java.util.Date paymentDate = (java.util.Date) row.getAttribute("PAYMENTDATE");
@@ -1334,10 +1341,10 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("OsAmountPayable",
                                             Double.parseDouble(decimalFormat.format(netPayableAmount -
                                                                                     settlementAmount)));
-                    SGSAppModuleImpl am = new SGSAppModuleImpl();
-                    String value = "PS_" + (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
 
-                    // paymentRow.setAttribute("PaymentId", value);
+
+                    //                     paymentRow.setAttribute("PaymentId", value);
+                    paymentRow.setAttribute("PaymentId", paymentId);
                     paymentRow.setAttribute("PAYMENTDATE", payDate);
                     paymentRow.setAttribute("RECEIPTDATE", rctDate);
                     paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
@@ -1389,7 +1396,8 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("OsAmountPayable",
                                             Double.parseDouble(decimalFormat.format(netPayableAmount -
                                                                                     settlementAmount)));
-                    // paymentRow.setAttribute("PaymentId", paymentId);
+                    //                     paymentRow.setAttribute("PaymentId", paymentId);
+                    paymentRow.setAttribute("PaymentId", paymentId);
                     paymentRow.setAttribute("PAYMENTDATE", payDate);
                     paymentRow.setAttribute("RECEIPTDATE", rctDate);
                     paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
@@ -1439,14 +1447,13 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("OsAmountPayable",
                                             Double.parseDouble(decimalFormat.format(netPayableAmount -
                                                                                     settlementAmount)));
-                    SGSAppModuleImpl am = new SGSAppModuleImpl();
-                    String value = "PS_" + (am.getDBSequence1("SEQ_SGS_CREATE_SETTLEMENT"));
 
-                    paymentRow.setAttribute("RECEIPTPURPOSECODE", "NULL");
-                    paymentRow.setAttribute("RECEIPTDATE", "");
-                    paymentRow.setAttribute("RECEIPTBANKCD", "NULL");
-                    paymentRow.setAttribute("RECEIPTBANKACCTKEY", "NULL");
-                    paymentRow.setAttribute("RECEIPTCURRENCY", "NULL");
+
+                    //                    paymentRow.setAttribute("RECEIPTPURPOSECODE", "NULL");
+                    //                    paymentRow.setAttribute("RECEIPTDATE", "");
+                    //                    paymentRow.setAttribute("RECEIPTBANKCD", "NULL");
+                    //                    paymentRow.setAttribute("RECEIPTBANKACCTKEY", "NULL");
+                    //                    paymentRow.setAttribute("RECEIPTCURRENCY", "NULL");
 
                     paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
                     paymentRow.setAttribute("PURPOSECODE", purposeCode);
@@ -1455,6 +1462,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
                     paymentRow.setAttribute("TxnReferenceNo", transactionRef);
                     paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
+                    paymentRow.setAttribute("PaymentId", paymentId);
 
 
                 } else if ("On Hold".equals(paymentStatus)) {
@@ -1494,13 +1502,13 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("OsAmountPayable",
                                             Double.parseDouble(decimalFormat.format(netPayableAmount -
                                                                                     settlementAmount)));
-                    // paymentRow.setAttribute("PaymentId", paymentId);
+                    //                     paymentRow.setAttribute("PaymentId", paymentId);
 
-                    paymentRow.setAttribute("RECEIPTPURPOSECODE", "NULL");
-                    paymentRow.setAttribute("RECEIPTDATE", "");
-                    paymentRow.setAttribute("RECEIPTBANKCD", "NULL");
-                    paymentRow.setAttribute("RECEIPTBANKACCTKEY", "NULL");
-                    paymentRow.setAttribute("RECEIPTCURRENCY", "NULL");
+                    //                    paymentRow.setAttribute("RECEIPTPURPOSECODE", "NULL");
+                    //                    paymentRow.setAttribute("RECEIPTDATE", "");
+                    //                    paymentRow.setAttribute("RECEIPTBANKCD", "NULL");
+                    //                    paymentRow.setAttribute("RECEIPTBANKACCTKEY", "NULL");
+                    //                    paymentRow.setAttribute("RECEIPTCURRENCY", "NULL");
 
                     paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
                     paymentRow.setAttribute("PURPOSECODE", purposeCode);
@@ -1509,6 +1517,7 @@ public class ActionEventsBean {
                     paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
                     paymentRow.setAttribute("TxnReferenceNo", transactionRef);
                     paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
+                    paymentRow.setAttribute("PaymentId", paymentId);
 
 
                 }
@@ -1616,7 +1625,7 @@ public class ActionEventsBean {
 
 
         //
-        //                String PAYMENTID = (String) row.getAttribute("PAYMENTID");
+        //                        String PAYMENTID = (String) row.getAttribute("PAYMENTID");
         //                String ICCUSTOMERGEO = (String) row.getAttribute("ICCUSTOMERGEO");
         //                String ICCUSTOMERBU = (String) row.getAttribute("ICCUSTOMERBU");
         //                String ICSUPPLIERGEO = (String) row.getAttribute("ICSUPPLIERGEO");
@@ -3913,7 +3922,20 @@ public class ActionEventsBean {
 
                     double EnterNetIcLimOf = Double.parseDouble((String) icAllowableLimitBind.getValue());
 
-                    if (EnterNetIcLimOf > NetIcAllLimCalRead) {
+                    double NettingCcAllLimCal = ((BigDecimal) netCcAllLimCal.getValue()).doubleValue();
+
+                    double EnterccAllowableLimit = Double.parseDouble((String) ccAllowableLimit.getValue());
+                   
+
+                    if (!Objects.isNull(EnterNetIcLimOf) && (EnterNetIcLimOf > NetIcAllLimCalRead)) {
+                        FacesContext context = FacesContext.getCurrentInstance();
+                        String messageText =
+                            "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
+                        FacesMessage fm = new FacesMessage(messageText);
+                        fm.setSeverity(FacesMessage.SEVERITY_WARN);
+                        context.addMessage(null, fm);
+
+                    } else if (!Objects.isNull(EnterccAllowableLimit) && (EnterccAllowableLimit > NettingCcAllLimCal)) {
                         FacesContext context = FacesContext.getCurrentInstance();
                         String messageText =
                             "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
@@ -4370,6 +4392,177 @@ public class ActionEventsBean {
         AdfFacesContext.getCurrentInstance().addPartialTarget(netNetArColPayselectcheckbox);
         AdfFacesContext.getCurrentInstance().addPartialTarget(onNetArColPayColumnSelectRecord);
 
+    }
+
+
+    public void setNetCcAllLimCal(RichInputText netCcAllLimCal) {
+        this.netCcAllLimCal = netCcAllLimCal;
+    }
+
+    public RichInputText getNetCcAllLimCal() {
+        return netCcAllLimCal;
+    }
+
+    public void onNetIcRecvHold(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
+
+
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecords", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                rw.setAttribute("Status", "On Hold");
+            }
+        }
+
+        executeBinding("Commit");
+    }
+
+    public void onNetIcRecvRelease(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+              DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
+              ViewObject holdVO = holditer.getViewObject();
+
+
+              oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecords", "true");
+              System.out.println("*****Selected rows****" + selectedRows.length);
+              for (oracle.jbo.Row rw : selectedRows) {
+                  if (rw.getAttribute("Status").equals("On Hold")) {
+
+
+                      rw.setAttribute("Status", "Release");
+                  }
+              }
+
+              executeBinding("Commit");
+
+    }
+
+    public void onNetIcPayHold(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
+                ViewObject holdVO = holditer.getViewObject();
+
+
+                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+                System.out.println("*****Selected rows****" + selectedRows.length);
+                for (oracle.jbo.Row rw : selectedRows) {
+                        if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                        rw.setAttribute("Status", "On Hold");
+                    }
+                }
+
+                executeBinding("Commit");
+    }
+
+    public void onNetIcPayRelease(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+               DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
+               ViewObject holdVO = holditer.getViewObject();
+
+
+               oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+               System.out.println("*****Selected rows****" + selectedRows.length);
+               for (oracle.jbo.Row rw : selectedRows) {
+                       if (rw.getAttribute("Status").equals("On Hold")) {
+
+
+                           rw.setAttribute("Status", "Release");
+                       }
+               }
+
+               executeBinding("Commit");
+    }
+
+    public void onNetArColRecvHold(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
+                ViewObject holdVO = holditer.getViewObject();
+
+
+                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+                System.out.println("*****Selected rows****" + selectedRows.length);
+                for (oracle.jbo.Row rw : selectedRows) {
+                    if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                        rw.setAttribute("Status", "On Hold");
+                    }
+                }
+
+                executeBinding("Commit");
+    }
+
+    public void onNetArColRecvRelease(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
+                ViewObject holdVO = holditer.getViewObject();
+
+
+                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+                System.out.println("*****Selected rows****" + selectedRows.length);
+                for (oracle.jbo.Row rw : selectedRows) {
+                    if (rw.getAttribute("Status").equals("On Hold")) {
+
+
+                        rw.setAttribute("Status", "Release");
+                    }
+                }
+
+                executeBinding("Commit");
+    }
+
+    public void onNetArColPayHold(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+               DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
+               ViewObject holdVO = holditer.getViewObject();
+
+
+               oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+               System.out.println("*****Selected rows****" + selectedRows.length);
+               for (oracle.jbo.Row rw : selectedRows) {
+                       if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                       rw.setAttribute("Status", "On Hold");
+                   }
+               }
+
+               executeBinding("Commit");
+
+    }
+
+    public void onNetArColPayRelease(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
+                ViewObject holdVO = holditer.getViewObject();
+
+
+                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+                System.out.println("*****Selected rows****" + selectedRows.length);
+                for (oracle.jbo.Row rw : selectedRows) {
+                    if (rw.getAttribute("Status").equals("On Hold")) {
+
+
+                        rw.setAttribute("Status", "Release");
+                    }
+                }
+
+                executeBinding("Commit");
     }
 
 }

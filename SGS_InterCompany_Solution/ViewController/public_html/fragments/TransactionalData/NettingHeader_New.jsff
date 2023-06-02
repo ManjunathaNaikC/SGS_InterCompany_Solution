@@ -259,7 +259,8 @@
                   <af:inputText label="Enter IC Netting-Off Limit" id="it4"
                                 binding="#{viewScope.ActionEventsBean.icAllowableLimitBind}"/>
                   <af:inputText label="Netting CC Allowable Limit(Calculated)"
-                                value="#{pageFlowScope.CalculatedCCAllowableLimit}" readOnly="true" id="ot28"/>
+                                value="#{pageFlowScope.CalculatedCCAllowableLimit}" readOnly="true" id="ot28"
+                                binding="#{viewScope.ActionEventsBean.netCcAllLimCal}"/>
                   <af:inputText label="Enter Netting of AR Collection Limit" id="it5"
                                 binding="#{viewScope.ActionEventsBean.ccAllowableLimit}"/>
                   <af:inputText label="Created By" value="#{pageFlowScope.createdBy}" id="ot29" readOnly="true"/>

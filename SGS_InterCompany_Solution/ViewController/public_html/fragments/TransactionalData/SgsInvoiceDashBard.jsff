@@ -7,7 +7,7 @@
         <f:facet name="top"/>
         <f:facet name="bottom"/>
         <f:facet name="center">
-            <af:panelBox text="Invoice DashBoard" id="pb1">
+            <af:panelBox text="Invoice DashBoard" id="pb1" titleHalign="left">
                 <f:facet name="toolbar"/>
                 <af:panelGroupLayout layout="vertical" id="pgl1" styleClass="AFStretchWidth">
                     <af:panelHeader id="ph1">
@@ -23,7 +23,7 @@
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                         <af:toolbar id="t2">
-                            <af:button id="b1" icon="/resources/icons/microsoft-excel.png" shortDesc="Export to Excel"
+                            <af:button id="b1" icon="/resources/icons/microsoft-excel_new.png" shortDesc="Export to Excel"
                                        disabled="#{bindings.SgsIcInvoiceHeaderVO1.estimatedRowCount &lt;=0}">
                                 <af:exportCollectionActionListener type="excelHTML" exportedId="ivd1"
                                                                    filename="InvoiceDashBoard.xls"/>
@@ -36,19 +36,23 @@
                             </af:button>-->
                             <af:button text="Approve" id="b3"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}"
-                                       actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveClick}">
+                                       actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveClick}"
+                                       icon="/resources/icons/security_new.png">
                                 <!--<af:showPopupBehavior popupId="p1approve"/>-->
                             </af:button>
                             <af:button text="Reject" id="b4"
-                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}">
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}"
+                                       icon="/resources/icons/transactional.png">
                                 <af:showPopupBehavior popupId="p2reject"/>
                             </af:button>
                             <af:button text="Confirm for Processing" id="b12"
-                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CONFIRM_PROCESS')}">
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CONFIRM_PROCESS')}"
+                                       icon="/resources/icons/process_new.png">
                                 <af:showPopupBehavior popupId="p1proc"/>
                             </af:button>
                             <af:button text="Confirm For Invoice" id="b5"
-                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}">
+                                       rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}"
+                                       icon="/resources/icons/setup.png">
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
                             <!-- <af:button text="Create Credit Memo" id="b2">
@@ -56,14 +60,16 @@
                             </af:button>-->
                             <af:button text="Upload Adjustment Entries" id="b1adj"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}"
-                                       actionListener="#{pageFlowScope.UploadInInvoice.onAdjustmentUpload}">
+                                       actionListener="#{pageFlowScope.UploadInInvoice.onAdjustmentUpload}"
+                                       icon="/resources/icons/reports_new.png">
                                 <!--<af:showPopupBehavior popupId="AdjEntryPopup"/>-->
                             </af:button>
-                            <af:button text="Credit Transaction" id="b2"
+                            <!--<af:button text="Credit Transaction" id="b2"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CREDIT_TXN')}"
-                                       actionListener="#{viewScope.ActionEventsBean.onCreditTransactionActionButton}">
-                                <!--<af:showPopupBehavior popupId="p1creditMemo"/>-->
-                            </af:button>
+                                       actionListener="#{viewScope.ActionEventsBean.onCreditTransactionActionButton}"
+                                       icon="/resources/icons/process_new.png">
+                                --><!--<af:showPopupBehavior popupId="p1creditMemo"/>--><!--
+                            </af:button>-->
                         </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>

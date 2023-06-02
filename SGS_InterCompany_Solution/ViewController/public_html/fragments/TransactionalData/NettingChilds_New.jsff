@@ -132,8 +132,7 @@
     </af:panelFormLayout>-->
         <af:spacer id="s1" height="20"/>
         <af:panelBox text="Netting IC Receivable" id="pb2">
-            <f:facet name="toolbar"/>
-            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+         <f:facet name="toolbar"/> <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                     <af:toolbar id="t7">

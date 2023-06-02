@@ -12,12 +12,14 @@
                     <f:facet name="toolbar">
                         <af:toolbar id="t1">
                             <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"
-                                       partialSubmit="true"/>
+                                       partialSubmit="true" inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             <!--<af:button text="Save" id="b1"/>-->
                             <af:button text="Cancel" id="b2" action="back" actionListener="#{bindings.Rollback.execute}"
-                                       immediate="true" rendered="#{pageFlowScope.pTPAAddEdit=='EDIT'}"/>
+                                       immediate="true" rendered="#{pageFlowScope.pTPAAddEdit=='EDIT'}"
+                                       inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             <af:button text="Cancel" id="b3" action="back" actionListener="#{bindings.Rollback.execute}"
-                                       immediate="true" rendered="#{pageFlowScope.pTPAAddEdit=='ADD'}"/>
+                                       immediate="true" rendered="#{pageFlowScope.pTPAAddEdit=='ADD'}"
+                                       inlineStyle="border-radius:5px 5px 5px 5px;"/>
                         </af:toolbar>
                     </f:facet>
                     <af:panelFormLayout id="pfl1" rows="5" maxColumns="2">
@@ -324,9 +326,9 @@
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t3">
-                                <af:button id="b4" icon="/resources/icons/plus.png"
+                                <af:button id="b4" icon="/resources/icons/plus_new.png"
                                            actionListener="#{bindings.CreateInsert.execute}"/>
-                                <af:button id="b5" icon="/resources/icons/delete.png"
+                                <af:button id="b5" icon="/resources/icons/delete_new.png"
                                            actionListener="#{bindings.Delete1.execute}"/>
                             </af:toolbar>
                         </f:facet>

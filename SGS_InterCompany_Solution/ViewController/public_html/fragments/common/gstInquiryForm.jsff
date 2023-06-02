@@ -11,13 +11,16 @@
         <af:panelBox id="pb1" text="Goods and Service Tax (GST) Setup Form">
           <f:facet name="toolbar">
             <af:toolbar id="t1">
-              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"/>
+              <af:button text="Save" id="b1" actionListener="#{viewScope.ActionEventsBean.genericSave}"
+                         inlineStyle="border-radius:5px 5px 5px 5px / 5px 5px 5px 5px;"/>
               <af:button text="Cancel" id="b2" action="back" immediate="true"
                          actionListener="#{bindings.Rollback.execute}"
-                         rendered="#{pageFlowScope.pGSTAddEdit == 'EDIT'}"/>
+                         rendered="#{pageFlowScope.pGSTAddEdit == 'EDIT'}"
+                         inlineStyle="border-radius:5px 5px 5px 5px / 5px 5px 5px 5px;"/>
               <af:button text="Cancel" id="b3" action="back" rendered="#{pageFlowScope.pGSTAddEdit == 'ADD'}"
                          immediate="true" actionListener="#{bindings.Delete.execute}"
-                         disabled="#{!bindings.Delete.enabled}"/>
+                         disabled="#{!bindings.Delete.enabled}"
+                         inlineStyle="border-radius:5px 5px 5px 5px / 5px 5px 5px 5px;"/>
             </af:toolbar>
           </f:facet>
           <af:panelFormLayout id="pfl1" rows="6">
@@ -210,8 +213,8 @@
             <f:facet name="toolbar">
               <af:toolbar id="t3">
                 <af:button actionListener="#{bindings.CreateInsert.execute}"
-                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/icons/plus.png"/>
-                <af:button id="b5" icon="/resources/icons/delete.png" shortDesc="Delete GST Tax Applicability">
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/icons/plus_new.png"/>
+                <af:button id="b5" icon="/resources/icons/delete_new.png" shortDesc="Delete GST Tax Applicability">
                            <af:showPopupBehavior popupId="p1gstChild"/>
                         </af:button>
               </af:toolbar>

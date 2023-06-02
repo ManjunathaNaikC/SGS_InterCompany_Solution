@@ -8,32 +8,34 @@
     <f:facet name="bottom"/>
     <f:facet name="center">
       <af:panelGroupLayout layout="vertical" id="pgl1">
-        <af:panelHeader text="Mark-Up Rate" id="ph1">
-          <af:query id="qryId1" headerText="Search" disclosed="true"
-                    value="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.queryDescriptor}"
-                    model="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.queryModel}"
-                    queryListener="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.processQuery}"
-                    queryOperationListener="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.processQueryOperation}"
-                    resultComponentId="::pc1:t2" rows="2" maxColumns="2" saveQueryMode="hidden"
-                    styleClass="setupHeader"/>
-        </af:panelHeader>
-        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-          <f:facet name="menus"/>
-          <f:facet name="toolbar">
-            <af:toolbar id="t1">
-              <af:button id="b4" icon="/resources/icons/microsoft-excel.png" shortDesc="Export to Excel">
-                    <af:exportCollectionActionListener type="excelHTML" exportedId="t2" filename="MarkUpRateMaster.xls"/>
+        <af:panelBox text="Mark-Up Rate" id="pb1">
+          <f:facet name="toolbar"/>
+          <af:panelHeader text="" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.sgsMarkUpRateMasterVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:t2" rows="2" maxColumns="2" saveQueryMode="hidden"
+                      styleClass="setupHeader"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth" inlineStyle="background-color:White;">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t1">
+                <af:button id="b4" icon="/resources/icons/microsoft-excel_new.png" shortDesc="Export to Excel">
+                  <af:exportCollectionActionListener type="excelHTML" exportedId="t2" filename="MarkUpRateMaster.xls"/>
                 </af:button>
-              <af:button id="b1" icon="/resources/icons/plus.png" shortDesc="Create/Add MarkUp Data"
-                         actionListener="#{bindings.CreateMarkUpRate.execute}"/>
-              <af:button id="b2" icon="/resources/icons/delete.png"
-                         actionListener="#{viewScope.ActionEventsBean.onDeleteMarkUpData}" shortDesc="Delete"/>
-              <af:button text="Save" id="b3" actionListener="#{viewScope.ActionEventsBean.onMarkUpRateDataSave}"/>
-              
-            </af:toolbar>
-          </f:facet>
-          <f:facet name="statusbar"/>
-          <!--<af:table value="#{bindings.sgsMarkUpRateMasterVO1.collectionModel}" var="row"
+                <af:button id="b1" icon="/resources/icons/plus_new.png" shortDesc="Create/Add MarkUp Data"
+                           actionListener="#{bindings.CreateMarkUpRate.execute}"/>
+                <af:button id="b2" icon="/resources/icons/delete_new.png"
+                           actionListener="#{viewScope.ActionEventsBean.onDeleteMarkUpData}" shortDesc="Delete"/>
+                <af:button text="Save" id="b3" actionListener="#{viewScope.ActionEventsBean.onMarkUpRateDataSave}"
+                           inlineStyle="border-radius:5px 5px 5px 5px / 5px 5px 5px 5px;"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <!--<af:table value="#{bindings.sgsMarkUpRateMasterVO1.collectionModel}" var="row"
                     rows="#{bindings.sgsMarkUpRateMasterVO1.rangeSize}"
                     emptyText="#{bindings.sgsMarkUpRateMasterVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                     rowBandingInterval="0"
@@ -108,26 +110,26 @@
               </af:outputText>
             </af:column>
           </af:table>-->
-          <af:table value="#{bindings.sgsMarkUpRateMasterVO11.collectionModel}" var="row"
-                    rows="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}"
-                    emptyText="#{bindings.sgsMarkUpRateMasterVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0"
-                    selectedRowKeys="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.makeCurrent}"
-                    rowSelection="single" fetchSize="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}" id="t2"
-                    partialTriggers="::b1" styleClass="setup" inlineStyle="height:250px;" autoHeightRows="12"
-                    scrollPolicy="scroll">
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}" id="c1" width="150">
-              <af:inputText value="#{row.bindings.MARKUPNAME.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.displayWidth}"
-                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.precision}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.tooltip}" id="it1">
-                <f:validator binding="#{row.bindings.MARKUPNAME.validator}"/>
-              </af:inputText>
-            </af:column>
-            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}" id="c1"
+            <af:table value="#{bindings.sgsMarkUpRateMasterVO11.collectionModel}" var="row"
+                      rows="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}"
+                      emptyText="#{bindings.sgsMarkUpRateMasterVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.sgsMarkUpRateMasterVO11.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.sgsMarkUpRateMasterVO11.rangeSize}" id="t2"
+                      partialTriggers="::b1" styleClass="setup" inlineStyle="height:250px;" autoHeightRows="12"
+                      scrollPolicy="scroll">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}" id="c1" width="150">
+                <af:inputText value="#{row.bindings.MARKUPNAME.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.displayWidth}"
+                              maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.precision}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.MARKUPNAME.tooltip}" id="it1">
+                  <f:validator binding="#{row.bindings.MARKUPNAME.validator}"/>
+                </af:inputText>
+              </af:column>
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}" id="c1"
                        rendered="false">
               <af:inputText value="#{row.bindings.MarkUpRateId.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.label}"
@@ -140,7 +142,7 @@
                                   pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRateId.format}"/>
               </af:inputText>
             </af:column>-->
-            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c3">
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c3">
               <af:inputText value="#{row.bindings.SpLegalEntity.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
@@ -150,7 +152,7 @@
                 <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
               </af:inputText>
             </af:column>-->
-            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c2">
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c2">
               <af:selectOneChoice value="#{row.bindings.SpLegalEntity.inputValue}"
                                   label="#{row.bindings.SpLegalEntity.label}"
                                   required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
@@ -159,16 +161,17 @@
                 <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
               </af:selectOneChoice>
             </af:column>-->
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c2">
-              <af:selectOneChoice value="#{row.bindings.SpLegalEntity.inputValue}"
-                                  label="#{row.bindings.SpLegalEntity.label}"
-                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
-                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.tooltip}" id="soc3">
-                <f:selectItems value="#{row.bindings.SpLegalEntity.items}" id="si3"/>
-                <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
-              </af:selectOneChoice>
-            </af:column>
-            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c6">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.label}" id="c2">
+                <af:selectOneChoice value="#{row.bindings.SpLegalEntity.inputValue}"
+                                    label="#{row.bindings.SpLegalEntity.label}"
+                                    required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.mandatory}"
+                                    shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpLegalEntity.tooltip}"
+                                    id="soc3">
+                  <f:selectItems value="#{row.bindings.SpLegalEntity.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.SpLegalEntity.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c6">
               <af:inputText value="#{row.bindings.SrLegalEntity.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
@@ -178,7 +181,7 @@
                 <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
               </af:inputText>
             </af:column>-->
-            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c3">
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c3">
               <af:selectOneChoice value="#{row.bindings.SrLegalEntity.inputValue}"
                                   label="#{row.bindings.SrLegalEntity.label}"
                                   required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
@@ -187,17 +190,19 @@
                 <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
               </af:selectOneChoice>
             </af:column>-->
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c3">
-              <af:selectOneChoice value="#{row.bindings.SrLegalEntity.inputValue}"
-                                  label="#{row.bindings.SrLegalEntity.label}"
-                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
-                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.tooltip}" id="soc4">
-                <f:selectItems value="#{row.bindings.SrLegalEntity.items}" id="si4"/>
-                <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
-              </af:selectOneChoice>
-            </af:column>
-            <!--<af:column id="c14" headerText="Service Provider (SP)		" align="center">
-              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}" id="c2">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.label}" id="c3">
+                <af:selectOneChoice value="#{row.bindings.SrLegalEntity.inputValue}"
+                                    label="#{row.bindings.SrLegalEntity.label}"
+                                    required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.mandatory}"
+                                    shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrLegalEntity.tooltip}"
+                                    id="soc4">
+                  <f:selectItems value="#{row.bindings.SrLegalEntity.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.SrLegalEntity.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <!--<af:column id="c14" headerText="Service Provider (SP)		" align="center">
+              -->
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}" id="c2">
                 <af:inputText value="#{row.bindings.SpGeography.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.mandatory}"
@@ -206,8 +211,10 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpGeography.tooltip}" id="it2">
                   <f:validator binding="#{row.bindings.SpGeography.validator}"/>
                 </af:inputText>
-              </af:column>--><!--
-              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}" id="c4">
+              </af:column>-->
+              <!--
+              -->
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}" id="c4">
                 <af:inputText value="#{row.bindings.SpBusinessUnit.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.mandatory}"
@@ -216,10 +223,12 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SpBusinessUnit.tooltip}" id="it4">
                   <f:validator binding="#{row.bindings.SpBusinessUnit.validator}"/>
                 </af:inputText>
-              </af:column>--><!--
+              </af:column>-->
+              <!--
             </af:column>-->
-            <!--<af:column id="c15" headerText="Service Receiver (SR)" align="center">
-              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}" id="c5">
+              <!--<af:column id="c15" headerText="Service Receiver (SR)" align="center">
+              -->
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}" id="c5">
                 <af:inputText value="#{row.bindings.SrGeography.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.mandatory}"
@@ -228,8 +237,10 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrGeography.tooltip}" id="it5">
                   <f:validator binding="#{row.bindings.SrGeography.validator}"/>
                 </af:inputText>
-              </af:column>--><!--
-              --><!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}" id="c7">
+              </af:column>-->
+              <!--
+              -->
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}" id="c7">
                 <af:inputText value="#{row.bindings.SrBusinessUnit.inputValue}"
                               label="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.label}"
                               required="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.mandatory}"
@@ -238,19 +249,20 @@
                               shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.SrBusinessUnit.tooltip}" id="it7">
                   <f:validator binding="#{row.bindings.SrBusinessUnit.validator}"/>
                 </af:inputText>
-              </af:column>--><!--
+              </af:column>-->
+              <!--
             </af:column>-->
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.label}" id="c19">
-              <af:selectOneChoice value="#{row.bindings.ADDITIONALEXPQUALIFIER.inputValue}"
-                                  label="#{row.bindings.ADDITIONALEXPQUALIFIER.label}"
-                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.mandatory}"
-                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.tooltip}"
-                                  id="soc1">
-                <f:selectItems value="#{row.bindings.ADDITIONALEXPQUALIFIER.items}" id="si1"/>
-                <f:validator binding="#{row.bindings.ADDITIONALEXPQUALIFIER.validator}"/>
-              </af:selectOneChoice>
-            </af:column>
-            <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.label}" id="c19">
+                <af:selectOneChoice value="#{row.bindings.ADDITIONALEXPQUALIFIER.inputValue}"
+                                    label="#{row.bindings.ADDITIONALEXPQUALIFIER.label}"
+                                    required="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.mandatory}"
+                                    shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.ADDITIONALEXPQUALIFIER.tooltip}"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.ADDITIONALEXPQUALIFIER.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.ADDITIONALEXPQUALIFIER.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <!--<af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
               <af:inputText value="#{row.bindings.NatureOfExpenses.inputValue}"
                             label="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}"
                             required="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.mandatory}"
@@ -260,101 +272,102 @@
                 <f:validator binding="#{row.bindings.NatureOfExpenses.validator}"/>
               </af:inputText>
             </af:column>-->
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
-              <af:selectOneChoice value="#{row.bindings.NatureOfExpenses.inputValue}"
-                                  label="#{row.bindings.NatureOfExpenses.label}"
-                                  required="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.mandatory}"
-                                  shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.tooltip}"
-                                  id="soc2">
-                <f:selectItems value="#{row.bindings.NatureOfExpenses.items}" id="si2"/>
-                <f:validator binding="#{row.bindings.NatureOfExpenses.validator}"/>
-              </af:selectOneChoice>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}" id="c9"
-                       styleClass="mynumbercolumn">
-              <af:inputText value="#{row.bindings.MarkUpRate.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.displayWidth}"
-                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.precision}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.tooltip}" id="it9">
-                <f:validator binding="#{row.bindings.MarkUpRate.validator}"/>
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.format}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.label}" id="c16">
-              <af:inputDate value="#{row.bindings.EFFECTIVEFROM.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.displayWidth}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.tooltip}" id="id3">
-                <f:validator binding="#{row.bindings.EFFECTIVEFROM.validator}"/>
-                <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.format}"/>-->
-              </af:inputDate>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.label}" id="c17">
-              <af:inputDate value="#{row.bindings.EFFECTIVETO.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.displayWidth}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.tooltip}" id="id4">
-                <f:validator binding="#{row.bindings.EFFECTIVETO.validator}"/>
-                <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.format}"/>-->
-              </af:inputDate>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.label}" id="c18">
-              <af:inputText value="#{row.bindings.STATUS.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.displayWidth}"
-                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.precision}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.tooltip}" id="it12">
-                <f:validator binding="#{row.bindings.STATUS.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.label}" id="c10">
-              <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.displayWidth}"
-                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.precision}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.tooltip}" id="it10">
-                <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.label}" id="c11">
-              <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.displayWidth}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.tooltip}" id="id1">
-                <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
-                <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.format}"/>-->
-              </af:inputDate>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.label}" id="c12">
-              <af:inputText value="#{row.bindings.LastUpdatedBy.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.displayWidth}"
-                            maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.precision}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.tooltip}" id="it11">
-                <f:validator binding="#{row.bindings.LastUpdatedBy.validator}"/>
-              </af:inputText>
-            </af:column>
-            <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.label}" id="c13">
-              <af:inputDate value="#{row.bindings.LastUpdatedDate.inputValue}"
-                            label="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.label}"
-                            required="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.mandatory}"
-                            columns="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.displayWidth}"
-                            shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.tooltip}" id="id2">
-                <f:validator binding="#{row.bindings.LastUpdatedDate.validator}"/>
-                <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.format}"/>-->
-              </af:inputDate>
-            </af:column>
-          </af:table>
-        </af:panelCollection>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.label}" id="c8">
+                <af:selectOneChoice value="#{row.bindings.NatureOfExpenses.inputValue}"
+                                    label="#{row.bindings.NatureOfExpenses.label}"
+                                    required="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.mandatory}"
+                                    shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.NatureOfExpenses.tooltip}"
+                                    id="soc2">
+                  <f:selectItems value="#{row.bindings.NatureOfExpenses.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.NatureOfExpenses.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}" id="c9"
+                         styleClass="mynumbercolumn">
+                <af:inputText value="#{row.bindings.MarkUpRate.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.displayWidth}"
+                              maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.precision}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.tooltip}" id="it9">
+                  <f:validator binding="#{row.bindings.MarkUpRate.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.MarkUpRate.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.label}" id="c16">
+                <af:inputDate value="#{row.bindings.EFFECTIVEFROM.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.displayWidth}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.tooltip}" id="id3">
+                  <f:validator binding="#{row.bindings.EFFECTIVEFROM.validator}"/>
+                  <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVEFROM.format}"/>-->
+                </af:inputDate>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.label}" id="c17">
+                <af:inputDate value="#{row.bindings.EFFECTIVETO.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.displayWidth}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.tooltip}" id="id4">
+                  <f:validator binding="#{row.bindings.EFFECTIVETO.validator}"/>
+                  <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.EFFECTIVETO.format}"/>-->
+                </af:inputDate>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.label}" id="c18">
+                <af:inputText value="#{row.bindings.STATUS.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.displayWidth}"
+                              maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.precision}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.STATUS.tooltip}" id="it12">
+                  <f:validator binding="#{row.bindings.STATUS.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.label}" id="c10">
+                <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.displayWidth}"
+                              maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.precision}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedBy.tooltip}" id="it10">
+                  <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.label}" id="c11">
+                <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.displayWidth}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.tooltip}" id="id1">
+                  <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
+                  <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.CreatedDate.format}"/>-->
+                </af:inputDate>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.label}" id="c12">
+                <af:inputText value="#{row.bindings.LastUpdatedBy.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.displayWidth}"
+                              maximumLength="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.precision}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedBy.tooltip}" id="it11">
+                  <f:validator binding="#{row.bindings.LastUpdatedBy.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.label}" id="c13">
+                <af:inputDate value="#{row.bindings.LastUpdatedDate.inputValue}"
+                              label="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.label}"
+                              required="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.mandatory}"
+                              columns="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.displayWidth}"
+                              shortDesc="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.tooltip}" id="id2">
+                  <f:validator binding="#{row.bindings.LastUpdatedDate.validator}"/>
+                  <!--<af:convertDateTime pattern="#{bindings.sgsMarkUpRateMasterVO11.hints.LastUpdatedDate.format}"/>-->
+                </af:inputDate>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
       </af:panelGroupLayout>
     </f:facet>
   </af:panelStretchLayout>

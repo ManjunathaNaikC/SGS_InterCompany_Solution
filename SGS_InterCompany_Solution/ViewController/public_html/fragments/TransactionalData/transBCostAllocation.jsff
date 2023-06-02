@@ -185,7 +185,7 @@
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t1">
-                                <af:button id="b10" icon="/resources/icons/microsoft-excel.png"
+                                <af:button id="b10" icon="/resources/icons/microsoft-excel_new.png"
                                            shortDesc="Export to Excel"
                                            disabled="#{bindings.SgsTransBCostAllocationVO1.estimatedRowCount &lt;= 0}">
                                     <af:exportCollectionActionListener type="excelHTML" exportedId="t2"
@@ -198,19 +198,22 @@
                                            icon="/resources/icons/delete.png"
                                            action="#{pageFlowScope.TransBCostAllocationBean.deleteTransBCostAllocation}"
                                            disabled="true"/>-->
-                                <af:button text="Hold" id="b14">
+                                <af:button text="Hold" id="b14" inlineStyle="border-radius:5px 5px 5px 5px;">
                                     <af:showPopupBehavior popupId="::p20H"/>
                                 </af:button>
-                                <af:button text="Release" id="b1R">
+                                <af:button text="Release" id="b1R" inlineStyle="border-radius:5px 5px 5px 5px;">
                                     <af:showPopupBehavior popupId="::p30R"/>
                                 </af:button>
-                                <af:button text="Upload Other Receivables" id="b3">
+                                <af:button text="Upload Other Receivables" id="b3"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;">
                                     <af:showPopupBehavior popupId="::p2"/>
                                 </af:button>
-                                <af:button text="Confirm for Processing" id="b6">
+                                <af:button text="Confirm for Processing" id="b6"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;">
                                            <af:showPopupBehavior popupId="p3confirming"/>
                                 </af:button>
-                                <af:button text="Approval" id="b11" disabled="true"/>
+                                <af:button text="Approval" id="b11" disabled="true"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="statusbar"/>

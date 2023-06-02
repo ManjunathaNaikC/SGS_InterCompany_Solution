@@ -244,7 +244,8 @@
                                               columns="#{bindings.RECTXNREFERENCENO.hints.displayWidth}"
                                               maximumLength="#{bindings.RECTXNREFERENCENO.hints.precision}"
                                               shortDesc="#{bindings.RECTXNREFERENCENO.hints.tooltip}" id="it3"
-                                              binding="#{viewScope.ActionEventsBean.recTxnRefNum}" disabled="true">
+                                              binding="#{viewScope.ActionEventsBean.recTxnRefNum}" disabled="true"
+                                              autoSubmit="true">
                                     <f:validator binding="#{bindings.RECTXNREFERENCENO.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.BANKCHARGES.inputValue}"
@@ -589,8 +590,8 @@
                                             autoSubmit="true">
                             <f:selectItems value="#{bindings.PAYMENTCURRENCY.items}" id="si5Cont"/>
                             <f:validator binding="#{bindings.PAYMENTCURRENCY.validator}"/>
-                        </af:selectOneChoice>
-                        --><!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
+                        </af:selectOneChoice>-->
+                        <!--<af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
                                       required="#{bindings.TRXAMOUNT.hints.mandatory}"
                                       columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
                                       maximumLength="#{bindings.TRXAMOUNT.hints.precision}"

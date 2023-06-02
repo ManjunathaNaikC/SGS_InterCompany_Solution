@@ -132,15 +132,17 @@
     </af:panelFormLayout>-->
         <af:spacer id="s1" height="20"/>
         <af:panelBox text="Netting IC Receivable" id="pb2">
-            <f:facet name="toolbar">
-                <af:toolbar id="t6">
-                    <af:button text="Hold" id="b3"/>
-                    <af:button text="Release" id="b4"/>
-                </af:toolbar>
-            </f:facet>
+            <f:facet name="toolbar"/>
             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                 <f:facet name="menus"/>
-                <f:facet name="toolbar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t7">
+                        <af:button text="Hold" id="b5" actionListener="#{viewScope.ActionEventsBean.onNetIcRecvHold}"
+                                   partialSubmit="true"/>
+                        <af:button text="Release" id="b6" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetIcRecvRelease}"/>
+                    </af:toolbar>
+                </f:facet>
                 <f:facet name="statusbar"/>
                 <af:table value="#{bindings.SgsNetIcReceivableVO1.collectionModel}" var="row"
                           rows="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
@@ -148,7 +150,7 @@
                           rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
                           filterModel="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor}" filterVisible="false"
                           queryListener="#{bindings.SgsNetIcReceivableVO1Query.processQuery}" varStatus="vs" id="t1"
-                          styleClass="AFStretchWidth" scrollPolicy="page">
+                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b5 ::b6">
                     <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.selectedRecords.label}" id="c55"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onIcRecvColumnSelectRecord}">
@@ -285,7 +287,14 @@
             <f:facet name="toolbar"/>
             <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                 <f:facet name="menus"/>
-                <f:facet name="toolbar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t6">
+                        <af:button text="Hold" id="b3" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetIcPayHold}"/>
+                        <af:button text="Release" id="b4" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetIcPayRelease}"/>
+                    </af:toolbar>
+                </f:facet>
                 <f:facet name="statusbar"/>
                 <af:table value="#{bindings.SgsNetIcPayableVO2.collectionModel}" var="row"
                           rows="#{bindings.SgsNetIcPayableVO2.rangeSize}"
@@ -293,7 +302,7 @@
                           rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcPayableVO2.rangeSize}"
                           filterModel="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor}" filterVisible="false"
                           queryListener="#{bindings.SgsNetIcPayableVO2Query.processQuery}" varStatus="vs" id="t2"
-                          styleClass="AFStretchWidth" scrollPolicy="page">
+                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b3 ::b4">
                     <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.selectedRecord.label}" id="c3"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onIcPayColumnSelectRecord}">
@@ -423,7 +432,14 @@
             <f:facet name="toolbar"/>
             <af:panelCollection id="pc3" styleClass="AFStretchWidth">
                 <f:facet name="menus"/>
-                <f:facet name="toolbar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t8">
+                        <af:button text="Hold" id="b7" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetArColRecvHold}"/>
+                        <af:button text="Release" id="b8" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetArColRecvRelease}"/>
+                    </af:toolbar>
+                </f:facet>
                 <f:facet name="statusbar"/>
                 <af:table value="#{bindings.NetArColRecVO1.collectionModel}" var="row"
                           rows="#{bindings.NetArColRecVO1.rangeSize}"
@@ -433,7 +449,8 @@
                           selectionListener="#{bindings.NetArColRecVO1.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.NetArColRecVO1.rangeSize}"
                           filterModel="#{bindings.NetArColRecVO1Query.queryDescriptor}" filterVisible="false"
-                          queryListener="#{bindings.NetArColRecVO1Query.processQuery}" varStatus="vs" id="t3">
+                          queryListener="#{bindings.NetArColRecVO1Query.processQuery}" varStatus="vs" id="t3"
+                          partialTriggers="::b7 ::b8">
                     <af:column headerText="#{bindings.NetArColRecVO1.hints.selectedRecord.label}" id="c5"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onNetArColRecColumnSelectRecord}">
@@ -560,7 +577,14 @@
             <f:facet name="toolbar"/>
             <af:panelCollection id="pc4" styleClass="AFStretchWidth">
                 <f:facet name="menus"/>
-                <f:facet name="toolbar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t9">
+                        <af:button text="Hold" id="b9" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetArColPayHold}"/>
+                        <af:button text="Release" id="b10" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetArColPayRelease}"/>
+                    </af:toolbar>
+                </f:facet>
                 <f:facet name="statusbar"/>
                 <af:table value="#{bindings.NetArColPayVO1.collectionModel}" var="row"
                           rows="#{bindings.NetArColPayVO1.rangeSize}"
@@ -570,7 +594,8 @@
                           selectionListener="#{bindings.NetArColPayVO1.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.NetArColPayVO1.rangeSize}"
                           filterModel="#{bindings.NetArColPayVO1Query.queryDescriptor}" filterVisible="false"
-                          queryListener="#{bindings.NetArColPayVO1Query.processQuery}" varStatus="vs" id="t4">
+                          queryListener="#{bindings.NetArColPayVO1Query.processQuery}" varStatus="vs" id="t4"
+                          partialTriggers="::b9 ::b10">
                     <af:column headerText="#{bindings.NetArColPayVO1.hints.selectedRecord.label}" id="c8"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onNetArColPayColumnSelectRecord}">

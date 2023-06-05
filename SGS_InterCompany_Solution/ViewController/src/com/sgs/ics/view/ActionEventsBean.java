@@ -4074,6 +4074,8 @@ public class ActionEventsBean {
         int nonInvoice = 0;
         int selectedRecords = 0;
         Object user = (Object) util.getSessionScopeValue("_username").toString();
+        int transBreak=0;
+        int paymentBreak=0;
 
         System.out.println("settlemtntDatarows Length ::"+settlemtntDatarows.length);
         if (settlemtntDatarows.length == 0) {
@@ -4087,6 +4089,20 @@ public class ActionEventsBean {
                 System.out.println("SelectRecord ::"+settlemtntDatarows[i].getAttribute("SelectRecord"));
                 if (null != settlemtntDatarows[i].getAttribute("SelectRecord") &&
                     settlemtntDatarows[i].getAttribute("SelectRecord").equals("Yes")) {
+                    String transCategory= (String)settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY");
+                    System.out.println("transCategory ::"+transCategory);
+                    if(null != transCategory && transCategory.equalsIgnoreCase("Credit Transaction")){
+                        transBreak=1;
+                        break;
+                    }
+                    String paymentStatus= (String)settlemtntDatarows[i].getAttribute("PaymentStatus");
+                    System.out.println("paymentStatus ::"+paymentStatus);
+                    if(null != paymentStatus &&  !(paymentStatus.equalsIgnoreCase("Unpaid"))){
+                        paymentBreak=1;
+                        break;
+                    }
+                    
+                    
                     System.out.println("SelectRecord ::"+settlemtntDatarows[i].getAttribute("SelectRecord"));
                     executeBinding("CreateInsertCreditInStltmt");
                     Row row = creditData.getCurrentRow();
@@ -4108,45 +4124,46 @@ public class ActionEventsBean {
                     
                     
                     
-                    System.out.println("InvoiceSeqNo::::"+ settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
-                    System.out.println("Period::"+ settlemtntDatarows[i].getAttribute("Period"));
-                    System.out.println("TransactionCategory::"+ settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY"));
-                    System.out.println("PsftVoucherRef::"+ settlemtntDatarows[i].getAttribute("PsVoucherNo"));
-                    System.out.println("PsftInvoiceRef::"+ settlemtntDatarows[i].getAttribute("RefToArInvoice"));
-                    System.out.println("NatureOfExpense::"+ settlemtntDatarows[i].getAttribute("NATUREOFEXPENSE"));
-                    System.out.println("FromBu::"+ settlemtntDatarows[i].getAttribute("IcSupplierBu"));
-                    System.out.println("ToBu::"+ settlemtntDatarows[i].getAttribute("IcCustomerBu"));
-                    System.out.println("InvoiceAmount::"+ settlemtntDatarows[i].getAttribute("VoucherAmount"));
-                    System.out.println("InputProvider::"+ settlemtntDatarows[i].getAttribute("INPUTPROVIDER"));
-                    System.out.println("CreatedDate::"+ settlemtntDatarows[i].getAttribute("CreatedDate"));
-                    System.out.println("CreatedBy::"+ settlemtntDatarows[i].getAttribute("CreatedBy"));
-                    System.out.println("UpdatedDate::"+ settlemtntDatarows[i].getAttribute("UpdatedDate"));
-                    System.out.println("UpdatedBy::"+ settlemtntDatarows[i].getAttribute("UpdatedBy"));
+//                    System.out.println("InvoiceSeqNo::::"+ settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
+//                    System.out.println("Period::"+ settlemtntDatarows[i].getAttribute("Period"));
+//                    System.out.println("TransactionCategory::"+ settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY"));
+//                    System.out.println("PsftVoucherRef::"+ settlemtntDatarows[i].getAttribute("PsVoucherNo"));
+//                    System.out.println("PsftInvoiceRef::"+ settlemtntDatarows[i].getAttribute("RefToArInvoice"));
+//                    System.out.println("NatureOfExpense::"+ settlemtntDatarows[i].getAttribute("NATUREOFEXPENSE"));
+//                    System.out.println("FromBu::"+ settlemtntDatarows[i].getAttribute("IcSupplierBu"));
+//                    System.out.println("ToBu::"+ settlemtntDatarows[i].getAttribute("IcCustomerBu"));
+//                    System.out.println("InvoiceAmount::"+ settlemtntDatarows[i].getAttribute("VoucherAmount"));
+//                    System.out.println("InputProvider::"+ settlemtntDatarows[i].getAttribute("INPUTPROVIDER"));
+//                    System.out.println("CreatedDate::"+ settlemtntDatarows[i].getAttribute("CreatedDate"));
+//                    System.out.println("CreatedBy::"+ settlemtntDatarows[i].getAttribute("CreatedBy"));
+//                    System.out.println("UpdatedDate::"+ settlemtntDatarows[i].getAttribute("UpdatedDate"));
+//                    System.out.println("UpdatedBy::"+ settlemtntDatarows[i].getAttribute("UpdatedBy"));
                     //row.setAttribute("REVERSALREASON", settlemtntDatarows[i].getAttribute("REVERSALREASON"));
                     selectedRecords = selectedRecords + 1;
+                    
+                    
+                    
                 }
 
             }
-            System.out.println("nonInvoice Cat 11::" + nonInvoice);
-//            if (nonInvoice == 1) {
-//                FacesContext context = FacesContext.getCurrentInstance();
-//                String messageText =
-//                    "Please select a transaction Invoiced in PeopleSoft for creation of Credit Transactions";
-//                FacesMessage fm = new FacesMessage(messageText);
-//                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
-//                context.addMessage(null, fm);
-//            } else if (selectedRecords == 0) {
-//                FacesContext context = FacesContext.getCurrentInstance();
-//                String messageText = "Please select a transaction for creation of Credit Transactions";
-//                FacesMessage fm = new FacesMessage(messageText);
-//                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
-//                context.addMessage(null, fm);
-//            } else {
-//
-//                //executeBinding(SAVE_DATA);
-                RichPopup.PopupHints hints = new RichPopup.PopupHints();
-                this.invoicecreditmemobindpopup.show(hints);
-//            }
+            
+            if(transBreak >0){
+                FacesContext context = FacesContext.getCurrentInstance();
+                String messageText = "Please select a an Invoice for creation of Credit Transaction";
+                FacesMessage fm = new FacesMessage(messageText);
+                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+                context.addMessage(null, fm);
+            }else if(paymentBreak>0){
+                FacesContext context = FacesContext.getCurrentInstance();
+                String messageText = "Please select an UnPaid Transaction for creation of Credit Transaction";
+                FacesMessage fm = new FacesMessage(messageText);
+                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+                context.addMessage(null, fm);
+            }else{
+                System.out.println("nonInvoice Cat 11::" + nonInvoice);
+                 RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                 this.invoicecreditmemobindpopup.show(hints);
+            }
 
         }
 

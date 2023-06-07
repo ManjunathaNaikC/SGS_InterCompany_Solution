@@ -45,6 +45,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
+import javax.naming.NamingException;
+
 import javax.swing.text.View;
 
 import oracle.adf.model.AttributeBinding;
@@ -192,6 +194,7 @@ public class ActionEventsBean {
     private RichColumn onNetArColPayColumnSelectRecord;
     private RichSelectBooleanCheckbox netNetArColPayselectcheckbox;
     private RichInputText netCcAllLimCal;
+    private RichTable netHeaderTableData;
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -4565,5 +4568,372 @@ public class ActionEventsBean {
                 executeBinding("Commit");
     }
 
+    public void onNetIcRecvSettled(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+                       DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
+                       ViewObject holdVO = holditer.getViewObject();
+
+
+                       oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecords", "true");
+                       System.out.println("*****Selected rows****" + selectedRows.length);
+                       for (oracle.jbo.Row rw : selectedRows) {
+                           if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                               rw.setAttribute("Status", "Settled");
+                           }
+                       }
+
+                       executeBinding("Commit");
+    }
+
+    public String getCurrentStatus() {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject VO = holditer.getViewObject();
+        oracle.jbo.Row[] selectedRows = VO.getFilteredRows("selectedRecord", "Yes");
+        if (selectedRows.length > 0) {
+            oracle.jbo.Row rw = selectedRows[0];
+            if (null != rw.getAttribute("Status")) {
+                return (String) rw.getAttribute("Status");
+            }
+        }
+        return null;
+    }
+    
+    public String getCurrentApprover() {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject VO = holditer.getViewObject();
+        oracle.jbo.Row[] selectedRows = VO.getFilteredRows("selectedRecord", "Yes");
+        if (selectedRows.length > 0) {
+            oracle.jbo.Row rw = selectedRows[0];
+            if (null != rw.getAttribute("APPROVER")) {
+                return (String) rw.getAttribute("APPROVER");
+            }
+        }
+        return null;
+    }
+    
+    public void setApprover(String userName) {
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject VO = holditer.getViewObject();
+        oracle.jbo.Row[] selectedRows = VO.getFilteredRows("selectedRecord", "Yes");
+        for (oracle.jbo.Row rw : selectedRows) {
+            rw.setAttribute("APPROVER", userName);
+        }
+
+        executeBinding("Commit");
+    }
+
+    public void onNetHeaderApprove(ActionEvent actionEvent) {
+
+        CommonUtils util = new CommonUtils();
+        String username = util.getSessionScopeValue("_username").toString();
+
+        String userRole = getUserRole();
+        System.out.println("===============userRole====================" + userRole);
+
+        if (userRole.equalsIgnoreCase("Treasury")) {
+
+            changeStatus("Pending for FC approval");
+
+
+        } else if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
+
+            String currentStatus = getCurrentStatus();
+            String currentApprover = getCurrentApprover();
+            System.out.println("=======CURRENTSTATUS====="+currentStatus);
+            System.out.println("=======CURRENTAPPROVER====="+currentApprover);
+            System.out.println("=====-----Currentusername---====="+username);
+
+            if (currentStatus.equalsIgnoreCase("Pending for FC approval")) {
+
+                changeStatus("One Geo Approved, Second Geo Pending");
+                setApprover(username);
+
+            } else if (currentStatus.equalsIgnoreCase("One Geo Approved, Second Geo Pending")) {
+
+                if (currentApprover.equalsIgnoreCase(username)) {
+                    
+                    System.out.println("=====-----CurrentApprover---====="+currentApprover);
+                    System.out.println("=====-----Currentusername---====="+username);
+                    displayWarningMessgage("You have already approved once");
+
+                } else {
+
+                    changeStatus("Pending for GAO Approval");
+                    setApprover(username);
+                }
+            } else {
+
+                displayWarningMessgage();
+            }
+        } else if (userRole.equalsIgnoreCase("GAO")) {
+
+            changeStatus("Approved");
+
+        } else if (userRole.equalsIgnoreCase("GFSS")) {
+
+            changeStatus("Perform Netting, Netting Completed");
+
+        } else {
+
+            displayWarningMessgage();
+
+        }
+
+
+    }
+
+    public void displayWarningMessgage() {
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        FacesMessage message =
+            new FacesMessage(FacesMessage.SEVERITY_WARN, "Unauthorized Status Change",
+                             "You are not authorized to change the status at this point.");
+        context.addMessage(null, message);
+
+    }
+
+    public void displayWarningMessgage(String customMessage) {
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        FacesMessage message =
+            new FacesMessage(FacesMessage.SEVERITY_WARN, "Unauthorized Status Change", customMessage);
+        context.addMessage(null, message);
+
+    }
+
+    public void changeStatus(String status) {
+
+
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject VO = holditer.getViewObject();
+
+
+        oracle.jbo.Row[] selectedRows = VO.getFilteredRows("selectedRecord", "Yes");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+
+
+        for (oracle.jbo.Row rw : selectedRows) {
+
+
+            if (null != rw.getAttribute("Status")) {
+
+
+                rw.setAttribute("Status", status);
+            }
+        }
+
+        executeBinding("Commit");
+    }
+
+
+    public void onNetIcPaySettled(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+                       DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
+                       ViewObject holdVO = holditer.getViewObject();
+
+
+                       oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+                       System.out.println("*****Selected rows****" + selectedRows.length);
+                       for (oracle.jbo.Row rw : selectedRows) {
+                           if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                               rw.setAttribute("Status", "Settled");
+                           }
+                       }
+
+                       executeBinding("Commit");
+    }
+
+    public void onNetArColRecvSettled(ActionEvent actionEvent) {
+      
+                BindingContainer bindings = getBindingsCont();
+                        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
+                        ViewObject holdVO = holditer.getViewObject();
+
+
+                        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+                        System.out.println("*****Selected rows****" + selectedRows.length);
+                        for (oracle.jbo.Row rw : selectedRows) {
+                            if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                                rw.setAttribute("Status", "Settled");
+                            }
+                        }
+
+                        executeBinding("Commit");
+    }
+
+    public void onNetArColPaySettled(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContainer bindings = getBindingsCont();
+                        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
+                        ViewObject holdVO = holditer.getViewObject();
+
+
+                        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+                        System.out.println("*****Selected rows****" + selectedRows.length);
+                        for (oracle.jbo.Row rw : selectedRows) {
+                            if (!(rw.getAttribute("Status").equals("On Hold"))) {
+
+
+                                rw.setAttribute("Status", "Settled");
+                            }
+                        }
+
+                        executeBinding("Commit");
+    }
+    
+    
+    
+    public String getUserRole() {
+            System.out.println("----Get User  detail---------");
+            String userRole = null;
+            Connection connection = null;
+            PreparedStatement statement = null;
+            ResultSet resultSet = null;
+                    
+                    CommonUtils util = new CommonUtils();
+                    String user = util.getSessionScopeValue("_username").toString();
+     
+
+            try {
+                connection = am.getDBConnection();
+
+     
+
+                // Prepare and execute the SQL query
+                String sql = "SELECT ROLE_ID FROM [USER_ROLE_MAPPING] WHERE USER_ID= ?";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, user);
+                resultSet = statement.executeQuery();
+
+     
+
+                // Retrieve the user's role from the result set
+                if (resultSet.next()) {
+                    userRole = resultSet.getString("ROLE_ID");
+                }
+            } catch (SQLException e) {
+                // Handle exceptions
+            } finally {
+                // Close the database resources
+                if (resultSet != null) {
+                    try {
+                        resultSet.close();
+                    } catch (SQLException e) {
+                        // Handle exception
+                    }
+                }
+                if (statement != null) {
+                    try {
+                        statement.close();
+                    } catch (SQLException e) {
+                        // Handle exception
+                    }
+                }
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        // Handle exception
+                    }
+                }
+            }
+
+     
+
+            return userRole;
+        }
+
+
+    public void setNetHeaderTableData(RichTable netHeaderTableData) {
+        this.netHeaderTableData = netHeaderTableData;
+    }
+
+    public RichTable getNetHeaderTableData() {
+        return netHeaderTableData;
+    }
+
+    public void queryByStatus(String Status) {
+        String userRole = getUserRole();
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject vo = holditer.getViewObject();
+        String statusValue = "STATUS" + "=" + "'" + Status + "'";
+        System.out.println("------statusValue======" + statusValue);
+        vo.setWhereClause(statusValue);
+
+        vo.executeQuery();
+
+
+    }
+    
+    public void queryByStatuswith2Param(String Status, String Status1) {
+        String userRole = getUserRole();
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject vo = holditer.getViewObject();
+        String statusValue = "STATUS" + " " + " IN " + "(" + "'" + Status + "'" + "," + "'" + Status1 + "'" + ")";
+        System.out.println("------statusValue======" + statusValue);
+        vo.setWhereClause(statusValue);
+
+        vo.executeQuery();
+
+
+    }
+
+    public void nettingHeaderTableFilter(ActionEvent actionEvent) {
+        // Add event code here...
+        String userRole = getUserRole();
+       
+        if (userRole.equalsIgnoreCase("Treasury")) {
+            
+            queryByStatus("Pending for Treasury Approval");
+            
+
+        } else if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
+
+            queryByStatuswith2Param("Pending for FC Approval","One Geo Approved, Second Geo Pending");
+            
+
+        } 
+        
+        else if (userRole.equalsIgnoreCase("GAO")) {
+
+            queryByStatus("Pending for GAO Approval");
+
+        } else if (userRole.equalsIgnoreCase("GFSS")) {
+
+            queryByStatus("Approved");
+
+        }
+        
+        
+    }
+
+    public void netHeaderReject(ActionEvent actionEvent) {
+        // Add event code here...
+        String userRole = getUserRole();
+        System.out.println("===============userRole====================" + userRole);
+
+        if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
+
+            changeStatus("Pending for Treasury Approval");
+
+        } else if (userRole.equalsIgnoreCase("GAO")) {
+
+            changeStatus("Pending for Treasury Approval");
+        }
+    }
 }
 

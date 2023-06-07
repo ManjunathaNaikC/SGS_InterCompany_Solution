@@ -475,6 +475,19 @@
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="APPROVER"
+    PrecisionRule="true"
+    EntityAttrName="APPROVER"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="APPROVER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.APPROVER_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsNetHeaderTblVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO"

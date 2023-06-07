@@ -133,13 +133,13 @@
                                           rendered="false">
                                 <f:validator binding="#{bindings.InvJournalGrpCode.validator}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.SACHSN.inputValue}" label="#{bindings.SACHSN.hints.label}"
+                            <!--<af:inputText value="#{bindings.SACHSN.inputValue}" label="#{bindings.SACHSN.hints.label}"
                                           required="#{bindings.SACHSN.hints.mandatory}"
                                           columns="#{bindings.SACHSN.hints.displayWidth}"
                                           maximumLength="#{bindings.SACHSN.hints.precision}"
                                           shortDesc="#{bindings.SACHSN.hints.tooltip}" id="it34">
                                 <f:validator binding="#{bindings.SACHSN.validator}"/>
-                            </af:inputText>
+                            </af:inputText>-->
                             <af:inputDate value="#{bindings.EffectiveFrom.inputValue}"
                                       label="#{bindings.EffectiveFrom.hints.label}"
                                       required="#{bindings.EffectiveFrom.hints.mandatory}"

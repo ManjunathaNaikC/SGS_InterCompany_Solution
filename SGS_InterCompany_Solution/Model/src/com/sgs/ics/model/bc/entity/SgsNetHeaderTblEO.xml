@@ -147,7 +147,7 @@
     TableName="NET_HEADER_TBL"/>
   <Attribute
     Name="Status"
-    Precision="30"
+    Precision="100"
     ColumnName="STATUS"
     SQLType="VARCHAR"
     Type="java.lang.String"
@@ -381,6 +381,18 @@
     TableName="NET_HEADER_TBL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="APPROVER"
+    Precision="100"
+    ColumnName="APPROVER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="NET_HEADER_TBL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Key

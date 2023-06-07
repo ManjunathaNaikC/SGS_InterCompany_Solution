@@ -362,14 +362,14 @@
                                         <f:validator binding="#{row.bindings.ServiceCategory.validator}"/>
                                     </af:selectOneChoice>
                                 </af:column>
-                                <af:column headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.label}"
+                                <!--<af:column headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.label}"
                                  filterable="true"
                                         sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.name}"
                                            id="c3" width="200" sortable="true">
                                     <af:outputText value="#{row.SACHSN}"
                                                    shortDesc="#{bindings.SgsCostIdentificationRuleVO2.hints.SACHSN.tooltip}"
                                                    id="ot1"/>
-                                </af:column>
+                                </af:column>-->
                                 <!--<af:column sortProperty="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationId.name}"
                                            filterable="true"
                                            headerText="#{bindings.SgsCostIdentificationRuleVO2.hints.CostIdentificationId.label}"

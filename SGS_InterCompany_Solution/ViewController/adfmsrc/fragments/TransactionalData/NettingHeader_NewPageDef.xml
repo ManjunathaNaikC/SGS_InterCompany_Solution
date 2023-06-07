@@ -36,6 +36,7 @@
           <Item Value="NETLIMITFIXARCOLL"/>
           <Item Value="REMARKS"/>
           <Item Value="selectedRecord" Binds="selectedRecord"/>
+          <Item Value="APPROVER"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

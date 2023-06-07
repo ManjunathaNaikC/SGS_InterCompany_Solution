@@ -140,6 +140,9 @@
                                    partialSubmit="true"/>
                         <af:button text="Release" id="b6" partialSubmit="true"
                                    actionListener="#{viewScope.ActionEventsBean.onNetIcRecvRelease}"/>
+                        <af:button text="Settled" id="b11"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetIcRecvSettled}"
+                                   partialSubmit="true"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -149,7 +152,7 @@
                           rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
                           filterModel="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor}" filterVisible="false"
                           queryListener="#{bindings.SgsNetIcReceivableVO1Query.processQuery}" varStatus="vs" id="t1"
-                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b5 ::b6">
+                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b5 ::b6 ::b11">
                     <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.selectedRecords.label}" id="c55"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onIcRecvColumnSelectRecord}">
@@ -292,6 +295,8 @@
                                    actionListener="#{viewScope.ActionEventsBean.onNetIcPayHold}"/>
                         <af:button text="Release" id="b4" partialSubmit="true"
                                    actionListener="#{viewScope.ActionEventsBean.onNetIcPayRelease}"/>
+                        <af:button text="Settled" id="b12" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetIcPaySettled}"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -301,7 +306,7 @@
                           rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcPayableVO2.rangeSize}"
                           filterModel="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor}" filterVisible="false"
                           queryListener="#{bindings.SgsNetIcPayableVO2Query.processQuery}" varStatus="vs" id="t2"
-                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b3 ::b4">
+                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b3 ::b4 ::b12">
                     <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.selectedRecord.label}" id="c3"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onIcPayColumnSelectRecord}">
@@ -437,6 +442,8 @@
                                    actionListener="#{viewScope.ActionEventsBean.onNetArColRecvHold}"/>
                         <af:button text="Release" id="b8" partialSubmit="true"
                                    actionListener="#{viewScope.ActionEventsBean.onNetArColRecvRelease}"/>
+                        <af:button text="Settled" id="b13" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetArColRecvSettled}"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -449,7 +456,7 @@
                           rowSelection="single" fetchSize="#{bindings.NetArColRecVO1.rangeSize}"
                           filterModel="#{bindings.NetArColRecVO1Query.queryDescriptor}" filterVisible="false"
                           queryListener="#{bindings.NetArColRecVO1Query.processQuery}" varStatus="vs" id="t3"
-                          partialTriggers="::b7 ::b8">
+                          partialTriggers="::b7 ::b8 ::b13">
                     <af:column headerText="#{bindings.NetArColRecVO1.hints.selectedRecord.label}" id="c5"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onNetArColRecColumnSelectRecord}">
@@ -582,6 +589,8 @@
                                    actionListener="#{viewScope.ActionEventsBean.onNetArColPayHold}"/>
                         <af:button text="Release" id="b10" partialSubmit="true"
                                    actionListener="#{viewScope.ActionEventsBean.onNetArColPayRelease}"/>
+                        <af:button text="Settled" id="b14" partialSubmit="true"
+                                   actionListener="#{viewScope.ActionEventsBean.onNetArColPaySettled}"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -594,7 +603,7 @@
                           rowSelection="single" fetchSize="#{bindings.NetArColPayVO1.rangeSize}"
                           filterModel="#{bindings.NetArColPayVO1Query.queryDescriptor}" filterVisible="false"
                           queryListener="#{bindings.NetArColPayVO1Query.processQuery}" varStatus="vs" id="t4"
-                          partialTriggers="::b9 ::b10">
+                          partialTriggers="::b9 ::b10 ::b14">
                     <af:column headerText="#{bindings.NetArColPayVO1.hints.selectedRecord.label}" id="c8"
                                inlineStyle="color:White;" align="center" width="100"
                                binding="#{viewScope.ActionEventsBean.onNetArColPayColumnSelectRecord}">

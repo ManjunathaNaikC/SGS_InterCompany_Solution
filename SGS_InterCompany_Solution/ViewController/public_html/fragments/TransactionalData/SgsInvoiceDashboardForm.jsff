@@ -215,6 +215,20 @@
                                   type="currency"/>
               </af:outputText>
             </af:column>
+            <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.PERIODNUM.label}" id="c2">
+              <af:outputText value="#{row.PERIODNUM}"
+                             shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.PERIODNUM.tooltip}" id="ot2">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceLineVO1.hints.PERIODNUM.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.SgsIcInvoiceLineVO1.hints.PERIODYEAR.label}" id="c3">
+              <af:outputText value="#{row.PERIODYEAR}"
+                             shortDesc="#{bindings.SgsIcInvoiceLineVO1.hints.PERIODYEAR.tooltip}" id="ot3">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SgsIcInvoiceLineVO1.hints.PERIODYEAR.format}"/>
+              </af:outputText>
+            </af:column>
             <af:column sortProperty="#{bindings.SgsIcInvoiceLineVO1.hints.WhtRate.name}" filterable="true"
                        headerText="#{bindings.SgsIcInvoiceLineVO1.hints.WhtRate.label}" id="c28"
                        styleClass="mynumbercolumn">

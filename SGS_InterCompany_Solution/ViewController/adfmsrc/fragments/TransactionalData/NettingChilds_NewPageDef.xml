@@ -42,6 +42,8 @@
           <Item Value="NetBalance"/>
           <Item Value="Status"/>
           <Item Value="selectedRecords"/>
+          <Item Value="PERIODNUM"/>
+          <Item Value="PERIODYEAR"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -65,6 +67,8 @@
           <Item Value="NetBalance"/>
           <Item Value="Status"/>
           <Item Value="selectedRecord"/>
+          <Item Value="PERIODNUM"/>
+          <Item Value="PERIODYEAR"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -154,6 +158,8 @@
           <Item Value="ApGeo"/>
           <Item Value="ArGeo"/>
           <Item Value="selectedRecord"/>
+          <Item Value="PERIODNUM"/>
+          <Item Value="PERIODYEAR"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -178,6 +184,8 @@
           <Item Value="ApGeo"/>
           <Item Value="ArGeo"/>
           <Item Value="selectedRecord"/>
+          <Item Value="PERIODNUM"/>
+          <Item Value="PERIODYEAR"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

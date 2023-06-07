@@ -86,9 +86,10 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
         VATAMNT,
         VATRATE,
         DOCATTM,
+        PERIODNUM,
+        PERIODYEAR,
         SgsIcInvoiceHeaderEO;
         private static AttributesEnum[] vals = null;
-        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -172,6 +173,8 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
     public static final int VATAMNT = AttributesEnum.VATAMNT.index();
     public static final int VATRATE = AttributesEnum.VATRATE.index();
     public static final int DOCATTM = AttributesEnum.DOCATTM.index();
+    public static final int PERIODNUM = AttributesEnum.PERIODNUM.index();
+    public static final int PERIODYEAR = AttributesEnum.PERIODYEAR.index();
     public static final int SGSICINVOICEHEADEREO = AttributesEnum.SgsIcInvoiceHeaderEO.index();
 
     /**
@@ -1148,6 +1151,38 @@ public class SgsIcInvoiceLineEOImpl extends EntityImpl {
         setAttributeInternal(DOCATTM, value);
     }
 
+
+    /**
+     * Gets the attribute value for PERIODNUM, using the alias name PERIODNUM.
+     * @return the value of PERIODNUM
+     */
+    public Integer getPERIODNUM() {
+        return (Integer) getAttributeInternal(PERIODNUM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PERIODNUM.
+     * @param value value to set the PERIODNUM
+     */
+    public void setPERIODNUM(Integer value) {
+        setAttributeInternal(PERIODNUM, value);
+    }
+
+    /**
+     * Gets the attribute value for PERIODYEAR, using the alias name PERIODYEAR.
+     * @return the value of PERIODYEAR
+     */
+    public Integer getPERIODYEAR() {
+        return (Integer) getAttributeInternal(PERIODYEAR);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PERIODYEAR.
+     * @param value value to set the PERIODYEAR
+     */
+    public void setPERIODYEAR(Integer value) {
+        setAttributeInternal(PERIODYEAR, value);
+    }
 
     /**
      * @return the associated entity SgsIcInvoiceHeaderEOImpl.

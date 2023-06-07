@@ -199,6 +199,20 @@
                             <af:convertDateTime pattern="#{bindings.SgsNetIcReceivableVO1.hints.Period.format}"/>
                         </af:outputText>
                     </af:column>
+                    <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.label}" id="c18">
+                        <af:outputText value="#{row.PERIODNUM}"
+                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.label}" id="c19">
+                        <af:outputText value="#{row.PERIODYEAR}"
+                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.tooltip}" id="ot3">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.format}"/>
+                        </af:outputText>
+                    </af:column>
                     <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.label}" id="c5">
             <af:outputText value="#{row.IuVendor}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.tooltip}"
@@ -352,6 +366,20 @@
                             <af:convertDateTime pattern="#{bindings.SgsNetIcPayableVO2.hints.Period.format}"/>
                         </af:outputText>
                     </af:column>
+                    <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.label}" id="c21">
+                        <af:outputText value="#{row.PERIODNUM}"
+                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.tooltip}" id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.label}" id="c24">
+                        <af:outputText value="#{row.PERIODYEAR}"
+                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.tooltip}" id="ot8">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.format}"/>
+                        </af:outputText>
+                    </af:column>
                     <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.label}" id="c21">
             <af:outputText value="#{row.IuCustomer}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.tooltip}"
@@ -494,6 +522,20 @@
                         <af:outputText value="#{row.Period}" shortDesc="#{bindings.NetArColRecVO1.hints.Period.tooltip}"
                                        id="ot43">
                             <af:convertDateTime pattern="#{bindings.NetArColRecVO1.hints.Period.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.NetArColRecVO1.hints.PERIODNUM.label}" id="c34">
+                        <af:outputText value="#{row.PERIODNUM}"
+                                       shortDesc="#{bindings.NetArColRecVO1.hints.PERIODNUM.tooltip}" id="ot18">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NetArColRecVO1.hints.PERIODNUM.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.NetArColRecVO1.hints.PERIODYEAR.label}" id="c36">
+                        <af:outputText value="#{row.PERIODYEAR}"
+                                       shortDesc="#{bindings.NetArColRecVO1.hints.PERIODYEAR.tooltip}" id="ot19">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NetArColRecVO1.hints.PERIODYEAR.format}"/>
                         </af:outputText>
                     </af:column>
                     <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.IuVendor.name}" filterable="true" sortable="true"
@@ -641,6 +683,20 @@
                         <af:outputText value="#{row.Period}" shortDesc="#{bindings.NetArColPayVO1.hints.Period.tooltip}"
                                        id="ot60">
                             <af:convertDateTime pattern="#{bindings.NetArColPayVO1.hints.Period.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.NetArColPayVO1.hints.PERIODNUM.label}" id="c39">
+                        <af:outputText value="#{row.PERIODNUM}"
+                                       shortDesc="#{bindings.NetArColPayVO1.hints.PERIODNUM.tooltip}" id="ot21">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NetArColPayVO1.hints.PERIODNUM.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.NetArColPayVO1.hints.PERIODYEAR.label}" id="c48">
+                        <af:outputText value="#{row.PERIODYEAR}"
+                                       shortDesc="#{bindings.NetArColPayVO1.hints.PERIODYEAR.tooltip}" id="ot24">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.NetArColPayVO1.hints.PERIODYEAR.format}"/>
                         </af:outputText>
                     </af:column>
                     <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.IuCustomer.name}" filterable="true" sortable="true"

@@ -12,7 +12,8 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="NetArColPayEO"
     Entity="com.sgs.ics.model.bc.entity.NetArColPayEO"/>
@@ -382,6 +383,18 @@
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="PERIODNUM"
+    PrecisionRule="true"
+    EntityAttrName="PERIODNUM"
+    EntityUsage="NetArColPayEO"
+    AliasName="PERIOD_NUM"/>
+  <ViewAttribute
+    Name="PERIODYEAR"
+    PrecisionRule="true"
+    EntityAttrName="PERIODYEAR"
+    EntityUsage="NetArColPayEO"
+    AliasName="PERIOD_YEAR"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

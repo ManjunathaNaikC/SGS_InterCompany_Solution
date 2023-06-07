@@ -641,6 +641,20 @@
       <Attr Name="_DisplaySize" Value="300"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="PERIODNUM"
+    ColumnName="PERIOD_NUM"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="IC_INVOICE_LINE"/>
+  <Attribute
+    Name="PERIODYEAR"
+    ColumnName="PERIOD_YEAR"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="IC_INVOICE_LINE"/>
   <AccessorAttribute
     Name="SgsIcInvoiceHeaderEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

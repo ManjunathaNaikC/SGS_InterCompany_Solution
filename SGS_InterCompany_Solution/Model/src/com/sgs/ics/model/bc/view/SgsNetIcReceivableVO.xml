@@ -13,7 +13,8 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  FetchMode="FETCH_AS_NEEDED">
+  FetchMode="FETCH_AS_NEEDED"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="SgsNetIcReceivableEO"
     Entity="com.sgs.ics.model.bc.entity.SgsNetIcReceivableEO"/>
@@ -368,6 +369,18 @@
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="PERIODNUM"
+    PrecisionRule="true"
+    EntityAttrName="PERIODNUM"
+    EntityUsage="SgsNetIcReceivableEO"
+    AliasName="PERIOD_NUM"/>
+  <ViewAttribute
+    Name="PERIODYEAR"
+    PrecisionRule="true"
+    EntityAttrName="PERIODYEAR"
+    EntityUsage="SgsNetIcReceivableEO"
+    AliasName="PERIOD_YEAR"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

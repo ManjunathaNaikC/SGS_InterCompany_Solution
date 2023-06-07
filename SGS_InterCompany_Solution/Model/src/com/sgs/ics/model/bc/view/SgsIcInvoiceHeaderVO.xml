@@ -203,7 +203,9 @@
 	   END) AS VAT_RATE,   
            SgsIcInvoiceHeaderEO.REVERSAL_REASON,   
            SgsIcInvoiceHeaderEO.NATURE_OF_EXPENSE,   
-           SgsIcInvoiceHeaderEO.REV_INV_NUM   
+           SgsIcInvoiceHeaderEO.REV_INV_NUM ,
+           SgsIcInvoiceHeaderEO.PERIOD_NUM,
+           SgsIcInvoiceHeaderEO.PERIOD_YEAR
 FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
   <EntityUsage
     Name="SgsIcInvoiceHeaderEO"
@@ -925,6 +927,32 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     ColumnType="CHAR"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="PERIODNUM"
+    PrecisionRule="true"
+    EntityAttrName="PERIODNUM"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="PERIOD_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.PERIODNUM_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PERIODYEAR"
+    PrecisionRule="true"
+    EntityAttrName="PERIODYEAR"
+    EntityUsage="SgsIcInvoiceHeaderEO"
+    AliasName="PERIOD_YEAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO.PERIODYEAR_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsIcInvoiceHeaderVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsIcInvoiceHeaderVO"
@@ -1058,6 +1086,11 @@ FROM  IC_INVOICE_HEADER SgsIcInvoiceHeaderEO]]></SQLQuery>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="CreatedDate"
+      Ascending="false"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="CreatedDate"

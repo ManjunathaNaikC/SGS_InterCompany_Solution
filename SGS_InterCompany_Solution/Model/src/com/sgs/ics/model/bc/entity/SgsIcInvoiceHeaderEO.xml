@@ -614,6 +614,20 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMERIC"
     TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="PERIODNUM"
+    ColumnName="PERIOD_NUM"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="IC_INVOICE_HEADER"/>
+  <Attribute
+    Name="PERIODYEAR"
+    ColumnName="PERIOD_YEAR"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="IC_INVOICE_HEADER"/>
   <AccessorAttribute
     Name="SgsIcInvoiceLineEO"
     Association="com.sgs.ics.model.bc.entity.assoc.SgsInvoiceHeaerToLine"

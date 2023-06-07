@@ -80,6 +80,8 @@
           <Item Value="CGSTAMOUNT"/>
           <Item Value="IGSTAMOUNT"/>
           <Item Value="SGSTAMOUNT"/>
+          <Item Value="PERIODNUM"/>
+          <Item Value="PERIODYEAR"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -26,12 +26,15 @@
               <af:toolbar id="t2">
                 <af:button text="Overriding Netting Limit" id="b1"
                            actionListener="#{viewScope.ActionEventsBean.overRidingNettingLimit}"
-                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
-                <af:button text="Approve" id="b4" inlineStyle="border-radius:5px 5px 5px 5px;"/>
-                <af:button text="Reject" id="b6" inlineStyle="border-radius:5px 5px 5px 5px;"/>
-                <af:button text="Hold" id="b5" inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                           inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"/>
+                <af:button text="Approve" id="b4" inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"
+                           actionListener="#{viewScope.ActionEventsBean.onNetHeaderApprove}"/>
+                <af:button text="Reject" id="b6" inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"
+                           actionListener="#{viewScope.ActionEventsBean.netHeaderReject}"/>
+                <af:button text="Filter" id="b5" inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"
+                           actionListener="#{viewScope.ActionEventsBean.nettingHeaderTableFilter}"/>
                 <af:button text="Sync" id="b7" actionListener="#{viewScope.ActionEventsBean.syncAction}"
-                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                           inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"/>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
@@ -43,7 +46,9 @@
                       rowBandingInterval="0" fetchSize="#{bindings.SgsNetHeaderTblVO1.rangeSize}"
                       filterModel="#{bindings.SgsNetHeaderTblVO1Query.queryDescriptor}" filterVisible="false"
                       queryListener="#{bindings.SgsNetHeaderTblVO1Query.processQuery}" varStatus="vs" id="t1"
-                      styleClass="AFStretchWidth" rowSelection="single" scrollPolicy="page" columnStretching="last">
+                      styleClass="AFStretchWidth" rowSelection="single" scrollPolicy="page" columnStretching="last"
+                      partialTriggers="::b1 ::b4 ::b6 ::b5 ::b7"
+                      binding="#{viewScope.ActionEventsBean.netHeaderTableData}">
               <!--<af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.name}" filterable="true" sortable="true"
                    headerText="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.label}" id="c1">
           <af:link id="l1" action="Lines">
@@ -162,6 +167,10 @@
                   </af:outputText>
                 </af:column>
               </af:column>
+              <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.label}" id="c6">
+                <af:outputText value="#{row.APPROVER}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.tooltip}"
+                               id="ot6"/>
+              </af:column>
               <af:column id="c1" headerText="Netting Limit Fixed by Users(Computed)">
                 <af:column id="c21" headerText="IC Transactions">
                   <af:outputText value="#{row.NETLIMITFIXICTRANS}"
@@ -201,8 +210,7 @@
                 </af:column>
               </af:column>
               <af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.Status.name}" filterable="true"
-                         sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.Status.label}" id="c15"
-                         width="80">
+                         sortable="true" headerText="#{bindings.SgsNetHeaderTblVO1.hints.Status.label}" id="c15">
                 <af:outputText value="#{row.Status}" shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.Status.tooltip}"
                                id="ot15"/>
               </af:column>

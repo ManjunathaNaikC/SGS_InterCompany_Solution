@@ -334,9 +334,9 @@
                 </af:gridCell>
                 <af:gridCell marginStart="0px" width="50%" marginEnd="0px" id="gc2" halign="end">
                     <af:panelGroupLayout id="pgl3" layout="horizontal">
-                        <af:outputText id="ot123" inlineStyle="font-family: Arial; font-size: 16px; color: blue;"
+                        <!--<af:outputText id="ot123" inlineStyle="font-family: Arial; font-size: 16px; color: blue;"
                                        value="#{viewScope.ActionEventsBean.balanceOutputText} "
-                                       binding="#{viewScope.ActionEventsBean.balanceOutputText1}" partialTriggers="b7"/>
+                                       binding="#{viewScope.ActionEventsBean.balanceOutputText1}" partialTriggers="b7"/>-->
                         <af:spacer id="s11" width="20"/>
                         <af:button text="Reset" id="b7"
                                    actionListener="#{viewScope.ActionEventsBean.resetSettlementAmt}"/>

@@ -58,6 +58,8 @@
           <Item Value="VATRATE"/>
           <Item Value="CGSTAMNT"/>
           <Item Value="DOCATTM"/>
+          <Item Value="PERIODNUM"/>
+          <Item Value="PERIODYEAR"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

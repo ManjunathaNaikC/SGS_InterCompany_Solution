@@ -390,6 +390,20 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="PERIODNUM"
+    ColumnName="PERIOD_NUM"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="NET_IC_PAYABLE"/>
+  <Attribute
+    Name="PERIODYEAR"
+    ColumnName="PERIOD_YEAR"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="NET_IC_PAYABLE"/>
   <Key
     Name="PKNETICPAYABLE"
     PrimaryKey="true">

@@ -574,6 +574,22 @@
                                                   type="currency"/>
                             </af:inputText>
                         </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.label}" id="c42">
+                            <af:outputText value="#{row.PERIODNUM}"
+                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.tooltip}"
+                                           id="ot2">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.PERIODYEAR.label}" id="c45">
+                            <af:outputText value="#{row.PERIODYEAR}"
+                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.PERIODYEAR.tooltip}"
+                                           id="ot3">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsStatisticalDataVO1.hints.PERIODYEAR.format}"/>
+                            </af:outputText>
+                        </af:column>
                         <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
                             <af:inputText value="#{row.bindings.SLOC.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}"

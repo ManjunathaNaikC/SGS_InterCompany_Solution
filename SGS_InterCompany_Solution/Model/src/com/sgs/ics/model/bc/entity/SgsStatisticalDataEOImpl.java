@@ -77,7 +77,9 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         EMAILATTACHMENT,
         STATISTICALDATA,
         DOCATTM,
-        SLOC;
+        SLOC,
+        PERIODNUM,
+        PERIODYEAR;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -153,6 +155,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int STATISTICALDATA = AttributesEnum.STATISTICALDATA.index();
     public static final int DOCATTM = AttributesEnum.DOCATTM.index();
     public static final int SLOC = AttributesEnum.SLOC.index();
+    public static final int PERIODNUM = AttributesEnum.PERIODNUM.index();
+    public static final int PERIODYEAR = AttributesEnum.PERIODYEAR.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -985,6 +989,38 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      */
     public void setSLOC(String value) {
         setAttributeInternal(SLOC, value);
+    }
+
+    /**
+     * Gets the attribute value for PERIODNUM, using the alias name PERIODNUM.
+     * @return the value of PERIODNUM
+     */
+    public Integer getPERIODNUM() {
+        return (Integer) getAttributeInternal(PERIODNUM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PERIODNUM.
+     * @param value value to set the PERIODNUM
+     */
+    public void setPERIODNUM(Integer value) {
+        setAttributeInternal(PERIODNUM, value);
+    }
+
+    /**
+     * Gets the attribute value for PERIODYEAR, using the alias name PERIODYEAR.
+     * @return the value of PERIODYEAR
+     */
+    public Integer getPERIODYEAR() {
+        return (Integer) getAttributeInternal(PERIODYEAR);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PERIODYEAR.
+     * @param value value to set the PERIODYEAR
+     */
+    public void setPERIODYEAR(Integer value) {
+        setAttributeInternal(PERIODYEAR, value);
     }
 
     /**

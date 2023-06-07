@@ -120,6 +120,22 @@
                             <!--<af:outputText value="#{row.Period}"
                                            shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.Period.tooltip}" id="ot2"/>-->
                         </af:column>
+                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.PERIODNUM.label}" id="c17">
+                            <af:outputText value="#{row.PERIODNUM}"
+                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.PERIODNUM.tooltip}"
+                                           id="ot17">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.PERIODNUM.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.PERIODYEAR.label}" id="c19">
+                            <af:outputText value="#{row.PERIODYEAR}"
+                                           shortDesc="#{bindings.SgsIcInvoiceHeaderVO1.hints.PERIODYEAR.tooltip}"
+                                           id="ot19">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SgsIcInvoiceHeaderVO1.hints.PERIODYEAR.format}"/>
+                            </af:outputText>
+                        </af:column>
                         <af:column headerText="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.label}" id="c3"
                                    sortProperty="#{bindings.SgsIcInvoiceHeaderVO1.hints.TpaId.name}" filterable="true">
                             <af:panelGroupLayout id="pgl2" layout="horizontal">

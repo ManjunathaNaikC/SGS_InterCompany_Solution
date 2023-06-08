@@ -98,6 +98,10 @@
     Name="bPaymentRefNum"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="bTrnsactionCat"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="SgsStlmtVoucherEO"
     Entity="com.sgs.ics.model.bc.entity.SgsStlmtVoucherEO"/>
@@ -825,6 +829,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="WBINVSEQ"
+    PrecisionRule="true"
+    EntityAttrName="WBINVSEQ"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="WB_INV_SEQ"/>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"
@@ -854,7 +864,7 @@
       <ViewCriteriaItem
         Name="Period"
         ViewAttribute="Period"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bPeriod"
         IsBindVarValue="true"
@@ -862,7 +872,7 @@
       <ViewCriteriaItem
         Name="IcCustomerBu"
         ViewAttribute="IcCustomerBu"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bBusinessUnit"
         IsBindVarValue="true"
@@ -870,7 +880,7 @@
       <ViewCriteriaItem
         Name="IcSupplierBu"
         ViewAttribute="IcSupplierBu"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bSupplierBU"
         IsBindVarValue="true"
@@ -878,7 +888,7 @@
       <ViewCriteriaItem
         Name="PaymentStatus"
         ViewAttribute="PaymentStatus"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bPaymentStatus"
         IsBindVarValue="true"
@@ -886,7 +896,7 @@
       <ViewCriteriaItem
         Name="StlmtCategory"
         ViewAttribute="StlmtCategory"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bCategory"
         IsBindVarValue="true"
@@ -894,7 +904,7 @@
       <ViewCriteriaItem
         Name="PaymentId"
         ViewAttribute="PaymentId"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bPaymentId"
         IsBindVarValue="true"
@@ -902,9 +912,17 @@
       <ViewCriteriaItem
         Name="StlmtStatus"
         ViewAttribute="StlmtStatus"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":bStatus"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TRANSACTIONCATEGORY"
+        ViewAttribute="TRANSACTIONCATEGORY"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bTrnsactionCat"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

@@ -52,17 +52,17 @@
               </f:facet>
             </af:column>
             <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.INVOICESEQNO.label}" id="c29">
-              <af:outputText value="#{row.INVOICESEQNO}"
+              <af:outputText value="#{row.WBINVSEQ}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.INVOICESEQNO.tooltip}" id="ot29"/>
             </af:column>
-            <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.NATUREOFEXPENSE.label}" id="c67">
+            <!--<af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.NATUREOFEXPENSE.label}" id="c67">
               <af:outputText value="#{row.NATUREOFEXPENSE}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.NATUREOFEXPENSE.tooltip}" id="ot66"/>
-            </af:column>
-            <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.INPUTPROVIDER.label}" id="c68">
+            </af:column>-->
+            <!--<af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.INPUTPROVIDER.label}" id="c68">
               <af:outputText value="#{row.INPUTPROVIDER}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.INPUTPROVIDER.tooltip}" id="ot67"/>
-            </af:column>
+            </af:column>-->
             <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.TRANSACTIONCATEGORY.label}" id="c70">
               <af:outputText value="#{row.TRANSACTIONCATEGORY}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.TRANSACTIONCATEGORY.tooltip}" id="ot68"/>
@@ -99,7 +99,7 @@
               <af:outputText value="#{row.Period}" shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.Period.tooltip}"
                              id="ot30"/>
             </af:column>
-            <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.name}" filterable="true"
+            <!--<af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.name}" filterable="true"
                        headerText="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.label}" id="c31">
               <f:facet name="filter">
                 <af:inputDate value="#{bindings.SgsStlmtVoucherVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AcctDate.value}"
@@ -111,17 +111,17 @@
                              id="ot31">
                 <af:convertDateTime pattern="#{bindings.SgsStlmtVoucherVO1.hints.AcctDate.format}"/>
               </af:outputText>
-            </af:column>
+            </af:column>-->
             <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.name}" filterable="true"
                        headerText="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.label}" id="c32">
               <af:outputText value="#{row.PsVoucherNo}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.PsVoucherNo.tooltip}" id="ot32"/>
             </af:column>
-            <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.LegalEntity.name}" filterable="true"
+            <!--<af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.LegalEntity.name}" filterable="true"
                        headerText="#{bindings.SgsStlmtVoucherVO1.hints.LegalEntity.label}" id="c33">
               <af:outputText value="#{row.LegalEntity}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.LegalEntity.tooltip}" id="ot33"/>
-            </af:column>
+            </af:column>-->
             <af:column sortProperty="#{bindings.SgsStlmtVoucherVO1.hints.IcCustomerBu.name}" filterable="true"
                        headerText="#{bindings.SgsStlmtVoucherVO1.hints.IcCustomerBu.label}" id="c34">
               <af:outputText value="#{row.IcCustomerBu}"
@@ -303,7 +303,10 @@
                                         <f:selectItems value="#{bindings.ReversalReasonLOVVO1.items}" id="si5"/>
                                         <f:validator binding="#{bindings.ReversalReasonLOVVO1.validator}"/>
                                     </af:selectOneChoice>
-                                    <!--<af:panelGroupLayout id="pgl4" layout="horizontal"
+                  <af:inputText label="Comment" id="it1" rows="7" columns="50" rendered="#{bindings.ReversalReasonLOVVO1.inputValue=='Other'}"
+                                partialTriggers="soc5"
+                                binding="#{viewScope.ActionEventsBean.otherCommentBind}"/>
+                  <!--<af:panelGroupLayout id="pgl4" layout="horizontal"
                                                          binding="#{viewScope.ActionEventsBean.percentageGroupBind}"
                                                           partialTriggers="soc8"
                                                          inlineStyle="margin-left: -72px;"
@@ -342,8 +345,9 @@
                                               filterModel="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor}"
                                               filterVisible="false"
                                               queryListener="#{bindings.SgsInvoiceCreditMemoVO1Query.processQuery}"
-                                              varStatus="vs" id="t1" styleClass="transaction">
-                                        <af:column id="c14" binding="#{viewScope.ActionEventsBean.selectRecordColBind}">
+                                              varStatus="vs" id="t1" styleClass="transaction"
+                                              columnStretching="column:c63">
+                                        <!--<af:column id="c14" binding="#{viewScope.ActionEventsBean.selectRecordColBind}">
                                             <af:selectBooleanCheckbox value="#{row.bindings.SelectCreditRecord.inputValue}"
                                                                       label="#{row.bindings.SelectCreditRecord.label}"
                                                                       binding="#{viewScope.ActionEventsBean.selectCreditRecordBind}"
@@ -355,48 +359,43 @@
                                                                           partialTriggers="::t1 sbc3 c14"
                                                                           styleClass="cb"/>
                                             </f:facet>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.label}"
-                                                   id="c24">
-                                            <af:outputText value="#{row.InvoiceSeqNo}"
-                                                           shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.tooltip}"
-                                                           id="ot56"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.label}"
-                                                   id="c25">
-                                            <f:facet name="filter">
-                                                <af:inputDate value="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
-                                                              id="id17">
-                                                    <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.format}"/>
-                                                </af:inputDate>
-                                            </f:facet>
-                                            <af:outputText value="#{row.Period}"
-                                                           shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.tooltip}"
-                                                           id="ot14">
-                                                <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.format}"/>
-                                            </af:outputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.TransactionCategory.name}"
+                                        </af:column>-->
+                    <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.label}"
+                               id="c25">
+                      <f:facet name="filter">
+                        <af:inputDate value="#{bindings.SgsInvoiceCreditMemoVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                                      id="id17">
+                          <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.format}"/>
+                        </af:inputDate>
+                      </f:facet>
+                      <af:outputText value="#{row.Period}"
+                                     shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.tooltip}" id="ot14">
+                        <af:convertDateTime pattern="#{bindings.SgsInvoiceCreditMemoVO1.hints.Period.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.label}" id="c24">
+                      <af:outputText value="#{row.WBINVSEQ}"
+                                     shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceSeqNo.tooltip}"
+                                     id="ot56"/>
+                    </af:column>
+                    <!--<af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.TransactionCategory.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.TransactionCategory.label}"
                                                    id="c28">
                                             <af:outputText value="#{row.TransactionCategory}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.TransactionCategory.tooltip}"
                                                            id="ot55"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.label}"
-                                                   id="c325">
-                                            <af:outputText value="#{row.PsftVoucherRef}"
-                                                           shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.tooltip}"
-                                                           id="ot57"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.name}"
+                                        </af:column>-->
+                    <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.label}"
+                               id="c58">
+                      <af:outputText value="#{row.FromBu}"
+                                     shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.tooltip}" id="ot41"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.label}"
                                                    id="c313">
@@ -404,22 +403,14 @@
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftInvoiceRef.tooltip}"
                                                            id="ot58"/>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.NatureOfExpense.name}"
+                                        <!--<af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.NatureOfExpense.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.NatureOfExpense.label}"
                                                    id="c57">
                                             <af:outputText value="#{row.NatureOfExpense}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.NatureOfExpense.tooltip}"
                                                            id="ot59"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.label}"
-                                                   id="c58">
-                                            <af:outputText value="#{row.FromBu}"
-                                                           shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.FromBu.tooltip}"
-                                                           id="ot41"/>
-                                        </af:column>
+                                        </af:column>-->
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.ToBu.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.ToBu.label}"
@@ -428,7 +419,14 @@
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.ToBu.tooltip}"
                                                            id="ot60"/>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}"
+                    <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.label}" id="c325">
+                      <af:outputText value="#{row.PsftVoucherRef}"
+                                     shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.PsftVoucherRef.tooltip}"
+                                     id="ot57"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.InvoiceAmount.label}"
                                                    id="c381" styleClass="mynumbercolumn">
@@ -456,7 +454,7 @@
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.label}"
-                                                   id="c61">
+                                                   id="c61" width="175">
                                             <af:selectOneChoice value="#{row.bindings.REVERSALREASON.inputValue}"
                                                                 label="#{row.bindings.REVERSALREASON.label}"
                                                                 required="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.mandatory}"
@@ -466,13 +464,13 @@
                                                 <f:validator binding="#{row.bindings.REVERSALREASON.validator}"/>
                                             </af:selectOneChoice>
                                         </af:column>
-                                        <af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.label}"
+                                        <!--<af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.label}"
                                                    sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.name}"
                                                    filterable="true" sortable="true" id="c62">
                                             <af:outputText value="#{row.STATUS}"
                                                            shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.tooltip}"
                                                            id="ot62"/>
-                                        </af:column>
+                                        </af:column>-->
                                         <af:column sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedDate.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.CreatedDate.label}"

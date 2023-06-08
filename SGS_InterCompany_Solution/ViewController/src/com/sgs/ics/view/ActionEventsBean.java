@@ -194,7 +194,9 @@ public class ActionEventsBean {
     private RichColumn onNetArColPayColumnSelectRecord;
     private RichSelectBooleanCheckbox netNetArColPayselectcheckbox;
     private RichInputText netCcAllLimCal;
+    private RichInputText otherCommentBind;
     private RichTable netHeaderTableData;
+
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
         this.totalSettlementAmount = totalSettlementAmount;
@@ -2452,15 +2454,21 @@ public class ActionEventsBean {
 //            if (null != reversalType) {
 //                row[i].setAttribute("REVERSALTYPE", reversalType);
 //            }
+            if(null != otherCommentBind.getValue() && !("".equals(otherCommentBind.getValue())))
+            {
+            row[i].setAttribute("REVERSALREASON", otherCommentBind.getValue());
+                    }
 
             row[i].setAttribute("STATUS", "New");
         }
 
 
         this.creditDateBindVal.setValue(null);
-        //        this.percentageReversalBind.setValue(null);
+        this.otherCommentBind.setValue(null);
+             //        this.percentageReversalBind.setValue(null);
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(creditDateBindVal);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(otherCommentBind);
         //     AdfFacesContext.getCurrentInstance().addPartialTarget(percentageReversalBind);
         // executeBinding(SAVE_DATA);
 
@@ -3484,6 +3492,7 @@ public class ActionEventsBean {
     public void CreditTxnPopupCancel(PopupCanceledEvent popupCanceledEvent) {
         // Add event code here...
         try {
+            System.out.println("CreditTxnPopupCancel");
             executeBinding("Rollback");
         } catch (Exception e) {
             // TODO: Add catch code
@@ -4069,6 +4078,7 @@ public class ActionEventsBean {
 
     
     public void onCreditTransactionInSettlement(ActionEvent actionEvent) {
+//        executeBinding("Rollback");
         DCIteratorBinding settlemtntData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
         //creditData.getViewObject().executeQuery();
@@ -4100,6 +4110,11 @@ public class ActionEventsBean {
                     }
                     String paymentStatus= (String)settlemtntDatarows[i].getAttribute("PaymentStatus");
                     System.out.println("paymentStatus ::"+paymentStatus);
+                    
+                    if(null != paymentStatus &&  (paymentStatus.equalsIgnoreCase("NA"))){
+                        paymentBreak=2;
+                        break;
+                    }
                     if(null != paymentStatus &&  !(paymentStatus.equalsIgnoreCase("Unpaid"))){
                         paymentBreak=1;
                         break;
@@ -4109,7 +4124,7 @@ public class ActionEventsBean {
                     System.out.println("SelectRecord ::"+settlemtntDatarows[i].getAttribute("SelectRecord"));
                     executeBinding("CreateInsertCreditInStltmt");
                     Row row = creditData.getCurrentRow();
-                    row.setAttribute("InvoiceSeqNo", settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
+                    row.setAttribute("InvoiceSeqNo", settlemtntDatarows[i].getAttribute("WBINVSEQ"));
                     row.setAttribute("Period", settlemtntDatarows[i].getAttribute("Period"));
                     row.setAttribute("TransactionCategory", settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY"));
                     row.setAttribute("PsftVoucherRef", settlemtntDatarows[i].getAttribute("PsVoucherNo"));
@@ -4121,9 +4136,9 @@ public class ActionEventsBean {
                     //row.setAttribute("ReversalAmount",null);
                     row.setAttribute("InputProvider", settlemtntDatarows[i].getAttribute("INPUTPROVIDER"));
                     row.setAttribute("CreatedDate", settlemtntDatarows[i].getAttribute("CreatedDate"));
-                    row.setAttribute("CreatedBy", settlemtntDatarows[i].getAttribute("CreatedBy"));
+                    row.setAttribute("CreatedBy", user);
                     row.setAttribute("UpdatedDate", settlemtntDatarows[i].getAttribute("UpdatedDate"));
-                    row.setAttribute("UpdatedBy", settlemtntDatarows[i].getAttribute("UpdatedBy"));
+                    row.setAttribute("UpdatedBy", user);
                     
                     
                     
@@ -4152,17 +4167,25 @@ public class ActionEventsBean {
             
             if(transBreak >0){
                 FacesContext context = FacesContext.getCurrentInstance();
-                String messageText = "Please select a an Invoice for creation of Credit Transaction";
+                String messageText = "Please select an Invoice for creation of Credit Transaction";
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_ERROR);
                 context.addMessage(null, fm);
-            }else if(paymentBreak>0){
+            }else if(paymentBreak==1){
                 FacesContext context = FacesContext.getCurrentInstance();
-                String messageText = "Please select an UnPaid Transaction for creation of Credit Transaction";
+                String messageText = "Please select an Unpaid Transaction for creation of Credit Transaction";
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_ERROR);
                 context.addMessage(null, fm);
-            }else{
+            }else if(paymentBreak==2){
+                FacesContext context = FacesContext.getCurrentInstance();
+                String messageText = "The selected Invoice is already reversed. Kindly select an Upaid Invoice for creation of Credit Transactions";
+                FacesMessage fm = new FacesMessage(messageText);
+                fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+                context.addMessage(null, fm);
+            }
+//        
+            else{
                 System.out.println("nonInvoice Cat 11::" + nonInvoice);
                  RichPopup.PopupHints hints = new RichPopup.PopupHints();
                  this.invoicecreditmemobindpopup.show(hints);
@@ -4585,6 +4608,14 @@ public class ActionEventsBean {
                 executeBinding("Commit");
     }
 
+
+    public void setOtherCommentBind(RichInputText otherCommentBind) {
+        this.otherCommentBind = otherCommentBind;
+    }
+
+    public RichInputText getOtherCommentBind() {
+        return otherCommentBind;
+    }
     public void onNetIcRecvSettled(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
@@ -4951,6 +4982,7 @@ public class ActionEventsBean {
 
             changeStatus("Pending for Treasury Approval");
         }
+
     }
 }
 

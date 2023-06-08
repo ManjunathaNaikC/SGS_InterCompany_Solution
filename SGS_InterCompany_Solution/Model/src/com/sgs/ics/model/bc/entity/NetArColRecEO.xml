@@ -380,6 +380,34 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="PERIODNUM"
+    ColumnName="PERIOD_NUM"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName='"NET_AR_COL_REC "'>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.NetArColRecEO.PERIODNUM_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PERIODYEAR"
+    ColumnName="PERIOD_YEAR"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName='"NET_AR_COL_REC "'>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.NetArColRecEO.PERIODYEAR_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Key
     Name="PKNETARC3214EC2799487E8B"
     PrimaryKey="true">
@@ -390,4 +418,8 @@
       <Item Value="com.sgs.ics.model.bc.entity.NetArColRecEO.Id"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

@@ -86,9 +86,10 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         CGSTAMOUNT,
         IGSTAMOUNT,
         SGSTAMOUNT,
+        PERIODNUM,
+        PERIODYEAR,
         SgsIcInvoiceLineEO;
         private static AttributesEnum[] vals = null;
-        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -171,6 +172,8 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
     public static final int CGSTAMOUNT = AttributesEnum.CGSTAMOUNT.index();
     public static final int IGSTAMOUNT = AttributesEnum.IGSTAMOUNT.index();
     public static final int SGSTAMOUNT = AttributesEnum.SGSTAMOUNT.index();
+    public static final int PERIODNUM = AttributesEnum.PERIODNUM.index();
+    public static final int PERIODYEAR = AttributesEnum.PERIODYEAR.index();
     public static final int SGSICINVOICELINEEO = AttributesEnum.SgsIcInvoiceLineEO.index();
 
     /**
@@ -1131,6 +1134,38 @@ public class SgsIcInvoiceHeaderEOImpl extends EntityImpl {
         setAttributeInternal(SGSTAMOUNT, value);
     }
 
+
+    /**
+     * Gets the attribute value for PERIODNUM, using the alias name PERIODNUM.
+     * @return the value of PERIODNUM
+     */
+    public Integer getPERIODNUM() {
+        return (Integer) getAttributeInternal(PERIODNUM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PERIODNUM.
+     * @param value value to set the PERIODNUM
+     */
+    public void setPERIODNUM(Integer value) {
+        setAttributeInternal(PERIODNUM, value);
+    }
+
+    /**
+     * Gets the attribute value for PERIODYEAR, using the alias name PERIODYEAR.
+     * @return the value of PERIODYEAR
+     */
+    public Integer getPERIODYEAR() {
+        return (Integer) getAttributeInternal(PERIODYEAR);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PERIODYEAR.
+     * @param value value to set the PERIODYEAR
+     */
+    public void setPERIODYEAR(Integer value) {
+        setAttributeInternal(PERIODYEAR, value);
+    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.

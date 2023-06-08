@@ -125,7 +125,9 @@
 (CASE  WHEN SgsIcInvoiceLineEO.VAT_RATE =0.00 THEN null
 	   ELSE SgsIcInvoiceLineEO.VAT_RATE
 	   END) AS VAT_RATE,
-           SgsIcInvoiceLineEO.DOC_ATTM
+           SgsIcInvoiceLineEO.DOC_ATTM,
+           SgsIcInvoiceLineEO.PERIOD_NUM,
+           SgsIcInvoiceLineEO.PERIOD_YEAR
 FROM  IC_INVOICE_LINE SgsIcInvoiceLineEO]]></SQLQuery>
   <EntityUsage
     Name="SgsIcInvoiceLineEO"
@@ -817,6 +819,32 @@ FROM  IC_INVOICE_LINE SgsIcInvoiceLineEO]]></SQLQuery>
     EntityAttrName="DOCATTM"
     EntityUsage="SgsIcInvoiceLineEO"
     AliasName="DOC_ATTM"/>
+  <ViewAttribute
+    Name="PERIODNUM"
+    PrecisionRule="true"
+    EntityAttrName="PERIODNUM"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="PERIOD_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.PERIODNUM_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PERIODYEAR"
+    PrecisionRule="true"
+    EntityAttrName="PERIODYEAR"
+    EntityUsage="SgsIcInvoiceLineEO"
+    AliasName="PERIOD_YEAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsIcInvoiceLineVO.PERIODYEAR_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.sgs.ics.model.ModelBundle"/>

@@ -389,6 +389,34 @@
     ColumnType="INT"
     TableName="NET_IC_RECEIVABLE"
     PrimaryKey="true"/>
+  <Attribute
+    Name="PERIODNUM"
+    ColumnName="PERIOD_NUM"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="NET_IC_RECEIVABLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.SgsNetIcReceivableEO.PERIODNUM_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="PERIODYEAR"
+    ColumnName="PERIOD_YEAR"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="NET_IC_RECEIVABLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.entity.SgsNetIcReceivableEO.PERIODYEAR_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Key
     Name="PKNETICRECEIVABLE"
     PrimaryKey="true">
@@ -399,4 +427,8 @@
       <Item Value="com.sgs.ics.model.bc.entity.SgsNetIcReceivableEO.NettingId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.sgs.ics.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

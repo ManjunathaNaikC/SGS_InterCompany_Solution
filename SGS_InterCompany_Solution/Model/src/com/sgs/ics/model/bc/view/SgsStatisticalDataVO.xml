@@ -13,7 +13,8 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  FetchMode="FETCH_AS_NEEDED">
+  FetchMode="FETCH_AS_NEEDED"
+  AccessMode="DEFAULT">
   <Variable
     Name="bBusinessUnit"
     Kind="viewcriteria"
@@ -1025,6 +1026,32 @@
           ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.SLOC_LABEL"/>
         <CONTROLTYPE
           Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PERIODNUM"
+    PrecisionRule="true"
+    EntityAttrName="PERIODNUM"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="PERIOD_NUM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.PERIODNUM_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PERIODYEAR"
+    PrecisionRule="true"
+    EntityAttrName="PERIODYEAR"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="PERIOD_YEAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsStatisticalDataVO.PERIODYEAR_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

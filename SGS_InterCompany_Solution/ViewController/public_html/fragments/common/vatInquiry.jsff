@@ -42,13 +42,18 @@
                       emptyText="#{bindings.SgsVatTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsVatTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsVatTblVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      queryListener="#{bindings.SgsVatTblVOCriteriaQuery.processQuery}"
+                      filterModel="#{bindings.SgsVatTblVOCriteriaQuery.queryDescriptor}"
+		      filterVisible="false"
                       fetchSize="#{bindings.SgsVatTblVO1.rangeSize}" id="resId1" styleClass="setup"
                       partialTriggers="::b1 ::b2" scrollPolicy="page">
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatNum.label}" id="resId1c1">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VatNum.label}" id="resId1c1"
+                         sortProperty="#{bindings.SgsVatTblVO1.hints.VatNum.name}" sortable="true" filterable="true">
                 <af:link text="#{row.VatNum}" id="l1" action="EDIT"/>
                 <!--<af:outputText value="#{row.VatNum}" shortDesc="#{bindings.SgsVatTblVO1.hints.VatNum.tooltip}" id="ot1"/>-->
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServProvider.label}" id="resId1c2">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServProvider.label}" id="resId1c2" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.ServProvider.name}">
                 <!--<af:outputText value="#{row.ServProvider}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.ServProvider.tooltip}" id="ot2"/>-->
                 <af:selectOneChoice value="#{row.bindings.ServProvider.inputValue}"
@@ -60,7 +65,8 @@
                   <f:validator binding="#{row.bindings.ServProvider.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServReceiver.label}" id="resId1c3">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.ServReceiver.label}" id="resId1c3" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.ServReceiver.name}">
                 <!--<af:outputText value="#{row.ServReceiver}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.ServReceiver.tooltip}" id="ot3"/>-->
                 <af:selectOneChoice value="#{row.bindings.ServReceiver.inputValue}"
@@ -72,7 +78,8 @@
                   <f:validator binding="#{row.bindings.ServReceiver.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VATAPPLICATIBILITY.label}" id="c1">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.VATAPPLICATIBILITY.label}" id="c1" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.VATAPPLICATIBILITY.name}">
                 <af:selectOneChoice value="#{row.bindings.VATAPPLICATIBILITY.inputValue}"
                                     label="#{row.bindings.VATAPPLICATIBILITY.label}"
                                     required="#{bindings.SgsVatTblVO1.hints.VATAPPLICATIBILITY.mandatory}"
@@ -82,7 +89,8 @@
                   <f:validator binding="#{row.bindings.VATAPPLICATIBILITY.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="c3">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.Rcm.label}" id="c3" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.Rcm.name}">
                 <af:selectOneChoice value="#{row.bindings.Rcm.inputValue}" label="#{row.bindings.Rcm.label}"
                                     required="#{bindings.SgsVatTblVO1.hints.Rcm.mandatory}"
                                     shortDesc="#{bindings.SgsVatTblVO1.hints.Rcm.tooltip}" id="soc1" readOnly="true">
@@ -125,35 +133,41 @@
                   <f:validator binding="#{row.bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
                 </af:selectOneChoice>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.label}" id="resId1c7">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.label}" id="resId1c7" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.name}">
                 <af:outputText value="#{row.EffectiveFrom}"
                                shortDesc="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.tooltip}" id="ot7">
                   <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.EffectiveFrom.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveTo.label}" id="resId1c8">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.EffectiveTo.label}" id="resId1c8" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.EffectiveTo.name}">
                 <af:outputText value="#{row.EffectiveTo}" shortDesc="#{bindings.SgsVatTblVO1.hints.EffectiveTo.tooltip}"
                                id="ot8">
                   <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.EffectiveTo.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedDate.label}" id="resId1c9">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedDate.label}" id="resId1c9" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.CreatedDate.name}">
                 <af:outputText value="#{row.CreatedDate}" shortDesc="#{bindings.SgsVatTblVO1.hints.CreatedDate.tooltip}"
                                id="ot9">
                   <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.CreatedDate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedBy.label}" id="resId1c10">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.CreatedBy.label}" id="resId1c10" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.CreatedBy.name}">
                 <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsVatTblVO1.hints.CreatedBy.tooltip}"
                                id="ot10"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedDate.label}" id="resId1c11">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedDate.label}" id="resId1c11" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.UpdatedDate.name}">
                 <af:outputText value="#{row.UpdatedDate}" shortDesc="#{bindings.SgsVatTblVO1.hints.UpdatedDate.tooltip}"
                                id="ot11">
                   <af:convertDateTime pattern="#{bindings.SgsVatTblVO1.hints.UpdatedDate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedBy.label}" id="resId1c12">
+              <af:column headerText="#{bindings.SgsVatTblVO1.hints.UpdatedBy.label}" id="resId1c12" sortable="true"
+                         filterable="true" sortProperty="#{bindings.SgsVatTblVO1.hints.UpdatedBy.name}">
                 <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsVatTblVO1.hints.UpdatedBy.tooltip}"
                                id="ot12"/>
               </af:column>

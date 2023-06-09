@@ -45,13 +45,19 @@
                       emptyText="#{bindings.SgsGstTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsGstTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsGstTblVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      queryListener="#{bindings.SgsGstTblVOCriteriaQuery.processQuery}"
+                      filterModel="#{bindings.SgsGstTblVOCriteriaQuery.queryDescriptor}"
+                      filterVisible="false"
                       fetchSize="#{bindings.SgsGstTblVO1.rangeSize}" id="resId1" styleClass="setup"
                       partialTriggers="::b1 ::b2" scrollPolicy="page" columnStretching="column:resId1c1">
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.GstNum.label}" id="resId1c1">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.GstNum.label}" id="resId1c1"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.GstNum.name}" sortable="true"
+                         filterable="true">
                 <!--<af:outputText value="#{row.GstNum}" shortDesc="#{bindings.SgsGstTblVO1.hints.GstNum.tooltip}" id="ot1"/>-->
                 <af:link text="#{row.GstNum}" id="l1" action="EDIT"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.ServProvider.label}" id="resId1c2" width="120">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.ServProvider.label}" id="resId1c2" width="120"
+                         filterable="true" sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.ServProvider.name}">
                 <!--<af:outputText value="#{row.ServProvider}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.ServProvider.tooltip}" id="ot2"/>-->
                 <af:selectOneChoice value="#{row.bindings.ServProvider.inputValue}"
@@ -63,7 +69,9 @@
                   <f:validator binding="#{row.bindings.ServProvider.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyPlace.label}" id="resId1c3" width="115">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyPlace.label}" id="resId1c3" width="115"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.SupplyPlace.name}">
                 <!--<af:outputText value="#{row.SupplyPlace}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyPlace.tooltip}"
                                id="ot3"/>-->
                 <af:selectOneChoice value="#{row.bindings.SupplyPlace.inputValue}"
@@ -75,7 +83,9 @@
                   <f:validator binding="#{row.bindings.SupplyPlace.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4" width="100">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SupplyType.label}" id="resId1c4" width="100"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.SupplyType.name}">
                 <!--<af:outputText value="#{row.SupplyType}" shortDesc="#{bindings.SgsGstTblVO1.hints.SupplyType.tooltip}"
                                id="ot4"/>-->
                 <af:selectOneChoice value="#{row.bindings.SupplyType.inputValue}"
@@ -88,33 +98,43 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstReceivable.label}" id="resId1c7"
-                         rendered="false" width="100">
+                         rendered="false" width="100" filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.IgstReceivable.name}">
                 <af:outputText value="#{row.IgstReceivable}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.IgstReceivable.tooltip}" id="ot7"/>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstReceivable.label}" id="resId1c8"
-                         rendered="false" width="120">
+                         rendered="false" width="120" filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.CgstReceivable.name}">
                 <af:outputText value="#{row.CgstReceivable}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.CgstReceivable.tooltip}" id="ot8"/>
               </af:column>
               <af:column headerText="#{bindings.SgsGstTblVO1.hints.SgstReceivable.label}" id="resId1c9"
-                         rendered="false">
+                         rendered="false" filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.SgstReceivable.name}">
                 <af:outputText value="#{row.SgstReceivable}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.SgstReceivable.tooltip}" id="ot9"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstPayable.label}" id="resId1c10" rendered="false">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.IgstPayable.label}" id="resId1c10" rendered="false"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.IgstPayable.name}">
                 <af:outputText value="#{row.IgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.IgstPayable.tooltip}"
                                id="ot10"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstPayable.label}" id="resId1c11" rendered="false">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CgstPayable.label}" id="resId1c11" rendered="false"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.CgstPayable.name}">
                 <af:outputText value="#{row.CgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.CgstPayable.tooltip}"
                                id="ot11"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SgstPayable.label}" id="resId1c12" rendered="false">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.SgstPayable.label}" id="resId1c12" rendered="false"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.SgstPayable.name}">
                 <af:outputText value="#{row.SgstPayable}" shortDesc="#{bindings.SgsGstTblVO1.hints.SgstPayable.tooltip}"
                                id="ot12"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Rcm.label}" id="c1" width="175">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Rcm.label}" id="c1" width="175" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.Rcm.name}">
                 <af:selectOneChoice value="#{row.bindings.Rcm.inputValue}" label="#{row.bindings.Rcm.label}"
                                     required="#{bindings.SgsGstTblVO1.hints.Rcm.mandatory}"
                                     shortDesc="#{bindings.SgsGstTblVO1.hints.Rcm.tooltip}" id="soc4" 
@@ -126,7 +146,8 @@
               <!--<af:column headerText="#{bindings.SgsGstTblVO1.hints.Rcm.label}" id="resId1c13">
                 <af:outputText value="#{row.Rcm}" shortDesc="#{bindings.SgsGstTblVO1.hints.Rcm.tooltip}" id="ot13"/>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Recoverable.label}" id="resId1c14" rendered="false">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.Recoverable.label}" id="resId1c14" rendered="false"
+                         filterable="true" sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.Recoverable.name}">
                 <af:outputText value="#{row.Recoverable}" shortDesc="#{bindings.SgsGstTblVO1.hints.Recoverable.tooltip}"
                                id="ot14"/>
               </af:column>
@@ -135,35 +156,42 @@
                 <af:outputText value="#{row.IdenticalGstReg}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.IdenticalGstReg.tooltip}" id="ot15"/>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.label}" id="resId1c5">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.label}" id="resId1c5"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.name}">
                 <af:outputText value="#{row.EffectiveFrom}"
                                shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.tooltip}" id="ot5">
                   <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveFrom.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveTo.label}" id="resId1c6">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.EffectiveTo.label}" id="resId1c6" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.EffectiveTo.name}">
                 <af:outputText value="#{row.EffectiveTo}" shortDesc="#{bindings.SgsGstTblVO1.hints.EffectiveTo.tooltip}"
                                id="ot6">
                   <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.EffectiveTo.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedDate.label}" id="resId1c16">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedDate.label}" id="resId1c16" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.UpdatedDate.name}">
                 <af:outputText value="#{row.UpdatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedDate.tooltip}"
                                id="ot16">
                   <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.UpdatedDate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedBy.label}" id="resId1c17">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.UpdatedBy.label}" id="resId1c17" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.UpdatedBy.name}">
                 <af:outputText value="#{row.UpdatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.UpdatedBy.tooltip}"
                                id="ot17"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedDate.label}" id="resId1c18">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedDate.label}" id="resId1c18" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.CreatedDate.name}">
                 <af:outputText value="#{row.CreatedDate}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedDate.tooltip}"
                                id="ot18">
                   <af:convertDateTime pattern="#{bindings.SgsGstTblVO1.hints.CreatedDate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedBy.label}" id="resId1c19">
+              <af:column headerText="#{bindings.SgsGstTblVO1.hints.CreatedBy.label}" id="resId1c19" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsGstTblVO1.hints.CreatedBy.name}">
                 <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsGstTblVO1.hints.CreatedBy.tooltip}"
                                id="ot19"/>
               </af:column>

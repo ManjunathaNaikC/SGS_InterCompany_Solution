@@ -25,6 +25,8 @@ import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichInputFile;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.adf.view.rich.event.DialogEvent;
@@ -57,6 +59,10 @@ import org.apache.poi.ss.util.NumberToTextConverter;
 
 public class UploadExcelBean {
     private static final ADFLogger LOG = ADFLogger.createADFLogger(UploadExcelBean.class);
+    private RichPopup uploadFilePopupBind;
+    private RichInputFile uploadInputFileBind;
+    protected String SAVE_DATA = "Commit";
+
     public UploadExcelBean() {
     }
 
@@ -517,46 +523,52 @@ public class UploadExcelBean {
         
         
     public void onStatDocsUpload(ValueChangeEvent valueChangeEvent) {
-        // Add event code here...
+        System.out.println("---------------inside onStatDocsUpload-------------------");
         if (valueChangeEvent.getNewValue() != null) {
-            
             String filePath1 = ADFUtils.getPath();
-            if(filePath1.equalsIgnoreCase("NOPATH")){
+            if (filePath1.equalsIgnoreCase("NOPATH")) {
                 FacesContext context = FacesContext.getCurrentInstance();
                 String messageText = "Please setup the system path to upload the file.";
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_INFO);
                 context.addMessage(null, fm);
-            }else{
-            try {
-                UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
-                if (null != uploadedFile) {
-                    // InputStream inputStream = null;
-                    // inputStream = uploadedFile.getInputStream();
-                    // BufferedInputStream bfi = new BufferedInputStream(inputStream);
-                    // String fileName = uploadedFile.getFilename();
-                    String path = null;
-                    LOG.info("filePath1" + filePath1);
-                    
-                    String tokens = uploadedFile.getFilename();
-                    String fileName = uploadedFile.getFilename();
-                    String contentType = uploadedFile.getContentType();
-                   // path = filePath1 + fileNames;
-                    saveFile(filePath1, fileName, uploadedFile);
+            } else {
+                try {
+                    UploadedFile uploadedFile = (UploadedFile) valueChangeEvent.getNewValue();
+                    if (null != uploadedFile) {
 
-                    DCIteratorBinding docs = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
-                    oracle.jbo.Row row = docs.getCurrentRow();
-                    row.setAttribute("DOCATTM", fileName);
-                    row.setAttribute("Attribute1", path);
-                    row.setAttribute("Attribute2", contentType);
 
-                    LOG.info("File path and file Name in downlaod" + path + fileName);
+                        String path = null;
+                        String tokens = uploadedFile.getFilename();
+                        String fileName = uploadedFile.getFilename();
+                        String contentType = uploadedFile.getContentType();
+
+                        saveFile(filePath1, fileName, uploadedFile);
+
+                        BindingContainer bindings = getBindingsCont();
+                        DCIteratorBinding faiter = (DCIteratorBinding) bindings.get("SgsStatisticalDataVO1Iterator");
+                        ViewObject faVO = faiter.getViewObject();
+                        oracle.jbo.Row[] selectedRows = faVO.getFilteredRows("StatSelectedRecord", "Yes");
+                        System.out.println("selectedrow--------" + selectedRows.length);
+                        for (oracle.jbo.Row rw : selectedRows) {
+
+                            if (null != uploadInputFileBind.getValue()) {
+                                if (null != uploadedFile.getFilename()) {
+                                    rw.setAttribute("UPLOADFILE", fileName);
+                                    rw.setAttribute("Attribute3", path);
+                                    rw.setAttribute("Attribute4", contentType);
+
+                                }
+                            }
+                        }
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+
             }
         }
-    }
     }
     
     
@@ -605,4 +617,90 @@ public class UploadExcelBean {
         executeOperation("ExecuteStatisticalData").execute();
         ADFUtils.saveNotifier();
     }
+
+    public void setUploadFilePopupBind(RichPopup uploadFilePopupBind) {
+        this.uploadFilePopupBind = uploadFilePopupBind;
+    }
+
+    public RichPopup getUploadFilePopupBind() {
+        return uploadFilePopupBind;
+    }
+
+
+    public void setUploadInputFileBind(RichInputFile uploadInputFileBind) {
+        this.uploadInputFileBind = uploadInputFileBind;
+    }
+
+    public RichInputFile getUploadInputFileBind() {
+        return uploadInputFileBind;
+    }
+    
+    public Object executeBinding(String binding) {
+        BindingContainer bindings = getBindings();
+        OperationBinding operationBinding = bindings.getOperationBinding(binding);
+        Object result = operationBinding.execute();
+        return result;
+    }
+    
+    public BindingContainer getBindings() {
+        return (BindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+    }
+    
+    public void onUploadFileAttachment(ActionEvent actionEvent) {
+            try {
+                FacesContext context = FacesContext.getCurrentInstance();
+                String messageText = "File Uploaded successfully";
+                FacesMessage fm = new FacesMessage(messageText);
+                fm.setSeverity(FacesMessage.SEVERITY_INFO);
+                context.addMessage(null, fm);
+
+                executeBinding(SAVE_DATA);
+                uploadInputFileBind.setValue(null);
+                uploadInputFileBind.resetValue();
+                AdfFacesContext.getCurrentInstance().addPartialTarget(uploadInputFileBind);
+                uploadFilePopupBind.hide();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+    
+    public void onStatUploadFileDownload(FacesContext facesContext, OutputStream outputStream) {
+                DCBindingContainer bindingContainer =
+                    (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+                DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsStatisticalDataVO1Iterator");
+                ViewObject vo = imageIter.getViewObject();
+                oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
+
+                String filePath = (String) currentRow.getAttribute("Attribute3");
+                String fileName = (String) currentRow.getAttribute("UPLOADFILE");
+                LOG.info("filePath :: " + filePath);
+                LOG.info("fileName :: " + fileName);
+
+
+                try {
+                    if (null != filePath && null != fileName) {
+                        File f = new File(filePath + fileName);
+                        FileInputStream fis;
+                        byte[] b;
+
+                        fis = new FileInputStream(f);
+                        int n;
+                        while ((n = fis.available()) > 0) {
+                            b = new byte[n];
+                            int result = fis.read(b);
+
+                            outputStream.write(b, 0, b.length);
+                            if (result == -1)
+                                break;
+                        }
+                        outputStream.flush();
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
 }

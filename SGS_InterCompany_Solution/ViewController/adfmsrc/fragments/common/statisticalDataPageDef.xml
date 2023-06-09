@@ -58,6 +58,7 @@
           <Item Value="DOCATTM"/>
           <Item Value="PERIODNUM"/>
           <Item Value="PERIODYEAR"/>
+          <Item Value="UPLOADFILE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

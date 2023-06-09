@@ -196,6 +196,7 @@ public class ActionEventsBean {
     private RichInputText netCcAllLimCal;
     private RichInputText otherCommentBind;
     private RichTable netHeaderTableData;
+    private RichPopup submitstatpopupattachbind;
 
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
@@ -1956,6 +1957,50 @@ public class ActionEventsBean {
         executeBinding(SAVE_DATA);
         submitstatpopupbind.hide();
     }
+    
+    
+    public void onStatisticalSubmitAprovalAttach(ActionEvent actionEvent) {
+        DCIteratorBinding statData = null;
+        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+        for (int i = 0; i < statDataDatarows.length; i++) {
+            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                statDataDatarows[i].setAttribute("APPROVESTATUS", "Submitted For Approval");
+            }
+        }
+        executeBinding(SAVE_DATA);
+        submitstatpopupattachbind.hide();
+    }
+    
+    
+    public void onStatisticalSubmitAprovalDocValidations(ActionEvent actionEvent) {
+        DCIteratorBinding statData = null;
+        statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
+        oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
+        int count=0;
+        for (int i = 0; i < statDataDatarows.length; i++) {
+            if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
+                statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
+                
+                if(null == statDataDatarows[i].getAttribute("DOCATTM")){
+                    count=1;
+                    break;
+                }
+                
+            }
+        }
+        
+        if(count>0){
+            
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            this.submitstatpopupattachbind.show(hints);
+        }else{
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            this.submitstatpopupbind.show(hints);
+        }
+
+    }
 
     public void onStatisticalApprove(ActionEvent actionEvent) {
         ArrayList<String> pageList = (ArrayList<String>) ADFContext.getCurrent()
@@ -2396,6 +2441,10 @@ public class ActionEventsBean {
     public void onStatSubmitNo(ActionEvent actionEvent) {
         submitstatpopupbind.hide();
     }
+    
+    public void onStatSubmitAttachNo(ActionEvent actionEvent) {
+        submitstatpopupattachbind.hide();
+    }
 
     public void setCreditMemoPopupBind(RichPopup creditMemoPopupBind) {
         this.creditMemoPopupBind = creditMemoPopupBind;
@@ -2436,10 +2485,7 @@ public class ActionEventsBean {
                 reversalReason = getLookupCode(selectedRow, type);
             }
 
-            if (null != reversalReason) {
-                row[i].setAttribute("REVERSALREASON", reversalReason);
-
-            }
+         System.out.println("Reversal Resaon::"+reversalReason);
 
 //            BindingContainer bc1 = this.getBindingsCont();
 //            JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
@@ -2454,10 +2500,15 @@ public class ActionEventsBean {
 //            if (null != reversalType) {
 //                row[i].setAttribute("REVERSALTYPE", reversalType);
 //            }
-            if(null != otherCommentBind.getValue() && !("".equals(otherCommentBind.getValue())))
-            {
-            row[i].setAttribute("REVERSALREASON", otherCommentBind.getValue());
-                    }
+            System.out.println("Comments Value ::"+otherCommentBind.getValue());
+            if (null != otherCommentBind.getValue() && !("".equals(otherCommentBind.getValue()))) {
+                row[i].setAttribute("REVERSALREASON", otherCommentBind.getValue());
+            }else{
+                if (null != reversalReason) {
+                    row[i].setAttribute("REVERSALREASON", reversalReason);
+
+                }
+            }
 
             row[i].setAttribute("STATUS", "New");
         }
@@ -4983,6 +5034,14 @@ public class ActionEventsBean {
             changeStatus("Pending for Treasury Approval");
         }
 
+    }
+
+    public void setSubmitstatpopupattachbind(RichPopup submitstatpopupattachbind) {
+        this.submitstatpopupattachbind = submitstatpopupattachbind;
+    }
+
+    public RichPopup getSubmitstatpopupattachbind() {
+        return submitstatpopupattachbind;
     }
 }
 

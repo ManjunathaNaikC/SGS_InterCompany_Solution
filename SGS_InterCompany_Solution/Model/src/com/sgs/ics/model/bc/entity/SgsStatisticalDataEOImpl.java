@@ -79,7 +79,8 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
         DOCATTM,
         SLOC,
         PERIODNUM,
-        PERIODYEAR;
+        PERIODYEAR,
+        UPLOADFILE;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -157,6 +158,7 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
     public static final int SLOC = AttributesEnum.SLOC.index();
     public static final int PERIODNUM = AttributesEnum.PERIODNUM.index();
     public static final int PERIODYEAR = AttributesEnum.PERIODYEAR.index();
+    public static final int UPLOADFILE = AttributesEnum.UPLOADFILE.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1021,6 +1023,22 @@ public class SgsStatisticalDataEOImpl extends EntityImpl {
      */
     public void setPERIODYEAR(Integer value) {
         setAttributeInternal(PERIODYEAR, value);
+    }
+
+    /**
+     * Gets the attribute value for UPLOADFILE, using the alias name UPLOADFILE.
+     * @return the value of UPLOADFILE
+     */
+    public String getUPLOADFILE() {
+        return (String) getAttributeInternal(UPLOADFILE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for UPLOADFILE.
+     * @param value value to set the UPLOADFILE
+     */
+    public void setUPLOADFILE(String value) {
+        setAttributeInternal(UPLOADFILE, value);
     }
 
     /**

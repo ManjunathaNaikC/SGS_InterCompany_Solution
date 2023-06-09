@@ -1055,6 +1055,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="UPLOADFILE"
+    PrecisionRule="true"
+    EntityAttrName="UPLOADFILE"
+    EntityUsage="SgsStatisticalDataEO"
+    AliasName="UPLOADFILE"/>
   <ViewCriteria
     Name="SgsStatisticalDataVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStatisticalDataVO"

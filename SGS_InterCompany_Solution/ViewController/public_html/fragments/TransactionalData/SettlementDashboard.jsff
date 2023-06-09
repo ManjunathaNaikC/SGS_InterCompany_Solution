@@ -455,14 +455,17 @@
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.label}"
                                                    id="c61" width="175">
-                                            <af:selectOneChoice value="#{row.bindings.REVERSALREASON.inputValue}"
+                      <af:outputText value="#{row.REVERSALREASON}"
+                                     shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.tooltip}"
+                                     id="ot31"/>
+                      <!--<af:selectOneChoice value="#{row.bindings.REVERSALREASON.inputValue}"
                                                                 label="#{row.bindings.REVERSALREASON.label}"
                                                                 required="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.mandatory}"
                                                                 shortDesc="#{bindings.SgsInvoiceCreditMemoVO1.hints.REVERSALREASON.tooltip}"
                                                                 readOnly="true" id="soc7">
                                                 <f:selectItems value="#{row.bindings.REVERSALREASON.items}" id="si7"/>
                                                 <f:validator binding="#{row.bindings.REVERSALREASON.validator}"/>
-                                            </af:selectOneChoice>
+                                            </af:selectOneChoice>-->
                                         </af:column>
                                         <!--<af:column headerText="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.label}"
                                                    sortProperty="#{bindings.SgsInvoiceCreditMemoVO1.hints.STATUS.name}"

@@ -2485,10 +2485,7 @@ public class ActionEventsBean {
                 reversalReason = getLookupCode(selectedRow, type);
             }
 
-            if (null != reversalReason) {
-                row[i].setAttribute("REVERSALREASON", reversalReason);
-
-            }
+         System.out.println("Reversal Resaon::"+reversalReason);
 
 //            BindingContainer bc1 = this.getBindingsCont();
 //            JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
@@ -2503,10 +2500,15 @@ public class ActionEventsBean {
 //            if (null != reversalType) {
 //                row[i].setAttribute("REVERSALTYPE", reversalType);
 //            }
-            if(null != otherCommentBind.getValue() && !("".equals(otherCommentBind.getValue())))
-            {
-            row[i].setAttribute("REVERSALREASON", otherCommentBind.getValue());
-                    }
+            System.out.println("Comments Value ::"+otherCommentBind.getValue());
+            if (null != otherCommentBind.getValue() && !("".equals(otherCommentBind.getValue()))) {
+                row[i].setAttribute("REVERSALREASON", otherCommentBind.getValue());
+            }else{
+                if (null != reversalReason) {
+                    row[i].setAttribute("REVERSALREASON", reversalReason);
+
+                }
+            }
 
             row[i].setAttribute("STATUS", "New");
         }

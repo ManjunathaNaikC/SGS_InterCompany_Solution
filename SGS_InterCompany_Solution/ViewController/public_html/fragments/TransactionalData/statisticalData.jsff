@@ -57,6 +57,9 @@
                                        inlineStyle="border-radius:5px 5px 5px 5px;">
                                 <af:showPopupBehavior popupId="p1reject"/>
                             </af:button>
+                            <af:button text="Upload File" id="b14" partialSubmit="true">
+                                <af:showPopupBehavior popupId="p1uploadFile"/>
+                            </af:button>
                             <af:button id="b2" shortDesc="Delete" icon="/resources/icons/delete_new.png"
                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_DELETE')}"
                                        actionListener="#{viewScope.ActionEventsBean.onDeleteStatisticalData}"/>
@@ -76,7 +79,7 @@
                               filterModel="#{bindings.SgsStatisticalDataVO1Query.queryDescriptor}" filterVisible="true"
                               queryListener="#{bindings.SgsStatisticalDataVO1Query.processQuery}" varStatus="vs" id="t1"
                               styleClass="transaction  AFStretchWidth" autoHeightRows="-1" scrollPolicy="page"
-                              partialTriggers="::b13 ::if2 ::b1">
+                              partialTriggers="::b1 ::b13 ::if2 ::b14">
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.StatSelectedRecord.label}"  id="c55"
                                    binding="#{viewScope.ActionEventsBean.onStatSelectAllColumn}"
                                    inlineStyle="color:White;">
@@ -526,10 +529,25 @@
                                 <f:validator binding="#{row.bindings.RejectionComments.validator}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column id="c22" headerText="Upload File">
-                            <af:inputFile id="if3" valueChangeListener="#{viewScope.UploadExcelBean.onStatDocsUpload}"
-                                          autoSubmit="true" uploadType="submit"/>
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.label}" id="c22">
+                            <af:link text="#{row.bindings.UPLOADFILE.inputValue}" id="l3">
+                                <af:fileDownloadActionListener method="#{viewScope.UploadExcelBean.onStatUploadFileDownload}"
+                                                               filename="#{row.bindings.UPLOADFILE.inputValue}"/>
+                            </af:link>
+                            <!--<af:inputText value="#{row.bindings.UPLOADFILE.inputValue}"
+                                          label="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.label}"
+                                          required="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.mandatory}"
+                                          columns="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.displayWidth}"
+                                          maximumLength="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.precision}"
+                                          shortDesc="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.tooltip}"
+                                          id="it12">
+                                <f:validator binding="#{row.bindings.UPLOADFILE.validator}"/>
+                            </af:inputText>-->
                         </af:column>
+                        <!--<af:column id="c22" headerText="Upload File"/>-->
+                            <!--<af:inputFile id="if3" valueChangeListener="#{viewScope.UploadExcelBean.onStatDocsUpload}"
+                                          autoSubmit="true" uploadType="submit"/>-->
+                    
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}" id="c10">
@@ -696,6 +714,20 @@
                                           valueChangeListener="#{viewScope.ActionEventsBean.onStatUpload}"/>
                         </af:dialog>
                     </af:popup>
+                    
+                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1uploadFile"
+                               binding="#{viewScope.UploadExcelBean.uploadFilePopupBind}">
+                        <af:dialog id="d5" title="Upload Attachment" type="none">
+                            <f:facet name="buttonBar">
+                                <af:button text="Upload" id="b15"
+                                           actionListener="#{viewScope.UploadExcelBean.onUploadFileAttachment}"/>
+                            </f:facet>
+                            <af:inputFile label="Select File" id="if3"
+                                          binding="#{viewScope.UploadExcelBean.uploadInputFileBind}" autoSubmit="true"
+                                          valueChangeListener="#{viewScope.UploadExcelBean.onStatDocsUpload}"/>
+                        </af:dialog>
+                    </af:popup>
+                    
                             <!--<af:popup childCreation="deferred" autoCancel="disabled" id="p1submit"
                     binding="#{viewScope.ActionEventsBean.submitstatpopupbind}">
                         <af:dialog id="d4submit" title="Upload Attachment" type="none">

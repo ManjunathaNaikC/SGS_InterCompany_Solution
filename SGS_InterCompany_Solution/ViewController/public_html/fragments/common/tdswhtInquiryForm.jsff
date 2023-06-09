@@ -469,7 +469,7 @@
                 </af:inputText>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.label}" id="c1"
-                         width="300">
+                         width="300" frozen="true">
                 <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
                                     label="#{row.bindings.NATUREOFEXPENSE.label}"
                                     required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.NATUREOFEXPENSE.mandatory}"
@@ -480,7 +480,7 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.AccountingTreatment.label}"
-                         id="c16" width="300">
+                         id="c16" width="170" frozen="true">
                 <af:selectOneChoice value="#{row.bindings.AccountingTreatment.inputValue}"
                                     label="#{row.bindings.AccountingTreatment.label}"
                                     required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.AccountingTreatment.mandatory}"
@@ -526,7 +526,7 @@
                 </af:selectOneChoice>
               </af:column>-->
               <af:column headerText="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SectionTaxCode.label}" id="c13"
-                         width="200">
+                         width="100" frozen="true">
                 <af:inputText value="#{row.bindings.SectionTaxCode.inputValue}"
                               label="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SectionTaxCode.label}"
                               required="#{bindings.SgsTdsWhtRateApplicabilityVO1.hints.SectionTaxCode.mandatory}"

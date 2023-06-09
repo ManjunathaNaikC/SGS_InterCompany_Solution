@@ -41,8 +41,9 @@
                                        id="b4" inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             <af:button text="Submit For Approval" 
                             rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_SUMBIT')}"
-                            id="b7" inlineStyle="border-radius:5px 5px 5px 5px;">
-                                <af:showPopupBehavior popupId="p1submit"/>
+                            id="b7" inlineStyle="border-radius:5px 5px 5px 5px;"
+                                       actionListener="#{viewScope.ActionEventsBean.onStatisticalSubmitAprovalDocValidations}">
+                                <!--<af:showPopupBehavior popupId="p1submit"/>-->
                             </af:button>
                             <af:button text="Approve" id="b10"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('STAT_APPROVE')}"
@@ -707,6 +708,20 @@
                                           />
                         </af:dialog>
                     </af:popup>-->
+                           		<af:popup childCreation="deferred" autoCancel="disabled" id="p1submit2"
+            binding="#{viewScope.ActionEventsBean.submitstatpopupattachbind}">
+              <af:dialog id="d1submit2" type="none">
+                <f:facet name="buttonBar">
+                  <af:group id="g3submit2">
+                    <af:button text="Yes" id="b8submit2"
+                               actionListener="#{viewScope.ActionEventsBean.onStatisticalSubmitAprovalAttach}"/>
+                    <af:spacer id="s32"/>
+                    <af:button text="No" id="b9submit2" actionListener="#{viewScope.ActionEventsBean.onStatSubmitAttachNo}"/>
+                  </af:group>
+                </f:facet>
+                <af:message id="m1submit2" messageType="confirmation" message="The selected record doesn't have attachment. Do you want to proceed?"/>
+              </af:dialog>
+            </af:popup>
                     		<af:popup childCreation="deferred" autoCancel="disabled" id="p1submit"
             binding="#{viewScope.ActionEventsBean.submitstatpopupbind}">
               <af:dialog id="d1submit" type="none">

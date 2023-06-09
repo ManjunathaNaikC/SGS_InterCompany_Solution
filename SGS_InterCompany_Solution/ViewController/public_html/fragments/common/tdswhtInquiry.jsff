@@ -46,14 +46,21 @@
                       emptyText="#{bindings.SgsTdsWhtTblVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                       rowBandingInterval="0" selectedRowKeys="#{bindings.SgsTdsWhtTblVO1.collectionModel.selectedRow}"
                       selectionListener="#{bindings.SgsTdsWhtTblVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      queryListener="#{bindings.SgsTdsWhtTblVOCriteriaQuery.processQuery}"
+		      filterModel="#{bindings.SgsTdsWhtTblVOCriteriaQuery.queryDescriptor}"
+                      filterVisible="false"
                       fetchSize="#{bindings.SgsTdsWhtTblVO1.rangeSize}" id="resId1" styleClass="setup"
                       partialTriggers="::b2 ::b3" scrollPolicy="page">
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.label}" id="resId1c1">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.label}" id="resId1c1"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.name}" sortable="true"
+                         filterable="true">
                 <!--<af:outputText value="#{row.TdsWhtId}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TdsWhtId.tooltip}"
                              id="ot1"/>-->
                 <af:link text="#{row.TdsWhtId}" id="l1" action="EDIT"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.label}" id="resId1c2">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.label}" id="resId1c2"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.name}">
                 <!--<af:outputText value="#{row.ServReceiver}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServReceiver.tooltip}" id="ot2"/>-->
                 <af:selectOneChoice value="#{row.bindings.ServReceiver.inputValue}"
@@ -65,7 +72,9 @@
                   <f:validator binding="#{row.bindings.ServReceiver.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.label}" id="resId1c3">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.label}" id="resId1c3"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.name}">
                 <!--<af:outputText value="#{row.ServProvider}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.ServProvider.tooltip}" id="ot3"/>-->
                 <af:selectOneChoice value="#{row.bindings.ServProvider.inputValue}"
@@ -77,7 +86,9 @@
                   <f:validator binding="#{row.bindings.ServProvider.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.WHTAPPLICATIBILITY.label}" id="c2">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.WHTAPPLICATIBILITY.label}" id="c2"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.WHTAPPLICATIBILITY.name}">
                 <af:selectOneChoice value="#{row.bindings.WHTAPPLICATIBILITY.inputValue}"
                                     label="#{row.bindings.WHTAPPLICATIBILITY.label}"
                                     required="#{bindings.SgsTdsWhtTblVO1.hints.WHTAPPLICATIBILITY.mandatory}"
@@ -88,14 +99,17 @@
                 </af:selectOneChoice>
               </af:column>
               <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.label}" id="resId1c8"
-                         styleClass="mynumbercolumn">
+                         styleClass="mynumbercolumn" filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.name}">
                 <af:outputText value="#{row.RecoveryRate}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.tooltip}" id="ot8">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.SgsTdsWhtTblVO1.hints.RecoveryRate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.label}" id="resId1c4">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.label}" id="resId1c4"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.name}">
                 <!--<af:outputText value="#{row.DeductionPoint}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.DeductionPoint.tooltip}" id="ot4"/>-->
                 <!--<af:selectOneChoice value="#{row.bindings.DeductionPoint.inputValue}"
@@ -115,7 +129,8 @@
                   <f:validator binding="#{row.bindings.DeductionPoint.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.label}" id="resId1c5">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.label}" id="resId1c5" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.name}">
                 <!--<af:outputText value="#{row.TaxBase}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.TaxBase.tooltip}"
                                id="ot5"/>-->
                 <af:selectOneChoice value="#{row.bindings.TaxBase.inputValue}" label="#{row.bindings.TaxBase.label}"
@@ -164,29 +179,39 @@
                   <f:validator binding="#{row.bindings.SERVICERECEIVERLEGALENTITY.validator}"/>
                 </af:selectOneChoice>
               </af:column>-->
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.label}" id="resId1c10">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.label}" id="resId1c10"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.name}">
                 <af:outputText value="#{row.EffectiveFrom}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.tooltip}" id="ot10">
                   <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveFrom.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.label}" id="resId1c11">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.label}" id="resId1c11"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.name}">
                 <af:outputText value="#{row.EffectiveTo}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.tooltip}" id="ot11">
                   <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.EffectiveTo.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.label}" id="resId1c12">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.label}" id="resId1c12"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.name}">
                 <af:outputText value="#{row.CreatedDate}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.tooltip}" id="ot12">
                   <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.CreatedDate.format}"/>
                 </af:outputText>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.CreatedBy.label}" id="resId1c13">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.CreatedBy.label}" id="resId1c13"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.CreatedBy.name}">
                 <af:outputText value="#{row.CreatedBy}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.CreatedBy.tooltip}"
                                id="ot13"/>
               </af:column>
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.label}" id="resId1c14">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.label}" id="resId1c14"
+                         filterable="true" sortable="true"
+                         sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.name}">
                 <af:outputText value="#{row.UpdatedDate}"
                                shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.tooltip}" id="ot14">
                   <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedDate.format}"/>
@@ -198,7 +223,8 @@
                 <af:convertDateTime pattern="#{bindings.SgsTdsWhtTblVO1.hints.UpdatedBy.format}"/>
               </af:outputText>
             </af:column>-->
-              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.label}" id="c1">
+              <af:column headerText="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.label}" id="c1" filterable="true"
+                         sortable="true" sortProperty="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.name}">
                 <af:outputText value="#{row.UPDATEDBY}" shortDesc="#{bindings.SgsTdsWhtTblVO1.hints.UPDATEDBY.tooltip}"
                                id="ot1"/>
               </af:column>

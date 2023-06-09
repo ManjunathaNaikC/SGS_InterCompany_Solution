@@ -97,7 +97,9 @@
                             </f:facet>
                         </af:column>
                          <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
-                                   id="c53">
+                                   id="c53"
+                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.name}"
+                                    sortable="true" filterable="true">
                             <af:inputDate value="#{row.bindings.TRANSACTIONPERIOD.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.TRANSACTIONPERIOD.mandatory}"
@@ -111,7 +113,7 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.name}" id="c17"
-                                   filterable="true">
+                                   filterable="true" sortable="true">
                             <af:inputText value="#{row.bindings.InputProvider.inputValue}"
                                           readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.InputProvider.label}"
@@ -125,7 +127,7 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.label}" id="c39"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.name}"
-                                   filterable="true">
+                                   filterable="true" sortable="true">
                             <af:selectOneChoice value="#{row.bindings.NATUREOFEXPENSE.inputValue}"
                                                 label="#{row.bindings.NATUREOFEXPENSE.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.NATUREOFEXPENSE.mandatory}"
@@ -159,7 +161,9 @@
                                 <f:validator binding="#{row.bindings.ADDTEXPENSECAT.validator}"/>
                             </af:selectOneChoice>
                         </af:column>-->
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}" id="c50">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.label}" id="c50"
+                                   filterable="true" sortable="true"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ADDTEXPENSECAT.name}">
                             <af:selectOneChoice value="#{row.bindings.ADDTEXPENSECAT.inputValue}"
                              readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}"
                                                 label="#{row.bindings.ADDTEXPENSECAT.label}"
@@ -173,7 +177,7 @@
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.label}"
-                                   id="c1">
+                                   id="c1" sortable="true">
                             <af:selectOneChoice value="#{row.bindings.StatisticalDataCategory.inputValue}"
                                                 label="#{row.bindings.StatisticalDataCategory.label}"
                                                 shortDesc="#{bindings.SgsStatisticalDataVO1.hints.StatisticalDataCategory.tooltip}"
@@ -195,7 +199,7 @@
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}" id="c8"
-                                   rendered="false">
+                                   rendered="false" sortable="true">
                             <!--<af:inputText value="#{row.bindings.CostGroup.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.CostGroup.mandatory}"
@@ -214,7 +218,9 @@
                                 <f:validator binding="#{row.bindings.CostGroup.validator}"/>
                             </af:selectOneChoice>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.label}" id="c40"
+                                   sortable="true" filterable="true"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.name}">
                             <af:selectOneChoice value="#{row.bindings.STATGEOGRAPHY.inputValue}"
                                                 label="#{row.bindings.STATGEOGRAPHY.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.STATGEOGRAPHY.mandatory}"
@@ -226,7 +232,7 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.name}"
-                                   filterable="true" id="c43">
+                                   filterable="true" id="c43" sortable="true">
                             <af:inputText value="#{row.bindings.FROMDEPTID.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.FROMDEPTID.mandatory}"
@@ -239,7 +245,8 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}" id="c51"
-                                   styleClass="mynumbercolumn">
+                                   styleClass="mynumbercolumn" sortable="true" filterable="true"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.name}">
                             <af:inputText value="#{row.bindings.EMPGRADE.inputValue}"
                              readOnly="#{(!sessionScope.get('pageList').contains('ALL_PAGE')) and (!sessionScope.get('pageList').contains('STAT_WRITE'))}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.EMPGRADE.label}"
@@ -321,7 +328,8 @@
                         </af:column>-->
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.label}" id="c2">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.label}" id="c2"
+                                   sortable="true">
                             <af:inputText value="#{row.bindings.ToBusinessUnit.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.ToBusinessUnit.mandatory}"
@@ -335,7 +343,8 @@
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.label}" id="c4">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.label}" id="c4"
+                                   sortable="true">
                             <af:inputText value="#{row.bindings.ToOperatingUnit.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.ToOperatingUnit.mandatory}"
@@ -349,7 +358,8 @@
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.label}" id="c3">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.label}" id="c3"
+                                   sortable="true">
                             <af:inputText value="#{row.bindings.ToJobCode.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.ToJobCode.mandatory}"
@@ -363,7 +373,8 @@
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.label}" id="c5">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.label}" id="c5"
+                                   sortable="true">
                             <af:inputText value="#{row.bindings.ToDepartmentId.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.ToDepartmentId.mandatory}"
@@ -375,7 +386,9 @@
                                 <f:validator binding="#{row.bindings.ToDepartmentId.validator}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.SLOC.label}" id="c14"
+                                   sortable="true" filterable="true"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.SLOC.name}">
                             <af:selectOneChoice value="#{row.bindings.SLOC.inputValue}"
                                                 label="#{row.bindings.SLOC.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.SLOC.mandatory}"
@@ -387,7 +400,7 @@
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}" id="c16"
                                    sortProperty="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.name}"
-                                   filterable="true">
+                                   filterable="true" sortable="true">
                             <af:inputText value="#{row.bindings.GLACCOUNT.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.GLACCOUNT.mandatory}"
@@ -401,7 +414,7 @@
                         </af:column>
                         <af:column headerText="Monthly Cost Basis" id="c6"
                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.name}"
-                                   filterable="true">
+                                   filterable="true" sortable="true">
                             <!--<af:inputText value="#{row.bindings.STATISTICALDATA.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.STATISTICALDATA.mandatory}"
@@ -429,7 +442,8 @@
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.label}" id="c7">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.label}" id="c7"
+                                   sortable="true">
                             <af:inputText value="#{row.bindings.UnitOfMeasure.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.UnitOfMeasure.mandatory}"
@@ -441,7 +455,9 @@
                                 <f:validator binding="#{row.bindings.UnitOfMeasure.validator}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}" id="c15">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}" id="c15"
+                                   sortable="true" filterable="true"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.name}">
                             <!--<af:inputText value="#{row.bindings.DOCATTM.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.DOCATTM.mandatory}"
@@ -456,13 +472,14 @@
                             </af:link>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}" id="c52"  sortProperty="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.name}"
-                                   filterable="true">
+                                   filterable="true" sortable="true">
                             <af:outputText value="#{row.bindings.APPROVESTATUS.inputValue}"
                                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.tooltip}"
                                            id="it42"/>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.label}" id="c54"
-                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.name}">
+                         sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EMAILATTACHMENT.name}" sortable="true"
+                                   filterable="true">
                             <af:link text="#{row.bindings.EMAILATTACHMENT.inputValue}" id="l1">
                                 <af:fileDownloadActionListener filename="#{row.bindings.EMAILATTACHMENT.inputValue}"
                                                                method="#{viewScope.ActionEventsBean.onStatDocsDownload}"/>
@@ -492,7 +509,8 @@
                         </af:column>-->
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.label}" id="c12">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.label}" id="c12"
+                                   sortable="true">
                             <af:selectOneChoice value="#{row.bindings.RejectedReason.inputValue}"
                                                 label="#{row.bindings.RejectedReason.label}"
                                                 required="#{bindings.SgsStatisticalDataVO1.hints.RejectedReason.mandatory}"
@@ -514,7 +532,7 @@
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.label}"
-                                   id="c13">
+                                   id="c13" sortable="true">
                             <af:inputText value="#{row.bindings.RejectionComments.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.RejectionComments.mandatory}"
@@ -525,13 +543,14 @@
                                 <f:validator binding="#{row.bindings.RejectionComments.validator}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column id="c22" headerText="Upload File">
+                        <af:column id="c22" headerText="Upload File" sortable="true" filterable="true">
                             <af:inputFile id="if3" valueChangeListener="#{viewScope.UploadExcelBean.onStatDocsUpload}"
                                           autoSubmit="true" uploadType="submit"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.name}"
                                    filterable="true"
-                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}" id="c10">
+                                   headerText="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}" id="c10"
+                                   sortable="true">
                             <af:inputText value="#{row.bindings.EmployeeId.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.EmployeeId.mandatory}"
@@ -545,7 +564,7 @@
                         </af:column>
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.Currency.name}"
                                    filterable="true" headerText="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}"
-                                   id="c9" rendered="false">
+                                   id="c9" rendered="false" sortable="true">
                             <af:inputText value="#{row.bindings.Currency.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.Currency.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.Currency.mandatory}"
@@ -559,7 +578,7 @@
                         <af:column sortProperty="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.name}"
                                    filterable="true"
                                    headerText="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}" id="c11"
-                                   rendered="false" styleClass="mynumbercolumn">
+                                   rendered="false" styleClass="mynumbercolumn" sortable="true">
                             <af:inputText value="#{row.bindings.TargetAmount.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.TargetAmount.mandatory}"
@@ -574,7 +593,9 @@
                                                   type="currency"/>
                             </af:inputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.label}" id="c42">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.label}" id="c42"
+                                   sortable="true" filterable="true"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.name}">
                             <af:outputText value="#{row.PERIODNUM}"
                                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.tooltip}"
                                            id="ot2">
@@ -582,7 +603,9 @@
                                                   pattern="#{bindings.SgsStatisticalDataVO1.hints.PERIODNUM.format}"/>
                             </af:outputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.PERIODYEAR.label}" id="c45">
+                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.PERIODYEAR.label}" id="c45"
+                                   sortable="true" filterable="true"
+                                   sortProperty="#{bindings.SgsStatisticalDataVO1.hints.PERIODYEAR.name}">
                             <af:outputText value="#{row.PERIODYEAR}"
                                            shortDesc="#{bindings.SgsStatisticalDataVO1.hints.PERIODYEAR.tooltip}"
                                            id="ot3">

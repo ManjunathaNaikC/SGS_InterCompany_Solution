@@ -554,7 +554,7 @@ public class UploadExcelBean {
 
                             if (null != uploadInputFileBind.getValue()) {
                                 if (null != uploadedFile.getFilename()) {
-                                    rw.setAttribute("UPLOADFILE", fileName);
+                                    rw.setAttribute("DOCATTM", fileName);
                                     rw.setAttribute("Attribute3", path);
                                     rw.setAttribute("Attribute4", contentType);
 
@@ -665,42 +665,87 @@ public class UploadExcelBean {
             }
         }
     
+//    public void onStatUploadFileDownload(FacesContext facesContext, OutputStream outputStream) {
+//                DCBindingContainer bindingContainer =
+//                    (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+//                DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsStatisticalDataVO1Iterator");
+//                ViewObject vo = imageIter.getViewObject();
+//                oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
+//
+//                String filePath = (String) currentRow.getAttribute("Attribute3");
+//                String fileName = (String) currentRow.getAttribute("DOCATTM");
+//                LOG.info("filePath :: " + filePath);
+//                LOG.info("fileName :: " + fileName);
+//
+//
+//                try {
+//                    if (null != filePath && null != fileName) {
+//                        File f = new File(filePath + fileName);
+//                        FileInputStream fis;
+//                        byte[] b;
+//
+//                        fis = new FileInputStream(f);
+//                        int n;
+//                        while ((n = fis.available()) > 0) {
+//                            b = new byte[n];
+//                            int result = fis.read(b);
+//
+//                            outputStream.write(b, 0, b.length);
+//                            if (result == -1)
+//                                break;
+//                        }
+//                        outputStream.flush();
+//                    }
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
     public void onStatUploadFileDownload(FacesContext facesContext, OutputStream outputStream) {
-                DCBindingContainer bindingContainer =
-                    (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
-                DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsStatisticalDataVO1Iterator");
-                ViewObject vo = imageIter.getViewObject();
-                oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
+        DCBindingContainer bindingContainer =
+            (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding imageIter = (DCIteratorBinding) bindingContainer.get("SgsStatisticalDataVO1Iterator");
+        ViewObject vo = imageIter.getViewObject();
+        oracle.jbo.Row currentRow = (oracle.jbo.Row) vo.getCurrentRow();
 
-                String filePath = (String) currentRow.getAttribute("Attribute3");
-                String fileName = (String) currentRow.getAttribute("UPLOADFILE");
-                LOG.info("filePath :: " + filePath);
-                LOG.info("fileName :: " + fileName);
+        String filePath = (String) currentRow.getAttribute("Attribute3");
+        String fileName = (String) currentRow.getAttribute("DOCATTM");
+
+        String filePath1 = ADFUtils.getPath();
+        LOG.info("File Path :: " + filePath1);
+        // LOG.info("filePath :: " + filePath);
+        // LOG.info("fileName :: " + fileName);
 
 
-                try {
-                    if (null != filePath && null != fileName) {
-                        File f = new File(filePath + fileName);
-                        FileInputStream fis;
-                        byte[] b;
-
-                        fis = new FileInputStream(f);
-                        int n;
-                        while ((n = fis.available()) > 0) {
-                            b = new byte[n];
-                            int result = fis.read(b);
-
-                            outputStream.write(b, 0, b.length);
-                            if (result == -1)
-                                break;
-                        }
-                        outputStream.flush();
-                    }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+        try {
+            if (filePath1.equalsIgnoreCase("NOPATH")) {
+                System.out.println("No Path selected");
             }
+
+            else if (null != filePath1 && null != fileName) {
+                File f = new File(filePath1 + File.separator + fileName);
+                FileInputStream fis;
+                byte[] b;
+
+                fis = new FileInputStream(f);
+                int n;
+                while ((n = fis.available()) > 0) {
+                    b = new byte[n];
+                    int result = fis.read(b);
+
+                    outputStream.write(b, 0, b.length);
+                    if (result == -1)
+                        break;
+                }
+                outputStream.flush();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

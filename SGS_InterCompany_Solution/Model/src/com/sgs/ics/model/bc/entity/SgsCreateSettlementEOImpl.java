@@ -74,6 +74,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
         RECEIPTPURPOSECODE,
         RECTXNREFERENCENO;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -912,6 +913,7 @@ public class SgsCreateSettlementEOImpl extends EntityImpl {
     public void setRECTXNREFERENCENO(String value) {
         setAttributeInternal(RECTXNREFERENCENO, value);
     }
+
 
     /**
      * @param settlementId key constituent

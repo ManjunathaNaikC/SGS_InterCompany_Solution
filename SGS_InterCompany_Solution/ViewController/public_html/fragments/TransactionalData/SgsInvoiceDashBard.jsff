@@ -37,22 +37,22 @@
                             <af:button text="Approve" id="b3"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_APPROVE')}"
                                        actionListener="#{viewScope.ActionEventsBean.onInvoiceApproveClick}"
-                                       icon="/resources/icons/security_new.png">
+                                       icon="/resources/icons/approve_new.png">
                                 <!--<af:showPopupBehavior popupId="p1approve"/>-->
                             </af:button>
                             <af:button text="Reject" id="b4"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_REJECT')}"
-                                       icon="/resources/icons/transactional.png">
+                                       icon="/resources/icons/reject24px_new.png">
                                 <af:showPopupBehavior popupId="p2reject"/>
                             </af:button>
                             <af:button text="Confirm for Processing" id="b12"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('CONFIRM_PROCESS')}"
-                                       icon="/resources/icons/process_new.png">
+                                       icon="/resources/icons/confirm24_processing_new.png">
                                 <af:showPopupBehavior popupId="p1proc"/>
                             </af:button>
                             <af:button text="Confirm For Invoice" id="b5"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_CONFIRM')}"
-                                       icon="/resources/icons/setup.png">
+                                       icon="/resources/icons/confirm24_for_invoicing.png">
                                 <af:showPopupBehavior popupId="p3confirming"/>
                             </af:button>
                             <!-- <af:button text="Create Credit Memo" id="b2">
@@ -61,7 +61,7 @@
                             <af:button text="Upload Adjustment Entries" id="b1adj"
                                        rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('INV_UPLOAD_AE')}"
                                        actionListener="#{pageFlowScope.UploadInInvoice.onAdjustmentUpload}"
-                                       icon="/resources/icons/reports_new.png">
+                                       icon="/resources/icons/upload_adjustment_entry_new.png">
                                 <!--<af:showPopupBehavior popupId="AdjEntryPopup"/>-->
                             </af:button>
                             <!--<af:button text="Credit Transaction" id="b2"

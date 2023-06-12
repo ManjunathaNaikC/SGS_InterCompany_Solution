@@ -5,8 +5,9 @@
         <f:facet name="toolbar">
             <af:toolbar id="t5">
                 <af:button text="Netting Performed" id="b2"
-                           actionListener="#{viewScope.ActionEventsBean.netPerformAction}"/>
-                <af:button text="Close" id="b1" action="Header"/>
+                           actionListener="#{viewScope.ActionEventsBean.netPerformAction}"
+                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                <af:button text="Close" id="b1" action="Header" inlineStyle="border-radius:5px 5px 5px 5px;"/>
             </af:toolbar>
         </f:facet>
         <af:panelBox id="pb6" showHeader="never">
@@ -131,657 +132,746 @@
       <f:facet name="footer"/>
     </af:panelFormLayout>-->
         <af:spacer id="s1" height="20"/>
-        <af:panelBox text="Netting IC Receivable" id="pb2">
-         <f:facet name="toolbar"/> <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                    <af:toolbar id="t7">
-                        <af:button text="Hold" id="b5" actionListener="#{viewScope.ActionEventsBean.onNetIcRecvHold}"
-                                   partialSubmit="true"/>
-                        <af:button text="Release" id="b6" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetIcRecvRelease}"/>
-                        <af:button text="Settled" id="b11"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetIcRecvSettled}"
-                                   partialSubmit="true"/>
-                    </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.SgsNetIcReceivableVO1.collectionModel}" var="row"
-                          rows="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
-                          emptyText="#{bindings.SgsNetIcReceivableVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
-                          filterModel="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor}" filterVisible="false"
-                          queryListener="#{bindings.SgsNetIcReceivableVO1Query.processQuery}" varStatus="vs" id="t1"
-                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b5 ::b6 ::b11">
-                    <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.selectedRecords.label}" id="c55"
-                               inlineStyle="color:White;" align="center" width="100"
-                               binding="#{viewScope.ActionEventsBean.onIcRecvColumnSelectRecord}">
-                        <af:selectBooleanCheckbox value="#{row.bindings.selectedRecords.inputValue}"
-                                                  label="#{row.bindings.selectedRecords.label}"
-                                                  shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.selectedRecords.tooltip}"
-                                                  id="sbc1" autoSubmit="true"
-                                                  binding="#{viewScope.ActionEventsBean.netIcRecvselectcheckbox}"/>
-                        <f:facet name="header">
-                            <af:selectBooleanCheckbox text="Select All" id="sbc2" autoSubmit="true" styleClass="cb"
-                                                      partialTriggers="::t1 sbc1 c55"
-                                                      valueChangeListener="#{viewScope.ActionEventsBean.onNetIcRecvSelectAll}"/>
+        <af:panelTabbed position="above" id="pt1" inlineStyle="text-align:left;">
+            <af:showDetailItem id="tab1" text="Netting IC">
+                <af:panelBox text="Netting IC Receivable" id="pb2">
+                    <f:facet name="toolbar"/>
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t7">
+                                <af:button text="Hold" id="b5"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetIcRecvHold}"
+                                           partialSubmit="true" inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Release" id="b6" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetIcRecvRelease}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Settled" id="b11"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetIcRecvSettled}"
+                                           partialSubmit="true" inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                            </af:toolbar>
                         </f:facet>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.name}" sortable="true"
-                               headerText="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.label}" id="c1"
-                               filterable="true">
-                        <af:outputText value="#{row.NettingId}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.tooltip}" id="ot1"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.name}" filterable="true"
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.SgsNetIcReceivableVO1.collectionModel}" var="row"
+                                  rows="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
+                                  emptyText="#{bindings.SgsNetIcReceivableVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcReceivableVO1.rangeSize}"
+                                  filterModel="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor}"
+                                  filterVisible="false"
+                                  queryListener="#{bindings.SgsNetIcReceivableVO1Query.processQuery}" varStatus="vs"
+                                  id="t1" styleClass="AFStretchWidth" scrollPolicy="page"
+                                  partialTriggers="::b5 ::b6 ::b11">
+                            <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.selectedRecords.label}"
+                                       id="c55" inlineStyle="color:White;" align="center" width="100"
+                                       binding="#{viewScope.ActionEventsBean.onIcRecvColumnSelectRecord}">
+                                <af:selectBooleanCheckbox value="#{row.bindings.selectedRecords.inputValue}"
+                                                          label="#{row.bindings.selectedRecords.label}"
+                                                          shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.selectedRecords.tooltip}"
+                                                          id="sbc1" autoSubmit="true"
+                                                          binding="#{viewScope.ActionEventsBean.netIcRecvselectcheckbox}"/>
+                                <f:facet name="header">
+                                    <af:selectBooleanCheckbox text="Select All" id="sbc2" autoSubmit="true"
+                                                              styleClass="cb" partialTriggers="::t1 sbc1 c55"
+                                                              valueChangeListener="#{viewScope.ActionEventsBean.onNetIcRecvSelectAll}"/>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.label}" id="c1"
+                                       filterable="true">
+                                <af:outputText value="#{row.NettingId}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NettingId.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.label}" id="c2">
             <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NicviId.tooltip}"
                            id="ot2">
               <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
             </af:outputText>
           </af:column>-->
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceSeqNo.name}" filterable="true"
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceSeqNo.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceSeqNo.label}" id="c3">
             <af:outputText value="#{row.InvoiceSeqNo}"
                            shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceSeqNo.tooltip}" id="ot3"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.Period.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.Period.label}"
-                               id="c4">
-                        <f:facet name="filter">
-                            <af:inputDate value="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
-                                          id="id1">
-                                <af:convertDateTime pattern="#{bindings.SgsNetIcReceivableVO1.hints.Period.format}"/>
-                            </af:inputDate>
-                        </f:facet>
-                        <af:outputText value="#{row.Period}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.Period.tooltip}" id="ot4">
-                            <af:convertDateTime pattern="#{bindings.SgsNetIcReceivableVO1.hints.Period.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.label}" id="c18">
-                        <af:outputText value="#{row.PERIODNUM}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.tooltip}" id="ot2">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.label}" id="c19">
-                        <af:outputText value="#{row.PERIODYEAR}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.tooltip}" id="ot3">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.name}" filterable="true"
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.Period.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.Period.label}" id="c4">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.SgsNetIcReceivableVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                                                  id="id1">
+                                        <af:convertDateTime pattern="#{bindings.SgsNetIcReceivableVO1.hints.Period.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.Period}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.Period.tooltip}"
+                                               id="ot4">
+                                    <af:convertDateTime pattern="#{bindings.SgsNetIcReceivableVO1.hints.Period.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.label}" id="c18">
+                                <af:outputText value="#{row.PERIODNUM}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.tooltip}"
+                                               id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsNetIcReceivableVO1.hints.PERIODNUM.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.label}" id="c19">
+                                <af:outputText value="#{row.PERIODYEAR}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsNetIcReceivableVO1.hints.PERIODYEAR.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.label}" id="c5">
             <af:outputText value="#{row.IuVendor}" shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.IuVendor.tooltip}"
                            id="ot5"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.label}" id="c6">
-                        <af:outputText value="#{row.ArBu}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.tooltip}" id="ot6"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.label}"
-                               id="c7">
-                        <af:outputText value="#{row.InvoiceNum}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.tooltip}" id="ot7"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.IuCustomer.name}" filterable="true"
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.label}" id="c6">
+                                <af:outputText value="#{row.ArBu}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.ArBu.tooltip}"
+                                               id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.label}" id="c7">
+                                <af:outputText value="#{row.InvoiceNum}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvoiceNum.tooltip}"
+                                               id="ot7"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.IuCustomer.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.IuCustomer.label}" id="c8">
             <af:outputText value="#{row.IuCustomer}"
                            shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.IuCustomer.tooltip}" id="ot8"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.label}" id="c9">
-                        <af:outputText value="#{row.ApBu}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.tooltip}" id="ot9"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.label}"
-                               id="c10">
-                        <af:outputText value="#{row.VoucherNum}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.tooltip}"
-                                       id="ot10"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.name}"
-                               filterable="true" sortable="true"
-                               headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.label}" id="c11">
-                        <af:outputText value="#{row.InvooiceAmount}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.tooltip}"
-                                       id="ot11">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.label}"
-                               id="c12">
-                        <af:outputText value="#{row.WhtAmount}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.tooltip}" id="ot12">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.label}"
-                               id="c13">
-                        <af:outputText value="#{row.NetAllLimit}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.tooltip}"
-                                       id="ot13">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.name}"
-                               filterable="true" sortable="true"
-                               headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.label}" id="c14">
-                        <af:outputText value="#{row.NetPerformed}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.tooltip}"
-                                       id="ot14">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.label}"
-                               id="c15">
-                        <af:outputText value="#{row.NetBalance}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.tooltip}" id="ot15">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.Status.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcReceivableVO1.hints.Status.label}"
-                               id="c16">
-                        <af:outputText value="#{row.Status}"
-                                       shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.Status.tooltip}" id="ot16"/>
-                    </af:column>
-                </af:table>
-            </af:panelCollection>
-        </af:panelBox>
-        <af:panelBox text="Netting IC Payable" id="pb3">
-            <f:facet name="toolbar"/>
-            <af:panelCollection id="pc2" styleClass="AFStretchWidth">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                    <af:toolbar id="t6">
-                        <af:button text="Hold" id="b3" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetIcPayHold}"/>
-                        <af:button text="Release" id="b4" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetIcPayRelease}"/>
-                        <af:button text="Settled" id="b12" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetIcPaySettled}"/>
-                    </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.SgsNetIcPayableVO2.collectionModel}" var="row"
-                          rows="#{bindings.SgsNetIcPayableVO2.rangeSize}"
-                          emptyText="#{bindings.SgsNetIcPayableVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcPayableVO2.rangeSize}"
-                          filterModel="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor}" filterVisible="false"
-                          queryListener="#{bindings.SgsNetIcPayableVO2Query.processQuery}" varStatus="vs" id="t2"
-                          styleClass="AFStretchWidth" scrollPolicy="page" partialTriggers="::b3 ::b4 ::b12">
-                    <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.selectedRecord.label}" id="c3"
-                               inlineStyle="color:White;" align="center" width="100"
-                               binding="#{viewScope.ActionEventsBean.onIcPayColumnSelectRecord}">
-                        <af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
-                                                  label="#{row.bindings.selectedRecord.label}"
-                                                  shortDesc="#{bindings.SgsNetIcPayableVO2.hints.selectedRecord.tooltip}"
-                                                  id="sbc3" autoSubmit="true"
-                                                  binding="#{viewScope.ActionEventsBean.netIcPayselectcheckbox}"/>
-                        <f:facet name="header">
-                            <af:selectBooleanCheckbox text="Select All" id="sbc4" autoSubmit="true" styleClass="cb"
-                                                      valueChangeListener="#{viewScope.ActionEventsBean.onNetIcPaySelectAll}"
-                                                      partialTriggers="::t2 sbc3 c3"/>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.label}" id="c9">
+                                <af:outputText value="#{row.ApBu}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.ApBu.tooltip}"
+                                               id="ot9"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.label}" id="c10">
+                                <af:outputText value="#{row.VoucherNum}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.VoucherNum.tooltip}"
+                                               id="ot10"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.label}"
+                                       id="c11">
+                                <af:outputText value="#{row.InvooiceAmount}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.tooltip}"
+                                               id="ot11">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsNetIcReceivableVO1.hints.InvooiceAmount.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.label}" id="c12">
+                                <af:outputText value="#{row.WhtAmount}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.WhtAmount.tooltip}"
+                                               id="ot12">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.label}" id="c13">
+                                <af:outputText value="#{row.NetAllLimit}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetAllLimit.tooltip}"
+                                               id="ot13">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.label}" id="c14">
+                                <af:outputText value="#{row.NetPerformed}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetPerformed.tooltip}"
+                                               id="ot14">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.label}" id="c15">
+                                <af:outputText value="#{row.NetBalance}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.NetBalance.tooltip}"
+                                               id="ot15">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcReceivableVO1.hints.Status.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcReceivableVO1.hints.Status.label}" id="c16">
+                                <af:outputText value="#{row.Status}"
+                                               shortDesc="#{bindings.SgsNetIcReceivableVO1.hints.Status.tooltip}"
+                                               id="ot16"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelBox>
+                <af:panelBox text="Netting IC Payable" id="pb3">
+                    <f:facet name="toolbar"/>
+                    <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t6">
+                                <af:button text="Hold" id="b3" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetIcPayHold}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Release" id="b4" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetIcPayRelease}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Settled" id="b12" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetIcPaySettled}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                            </af:toolbar>
                         </f:facet>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NettingId.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NettingId.label}"
-                               id="c17">
-                        <af:outputText value="#{row.NettingId}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NettingId.tooltip}" id="ot17"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NicviId.name}" filterable="true" sortable="true"
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.SgsNetIcPayableVO2.collectionModel}" var="row"
+                                  rows="#{bindings.SgsNetIcPayableVO2.rangeSize}"
+                                  emptyText="#{bindings.SgsNetIcPayableVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.SgsNetIcPayableVO2.rangeSize}"
+                                  filterModel="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor}"
+                                  filterVisible="false" queryListener="#{bindings.SgsNetIcPayableVO2Query.processQuery}"
+                                  varStatus="vs" id="t2" styleClass="AFStretchWidth" scrollPolicy="page"
+                                  partialTriggers="::b3 ::b4 ::b12">
+                            <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.selectedRecord.label}" id="c3"
+                                       inlineStyle="color:White;" align="center" width="100"
+                                       binding="#{viewScope.ActionEventsBean.onIcPayColumnSelectRecord}">
+                                <af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
+                                                          label="#{row.bindings.selectedRecord.label}"
+                                                          shortDesc="#{bindings.SgsNetIcPayableVO2.hints.selectedRecord.tooltip}"
+                                                          id="sbc3" autoSubmit="true"
+                                                          binding="#{viewScope.ActionEventsBean.netIcPayselectcheckbox}"/>
+                                <f:facet name="header">
+                                    <af:selectBooleanCheckbox text="Select All" id="sbc4" autoSubmit="true"
+                                                              styleClass="cb"
+                                                              valueChangeListener="#{viewScope.ActionEventsBean.onNetIcPaySelectAll}"
+                                                              partialTriggers="::t2 sbc3 c3"/>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NettingId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.NettingId.label}" id="c17">
+                                <af:outputText value="#{row.NettingId}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NettingId.tooltip}"
+                                               id="ot17"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NicviId.name}" filterable="true" sortable="true"
                      headerText="#{bindings.SgsNetIcPayableVO2.hints.NicviId.label}" id="c18">
             <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NicviId.tooltip}"
                            id="ot18">
               <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
             </af:outputText>
           </af:column>-->
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.InvoiceSeqNo.name}" filterable="true"
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.InvoiceSeqNo.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.InvoiceSeqNo.label}" id="c19">
             <af:outputText value="#{row.InvoiceSeqNo}"
                            shortDesc="#{bindings.SgsNetIcPayableVO2.hints.InvoiceSeqNo.tooltip}" id="ot19"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.Period.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.Period.label}" id="c20">
-                        <f:facet name="filter">
-                            <af:inputDate value="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
-                                          id="id2">
-                                <af:convertDateTime pattern="#{bindings.SgsNetIcPayableVO2.hints.Period.format}"/>
-                            </af:inputDate>
-                        </f:facet>
-                        <af:outputText value="#{row.Period}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.Period.tooltip}" id="ot20">
-                            <af:convertDateTime pattern="#{bindings.SgsNetIcPayableVO2.hints.Period.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.label}" id="c21">
-                        <af:outputText value="#{row.PERIODNUM}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.tooltip}" id="ot5">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.label}" id="c24">
-                        <af:outputText value="#{row.PERIODYEAR}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.tooltip}" id="ot8">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.name}" filterable="true"
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.Period.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.Period.label}"
+                                       id="c20">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                                                  id="id2">
+                                        <af:convertDateTime pattern="#{bindings.SgsNetIcPayableVO2.hints.Period.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.Period}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.Period.tooltip}"
+                                               id="ot20">
+                                    <af:convertDateTime pattern="#{bindings.SgsNetIcPayableVO2.hints.Period.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.label}" id="c21">
+                                <af:outputText value="#{row.PERIODNUM}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.tooltip}"
+                                               id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsNetIcPayableVO2.hints.PERIODNUM.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.label}" id="c24">
+                                <af:outputText value="#{row.PERIODYEAR}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.tooltip}"
+                                               id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.SgsNetIcPayableVO2.hints.PERIODYEAR.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.name}" filterable="true"
                      sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.label}" id="c21">
             <af:outputText value="#{row.IuCustomer}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.IuCustomer.tooltip}"
                            id="ot21"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.ApBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.ApBu.label}" id="c22">
-                        <af:outputText value="#{row.ApBu}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.ApBu.tooltip}"
-                                       id="ot22"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.label}"
-                               id="c23">
-                        <af:outputText value="#{row.VoucherNum}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.tooltip}" id="ot23"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.IuVendor.name}" filterable="true" sortable="true"
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.ApBu.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.ApBu.label}"
+                                       id="c22">
+                                <af:outputText value="#{row.ApBu}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.ApBu.tooltip}" id="ot22"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.label}" id="c23">
+                                <af:outputText value="#{row.VoucherNum}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.VoucherNum.tooltip}"
+                                               id="ot23"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.IuVendor.name}" filterable="true" sortable="true"
                      headerText="#{bindings.SgsNetIcPayableVO2.hints.IuVendor.label}" id="c24">
             <af:outputText value="#{row.IuVendor}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.IuVendor.tooltip}"
                            id="ot24"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.ArBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.ArBu.label}" id="c25">
-                        <af:outputText value="#{row.ArBu}" shortDesc="#{bindings.SgsNetIcPayableVO2.hints.ArBu.tooltip}"
-                                       id="ot25"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.label}"
-                               id="c26">
-                        <af:outputText value="#{row.InvoiceNum}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.tooltip}" id="ot26"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.label}"
-                               id="c27">
-                        <af:outputText value="#{row.VoucherAmount}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.tooltip}" id="ot27">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.label}"
-                               id="c28">
-                        <af:outputText value="#{row.WhtAmount}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.tooltip}" id="ot28">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.label}"
-                               id="c29">
-                        <af:outputText value="#{row.NetAllLimit}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.tooltip}" id="ot29">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.label}"
-                               id="c30">
-                        <af:outputText value="#{row.NetPerformed}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.tooltip}" id="ot30">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.label}"
-                               id="c31">
-                        <af:outputText value="#{row.NetBalance}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.tooltip}" id="ot31">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.Status.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.Status.label}" id="c32">
-                        <af:outputText value="#{row.Status}"
-                                       shortDesc="#{bindings.SgsNetIcPayableVO2.hints.Status.tooltip}" id="ot32"/>
-                    </af:column>
-                </af:table>
-            </af:panelCollection>
-        </af:panelBox>
-        <af:panelBox text="Netting AR Collection Receivable" id="pb5">
-            <f:facet name="toolbar"/>
-            <af:panelCollection id="pc3" styleClass="AFStretchWidth">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                    <af:toolbar id="t8">
-                        <af:button text="Hold" id="b7" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetArColRecvHold}"/>
-                        <af:button text="Release" id="b8" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetArColRecvRelease}"/>
-                        <af:button text="Settled" id="b13" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetArColRecvSettled}"/>
-                    </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.NetArColRecVO1.collectionModel}" var="row"
-                          rows="#{bindings.NetArColRecVO1.rangeSize}"
-                          emptyText="#{bindings.NetArColRecVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.NetArColRecVO1.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.NetArColRecVO1.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.NetArColRecVO1.rangeSize}"
-                          filterModel="#{bindings.NetArColRecVO1Query.queryDescriptor}" filterVisible="false"
-                          queryListener="#{bindings.NetArColRecVO1Query.processQuery}" varStatus="vs" id="t3"
-                          partialTriggers="::b7 ::b8 ::b13">
-                    <af:column headerText="#{bindings.NetArColRecVO1.hints.selectedRecord.label}" id="c5"
-                               inlineStyle="color:White;" align="center" width="100"
-                               binding="#{viewScope.ActionEventsBean.onNetArColRecColumnSelectRecord}">
-                        <af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
-                                                  label="#{row.bindings.selectedRecord.label}"
-                                                  shortDesc="#{bindings.NetArColRecVO1.hints.selectedRecord.tooltip}"
-                                                  id="sbc5" autoSubmit="true"
-                                                  binding="#{viewScope.ActionEventsBean.netNetArColRecselectcheckbox}"/>
-                        <f:facet name="header">
-                            <af:selectBooleanCheckbox text="Select All" id="sbc6" autoSubmit="true" styleClass="cb"
-                                                      valueChangeListener="#{viewScope.ActionEventsBean.onNetArColRecvSelectAll}"
-                                                      partialTriggers="::t3 sbc5 c5"/>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.ArBu.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.ArBu.label}"
+                                       id="c25">
+                                <af:outputText value="#{row.ArBu}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.ArBu.tooltip}" id="ot25"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.label}" id="c26">
+                                <af:outputText value="#{row.InvoiceNum}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.InvoiceNum.tooltip}"
+                                               id="ot26"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.label}" id="c27">
+                                <af:outputText value="#{row.VoucherAmount}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.VoucherAmount.tooltip}"
+                                               id="ot27">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.label}" id="c28">
+                                <af:outputText value="#{row.WhtAmount}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.WhtAmount.tooltip}"
+                                               id="ot28">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.label}" id="c29">
+                                <af:outputText value="#{row.NetAllLimit}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetAllLimit.tooltip}"
+                                               id="ot29">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.label}" id="c30">
+                                <af:outputText value="#{row.NetPerformed}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetPerformed.tooltip}"
+                                               id="ot30">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.label}" id="c31">
+                                <af:outputText value="#{row.NetBalance}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.NetBalance.tooltip}"
+                                               id="ot31">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.SgsNetIcPayableVO2.hints.Status.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.SgsNetIcPayableVO2.hints.Status.label}"
+                                       id="c32">
+                                <af:outputText value="#{row.Status}"
+                                               shortDesc="#{bindings.SgsNetIcPayableVO2.hints.Status.tooltip}"
+                                               id="ot32"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelBox>
+            </af:showDetailItem>
+            <af:showDetailItem id="tab2" text="Netting AR">
+                <af:panelBox text="Netting AR Collection Receivable" id="pb5">
+                    <f:facet name="toolbar"/>
+                    <af:panelCollection id="pc3" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t8">
+                                <af:button text="Hold" id="b7" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetArColRecvHold}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Release" id="b8" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetArColRecvRelease}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Settled" id="b13" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetArColRecvSettled}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                            </af:toolbar>
                         </f:facet>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NettingId.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.NettingId.label}" id="c33">
-                        <af:outputText value="#{row.NettingId}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.NettingId.tooltip}" id="ot41"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.NicviId.name}" filterable="true" sortable="true"
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.NetArColRecVO1.collectionModel}" var="row"
+                                  rows="#{bindings.NetArColRecVO1.rangeSize}"
+                                  emptyText="#{bindings.NetArColRecVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.NetArColRecVO1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.NetArColRecVO1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.NetArColRecVO1.rangeSize}"
+                                  filterModel="#{bindings.NetArColRecVO1Query.queryDescriptor}" filterVisible="false"
+                                  queryListener="#{bindings.NetArColRecVO1Query.processQuery}" varStatus="vs" id="t3"
+                                  partialTriggers="::b7 ::b8 ::b13">
+                            <af:column headerText="#{bindings.NetArColRecVO1.hints.selectedRecord.label}" id="c5"
+                                       inlineStyle="color:White;" align="center" width="100"
+                                       binding="#{viewScope.ActionEventsBean.onNetArColRecColumnSelectRecord}">
+                                <af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
+                                                          label="#{row.bindings.selectedRecord.label}"
+                                                          shortDesc="#{bindings.NetArColRecVO1.hints.selectedRecord.tooltip}"
+                                                          id="sbc5" autoSubmit="true"
+                                                          binding="#{viewScope.ActionEventsBean.netNetArColRecselectcheckbox}"/>
+                                <f:facet name="header">
+                                    <af:selectBooleanCheckbox text="Select All" id="sbc6" autoSubmit="true"
+                                                              styleClass="cb"
+                                                              valueChangeListener="#{viewScope.ActionEventsBean.onNetArColRecvSelectAll}"
+                                                              partialTriggers="::t3 sbc5 c5"/>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NettingId.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColRecVO1.hints.NettingId.label}"
+                                       id="c33">
+                                <af:outputText value="#{row.NettingId}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.NettingId.tooltip}"
+                                               id="ot41"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.NicviId.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColRecVO1.hints.NicviId.label}" id="c34">
             <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.NetArColRecVO1.hints.NicviId.tooltip}"
                            id="ot42">
               <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
             </af:outputText>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.Period.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.Period.label}" id="c35">
-                        <f:facet name="filter">
-                            <af:inputDate value="#{bindings.NetArColRecVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
-                                          id="id5">
-                                <af:convertDateTime pattern="#{bindings.NetArColRecVO1.hints.Period.format}"/>
-                            </af:inputDate>
-                        </f:facet>
-                        <af:outputText value="#{row.Period}" shortDesc="#{bindings.NetArColRecVO1.hints.Period.tooltip}"
-                                       id="ot43">
-                            <af:convertDateTime pattern="#{bindings.NetArColRecVO1.hints.Period.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.NetArColRecVO1.hints.PERIODNUM.label}" id="c34">
-                        <af:outputText value="#{row.PERIODNUM}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.PERIODNUM.tooltip}" id="ot18">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.NetArColRecVO1.hints.PERIODNUM.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.NetArColRecVO1.hints.PERIODYEAR.label}" id="c36">
-                        <af:outputText value="#{row.PERIODYEAR}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.PERIODYEAR.tooltip}" id="ot19">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.NetArColRecVO1.hints.PERIODYEAR.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.IuVendor.name}" filterable="true" sortable="true"
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.Period.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColRecVO1.hints.Period.label}"
+                                       id="c35">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.NetArColRecVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                                                  id="id5">
+                                        <af:convertDateTime pattern="#{bindings.NetArColRecVO1.hints.Period.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.Period}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.Period.tooltip}" id="ot43">
+                                    <af:convertDateTime pattern="#{bindings.NetArColRecVO1.hints.Period.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.NetArColRecVO1.hints.PERIODNUM.label}" id="c34">
+                                <af:outputText value="#{row.PERIODNUM}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.PERIODNUM.tooltip}" id="ot18">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.NetArColRecVO1.hints.PERIODNUM.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.NetArColRecVO1.hints.PERIODYEAR.label}" id="c36">
+                                <af:outputText value="#{row.PERIODYEAR}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.PERIODYEAR.tooltip}"
+                                               id="ot19">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.NetArColRecVO1.hints.PERIODYEAR.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.IuVendor.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColRecVO1.hints.IuVendor.label}" id="c36">
             <af:outputText value="#{row.IuVendor}" shortDesc="#{bindings.NetArColRecVO1.hints.IuVendor.tooltip}"
                            id="ot44"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ArBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.ArBu.label}" id="c37">
-                        <af:outputText value="#{row.ArBu}" shortDesc="#{bindings.NetArColRecVO1.hints.ArBu.tooltip}"
-                                       id="ot45"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ArPsftRefNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.ArPsftRefNum.label}"
-                               id="c38">
-                        <af:outputText value="#{row.ArPsftRefNum}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.ArPsftRefNum.tooltip}" id="ot46"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.IuCustomer.name}" filterable="true" sortable="true"
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ArBu.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColRecVO1.hints.ArBu.label}"
+                                       id="c37">
+                                <af:outputText value="#{row.ArBu}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.ArBu.tooltip}" id="ot45"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ArPsftRefNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColRecVO1.hints.ArPsftRefNum.label}" id="c38">
+                                <af:outputText value="#{row.ArPsftRefNum}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.ArPsftRefNum.tooltip}"
+                                               id="ot46"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.IuCustomer.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColRecVO1.hints.IuCustomer.label}" id="c39">
             <af:outputText value="#{row.IuCustomer}" shortDesc="#{bindings.NetArColRecVO1.hints.IuCustomer.tooltip}"
                            id="ot47"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ApBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.ApBu.label}" id="c40">
-                        <af:outputText value="#{row.ApBu}" shortDesc="#{bindings.NetArColRecVO1.hints.ApBu.tooltip}"
-                                       id="ot48"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ApPsftRefNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.ApPsftRefNum.label}"
-                               id="c41">
-                        <af:outputText value="#{row.ApPsftRefNum}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.ApPsftRefNum.tooltip}" id="ot49"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.CustRefNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.CustRefNum.label}" id="c42">
-                        <af:outputText value="#{row.CustRefNum}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.CustRefNum.tooltip}" id="ot50"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.InvoiceAmount.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.InvoiceAmount.label}"
-                               id="c43">
-                        <af:outputText value="#{row.InvoiceAmount}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.InvoiceAmount.tooltip}" id="ot51">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NetAllLimit.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.NetAllLimit.label}" id="c44">
-                        <af:outputText value="#{row.NetAllLimit}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.NetAllLimit.tooltip}" id="ot52">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NetPerformed.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.NetPerformed.label}"
-                               id="c45">
-                        <af:outputText value="#{row.NetPerformed}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.NetPerformed.tooltip}" id="ot53">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NetBalance.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.NetBalance.label}" id="c46">
-                        <af:outputText value="#{row.NetBalance}"
-                                       shortDesc="#{bindings.NetArColRecVO1.hints.NetBalance.tooltip}" id="ot54">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColRecVO1.hints.Status.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColRecVO1.hints.Status.label}" id="c47">
-                        <af:outputText value="#{row.Status}" shortDesc="#{bindings.NetArColRecVO1.hints.Status.tooltip}"
-                                       id="ot55"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.ApGeo.name}" filterable="true" sortable="true"
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ApBu.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColRecVO1.hints.ApBu.label}"
+                                       id="c40">
+                                <af:outputText value="#{row.ApBu}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.ApBu.tooltip}" id="ot48"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.ApPsftRefNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColRecVO1.hints.ApPsftRefNum.label}" id="c41">
+                                <af:outputText value="#{row.ApPsftRefNum}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.ApPsftRefNum.tooltip}"
+                                               id="ot49"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.CustRefNum.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColRecVO1.hints.CustRefNum.label}"
+                                       id="c42">
+                                <af:outputText value="#{row.CustRefNum}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.CustRefNum.tooltip}"
+                                               id="ot50"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.InvoiceAmount.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColRecVO1.hints.InvoiceAmount.label}" id="c43">
+                                <af:outputText value="#{row.InvoiceAmount}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.InvoiceAmount.tooltip}"
+                                               id="ot51">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NetAllLimit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColRecVO1.hints.NetAllLimit.label}" id="c44">
+                                <af:outputText value="#{row.NetAllLimit}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.NetAllLimit.tooltip}"
+                                               id="ot52">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NetPerformed.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColRecVO1.hints.NetPerformed.label}" id="c45">
+                                <af:outputText value="#{row.NetPerformed}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.NetPerformed.tooltip}"
+                                               id="ot53">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.NetBalance.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColRecVO1.hints.NetBalance.label}"
+                                       id="c46">
+                                <af:outputText value="#{row.NetBalance}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.NetBalance.tooltip}"
+                                               id="ot54">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColRecVO1.hints.Status.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColRecVO1.hints.Status.label}"
+                                       id="c47">
+                                <af:outputText value="#{row.Status}"
+                                               shortDesc="#{bindings.NetArColRecVO1.hints.Status.tooltip}" id="ot55"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.ApGeo.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColRecVO1.hints.ApGeo.label}" id="c48">
             <af:outputText value="#{row.ApGeo}" shortDesc="#{bindings.NetArColRecVO1.hints.ApGeo.tooltip}" id="ot56"/>
           </af:column>-->
-                    <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.ArGeo.name}" filterable="true" sortable="true"
+                            <!--<af:column sortProperty="#{bindings.NetArColRecVO1.hints.ArGeo.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColRecVO1.hints.ArGeo.label}" id="c49">
             <af:outputText value="#{row.ArGeo}" shortDesc="#{bindings.NetArColRecVO1.hints.ArGeo.tooltip}" id="ot57"/>
           </af:column>-->
-                </af:table>
-            </af:panelCollection>
-        </af:panelBox>
-        <af:panelBox text="Netting AR Collection Payable" id="pb4">
-            <f:facet name="toolbar"/>
-            <af:panelCollection id="pc4" styleClass="AFStretchWidth">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                    <af:toolbar id="t9">
-                        <af:button text="Hold" id="b9" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetArColPayHold}"/>
-                        <af:button text="Release" id="b10" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetArColPayRelease}"/>
-                        <af:button text="Settled" id="b14" partialSubmit="true"
-                                   actionListener="#{viewScope.ActionEventsBean.onNetArColPaySettled}"/>
-                    </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.NetArColPayVO1.collectionModel}" var="row"
-                          rows="#{bindings.NetArColPayVO1.rangeSize}"
-                          emptyText="#{bindings.NetArColPayVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.NetArColPayVO1.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.NetArColPayVO1.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.NetArColPayVO1.rangeSize}"
-                          filterModel="#{bindings.NetArColPayVO1Query.queryDescriptor}" filterVisible="false"
-                          queryListener="#{bindings.NetArColPayVO1Query.processQuery}" varStatus="vs" id="t4"
-                          partialTriggers="::b9 ::b10 ::b14">
-                    <af:column headerText="#{bindings.NetArColPayVO1.hints.selectedRecord.label}" id="c8"
-                               inlineStyle="color:White;" align="center" width="100"
-                               binding="#{viewScope.ActionEventsBean.onNetArColPayColumnSelectRecord}">
-                        <af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
-                                                  label="#{row.bindings.selectedRecord.label}"
-                                                  shortDesc="#{bindings.NetArColRecVO1.hints.selectedRecord.tooltip}"
-                                                  id="sbc7" autoSubmit="true"
-                                                  binding="#{viewScope.ActionEventsBean.netNetArColPayselectcheckbox}"/>
-                        <f:facet name="header">
-                            <af:selectBooleanCheckbox text="Select All" id="sbc8" autoSubmit="true" styleClass="cb"
-                                                      valueChangeListener="#{viewScope.ActionEventsBean.onNetArColPaySelectAll}"
-                                                      partialTriggers="::t4 sbc7 c8"/>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelBox>
+                <af:panelBox text="Netting AR Collection Payable" id="pb4">
+                    <f:facet name="toolbar"/>
+                    <af:panelCollection id="pc4" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t9">
+                                <af:button text="Hold" id="b9" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetArColPayHold}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Release" id="b10" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetArColPayRelease}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                                <af:button text="Settled" id="b14" partialSubmit="true"
+                                           actionListener="#{viewScope.ActionEventsBean.onNetArColPaySettled}"
+                                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                            </af:toolbar>
                         </f:facet>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NettingId2.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.NettingId2.label}" id="c50">
-                        <af:outputText value="#{row.NettingId2}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.NettingId2.tooltip}" id="ot58"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.NicviId.name}" filterable="true" sortable="true"
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.NetArColPayVO1.collectionModel}" var="row"
+                                  rows="#{bindings.NetArColPayVO1.rangeSize}"
+                                  emptyText="#{bindings.NetArColPayVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.NetArColPayVO1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.NetArColPayVO1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.NetArColPayVO1.rangeSize}"
+                                  filterModel="#{bindings.NetArColPayVO1Query.queryDescriptor}" filterVisible="false"
+                                  queryListener="#{bindings.NetArColPayVO1Query.processQuery}" varStatus="vs" id="t4"
+                                  partialTriggers="::b9 ::b10 ::b14">
+                            <af:column headerText="#{bindings.NetArColPayVO1.hints.selectedRecord.label}" id="c8"
+                                       inlineStyle="color:White;" align="center" width="100"
+                                       binding="#{viewScope.ActionEventsBean.onNetArColPayColumnSelectRecord}">
+                                <af:selectBooleanCheckbox value="#{row.bindings.selectedRecord.inputValue}"
+                                                          label="#{row.bindings.selectedRecord.label}"
+                                                          shortDesc="#{bindings.NetArColRecVO1.hints.selectedRecord.tooltip}"
+                                                          id="sbc7" autoSubmit="true"
+                                                          binding="#{viewScope.ActionEventsBean.netNetArColPayselectcheckbox}"/>
+                                <f:facet name="header">
+                                    <af:selectBooleanCheckbox text="Select All" id="sbc8" autoSubmit="true"
+                                                              styleClass="cb"
+                                                              valueChangeListener="#{viewScope.ActionEventsBean.onNetArColPaySelectAll}"
+                                                              partialTriggers="::t4 sbc7 c8"/>
+                                </f:facet>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NettingId2.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColPayVO1.hints.NettingId2.label}"
+                                       id="c50">
+                                <af:outputText value="#{row.NettingId2}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.NettingId2.tooltip}"
+                                               id="ot58"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.NicviId.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColPayVO1.hints.NicviId.label}" id="c51">
             <af:outputText value="#{row.NicviId}" shortDesc="#{bindings.NetArColPayVO1.hints.NicviId.tooltip}"
                            id="ot59">
               <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
             </af:outputText>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.Period.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.Period.label}" id="c52">
-                        <f:facet name="filter">
-                            <af:inputDate value="#{bindings.NetArColPayVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
-                                          id="id6">
-                                <af:convertDateTime pattern="#{bindings.NetArColPayVO1.hints.Period.format}"/>
-                            </af:inputDate>
-                        </f:facet>
-                        <af:outputText value="#{row.Period}" shortDesc="#{bindings.NetArColPayVO1.hints.Period.tooltip}"
-                                       id="ot60">
-                            <af:convertDateTime pattern="#{bindings.NetArColPayVO1.hints.Period.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.NetArColPayVO1.hints.PERIODNUM.label}" id="c39">
-                        <af:outputText value="#{row.PERIODNUM}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.PERIODNUM.tooltip}" id="ot21">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.NetArColPayVO1.hints.PERIODNUM.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.NetArColPayVO1.hints.PERIODYEAR.label}" id="c48">
-                        <af:outputText value="#{row.PERIODYEAR}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.PERIODYEAR.tooltip}" id="ot24">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.NetArColPayVO1.hints.PERIODYEAR.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.IuCustomer.name}" filterable="true" sortable="true"
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.Period.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColPayVO1.hints.Period.label}"
+                                       id="c52">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.NetArColPayVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Period.value}"
+                                                  id="id6">
+                                        <af:convertDateTime pattern="#{bindings.NetArColPayVO1.hints.Period.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.Period}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.Period.tooltip}" id="ot60">
+                                    <af:convertDateTime pattern="#{bindings.NetArColPayVO1.hints.Period.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.NetArColPayVO1.hints.PERIODNUM.label}" id="c39">
+                                <af:outputText value="#{row.PERIODNUM}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.PERIODNUM.tooltip}" id="ot21">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.NetArColPayVO1.hints.PERIODNUM.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.NetArColPayVO1.hints.PERIODYEAR.label}" id="c48">
+                                <af:outputText value="#{row.PERIODYEAR}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.PERIODYEAR.tooltip}"
+                                               id="ot24">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.NetArColPayVO1.hints.PERIODYEAR.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.IuCustomer.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColPayVO1.hints.IuCustomer.label}" id="c53">
             <af:outputText value="#{row.IuCustomer}" shortDesc="#{bindings.NetArColPayVO1.hints.IuCustomer.tooltip}"
                            id="ot61"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ApBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.ApBu.label}" id="c54">
-                        <af:outputText value="#{row.ApBu}" shortDesc="#{bindings.NetArColPayVO1.hints.ApBu.tooltip}"
-                                       id="ot62"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ApPsftRefNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.ApPsftRefNum.label}" id="c2">
-                        <af:outputText value="#{row.ApPsftRefNum}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.ApPsftRefNum.tooltip}" id="ot63"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.IuVendor.name}" filterable="true" sortable="true"
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ApBu.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColPayVO1.hints.ApBu.label}"
+                                       id="c54">
+                                <af:outputText value="#{row.ApBu}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.ApBu.tooltip}" id="ot62"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ApPsftRefNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColPayVO1.hints.ApPsftRefNum.label}" id="c2">
+                                <af:outputText value="#{row.ApPsftRefNum}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.ApPsftRefNum.tooltip}"
+                                               id="ot63"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.IuVendor.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColPayVO1.hints.IuVendor.label}" id="c56">
             <af:outputText value="#{row.IuVendor}" shortDesc="#{bindings.NetArColPayVO1.hints.IuVendor.tooltip}"
                            id="ot64"/>
           </af:column>-->
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ArBu.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.ArBu.label}" id="c57">
-                        <af:outputText value="#{row.ArBu}" shortDesc="#{bindings.NetArColPayVO1.hints.ArBu.tooltip}"
-                                       id="ot65"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ArPsftRefNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.ArPsftRefNum.label}"
-                               id="c58">
-                        <af:outputText value="#{row.ArPsftRefNum}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.ArPsftRefNum.tooltip}" id="ot66"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.CustRefNum.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.CustRefNum.label}" id="c59">
-                        <af:outputText value="#{row.CustRefNum}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.CustRefNum.tooltip}" id="ot67"/>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.VoucherAmount.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.VoucherAmount.label}"
-                               id="c60">
-                        <af:outputText value="#{row.VoucherAmount}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.VoucherAmount.tooltip}" id="ot68">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NetAllLimit.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.NetAllLimit.label}" id="c61">
-                        <af:outputText value="#{row.NetAllLimit}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.NetAllLimit.tooltip}" id="ot69">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NetPerformed.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.NetPerformed.label}"
-                               id="c62">
-                        <af:outputText value="#{row.NetPerformed}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.NetPerformed.tooltip}" id="ot70">
-                            <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NetBalance.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.NetBalance.label}" id="c63">
-                        <af:outputText value="#{row.NetBalance}"
-                                       shortDesc="#{bindings.NetArColPayVO1.hints.NetBalance.tooltip}" id="ot71">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.NetArColPayVO1.hints.NetBalance.format}"/>
-                        </af:outputText>
-                    </af:column>
-                    <af:column sortProperty="#{bindings.NetArColPayVO1.hints.Status.name}" filterable="true"
-                               sortable="true" headerText="#{bindings.NetArColPayVO1.hints.Status.label}" id="c64">
-                        <af:outputText value="#{row.Status}" shortDesc="#{bindings.NetArColPayVO1.hints.Status.tooltip}"
-                                       id="ot72"/>
-                    </af:column>
-                    <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.ApGeo.name}" filterable="true" sortable="true"
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ArBu.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColPayVO1.hints.ArBu.label}"
+                                       id="c57">
+                                <af:outputText value="#{row.ArBu}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.ArBu.tooltip}" id="ot65"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.ArPsftRefNum.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColPayVO1.hints.ArPsftRefNum.label}" id="c58">
+                                <af:outputText value="#{row.ArPsftRefNum}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.ArPsftRefNum.tooltip}"
+                                               id="ot66"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.CustRefNum.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColPayVO1.hints.CustRefNum.label}"
+                                       id="c59">
+                                <af:outputText value="#{row.CustRefNum}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.CustRefNum.tooltip}"
+                                               id="ot67"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.VoucherAmount.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColPayVO1.hints.VoucherAmount.label}" id="c60">
+                                <af:outputText value="#{row.VoucherAmount}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.VoucherAmount.tooltip}"
+                                               id="ot68">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NetAllLimit.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColPayVO1.hints.NetAllLimit.label}" id="c61">
+                                <af:outputText value="#{row.NetAllLimit}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.NetAllLimit.tooltip}"
+                                               id="ot69">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NetPerformed.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.NetArColPayVO1.hints.NetPerformed.label}" id="c62">
+                                <af:outputText value="#{row.NetPerformed}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.NetPerformed.tooltip}"
+                                               id="ot70">
+                                    <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.NetBalance.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColPayVO1.hints.NetBalance.label}"
+                                       id="c63">
+                                <af:outputText value="#{row.NetBalance}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.NetBalance.tooltip}"
+                                               id="ot71">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.NetArColPayVO1.hints.NetBalance.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.NetArColPayVO1.hints.Status.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.NetArColPayVO1.hints.Status.label}"
+                                       id="c64">
+                                <af:outputText value="#{row.Status}"
+                                               shortDesc="#{bindings.NetArColPayVO1.hints.Status.tooltip}" id="ot72"/>
+                            </af:column>
+                            <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.ApGeo.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColPayVO1.hints.ApGeo.label}" id="c65">
             <af:outputText value="#{row.ApGeo}" shortDesc="#{bindings.NetArColPayVO1.hints.ApGeo.tooltip}" id="ot73"/>
           </af:column>-->
-                    <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.ArGeo.name}" filterable="true" sortable="true"
+                            <!--<af:column sortProperty="#{bindings.NetArColPayVO1.hints.ArGeo.name}" filterable="true" sortable="true"
                      headerText="#{bindings.NetArColPayVO1.hints.ArGeo.label}" id="c66">
             <af:outputText value="#{row.ArGeo}" shortDesc="#{bindings.NetArColPayVO1.hints.ArGeo.tooltip}" id="ot74"/>
           </af:column>-->
-                </af:table>
-            </af:panelCollection>
-        </af:panelBox>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelBox>
+            </af:showDetailItem>
+        </af:panelTabbed>
         <af:panelFormLayout id="pfl1" rows="4" maxColumns="1">
             <f:facet name="footer"/>
             <af:inputText value="#{bindings.CreatedBy.inputValue}" label="#{bindings.CreatedBy.hints.label}"

@@ -36,6 +36,9 @@
                                                   binding="#{viewScope.ActionEventsBean.bindPaymentCheck}"
                                                   valueChangeListener="#{viewScope.ActionEventsBean.disablePaymentAction}"
                                                   inlineStyle="width: 390px" label="Apply Payment Only"/>
+                        <af:selectBooleanCheckbox id="sbc3" autoSubmit="true"
+                                                  inlineStyle="width: 390px" label="Zero Settlement"
+                                                  binding="#{viewScope.ActionEventsBean.zeroBalanceCheckBind}"/>
                     </af:panelFormLayout>
                     <af:panelFormLayout id="pfl5" maxColumns="1" rows="6">
                         <f:facet name="footer"/>

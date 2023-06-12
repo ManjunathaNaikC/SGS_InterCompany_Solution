@@ -835,6 +835,12 @@
     EntityAttrName="WBINVSEQ"
     EntityUsage="SgsStlmtVoucherEO"
     AliasName="WB_INV_SEQ"/>
+  <ViewAttribute
+    Name="CRFLAG"
+    PrecisionRule="true"
+    EntityAttrName="CRFLAG"
+    EntityUsage="SgsStlmtVoucherEO"
+    AliasName="CR_FLAG"/>
   <ViewCriteria
     Name="SgsStlmtVoucherVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsStlmtVoucherVO"

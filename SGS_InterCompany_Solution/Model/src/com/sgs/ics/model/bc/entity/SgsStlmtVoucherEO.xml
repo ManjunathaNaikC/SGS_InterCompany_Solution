@@ -750,6 +750,18 @@
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="CRFLAG"
+    Precision="80"
+    ColumnName="CR_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="SGS_STLMT_VOUCHER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="PKSGSSTLMTVOUCHER"
     PrimaryKey="true">

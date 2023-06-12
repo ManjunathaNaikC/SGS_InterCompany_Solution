@@ -197,6 +197,7 @@ public class ActionEventsBean {
     private RichInputText otherCommentBind;
     private RichTable netHeaderTableData;
     private RichPopup submitstatpopupattachbind;
+    private RichSelectBooleanCheckbox zeroBalanceCheckBind;
 
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
@@ -1594,7 +1595,8 @@ public class ActionEventsBean {
 
         System.out.println("bindPaymentCheck::" + getBindPaymentCheck().getValue());
         System.out.println("bindReceiptCheck::" + getBindReceiptCheck().getValue());
-
+        System.out.println("zeroBalanceCheckBind::" + getZeroBalanceCheckBind().getValue());
+        
         //        bindPaymentCheck
         //        bindReceiptCheck
 
@@ -1689,7 +1691,12 @@ public class ActionEventsBean {
         //        boolean receiptCheck= (Boolean)getBindReceiptCheck().getValue();
         //        System.out.println("bindPaymentCheck::"+paymentCheck);
         //        System.out.println("bindReceiptCheck::"+paymentCheck);
-        if (null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue()) {
+        
+        System.out.println("zeroBalanceCheckBind::" + getZeroBalanceCheckBind().getValue());
+        if (null != (Boolean) getZeroBalanceCheckBind().getValue() && (Boolean) getZeroBalanceCheckBind().getValue()) {
+            voucherView.setWhereClause(" PAYMENT_STATUS = 'Unpaid' AND  CR_FLAG = 'Yes' AND STLMT_STATUS = 'Pending for Settlement'");
+        
+        }else if (null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue()) {
             totalSettleOutput.setVisible(false);
             String stlmtStatus = "'Pending for Settlement','Settlement on Hold'";
             String paymentStatus = " 'Fully Paid','On Hold'";
@@ -1697,7 +1704,7 @@ public class ActionEventsBean {
             //            voucherView.setNamedWhereClauseParam("bNewStlmtStatus2", "Pending for Settlement");
             //            voucherView.setNamedWhereClauseParam("bPayStatus", "On Hold");
             //            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
-            voucherView.setWhereClause(" PAYMENT_STATUS = 'Unpaid' " + "OR PAYMENT_STATUS = 'Partially Paid' ");
+            voucherView.setWhereClause(" PAYMENT_STATUS = 'Unpaid' OR PAYMENT_STATUS = 'Partially Paid' AND  CR_FLAG <> 'Yes'");
 
         } else if (null != (Boolean) getBindReceiptCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
             totalSettleOutput.setVisible(true);
@@ -1708,7 +1715,7 @@ public class ActionEventsBean {
             //            voucherView.setNamedWhereClauseParam("bPayStatus", "Partially Paid");
             //            voucherView.setNamedWhereClauseParam("bPayStatus2", "Fully Paid");
             voucherView.setWhereClause(" (PAYMENT_STATUS = 'Fully Paid' AND STLMT_STATUS = 'Voucher Paid-Invoice Pending') " +
-                                       " OR(PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') ");
+                                       " OR(PAYMENT_STATUS = 'Partially Paid' AND STLMT_STATUS = 'Partial Voucher Paid-Invoice Pending') AND  CR_FLAG <> 'Yes' ");
         } else if (null != (Boolean) getBindReceiptCheck().getValue() &&
                    null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue() &&
                    (Boolean) getBindReceiptCheck().getValue()) {
@@ -5042,6 +5049,14 @@ public class ActionEventsBean {
 
     public RichPopup getSubmitstatpopupattachbind() {
         return submitstatpopupattachbind;
+    }
+
+    public void setZeroBalanceCheckBind(RichSelectBooleanCheckbox zeroBalanceCheckBind) {
+        this.zeroBalanceCheckBind = zeroBalanceCheckBind;
+    }
+
+    public RichSelectBooleanCheckbox getZeroBalanceCheckBind() {
+        return zeroBalanceCheckBind;
     }
 }
 

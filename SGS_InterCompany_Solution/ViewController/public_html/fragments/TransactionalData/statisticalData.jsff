@@ -472,7 +472,7 @@
                             </af:inputText>-->
                             <af:link text="#{row.bindings.DOCATTM.inputValue}" id="l2">
                                 <af:fileDownloadActionListener filename="#{row.DOCATTM}"
-                                                               method="#{viewScope.UploadExcelBean.onStatDocsDownload}"/>
+                                                               method="#{viewScope.UploadExcelBean.onStatUploadFileDownload}"/>
                             </af:link>
                         </af:column>
                         <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.label}" id="c52"  sortProperty="#{bindings.SgsStatisticalDataVO1.hints.APPROVESTATUS.name}"
@@ -547,12 +547,12 @@
                                 <f:validator binding="#{row.bindings.RejectionComments.validator}"/>
                             </af:inputText>
                         </af:column>
-                        <af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.label}" id="c22">
+                        <!--<af:column headerText="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.label}" id="c22">
                             <af:link text="#{row.bindings.UPLOADFILE.inputValue}" id="l3">
                                 <af:fileDownloadActionListener method="#{viewScope.UploadExcelBean.onStatUploadFileDownload}"
                                                                filename="#{row.bindings.UPLOADFILE.inputValue}"/>
                             </af:link>
-                            <!--<af:inputText value="#{row.bindings.UPLOADFILE.inputValue}"
+                            --><!--<af:inputText value="#{row.bindings.UPLOADFILE.inputValue}"
                                           label="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.label}"
                                           required="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.mandatory}"
                                           columns="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.displayWidth}"
@@ -560,8 +560,8 @@
                                           shortDesc="#{bindings.SgsStatisticalDataVO1.hints.UPLOADFILE.tooltip}"
                                           id="it12">
                                 <f:validator binding="#{row.bindings.UPLOADFILE.validator}"/>
-                            </af:inputText>-->
-                        </af:column>
+                            </af:inputText>--><!--
+                        </af:column>-->
                         <!--<af:column id="c22" headerText="Upload File"/>-->
                             <!--<af:inputFile id="if3" valueChangeListener="#{viewScope.UploadExcelBean.onStatDocsUpload}"
                                           autoSubmit="true" uploadType="submit"/>-->

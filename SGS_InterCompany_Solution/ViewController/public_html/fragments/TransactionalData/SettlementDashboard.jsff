@@ -24,7 +24,8 @@
               <af:button text="Write Off" id="b1" actionListener="#{viewScope.ActionEventsBean.SaveWriteOffDetails}"
                          inlineStyle="border-radius:5px 5px 5px 5px;"/>
               <af:button text="Credit Transaction" id="b2"
-                         actionListener="#{viewScope.ActionEventsBean.onCreditTransactionInSettlement}"/>
+                         actionListener="#{viewScope.ActionEventsBean.onCreditTransactionInSettlement}"
+                         inlineStyle="border-radius:5px 5px 5px 5px;"/>
 
             </af:toolbar>
           </f:facet>

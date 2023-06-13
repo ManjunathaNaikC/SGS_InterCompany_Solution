@@ -34,6 +34,8 @@
               DataControl="SGSAppModuleDataControl" RangeSize="25"/>
     <iterator id="SgsStatisticalDataVO1Iterator" Binds="SgsStatisticalDataVO1" DataControl="SGSAppModuleDataControl"
               RangeSize="25"/>
+    <iterator id="SgsNetHeaderTblVO1Iterator" Binds="SgsNetHeaderTblVO1" DataControl="SGSAppModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <action IterBinding="CreateStlmtRVO1Iterator" id="CreateSettlement" InstanceName="SGSAppModuleDataControl.CreateStlmtRVO1"

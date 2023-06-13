@@ -36,5 +36,12 @@
                                                     inlineStyle="height:700px"/>
 
     </af:showDetailItem>
+     <af:showDetailItem id="Report6" text="Netting Reports">
+      <af:inlineFrame id="if1" 
+                                                    source="/pages/Transaction Reports/NettingReport.html"
+                                                    styleClass="AFStretchWidth" sizing="preferred"
+                                                    inlineStyle="height:700px"/>
+
+    </af:showDetailItem>
   </af:panelTabbed>
 </ui:composition>

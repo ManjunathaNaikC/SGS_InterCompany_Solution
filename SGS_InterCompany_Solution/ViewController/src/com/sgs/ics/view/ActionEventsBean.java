@@ -3980,11 +3980,11 @@ public class ActionEventsBean {
                                                                              .getPageFlowScope()
                                                                              .get("UserCCAllowableLimit"));
                     if (null != icAllowableLimitBind.getValue()) {
-                        nettingDataDatarows[i].setAttribute("NETLIMITFIXARCOLL", ccAllowableLimit.getValue());
+                        nettingDataDatarows[i].setAttribute("NETLIMITFIXARCOLL", icAllowableLimitBind.getValue());
                     }
 
                     if (null != ccAllowableLimit.getValue()) {
-                        nettingDataDatarows[i].setAttribute("NETLIMITFIXICTRANS", icAllowableLimitBind.getValue());
+                        nettingDataDatarows[i].setAttribute("NETLIMITFIXICTRANS", ccAllowableLimit.getValue());
                     }
                     if (null != nettingRemarksBind.getValue()) {
                         System.out.println("Remarks ::" + nettingRemarksBind.getValue());
@@ -3993,31 +3993,46 @@ public class ActionEventsBean {
 
                     double NetIcAllLimCalRead = ((BigDecimal) netIcAllLimCalBind.getValue()).doubleValue();
 
-                    double EnterNetIcLimOf = Double.parseDouble((String) icAllowableLimitBind.getValue());
+                    Double EnterNetIcLimOf = null;
+                    if (icAllowableLimitBind.getValue() instanceof String) {
+                        String icAllowableLimitValue = (String) icAllowableLimitBind.getValue();
+                        if (!icAllowableLimitValue.isEmpty()) {
+                            EnterNetIcLimOf = Double.parseDouble(icAllowableLimitValue);
+                        }
+                    }
 
                     double NettingCcAllLimCal = ((BigDecimal) netCcAllLimCal.getValue()).doubleValue();
 
-                    double EnterccAllowableLimit = Double.parseDouble((String) ccAllowableLimit.getValue());
+                    Double EnterccAllowableLimit = null;
+                    if (ccAllowableLimit.getValue() instanceof String) {
+                        String ccAllowableLimitValue = (String) ccAllowableLimit.getValue();
+                        if (!ccAllowableLimitValue.isEmpty()) {
+                            EnterccAllowableLimit = Double.parseDouble(ccAllowableLimitValue);
+                            
+                        }
+                    }
+                    System.out.println("EnterNetIcLimOf===================="+EnterNetIcLimOf);
+                    System.out.println("EnterccAllowableLimit===================="+EnterccAllowableLimit);
 
 
-                    if (!Objects.isNull(EnterNetIcLimOf) && (EnterNetIcLimOf > NetIcAllLimCalRead)) {
-                        FacesContext context = FacesContext.getCurrentInstance();
-                        String messageText =
-                            "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
-                        FacesMessage fm = new FacesMessage(messageText);
-                        fm.setSeverity(FacesMessage.SEVERITY_WARN);
-                        context.addMessage(null, fm);
+                        if (EnterNetIcLimOf != null && (EnterNetIcLimOf > NetIcAllLimCalRead)) {
+                                               FacesContext context = FacesContext.getCurrentInstance();
+                                               String messageText =
+                                                   "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
+                                               FacesMessage fm = new FacesMessage(messageText);
+                                               fm.setSeverity(FacesMessage.SEVERITY_WARN);
+                                               context.addMessage(null, fm);
 
-                    } else if (!Objects.isNull(EnterccAllowableLimit) && (EnterccAllowableLimit > NettingCcAllLimCal)) {
-                        FacesContext context = FacesContext.getCurrentInstance();
-                        String messageText =
-                            "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
-                        FacesMessage fm = new FacesMessage(messageText);
-                        fm.setSeverity(FacesMessage.SEVERITY_WARN);
-                        context.addMessage(null, fm);
+                                           } else if (EnterccAllowableLimit != null && (EnterccAllowableLimit > NettingCcAllLimCal)) {
+                                               FacesContext context = FacesContext.getCurrentInstance();
+                                               String messageText =
+                                                   "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
+                                               FacesMessage fm = new FacesMessage(messageText);
+                                               fm.setSeverity(FacesMessage.SEVERITY_WARN);
+                                               context.addMessage(null, fm);
 
-                    } else {
-
+                                           }  else {
+                    System.out.println("comminted-----*");
 
                         executeBinding(SAVE_DATA);
                         ADFContext.getCurrent()
@@ -4693,12 +4708,11 @@ public class ActionEventsBean {
                 rw.setAttribute("Status", "Settled");
             }
         }
-        
+
         executeBinding("Commit");
         displayInfoMessgage("Transaction Available for Settlement");
         settledAction();
 
-       
 
     }
 
@@ -4857,6 +4871,7 @@ public class ActionEventsBean {
 
 
                 rw.setAttribute("Status", status);
+                rw.setAttribute("Attribute1", "Y");
             }
         }
 
@@ -4880,7 +4895,7 @@ public class ActionEventsBean {
                 rw.setAttribute("Status", "Settled");
             }
         }
-        
+
         executeBinding("Commit");
         displayInfoMessgage("Transaction Available for Settlement");
         settledAction();
@@ -4902,7 +4917,7 @@ public class ActionEventsBean {
                 rw.setAttribute("Status", "Settled");
             }
         }
-        
+
         executeBinding("Commit");
         displayInfoMessgage("Transaction Available for Settlement");
         settledAction();
@@ -4924,7 +4939,7 @@ public class ActionEventsBean {
                 rw.setAttribute("Status", "Settled");
             }
         }
-       
+
         executeBinding("Commit");
         displayInfoMessgage("Transaction Available for Settlement");
         settledAction();
@@ -5085,7 +5100,7 @@ public class ActionEventsBean {
     public RichSelectBooleanCheckbox getZeroBalanceCheckBind() {
         return zeroBalanceCheckBind;
     }
-    
+
     public void settledAction() {
         LOG.info("Inside settledAction**********************");
         Connection conn = null;

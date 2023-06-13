@@ -34,9 +34,9 @@
                                            partialSubmit="true"
                                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_REJECT')}"
                                            actionListener="#{viewScope.ActionEventsBean.netHeaderReject}"/>
-                                <af:button text="Filter" id="b5" inlineStyle="border-radius:5px 5px 5px 5px;"
+                                <!--<af:button text="Filter" id="b5" inlineStyle="border-radius:5px 5px 5px 5px;"
                                            partialSubmit="true"
-                                           actionListener="#{viewScope.ActionEventsBean.nettingHeaderTableFilter}"/>
+                                           actionListener="#{viewScope.ActionEventsBean.nettingHeaderTableFilter}"/>-->
                                 <af:button text="Sync" id="b7" actionListener="#{viewScope.ActionEventsBean.syncAction}"
                                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_SYNC')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"/>
@@ -307,7 +307,7 @@
                                     <af:inputText label="Netting CC Allowable Limit(Calculated)"
                                                   value="#{pageFlowScope.CalculatedCCAllowableLimit}" readOnly="true"
                                                   id="ot28" binding="#{viewScope.ActionEventsBean.netCcAllLimCal}"/>
-                                    <af:inputText label="Enter Netting of AR Collection Limit" id="it5"
+                                    <af:inputText label="Enter Netting AR Collection Limit" id="it5"
                                                   binding="#{viewScope.ActionEventsBean.ccAllowableLimit}"/>
                                     <af:inputText label="Created By" value="#{pageFlowScope.createdBy}" id="ot29"
                                                   readOnly="true"/>

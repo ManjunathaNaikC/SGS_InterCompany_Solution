@@ -2,11 +2,20 @@
 package com.sgs.ics.view.bean.common;
 
 import com.sgs.ics.model.bc.am.SGSAppModuleImpl;
+import com.sgs.ics.model.bc.commonutils.CommonUtils;
 import com.sgs.ics.ui.utils.ADFUtils;
+
+import com.sgs.ics.view.ActionEventsBean;
 
 import java.io.Serializable;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import java.util.ArrayList;
+
 
 import javax.faces.event.ActionEvent;
 
@@ -27,20 +36,25 @@ import oracle.jbo.Row;
 
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewCriteria;
+import oracle.jbo.ViewObject;
 import oracle.jbo.server.ViewObjectImpl;
 
 import org.apache.myfaces.trinidad.event.DisclosureEvent;
 
+
 public class NavigateBean implements Serializable {
     private static final ADFLogger LOG = ADFLogger.createADFLogger(NavigateBean.class);
     private String taskFlowId = "/taskflows/commom/sgs-costIdentificationRule-flow.xml#sgs-costIdentificationRule-flow";
+    private SGSAppModuleImpl am = new SGSAppModuleImpl();
 
     public NavigateBean() {
 
         super();
         taskFlowId = "/taskflows/commom/welcome-empty-flow.xml#welcome-empty-flow";
     }
-
+    
+   
+    
     public TaskFlowId getDynamicTaskFlowId() {
         return TaskFlowId.parse(taskFlowId);
     }
@@ -440,6 +454,153 @@ public class NavigateBean implements Serializable {
 
     public String sgs_netting_new_flow() {
         setDynamicTaskFlowId("/taskflows/TransactionalData/sgs_netting_new_flow.xml#sgs_netting_new_flow");
-        return null;
+        
+        String userRole = getUserRole();
+        
+        if (userRole.equalsIgnoreCase("Treasury")) {
+            
+            queryByStatus("Pending for Treasury Approval");
+            
+
+        } else if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
+
+            queryByStatuswith2Param("Pending for FC Approval","One Geo Approved, Second Geo Pending");
+            
+
+        } 
+        
+        else if (userRole.equalsIgnoreCase("GAO")) {
+
+            queryByStatus("Pending for GAO Approval");
+
+        } else if (userRole.equalsIgnoreCase("GFSS")) {
+
+            queryByStatus("Approved");
+
+        }
+            return null;
     }
+    
+    public String getUserRole() {
+            System.out.println("----Get User  detail---------");
+            String userRole = null;
+            Connection connection = null;
+            PreparedStatement statement = null;
+            ResultSet resultSet = null;
+                    
+                    CommonUtils util = new CommonUtils();
+                    String user = util.getSessionScopeValue("_username").toString();
+     
+
+            try {
+                connection = am.getDBConnection();
+
+     
+
+                // Prepare and execute the SQL query
+                String sql = "SELECT ROLE_ID FROM [USER_ROLE_MAPPING] WHERE USER_ID= ?";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1, user);
+                resultSet = statement.executeQuery();
+
+     
+
+                // Retrieve the user's role from the result set
+                if (resultSet.next()) {
+                    userRole = resultSet.getString("ROLE_ID");
+                }
+            } catch (SQLException e) {
+                // Handle exceptions
+            } finally {
+                // Close the database resources
+                if (resultSet != null) {
+                    try {
+                        resultSet.close();
+                    } catch (SQLException e) {
+                        // Handle exception
+                    }
+                }
+                if (statement != null) {
+                    try {
+                        statement.close();
+                    } catch (SQLException e) {
+                        // Handle exception
+                    }
+                }
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        // Handle exception
+                    }
+                }
+            }
+
+     
+
+            return userRole;
+        }
+    
+    public void queryByStatus(String Status) {
+        String userRole = getUserRole();
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject vo = holditer.getViewObject();
+        String statusValue = "STATUS " + " = " + "'" + Status + "'";
+        System.out.println("------statusValue======" + statusValue);
+        vo.setWhereClause(statusValue);
+
+        vo.executeQuery();
+
+
+    }
+    
+    public void queryByStatuswith2Param(String Status, String Status1) {
+        String userRole = getUserRole();
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
+        ViewObject vo = holditer.getViewObject();
+        String statusValue = "STATUS" + " " + " IN " + "(" + "'" + Status + "'" + "," + "'" + Status1 + "'" + ")";
+        System.out.println("------statusValue======" + statusValue);
+        vo.setWhereClause(statusValue);
+
+        vo.executeQuery();
+
+
+    }
+    
+    public BindingContainer getBindingsCont() {
+        return BindingContext.getCurrent().getCurrentBindingsEntry();
+    }
+    
+//    public void nettingHeaderTableFilter(ActionEvent actionEvent) {
+//        // Add event code here...
+//        String userRole = getUserRole();
+//       
+//        if (userRole.equalsIgnoreCase("Treasury")) {
+//            
+//            queryByStatus("Pending for Treasury Approval");
+//            
+//
+//        } else if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
+//
+//            queryByStatuswith2Param("Pending for FC Approval","One Geo Approved, Second Geo Pending");
+//            
+//
+//        } 
+//        
+//        else if (userRole.equalsIgnoreCase("GAO")) {
+//
+//            queryByStatus("Pending for GAO Approval");
+//
+//        } else if (userRole.equalsIgnoreCase("GFSS")) {
+//
+//            queryByStatus("Approved");
+//
+//        }
+//        
+//        
+//    }
+
+
 }

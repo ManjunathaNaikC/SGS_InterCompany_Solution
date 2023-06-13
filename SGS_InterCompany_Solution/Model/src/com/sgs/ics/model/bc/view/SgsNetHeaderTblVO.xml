@@ -493,19 +493,40 @@
     PrecisionRule="true"
     EntityAttrName="APPROVERFC1"
     EntityUsage="SgsNetHeaderTblEO"
-    AliasName="APPROVER_FC1"/>
+    AliasName="APPROVER_FC1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.APPROVERFC1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="APPROVERFC2"
     PrecisionRule="true"
     EntityAttrName="APPROVERFC2"
     EntityUsage="SgsNetHeaderTblEO"
-    AliasName="APPROVER_FC2"/>
+    AliasName="APPROVER_FC2">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.APPROVERFC2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="APPROVERT"
     PrecisionRule="true"
     EntityAttrName="APPROVERT"
     EntityUsage="SgsNetHeaderTblEO"
-    AliasName="APPROVER_T"/>
+    AliasName="APPROVER_T">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO.APPROVERT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="SgsNetHeaderTblVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO"

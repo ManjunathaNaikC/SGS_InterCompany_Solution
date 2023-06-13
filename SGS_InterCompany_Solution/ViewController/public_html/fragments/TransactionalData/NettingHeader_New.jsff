@@ -34,9 +34,9 @@
                                            partialSubmit="true"
                                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_REJECT')}"
                                            actionListener="#{viewScope.ActionEventsBean.netHeaderReject}"/>
-                                <af:button text="Filter" id="b5" inlineStyle="border-radius:5px 5px 5px 5px;"
+                                <!--<af:button text="Filter" id="b5" inlineStyle="border-radius:5px 5px 5px 5px;"
                                            partialSubmit="true"
-                                           actionListener="#{viewScope.ActionEventsBean.nettingHeaderTableFilter}"/>
+                                           actionListener="#{viewScope.ActionEventsBean.nettingHeaderTableFilter}"/>-->
                                 <af:button text="Sync" id="b7" actionListener="#{viewScope.ActionEventsBean.syncAction}"
                                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_SYNC')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"/>
@@ -52,7 +52,7 @@
                                   filterModel="#{bindings.SgsNetHeaderTblVO1Query.queryDescriptor}"
                                   filterVisible="false" queryListener="#{bindings.SgsNetHeaderTblVO1Query.processQuery}"
                                   varStatus="vs" id="t1" styleClass="AFStretchWidth" rowSelection="single"
-                                  scrollPolicy="page" columnStretching="last" partialTriggers="::b1 ::b4 ::b6 ::b5 ::b7"
+                                  scrollPolicy="page" columnStretching="last" partialTriggers="::b1 ::b4 ::b6 ::b7"
                                   binding="#{viewScope.ActionEventsBean.netHeaderTableData}">
                             <!--<af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.name}" filterable="true" sortable="true"
                    headerText="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.label}" id="c1">
@@ -184,11 +184,6 @@
                                     </af:outputText>
                                 </af:column>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.label}" id="c6">
-                                <af:outputText value="#{row.APPROVER}"
-                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.tooltip}"
-                                               id="ot6"/>
-                            </af:column>
                             <af:column id="c1" headerText="Netting Limit Fixed by Users(Computed)">
                                 <af:column id="c21" headerText="IC Transactions">
                                     <af:outputText value="#{row.NETLIMITFIXICTRANS}"
@@ -233,6 +228,26 @@
                                 <af:outputText value="#{row.Status}"
                                                shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.Status.tooltip}"
                                                id="ot15"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERT.label}" id="c10">
+                                <af:outputText value="#{row.APPROVERT}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERT.tooltip}"
+                                               id="ot10"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC1.label}" id="c22">
+                                <af:outputText value="#{row.APPROVERFC1}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC1.tooltip}"
+                                               id="ot17"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC2.label}" id="c23">
+                                <af:outputText value="#{row.APPROVERFC2}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC2.tooltip}"
+                                               id="ot18"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.label}" id="c6">
+                                <af:outputText value="#{row.APPROVER}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.tooltip}"
+                                               id="ot6"/>
                             </af:column>
                             <!--<af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.REMARKS.label}"
                          sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.REMARKS.name}" filterable="true"
@@ -292,7 +307,7 @@
                                     <af:inputText label="Netting CC Allowable Limit(Calculated)"
                                                   value="#{pageFlowScope.CalculatedCCAllowableLimit}" readOnly="true"
                                                   id="ot28" binding="#{viewScope.ActionEventsBean.netCcAllLimCal}"/>
-                                    <af:inputText label="Enter Netting of AR Collection Limit" id="it5"
+                                    <af:inputText label="Enter Netting AR Collection Limit" id="it5"
                                                   binding="#{viewScope.ActionEventsBean.ccAllowableLimit}"/>
                                     <af:inputText label="Created By" value="#{pageFlowScope.createdBy}" id="ot29"
                                                   readOnly="true"/>

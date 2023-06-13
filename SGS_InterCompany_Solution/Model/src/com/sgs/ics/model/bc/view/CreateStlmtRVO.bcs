@@ -80,3 +80,17 @@ def bLookupType_SgsLookupPayerBankCodeVO_BindVariable_BoundParameter()
 'BANK_CODE'
 }
 
+
+@AccessorParameterExpression(accessorName="SgsLookupInvoiceCurrencyVO", name="bLookupType")
+def bLookupType_SgsLookupInvoiceCurrencyVO_BindVariable_BoundParameter()
+{
+'CURRENCY'
+}
+
+
+@AccessorParameterExpression(accessorName="SgsLookupCurrencyTypeVO2", name="bLookupType")
+def bLookupType_SgsLookupCurrencyTypeVO2_BindVariable_BoundParameter()
+{
+'CURRENCY_TYPE'
+}
+

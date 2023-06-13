@@ -184,11 +184,6 @@
                                     </af:outputText>
                                 </af:column>
                             </af:column>
-                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.label}" id="c6">
-                                <af:outputText value="#{row.APPROVER}"
-                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.tooltip}"
-                                               id="ot6"/>
-                            </af:column>
                             <af:column id="c1" headerText="Netting Limit Fixed by Users(Computed)">
                                 <af:column id="c21" headerText="IC Transactions">
                                     <af:outputText value="#{row.NETLIMITFIXICTRANS}"
@@ -233,6 +228,26 @@
                                 <af:outputText value="#{row.Status}"
                                                shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.Status.tooltip}"
                                                id="ot15"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERT.label}" id="c10">
+                                <af:outputText value="#{row.APPROVERT}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERT.tooltip}"
+                                               id="ot10"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC1.label}" id="c22">
+                                <af:outputText value="#{row.APPROVERFC1}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC1.tooltip}"
+                                               id="ot17"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC2.label}" id="c23">
+                                <af:outputText value="#{row.APPROVERFC2}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVERFC2.tooltip}"
+                                               id="ot18"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.label}" id="c6">
+                                <af:outputText value="#{row.APPROVER}"
+                                               shortDesc="#{bindings.SgsNetHeaderTblVO1.hints.APPROVER.tooltip}"
+                                               id="ot6"/>
                             </af:column>
                             <!--<af:column headerText="#{bindings.SgsNetHeaderTblVO1.hints.REMARKS.label}"
                          sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.REMARKS.name}" filterable="true"

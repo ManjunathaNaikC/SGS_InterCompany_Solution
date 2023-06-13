@@ -1596,7 +1596,7 @@ public class ActionEventsBean {
         System.out.println("bindPaymentCheck::" + getBindPaymentCheck().getValue());
         System.out.println("bindReceiptCheck::" + getBindReceiptCheck().getValue());
         System.out.println("zeroBalanceCheckBind::" + getZeroBalanceCheckBind().getValue());
-        
+
         //        bindPaymentCheck
         //        bindReceiptCheck
 
@@ -1691,12 +1691,12 @@ public class ActionEventsBean {
         //        boolean receiptCheck= (Boolean)getBindReceiptCheck().getValue();
         //        System.out.println("bindPaymentCheck::"+paymentCheck);
         //        System.out.println("bindReceiptCheck::"+paymentCheck);
-        
+
         System.out.println("zeroBalanceCheckBind::" + getZeroBalanceCheckBind().getValue());
         if (null != (Boolean) getZeroBalanceCheckBind().getValue() && (Boolean) getZeroBalanceCheckBind().getValue()) {
             voucherView.setWhereClause(" PAYMENT_STATUS = 'Unpaid' AND  CR_FLAG = 'Yes' AND STLMT_STATUS = 'Pending for Settlement'");
-        
-        }else if (null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue()) {
+
+        } else if (null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue()) {
             totalSettleOutput.setVisible(false);
             String stlmtStatus = "'Pending for Settlement','Settlement on Hold'";
             String paymentStatus = " 'Fully Paid','On Hold'";
@@ -1964,8 +1964,8 @@ public class ActionEventsBean {
         executeBinding(SAVE_DATA);
         submitstatpopupbind.hide();
     }
-    
-    
+
+
     public void onStatisticalSubmitAprovalAttach(ActionEvent actionEvent) {
         DCIteratorBinding statData = null;
         statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
@@ -1979,30 +1979,33 @@ public class ActionEventsBean {
         executeBinding(SAVE_DATA);
         submitstatpopupattachbind.hide();
     }
-    
-    
+
+
     public void onStatisticalSubmitAprovalDocValidations(ActionEvent actionEvent) {
         DCIteratorBinding statData = null;
         statData = getDCIteratorBindings("SgsStatisticalDataVO1Iterator");
         oracle.jbo.Row[] statDataDatarows = statData.getAllRowsInRange();
-        int count=0;
+        int count = 0;
         for (int i = 0; i < statDataDatarows.length; i++) {
             if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
                 statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
-                
-                if(null == statDataDatarows[i].getAttribute("DOCATTM") || statDataDatarows[i].getAttribute("DOCATTM").equals(" ") ||  statDataDatarows[i].getAttribute("DOCATTM").toString().length() == 0){
-                    count=1;
+
+                if (null == statDataDatarows[i].getAttribute("DOCATTM") ||
+                    statDataDatarows[i].getAttribute("DOCATTM").equals(" ") || statDataDatarows[i].getAttribute("DOCATTM")
+                                                                                                  .toString()
+                                                                                                  .length() == 0) {
+                    count = 1;
                     break;
                 }
-                
+
             }
         }
-        
-        if(count>0){
-            
+
+        if (count > 0) {
+
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             this.submitstatpopupattachbind.show(hints);
-        }else{
+        } else {
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             this.submitstatpopupbind.show(hints);
         }
@@ -2448,7 +2451,7 @@ public class ActionEventsBean {
     public void onStatSubmitNo(ActionEvent actionEvent) {
         submitstatpopupbind.hide();
     }
-    
+
     public void onStatSubmitAttachNo(ActionEvent actionEvent) {
         submitstatpopupattachbind.hide();
     }
@@ -2492,25 +2495,25 @@ public class ActionEventsBean {
                 reversalReason = getLookupCode(selectedRow, type);
             }
 
-         System.out.println("Reversal Resaon::"+reversalReason);
+            System.out.println("Reversal Resaon::" + reversalReason);
 
-//            BindingContainer bc1 = this.getBindingsCont();
-//            JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
-//            String selectedRow1 = (String) list1.getSelectedValue();
-//
-//            String reversalType = "NONE";
-//            if (null != selectedRow1) {
-//                String type = "REVERSAL_TYPE";
-//                reversalType = getLookupCode(selectedRow1, type);
-//            }
-//
-//            if (null != reversalType) {
-//                row[i].setAttribute("REVERSALTYPE", reversalType);
-//            }
-            System.out.println("Comments Value ::"+otherCommentBind.getValue());
+            //            BindingContainer bc1 = this.getBindingsCont();
+            //            JUCtrlListBinding list1 = (JUCtrlListBinding) bc1.get("ReversalTypeLOVVO1");
+            //            String selectedRow1 = (String) list1.getSelectedValue();
+            //
+            //            String reversalType = "NONE";
+            //            if (null != selectedRow1) {
+            //                String type = "REVERSAL_TYPE";
+            //                reversalType = getLookupCode(selectedRow1, type);
+            //            }
+            //
+            //            if (null != reversalType) {
+            //                row[i].setAttribute("REVERSALTYPE", reversalType);
+            //            }
+            System.out.println("Comments Value ::" + otherCommentBind.getValue());
             if (null != otherCommentBind.getValue() && !("".equals(otherCommentBind.getValue()))) {
                 row[i].setAttribute("REVERSALREASON", otherCommentBind.getValue());
-            }else{
+            } else {
                 if (null != reversalReason) {
                     row[i].setAttribute("REVERSALREASON", reversalReason);
 
@@ -2523,7 +2526,7 @@ public class ActionEventsBean {
 
         this.creditDateBindVal.setValue(null);
         this.otherCommentBind.setValue(null);
-             //        this.percentageReversalBind.setValue(null);
+        //        this.percentageReversalBind.setValue(null);
 
         AdfFacesContext.getCurrentInstance().addPartialTarget(creditDateBindVal);
         AdfFacesContext.getCurrentInstance().addPartialTarget(otherCommentBind);
@@ -3995,7 +3998,7 @@ public class ActionEventsBean {
                     double NettingCcAllLimCal = ((BigDecimal) netCcAllLimCal.getValue()).doubleValue();
 
                     double EnterccAllowableLimit = Double.parseDouble((String) ccAllowableLimit.getValue());
-                   
+
 
                     if (!Objects.isNull(EnterNetIcLimOf) && (EnterNetIcLimOf > NetIcAllLimCalRead)) {
                         FacesContext context = FacesContext.getCurrentInstance();
@@ -4134,9 +4137,9 @@ public class ActionEventsBean {
         return netIcAllLimCalBind;
     }
 
-    
+
     public void onCreditTransactionInSettlement(ActionEvent actionEvent) {
-//        executeBinding("Rollback");
+        //        executeBinding("Rollback");
         DCIteratorBinding settlemtntData = getDCIteratorBindings("SgsStlmtVoucherVO1Iterator");
         DCIteratorBinding creditData = getDCIteratorBindings("SgsInvoiceCreditMemoVO1Iterator");
         //creditData.getViewObject().executeQuery();
@@ -4145,10 +4148,10 @@ public class ActionEventsBean {
         int nonInvoice = 0;
         int selectedRecords = 0;
         Object user = (Object) util.getSessionScopeValue("_username").toString();
-        int transBreak=0;
-        int paymentBreak=0;
+        int transBreak = 0;
+        int paymentBreak = 0;
 
-        System.out.println("settlemtntDatarows Length ::"+settlemtntDatarows.length);
+        System.out.println("settlemtntDatarows Length ::" + settlemtntDatarows.length);
         if (settlemtntDatarows.length == 0) {
             FacesContext context = FacesContext.getCurrentInstance();
             String messageText = "Please select a transaction for creation of Credit Transactions";
@@ -4157,29 +4160,29 @@ public class ActionEventsBean {
             context.addMessage(null, fm);
         } else {
             for (int i = 0; i < settlemtntDatarows.length; i++) {
-                System.out.println("SelectRecord ::"+settlemtntDatarows[i].getAttribute("SelectRecord"));
+                System.out.println("SelectRecord ::" + settlemtntDatarows[i].getAttribute("SelectRecord"));
                 if (null != settlemtntDatarows[i].getAttribute("SelectRecord") &&
                     settlemtntDatarows[i].getAttribute("SelectRecord").equals("Yes")) {
-                    String transCategory= (String)settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY");
-                    System.out.println("transCategory ::"+transCategory);
-                    if(null != transCategory && transCategory.equalsIgnoreCase("Credit Transaction")){
-                        transBreak=1;
+                    String transCategory = (String) settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY");
+                    System.out.println("transCategory ::" + transCategory);
+                    if (null != transCategory && transCategory.equalsIgnoreCase("Credit Transaction")) {
+                        transBreak = 1;
                         break;
                     }
-                    String paymentStatus= (String)settlemtntDatarows[i].getAttribute("PaymentStatus");
-                    System.out.println("paymentStatus ::"+paymentStatus);
-                    
-                    if(null != paymentStatus &&  (paymentStatus.equalsIgnoreCase("NA"))){
-                        paymentBreak=2;
+                    String paymentStatus = (String) settlemtntDatarows[i].getAttribute("PaymentStatus");
+                    System.out.println("paymentStatus ::" + paymentStatus);
+
+                    if (null != paymentStatus && (paymentStatus.equalsIgnoreCase("NA"))) {
+                        paymentBreak = 2;
                         break;
                     }
-                    if(null != paymentStatus &&  !(paymentStatus.equalsIgnoreCase("Unpaid"))){
-                        paymentBreak=1;
+                    if (null != paymentStatus && !(paymentStatus.equalsIgnoreCase("Unpaid"))) {
+                        paymentBreak = 1;
                         break;
                     }
-                    
-                    
-                    System.out.println("SelectRecord ::"+settlemtntDatarows[i].getAttribute("SelectRecord"));
+
+
+                    System.out.println("SelectRecord ::" + settlemtntDatarows[i].getAttribute("SelectRecord"));
                     executeBinding("CreateInsertCreditInStltmt");
                     Row row = creditData.getCurrentRow();
                     row.setAttribute("InvoiceSeqNo", settlemtntDatarows[i].getAttribute("WBINVSEQ"));
@@ -4197,64 +4200,61 @@ public class ActionEventsBean {
                     row.setAttribute("CreatedBy", user);
                     row.setAttribute("UpdatedDate", settlemtntDatarows[i].getAttribute("UpdatedDate"));
                     row.setAttribute("UpdatedBy", user);
-                    
-                    
-                    
-//                    System.out.println("InvoiceSeqNo::::"+ settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
-//                    System.out.println("Period::"+ settlemtntDatarows[i].getAttribute("Period"));
-//                    System.out.println("TransactionCategory::"+ settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY"));
-//                    System.out.println("PsftVoucherRef::"+ settlemtntDatarows[i].getAttribute("PsVoucherNo"));
-//                    System.out.println("PsftInvoiceRef::"+ settlemtntDatarows[i].getAttribute("RefToArInvoice"));
-//                    System.out.println("NatureOfExpense::"+ settlemtntDatarows[i].getAttribute("NATUREOFEXPENSE"));
-//                    System.out.println("FromBu::"+ settlemtntDatarows[i].getAttribute("IcSupplierBu"));
-//                    System.out.println("ToBu::"+ settlemtntDatarows[i].getAttribute("IcCustomerBu"));
-//                    System.out.println("InvoiceAmount::"+ settlemtntDatarows[i].getAttribute("VoucherAmount"));
-//                    System.out.println("InputProvider::"+ settlemtntDatarows[i].getAttribute("INPUTPROVIDER"));
-//                    System.out.println("CreatedDate::"+ settlemtntDatarows[i].getAttribute("CreatedDate"));
-//                    System.out.println("CreatedBy::"+ settlemtntDatarows[i].getAttribute("CreatedBy"));
-//                    System.out.println("UpdatedDate::"+ settlemtntDatarows[i].getAttribute("UpdatedDate"));
-//                    System.out.println("UpdatedBy::"+ settlemtntDatarows[i].getAttribute("UpdatedBy"));
+
+
+                    //                    System.out.println("InvoiceSeqNo::::"+ settlemtntDatarows[i].getAttribute("INVOICESEQNO"));
+                    //                    System.out.println("Period::"+ settlemtntDatarows[i].getAttribute("Period"));
+                    //                    System.out.println("TransactionCategory::"+ settlemtntDatarows[i].getAttribute("TRANSACTIONCATEGORY"));
+                    //                    System.out.println("PsftVoucherRef::"+ settlemtntDatarows[i].getAttribute("PsVoucherNo"));
+                    //                    System.out.println("PsftInvoiceRef::"+ settlemtntDatarows[i].getAttribute("RefToArInvoice"));
+                    //                    System.out.println("NatureOfExpense::"+ settlemtntDatarows[i].getAttribute("NATUREOFEXPENSE"));
+                    //                    System.out.println("FromBu::"+ settlemtntDatarows[i].getAttribute("IcSupplierBu"));
+                    //                    System.out.println("ToBu::"+ settlemtntDatarows[i].getAttribute("IcCustomerBu"));
+                    //                    System.out.println("InvoiceAmount::"+ settlemtntDatarows[i].getAttribute("VoucherAmount"));
+                    //                    System.out.println("InputProvider::"+ settlemtntDatarows[i].getAttribute("INPUTPROVIDER"));
+                    //                    System.out.println("CreatedDate::"+ settlemtntDatarows[i].getAttribute("CreatedDate"));
+                    //                    System.out.println("CreatedBy::"+ settlemtntDatarows[i].getAttribute("CreatedBy"));
+                    //                    System.out.println("UpdatedDate::"+ settlemtntDatarows[i].getAttribute("UpdatedDate"));
+                    //                    System.out.println("UpdatedBy::"+ settlemtntDatarows[i].getAttribute("UpdatedBy"));
                     //row.setAttribute("REVERSALREASON", settlemtntDatarows[i].getAttribute("REVERSALREASON"));
                     selectedRecords = selectedRecords + 1;
-                    
-                    
-                    
+
+
                 }
 
             }
-            
-            if(transBreak >0){
+
+            if (transBreak > 0) {
                 FacesContext context = FacesContext.getCurrentInstance();
                 String messageText = "Please select an Invoice for creation of Credit Transaction";
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_ERROR);
                 context.addMessage(null, fm);
-            }else if(paymentBreak==1){
+            } else if (paymentBreak == 1) {
                 FacesContext context = FacesContext.getCurrentInstance();
                 String messageText = "Please select an Unpaid Transaction for creation of Credit Transaction";
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_ERROR);
                 context.addMessage(null, fm);
-            }else if(paymentBreak==2){
+            } else if (paymentBreak == 2) {
                 FacesContext context = FacesContext.getCurrentInstance();
-                String messageText = "The selected Invoice is already reversed. Kindly select an Upaid Invoice for creation of Credit Transactions";
+                String messageText =
+                    "The selected Invoice is already reversed. Kindly select an Upaid Invoice for creation of Credit Transactions";
                 FacesMessage fm = new FacesMessage(messageText);
                 fm.setSeverity(FacesMessage.SEVERITY_ERROR);
                 context.addMessage(null, fm);
             }
-//        
-            else{
+            //
+            else {
                 System.out.println("nonInvoice Cat 11::" + nonInvoice);
-                 RichPopup.PopupHints hints = new RichPopup.PopupHints();
-                 this.invoicecreditmemobindpopup.show(hints);
+                RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                this.invoicecreditmemobindpopup.show(hints);
             }
 
         }
 
 
     }
-
-
 
 
     public void syncAction(ActionEvent actionEvent) {
@@ -4527,143 +4527,143 @@ public class ActionEventsBean {
     public void onNetIcRecvRelease(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-              DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
-              ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-              oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecords", "true");
-              System.out.println("*****Selected rows****" + selectedRows.length);
-              for (oracle.jbo.Row rw : selectedRows) {
-                  if (rw.getAttribute("Status").equals("On Hold")) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecords", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("Status").equals("On Hold")) {
 
 
-                      rw.setAttribute("Status", "Release");
-                  }
-              }
+                rw.setAttribute("Status", "Pending for Treasury Approval");
+            }
+        }
 
-              executeBinding("Commit");
+        executeBinding("Commit");
 
     }
 
     public void onNetIcPayHold(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
-                ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-                System.out.println("*****Selected rows****" + selectedRows.length);
-                for (oracle.jbo.Row rw : selectedRows) {
-                        if (!(rw.getAttribute("Status").equals("On Hold"))) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
 
 
-                        rw.setAttribute("Status", "On Hold");
-                    }
-                }
+                rw.setAttribute("Status", "On Hold");
+            }
+        }
 
-                executeBinding("Commit");
+        executeBinding("Commit");
     }
 
     public void onNetIcPayRelease(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-               DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
-               ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-               oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-               System.out.println("*****Selected rows****" + selectedRows.length);
-               for (oracle.jbo.Row rw : selectedRows) {
-                       if (rw.getAttribute("Status").equals("On Hold")) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("Status").equals("On Hold")) {
 
 
-                           rw.setAttribute("Status", "Release");
-                       }
-               }
+                rw.setAttribute("Status", "Pending for Treasury Approval");
+            }
+        }
 
-               executeBinding("Commit");
+        executeBinding("Commit");
     }
 
     public void onNetArColRecvHold(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
-                ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-                System.out.println("*****Selected rows****" + selectedRows.length);
-                for (oracle.jbo.Row rw : selectedRows) {
-                    if (!(rw.getAttribute("Status").equals("On Hold"))) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
 
 
-                        rw.setAttribute("Status", "On Hold");
-                    }
-                }
+                rw.setAttribute("Status", "On Hold");
+            }
+        }
 
-                executeBinding("Commit");
+        executeBinding("Commit");
     }
 
     public void onNetArColRecvRelease(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
-                ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-                System.out.println("*****Selected rows****" + selectedRows.length);
-                for (oracle.jbo.Row rw : selectedRows) {
-                    if (rw.getAttribute("Status").equals("On Hold")) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("Status").equals("On Hold")) {
 
 
-                        rw.setAttribute("Status", "Release");
-                    }
-                }
+                rw.setAttribute("Status", "Pending for Treasury Approval");
+            }
+        }
 
-                executeBinding("Commit");
+        executeBinding("Commit");
     }
 
     public void onNetArColPayHold(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-               DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
-               ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-               oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-               System.out.println("*****Selected rows****" + selectedRows.length);
-               for (oracle.jbo.Row rw : selectedRows) {
-                       if (!(rw.getAttribute("Status").equals("On Hold"))) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
 
 
-                       rw.setAttribute("Status", "On Hold");
-                   }
-               }
+                rw.setAttribute("Status", "On Hold");
+            }
+        }
 
-               executeBinding("Commit");
+        executeBinding("Commit");
 
     }
 
     public void onNetArColPayRelease(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-                DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
-                ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-                System.out.println("*****Selected rows****" + selectedRows.length);
-                for (oracle.jbo.Row rw : selectedRows) {
-                    if (rw.getAttribute("Status").equals("On Hold")) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (rw.getAttribute("Status").equals("On Hold")) {
 
 
-                        rw.setAttribute("Status", "Release");
-                    }
-                }
+                rw.setAttribute("Status", "Pending for Treasury Approval");
+            }
+        }
 
-                executeBinding("Commit");
+        executeBinding("Commit");
     }
 
 
@@ -4674,51 +4674,34 @@ public class ActionEventsBean {
     public RichInputText getOtherCommentBind() {
         return otherCommentBind;
     }
+
     public void onNetIcRecvSettled(ActionEvent actionEvent) {
         // Add event code here...
-        
-        
+
+
         BindingContainer bindings = getBindingsCont();
-                       DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
-                       ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                       oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecords", "true");
-                       System.out.println("*****Selected rows****" + selectedRows.length);
-                       for (oracle.jbo.Row rw : selectedRows) {
-                           if (!(rw.getAttribute("Status").equals("On Hold"))) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecords", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
 
 
-                               rw.setAttribute("Status", "Settled");
-                           }
-                       }
+                rw.setAttribute("Status", "Settled");
+            }
+        }
+        
+        executeBinding("Commit");
+        displayInfoMessgage("Transaction Available for Settlement");
+        settledAction();
 
-                       executeBinding("Commit");
-                       
-        LOG.info("Inside onNetIcRecvSettledForProcedure**********************");
-        System.out.println("nside onNetIcRecvSettledForProcedure*********************");
-               Connection conn = null;
-               PreparedStatement ps = null;
-               // java.util.Calendar cal = new GregorianCalendar();
-               try {
-                   conn = am.getDBConnection();
-                   String SPsql = "EXEC USP_UPDATE_NETTING_SETTLEMENT";
-                   ps = conn.prepareStatement(SPsql);
-                   ps.setEscapeProcessing(true);
-                   ps.execute();
-                       } catch (SQLException sqle) {
-                   // TODO: Add catch code
-                   sqle.printStackTrace();
-               } finally {
-                   try {
-                       conn.close();
-                       ps.close();
-                   } catch (SQLException e) {
-                   }
+       
 
-
-               }
     }
+
 
     public String getCurrentStatus() {
         BindingContainer bindings = getBindingsCont();
@@ -4733,7 +4716,7 @@ public class ActionEventsBean {
         }
         return null;
     }
-    
+
     public String getCurrentApprover() {
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
@@ -4741,24 +4724,26 @@ public class ActionEventsBean {
         oracle.jbo.Row[] selectedRows = VO.getFilteredRows("selectedRecord", "Yes");
         if (selectedRows.length > 0) {
             oracle.jbo.Row rw = selectedRows[0];
-            if (null != rw.getAttribute("APPROVER")) {
-                return (String) rw.getAttribute("APPROVER");
+            if (null != rw.getAttribute("APPROVERFC1")) {
+                return (String) rw.getAttribute("APPROVERFC1");
             }
         }
         return null;
     }
-    
-    public void setApprover(String userName) {
+
+    public void setApprover(String userName, String Approver) {
         BindingContainer bindings = getBindingsCont();
         DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetHeaderTblVO1Iterator");
         ViewObject VO = holditer.getViewObject();
         oracle.jbo.Row[] selectedRows = VO.getFilteredRows("selectedRecord", "Yes");
         for (oracle.jbo.Row rw : selectedRows) {
-            rw.setAttribute("APPROVER", userName);
+            rw.setAttribute(Approver, userName);
+
         }
 
         executeBinding("Commit");
     }
+
 
     public void onNetHeaderApprove(ActionEvent actionEvent) {
 
@@ -4771,33 +4756,37 @@ public class ActionEventsBean {
         if (userRole.equalsIgnoreCase("Treasury")) {
 
             changeStatus("Pending for FC Approval");
+            setApprover(username, "APPROVERT");
+            displayInfoMessgage("     Approved    ");
 
 
         } else if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
 
             String currentStatus = getCurrentStatus();
             String currentApprover = getCurrentApprover();
-            System.out.println("=======CURRENTSTATUS====="+currentStatus);
-            System.out.println("=======CURRENTAPPROVER====="+currentApprover);
-            System.out.println("=====-----Currentusername---====="+username);
+            System.out.println("=======CURRENTSTATUS=====" + currentStatus);
+            System.out.println("=======CURRENTAPPROVER=====" + currentApprover);
+            System.out.println("=====-----Currentusername---=====" + username);
 
             if (currentStatus.equalsIgnoreCase("Pending for FC Approval")) {
 
                 changeStatus("One Geo Approved, Second Geo Pending");
-                setApprover(username);
+                setApprover(username, "APPROVERFC1");
+                displayInfoMessgage("     Approved    ");
 
             } else if (currentStatus.equalsIgnoreCase("One Geo Approved, Second Geo Pending")) {
 
                 if (currentApprover.equalsIgnoreCase(username)) {
-                    
-                    System.out.println("=====-----CurrentApprover---====="+currentApprover);
-                    System.out.println("=====-----Currentusername---====="+username);
+
+                    System.out.println("=====-----CurrentApprover---=====" + currentApprover);
+                    System.out.println("=====-----Currentusername---=====" + username);
                     displayWarningMessgage("You have already approved once");
 
                 } else {
 
                     changeStatus("Pending for GAO Approval");
-                    setApprover(username);
+                    setApprover(username, "APPROVERFC2");
+                    displayInfoMessgage("     Approved    ");
                 }
             } else {
 
@@ -4806,6 +4795,8 @@ public class ActionEventsBean {
         } else if (userRole.equalsIgnoreCase("GAO")) {
 
             changeStatus("Approved");
+            setApprover(username, "APPROVER");
+            displayInfoMessgage("     Approved    ");
 
         } else if (userRole.equalsIgnoreCase("GFSS")) {
 
@@ -4839,6 +4830,14 @@ public class ActionEventsBean {
 
     }
 
+    public void displayInfoMessgage(String customMessage) {
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Status Change", customMessage);
+        context.addMessage(null, message);
+
+    }
+
     public void changeStatus(String status) {
 
 
@@ -4868,124 +4867,126 @@ public class ActionEventsBean {
     public void onNetIcPaySettled(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-                       DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
-                       ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcPayableVO2Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                       oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-                       System.out.println("*****Selected rows****" + selectedRows.length);
-                       for (oracle.jbo.Row rw : selectedRows) {
-                           if (!(rw.getAttribute("Status").equals("On Hold"))) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
 
 
-                               rw.setAttribute("Status", "Settled");
-                           }
-                       }
-
-                       executeBinding("Commit");
+                rw.setAttribute("Status", "Settled");
+            }
+        }
+        
+        executeBinding("Commit");
+        displayInfoMessgage("Transaction Available for Settlement");
+        settledAction();
     }
 
     public void onNetArColRecvSettled(ActionEvent actionEvent) {
-      
-                BindingContainer bindings = getBindingsCont();
-                        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
-                        ViewObject holdVO = holditer.getViewObject();
+
+        BindingContainer bindings = getBindingsCont();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColRecVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-                        System.out.println("*****Selected rows****" + selectedRows.length);
-                        for (oracle.jbo.Row rw : selectedRows) {
-                            if (!(rw.getAttribute("Status").equals("On Hold"))) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
 
 
-                                rw.setAttribute("Status", "Settled");
-                            }
-                        }
-
-                        executeBinding("Commit");
+                rw.setAttribute("Status", "Settled");
+            }
+        }
+        
+        executeBinding("Commit");
+        displayInfoMessgage("Transaction Available for Settlement");
+        settledAction();
     }
 
     public void onNetArColPaySettled(ActionEvent actionEvent) {
         // Add event code here...
         BindingContainer bindings = getBindingsCont();
-                        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
-                        ViewObject holdVO = holditer.getViewObject();
+        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("NetArColPayVO1Iterator");
+        ViewObject holdVO = holditer.getViewObject();
 
 
-                        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
-                        System.out.println("*****Selected rows****" + selectedRows.length);
-                        for (oracle.jbo.Row rw : selectedRows) {
-                            if (!(rw.getAttribute("Status").equals("On Hold"))) {
+        oracle.jbo.Row[] selectedRows = holdVO.getFilteredRows("selectedRecord", "true");
+        System.out.println("*****Selected rows****" + selectedRows.length);
+        for (oracle.jbo.Row rw : selectedRows) {
+            if (!(rw.getAttribute("Status").equals("On Hold"))) {
 
 
-                                rw.setAttribute("Status", "Settled");
-                            }
-                        }
-
-                        executeBinding("Commit");
+                rw.setAttribute("Status", "Settled");
+            }
+        }
+       
+        executeBinding("Commit");
+        displayInfoMessgage("Transaction Available for Settlement");
+        settledAction();
     }
-    
-    
-    
+
+
     public String getUserRole() {
-            System.out.println("----Get User  detail---------");
-            String userRole = null;
-            Connection connection = null;
-            PreparedStatement statement = null;
-            ResultSet resultSet = null;
-                    
-                    CommonUtils util = new CommonUtils();
-                    String user = util.getSessionScopeValue("_username").toString();
-     
+        System.out.println("----Get User  detail---------");
+        String userRole = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
 
-            try {
-                connection = am.getDBConnection();
+        CommonUtils util = new CommonUtils();
+        String user = util.getSessionScopeValue("_username").toString();
 
-     
 
-                // Prepare and execute the SQL query
-                String sql = "SELECT ROLE_ID FROM [USER_ROLE_MAPPING] WHERE USER_ID= ?";
-                statement = connection.prepareStatement(sql);
-                statement.setString(1, user);
-                resultSet = statement.executeQuery();
+        try {
+            connection = am.getDBConnection();
 
-     
 
-                // Retrieve the user's role from the result set
-                if (resultSet.next()) {
-                    userRole = resultSet.getString("ROLE_ID");
-                }
-            } catch (SQLException e) {
-                // Handle exceptions
-            } finally {
-                // Close the database resources
-                if (resultSet != null) {
-                    try {
-                        resultSet.close();
-                    } catch (SQLException e) {
-                        // Handle exception
-                    }
-                }
-                if (statement != null) {
-                    try {
-                        statement.close();
-                    } catch (SQLException e) {
-                        // Handle exception
-                    }
-                }
-                if (connection != null) {
-                    try {
-                        connection.close();
-                    } catch (SQLException e) {
-                        // Handle exception
-                    }
+            // Prepare and execute the SQL query
+            String sql = "SELECT ROLE_ID FROM [USER_ROLE_MAPPING] WHERE USER_ID= ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, user);
+            resultSet = statement.executeQuery();
+
+
+            // Retrieve the user's role from the result set
+            if (resultSet.next()) {
+                userRole = resultSet.getString("ROLE_ID");
+            }
+        } catch (SQLException e) {
+            // Handle exceptions
+        } finally {
+            // Close the database resources
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    // Handle exception
                 }
             }
-
-     
-
-            return userRole;
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    // Handle exception
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    // Handle exception
+                }
+            }
         }
+
+
+        return userRole;
+    }
 
 
     public void setNetHeaderTableData(RichTable netHeaderTableData) {
@@ -5009,7 +5010,7 @@ public class ActionEventsBean {
 
 
     }
-    
+
     public void queryByStatuswith2Param(String Status, String Status1) {
         String userRole = getUserRole();
         BindingContainer bindings = getBindingsCont();
@@ -5027,19 +5028,19 @@ public class ActionEventsBean {
     public void nettingHeaderTableFilter(ActionEvent actionEvent) {
         // Add event code here...
         String userRole = getUserRole();
-       
+
         if (userRole.equalsIgnoreCase("Treasury")) {
-            
+
             queryByStatus("Pending for Treasury Approval");
-            
+
 
         } else if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
 
-            queryByStatuswith2Param("Pending for FC Approval","One Geo Approved, Second Geo Pending");
-            
+            queryByStatuswith2Param("Pending for FC Approval", "One Geo Approved, Second Geo Pending");
 
-        } 
-        
+
+        }
+
         else if (userRole.equalsIgnoreCase("GAO")) {
 
             queryByStatus("Pending for GAO Approval");
@@ -5049,8 +5050,8 @@ public class ActionEventsBean {
             queryByStatus("Approved");
 
         }
-        
-        
+
+
     }
 
     public void netHeaderReject(ActionEvent actionEvent) {
@@ -5083,6 +5084,32 @@ public class ActionEventsBean {
 
     public RichSelectBooleanCheckbox getZeroBalanceCheckBind() {
         return zeroBalanceCheckBind;
+    }
+    
+    public void settledAction() {
+        LOG.info("Inside settledAction**********************");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        // java.util.Calendar cal = new GregorianCalendar();
+        try {
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USP_UPDATE_NETTING_SETTLEMENT";
+            ps = conn.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.execute();
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
+
+
+        }
     }
 }
 

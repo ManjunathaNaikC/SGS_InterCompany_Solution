@@ -189,5 +189,19 @@
         <Item Value="TransactionReferenceNo"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_INVOICECURRENCY" id="INVOICECURRENCY"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CreateStlmtRVO1Iterator" StaticList="false" Uses="LOV_CURRENCYTYPE" id="CURRENCYTYPE"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="PAYMENTAMOUNT">
+      <AttrNames>
+        <Item Value="PAYMENTAMOUNT"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CreateStlmtRVO1Iterator" id="RATE">
+      <AttrNames>
+        <Item Value="RATE"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

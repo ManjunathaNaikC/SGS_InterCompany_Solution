@@ -198,6 +198,13 @@ public class ActionEventsBean {
     private RichTable netHeaderTableData;
     private RichPopup submitstatpopupattachbind;
     private RichSelectBooleanCheckbox zeroBalanceCheckBind;
+    private RichSelectBooleanCheckbox paymentInDiffCurrencyBind;
+    private RichSelectOneChoice invoicecurrencybind;
+    private RichSelectOneChoice currencyTypeBind;
+    private RichInputText rateBind;
+    private RichInputText paymentAmountBind;
+    private RichInputText reteBindNew;
+    private RichInputText paymentAmountBindNew;
 
 
     public void setTotalSettlementAmount(Double totalSettlementAmount) {
@@ -5083,6 +5090,185 @@ public class ActionEventsBean {
 
     public RichSelectBooleanCheckbox getZeroBalanceCheckBind() {
         return zeroBalanceCheckBind;
+    }
+
+    public void setPaymentInDiffCurrencyBind(RichSelectBooleanCheckbox paymentInDiffCurrencyBind) {
+        this.paymentInDiffCurrencyBind = paymentInDiffCurrencyBind;
+    }
+
+    public RichSelectBooleanCheckbox getPaymentInDiffCurrencyBind() {
+        return paymentInDiffCurrencyBind;
+    }
+
+    public void payWithDiffCurrencyCheckVL(ValueChangeEvent valueChangeEvent) {
+        if (valueChangeEvent.getNewValue().equals(true)) {
+            invoicecurrencybind.setDisabled(false);
+            currencyTypeBind.setDisabled(false);
+            reteBindNew.setDisabled(false);
+            paymentAmountBindNew.setDisabled(false);
+            paymentCurrency.setDisabled(false);
+           
+        } else {
+            invoicecurrencybind.setDisabled(true);
+            currencyTypeBind.setDisabled(true);
+            reteBindNew.setDisabled(true);
+            paymentAmountBindNew.setDisabled(true);
+            paymentCurrency.setDisabled(true);
+           
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(invoicecurrencybind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(currencyTypeBind);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(reteBindNew);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentAmountBindNew);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(paymentCurrency);
+
+    }
+
+    public void setInvoicecurrencybind(RichSelectOneChoice invoicecurrencybind) {
+        this.invoicecurrencybind = invoicecurrencybind;
+    }
+
+    public RichSelectOneChoice getInvoicecurrencybind() {
+        return invoicecurrencybind;
+    }
+
+    public void setCurrencyTypeBind(RichSelectOneChoice currencyTypeBind) {
+        this.currencyTypeBind = currencyTypeBind;
+    }
+
+    public RichSelectOneChoice getCurrencyTypeBind() {
+        return currencyTypeBind;
+    }
+
+    public void setRateBind(RichInputText rateBind) {
+        this.rateBind = rateBind;
+    }
+
+    public RichInputText getRateBind() {
+        return rateBind;
+    }
+
+    public void setPaymentAmountBind(RichInputText paymentAmountBind) {
+        this.paymentAmountBind = paymentAmountBind;
+    }
+
+    public RichInputText getPaymentAmountBind() {
+        return paymentAmountBind;
+    }
+
+    public void convertPaymentAmountEvent(ValueChangeEvent valueChangeEvent) {
+        Double transactionAmount=0.0;
+    if(null != reteBindNew.getValue() && null != paymentAmountBindNew.getValue() ){
+            System.out.println("Rate Value::"+(Double) reteBindNew.getValue());
+            //System.out.println("Rate with Scope Value::"+(BigDecimal) AdfFacesContext.getCurrentInstance().getPageFlowScope().get("selectedRate"));
+           // Double rate = (Double) AdfFacesContext.getCurrentInstance().getPageFlowScope().get("selectedRate");
+            Double rate = ((Double) reteBindNew.getValue());
+ 
+           // Double paymentAmountValue=(Double)valueChangeEvent.getNewValue();
+            Double paymentAmountValue = ((BigDecimal) paymentAmountBindNew.getValue()).doubleValue();
+            System.out.println("paymentAmountBind Value::"+paymentAmountBindNew.getValue());
+            transactionAmount=rate* paymentAmountValue;
+//            Double paymentAmountValue = ((BigDecimal) (reteBindNew.getValue() *  paymentAmountBindNew.getValue())).doubleValue();
+//            (reteBindNew.getValue() *  paymentAmountBindNew.getValue());
+            BigDecimal val= new BigDecimal(transactionAmount);
+            this.inputTransactionAmount.setValue(val);
+           // AdfFacesContext.getCurrentInstance().getPageFlowScope().put("selectedPaymentAmount",transactionAmount);           
+            AdfFacesContext.getCurrentInstance().addPartialTarget(inputTransactionAmount);
+        }
+    }
+
+    public void currencyTypeVL(ValueChangeEvent valueChangeEvent) {
+        System.out.println("valueChangeEvent::" + valueChangeEvent.getNewValue());
+        if (null != valueChangeEvent.getNewValue() && ("CURRENT".equals(valueChangeEvent.getNewValue()))) {
+            String paymentCurrency = (String) AdfFacesContext.getCurrentInstance()
+                                                             .getPageFlowScope()
+                                                             .get("selectedPayCurr");
+            String invoiceCurrency = (String) AdfFacesContext.getCurrentInstance()
+                                                             .getPageFlowScope()
+                                                             .get("selectedInvoiceCurrency");
+            System.out.println("paymentCurrency::" + paymentCurrency);
+            System.out.println("invoiceCurrency::" + invoiceCurrency);
+            Double conversionVal = 0.0;
+            if (null != paymentCurrency && null != invoiceCurrency && !(invoiceCurrency.equals(paymentCurrency))) {
+                conversionVal = getConversionRate(paymentCurrency, invoiceCurrency);
+                System.out.println("conversionVal::" + conversionVal);
+                this.reteBindNew.setValue(conversionVal);
+                AdfFacesContext.getCurrentInstance()
+                               .getPageFlowScope()
+                               .put("selectedRate", conversionVal);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(reteBindNew);
+            } else {
+                this.reteBindNew.setValue(1.0);
+                AdfFacesContext.getCurrentInstance()
+                               .getPageFlowScope()
+                               .put("selectedRate", 1.0);
+                AdfFacesContext.getCurrentInstance().addPartialTarget(reteBindNew);
+            }
+
+        }else{
+            AdfFacesContext.getCurrentInstance()
+                           .getPageFlowScope()
+                           .put("selectedRate", 0.0);
+            this.reteBindNew.setValue(0.0);
+            AdfFacesContext.getCurrentInstance().addPartialTarget(reteBindNew);
+        }
+
+
+    }
+    
+    public Double getConversionRate(String sourceCurrency, String targetCurrency){
+        Double conversionRate=0.0;
+        String queryString =
+            "SELECT CONVERSION_RATE from CURRENCY_RATE_TBL WHERE SOURCE_CURRENCY='"+sourceCurrency+"' AND TARGET_CURRENCY='"+targetCurrency+"';";
+       
+        Connection conn = null;
+        PreparedStatement pst = null;
+
+        try {
+            SGSAppModuleImpl am = new SGSAppModuleImpl();
+            conn = am.getDBConnection();
+            String sqlIdentifier = queryString;
+            pst = conn.prepareStatement(sqlIdentifier);
+
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                conversionRate =(Double) rs.getBigDecimal(1).doubleValue();
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return conversionRate;
+        
+    }
+
+    public void setReteBindNew(RichInputText reteBindNew) {
+        this.reteBindNew = reteBindNew;
+    }
+
+    public RichInputText getReteBindNew() {
+        return reteBindNew;
+    }
+
+    public void setPaymentAmountBindNew(RichInputText paymentAmountBindNew) {
+        this.paymentAmountBindNew = paymentAmountBindNew;
+    }
+
+    public RichInputText getPaymentAmountBindNew() {
+        return paymentAmountBindNew;
+    }
+
+    public void rateValueChangeEvent(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
     }
 }
 

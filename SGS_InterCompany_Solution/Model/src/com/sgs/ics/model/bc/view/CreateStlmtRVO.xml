@@ -211,6 +211,38 @@
     Name="IcCustBuBuLov1"
     ViewObjectName="com.sgs.ics.model.bc.view.lookupVo.BuLov"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SgsLookupInvoiceCurrencyVO"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CreateStlmtRVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="SgsLookupCurrencyTypeVO2"
+    ViewObjectName="com.sgs.ics.model.bc.view.SgsLookupVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SgsLookupVOCriteria"
+      FullName="com.sgs.ics.model.bc.view.SgsLookupVO.SgsLookupVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="bLookupType">
+        <TransientExpression
+          Name="ExpressionScript"
+          trustMode="untrusted"
+          CodeSourceName="CreateStlmtRVO"/>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_ICCUSTOMERGEO"
     ListVOName="SgsLookupVO1"
@@ -476,6 +508,42 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_INVOICECURRENCY"
+    ListVOName="SgsLookupInvoiceCurrencyVO"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="INVOICECURRENCY"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CURRENCYTYPE"
+    ListVOName="SgsLookupCurrencyTypeVO2"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CURRENCYTYPE"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT    
     SETTLEMENT_ID,    
     PAYMENT_ID,    
@@ -518,7 +586,11 @@
     RECEIPT_BANK_ACCT_KEY,    
     PAYMENT_BANK_CD,    
     PAYMENT_BANK_ACCT_KEY,  
-    _REC_TXN_REFERENCE_NO 
+    _REC_TXN_REFERENCE_NO,
+    CURRENCY_TYPE,
+    INVOICE_CURRENCY,
+    PAYMENT_AMOUNT,
+    RATE
 FROM    
     SGS_CREATE_SETTLEMENT]]></SQLQuery>
   <ViewAttribute
@@ -1248,6 +1320,88 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
     </DesignTime>
+  </ViewAttribute>
+    <ViewAttribute
+    Name="CURRENCYTYPE"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CURRENCY_TYPE"
+    Expression="CURRENCY_TYPE"
+    SQLType="VARCHAR"
+      LOVName="LOV_CURRENCYTYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.CURRENCYTYPE_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+      <ViewAttribute
+    Name="INVOICECURRENCY"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="80"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="INVOICE_CURRENCY"
+    Expression="INVOICE_CURRENCY"
+    SQLType="VARCHAR"
+        LOVName="LOV_INVOICECURRENCY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.INVOICECURRENCY_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+    <ViewAttribute
+    Name="PAYMENTAMOUNT"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="2"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="PAYMENT_AMOUNT"
+    Expression="PAYMENT_AMOUNT"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.PAYMENTAMOUNT_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+      <ViewAttribute
+    Name="RATE"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="8"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="RATE"
+    Expression="RATE"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.sgs.ics.model.bc.view.CreateStlmtRVO.RATE_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="SETTLEMENTID"/>

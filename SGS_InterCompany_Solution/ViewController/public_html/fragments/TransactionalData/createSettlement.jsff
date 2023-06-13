@@ -39,6 +39,10 @@
                         <af:selectBooleanCheckbox id="sbc3" autoSubmit="true"
                                                   inlineStyle="width: 390px" label="Zero Settlement"
                                                   binding="#{viewScope.ActionEventsBean.zeroBalanceCheckBind}"/>
+                          <af:selectBooleanCheckbox id="sbc4" autoSubmit="true"
+                                                  inlineStyle="width: 390px" label="Payment In Different Currency"
+                                                  binding="#{viewScope.ActionEventsBean.paymentInDiffCurrencyBind}"
+                                                    valueChangeListener="#{viewScope.ActionEventsBean.payWithDiffCurrencyCheckVL}"/>
                     </af:panelFormLayout>
                     <af:panelFormLayout id="pfl5" maxColumns="1" rows="6">
                         <f:facet name="footer"/>
@@ -90,7 +94,7 @@
             </af:panelGroupLayout>
             <af:spacer id="s4" height="20"/>
             <af:panelGroupLayout id="pgl5" layout="horizontal">
-                <af:panelBox text="Payment Details" id="pb2" inlineStyle="  width: 550px;     height: 380px;">
+                <af:panelBox text="Payment Details" id="pb2" inlineStyle="  width: 550px;     height: 450px;">
                     <f:facet name="toolbar"/>
                     <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
                         <f:facet name="footer"/>
@@ -160,6 +164,52 @@
                             <f:selectItems value="#{bindings.PAYMENTCURRENCY.items}" id="si5"/>
                             <f:validator binding="#{bindings.PAYMENTCURRENCY.validator}"/>
                         </af:selectOneChoice>
+                        <af:selectOneChoice value="#{pageFlowScope.selectedInvoiceCurrency}"
+                                            label="#{bindings.INVOICECURRENCY.label}"
+                                            required="#{bindings.INVOICECURRENCY.hints.mandatory}"
+                                            shortDesc="#{bindings.INVOICECURRENCY.hints.tooltip}" id="soc16"
+                                            autoSubmit="true"
+                                            binding="#{viewScope.ActionEventsBean.invoicecurrencybind}" disabled="true">
+                            <f:selectItems value="#{bindings.INVOICECURRENCY.items}" id="si16"/>
+                            <f:validator binding="#{bindings.INVOICECURRENCY.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{pageFlowScope.selectedCurrencyType}"
+                                            label="#{bindings.CURRENCYTYPE.label}"
+                                            required="#{bindings.CURRENCYTYPE.hints.mandatory}"
+                                            shortDesc="#{bindings.CURRENCYTYPE.hints.tooltip}" id="soc17"
+                                            autoSubmit="true" binding="#{viewScope.ActionEventsBean.currencyTypeBind}"
+                                            disabled="true"
+                                            valueChangeListener="#{viewScope.ActionEventsBean.currencyTypeVL}"
+                                            partialTriggers="it5">
+                            <f:selectItems value="#{bindings.CURRENCYTYPE.items}" id="si17"/>
+                            <f:validator binding="#{bindings.CURRENCYTYPE.validator}"/>
+                        </af:selectOneChoice>
+                        <!--<af:inputText label="Rate" value="#{pageFlowScope.selectedRate}" id="it5"
+                        binding="#{viewScope.ActionEventsBean.reteBindNew}" disabled="true"
+                                      autoSubmit="true"
+                                      valueChangeListener="#{viewScope.ActionEventsBean.rateValueChangeEvent}"/>-->
+                        <af:inputText value="#{bindings.RATE.inputValue}" label="#{bindings.RATE.hints.label}"
+                                      required="#{bindings.RATE.hints.mandatory}"
+                                      columns="#{bindings.RATE.hints.displayWidth}"
+                                      maximumLength="#{bindings.RATE.hints.precision}"
+                                      shortDesc="#{bindings.RATE.hints.tooltip}" id="it5"
+                                      binding="#{viewScope.ActionEventsBean.reteBindNew}" disabled="true"
+                                      autoSubmit="true">
+                            <f:validator binding="#{bindings.RATE.validator}"/>
+                          <af:convertNumber groupingUsed="true" pattern="###,##0.00" type="currency"/>
+                        </af:inputText>
+                        <af:inputText value="#{pageFlowScope.selectedPaymentAmount}"
+                                      label="Payment Amount"
+                                      required="#{bindings.PAYMENTAMOUNT.hints.mandatory}"
+                                      columns="#{bindings.PAYMENTAMOUNT.hints.displayWidth}"
+                                      maximumLength="#{bindings.PAYMENTAMOUNT.hints.precision}"
+                                      shortDesc="#{bindings.PAYMENTAMOUNT.hints.tooltip}" id="it6"
+                                      binding="#{viewScope.ActionEventsBean.paymentAmountBindNew}" 
+                                      valueChangeListener="#{viewScope.ActionEventsBean.convertPaymentAmountEvent}"
+                                      autoSubmit="true"  disabled="true" partialTriggers="it11" autoTab="true">
+                            <f:validator binding="#{bindings.PAYMENTAMOUNT.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.PAYMENTAMOUNT.format}"/>
+                        </af:inputText>
                         <af:inputText value="#{bindings.TRXAMOUNT.inputValue}" label="#{bindings.TRXAMOUNT.hints.label}"
                                       required="#{bindings.TRXAMOUNT.hints.mandatory}"
                                       columns="#{bindings.TRXAMOUNT.hints.displayWidth}"
@@ -174,7 +224,7 @@
                     </af:panelFormLayout>
                 </af:panelBox>
                 <!--<af:spacer id="s12" width="100"/>-->
-                <af:panelBox text="Receipt Details" id="pb5" inlineStyle="  width: 550px;     height: 380px;">
+                <af:panelBox text="Receipt Details" id="pb5" inlineStyle="  width: 550px;     height: 450px;">
                     <f:facet name="toolbar"/>
                      <af:panelFormLayout id="pfl3">
                                 <f:facet name="footer"/>

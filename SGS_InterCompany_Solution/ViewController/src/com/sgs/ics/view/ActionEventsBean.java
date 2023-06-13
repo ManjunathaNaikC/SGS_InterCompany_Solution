@@ -5184,20 +5184,47 @@ public class ActionEventsBean {
     public void convertPaymentAmountEvent(ValueChangeEvent valueChangeEvent) {
         Double transactionAmount=0.0;
     if(null != reteBindNew.getValue() && null != paymentAmountBindNew.getValue() ){
-            System.out.println("Rate Value::"+(Double) reteBindNew.getValue());
-            //System.out.println("Rate with Scope Value::"+(BigDecimal) AdfFacesContext.getCurrentInstance().getPageFlowScope().get("selectedRate"));
-           // Double rate = (Double) AdfFacesContext.getCurrentInstance().getPageFlowScope().get("selectedRate");
-            Double rate = ((Double) reteBindNew.getValue());
- 
-           // Double paymentAmountValue=(Double)valueChangeEvent.getNewValue();
+        double rate=0.0;
+//        if(null != currencyTypeBind.getValue() && "USER_ENTERED".equals(currencyTypeBind.getValue())){
+//
+//                if (reteBindNew.getValue() instanceof Double) {
+//                    rate = (Double) reteBindNew.getValue();
+//                }
+//
+//                if ((Object)reteBindNew.getValue() instanceof BigDecimal) {
+//                   BigDecimal rateVal = (BigDecimal) reteBindNew.getValue();
+//                   rate=rateVal.doubleValue();
+//                }
+//                
+//            if (reteBindNew.getValue() instanceof Integer) {
+//               Integer rateVal = (Integer) reteBindNew.getValue();
+//               rate=(double)rateVal;
+//            }
+//              
+//           // rate = ((BigDecimal) reteBindNew.getValue()).doubleValue();
+//        }else if(null != currencyTypeBind.getValue() && "CURRENT".equals(currencyTypeBind.getValue())){
+//            rate = ((Double) reteBindNew.getValue());
+//        }
+            if ((Object)reteBindNew.getValue() instanceof Double) {
+                rate = (Double) reteBindNew.getValue();
+            }
+
+            if ((Object) reteBindNew.getValue() instanceof BigDecimal) {
+                BigDecimal rateVal = (BigDecimal) reteBindNew.getValue();
+                rate = rateVal.doubleValue();
+            }
+
+            if ((Object)reteBindNew.getValue() instanceof Integer) {
+                Integer rateVal = (Integer) reteBindNew.getValue();
+                rate = (double) rateVal;
+            }
+            System.out.println("currencyTypeBind Value::"+(String) currencyTypeBind.getValue());
+            System.out.println("Rate Value::"+rate);
             Double paymentAmountValue = ((BigDecimal) paymentAmountBindNew.getValue()).doubleValue();
             System.out.println("paymentAmountBind Value::"+paymentAmountBindNew.getValue());
             transactionAmount=rate* paymentAmountValue;
-//            Double paymentAmountValue = ((BigDecimal) (reteBindNew.getValue() *  paymentAmountBindNew.getValue())).doubleValue();
-//            (reteBindNew.getValue() *  paymentAmountBindNew.getValue());
             BigDecimal val= new BigDecimal(transactionAmount);
             this.inputTransactionAmount.setValue(val);
-           // AdfFacesContext.getCurrentInstance().getPageFlowScope().put("selectedPaymentAmount",transactionAmount);           
             AdfFacesContext.getCurrentInstance().addPartialTarget(inputTransactionAmount);
         }
     }
@@ -5358,13 +5385,13 @@ public class ActionEventsBean {
             try {
                 conn.close();
 
-                pst.close();
+                ps.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
         
-        return conversionRate;
+
         
     }
 
@@ -5390,6 +5417,6 @@ public class ActionEventsBean {
 
         }
 
-    }
+    
 }
 

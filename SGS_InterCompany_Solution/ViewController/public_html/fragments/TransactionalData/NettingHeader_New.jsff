@@ -52,7 +52,7 @@
                                   filterModel="#{bindings.SgsNetHeaderTblVO1Query.queryDescriptor}"
                                   filterVisible="false" queryListener="#{bindings.SgsNetHeaderTblVO1Query.processQuery}"
                                   varStatus="vs" id="t1" styleClass="AFStretchWidth" rowSelection="single"
-                                  scrollPolicy="page" columnStretching="last" partialTriggers="::b1 ::b4 ::b6 ::b5 ::b7"
+                                  scrollPolicy="page" columnStretching="last" partialTriggers="::b1 ::b4 ::b6 ::b7"
                                   binding="#{viewScope.ActionEventsBean.netHeaderTableData}">
                             <!--<af:column sortProperty="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.name}" filterable="true" sortable="true"
                    headerText="#{bindings.SgsNetHeaderTblVO1.hints.NicviId.label}" id="c1">

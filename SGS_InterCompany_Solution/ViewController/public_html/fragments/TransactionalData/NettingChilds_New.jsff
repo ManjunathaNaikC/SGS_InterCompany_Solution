@@ -7,7 +7,7 @@
                 <af:button text="Netting Performed" id="b2"
                            actionListener="#{viewScope.ActionEventsBean.netPerformAction}"
                            rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETTING_PERFORMED')}"
-                           inlineStyle="border-radius:5px 5px 5px 5px;" partialTriggers="pc1:t1 pc2:t2 pc3:t3 pc4:t4"/>
+                           inlineStyle="border-radius:5px 5px 5px 5px;" partialSubmit="true"/>
                 <af:button text="Close" id="b1" action="Header" inlineStyle="border-radius:5px 5px 5px 5px;"/>
             </af:toolbar>
         </f:facet>
@@ -164,7 +164,7 @@
                                   filterVisible="false"
                                   queryListener="#{bindings.SgsNetIcReceivableVO1Query.processQuery}" varStatus="vs"
                                   id="t1" styleClass="AFStretchWidth" scrollPolicy="page"
-                                  partialTriggers="::b5 ::b6 ::b11">
+                                  partialTriggers="::b5 ::b6 ::b11 :::b2">
                             <af:column headerText="#{bindings.SgsNetIcReceivableVO1.hints.selectedRecords.label}"
                                        id="c55" inlineStyle="color:White;" align="center" width="100"
                                        binding="#{viewScope.ActionEventsBean.onIcRecvColumnSelectRecord}">
@@ -353,7 +353,7 @@
                                   filterModel="#{bindings.SgsNetIcPayableVO2Query.queryDescriptor}"
                                   filterVisible="false" queryListener="#{bindings.SgsNetIcPayableVO2Query.processQuery}"
                                   varStatus="vs" id="t2" styleClass="AFStretchWidth" scrollPolicy="page"
-                                  partialTriggers="::b3 ::b4 ::b12">
+                                  partialTriggers="::b3 ::b4 ::b12 :::b2">
                             <af:column headerText="#{bindings.SgsNetIcPayableVO2.hints.selectedRecord.label}" id="c3"
                                        inlineStyle="color:White;" align="center" width="100"
                                        binding="#{viewScope.ActionEventsBean.onIcPayColumnSelectRecord}">
@@ -542,7 +542,7 @@
                                   rowSelection="single" fetchSize="#{bindings.NetArColRecVO1.rangeSize}"
                                   filterModel="#{bindings.NetArColRecVO1Query.queryDescriptor}" filterVisible="false"
                                   queryListener="#{bindings.NetArColRecVO1Query.processQuery}" varStatus="vs" id="t3"
-                                  partialTriggers="::b7 ::b8 ::b13">
+                                  partialTriggers="::b7 ::b8 ::b13 :::b2">
                             <af:column headerText="#{bindings.NetArColRecVO1.hints.selectedRecord.label}" id="c5"
                                        inlineStyle="color:White;" align="center" width="100"
                                        binding="#{viewScope.ActionEventsBean.onNetArColRecColumnSelectRecord}">
@@ -728,7 +728,7 @@
                                   rowSelection="single" fetchSize="#{bindings.NetArColPayVO1.rangeSize}"
                                   filterModel="#{bindings.NetArColPayVO1Query.queryDescriptor}" filterVisible="false"
                                   queryListener="#{bindings.NetArColPayVO1Query.processQuery}" varStatus="vs" id="t4"
-                                  partialTriggers="::b9 ::b10 ::b14">
+                                  partialTriggers="::b9 ::b10 ::b14 :::b2">
                             <af:column headerText="#{bindings.NetArColPayVO1.hints.selectedRecord.label}" id="c8"
                                        inlineStyle="color:White;" align="center" width="100"
                                        binding="#{viewScope.ActionEventsBean.onNetArColPayColumnSelectRecord}">

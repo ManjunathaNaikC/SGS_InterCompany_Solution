@@ -3990,7 +3990,9 @@ public class ActionEventsBean {
                         System.out.println("Remarks ::" + nettingRemarksBind.getValue());
                         nettingDataDatarows[i].setAttribute("REMARKS", nettingRemarksBind.getValue());
                     }
-
+                   
+                        nettingDataDatarows[i].setAttribute("Attribute1", "Y");
+                   
                     double NetIcAllLimCalRead = ((BigDecimal) netIcAllLimCalBind.getValue()).doubleValue();
 
                     Double EnterNetIcLimOf = null;
@@ -4008,33 +4010,34 @@ public class ActionEventsBean {
                         String ccAllowableLimitValue = (String) ccAllowableLimit.getValue();
                         if (!ccAllowableLimitValue.isEmpty()) {
                             EnterccAllowableLimit = Double.parseDouble(ccAllowableLimitValue);
-                            
+
                         }
                     }
-                    System.out.println("EnterNetIcLimOf===================="+EnterNetIcLimOf);
-                    System.out.println("EnterccAllowableLimit===================="+EnterccAllowableLimit);
+                    System.out.println("EnterNetIcLimOf====================" + EnterNetIcLimOf);
+                    System.out.println("EnterccAllowableLimit====================" + EnterccAllowableLimit);
 
 
-                        if (EnterNetIcLimOf != null && (EnterNetIcLimOf > NetIcAllLimCalRead)) {
-                                               FacesContext context = FacesContext.getCurrentInstance();
-                                               String messageText =
-                                                   "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
-                                               FacesMessage fm = new FacesMessage(messageText);
-                                               fm.setSeverity(FacesMessage.SEVERITY_WARN);
-                                               context.addMessage(null, fm);
+                    if (EnterNetIcLimOf != null && (EnterNetIcLimOf > NetIcAllLimCalRead)) {
+                        FacesContext context = FacesContext.getCurrentInstance();
+                        String messageText =
+                            "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
+                        FacesMessage fm = new FacesMessage(messageText);
+                        fm.setSeverity(FacesMessage.SEVERITY_WARN);
+                        context.addMessage(null, fm);
 
-                                           } else if (EnterccAllowableLimit != null && (EnterccAllowableLimit > NettingCcAllLimCal)) {
-                                               FacesContext context = FacesContext.getCurrentInstance();
-                                               String messageText =
-                                                   "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
-                                               FacesMessage fm = new FacesMessage(messageText);
-                                               fm.setSeverity(FacesMessage.SEVERITY_WARN);
-                                               context.addMessage(null, fm);
+                    } else if (EnterccAllowableLimit != null && (EnterccAllowableLimit > NettingCcAllLimCal)) {
+                        FacesContext context = FacesContext.getCurrentInstance();
+                        String messageText =
+                            "Netting Limit fixed by users cannot be greater than Netting Allowable Limit";
+                        FacesMessage fm = new FacesMessage(messageText);
+                        fm.setSeverity(FacesMessage.SEVERITY_WARN);
+                        context.addMessage(null, fm);
 
-                                           }  else {
-                    System.out.println("comminted-----*");
+                    } else {
+                        System.out.println("comminted-----*");
 
                         executeBinding(SAVE_DATA);
+                        approveAction();
                         ADFContext.getCurrent()
                                   .getPageFlowScope()
                                   .put("Geo1", null);
@@ -4537,6 +4540,7 @@ public class ActionEventsBean {
         }
 
         executeBinding("Commit");
+        holdAction();
     }
 
     public void onNetIcRecvRelease(ActionEvent actionEvent) {
@@ -4578,6 +4582,7 @@ public class ActionEventsBean {
         }
 
         executeBinding("Commit");
+        holdAction();
     }
 
     public void onNetIcPayRelease(ActionEvent actionEvent) {
@@ -4618,6 +4623,7 @@ public class ActionEventsBean {
         }
 
         executeBinding("Commit");
+        holdAction();
     }
 
     public void onNetArColRecvRelease(ActionEvent actionEvent) {
@@ -4658,7 +4664,7 @@ public class ActionEventsBean {
         }
 
         executeBinding("Commit");
-
+        holdAction();
     }
 
     public void onNetArColPayRelease(ActionEvent actionEvent) {
@@ -4876,6 +4882,7 @@ public class ActionEventsBean {
         }
 
         executeBinding("Commit");
+        approveAction();
     }
 
 
@@ -5110,6 +5117,70 @@ public class ActionEventsBean {
             conn = am.getDBConnection();
             String SPsql = "EXEC USP_UPDATE_NETTING_SETTLEMENT";
             ps = conn.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.execute();
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
+
+
+        }
+    }
+
+    public void approveAction() {
+        LOG.info("Inside approveAction**********************");
+        System.out.println("Inside approveAction**********************");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        // java.util.Calendar cal = new GregorianCalendar();
+        try {
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USPGET_NETTING_HEADER";
+            ps = conn.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.execute();
+
+            String SPsql1 = "EXEC USP_UPDATE_NETTING_HEADER";
+            ps = conn.prepareStatement(SPsql1);
+            ps.setEscapeProcessing(true);
+            ps.execute();
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+                ps.close();
+            } catch (SQLException e) {
+            }
+
+
+        }
+    }
+
+    public void holdAction() {
+        LOG.info("Inside holdAction**********************");
+        System.out.println("Inside holdAction**************");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        // java.util.Calendar cal = new GregorianCalendar();
+        try {
+            conn = am.getDBConnection();
+            String SPsql = "EXEC USP_UPDATE_NETTING_HOLD";
+            ps = conn.prepareStatement(SPsql);
+            ps.setEscapeProcessing(true);
+            ps.execute();
+
+            String SPsql1 = "EXEC USP_UPDATE_NETTING_HOLD";
+            ps = conn.prepareStatement(SPsql1);
             ps.setEscapeProcessing(true);
             ps.execute();
 

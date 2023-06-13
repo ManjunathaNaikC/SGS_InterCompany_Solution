@@ -37,6 +37,9 @@
           <Item Value="REMARKS"/>
           <Item Value="selectedRecord" Binds="selectedRecord"/>
           <Item Value="APPROVER"/>
+          <Item Value="APPROVERT"/>
+          <Item Value="APPROVERFC1"/>
+          <Item Value="APPROVERFC2"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

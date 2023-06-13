@@ -6,7 +6,8 @@
             <af:toolbar id="t5">
                 <af:button text="Netting Performed" id="b2"
                            actionListener="#{viewScope.ActionEventsBean.netPerformAction}"
-                           inlineStyle="border-radius:5px 5px 5px 5px;"/>
+                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETTING_PERFORMED')}"
+                           inlineStyle="border-radius:5px 5px 5px 5px;" partialTriggers="pc1:t1 pc2:t2 pc3:t3 pc4:t4"/>
                 <af:button text="Close" id="b1" action="Header" inlineStyle="border-radius:5px 5px 5px 5px;"/>
             </af:toolbar>
         </f:facet>
@@ -142,12 +143,15 @@
                             <af:toolbar id="t7">
                                 <af:button text="Hold" id="b5"
                                            actionListener="#{viewScope.ActionEventsBean.onNetIcRecvHold}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETICRECVHOLD')}"
                                            partialSubmit="true" inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Release" id="b6" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetIcRecvRelease}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETICRECVRELEASE')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Settled" id="b11"
                                            actionListener="#{viewScope.ActionEventsBean.onNetIcRecvSettled}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETICRECVSETTLED')}"
                                            partialSubmit="true" inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             </af:toolbar>
                         </f:facet>
@@ -329,12 +333,15 @@
                             <af:toolbar id="t6">
                                 <af:button text="Hold" id="b3" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetIcPayHold}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETICPAYHOLD')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Release" id="b4" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetIcPayRelease}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETICPAYRELEASE')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Settled" id="b12" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetIcPaySettled}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETICPAYSETTLED')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             </af:toolbar>
                         </f:facet>
@@ -513,12 +520,15 @@
                             <af:toolbar id="t8">
                                 <af:button text="Hold" id="b7" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetArColRecvHold}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETARCOLRECVHOLD')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Release" id="b8" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetArColRecvRelease}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETARCOLRECVRELEASE')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Settled" id="b13" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetArColRecvSettled}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETARCOLRECVSETTLED')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             </af:toolbar>
                         </f:facet>
@@ -695,12 +705,16 @@
                             <af:toolbar id="t9">
                                 <af:button text="Hold" id="b9" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetArColPayHold}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETARCOLPAYHOLD')}"
+
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Release" id="b10" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetArColPayRelease}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETARCOLPAYRELEASE')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                                 <af:button text="Settled" id="b14" partialSubmit="true"
                                            actionListener="#{viewScope.ActionEventsBean.onNetArColPaySettled}"
+                                           rendered="#{sessionScope.get('pageList').contains('ALL_PAGE') or sessionScope.get('pageList').contains('NET_NETARCOLPAYSETTLED')}"
                                            inlineStyle="border-radius:5px 5px 5px 5px;"/>
                             </af:toolbar>
                         </f:facet>

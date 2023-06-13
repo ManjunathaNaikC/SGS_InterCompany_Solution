@@ -488,6 +488,24 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="APPROVERFC1"
+    PrecisionRule="true"
+    EntityAttrName="APPROVERFC1"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="APPROVER_FC1"/>
+  <ViewAttribute
+    Name="APPROVERFC2"
+    PrecisionRule="true"
+    EntityAttrName="APPROVERFC2"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="APPROVER_FC2"/>
+  <ViewAttribute
+    Name="APPROVERT"
+    PrecisionRule="true"
+    EntityAttrName="APPROVERT"
+    EntityUsage="SgsNetHeaderTblEO"
+    AliasName="APPROVER_T"/>
   <ViewCriteria
     Name="SgsNetHeaderTblVOCriteria"
     ViewObjectName="com.sgs.ics.model.bc.view.SgsNetHeaderTblVO"

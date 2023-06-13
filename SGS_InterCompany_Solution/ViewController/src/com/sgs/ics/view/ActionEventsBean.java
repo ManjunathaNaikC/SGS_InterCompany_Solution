@@ -1990,7 +1990,7 @@ public class ActionEventsBean {
             if (null != statDataDatarows[i].getAttribute("StatSelectedRecord") &&
                 statDataDatarows[i].getAttribute("StatSelectedRecord").equals("Yes")) {
                 
-                if(null == statDataDatarows[i].getAttribute("DOCATTM")){
+                if(null == statDataDatarows[i].getAttribute("DOCATTM") || statDataDatarows[i].getAttribute("DOCATTM").equals(" ") ||  statDataDatarows[i].getAttribute("DOCATTM").toString().length() == 0){
                     count=1;
                     break;
                 }
@@ -4676,6 +4676,8 @@ public class ActionEventsBean {
     }
     public void onNetIcRecvSettled(ActionEvent actionEvent) {
         // Add event code here...
+        
+        
         BindingContainer bindings = getBindingsCont();
                        DCIteratorBinding holditer = (DCIteratorBinding) bindings.get("SgsNetIcReceivableVO1Iterator");
                        ViewObject holdVO = holditer.getViewObject();
@@ -4692,6 +4694,30 @@ public class ActionEventsBean {
                        }
 
                        executeBinding("Commit");
+                       
+        LOG.info("Inside onNetIcRecvSettledForProcedure**********************");
+        System.out.println("nside onNetIcRecvSettledForProcedure*********************");
+               Connection conn = null;
+               PreparedStatement ps = null;
+               // java.util.Calendar cal = new GregorianCalendar();
+               try {
+                   conn = am.getDBConnection();
+                   String SPsql = "EXEC USP_UPDATE_NETTING_SETTLEMENT";
+                   ps = conn.prepareStatement(SPsql);
+                   ps.setEscapeProcessing(true);
+                   ps.execute();
+                       } catch (SQLException sqle) {
+                   // TODO: Add catch code
+                   sqle.printStackTrace();
+               } finally {
+                   try {
+                       conn.close();
+                       ps.close();
+                   } catch (SQLException e) {
+                   }
+
+
+               }
     }
 
     public String getCurrentStatus() {
@@ -4744,7 +4770,7 @@ public class ActionEventsBean {
 
         if (userRole.equalsIgnoreCase("Treasury")) {
 
-            changeStatus("Pending for FC approval");
+            changeStatus("Pending for FC Approval");
 
 
         } else if (userRole.equalsIgnoreCase("FINANCE_CTRLR")) {
@@ -4755,7 +4781,7 @@ public class ActionEventsBean {
             System.out.println("=======CURRENTAPPROVER====="+currentApprover);
             System.out.println("=====-----Currentusername---====="+username);
 
-            if (currentStatus.equalsIgnoreCase("Pending for FC approval")) {
+            if (currentStatus.equalsIgnoreCase("Pending for FC Approval")) {
 
                 changeStatus("One Geo Approved, Second Geo Pending");
                 setApprover(username);

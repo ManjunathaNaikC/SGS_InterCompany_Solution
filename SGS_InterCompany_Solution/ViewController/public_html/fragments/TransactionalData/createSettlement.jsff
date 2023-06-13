@@ -39,6 +39,7 @@
                         <af:selectBooleanCheckbox id="sbc3" autoSubmit="true"
                                                   inlineStyle="width: 390px" label="Zero Settlement"
                                                   binding="#{viewScope.ActionEventsBean.zeroBalanceCheckBind}"/>
+                                                  
                           <af:selectBooleanCheckbox id="sbc4" autoSubmit="true"
                                                   inlineStyle="width: 390px" label="Payment In Different Currency"
                                                   binding="#{viewScope.ActionEventsBean.paymentInDiffCurrencyBind}"

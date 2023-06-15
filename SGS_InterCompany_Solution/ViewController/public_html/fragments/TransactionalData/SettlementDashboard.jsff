@@ -52,10 +52,14 @@
                                           partialTriggers="::t2 c55 sbc1" styleClass="cb"/>
               </f:facet>
             </af:column>
-            <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.INVOICESEQNO.label}" id="c29">
+            <af:column headerText="Invoice Sequence Number" id="c14">
+              <af:outputText value="#{row.WBINVSEQ}" shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.WBINVSEQ.tooltip}"
+                             id="ot29"/>
+            </af:column>
+            <!--<af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.INVOICESEQNO.label}" id="c29">
               <af:outputText value="#{row.WBINVSEQ}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.INVOICESEQNO.tooltip}" id="ot29"/>
-            </af:column>
+            </af:column>-->
             <!--<af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.NATUREOFEXPENSE.label}" id="c67">
               <af:outputText value="#{row.NATUREOFEXPENSE}"
                              shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.NATUREOFEXPENSE.tooltip}" id="ot66"/>

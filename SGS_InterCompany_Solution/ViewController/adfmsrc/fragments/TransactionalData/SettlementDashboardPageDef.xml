@@ -140,6 +140,7 @@
           <Item Value="INVOICESEQNO"/>
           <Item Value="INPUTPROVIDER"/>
           <Item Value="NATUREOFEXPENSE"/>
+          <Item Value="WBINVSEQ"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

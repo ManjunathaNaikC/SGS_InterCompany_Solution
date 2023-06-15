@@ -796,9 +796,9 @@ FROM
     Type="java.lang.String"
     ColumnType="VARCHAR"
     AliasName="PAYMENT_METHOD"
-    Expression="PAYMENT_METHOD"
     SQLType="VARCHAR"
-    LOVName="LOV_PAYMENTMETHOD">
+    LOVName="LOV_PAYMENTMETHOD"
+    Expression="PAYMENT_METHOD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>

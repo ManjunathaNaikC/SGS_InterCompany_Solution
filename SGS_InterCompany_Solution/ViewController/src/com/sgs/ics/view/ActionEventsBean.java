@@ -1228,6 +1228,138 @@ public class ActionEventsBean {
             }
             return;
         }
+        if (null != (Boolean) getZeroBalanceCheckBind().getValue() &&
+                               (Boolean) getZeroBalanceCheckBind().getValue() &&
+                               null != (Boolean) getBindReceiptCheck().getValue() &&
+                               null != (Boolean) getBindPaymentCheck().getValue() &&
+                               (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindReceiptCheck().getValue()) {
+                                   System.out.println("-----INSIDE ZERO ONLY --------------");
+                                   for (Row paymentRow : getZeroStlmntRows()) {
+                                       
+                                  
+                                       String crFlag = (String) paymentRow.getAttribute("CRFLAG");
+                                       String settlementStatus = (String) paymentRow.getAttribute("StlmtStatus");
+                                       
+                                       String paymentStatus = (String) paymentRow.getAttribute("PaymentStatus");
+                                       String transactionRef = (String) row.getAttribute("TRANSACTIONREFERENCENO");
+                                       String recTxnRefNum = (String) row.getAttribute("RECTXNREFERENCENO");
+                                       double outstandingAmount = ((Number) paymentRow.getAttribute("OsAmountPayable")).doubleValue();
+                                       double netPayableAmount = ((Number) paymentRow.getAttribute("NetAmountPayable")).doubleValue();
+                                       double settlementAmount = 0.0;
+                                       if (null == paymentRow.getAttribute("StlmtAmount")) {
+                                           settlementAmount = 0.0;
+                                       } else {
+                                           settlementAmount = ((Number) paymentRow.getAttribute("StlmtAmount")).doubleValue();
+                                       }
+
+                                       //            String paymentId = (String) row.getAttribute("PaymentId");
+                                       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+                                       //            java.util.Date paymentDate = (java.util.Date) row.getAttribute("PAYMENTDATE");
+                                       //            if (paymentDate != null) {
+                                       //            java.sql.Date payDate = new java.sql.Date(paymentDate.getTime());
+                                       //                System.out.println("Payment date" + payDate);
+                                       //            }
+
+                                       java.util.Date paymentDate = (java.util.Date) row.getAttribute("PAYMENTDATE");
+                                       java.sql.Date payDate = null;
+
+                                       if (paymentDate != null) {
+                                           payDate = new java.sql.Date(paymentDate.getTime());
+                                           System.out.println("Payment date: " + payDate);
+                                       }
+
+                                       //            java.util.Date receiptDate = (java.util.Date) row.getAttribute("RECEIPTDATE");
+                                       //            if (receiptDate != null) {
+                                       //            java.sql.Date rctDate = new java.sql.Date(receiptDate.getTime());
+                                       //                System.out.println("Receipt date" + rctDate);
+                                       //            }
+
+                                       java.util.Date receiptDate = (java.util.Date) row.getAttribute("RECEIPTDATE");
+                                       java.sql.Date rctDate = null;
+
+                                       if (receiptDate != null) {
+                                           rctDate = new java.sql.Date(receiptDate.getTime());
+                                           System.out.println("Receipt date: " + rctDate);
+                                       }
+                                       //            System.out.println("Payment date" + payDate);
+                                       //            System.out.println("Receipt date" + rctDate);
+                                       String ReceiptBankName = (String) AdfFacesContext.getCurrentInstance()
+                                                                                        .getPageFlowScope()
+                                                                                        .get("selectedRctBankName");
+                                       String ReceiptBankCode = (String) AdfFacesContext.getCurrentInstance()
+                                                                                        .getPageFlowScope()
+                                                                                        .get("selectedRctBankCode");
+                                       String paymentBankName = (String) AdfFacesContext.getCurrentInstance()
+                                                                                        .getPageFlowScope()
+                                                                                        .get("selectedPayBankName");
+                                       String paymentBankCode = (String) AdfFacesContext.getCurrentInstance()
+                                                                                        .getPageFlowScope()
+                                                                                        .get("selectedPayBankCode");
+                                       String paymentMethod = (String) AdfFacesContext.getCurrentInstance()
+                                                                                      .getPageFlowScope()
+                                                                                      .get("selectedPayMetd");
+                                       String paymentCurrency = (String) AdfFacesContext.getCurrentInstance()
+                                                                                        .getPageFlowScope()
+                                                                                        .get("selectedPayCurr");
+                                       String purposeCode = (String) AdfFacesContext.getCurrentInstance()
+                                                                                    .getPageFlowScope()
+                                                                                    .get("selectedPurposeCode");
+
+
+                                       //            boolean paymentOnly =(Boolean)bindPaymentCheck.getValue();
+                                       //
+                                       //            boolean receiptOnly =(Boolean)bindReceiptCheck.getValue();
+
+                                       String receiptPurposeCode = (String) AdfFacesContext.getCurrentInstance()
+                                                                                           .getPageFlowScope()
+                                                                                           .get("selectedReceiptPurposeCode");
+
+                                       String receiptCurrency = (String) AdfFacesContext.getCurrentInstance()
+                                                                                        .getPageFlowScope()
+                                                                                        .get("selectedReceiptCurrency");
+
+                                       System.out.println("Receipt Bank Name " + ReceiptBankName);
+                                       System.out.println("Receipt Bank Code " + ReceiptBankCode);
+                                       System.out.println("payment Bank Name " + paymentBankName);
+                                       System.out.println("payment Bank Code" + paymentBankCode);
+                                       
+                                       if ("Unpaid".equals(paymentStatus) && "Yes".equalsIgnoreCase(crFlag)) {
+                                          
+                                                           
+                                                           settlementAmount = netPayableAmount;
+                                                           settlementStatus = "Settlement Completed";
+                                                           paymentStatus = "Fully Paid";
+                                                           outstandingAmount = 0.0;
+                                                           
+                                                           paymentRow.setAttribute("StlmtStatus", settlementStatus);
+                                                           paymentRow.setAttribute("PaymentStatus", paymentStatus);
+                                                           paymentRow.setAttribute("StlmtAmount", settlementAmount);
+                                                           DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                                                           decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+                                                           paymentRow.setAttribute("OsAmountPayable",
+                                                                                   Double.parseDouble(decimalFormat.format(outstandingAmount)));
+                                                           paymentRow.setAttribute("PaymentId", paymentId);
+                                                           paymentRow.setAttribute("PAYMENTDATE", payDate);
+                                                           paymentRow.setAttribute("RECEIPTDATE", rctDate);
+                                                           paymentRow.setAttribute("RECEIPTBANKCD", ReceiptBankName);
+                                                           paymentRow.setAttribute("RECEIPTBANKACCTKEY", ReceiptBankCode);
+                                                           paymentRow.setAttribute("PAYMENTBANKCD", paymentBankName);
+                                                           paymentRow.setAttribute("PAYMENTBANKACCTKEY", paymentBankCode);
+                                                           paymentRow.setAttribute("TxnReferenceNo", transactionRef);
+                                                           paymentRow.setAttribute("PAYMENTMETHOD", paymentMethod);
+                                                           paymentRow.setAttribute("PAYMENTCURRENCY", paymentCurrency);
+                                                           paymentRow.setAttribute("PURPOSECODE", purposeCode);
+                                                           paymentRow.setAttribute("RECEIPTCURRENCY", receiptCurrency);
+                                                           paymentRow.setAttribute("RECEIPTPURPOSECODE", receiptPurposeCode);
+                                                           
+                                                       
+                                       }
+                                      
+                                   }
+                                   return;
+                               }
+       
 
 
         for (Row paymentRow : getUnpaidAndPartiallySettledRows()) {
@@ -1321,7 +1453,9 @@ public class ActionEventsBean {
 
             if (null != (Boolean) getBindReceiptCheck().getValue() &&
                 null != (Boolean) getBindPaymentCheck().getValue() && (Boolean) getBindPaymentCheck().getValue() &&
-                (Boolean) getBindReceiptCheck().getValue()) {
+                (Boolean) getBindReceiptCheck().getValue()
+            && !(null != (Boolean) getZeroBalanceCheckBind().getValue() &&
+                       (Boolean) getZeroBalanceCheckBind().getValue())) {
 
                 System.out.println("ONBOTHONLY----------------");
                 if ("Unpaid".equals(paymentStatus)) {
@@ -1428,7 +1562,9 @@ public class ActionEventsBean {
 
                 }
             } else if (null != (Boolean) getBindPaymentCheck().getValue() &&
-                       (Boolean) getBindPaymentCheck().getValue()) {
+                       (Boolean) getBindPaymentCheck().getValue()
+                && !(null != (Boolean) getZeroBalanceCheckBind().getValue() &&
+                           (Boolean) getZeroBalanceCheckBind().getValue())) {
                 System.out.println("ONPAYMENTONLY");
                 if ("Unpaid".equals(paymentStatus)) {
                     if (transactionAmount >= outstandingAmount) {
@@ -1535,7 +1671,8 @@ public class ActionEventsBean {
 
 
                 }
-            } else {
+            } 
+            else {
                 JSFUtil.addComponentFacesMessage(FacesMessage.SEVERITY_ERROR,
                                                  "Select either Apply Payment Only OR Apply Receipt Only", null);
                 break;
@@ -1576,6 +1713,15 @@ public class ActionEventsBean {
         vo.setOrderByClause("CASE PAYMENT_STATUS\n" + "				WHEN 'Partially Paid' then 1\n" +
                             "				WHEN 'Unpaid' then 2\n" + "				else 3\n" +
                             "END");
+        vo.executeQuery();
+        return vo.getAllRowsInRange();
+    }
+    
+    private Row[] getZeroStlmntRows() {
+
+        ViewObject vo = getPaymentSettlementVO();
+        vo.setWhereClause("PAYMENT_STATUS NOT IN ('Fully Paid','Partially Paid') and CR_FLAG = 'Yes'");
+        
         vo.executeQuery();
         return vo.getAllRowsInRange();
     }

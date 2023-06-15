@@ -6,4 +6,9 @@
     Type="Static"
     Content-Type="application/x-adf-groovy"
     URI="com/sgs/ics/model/bc/view/CreateStlmtRVO.bcs"/>
+  <ExpressionCodeSource
+    Name="CreateStlmtRVORow"
+    Type="Static"
+    Content-Type="application/x-adf-groovy"
+    URI="com/sgs/ics/model/bc/view/CreateStlmtRVORow.bcs"/>
 </OperationDefinitions>

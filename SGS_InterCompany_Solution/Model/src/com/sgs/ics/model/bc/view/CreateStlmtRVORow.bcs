@@ -1,0 +1,12 @@
+//Groovy Scripts for com.sgs.ics.model.bc.view.CreateStlmtRVO
+
+package com.sgs.ics.model.bc.view
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="PAYMENTMETHOD")
+def PAYMENTMETHOD_ExpressionScript_Expression()
+{
+'Electronic Fund Transfer'
+}
+

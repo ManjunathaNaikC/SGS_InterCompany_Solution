@@ -95,7 +95,7 @@
             </af:panelGroupLayout>
             <af:spacer id="s4" height="20"/>
             <af:panelGroupLayout id="pgl5" layout="horizontal">
-                <af:panelBox text="Payment Details" id="pb2" inlineStyle="  width: 550px;     height: 450px;">
+                <af:panelBox text="Payment Details" id="pb2" inlineStyle="  width: 550px;     height: 600px;">
                     <f:facet name="toolbar"/>
                     <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
                         <f:facet name="footer"/>
@@ -516,6 +516,10 @@
                        sortable="true" headerText="#{bindings.SgsStlmtVoucherVO1.hints.StlmtStatus.label}" id="c10">
                 <af:outputText value="#{row.StlmtStatus}"
                                shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.StlmtStatus.tooltip}" id="ot4"/>
+            </af:column>
+            <af:column headerText="#{bindings.SgsStlmtVoucherVO1.hints.NATUREOFEXPENSE.label}" id="c11">
+                <af:outputText value="#{row.NATUREOFEXPENSE}"
+                               shortDesc="#{bindings.SgsStlmtVoucherVO1.hints.NATUREOFEXPENSE.tooltip}" id="ot13"/>
             </af:column>
         </af:table>
         <!--<af:showDetailItem id="tab2" text="Contra Cash">

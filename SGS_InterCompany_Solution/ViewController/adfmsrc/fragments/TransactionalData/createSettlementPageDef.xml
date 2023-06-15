@@ -78,6 +78,7 @@
           <Item Value="BANKCHARGES"/>
           <Item Value="IcCustomerBu"/>
           <Item Value="IcSupplierBu"/>
+          <Item Value="NATUREOFEXPENSE"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

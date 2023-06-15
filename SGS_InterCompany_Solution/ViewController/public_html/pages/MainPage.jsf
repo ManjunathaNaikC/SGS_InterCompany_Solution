@@ -19,7 +19,7 @@
         }
     </script>
         <af:form id="f2" inlineStyle="background-color:White;" usesUpload="true">
-            <af:panelStretchLayout id="psl1" topHeight="68px" >
+            <af:panelStretchLayout id="psl1" topHeight="60px" >
                 <f:facet name="start"/>
                 <f:facet name="end"/>
                 <f:facet name="top">
@@ -83,7 +83,7 @@
                 <f:facet name="center">
                   <!--<af:outputText value="ggdgfdgf" id="ot2" />-->
                     <af:region value="#{bindings.navigatetaskflow1.regionModel}" id="r1"
-                               inlineStyle="background-image: linear-gradient(327deg, #6b849d, #94afc9); height:1500px; top: 0%;"/>
+                               inlineStyle="background-image: linear-gradient(327deg, #6b849d, #94afc9); height:1700px; top: 0%;"/>
                   
                   
                 </f:facet>
